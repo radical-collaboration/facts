@@ -1,0 +1,12 @@
+calibration:
+  executable: "python"
+  cpu:
+    processes: 1
+    process-type: None
+    threads-per-process: 1
+    thread-type: None
+  pre_exec: ""
+  arguments:
+    filename: "run_icesheet.py"
+
+debug_mode: True
