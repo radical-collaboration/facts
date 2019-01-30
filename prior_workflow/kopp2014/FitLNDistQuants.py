@@ -50,6 +50,10 @@ def FitLNDistQuants(target_mean_val, target_quant_vals, minval, quant_levs):
 	# Run the global optimization to estimate the parameters
 	optim_results = minimize(mintarget, method="L-BFGS-B", x0=init_guess, bounds=my_bnds)
 	
+	print(optim_results.success)
+	print(optim_results.message)
+	print(optim_results.x)
+	
 	# Return the parameter values
 	return optim_results.x
 

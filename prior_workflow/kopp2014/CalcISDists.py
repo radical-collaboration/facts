@@ -47,24 +47,14 @@ def CalcISDists(barates2100, lastdecadegt, aris2090):
 	
 	# Normalize the ice sheet rate estimates from AR5 to a common baseline so that the
 	# rate for year 2100 can be estimated
-	arisaddl0 =  aris2090 - arbase.reshape(1,2,1)
+	arisaddl0 =  aris2090 - arbase.reshape(2,1)
 	arisaccel0 = 2*arisaddl0/(2090-2011)**2
 	
 	# Setup the rates matrix for the AR5 estimates
-	arrates2100 = (arisaccel0*(2100-2011)) + arislastdecade.reshape(1,2,1) 
+	arrates2100 = (arisaccel0*(2100-2011)) + arislastdecade.reshape(2,1)
 	
-	# Initialize variables to hold the AR parameters
-	arthetais = np.full([3,arrates2100.shape[0]], np.nan)
-	arthetgis = np.full([3,arrates2100.shape[0]], np.nan)
-	
-	# Loop over the RCPs
-	for i in range(0,arrates2100.shape[0]):
-		
-		# Fit log-normal distributions to the AR5 estimates
-		arthetais[:,i] = fitLN(arrates2100[i,1,0], arrates2100[i,1,:], -3, [0.5,0.167,0.833])
-		arthetgis[:,i] = fitLN(arrates2100[i,0,0], arrates2100[i,0,:], 0, [0.5,0.167,0.833])
-		
-		#print("arthetais[:,{0}] = {1}".format(i, arthetais[:,i]))
-		#print("arthetgis[:,{0}] = {1}".format(i, arthetgis[:,i]))
+	# Fit log-normal distributions to the AR5 estimates
+	arthetais = fitLN(arrates2100[1,0], arrates2100[1,:], -3, [0.5,0.167,0.833])
+	arthetgis = fitLN(arrates2100[0,0], arrates2100[0,:], 0, [0.5,0.167,0.833])
 	
 	return(batheteais, bathetwais, bathetgis, arthetais, arthetgis, islastdecade)
