@@ -32,8 +32,8 @@ def FitLNDistQuants(target_mean_val, target_quant_vals, minval, quant_levs):
 	muguess = np.log(target_quant_vals[1] - minval)
 	
 	# Come up with an initial guess for sigma
-	if(target_mean_val < target_quant_vals[1]):
-		sigmaguess = 0.1
+	if(target_mean_val <= target_quant_vals[1]):
+		sigmaguess = 1.0
 	else:
 		sigmaguess = np.sqrt(np.log((target_mean_val - minval) / np.exp(muguess))*2)
 	
@@ -45,14 +45,10 @@ def FitLNDistQuants(target_mean_val, target_quant_vals, minval, quant_levs):
 	init_guess = [minval, muguess, sigmaguess]
 	
 	# Define the sampling bounds in the optimization process
-	my_bnds = ((-10E6,10E6),(-10E6, 10E6), (1E-9, 100))
+	my_bnds = ((-100E6,100E6),(-100E6, 100E6), (1E-9, 100))
 
 	# Run the global optimization to estimate the parameters
 	optim_results = minimize(mintarget, method="L-BFGS-B", x0=init_guess, bounds=my_bnds)
-	
-	print(optim_results.success)
-	print(optim_results.message)
-	print(optim_results.x)
 	
 	# Return the parameter values
 	return optim_results.x

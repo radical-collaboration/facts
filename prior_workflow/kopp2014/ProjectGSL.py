@@ -58,10 +58,10 @@ def ProjectGSL(baaccelsamps, araccelsamps, islastdecade, targyears):
 	hysamps = hysamps_left + hysamps_right + arq[1,:,:]
 	
 	# Determine the WAIS hybrid contributions
-	hysamps_wais = basamps[:,:,1] - baq[2,:,2]
+	hysamps_wais = basamps[:,:,1] - baq[1,:,1]
 	hysamps_wais_left = (hysamps_wais < 0) * (hysamps_wais * qslopes[0,:,1])
 	hysamps_wais_right = (hysamps_wais > 0) * (hysamps_wais * qslopes[1,:,1])
-	hysamps_wais = hysamps_wais_left + hysamps_wais_right + baq[1,:,1] * (arq[1,:,1] / baq[1,:,3])
+	hysamps_wais = hysamps_wais_left + hysamps_wais_right + baq[1,:,1] * arq[1,:,1] / baq[1,:,3]
 	hysamps_wais = np.minimum(hysamps_wais, 5000)
 	
 	# Determine the EAIS hybrid contributions
