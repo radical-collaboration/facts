@@ -1,4 +1,4 @@
-calibration:
+pre_process:
   executable: "python"
   cpu:
     processes: 1
@@ -7,6 +7,50 @@ calibration:
     thread-type: None
   pre_exec: ""
   arguments:
-    filename: "run_icesheet.py"
+    - "kopp14_preprocess_icesheets.py"
+  upload_input_data:
+    - "../kopp2014/kopp14_preprocess_icesheets.py"
+
+
+fit:
+  executable: "python"
+  cpu:
+    processes: 1
+    process-type: None
+    threads-per-process: 1
+    thread-type: None
+  pre_exec: ""
+  arguments:
+    - "kopp14_fit_icesheets.py"
+    - "kopp14_icesheets_rates.pkl"
+  upload_input_data:
+    - '../kopp2014/kopp14_fit_icesheets.py'
+    - '../kopp2014/CalcISDists.py'
+    - '../kopp2014/FitLNDistQuants.py'
+  copy_input_data:
+    - "kopp14_icesheets_rates.pkl"
+
+
+project:
+  executable: "python"
+  cpu:
+    processes: 1
+    process-type: None
+    threads-per-process: 1
+    thread-type: None
+  pre_exec: ""
+  arguments:
+    - "kopp14_project_icesheets.py"
+    - 20000
+    - "kopp14_icesheets_fit.pkl"
+    - "kopp14_icesheets_corr.pkl"
+  upload_input_data:
+    - '../kopp2014/kopp14_project_icesheets.py'
+    - '../kopp2014/SampleISDists.py'
+    - '../kopp2014/cholcov.py'
+    - '../kopp2014/ProjectGSL.py'
+  copy_input_data:
+    - "kopp14_icesheets_fit.pkl"
+    - "kopp14_icesheets_corr.pkl"  
 
 debug_mode: True
