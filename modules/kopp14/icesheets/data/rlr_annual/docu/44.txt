@@ -1,0 +1,10 @@
+1937 - 1956 VALUES BASED ON HIGH AND LOW WATER READINGS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Aden                485/001 RLR(1962) is 9.1m below BM PEO
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Mar-2009 :
+2007/8 one minute sea level data downloaded from the IOC Sea Level Station Monitoring Facility Ostend. This is then converted to 15min. data for processing. 2008 monthly and annual mean sea level values have now been extracted from the data. As the relationship for the prime bench mark remains the same there is no need to alter RLR. Details of the bench marks has been derived from site installation information. Copies of these have been included in the port files and RLR file for reference.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Sep-2013 :
+The historic data for Aden (1879-1933) has been reviewed by Phil Woodworth. As a result the RLR factor for all of that period has been set to 5.141m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=16 mm has been applied to the RLR data for the period 1937-1956.  This value was derived by Philip Woodworth in preparation of his MTL/MSL manuscript.  In this case the values were derived using from the GESLA2 (high-frequency tide gauge) dataset using harmonic constituents.
+

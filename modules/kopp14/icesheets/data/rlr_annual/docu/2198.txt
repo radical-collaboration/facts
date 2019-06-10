@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jan-2014 :
+Lamu B is a new gauge installed by UH in collaboration with Kenya Marine and Fisheries Institute.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :
+Using the information from the UHSLC levelling Lamu B has been made RLR. Primary Benchmark is UH -1 4.523m above the datum.
+

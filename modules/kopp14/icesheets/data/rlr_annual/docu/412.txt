@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Solomon's Island    960/078 RLR(1965) is 10.0m below BM4
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark BM 4 referred to as NO 4 1937 appears in the 1985 report 4.228m above gauge datum but does not appear in the 2003 report. Primary benchmark is now set to 7330 E 1980 4.456m above gauge datum.
+

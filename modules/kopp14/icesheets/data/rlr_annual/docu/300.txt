@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Hilo                760/061 RLR(1964) is 9.3m below E2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 31-Aug-2011 :
+Using NOAA data the RLR diagram has been re-drawn.From the current report of 2003 the Primary benchmark is NO 4 1951 4.663m TGZ. The previous benchmark E2 was 3.746m above TGZ. Although there is a benchmark in the current report labelled E2 1926 the values for this are in 2000 3.715m above TGZ and in 2003 3.714m above TGZ. Obviosly this indicates that the benchmark may be slightly unstable.
+

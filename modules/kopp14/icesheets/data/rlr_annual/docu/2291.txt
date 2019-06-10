@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Apr-2016 :   
+Fort Point is a newly downloaded NOAA station. Primary benchmark is 2 1919.
+

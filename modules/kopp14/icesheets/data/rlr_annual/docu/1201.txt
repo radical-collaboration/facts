@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Champerico          832/006 RLR(1972) is 12.1m below BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Champerico          832/006 RLR(1972) is 12.1m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2012 :   
+Champerico is an historic station last data 1975.
+

@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-AUG-95 :
+A destructive earthquake and tsunami occurred in the Kuril Islands on 4 October 1994 - see Earth System Monitor, 5(4), June 1995.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Urakawa II          641/027 RLR(1986) is 8.6m below Standard Mark
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-AUG-97 :
+In 1982 there was a severe earthquake near the station. A new tide gauge station was established in 1988.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-May-2009 :
+Tokachi-Oki earthquake occurred on 26th September 2003 at 04.50 local time.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Dec-2015 :   
+As the data points themselves have been flagged the station flag has been removed. PSMSL are awaiting further levelling information.
+

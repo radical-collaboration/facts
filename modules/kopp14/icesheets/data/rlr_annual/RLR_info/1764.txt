@@ -1,0 +1,2 @@
+Add 7.0m to all data values to refer to RLR (1990)
+RLR (1990) is 7.0m below BM N -78

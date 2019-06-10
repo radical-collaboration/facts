@@ -1,0 +1,16 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Trondheim           040/141 RLR(1964) is 10.4m below BM"Sodemannsgt"
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Trondheim           040/141 RLR(1964) is 10.4m below BM"Sodemannsgt"
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUL-94 :
+Anomalously low values July-September 1971 correct as received
+from authority.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-OCT-94 :
+new gauge established in December 1989 but treated as separate
+station (040/142) as no connection between old and new bench marks
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+prior to 1978 fcode=hl
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+tide gauge network modernised, new equipment installed in 1989
+Trondheim is an historic station last data 1989
+

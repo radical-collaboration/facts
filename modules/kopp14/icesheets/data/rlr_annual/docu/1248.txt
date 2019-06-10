@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Sultan Shoal        555/021 RLR(1986) is 10.2m below Brass Bolt
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Sultan Shoal        555/021 RLR(1986) is 10.2m below Brass Bolt
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2010 :   
+Benchmark for the period 1969-1979 was Dampier Survey 'T' mark 6.500m above
+Datum 1969-1985. 1980-1985 benchmark was Brass Bolt 5.004m above Datum
+1969-1985.
+1986 onwards the ACD changed to 4.922m below the Brass Bolt. In 2009 a new
+jetty was re-constructed ACD remained the same while Primary benchmark is now
+Cut Mark 4.941m above ACD.
+Because of the building of the new jetty there is a gap in the data Jan 2008-
+Sept 2009.
+

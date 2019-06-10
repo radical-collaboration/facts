@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
+SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR,96(B3), 4325-4335, 1991 ANNUAL MEANS AVAILABLE FOR 1941-43, SUPPLIED BY AUTHORITY 52
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Juneau              821/044 RLR(1964) is 15.8m below BM8
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. The previous Primary benchmark BM8 13.036m above the gauge datum is not named as such in the NOAA report. However, the Primary benchmark is labelled 945 2210 TIDAL 8 alias 8 1922 and remains 13.036m above gauge datum.
+

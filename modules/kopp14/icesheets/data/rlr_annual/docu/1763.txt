@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2008 :
+Dataset for Cape Roberts Antarctica 1990-2007 received from Glen Rowe at LINZ. This is a new station to PSMSL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Oct-2009 :
+Antarctica station Cape Roberts is now an RLR station. RLR value=0.785
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2011 :
+There is no data available for 2010. Although the site is still working the data is of low quality and therefore unreliable. Plans are in place to repair the tide gauge when possible.
+

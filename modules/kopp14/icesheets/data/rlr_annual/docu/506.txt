@@ -1,0 +1,7 @@
+NO BM INFORMATION BUT DATA SEEMS HOMOGENEOUS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Villa Sanjurjo      340/004 RLR(1947) is 9.2m below BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Villa Sanjurjo      340/004 RLR(1947) is 9.2m below BM
+This is an historic station last data 1949
+

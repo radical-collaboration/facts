@@ -1,0 +1,46 @@
+Arctic and Antarctic Research Institute
+Russian Fed. Service 
+for Hydrometeorology & Environmental Monitoring
+St. Petersburg, 199397
+RUSSIAN FEDERATION
+
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan23 :
+Instrumental measurements of the sea level in the Russian Arctic
+Seas began in the 1920s. Stationary observations began in the
+Kara Sea (Dickson Island) in 1933, in the Laptev Sea (Tiksi Bay)
+in 1934, in the Chukchi Sea (Cape Schmidt) in 1935, and in the East-
+Siberian Sea (Ambarchik Bay) in 1939. There were 53 stations with
+sea level observational program in the mid 1980s.
+As a results of economical problems in Russia, many stations were closed in th
+1990s, and at present, there are 7,7,5 and 2 stations in the Kara, Laptev,
+East-Siberian and Chukchi Seas, respectively.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan23 :
+Observations have been conducted according to the Manual for Stations
+and Gauges of the Hydrometeorological Service (1968).
+The observations with manual reading have been carried out four times
+a day with an accuracy of 1 cm. Tide gauge stations have 1-hour
+frequency of observations, and the same accuracy. Monthly data
+quality control includes visual data control and statistical control
+by the Arctic and Antarctic Research Institute (AARI) scientists
+and administration of RosHydromet.
+Observations at some stations have had different locations in summer
+and winter, some of which were interrapted during replacement.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan23 :
+Therefor a lot of sea level data before 1949-50 in many cases
+cannot be used because of absence of relible geodetic survey.
+All stations have one or more  geodetic benchmarks installed
+on stable ground. Periodic (usually annual but for some stations
+every summer month) geodetic surveys are made to a gauge to
+determine if any vertical changes in the gauge mount have
+occurred. The Russian sea level network has a complete geodetic
+history consisting of Revised Local Reference (RLR) sites.
+Only 30-40 years ago, the sea level station benchmarks were related
+to the Baltic System (Kronshtadt gauge) using geodetic methods.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan23 :
+The monthly sea level data are calculated using daily data. The mean
+monthly sea level data based on four measurements per day are very
+close to the observations with 1-hour interval. It is estimated that
+the error does not exceed 2 cm with probability of 99.7%. The annual
+sea level based on 4-hour interval observations coincide with results
+based on 1- hour observing intervals.
+

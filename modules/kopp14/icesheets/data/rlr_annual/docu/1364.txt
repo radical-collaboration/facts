@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Ofunato II          642/022 RLR(1976) is 8.6m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Ofunato II replaced I (642/021) 25th May 1973;
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Feb-2010 :
+From the RLR plot a rising trend in the dataset is clearly visible.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2011 :
+Profile compares well with that for Ayukawa.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 woth the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. The earthquake was the largest to strike Japan and triggered a tsunami with waves of up to 40.5m travelling up to 10km inland. From the data plot it is obvious the tide gauge was badly damaged. Data following the earthquake has been flagged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
+The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P205 is 13.696m above RLR.
+

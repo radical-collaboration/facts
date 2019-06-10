@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Saint-Francois      970/068 RLR(1974) is 16.0m below BM SFO-3-1974
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Aug-2010 :
+For data 1962-2008 data for St. Francois was referred to datum IGLD85 9.282m
+below TGBM BM SFO-3-1974.
+RLR factor was 6.718m. For 2009 onwards data is referred to datum Chart Datum
+11.817m below TGBM BM SFO-3-1974.
+RLR factor becomes 4.183m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+

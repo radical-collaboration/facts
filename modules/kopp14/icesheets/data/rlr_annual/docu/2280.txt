@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Feb-2016 :
+Arun Platform is a new station operated by the Channel Coastal Observatory (CCO) based at NOC Southampton. Instrument type is a Valeport 730 (Druck Pressure Transducer). The datum of the data is Admiralty Chart Datum (ACD) 13.384 below Primary benchmark TGBM. Tide Gauge Zero (TGZ) is 0.74m below ACD and 3.79m below Ordnance Datum Newlyn (ODN). Data sampling interval is 10mins
+

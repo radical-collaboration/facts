@@ -1,0 +1,2 @@
+Add 5.062m to all data values to refer to RLR (1928)
+RLR (1928) is 9.5m below BM Bolt in Rock

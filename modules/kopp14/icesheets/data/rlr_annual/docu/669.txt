@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tokuyama I          643/051 RLR(1967) is 10.1m below BM Tokuyama
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Tokuyama I          643/051 RLR(1967) is 10.1m below BM Tokuyama
+This is an historic station last data 1967
+

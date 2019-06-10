@@ -1,0 +1,3 @@
+Add 5.998m to all data values 1944 onwards to refer to RLR (1961).
+RLR (1961) is 9.0m below BM K 80/1
+.

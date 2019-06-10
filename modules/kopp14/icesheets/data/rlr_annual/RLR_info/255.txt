@@ -1,0 +1,3 @@
+Add 4.019m to data values up to 1963 to refer to RLR (1984).
+Add 3.309m to data values 1964 onwards to refer to RLR (1984).
+RLR (1984) is 13.8m below TGBM TR 3193 4074

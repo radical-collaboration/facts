@@ -1,0 +1,26 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah added 17/01/03 which supercedes old data.
+New data does not have any missing days information.
+Old data has been backed up.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah was for Auckland II, Dunedin II,
+Lyttelton II and Wellington II.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-OCT-05 :
+There is a new John Hannah paper referring to New Zealand data for
+Wellington, Dunedin, Lyttelton and Auckland. The reference is:
+"An updated analysis of long-term sea level change in New Zealand."
+Geophysical Research Letters, V31, L03307, doi:10.1029/2003GL019166
+(2004).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-MAY-95 :
+data prior to 1994 received from auth 53
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2008 :   
+Revised data received from Glen Rowe at LINZ
+data span 1987-2007. Previous data for 1994 from 
+database copied data replaced with revised dataset.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Oct-2010 :   
+Following correspondence with Glen Rowe it was confirmed that the datum at
+Timaru has been as follows:
+Pre 1976 TGZ =5.301m below benchmark UD 44
+Post 1976 TGZ =5.286m below UD 44
+Previous benchmark UD 42 is 0.466m above UD 44
+

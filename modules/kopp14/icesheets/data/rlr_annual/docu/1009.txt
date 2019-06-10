@@ -1,0 +1,26 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-NOV-92 :
+KOPER      279/002 RLR(1964) IS 8.9 M BELOW BM 5486
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-SEP-93 :
+1991 NEW INSTRUMENT INSTALLED
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+Anomalously low value for September 1979 correct as received from
+authority.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Tide gauge of the Hydrometeorological Institute of the
+Republic of Slovenia
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Gauge=Matra (KOVO, Praha) until May 1978 when substituted by new
+system= Seba-Bandschreiberpegel Delta (Seba Hydrometrie, Germany)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+data up to 1964 supplied by auth 25
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+PRIOR TO 1990 DATA FROM AUTH 26
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-DEC-97 :
+data for 1990 received from authority code E1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-JAN-98 :
+data for 1992 onwards from new gauge; data up to 1991 from gauge at
+45 33 N  13 44 E
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-APR-98 :
+Data for 1992 onwards is from gauge at Luka Koper, see station 279/003
+Koper is an historic station last data 1991
+

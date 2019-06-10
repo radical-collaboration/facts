@@ -1,0 +1,21 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah added 17/01/03 which supercedes old data.
+New data does not have any missing days information.
+Old data has been backed up.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah was for Auckland II, Dunedin II,
+Lyttelton II and Wellington II.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-OCT-05 :
+There is a new John Hannah paper referring to New Zealand data for
+Wellington, Dunedin, Lyttelton and Auckland. The reference is:
+"An updated analysis of long-term sea level change in New Zealand."
+Geophysical Research Letters, V31, L03307, doi:10.1029/2003GL019166
+(2004).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Wanganui            690/077 RLR(1986) is 10.7m below BM Victory Shed
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Wanganui            690/077 RLR(1986) is 10.7m below BM Victory Shed
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Aug-2012 :   
+Wanganui is an historic station last data 1988. Because of this station has
+been labelled 'inactive'.
+

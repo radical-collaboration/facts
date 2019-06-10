@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :
+Lameshur Bay St. John Virgin Islands is a new station downloaded from NOAA. The metadata were also downloaded enabling the station to be made RLR. Primary benchmark is 1381 A 2006 10.000m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Feb-2015 :
+The original RLR diagram contained an error and was redrawn. However, the RLR factor applied to the data was correct, thus none of the RLR values have changed.
+

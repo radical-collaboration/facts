@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Dec-2011 :   
+Although the gauge at Kungsvik has been operational since 1976 the PSMSL has only just received the dataset. There are now a total of 23 Swedish stations on the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Apr-2015 :   
+The RLR diagram incorrectly referenced the data to the tide gauge zero value rather than to the local height system. We have redrawn the RLR diagram and removed the reference to tide gauge zero.  The RLR height did change, but the RLR factor applied to the metric data did not change.
+

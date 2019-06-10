@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Takamatsu           644/041 RLR(1973) is 8.6m below Attached BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Takamatsu           644/041 RLR(1973) is 8.6m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-FEB-97 :
+February 1997: 644/042 1981-91 recoded as 644/041 on advice of authority
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Takamatsu gauge changed January 1981.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Takamatsu replaced by Takamatsu II (644/042) 1st January 1992.
+

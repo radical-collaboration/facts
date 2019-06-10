@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
+A description of the sea level network in Finland can be found
+in 'Operational Oceanography: Implementation at the European
+and Regional scales.  2002 (pp.129-137)'.
+NO BM INFORMATION BUT DATA SEEMS HOMOGENEOUS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Ronnskar            060/061 RLR(1936) is 9.1m below BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Ronnskar            060/061 RLR(1936) is 9.1m below BM
+

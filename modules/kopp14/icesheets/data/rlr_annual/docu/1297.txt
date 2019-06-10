@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2008 :
+RLR was added to this station 18.9.08
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
+Treat data 1999-2003 as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Jul-2010 :
+Revised data values of +150mm for 2000 and 2001 were found for Cabo de San Antonio these were entered onto the database. However on the revised listing there are no data values for June-December 2001. A task file was found under new_data/cuba/2003 which contained data values for the 12 months for 2001. I was unable to find where these data values came from. The data values June-December were flagged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
+Tide Gauge Cabo San Antonio was out of action from May 2001 until 2005 when it was re-instated with the same benchmark. TGZ was changed from -0.38m relative to the Geodesic National Datum (GND) to -0.53m. For data 1971-2001 RLR factor is 6.367m for data 2005 onwards RLR factor is 6.217m. Data for 2000-2003 has been flagged as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Mar-2016 :   
+To reflect the fact that the monthly means supplied refer to TGZ and not GND the RLR diagram has been redrawn. As a result the RLRFAC has changed fron 6.367m for the data up to 2002 to 6.567m and from 6.217m for data 2005 onwards to 6.417m. RLR (2008) is now 8.8m below TGBM 014155.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+Using information newly supplied from Cuba the tide gauge sensors at Cabo San Antonio are from 1972 a float recording hourly and from 2013 a radar with 6 minute frequency.
+

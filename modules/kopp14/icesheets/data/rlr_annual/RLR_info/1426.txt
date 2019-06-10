@@ -1,0 +1,2 @@
+Add 6.862m to all data values to refer to RLR (1987)
+RLR (1987) is 10.3m below BM  Gilberts Step

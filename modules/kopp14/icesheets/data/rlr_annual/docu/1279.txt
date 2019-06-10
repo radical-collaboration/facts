@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Rockland            960/186 RLR(1974) is 10.3m below BM1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Rockland            960/186 RLR(1974) is 10.3m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2012 :   
+Rockland is now an Historic station. Last data received was for 1987.Primary
+benchmark on the original RLR diagram was BM 1 this no longer appears on the
+NOAA website. Last Primary benchmark 5490 K 1976 10.060m relative to TGZ also
+appears on the original diagram with a value of 10.058m
+

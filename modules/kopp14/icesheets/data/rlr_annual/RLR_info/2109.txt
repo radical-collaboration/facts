@@ -1,0 +1,2 @@
+SUBTRACT 1.412m to all data values to refer to RLR (1940)
+RLR (1940) is 8.624m below BM g

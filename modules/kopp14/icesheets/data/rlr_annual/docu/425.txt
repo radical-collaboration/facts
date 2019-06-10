@@ -1,0 +1,23 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Andenes             040/041 RLR(1955) is 7.3m below FM AndenesI
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Andenes             040/041 RLR(1955) is 7.3m below FM AndenesI
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-OCT-93 :
+DATA UP TO 1986 FROM AUTHORITY CODE 03
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+tide gauge network modernised, new equipment installed in 1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Apr-2009 :   
+2007/8 mean sea level values entered as METRIC only
+awaiting confirmation of a datum query.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Jul-2010 :   
+The Norwegian Mapping Authority has revised all its datasets. The Primary bench
+mark for Andenes from 1991 onwards is L7 N42which is 5.245m above TGZ (See copy
+of the page for
+Andenes from the Norwegian website with the RLR diagram). RLR has been
+re-calculated using 2008 as the RLR year. Revised RLR factor is now 5.055m from
+1991 data onwards. RLR (2008) is 10.3m below TGBM L7 N42.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2012 :   
+For information on sea level change along the Norwegian coast see paper
+"Contributions to sea level variability along the Norwegian coast for 1960-2010"
+by K.Richter, J.E.O. Nilsen and H. Drange.
+

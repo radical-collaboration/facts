@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+tide gauge network modernised, new equipment installed in 1990
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Viker               040/341 RLR(1992) is 10.3m below TGBM (G37 N111)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2012 :
+For information of sea level rise along the Norwegian coast, see paper " Contributions to sea level variability along the Norwegian coast for 1960-2010 "by K. Richter, J.E.O. Nilsen and H. Drange.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2015 :   
+The PSMSL has been notified by the Norwegian Authority that the tide gauge at Viker is sinking. The rate of sinking has been confirmed as 0.30mm/year. with the supply of the 2014 sea level data a revised dataset beginning January 1991 has been supplied. Future data will be supplied with the correction applied.
+

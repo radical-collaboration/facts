@@ -1,0 +1,595 @@
+27 Jan 2016
+
+                  THE PERMANENT SERVICE FOR MEAN SEA LEVEL:
+                              FURTHER INFORMATION
+
+
+Since 1933, the Permanent Service for Mean Sea Level (PSMSL) has been
+responsible for the collection, publication, analysis and
+interpretation of sea level data from the global network of tide
+gauges.  It is based at the National Oceanography Centre, Liverpool,
+United Kingdom and is a regular member of the International Council
+for Science - World Data System (ICSU-WDS).  It is supported by the
+U.K.  Natural Environment Research Council.  The PSMSL reports to the
+International Association for the Physical Sciences of the Oceans
+(IAPSO) Commission on Mean Sea Level and Tides (President Prof. Gary
+T. Mitchum, USA). It also a service of the the International
+Association of Geodesy (IAG) and works with the Global Sea Level
+Observing System (GLOSS) and the Global Geodetic Observing System
+(GGOS).
+
+More information about these organisations can be found via
+
+http://www.icsu-wds.org/
+http://iapso.iugg.org/
+http://www.iag-aig.org/
+http://www.gloss-sealevel.org/
+http://www.ggos.org/
+
+	    DESCRIPTION OF PSMSL 'RLR' AND 'METRIC' DATASETS
+
+The database of the Permanent Service for Mean Sea Level (PSMSL)
+contains monthly and annual mean values of sea level from almost 2000
+tide gauge stations around the world. (Note that, in common with most
+other climate variables, by 'monthly' we mean CALENDAR monthly means.)
+
+The PSMSL receives monthly and annual mean values of sea level from
+almost 200 national authorities, distributed around the world,
+responsible for sea level monitoring in each country or region.  Data
+from each station are entered directly as received from the authority
+into the PSMSL raw data file for that station (usually called the
+METRIC file in PSMSL publications).  The monthly and annual means so
+entered for any one year are necessarily required to be measured to a
+common datum, although, at this stage, datum continuity between years
+is not essential.  While the PSMSL makes every attempt to spot
+inconsistent or erroneous data, the responsibility for the monthly and
+annual means entered into the METRIC files in this way is entirely that
+of the supplying authority.  A description of data checks routinely
+made by the PSMSL is given below and in Woodworth, Spencer and Alcock
+(1990) and IOC (1992).
+
+In order to construct time series of sea level measurements at each
+station, the monthly and annual means have to be reduced to a common
+datum.  This reduction is performed by the PSMSL making use of the tide
+gauge datum history provided by the supplying authority.  To date,
+approximately two thirds of the stations in the PSMSL database have had
+their data adjusted in this way, forming the 'REVISED LOCAL REFERENCE'
+(or 'RLR') dataset.  For scientific purposes, the RLR dataset is
+normally superior to the 'METRIC', although the latter, which contains
+the total PSMSL data holdings, can also be analysed bearing in mind the
+above datum continuity considerations. (See below for further comments
+on METRIC and RLR differences).  IN GENERAL, THOUGH, ONE SHOULD ONLY
+USE THE RLR DATASET FOR TIME SERIES ANALYSIS.
+
+The RLR datum at each station is defined to be approximately 7000mm
+below mean sea level, with this arbitrary choice made many years ago in
+order to avoid negative numbers in the resulting RLR monthly and annual
+mean values. The detailed relationships at each site between RLR datum,
+benchmark heights, tide gauge zero etc. are not normally required by
+analysts of the dataset, but is available from the individual station
+pages.
+
+The contents of the PSMSL dataset used to be described in 'Data
+Holdings of the PSMSL' printed reports, of which the last was Spencer
+and Woodworth (1993).  Regular updates are now made via the web.
+Further information about the PSMSL, and about the spatial and temporal
+distribution of the PSMSL data set, can be found in Holgate et al.
+(2013) and earlier journal papers referenced therein.
+
+The detailed current contents of the PSMSL databank are described via
+files accessed from the PSMSL web page:
+
+http://www.psmsl.org/
+
+In particular, this PSMSL home page points to
+
+http://www.psmsl.org/data/obtaining/
+
+which describes how to access the MSL data sets. The primary identifier
+in the PSMSL database is the station ID.  This is a unique integer that
+is assigned to each tide gauge site and will not change going forward.
+All files (both data files and pages on the website) will use this unique
+identifier to refer to a station.
+
+Prior to 2010, stations were referred to by a three digit coastline code
+(previously called country code) and a three digit station code.  These
+have be retained for continuity.  As an example of coastline codes,
+Iceland is defined as '010', followed by Jan Mayen ('012') and the
+Faeroe Islands ('015'), and then progressing around the world coastline
+in essentially an eastward direction until Greenland ('980'). Antarctica
+('999', a change from the previous value of 'A  ') finishes off the
+list.  As the list progresses through the various oceans and seas it
+also includes the nearby island gauges.  Separate coastline codes are
+used for countries abutting more than one ocean or sea, e.g. France
+(Atlantic) and France (Mediterranean).  While previously called a
+"country" code, the value had no political significance, but was used in
+a geographical subdivision sense only.  However, while a change in
+country name would not impact this scheme, it is necessary to introduce
+a new coastline code when a country splits.  Thus, this scheme is no
+longer used as the primary identifier of a tide gauge site.
+
+We note that our use of "country" above with regard to a particular tide
+gauge site does not imply the expression of any opinion whatsoever
+concerning the legal status of any country or territory, or of its
+authorities, or concerning the delimitation of the frontiers of any
+country or territory.
+
+Station pages provide most of the station information. (NOTE: replace
+the #STATION ID# below with the appropriate number)
+
+http://www.psmsl.org/data/obtaining/stations/#STATION ID#.php
+
+Each station page shows the station ID, location (latitude and
+longitude), GLOSS ID (if applicable), coastline code, station code,
+country, and frequency code.  In addition, there is a time span and
+completeness of the data.  The "date of last update" is the last time
+the record was altered in the database.  If a quality flag exists for
+the station, a warning will be displayed advising further inspection of
+the station documentation. Frequency codes are defined as follows:
+
+Code           Meaning  
+
+Integer n      n measurements/day  
+C              Integration from continuous recording  
+HL             Mean of high and low waters (i.e. Mean Tide Level)  
+
+Below this station information is a data section.  Plots of the monthly
+and annual data are shown if the station is RLR. Links to the data for
+this station are in this section.  A documentation section follows the
+data section.  This will include a link to the RLR information, if
+appropriate, as well as any comments relevant to the station.  
+
+Finally, the authority information is listed, along with any authority
+comments that are relevant.  For some of the longer sea level records,
+different authorities may have been responsible for the operation of the
+tide gauge and the analysis of its data at different times.  The
+authority-codes shown here refer to the authority most recently
+responsible. A change of authority is indicated within the documentation
+embedded with the PSMSL data files, while a full history of the
+operation of a particular tide gauge can be obtained from the PSMSL.
+
+We also have generated a data catalogue (catalogue.dat) which details the
+entire holdings of the PSMSL.  The stations are ordered first alphabetically
+by country, territory or area name (starting with ÅLAND ISLANDS), then grouped
+by coastline code, and finally listed within each group by station code.  Each
+station entry starts with station code, station name, latitude, longitude,
+authority code/frequency code (as described above), and GLOSS ID (if
+applicable). Each entry is then finished with separate lines for the Station
+ID, metric data time span, metric completeness, RLR time span, and RLR
+completeness.  A second file (nucat.dat) condenses the information for each
+station down to one line.  Each station line of this file contains the PSMSL
+ID, station code, station name, latitude, longitude, authority code, frequency
+code, GLOSS ID, metric data time span, metric completeness, RLR time span, and
+RLR completeness. These files can be found at
+
+http://www.psmsl.org/data/obtaining/catalogue.dat 
+http://www.psmsl.org/data/obtaining/nucat.dat
+
+
+             FURTHER COMMENTS ON SEVERAL RLR RECORDS FROM A STATION
+
+You will see that several stations contain more than one PSMSL RLR record.
+RLR records are kept separate if, for example, they are from completely
+separate sets of measurements from different locations in the area
+of the station. Another reason is if the benchmark datums of the separate
+records epochs cannot be geodetically connected. A further reason is if one
+section of data is MSL and a further set is MTL.
+
+However, there are a small number of pairs of RLR records which can be
+combined into composites, with some reservations about care in using
+them because of, perhaps, long periods of time between them. These include:
+
+Aberdeen I (ID: 361) which is MSL and Aberdeen II (ID: 21) which is MTL
+but which are geodetically connected to a common benchmark
+
+Venezia (San Stefano) (ID: 39) and Venezia (Punta della Salute) (ID: 168) 
+in Venice, which are from separate sites but which are geodetically connected
+to a common benchmark.
+
+North Point (ID: 333) and Quarry Bay (ID: 1674) in Hong Kong, which are
+from quite separate sites in areas of reclaimed land but which are
+geodetically connected to a common, if somewhat distant, benchmark.
+
+Auckland-Waitemata Harbour (ID: 217) and Auckland II (ID: 150) from Auckland,
+New Zealand, the former being provided by the RNZN Hydrographic Office,
+although gappy, and the latter being provided by the work of Prof. John Hannah
+and more complete but not up-to-date.
+
+Port Stanley (ID: 1082) and Port Stanley II (ID: 1796) in the Falkland
+Islands (Malvinas) which are geodetically connected to a common
+benchmark but are separated by a large period of time
+
+In each of these cases, the brief documentation should be consulted
+with regard to the construction of composite time series.
+
+                         MIXED MTL AND MSL DATA
+
+Above were given a few examples of MTL and MSL records that had been
+kept separate.  Unfortunately, however, there are some examples where
+the two data types have been combined into a single record.  In some
+of the more extreme cases, the annual average difference between these
+two mean levels can be over 10 cm, which could introduce an artifact
+into estimates of the long-term trends.
+
+In an attempt to make these combined records more transparent, and to
+cause the minimum disruption to the current set of records, we have
+introduced a flag 010 (described further in DATA FORMATS below)
+indicating MTL values in a MSL record. In addition, we have applied an
+estimate of the annual average difference (MTL-MSL) to the RLR time
+series, so that these values should be more directly comparable with the
+rest of the MSL records. Note that the metric files have the MTL
+values flagged but do not have the correction applied.   
+
+Caveats: For the differences between MTL and MSL, we are generally
+using results provided by Philip Woodworth in conjunction with his
+manuscript on the subject.  The difference does have a seasonal
+component, and we are only using an annual average for the correction.
+Thus, the seasonal portion of the MTL and MSL values still cannot be
+compared, even after we have applied the correction. Typically, we are
+using recent data to estimate a correction applied to data in the
+1800s or early 1900s.  Thus, we are explicitly assuming that the
+difference has not changed in time.  In some cases, there is not any
+high-frequency data needed to conduct an analysis.  In others, we have
+reason to believe that the correction is highly uncertain (at greater
+than the 1 cm level).  Both cases will be addressed through flagging
+described below.
+
+The zip files contain a file (mtl_msl_corrections.csv) that lists
+the Station ID, the start and end of the MTL data within the time
+series,  and the value of the MTL-MSL estimate applied to the data
+[applied as MTL value – (MTL – MSL estimate) = MSL estimate].  This
+should enable one to easily remove the correction [MSL estimate + (MTL
+– MSL estimate) = original MTL value] and substitute your own if
+desired.  The flag also would enable one to ignore the MSL estimates
+values completely in the analysis if desired.  If we have no estimate
+of the MTL-MSL difference, the value will be set to -99999 in this
+file, but will effectively be 0 in the data file, i.e. the MTL value
+will remain unchanged in the distributed data file, but will have the
+flags 011.  In the case of the flags 011 and a value not equal to
+-99999, this indicates that we have reason to believe that this value
+may be uncertain to greater than 1 cm.   A note will be placed in the
+documentation file as to why the ‘flagged for attention’ was set.  We
+would recommend that values with the flags 011 not be used in analysis
+of long-term trends.
+
+               FURTHER COMMENTS ON THE USE OF 'METRIC' DATA
+
+Without the provision of full benchmark datum history information, records
+will remain as 'Metric only' in the databank and not as 'RLR'. It is a
+good general rule, therefore, that 'Metric' records should NEVER be used for
+time series analysis or for the computation of secular trends; without
+datum continuity their only use is in studies of the seasonal cycle of mean
+sea level. If there is any doubt about the datums for a particular record,
+the PSMSL would be pleased to supply clarification. 
+
+There are, however, some 'Metric only' records which almost certainly can be
+used for time series work, even though the PSMSL does not have full benchmark
+datum histories.  They include, in particular, a number of German 'Metric'
+records which are measured with respect to Normal Null (NN). Any such
+information is included in the station comments in the relevant documentation
+sections of the data sets supplied by the PSMSL.  Even though these records are
+expressed relative to the national levelling systems, they are, in effect,
+relative to a local level as required for RLR purposes i.e. the records do not
+(as far as we know) contain datum shifts contributed by re-levelling
+adjustments. In general, however, measurements relative to national levelling
+systems may well reflect such adjustments, which explains why the PSMSL has
+traditionally steered clear of classifying such data as RLR.  We have relaxed
+this classification slightly for a few of the German stations.  In the late
+1990s and early 2000s, the PSMSL received data from these stations that could
+be related to a tide gauge benchmark as well as NN.  Using these relationships,
+we have reclassified these entire time series as RLR.
+
+In the past, the PSMSL also included the the Netherlands data in the above
+category of Metric records acceptable for time series work.  These records are
+expressed relative to the national level system Normaal Amsterdamsch Peil
+(NAP).  However, a recent re-levelling of NAP in 2005 introduced a small datum
+shift for the tide gauge time series. In order to maintain utility of these
+long records, we have reclassified most of the Netherlands records as RLR and
+introduced different RLR factors for the periods before and after 2005.  While
+these records do not meet the strict definition of RLR and may still include
+prior re-levelling adjustments, we believe this represents the best path
+forward.
+
+                               DATA FORMATS
+
+The page
+
+http://www.psmsl.org/data/obtaining/notes.php
+
+gives detailed information on the formats of the data sets.  Prior to
+2010, the entirety of the PSMSL database had be distributed in condensed
+formats (e.g., psmsl.dat and rlrann.dat).  However, with the update of
+the backend database, maintaining these formats was no longer possible.
+
+Data is now distributed as individual time series for each station.  The
+entire dataset (including documentation) is distributed in zipped files,
+described further below.  Separate time series files exist for the RLR
+monthly mean data, the RLR annual mean data, and the Metric monthly mean
+data (same strong warnings as above regarding the Metric data apply).  
+
+Separate directories for each data type exist:
+
+http://www.psmsl.org/data/obtaining/rlr.monthly.data/
+http://www.psmsl.org/data/obtaining/rlr.annual.data/
+http://www.psmsl.org/data/obtaining/met.monthly.data/
+
+Each directory contains a file list (filelist.txt) consisting of the
+station ID, latitude, longitude, station name, coastline code, station
+code, and quality flag.  These files can be used translate between the
+new station ID and the old coastline/station codes.  The quality flag
+has a value of "N" or "Y", where "Y" indicates that the documentation
+files should be consulted.  More information on the quality flag is
+given three paragraphs below.
+
+Details of the data formats can be found on the notes.php page listed
+above.  It should be noted that the time series file have internal flags
+for each data point.  For example, the monthly files have an entry that
+indicates how many days were missing in the average.  The annual file
+has an entry ("N" or "Y") that indicates, in the case of "Y", that
+either one month was missing or that at least 30 days were missing.
+(The annual average is dropped if more than one monthly value is missing.
+A monthly value is calculated as long as 15 or less days are missing in
+a month.) In both cases, a quality flag is present.  A value of "001"
+indicates that the flag is present (see below).  
+
+Each of the above directories will also contain the appropriate zip file:
+rlr.annual.zip, rlr.monthly.zip, or met.monthly.zip.  These zip files
+will contain filelist.txt, described above, and two directories
+(docu and data).  Two documentation files may exist for each station:
+station documentation (named docu/#STATION ID#.txt) and authority
+documentation (named docu/#STATION ID#_auth.txt).  A data file for each entry
+in the filelist.txt will exist and be named data/#STATION ID#.rlrdata or
+data/#STATION ID#.metdata, as appropriate.  Matlab code for reading in
+all of the data from one of these set is distributed with the zip file.
+
+Each set of PSMSL data files contain within them documentation warning
+flags which are used to point to either a suspect station record, a
+suspect station-year, or a suspect station-month. These flags are set
+on the basis of either the data checks described below or after
+further detailed scientific analysis.  For monthly and annual data
+files, these flags will take the form of octal number, similar to UNIX
+permissions.  The 'flag for attention' described above is "001". In
+addition, we have introduced the flag "010", which indicates that the
+value was a MTL value (perhaps corrected to MSL in the RLR file) in a
+MSL record.  Both flags being true would be indicated by "011".
+Please see the above notes.php page for more information.
+
+
+                              PSMSL DATA CHECKS
+
+The following describes the checks made by the PSMSL on data received from
+national authorities. Details can also be found in PSMSL publications (e.g.
+Woodworth, Spencer and Alcock, Int. Hyd. Rev., 67(1), 131-146, 1990).
+ 
+In general, in years past the PSMSL has not received copies of original tide
+gauge hourly height measurements or continuous charts but has accepted monthly
+and annual mean sea level (MSL) values from national authorities on the
+understanding that these quantities have been computed accurately. Inevitably,
+this has always not been the case.
+ 
+The PSMSL has devised a range of tests on the supplied MSL information which
+guards against gross errors in the dataset such as transcription errors or
+large unrecorded datum changes. Some of these tests are 'common sense', others
+are 'statistical':
+ 
+(1) A check is made that the average of the quoted monthly mean values is
+consistent with the quoted annual mean.
+
+(2) 'Common sense' consistency checks are made on the data including checking
+that the datum information is consistent with previous knowledge. This includes
+reference to back correspondence and simple time series plotting.
+  
+(3) A search for outliers is made on data for each calendar month of the year
+separately, and for the annual means, for all possible time-spans containing
+at least 20 years of data. A linear fit is made to the time series and any
+individual monthly mean value more than 4.5 standard deviations from the
+fitted line is flagged.
+ 
+(4) A search is made for incorrect datum information by performing a set of
+linear regressions of RLR annual mean values against the supplied datum
+correction factors ('RLR factors' in PSMSL terminology) in all possible
+20-year time-spans. A correctly adjusted RLR time series should be uncorrelated
+with the RLR factors.
+ 
+(5) A search for jumps in the RLR time series is made for each calendar month
+of the year separately and for the annual means. The difference between a mean
+value and the corresponding value for the next year of data is histogrammed
+and any outlier more than 4.5 standard deviations from the mean-difference is
+flagged.  
+
+(6) A test is made for 'upside down' data. In several countries the main
+research interest is the study of vertical land movements, rather than sea
+level changes, with the result that MSL data are often quoted as the distance
+below a benchmark height rather than above it. The most sensitive test to guard
+against such an error is an inspection of the seasonal cycle which, for 'upside
+down' data, would appear opposite to that observed in neighbouring records and
+opposite to oceanographic and meteorological expectations.
+ 
+(7) A set of 'buddy checking' is made in which the RLR data from one station
+is subtracted from that of a neighbouring station (or 'buddy') which is less
+than 400km away. Over this short distance most of the MSL variability due to
+oceanographic and meteorological forcings in the two records should be similar
+and will cancel out giving a difference time series primarily composed of
+relative vertical land movements, instrumental and datum errors and any small
+spatially varying ocean and weather influences. The previous tests are then
+applied to the difference time series and any discrepancies are flagged. 
+ 
+These tests have been applied to the entire dataset and inconsistencies have
+been referred back to the national authorities, although the reasons for some
+apparent oddities are no doubt lost in history.
+  
+
+      RECOMMENDATIONS TO AUTHORITIES CONTRIBUTING DATA TO THE PSMSL    
+
+a) General  
+
+The Permanent Service appreciates the contributions from all organisations
+supplying mean sea level data and does not seek to impose unnecessary
+conditions upon contributors.  Nevertheless a minimum of quality control must
+be exercised if the data bank is to be an authoritative reference.  To this end
+the PSMSL requests the following information together with each set of monthly
+and annual mean sea level values supplied:  
+
+i) the units used (metres, rarely feet),  
+
+ii) a statement of the datum to which the values refer,  
+
+iii) a statement of the measured depth of that datum below the primary tide
+gauge bench mark (TGBM),  
+
+iv) an indication of incomplete or deduced data (see paragraph b),  
+
+v) the number of observations per day used to calculate the monthly means,  
+
+vi) any information of changes in datums, bench marks or relevant procedures
+since the previous batch of data,  
+
+vii) any information on the availability of more frequent readings (e.g.
+hourly heights).  
+
+Although data will be accepted in any format, mean heights should preferably
+be in the metric system to the nearest millimetre, and the datum to which
+the means refer should preferably be the tide gauge zero. Data will be
+gratefully received in any form (e.g. as paper tabulations in letters or 
+via email).  
+
+b) Treatment of incomplete records  
+
+One of the most important things for users of the mean sea level data bank
+to know is the accuracy of the published figures.  Details of the treatment
+of gaps in the tidal record are of particular interest. Therefore, the PSMSL
+makes the following recommendations:  
+
+i) small gaps in observed tidal records should be interpolated, if possible
+before computing monthly and annual means,  
+
+ii) the interpolation should be performed at an early stage in the processing.
+One principle to adopt is that of a comparison with the complete records from
+a nearby station.  However we would stress that predicted values are not
+suitable for interpolation because of meteorological effects,  
+
+iii) in cases where interpolation is impossible the monthly mean should be
+compiled from the incomplete data.  Where more than 15 days are missing from
+a month a mean value should not be computed,  
+
+iv) when sending mean values to the PSMSL, authorities are requested to
+indicate if interpolation has been effected or the exact number of missing
+days of data.  These details should be sent as suffixes after each monthly
+mean and shown in brackets:
+
+e.g. 2487(9) would mean 9 daily mean values were missing and not interpolated
+when computing the mean of 2487mm; 913(XX) would mean missing data were
+interpolated to provide the average of 913mm,  
+
+v) if there are 11 or 12 monthly mean values available then an annual mean
+should be calculated.  If the annual mean is computed by averaging the
+monthly means, the monthly means must first be weighted.  The weight for
+each month should be the number of days for which readings were available.  
+
+c) Computation of monthly and annual mean values  
+
+The attention of data contributors is drawn to three IOC publications 
+entitled 'Manual on Sea Level Measurement and Interpretation' which can be
+downloaded from
+
+http://www.psmsl.org/train_and_info/training/manuals/
+
+The third one is especially worth considering with regard to monthly
+mean computation. The PSMSL will be pleased to assist with advice on methods
+of data processing and the determination of mean values.
+
+d) Preservation of original data
+
+Contributors are urged to preserve the original sea level data in
+permanent form.  The information contained in such basic time series is
+of great value in many scientific studies, is irreplaceable, and should
+not be lost to posterity. Where original data are available in computer
+compatible form, the PSMSL would be grateful to receive copies (and in
+the case of GLOSS stations, it is a requirement that any such data are
+provided to GLOSS Archiving Centres, of which the PSMSL is one, see
+below). Such global databanking of higher frequency information will
+evolve considerably over the next few years as a result of GLOSS and
+related activities.
+
+
+                     LINKAGE TO THE GLOSS PROGRAMME
+
+The Global Sea Level Observing System (GLOSS) is a programme
+coordinated by the Joint Technical Commission for Oceanography and
+Marine Meteorology (JCOMM) of the Intergovernmental Oceanographic
+Commission (IOC) and the World Meteorological Organisation (WMO). It
+aims for the establishment of global and regional sea level networks
+for oceanographic, climate change and coastal research purposes. The
+main component of GLOSS is the 'Global Core Network' (GCN) for long
+term climate change and oceanographic sea level monitoring. For full
+details, see the page
+
+http://www.gloss-sealevel.org/
+
+The development of GLOSS can be traced through the various
+Implementation Plans for the programme and through related documents
+(IOC, 1990; Woodworth and Player, 2003).  The most recent
+Implementation Plan (IOC, 2012) can be downloaded from the
+above page.
+
+The PSMSL took a major lead in the planning of GLOSS which in the long
+term will result in a significant improvement in the quantity and
+quality of data delivered to the PSMSL. Further information on the
+development of GLOSS from a PSMSL perspective can be found via the above
+web pages and Woodworth (1998), Woodworth and Player (2003), and Holgate
+et al. (2013).
+
+The PSMSL has played a particularly important part in GLOSS's provision
+of training courses and training materials with courses held at the
+PSMSL, and with PSMSL-related scientists having taken part in courses
+overseas.
+
+Recent years have seen major efforts to collect higher frequency
+(typically hourly) sea level data as well as MSL information. In
+collaboration with the British Oceanographic Data Centre and the
+University of Hawaii Sea Level Center, the PSMSL also functions as a
+'GLOSS Archiving Centre' for higher frequency sea level data. See the
+above-mentioned GLOSS web page and the page
+
+http://www.psmsl.org/data/hf/
+
+for further details.
+
+
+References
+----------
+
+FAGS, 1989. Federation of Astronomical and Geophysical Data Analysis
+Services (FAGS). Chronique de l'UGGI, No.194, 1-67.
+
+Holgate, S.J., Matthews, A., Woodworth, P.L., Rickards, L.J., Tamisiea, M.E.,
+Bradshaw, E., Foden, P.R., Gordon, K.M., Jevrejeva, S., and Pugh, J., 2013. New
+Data Systems and Products at the Permanent Service for Mean Sea Level. Journal
+of Coastal Research: Volume 29, Issue 3: pp. 493 – 504.
+doi:10.2112/JCOASTRES-D-12-00175.1. 
+
+IOC, 1990. Global Sea Level Observing System (GLOSS)implementation plan.
+Intergovernmental Oceanographic Commission, Technical Series, No.35, 90pp.
+
+IOC, 1992. Joint IAPSO-IOC workshop on sea level measurements and quality
+control. Intergovernmental Oceanographic Commission, Workshop Report, No.81,
+167pp.
+
+IOC, 2012. Global Sea Level Observing System (GLOSS) Implementation Plan –
+2012. UNESCO/IOC, 41pp.
+
+Spencer, N.E. and Woodworth, P.L. 1993. Data holdings of the Permanent
+Service for Mean Sea Level (November 1993). Bidston, Birkenhead: Permanent
+Service for Mean Sea Level.  81pp.
+
+Woodworth, P.L., Spencer, N.E. and Alcock, G.A. 1990. On the availability
+of European mean sea level data. International Hydrographic Review, 67(1),
+131-146.
+
+Woodworth, P.L. (ed.) 1998. Global Sea Level Observing System (GLOSS)
+Implementation Plan 1997. Intergovernmental Oceanographic Commission,
+Technical Series, No. 50, 91pp. & Annexes.
+
+Woodworth, P.L. and Player, R. 2003. The Permanent Service for Mean Sea 
+Level: an update to the 21st century. Journal of Coastal Research,
+19, 287-295.

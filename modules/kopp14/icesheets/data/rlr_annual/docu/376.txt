@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
+A description of the sea level network in Finland can be found
+in 'Operational Oceanography: Implementation at the European
+and Regional scales.  2002 (pp.129-137)'.
+PRIOR TO 1971 FCODE=06
+PRIOR TO 1983 GAUGE AT 61 08 N, 21 27 E
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Rauma/Raumo         060/121 RLR(1964) is 7.7m below BMP3
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Rauma/Raumo         060/121 RLR(1964) is 7.7m below BMP3
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Jan-2012 :   
+The tide gauge at Rauma was moved during 1983. Levelling information recently
+supplied by the Finnish Meterological Institute confirms that benchmark P3 no
+longer exists. Primary benchmark is now 92403 4.089m above the gauge datum.
+

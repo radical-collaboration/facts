@@ -1,0 +1,2 @@
+SUBTRACT 1.256m to data values to refer to RLR (1986)
+RLR (1986) is 11.0m below benchmark 6 1937

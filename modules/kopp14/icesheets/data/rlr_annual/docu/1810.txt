@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
+Malaga II, new station 1992.  Data supplied by Climat Maritimo, Madrid.
+RLR(1993) is 7.694m below BM SSK 236.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Mar-2013 :
+The SRD acoustic gauge at Malaga has been moved and replaced by a new MIROS radar sensor.
+Both new and old gauges were running for the period 22.01.2009-23.04.2010 for
+inter-comparison purposes. A bias (mean difference) of 0.18cm was calculated. See paper
+by B. Perez et al 'Overlapping sea level time series measured using different
+technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Further investigation revealed that the bias was due to a problem in the old Acoustic gauge. Data from this was revised. Complete dataset was re-entered onto the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 36.716667 -4.416667 derived from the previously supplied degrees and minutes value to 36.71184 -4.41709 the site of the new MIROS gauge in decimal degrees.
+

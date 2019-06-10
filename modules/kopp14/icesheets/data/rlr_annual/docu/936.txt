@@ -1,0 +1,26 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+HEYSHAM 1975  DATUM CHANGED MID-YEAR NO DATA ENTERED
+PRIOR TO 1963 VALUES BASED ON 8 READINGS/DAY.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Heysham             170/225 RLR(1986) is 13.9m below BM Bolt SD4030 6012
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Heysham             170/225 RLR(1986) is 13.9m below BM Bolt SD4030 6012
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-SEP-94 :
+A Harrison type gauge was in use 1904-59.
+A Lea gauge was installed in September 1959, resited
+in April 1971.  An "A Class" bubbler replaced the
+stiling well systems in November 1987.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-SEP-94 :
+17th March 1975: Datum changed
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2009 :   
+For some time the gauge at Heysham has been prone
+to blocking by sedimentation it is thought due 
+the dredging in the area.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+During July and August 2013 channel 2 was fluctuating ~40-50mm high. General maintenance was carried out on 05.09.2013
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-May-2015 :   
+there were a number of problems with the gauge during 2014. During January and February readings were low over HWs. During March, June and July and again September to December readings from CH1 were approximately 30mm high probably due to dredging in the harbour. From July there were problems with the system blocking. At the end of the year readings were again recording high.
+

@@ -1,0 +1,89 @@
+# NOTE: The entire data directory needs to be copied over for the various stages
+
+pre_process:
+  executable: "python"
+  cpu:
+    processes: 1
+    process-type: None
+    threads-per-process: 1
+    thread-type: None
+  pre_exec: ""
+  script: "kopp14_preprocess_thermalexp.py"
+  options:
+    - "scenario"
+    - "model_dir"
+    - "no_drift_corr"
+  upload_input_data:
+    - "./modules/kopp2014/thermal_expansion/kopp14_preprocess_thermalexp.py"
+    - "./modules/kopp2014/thermal_expansion/IncludeModels.py"
+    - "./modules/kopp2014/thermal_expansion/SmoothZOSTOGA.py"
+    - "./modules/kopp2014/thermal_expansion/DriftCorr.py"
+    - "./modules/kopp2014/lib/Smooth.py"
+    - "./modules/kopp2014/lib/read_CSRIO.py"
+    - "./modules/kopp2014/lib/readMarzeion.py"
+    - "./modules/kopp2014/thermal_expansion/data/CSIRO_Recons_gmsl_yr_2011.csv"
+
+
+fit:
+  executable: "python"
+  cpu:
+    processes: 1
+    process-type: None
+    threads-per-process: 1
+    thread-type: None
+  pre_exec: ""
+  script: "kopp14_fit_thermalexp.py"
+  options:
+    - "config_file"
+    - "zostoga_file"
+  upload_input_data:
+    - './modules/kopp2014/thermalexpansion/kopp14_fit_thermalexp.py'
+  copy_input_data:
+    - "kopp14_thermalexp_config.pkl"
+    - "kopp14_thermalexp_ZOSTOGA.pkl"
+
+
+project:
+  executable: "python"
+  cpu:
+    processes: 1
+    process-type: None
+    threads-per-process: 1
+    thread-type: None
+  pre_exec: ""
+  script: "kopp14_project_thermalexp.py"
+  options:
+    - "nsamps"
+    - "seed"
+    - "config_file"
+    - "fit_file"
+  upload_input_data:
+    - './modules/kopp2014/icesheets/kopp14_project_thermalexp.py'
+    - './modules/kopp2014/icesheets/SampleISDists.py'
+    - './modules/kopp2014/lib/cholcov.py'
+    - './modules/kopp2014/icesheets/ProjectGSL.py'
+  copy_input_data:
+    - "kopp14_thermalexp_config.pkl"
+    - "kopp14_thermalexp_fit.pkl" 
+
+#post_process:
+#  executable: "python"
+#  cpu:
+#    processes: 1
+#    process-type: None
+#    threads-per-process: 1
+#    thread-type: None
+#  pre_exec: ""
+#  script: "kopp14_postprocess_icesheets.py"
+#  options:
+#    - "proj_file"
+#    - "samp_type"
+#  upload_input_data:
+#    - './modules/kopp2014/icesheets/kopp14_postprocess_icesheets.py'
+#    - './modules/kopp2014/icesheets/SampleISDists.py'
+#    - './modules/kopp14/icesheets/pyssht.so'
+#    - './modules/kopp2014/lib/read_annual.py'
+#    - './modules/kopp2014/lib/AssignFP.py'
+#    - './modules/kopp2014/lib/ReadFingerprint.py'
+#  copy_input_data:
+#    - "kopp14_icesheets_projections.pkl"

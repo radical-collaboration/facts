@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-05 :
+A paper by Marcos et al (JGR Volume 11, 2005) provides an overview
+of the tide gauge records on the northern coast of Spain.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  16-AUG-93 :
+La Coruna II        200/031 RLR(1964) is 11.8m below NP-615
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-FEB-97 :
+1991 revised, February 1997
+This is now an historic station last data 1997
+

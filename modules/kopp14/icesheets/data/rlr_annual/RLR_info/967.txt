@@ -1,0 +1,2 @@
+SUBTRACT 0.96m from all data values to refer to RLR (1961)
+RLR (1961) is 13.1m below BM SS 6683 9204

@@ -1,0 +1,2 @@
+SUBTRACT 2.740m from data values to refer to RLR (1984)
+RLR (1984) is 9.208m below BM 1070 J 1982.

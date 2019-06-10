@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Saipan              700/011 RLR(1983) is 9.2m below BMUH-2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-OCT-91 :
+QUESTIONABLE FLUCTUATIONS IN 1981 AND 1986 ARE DUE TO METEOROLOGICAL EVENTS.  TYPHOON KIM PASSED NEAR SAIPAN ON 3 DECEMBER 1986.
+============================ FOLLOWING PSMSL DOCUMENTATION ADDED 08-OCT-96 :
+Instrument Type: Fischer and Porter Analog-to-Digital Recorder
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2010 :
+The complete dataset 1978-2009 has been supplied by UHSLC. After checking these with existing data values these data have been entered onto the database. RLR remains 5.951m. Areas affected by the Typhoons in 1981 and 1986 were previously flagged. These have now been removed as the data is probably good with meteorological effects. The station remains flagged as obviously the area is prone to earthquake.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2013 :
+Complete dataset Sept. 1978 to April 2012 downloaded onto the database from UHSLC
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :
+The complete dataset from the latest JASL data has been loaded onto the database.
+
+

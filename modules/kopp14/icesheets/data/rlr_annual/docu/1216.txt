@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
+Revised data recived from the National Tidal Centre, Bureau of Meteorology, South Australia. SEAFRAME station installed 12/05/1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
+Spring Bay is a co-operative station between NTF and NOAA/NOS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+This is a "baseline station" of the Australian National Tidal Facility.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+Spring Bay          680/199 RLR(1996) is 14.389m below SPM8521
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Oct-2011 :
+Using information from the National Tidal Centre the RLR diagram has been revised. Primary benchmark SPM8521 is 8.389m above TGZ. Benchmark 9258RM 2 is the NTF tide gauge levelling fixture from November 2008 and is 4.653m above TGZ. The national datum reference AHD is 1.153m above TGZ. RLR factor is 6.0m.
+

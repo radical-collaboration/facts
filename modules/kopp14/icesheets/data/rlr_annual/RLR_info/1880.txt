@@ -1,0 +1,2 @@
+Add 7.0m to all data values to refer to RLR (1998)
+RLR (1998) is 9.972m below BM 55F

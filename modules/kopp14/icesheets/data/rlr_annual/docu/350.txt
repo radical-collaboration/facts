@@ -1,0 +1,22 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from the University of Nottingham web site:http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Portsmouth          170/131 RLR(1971) is 10.2m below BM SU6270 0053
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-MAY-92 :
+Prior to 1991 data were received from UK Hydrographic Office (authority 10)
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Portsmouth          170/131 RLR(1971) is 10.2m below BM SU6270 0053
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JUL-94 :
+Gauge details prior to 1960 are unclear. In 1960 a Lea stilling well gauge was installed, replaced in January 1991 by an "A Class" bubbler system.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-OCT-94 :
+A letter to the Dock and Harbour Authority, No.61, page 385, 1981 by Webber and Walden castes doubts on the stability of the datum at Portsmouth during the 1960s and 1970s.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-JUL-97 :
+revised BM information for 1980-96
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-May-2012 :
+Following re-leveling the Grid Reference for the Primary banchmark has changed from SU 6270 0053 to SU 6269 0053.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Jul-2014 :
+There were no MSL's calculated for Portsmouth before August 2013 this was due to the fact that the primary channel, channel 2 was recording a constant -1.124m because of a leak on the
+system.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-May-2015 :
+TGI were at site 16.01.14 to carry out general maintenance and change the compressor.
+

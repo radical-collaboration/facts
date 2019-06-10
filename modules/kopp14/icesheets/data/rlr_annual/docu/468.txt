@@ -1,0 +1,10 @@
+1942 DATA SUPPLIED BY AUTHORITY NO. 66
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Dunkerque           190/001 RLR(1977) is 13.2m below Repere A(1974)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
+Dunkerque acoustic gauge installed 1998. Data now supplied by Service Hydrographique et Ocean. de la Marine, Brest.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
+Using values from the SONEL website the latitude and longitude for Dunkerque have been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :
+Additional data points have been added. Because of this the whole dataset has been re-entered.
+

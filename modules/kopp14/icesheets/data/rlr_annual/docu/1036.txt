@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Apr07 :
+data for 1963-85 referred to Normal Null data for 1986- referred to TGZ
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jun25 :
+Wittduen - data 1963-85 apparetnly corrected to NN (Normal Null).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Aug-2010 :
+The data for Wittduen was measured to Normal Null which is a German datum related to levels at Potsdam near Berlin. It is similar to ODN in the UK and the NAP in Holland. It is unusual therefore that the station has been made RLR as it 'breaks the rules' of RLR. Data 2000 onwards refers to TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+Removed documentation dated 2001 Apr 11 stating "Data up to 1997 were high and low waters (mean tide level). MSL thereafter."  Review of the documentation indicates that data through 1998 is MTL, with MSL 1999 onwards.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2016 :   
+A value of MTL-MSL=-121 mm has been applied to the RLR data for the period 1963-1998.  This value was derived from the entire time series (through 2008) by Thomas Wahl, using the "k factor method" described in Wahl et al., 61, 701-715, 2011.
+

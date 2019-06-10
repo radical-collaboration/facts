@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-AUG-95 :
+A destructive earthquake and tsunami occurred in the Kuril Islands on
+4 October 1994 - see Earth System Monitor, 5(4), June 1995.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Kushiro             641/021 RLR(1974) is 8.6m below Attached BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Kushiro             641/021 RLR(1974) is 8.6m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-FEB-97 :
+February 1997: Kushiro and Kushiro II combined on advice from authority
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Kushiro new gauge installed December 1982.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :   
+A massive earthquake magnitude 9.0 occurred at 14:46 JST (05:46 UTC) on Friday
+11th March 2011 with the epicenter approx. 70km east of the Oshika Peninsula of
+Tohoku. It was the most powerful known earthquake to hit Japan triggering a
+tsunami with waves up to 40.5m and travelling up to 10km inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :   
+The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P203 is 13.731m above RLR.
+

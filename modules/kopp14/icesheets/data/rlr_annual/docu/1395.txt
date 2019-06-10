@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL.MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-94 :
+JUNE 1975 and JANUARY-APRIL 1978 UNRELIABLE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan27 :
+Unreasonable values of JAN=2782, FEB=2761, MAR=2806 and APR=2869 deleted from 1978. See previous comments dated 23/05/94.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Sep-2010 :
+Primary benchmark is BM 52 PP 5.23m above chart datum. This station was previously flagged. However, as individual data points can now be flagged the period commented on above has been flagged and the station flag removed.
+

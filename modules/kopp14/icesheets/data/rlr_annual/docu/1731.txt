@@ -1,0 +1,16 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-SEP-93 :
+                   BENCH MARK INFORMATION 22 SEPTEMBER 1993
+FISHGUARD II       RLR(1990) is 12.2m below BM SM 9534 3918
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+An "A Class" bubbler gauge installed in June 1988.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-May-2013 :
+Site was levelled on 09.03.2013. On inspection both full tide sensors were found to be in mud both recording ~40mm high. As both full tide channels were buried in silt. MSL values re-computed back to September 2010. As a result 2011/12 data have been deleted.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+On 18.07.2013 TGI were on site to carry out general maintenance and clear the silted pressure points.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-May-2015 :   
+Some readings during April 2014 were ~40mm high. TGI were at site 06.11.14 for general maintenance and to change the compressor. No levelling was carried out during 2014.
+

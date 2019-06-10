@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
+Toyama              647/068 RLR(1991) is 8.8m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JTS (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake ever to strike Japan triggering a tsunami with waves of up to 40.5m anf travelling inland up to 10km.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
+The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P207 is 12.928m above RLR.
+

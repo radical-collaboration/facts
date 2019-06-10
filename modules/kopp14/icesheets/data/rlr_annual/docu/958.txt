@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct17 :
+Data now supplied by Service Hydrographique et Ocean. de la Marine, Brest.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
+Sete RLR(2000) is 8.775m below BM MC-J3-K3-46.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :
+Previous primary benchmark MC-J3-K3-46 was destroyed in 2004. New Primary benchmark is M.EM3-39 6.422m above Zero Hydrographique and 6.125m above IGN 69.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Oct-2014 :
+Using data from SONEL the latitude and longitude for Sete has been updated. The data downloaded from SONEL contained many additional data points particularly for the 1990's. Because of this the whole dataset has been reloaded onto the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jun-2016 :   
+While entering the 2015 data to the dataset it was noted that data points for November-December 2011 had been revised.
+

@@ -1,0 +1,2 @@
+Add 7.073m to all data values to refer to RLR (2010)
+RLR (2010) is 8.7m below BM MAREOG-PALMA

@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+NO BM IDENTIFICATION AVAILABLE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Cedar Keys I        940/051 RLR(1925) is 9.0m below BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Cedar Keys I        940/051 RLR(1925) is 9.0m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2012 :   
+Cedar Keys is a very old dataset ranging from 1914-1925. Not suprisingly this
+station no longer appears on the NOAA website.
+

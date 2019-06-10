@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
+Data up to 1985 has been revised by the National Tidal Centre, Bureau of Meteorolgy, South Australia.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug25 :
+For a discussion of sea level changes at Port Pirie, see Harvey et al., Journal of Coastal Research, 15, 607-615, 1999.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2011 :
+Using information from the National Tidal Centre (NTC), Australia Port Pirie has been made RLR from January 1941. Earlier data was not made RLR because this does not appear on the NTC website. Benchmark does not have a name/number but is described as ' BM arrow cut in nth wst cnr of rear doorstep of HM office (destroyed)'. Benchmark is 5.098m above the datum chart datum. RLR factor is 5.202m.
+

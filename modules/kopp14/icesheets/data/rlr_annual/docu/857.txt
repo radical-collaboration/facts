@@ -1,0 +1,6 @@
+NOTICEABLE METEOROLOGICAL INFLUENCES
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Mar del Plata(P)    860/091 RLR(1977) is 11.3m below Bulon Testigo
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Mar del Plata(P)    860/091 RLR(1977) is 11.3m below Bulon Testigo
+

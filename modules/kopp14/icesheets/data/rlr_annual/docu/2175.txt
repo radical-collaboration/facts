@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Oct-2013 :
+Zamboanga City is a new station, first data 2011. Tide Gauge is an OTT THALIMEDES. Station has been made RLR. Primary benchmark BM 4 15.829m above datum TSO 1999
+

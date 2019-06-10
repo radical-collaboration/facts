@@ -1,0 +1,4 @@
+SUBTRACT 4.715m from data values up to 1982 to refer to RLR (1964)
+SUBTRACT 4.721m from  data values 1983-1985 to refer to RLR (1964)
+Add 2.869m to data values 1986 onwards to refer to RLR (1964)
+RLR (1964) is 12.0m below TGBM TA 1989 1630

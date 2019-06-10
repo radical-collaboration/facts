@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
+Mahon is on the island of Minorca and is a new station first data 2009 and
+forms part of the newly established REDMAR network. Gauge is a MIROS radar sensor.
+Benchmark NGAB MAREOG-MAO is 1.219m relative to the REDMAR datum and 1.336m
+relative to IGN. See paper B. Perez et al 'Overlapping sea level time series
+measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 39.891667 4.270000 as derived from a previously degrees and minutes value to 39.89304 4.27056 the site of the new MIROS gauge in decimal degrees.
+

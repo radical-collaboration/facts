@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
+Lianyungang	    610/033 RLR(1990) is 12.5m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :   
+Using data values from the latest UHSLC JASL cd data values for 1995-1997 have
+been added to the 'METRIC' dataset. Before adding the 3 years of data where the
+data values overlapped a difference of 5-10mm was evident.
+

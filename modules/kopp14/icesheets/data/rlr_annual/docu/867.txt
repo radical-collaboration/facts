@@ -1,0 +1,6 @@
+NOTICEABLE METEOROLOGICAL INFLUENCES
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Piramide            860/041 RLR(1971) is 12.5m below Punta Fijo No 3
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Piramide            860/041 RLR(1971) is 12.5m below Punta Fijo No 3
+

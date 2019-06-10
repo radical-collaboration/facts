@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
+Dongfang            610/008 RLR(1990) is 12.0m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :
+Using data from the latest UHSLC JASL cd data values for 1995-1997 have been
+added to the 'METRIC' dataset. The added Hawaii data refers to a different
+datum.
+Dongfang is an historic station last data added to 'Metric' dataset supplied
+by UHSLC
+

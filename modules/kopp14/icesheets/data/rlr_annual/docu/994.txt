@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-JAN-96 :
+There was a magnitude 7.8 earthquake about 20 km offshore of northern Chile on 30 July 1995 which produced a tsunami of 1.3 m at Caldera and which was seen in many records across the Pacific (information from NTF, Australia).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan26 :
+For a review of the new Chilean tide gauge network, see "Tides in the Chilean Coasts" by Juan J. Fierro, Hydro International,Jan/Feb 2001, pp.7-9.COASTLINE PRONE TO EARTHQUAKE ACTIVITY;
+DATA POSSIBLY AFFECTED AS A RESULT
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Caleta Percy        850/071 RLR(1964) is 8.8m below BM1. Caleta Percy is an historic station last data 1964.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Dec-2015 :   
+This station was previously flagged on review the station flag has been removed.
+

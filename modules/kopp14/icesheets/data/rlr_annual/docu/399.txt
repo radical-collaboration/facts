@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Portsmouth(Norfolk) 960/065 RLR(1973) is 8.6m below BM"Yard"=5
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Portsmouth(Norfolk) 960/065 RLR(1973) is 8.6m below BM"Yard"=5
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Feb-2012 :   
+This is now an Historic station last data received was that for 1987. On the
+original RLR diagram the Primary benchmark was listed as BM 'Yard' 5 3.984
+relative to TGZ this corresponds with NOAA listed Primary benchmark named F 9
+USN.
+

@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Port Tudy           190/103 RLR(1979) is 11.1m below BM RepereA(1975)
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Port Tudy           190/103 RLR(1979) is 11.1m below BM RepereA(1975)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Mar-2012 :   
+Last data received from Port Tudy was that for 2007.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Sep-2014 :   
+Data for 2008-2013 received from SONEL.
+

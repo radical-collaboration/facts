@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Barahona            936/011 RLR(1969) is 8.5m below BM1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Barahona            936/011 RLR(1969) is 8.5m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2012 :   
+Barahona is now an Historic station. Dataset is 1954-1969 with a gap from
+1959-1965. This station no longer features on the NOAA website.
+

@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from the University of Nottingham web site:http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-SEP-93 :
+Cromer      170/066     RLR(1992) is 14.3m below BM TG 2193 4233
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+Gauge from 1985 was an Aanderaa pressure system, replaced by an "A Class" bubbler in March 1988.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAY-98 :
+August-September 1996: doubtful datum
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar13 :
+Pressure point moved 6th October 2001, resulting in possible datum 'jump'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Nov-2006 :
+Historic tide gauge information: The gauge installed in 1988 was levelled by an external company and was later found to be .2m out. Following this a temporary gauge was fitted with the datum being based on the previous value until the new gauge with 3 sensors fitted in 2001.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
+Complete station flagged as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jul-2014 :
+From mid July 2012 the primary channel was reading ~50mm high. The mid tide tube had been severed and the full tide tubes damaged. Following a visit in Dec. 2012 the primary channel was again functioning.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-May-2015 :
+There were problems with the gauge throughout 2014. During Jan-Apr readings were in the order of 20-30mm high while in July and August HWs appeared low. From September onwards it was suspected that the gauge was blocking. TGI were at site on four separate occasions. No levelling was carried out during 2014.
+

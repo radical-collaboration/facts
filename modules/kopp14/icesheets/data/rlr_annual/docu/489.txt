@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Feb25 :
+Nieuwpoort          160/031 RLR(1974) is 11.0 below BM RF-N2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2011 :
+There seems to have been some confusion regarding the RLR factor for Nieuwpoort following the introduction of the TAW datum in 1981. Previously RLR factor 4.784m was added to the data. From the correspondence file this now appears in error from the 1981 data onwards the RLR factor has now been reset to 4.793m the data have been adjusted.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Jul-2012 :
+While preparing to enter the 2010 data it was noticed the the non Doodson filtered data values had on occasion been entered for 2008/9. These values were replaced using the Doodson filtered figures.
+

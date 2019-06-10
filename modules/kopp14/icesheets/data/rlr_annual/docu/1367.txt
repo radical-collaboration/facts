@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Oct-2011 :
+Using metadata from the National Tidal Centre, Australia Whyalla has been made RLR. Datum is Chart Datum (CD) benchmark is BHP BM (PM24) 10.580m above CD. RLR factor is 5.420m.
+

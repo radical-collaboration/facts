@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAY-95 :
+August 1982 value revised, 11th May 1995
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-FEB-97 :
+data for 1951, 1982 and 1987 revised in February 1997
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar03 :
+Swinoujscie         110/092 RLR(1997) is 9.9m below BM iron bolt
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar03 :
+Swinoujscie was before World War II in Germany and known as Swindemunde with data from the Geodetic Institute Potsdam (authority 08). Data of that time were based on readings of 1,3,4 or 8 times per day. Last data for Swinoujscie is 1999 due to data policies in Poland
+

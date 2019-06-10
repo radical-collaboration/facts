@@ -1,0 +1,3 @@
+Add 5.62m to all data values to refer to RLR (1986)
+RLR(1986) is 11.2m below BM Fundamental Bench Mark
+Principal Datum (formerly Ordnance Datum) is approx. 1.23m below MSL(1965-83).

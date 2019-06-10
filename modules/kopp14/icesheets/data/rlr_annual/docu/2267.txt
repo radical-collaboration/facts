@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2015 :
+Qui Nhon II is a new station data has been supplied by UHSLC. Using information from the UHSLC levelling sheet Qui Nhon II has been made RLR. Primary benchmark is KTTV which is 5.166m above the datum.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2015 :   
+Complete updated JASL dataset 2007-2014 loaded onto the database.
+

@@ -1,0 +1,4 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jul-2011 :   
+Ubin is a new station from 2009. Datums Cut Mark 4.491m above ACD. BM MPA3
+4.932m above ACD. Station made RLR 26.7.11. RLR factor is 5.168m.
+

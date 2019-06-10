@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tarifa              220/021 RLR(1951) is 9.3m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Nov17 :
+all data on file replaced with values received for 1943-89, 1991-97 from authority 68
+RLR revised using 1997 information
+gauge type:1943-89  mechanical float
+gauge type 1991-    mechanical float with digital output
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar22 :
+Data for 1997 revised and RLR was re-calculated using 1997 as the RLR year.
+For 1991 data onwards RLR factor is 5.900m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Dec-2008 :
+Database updated with revised dataset supplied by Maria Jesus. Previous values copied and stored in the file.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Jan-2012 :
+Following receipt of the revised data the RLR data looks to be in error. Whereas previously the dataset had three different RLR factors it now looka as if only one should be applied to the whole dataset. As the precise datum for the revised data is unknown the RLR values have been supressed until we can clarify the situation with IEO.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Jul-2013 :
+From information from IEO the primary benchmark is now CRUZ 3.30m above TGZ. RLR factor is 5.9m for the whole dataset.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Sep-2014 :
+Using values from a listing recently supplied by the IEO the co-ordinates for Tarifa have been revised.
+

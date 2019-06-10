@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Fort Pulaski        960/031 RLR(1964) is 9.8m below BM5(1939)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2011 :
+Data downloaded directly from the NOAA website. Datum information also downloaded NOAA Primary benchmark is BM 5 4.877m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
+Using data from NOAA the RLR diagram has been re-drawn. Primary benchmark remains BM 5 4.877m above gauge datum
+

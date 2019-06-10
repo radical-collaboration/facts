@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-OCT-97 :
+Analysis of Suez Canal data is described by F.M.Eid, S.H.Sharaf El-Din and K.A.Alam El-Din, "Sea-level variation along the Suez Canal",Estuarine, Coastal and Shelf Science,44,613-619,1997.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Port Said           330/001 RLR(1946) is 8.3m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Apparent datum shift in RLR record around 1936.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+For a discussion of submergence near to Port Said see Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges), 1991, Springer-Verlag, page 35. However, see also note above about possible datum shift in the tide gauge data.
+

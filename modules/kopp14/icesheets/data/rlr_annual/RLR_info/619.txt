@@ -1,0 +1,2 @@
+Add 5.801m to all data values to refer to RLR (1990)
+RLR (1990) is 9.4m below BM DHN No. 1

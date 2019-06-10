@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Dubrovnik           280/081 RLR(1964) is 11.3m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-MAR-92 :
+Prior to 1990 data from Hidrografski Institut, Split
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Tide gauge of the State Hydrographic Institute at Split
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Gauge=A. Ott, Kempten
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Jan-2011 :
+The tide gauge at Dubrovnik has been operational since 1956.Following receipt of a station information sheet: Primary benchmark is R1 5.333. above TGZ. Secondary benchmark is A 496 4.789 above TGZ. RLR factor is 5.967m.
+

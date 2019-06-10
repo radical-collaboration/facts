@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Feb-2016 :
+Sandown Pier is a new station operated by the Channel Coastal Obsevatory (CCO) based at NOC Southampton. Instrument type is a Rosemount WaveRadar Rex. The datum of the data is Admiralty Chart Datum (ACD) 8.429m below TGBM. Tide Gauge Zero (TGZ) is 8.112m above ODN and ACD is 2.44m below ODN. Sampling interval is 10mins.
+

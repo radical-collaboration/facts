@@ -1,0 +1,20 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-APR-93 :
+The Colombian earthquake of 12 December 1979 caused the coast around Tumaco (station code 842/021) to subside up to 1.6m - see Herd et al. 1979, Science, 211, 441-445.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-NOV-92 :
+1953-90 DATA REVISED, NOVEMBER 1992 DECEMBER 1989: AN EARTHQUAKE CAUSED A VERTICAL LAND SUBMERGENCE,OR APPARENT SEA LEVEL RISE, OF APPROXIMATELY 15.2CM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-APR-93 :
+1988-92 data from several tide gauges as follows:Jan 88-Sept 89    Stevens,Dec 89-Nov 90 ADR Digital,Dec 90-Oct 91 Fuess,Nov 91-June 92 ADR Digital,July Nov 92 Seba,Dec 92 onwards Digital
+
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-MAY-93 :
+datum shift queries in 1973,1974 and 1984
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-MAY-93 :
+datum shift in 1990
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Tumaco              842/021 RLR(1964) is 10.3m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-OCT-04 :
+data from 1997 on received from University of Hawaii Sea Level Center
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :
+Using data from the latest UHSLC JASL cd the 'METRIC' dataset has been updated. Data values for 2001-2011 have been added to the dataset. The whole dataset has several datum shifts in it.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2015 :
+Updated JASL data for 2011-2014 added to the 'Metric' plot.
+

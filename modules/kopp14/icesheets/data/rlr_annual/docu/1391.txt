@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
+Chichijima          648/001 RLR(1993) is 8.3m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :   
+The GPS benchmark information has been downloaded from SONEL website. GPS benchmark P213 is 13.036m above RLR.
+

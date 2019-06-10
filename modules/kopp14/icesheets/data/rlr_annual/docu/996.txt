@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah added 17/01/03 which supercedes old data. New data does not have any missing days information.Old data has been backed up.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah was for Auckland II, Dunedin II,Lyttelton II and Wellington II.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-OCT-05 :
+There is a new John Hannah paper referring to New Zealand data for Wellington, Dunedin, Lyttelton and Auckland. The reference is: "An updated analysis of long-term sea level change in New Zealand." Geophysical Research Letters, V31, L03307, doi:10.1029/2003GL019166 (2004). DATA PRIOR TO 1984 SUPPLIED BY AUTHORITY 53
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Port Taranaki       690/081 RLR(1988) is 11.8m below New Plymouth BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUN-95 :
+1992: apparent datum change.  Authority have confirmed that no change in datum was made and gauge malfunction is thought likely.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2008 :
+Revised data received from Glen Rowe at LINZ data span 1984-2007. Previous data from database 1984-1995 copied and replaced with revised dataset.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jul-2016 :   
+Historic data 1955-1983 have been supplied by LINZ these have been added to the database.
+

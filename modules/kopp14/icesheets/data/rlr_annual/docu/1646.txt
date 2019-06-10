@@ -1,0 +1,6 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Settlement Point    941/001 RLR(1986) is 8.5m below BM 0441 A 1985
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :   
+Using NOAA data the RLR diagram was reviewed. Primary benchmark is still 0441 A
+1985 13.725m relative to gauge datum (TGZ).
+

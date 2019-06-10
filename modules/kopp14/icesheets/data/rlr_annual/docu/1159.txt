@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
+Revised data received from the National Tidal Centre, Bureau of Meteorology, South Australia. SEAFRAME station installed 27/11/1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JAN-98 :
+up to 1971: gauge type=Leupold and Stevens
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+This is a "baseline station" of the Australian National Tidal Facility.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+Broome              680/497 RLR(1996) is 14.94m below "Tidal BM"
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2011 :
+From information from both the National Tidal Centre and Geoscience Australia it appears that the datum reference for Broome has been changed from Tide Gauge Zero (TGZ) to Lowest Astronomical Tide (LAT). Lat is 0.86m below TGZ and 5.322 below the national datum AHD. To accommodate the change the RLR factor has been revised from 2.4m to 1.54m.
+

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-AUG-92 :
+ITALIAN LEVELS MAY BE INFLUENCED BY THE MESSINA EARTHQUAKE
+OF 1908 - SEE BOTTARI ET AL., TECTONOPHYSICS, 202, 269-275, 1992
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jan25 :
+Catania             260/031 RLR(1970) is 11.7m below BM (Vert.Mark in gauge)
+Catania is an historic station. Last data 1971.
+

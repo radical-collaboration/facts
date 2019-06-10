@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
+Ishigaki II         646/042 RLR(1993) is 9.7m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Ishigaki gauge replaced June 1979.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Ishigaki II replaced Ishigaki (646/041) 1st October 1986.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake of magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Penisula of Tohoku. The earthquake was the largest ever to hit Japan and triggered a tsunami with waves of up to 40.5m which travelled up to 10km inland.
+

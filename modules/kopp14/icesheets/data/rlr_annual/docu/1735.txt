@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000May30 :
+A float gauge (made by SIAP) was installed in the Grand Habour Valletta at Marina Pinto Whart in October 1988. It was damaged in April 1994 and re-erected in March 1995 at Dockyard Creek (Vittoriosa) which is a more sheltered site. The same TGZ was used. From 29/12/92-8/3/93 the gauge was broken. Periods 27/11/93-15/2/94, 27/4/94-18/3/95 had missing data due to repositioning of gauge.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000May30 :
+Valletta            265/001 RLR(1996) is 9.8222m below pre-46 Customs House BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Aug17 :
+The Valletta gauge was moved in February 2000 from Dockyard Creek to Laboratory Wharf which is further into the Grand Harbour.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-May-2008 :
+The gauge was moved in November 2005 - see email of 14.10.05 the revised datum is .11m above the previous TGZ. To accommodate this the RLR factor was revised to be 6.610m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Mar-2011 :
+Following the move of the tide gauge in 2005 the plotted data appeared high. On investigation it transpired that Joe Bianco had been adjusting the data for the .11m difference in TGZ before supplying the data. The RLR factor had also been adjusted for the difference so the data has been doubly adjusted. The RLR factor has now been re-set to its former value of 6.500m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Nov-2012 :
+When re-located the tide gauge was positioned in the south of Malta at Port Marsaxlokk 35deg 49.2038N 14deg 31.9773E. These co-ordinates have only recently been supplied to the PSMSL. Joe Bianco Hydrographer for Transport Malta has confirmed the station should now be known as Marsaxlokk. See letter of 7.11.12
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jun-2016 :   
+Data has now been received from the re-located gauge at Marsaxlokk. Data values were supplied to Chart Datum as before but in G.M.T. previously the data was supplied in LOCAL time G.M.T. + 1 hour.
+

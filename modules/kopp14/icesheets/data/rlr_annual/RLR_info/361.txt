@@ -1,0 +1,6 @@
+Add 6.745m to data values up to 1959 to refer to RLR (1964)
+Add 4.014m to data values 1960-1962 to refer to RLR (1964)
+Add 2.186m to data values 1963-1972 to refer to RLR (1964)
+Add 1.975m to data values 1973-1975 to refer to RLR (1964)
+Add 4.495m to data values 1980 onwards refer to RLR (1964)
+RLR (1964) is 10.813m below TGBM NJ 9525 0590

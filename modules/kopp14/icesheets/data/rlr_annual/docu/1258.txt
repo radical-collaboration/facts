@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the
+coasts of Pakistan and India, see Clarke and Liu, Journal of
+Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL.
+MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tangachchimadam     500/085 RLR(1972) is 11.1m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Oct-2012 :   
+This is now an historic station. last data 1983.
+

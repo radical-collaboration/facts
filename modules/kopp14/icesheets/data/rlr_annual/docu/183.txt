@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Portland (Maine)    960/181 RLR(1964) is 11.4m below BM31
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2011 :
+Using NOAA data the RLR diagram has been re-drawn. The Primary benchmark BM 31 8.406m above gauge datum remains the same but has now been given the full name ELEV 14.501 FT TIDAL 31 as appears on the NOAA website.
+

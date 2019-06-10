@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-FEB-92 :
+No datum connection can be made between Port Moresby code 670/011
+and Port Moresby code 670/012
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-MAY-96 :
+Revised data for 1984-1990 received from the National Tidal Centre, Bureau of Meteorology, South Australia. Data previously received from C.S.I.R.O Tasmania
+This is an historic station last data 1994
+

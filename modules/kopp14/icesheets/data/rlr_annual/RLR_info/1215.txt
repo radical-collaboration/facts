@@ -1,0 +1,4 @@
+Add 4.960m to data values up to 1975 to refer to RLR (1995)
+Add 4.890m to data values 1976-1977 to refer to RLR (1995)
+Add 4.873m to data values 1978 onwards to refer to RLR (1995)
+RLR (1995) is 11.7m below BM NW 9976 5421

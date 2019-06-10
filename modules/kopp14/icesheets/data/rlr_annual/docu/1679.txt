@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Sep03 :
+Acoustic gauge (Aquatrak 4100 series sensor) installed in April 1999
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun05 :
+New analogue chart, float gauges were installed in 1985 in 4 Turkish
+stations: Antalya II, Bodrum II, Metes/Izmir and Erdek. All were
+replaced by new acoustic systems in 1998-99.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun05 :
+Mentes              310/042 RLR(1995) is 8.794m below BM MAR 1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2010 :   
+Mentes is on the Aegean Sea. This station forms part  of the Turkish Sea Level
+Monitoring Network. The total dataset has been revised by the authority.
+Therefore a new RLR diagram was created. RLR (2006) is 8.000m below TGBM
+MNTS-1. RLR factor is 5.244m.
+

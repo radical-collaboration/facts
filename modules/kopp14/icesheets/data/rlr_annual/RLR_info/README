@@ -1,0 +1,7 @@
+This directory contains datum information for each of the RLR time series.
+If this is an RLR data set, then this information has been applied to the data. 
+Thus, no further use of this information is needed in an analysis of the tide
+gauge time series.
+
+Please see the PSMSL website for further information on RLR:
+http://www.psmsl.org/data/obtaining/rlr.php

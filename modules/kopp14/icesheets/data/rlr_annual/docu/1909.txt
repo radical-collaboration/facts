@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
+Isabela de Sagua is now RLR. BM 4507 is 1.156m above the Geodesic National Datum (GND) while TGZ is -0.62m below GND. The data is referred to TGZ. RLR factor is 5.724m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Mar-2016 :
+To reflect the fact that the monthly means supplied refer to TGZ and not GND the RLR diagram has been redrawn. As a result the RLRFAC has changed fron 5.724m to 6.324m. RLR (2008) is now 8.1m below TGBM 04507.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+Using recent information received from Cuba the tide gauge sensors are from 1972 a float recording hourly and from 2013 a radar with 6 minute frequency.
+

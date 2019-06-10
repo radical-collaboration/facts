@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Papeete             780/011 RLR(1983) is 8.1m below BMNU-2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-APR-96 :
+prior to July 1992 data from acode 97 all data received from TOGA SLC
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-OCT-96 :
+instrument type:1975-6/1992: float and well gauge Fischer and Porter Analog-to-Digital Recorder; 7/1992-  Aquatrak acoustic gauge, NOAA Next Generation Water Level Measuring System(NGWLMS)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2010 :
+Data up to 1996 was originally in Hawaii format with an RLR value of 5.956m. 1997 was missing and data for 1998-2002 was obtained from NOAA these numbers were very different with a RLR of -5.731m. The complete dataset 1975-2009 has been supplied by UHSLC in Hawaii format. After comparing these with existing data values these has been loaded onto the database. RLR value is once again 5.956m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Aug-2012 :
+Following the receipt of the complete dataset 1975-2009 from Hawaii the NOS datum 11.687m below the Datum 1975 onwards has been included in the RLR diagram for information only.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Feb-2014 :
+Following information received from SHOM regarding the Papeete gauge it was realised that id. 1397 should include the complete UHSLC dataset 1975-2012. This dataset has now been loaded. SHOM confirmed that although on French Polynesia the tide gauge at Papeete belongs to UHSLC since its installation in 1975. However, SHOM has an office close to the tide gauge so work closely with UHSLC to maintain and control the instrumentation.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Sep-2015 :
+Using information from the UH levelling sheet previous data for Papeete the PSMSL id. 1260 (1969-1975)has been added to this dataset together with the updated JASL data.
+

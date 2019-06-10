@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2010 :
+Station Tuas (West Jurong) is a separate station to West Tuas. Dataspan of Tuas starts in Jan 1997. Tuas (West Jurong) was made RLR in 2009. RLR year is 2008. Primary benchmark MPA 3 is 4.5m above ACS. RLR (2008) is 9.7m below BM. RLR factor is 5.200m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Jan-2014 :
+The tide gauge at West Jurong was decommissioned in August 2013.
+

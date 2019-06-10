@@ -1,0 +1,14 @@
+1952 - 1958 VALUES BASED ON READINGS OF HIGH AND LOW WATERS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Madras              500/091 RLR(1964) is 11.4m below BM 160/30
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL. MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Sep-2010 :
+The original benchmark BM 31 was 5.477m above the datum for 1880-1920. In 1952 the benchmark was changed to BM 160/30 this was 5.041m above chart datum. in 1992 the benchmark was changed to BM 160/23 5.04m above chart datum. This benchmark now remains the primary benchmark.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jan-2016 :   
+We have changed the first line above, indicating that the MTL ends in 1958, not 1956 as was previously stated.  We have verified that the values in the database are those from Pub. Sci. 20, in which they were indicated as MTL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=1 mm has been applied to the RLR data for the period 1952-1958.  This value was derived from the average of three differences in the annual MSL and MTL listed in Pub. Sci. 24.  Note that no correction has been applied to the metric data.
+

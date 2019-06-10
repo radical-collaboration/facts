@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Nov-2010 :
+Previous dataset ended in Oct. 2003. Complete dataset 1996-2008 supplied by the previous authority UHSLC. These were checked against existing data values and were then loaded onto the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Oct-2013 :
+Complete UHSLC dataset 1996-2012 added several values had been revised from the previous dataset.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Oct-2015 :   
+Complete updated UHSLC dataset has been reloaded. Using the UHSLC levelling information the station has been made RLR. Primary Benchmark is UH 1 5.648m above the gauge Datum.
+

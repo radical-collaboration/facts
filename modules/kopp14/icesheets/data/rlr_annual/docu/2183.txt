@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Jan-2014 :
+Site History:
+June 1986 Leupold and Stevens model 71 gauge installed at Liwatoni Jetty.June 1991 Fisher and Porter gauge installed.1995 New gauge Handar 436 SDI 12 installed.The data set for this station was originally included in Mombasa id. 370. The early part of the dataset was part of the TOGA project. All data comes from tide gauges installed by UHSLC so the data has been separated.Before 2010 there were several individual data entries. In 2010 the complete dataset 1986-2008 was supplied by UHSLC.Data values from the individual entries were checked
+with the supplied complete dataset. Data were the same apart from data for Sept.-Dec. 2001 which varied between 2-3mm lower.Previously held data ended in 2001.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :
+Whole dataset has been updated with the latest JASL data through to Dec 2014. Several datapoints have been revised/added. Using the UH levelling sheet the RLR diagram was also revised. The original diagram was based on levelling exercises for 1987, 1989 and 1995. Primary benchmark was BM@ 3.80. above the datum. Primary benchmark was changed to BM -1 5.672m following the 1998 levelling. Primary benchmark BM -1 has been added to the RLR diagram.
+

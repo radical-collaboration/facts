@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Nov-2011 :
+Trieste II is a new station. Data and metadata downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA). Data January 2001 onwards. Database id.2099.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Aug-2012 :
+Trieste II is now RLR. Primary benchmark 00CJ_D01_001 is 3.5195m (displayed as 3.52 on diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
+

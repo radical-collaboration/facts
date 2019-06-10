@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from the University of Nottingham web site: http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Devonport           170/157 RLR(1975) is 11.3m below BNSX4468 5434
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-FEB-94 :
+DATA BEFORE MARCH 1991 RECEIVED FROM HYDROGRAPHIC DEPT.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUL-94 :
+Numerous datum shifts and spikes with respect to Newlyn's record.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JUL-94 :
+Since March 1991, Devonport has had an "A Class" bubbler gauge operated by POL.  Previously a Lea gauge had been in use since 1961 and the data processed by the Hydrographic Department.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jul-2014 :
+No site visits were carried out to Devonport in 2013
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-May-2015 :
+TGI were at site 14.01.14 to carry out general maintenance and change the commpressor. Some readings were approximately 30mm low in places during February. No levelling was carried out during 2014.
+

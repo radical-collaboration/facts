@@ -1,0 +1,20 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-SEP-93 :
+Milford Haven (Hakin)    170/182    RLR(1992) is 20.0m below TGBM SM 8921 0536
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+An "A Class" bubbler was installed in December 1989. Prior to that
+various Munro systems had been used.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Nov-2006 :   
+data for 1989 flagged due to spike Dec 1989.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Nov-2006 :   
+Gap in dataset 2003 - 2004 due to gauge malfunction.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-May-2013 :   
+There are no MSL values for 2012. This is due to tube damage to the primary channel as a result it is recording approximately 40mm high.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+During the beginning of 2013 the primary channel was occasionally recording 40-50mm out. On a site visit on 10.03.2013 the channels were cleaned and the gauge operation checked. Another visit was carried out on 18.07.2013 for general maintenance and to change the compressor.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
+During Jan-Mar values were erratic being +/-30mm. TGI were at site 07.11.14 to carry out general maintenance and to change the compressor.
+

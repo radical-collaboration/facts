@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+St Jean-Port-Joli   970/066 RLR(1973) is 21.8m below BM CLXXVII
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+St Jean-Port-Joli   970/066 RLR(1973) is 21.8m below BM CLXXVII
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Aug-2010 :   
+Primary benchmark 1968-1978 is BM CLXXVII. Primary benchmark 1979 onwards BM
+POJO-2-1967. This does not alter the RLR factor of 6.770m. Last data April 1979.
+

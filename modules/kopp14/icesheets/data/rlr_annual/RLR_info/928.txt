@@ -1,0 +1,3 @@
+Add 5.409m to all data values to refer to RLR (1963)
+RLR (1963) is 8.4m below BM H 41G
+LLD = Land Levelling Datum

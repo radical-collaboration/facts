@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set. DATA Data for 1961-1964 supplied by Queensland D.O.T. The gauge was re-sited in 1982
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
+Data for 1957-58,1966-84 revised with new set received from the National Tidal Centre, Bureau of Meteorology, South Australia
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-JAN-98 :
+Gauge located on a navigation beacon at the mouth of the Brisbane River gauge type: currently pneumatic bubbler 1964-66 float/stilling well on Bishop Island 1966-80 float/stilling well at West Inner Bar 1980-1982 pressure diaphragm gauge at Bishop Island
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002May28 :
+Brisbane            680/078 RLR(2000) is 9.102m below BM PSM 21764
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Jan-2013 :
+From documentation downloaded from NTC primary benchmark remains PSM 21764 3.102m above datum
+

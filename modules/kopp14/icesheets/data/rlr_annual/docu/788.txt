@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Monaco(Condamine)   233/011 RLR(1962) is 8.5m below rivet interieur
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUL-94 :
+Apparent datum shift between data from 1950-60's and 1970-80's.Because of this the station flag has been applied.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Jun-2009 :
+When relating the more recent data for Monaco now available from SHOM to the earlier record a apparent anomaly was found in the documentation. In the historic hand written records the
+relationship between Zero NGF and Zero Hydrographique is quoted as being 0.490m. However on the recent datum diagram in site information document for Monaco also available from SHOM this relationship is quoted as being 0.400m. Both values were compared in the RLR adjustment. It was decided that  the better agreement was the 0.400m adjustment giving a RLR adjustment figure of 6.504m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2009 :
+Following revised information from SHOM the RLR factor for 2001 onwards was recalculated to 6.504. See letter of 1.4.2009.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2014 :
+When downloaded from SONEL additional data had been added for year 2000.Because of this the whole dataset was re-loaded. Previously named Monaco (Condamine) this refers to the same site as the station SONEL refer to as Monaco (Fontvieille). To avoid confusion Monaco station has been renamed to agree with SONEL.
+

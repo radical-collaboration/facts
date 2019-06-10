@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Rio de Janiero      874/091 RLR(1964) is 15.8m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-JUL-91 :
+ALSO KNOWN AS FORTALEZA DE SANTA CRUZ
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Rio de Janiero      874/091 RLR(1964) is 15.8m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
+Station is now historic last data received for 1968 and no longer features on
+the NOAA website. Station labelled as 'inactive'.
+

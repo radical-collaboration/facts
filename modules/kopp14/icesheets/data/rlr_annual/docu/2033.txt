@@ -1,0 +1,4 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2010 :   
+Tanjong Changi is a new station first data 2008. TGBM CUT MARK is 4.586m above
+ACD. This station is now RLR with RLR year 2008. RLR factor is 5.214m.
+

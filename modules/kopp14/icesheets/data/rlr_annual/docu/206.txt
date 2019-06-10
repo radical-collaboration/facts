@@ -1,0 +1,10 @@
+1952-1957 VALUES BASED ON READINGS OF HIGH AND LOW WATERS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Port Blair          540/001 RLR(1964) is 11.0m below BM 1E
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Sep-2010 :
+Port Blair was switched to 'Metric' following receipt of the data for 2002 there seems to be anomaly between the information supplied with the data i.e. benchmark name and details to what the data looks like when plotted. Benchmark 1992 Type B 4.39m above Chart Datum and BM No.1E 5.30m above Chart Datum are mentioned in a letter dated 05.07.07. For data 2002 the benchmark is quoted as being BM BOM 4.385m above Chart Datum - could this actually be BM 1992 Type B as previously? For data 2003 onwards benchmark is given as BM BOM 5.04m above Chart Datum although again the data 2006/7 is obviously to a different datum to 2003.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jan-2016 :   
+We have changed the first line above, indicating that the MTL ends in 1957, not 1956 as was previously stated.  We have verified that the values in the database are those from Pub. Sci. 20, in which they were indicated as MTL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=4 mm has been applied to the RLR data for the period 1952-1957.  This value was derived from the average of two differences in the annual MSL and MTL listed in Pub. Sci. 24.  Note that no correction has been applied to the metric data.
+

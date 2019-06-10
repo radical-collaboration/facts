@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Midway Island       760/001 RLR(1964) is 9.2m below BM21
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Primary benchmark remains BM 21 named 21 1959 in the NOAA report 3.343m above gauge datum.
+

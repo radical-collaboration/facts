@@ -1,0 +1,21 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-05 :
+A paper by Marcos et al (JGR Volume 11, 2005) provides an overview
+of the tide gauge records on the northern coast of Spain.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug20 :
+Gauge type=SONAR acoustic
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Gijon II            200/022 RLR(1996) is 10.3m below BM NGU 83
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jan-2011 :
+Previously dataset ended in December 2005. Full dataset 1995 - 2009 received
+from Begona at PE. In both there was no data value for September 2005. The new
+version of the data was 7cm higher than that previously held in the database.
+When queried with Begona she said a datum shift had been detected and the newly
+supplied data was the correct version. Complete dataset was re-entered onto the
+database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Apr-2013 :
+The old SRD acoustic gauge at Gijon has been replaced by a new MIROS radar gauge. Both old and new gauges were running for the period 8.02.2008-1.07.2008 for inter- comparison purposes. A bias (mean difference) between the two gauges of -2.55cm was calculated. The new MIROS gauge suffered some hardware faults (de-lamination) which were later corrected. The PSMSL were instructed by Begona Perez of PEto discard the data for 2008/9 as problems were encountered. See paper B. Perez et al 'Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Further investigatuion from Puertos del Estado has revealed that the bias between old and new datasets indicated an error in the old Acoustic gauge. Data from the old gauge has been revised to account for this. Whole dataset re-entered onto database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been changed from 43.566667 -5.500000 which is the value derived from the previously supplied degrees and minutes listing to 43.55803 -5.69835 the co-ordintes for the new MIROS gauge.
+

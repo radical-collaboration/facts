@@ -1,0 +1,6 @@
+REPLACES MYRTLE BEACH
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Springmaid Pier     960/050 RLR(1984) is 9.3m below BM 1070 A 1976
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
+Using NOAA data the RLR diagram has been revised. Previous Primary benchmark 1070 A 1976 12.04m above gauge datum does not feature in NOAA reports of 1990 and 2003. Current Primary benchmark is 1070 J 1982 11.948m above gauge datum.
+

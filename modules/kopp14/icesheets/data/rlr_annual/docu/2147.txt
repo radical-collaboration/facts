@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2012 :   
+Tel Aviv - Yaffo is a new station. Lat. 32 03'10"N Long. 34 44'59"E it is 
+close to the site of the original Tel Aviv gauge. Data commences January 2011.
+Primary benchmark is 55F 2.972m above gauge datum.
+

@@ -1,0 +1,2 @@
+Add 5.688m to data values to refer to RLR (1988)
+RLR (1988) is 8.2m below BM 3080 A 1982

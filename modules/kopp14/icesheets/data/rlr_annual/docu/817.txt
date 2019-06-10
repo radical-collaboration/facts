@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tan-nowa            643/017 RLR(1976) is 9.1m below Attached BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Tan-nowa            643/017 RLR(1976) is 9.1m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Nov20 :
+Datum 1998 is 1.848m below Tokyo Peil.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Feb-2011 :   
+Buddy checked with both Sumoto and Osaka compares well.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :   
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday
+11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of
+Tohoku. It was the most powerful known earthquake to hit Japan triggering a
+tsunami with waves up to 40.5m and travelling up to 10km inland.
+

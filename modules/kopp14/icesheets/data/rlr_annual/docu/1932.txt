@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Jan-2011 :
+Although data for Ibiza has been supplied since 2003 latitude and longitude
+have only recently been confirmed. Ibiza is now RLR. RLR year 2004 factor
+6.716m. Benchmark IB1 is 0.884m relative to REDMAR datum and 0.56m relative to
+IGN.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Mar-2013 :
+The Aanderaa pressure gauge at Ibiza has been replaced by a new MIROS radar sensor. Both new and old gauges were running for the period 24.09.2009-18.10.2010 for inter-comparison purposes during which a malfunction of the old sensor was detected. A bias (mean difference) of -0.81cm between the two gauges was calculated. See paper by B. Perez et al 'Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Further investigation revealed that the bias was due to a problem in the old pressure gauge. Data from this was revised. Complete dataset re-entered onto database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 38.916667 1.450000 derived from the previously supplied degrees and minutes listing to 38.91123 1.44984 the site of the new MIROS gauge in decimal degrees.
+

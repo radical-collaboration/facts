@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jan-2014 :   
+This is a new UH gauge. Data begins 2007 and cannot be linked with the previous historic data.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jun-2015 :   
+Using information from the UHSLC levelling sheets Chittagong A has been made RLR.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Oct-2015 :   
+Complete dataset 2007-2014 loaded from the latest JASL information
+

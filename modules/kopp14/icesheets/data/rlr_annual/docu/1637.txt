@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Bergen Point,Staten 960/132 RLR(1986) is 10.4m below BM 9483 A 1981
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
+Using NOAA data the RLR diagram has been revised. Previous Primary benchmark 9483 a 1981 5.553m above gauge datum (TGZ) does not appear in the NOAA reports of 2000 and 2003. Current Primary benchmark is 9483 B 1981 6.428m above gauge datum (TGZ).
+

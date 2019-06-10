@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Aug-2010 :
+Supplying authority have confirmed measurement datum from 3/12/1997 is Chart Datum. Primary tide gauge benchmark DMH 052 is 12.796m above Chart Datum. RLR (2008) defined as 18.2m below DMH 052
+

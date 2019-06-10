@@ -1,0 +1,13 @@
+1941-1942 DATA SUPPLIED BY AUTHORITY NO. 66
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+St Nazaire          190/111 RLR(1974) is 11.9m below BM NGFN.45
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+St Nazaire          190/111 RLR(1974) is 11.9m below BM NGFN.45
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2010 :
+New primary benchmark IGN "NGF" OKS 69 was installed in 1990 8.852m above the then Chart Datum. In 1996 the value for Chart Datum was lowered by 0.4m. So new benchmark IGN
+"NGF" OKS 69 now 9.252m above the new Chart Datum.
+RLR factor for data 1941-1996 is 3.905m. RLR factor for data 1996 onwards is
+3.505m. RLR (1974) is 12.757m below TGBM IGN "NGF" OKS 69
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Oct-2014 :
+Using data from SONEL the latitude and longitude for St. Nazaire has been updated. The data downloaded from SONEL contained a number of additional and revised data points particularly around the early 2000's. Because of this the whole dataset was reloaded onto the database. This revised dataset had been adjusted to the same datum. With the revision to the dataset data values for 1943 onwards now have the RLR factor 3.505m.
+

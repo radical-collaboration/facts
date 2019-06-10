@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+San Mateo           823/034 RLR(1986) is 9.4m below BM Guano Is 1851
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+San Mateo           823/034 RLR(1986) is 9.4m below BM Guano Is 1851
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
+This is an historic station. Last data value received is that for August
+1988. Station has been labelled 'inactive'. Before the data ended the
+Primary benchmark was changed to BM 1 9.576m relative to gauge datum.
+

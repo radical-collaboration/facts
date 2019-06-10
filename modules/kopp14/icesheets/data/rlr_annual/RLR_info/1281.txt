@@ -1,0 +1,4 @@
+
+Add 4.701m to data values up to 1976 to refer to RLR (1982).
+Add 4.591m to data values 1977 onwards to refer to RLR (1982).
+RLR (1982) is 11.2m below BM NJ 4320 6603

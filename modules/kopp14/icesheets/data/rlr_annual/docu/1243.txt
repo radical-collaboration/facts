@@ -1,0 +1,18 @@
+1969-1980 Data  from readings of tide pole
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-97 :
+The contributing authority advises that anomalous values
+are the result of met. influences
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2011 :
+During 2003 the method of recording the sea level at Rodhos was changed from
+recording downwards to the more conventional recording upwards. The elevation
+relevant to benchmark R 4 is now 1.916m giving a revised RLR factor of 6.484m.
+Data points Feb - Aug 1992 flagged as the data looks anomalous when buddy
+checked with data for Leros. Although Leros is a way away the sea level
+profiles are in the main comparable.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Mar-2013 :
+Following receipt of datum diagrams from the Hellenic Navy the RLR diagram has been re-drawn. In consequence both the RLR factors and the benchmark reference have changed.
+Rhodos tide gauge was moved in November 2009. This station has been superceded
+by Rhodos II id. 2167
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2014 :   
+Two of the older benchmarks have been added to the RLR diagram R4 0.316m above the old datum and W2 3.211m above the new datum.
+

@@ -1,0 +1,10 @@
+REPLACED MIAMI BEACH IN 1981
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Haulover Pier       960/002 RLR(1988) is 8.2m below BM 3080 A 1982
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Haulover Pier       960/002 RLR(1988) is 8.2m below BM 3080 A 1982
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Feb-2012 :   
+Haulover Pier is now an Historic station. Last data received was that for 
+1992. It still features on the NOAA website Primary benchmark recorded as 
+3080 A 1982 2.513m relativ eto gauge datum.
+

@@ -1,0 +1,3 @@
+Add 4.781m to all data values -1920 to refer to RLR (1947)
+Add 5.391m to all data values 1937- to refer to RLR (1947)
+RLR (1947) is 10.485m below BM - 3

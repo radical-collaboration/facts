@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2010 :
+Tide gauge bench mark PSM 38627 is 18.040 above tide gauge zero (LAT). RLR (2009) is defined as 21.6 m below PSM 38627
+

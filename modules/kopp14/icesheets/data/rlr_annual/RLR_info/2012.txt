@@ -1,0 +1,2 @@
+Add 4.916m to all data values to refer to RLR (2008)
+RLR (2008) is 11.8m below BM A

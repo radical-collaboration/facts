@@ -1,0 +1,3 @@
+Add 6.032m to data to refer to RLR (2008)
+RLR (2008) is 8.1m below TGBM DATUM
+Geodesic National Datum (GND)

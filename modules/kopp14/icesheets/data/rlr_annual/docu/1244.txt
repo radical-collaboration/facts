@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+St Joseph-de-la-Rive970/092 RLR(1974) is 17.0m below BM 1049-B
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Apr-2006 :
+Following receipt of data listings from Authority
+several values for St. Joseph de la Rive for the period
+1994-1997 where updated. Copy of original listing in file.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2010 :
+Data for St. Joseph de la Rive 1969-2008 refers to datum IGLD85 7.253m below
+tgbm BM 1049-B with an RLR factor of 7.047m. Data for 2009- refers to Chart
+Datum 10.647m below TGBM BM 1049-B with an RLR factor of 10.647m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered. As a result a number of previously unflagged points have now been flagged.
+

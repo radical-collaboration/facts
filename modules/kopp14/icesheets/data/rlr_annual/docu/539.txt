@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Pago Pago           745/001 RLR(1974) is 9.8m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Mar-2011 :
+Although not obvious from the data there was a tsunami in the area 29-30 September 2009.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark NO 1 1948 no longer appears in the NOAA reports. Primary benchmark is now 0000 S 1993 AS 29 ASPA 2002 2.557m above gauge datum.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Feb-2013 :
+Data for 2011 and 2012 almost look like a datum change but the profile must be real as that is how it appears on the NOAA website. It also buddy checks well with Apia B id. 1840
+

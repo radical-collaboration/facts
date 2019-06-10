@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Alert               970/162 RLR(1968) is 9.6m below BM-3-1960
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
+Treat data 1965-1968 as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Aug-2010 :
+Tide gauge at Alert was re-instated in January 2003. Same benchmark still used - data collated from the Fisheries and Oceans Canada webpage.
+

@@ -1,0 +1,2 @@
+Add 5.233m to data values to refer to RLR (1969)
+RLR (1969) is 12.6m below BM 2 (1925)

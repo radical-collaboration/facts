@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Alameda             823/032 RLR(1971) is 9.8m below BM8
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Primary benchmark remains BM 8 listed as NO 8 1939 in the NOAA report 4.795m above gauge datum.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2012 :
+For information: Data values during the early 1980's appear to be particularly high.This phenomenon could be due to the El Nino Southern Oscillation (ENSO)as it is mirrored all along the Californian coast.
+

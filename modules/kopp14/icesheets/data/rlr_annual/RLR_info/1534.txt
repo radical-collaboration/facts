@@ -1,0 +1,3 @@
+RLR(1986) is 9.8m below PLBM no.133 
+For data 1981-5 add 5.470m to all values to refer to RLR(1986) 
+For data 1986-   add 5.439m to all values to refer to RLR(1986) 

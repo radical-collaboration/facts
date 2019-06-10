@@ -1,0 +1,6 @@
+INCREASE IN TREND IN MSL RISE SUSPECTED TO BE DUE TO DEPOSITION FROM RIVER DISCHARGES AND EXCESSIVE RECLAMATION ALTHOUGH SUBSIDENCE NOT TOTALLY DISCARDED (LETTER FROM COAST AND GEODETIC SURVEY (13/5/1987).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Manila              660/011 RLR(1974) is 9.9m below BM4a
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar30 :
+gauge type = Ott. Records for Manila started in 1901 with datum of observations TSO 1901 and benchmark 4a 5.342m above the datum. In February 1981 BM 4a was destroyed see letter of 22.01.88. From then onwards BM 4B was used 5.306m above datum. On the sheet accompanying the 1993 data both BM 4B and benchmark GM-1A 6.064m above datum are listed although the main reference remains BM 4B. During 2002 the gauge was moved approximately 1km NNW from the original site,see letter of 21.10.03.Thereafter the reference datum is BM 66 4.509m above datum. The datum remains TSO 1901 throughout the dataset. Gauge type is SUTRON
+

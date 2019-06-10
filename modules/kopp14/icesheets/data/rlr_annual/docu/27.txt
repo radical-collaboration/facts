@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
+A description of the sea level network in Finland can be found
+in 'Operational Oceanography: Implementation at the European
+and Regional scales.  2002 (pp.129-137)'.
+1866-1912 VALUES BASED ON EITHER 1 OR 3 READINGS PER DAY
+NO BM INFORMATION BUT DATA SEEMS HOMOGENEOUS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Uto                 060/291 RLR(1936) is 9.3m below BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Uto                 060/291 RLR(1936) is 9.3m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2012 :   
+Uto is an historic station last data 1936.
+

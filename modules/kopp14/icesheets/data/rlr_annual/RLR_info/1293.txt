@@ -1,0 +1,5 @@
+Add 3.747m to data values 1971-1975 to refer to RLR (1975)
+Add 3.746m to data values 1976-1979 to refer to RLR (1975)
+Add 3.755m to data values 1980-1992 to refer to RLR (1975)
+Add 3.769m to data values 1993 onwards to refer to RLR (1975)
+RLR (1975) is 9.7m below BM Oita

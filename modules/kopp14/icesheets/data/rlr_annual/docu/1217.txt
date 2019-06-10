@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Majuro              720/016 RLR(1983) is 8.4m below BMUGS#1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-OCT-92 :
+LOCATION OF STATION CHANGED IN DECEMBER 1987
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-OCT-96 :
+station not linked geodetically to Majuro A primary gauge 1974-90:  Leupold and Stevens Analog-to-Digital Recorder (ADR)primary gauge 1991-  :  Handar Encoder (ENC)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Nov15 :
+data for 1968-73 and 1997 revised in December 1999
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Newport             960/161 RLR(1964) is 17.4m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
+Using NOAA data the RLR diagram was re-drawn. Primary benchmark now 6 1943 2.813m above gauge datum. for previous Epoch (1960- 1978) value is 2.816m Previously used PSMSL benchmark BM1 relates to current NO 1 1930. Value for this in Epoch 1960-1978 was 11.390m relative to gauge datum for Epoch 1983-2001 value 11.388.
+

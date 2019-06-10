@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-MAR-92 :
+Prior to 1990 data from Hidrografski Institut, Split
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+Values for Februaru-March 1958 and November-December 1960 seem low compared to Trieste. Values correct as received from authority.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Tide gauge of the State Hydrographic Institute at Split
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Gauge=A. Ott, Kempten
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jan25 :
+Rovinj              280/006 RLR(1964) is 11.9m below BM = Contact Point
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Jan-2011 :
+From station report tide gauge at Rovinj operational from 1955 onwards. Primary benchmark BP 82 is 5.820m above TGZ. Benchmark AP 807 is 4.106m above TGZ. RLR factor is 6.080m.
+

@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Cambridge Bay NWT   970/191 RLR(1973) is 13.5m below BM-1,1961
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Cambridge Bay NWT   970/191 RLR(1973) is 13.5m below BM-1,1961
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-NOV-93 :
+Since 1980 monthly means received from Canadian authority are in cm.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :   
+Last data received for this station was 1982
+

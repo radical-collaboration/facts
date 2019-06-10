@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+General Dynamics    960/042 RLR(1988) is 8.7m below BM 4022 A 1976
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+General Dynamics    960/042 RLR(1988) is 8.7m below BM 4022 A 1976
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Feb-2012 :   
+General Dynamics Pier is an Historic station last data received is that for
+1990. This station no longer features on the NOAA website so the Primary
+benchmark remains 4022 A 1976.
+

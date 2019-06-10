@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tokuyama II         643/052 RLR(1971) is 9.9m below BM Tokuyama
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake ever to hit Japan triggering a tsunami with waves up to 40.5m high and travelling up to 10km inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Feb-2013 :
+Previously the RLRFAC for the period 1986-1989 had been left as 4.335m. The RLRFAC for 1986-1989 has now been adjusted to 4.332m.
+

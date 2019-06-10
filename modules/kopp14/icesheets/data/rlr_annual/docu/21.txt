@@ -1,0 +1,18 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Aberdeen II         170/012 RLR(1965) is 10.4m below TGBM NJ9558 0581
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Aberdeen II         170/012 RLR(1965) is 10.4m below TGBM NJ9558 0581
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-AUG-95 :
+The two Aberdeen records are because one (170/011) is MSL and the
+other (170/012) is MTL (Mean Tide Level). There is a systematic 14 mm
+difference in datum between the two which can be determined from
+the period of overlap - see 'Trends in UK mean sea level' by
+P.L.Woodworth, Marine Geodesy, 11, 57-87, 1987.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-NOV-96 :
+Correspondence between MSL and MTL (series 170/011 and 170/012)
+is poor around 1948 because of many missing days.
+

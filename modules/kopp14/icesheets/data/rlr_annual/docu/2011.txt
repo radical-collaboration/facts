@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2009 :
+Portbury is a replacement gauge for Avonmouth.
+Although Avonmouth is still operational the jetty
+that the tide gauge stands on is unsafe and so
+the gauge can no longer be maintained.
+PORTBURY
+TGBM is a brass bolt quay edge adjacent to
+the tide gauge. Benchmark height 9.226m
+Grid ref of the new gauge is ST 4953 7815
+First monthly mean for Portbury is that for December 2008.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Jul-2014 :
+TGI visited the site on 21.10.2013 to carry out general maintenance. During November it was noted that the gauge was recording ~30 high on the falling tide. From 14.12.2013 the power supply to the tide gauge was out of commission. On enquiry the port confirmed that the cable feed to the gauge was faulty and would not be repaired until the New Year.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-May-2015 :
+A battery powered compressor was installed on 13.01.14 mains power was re-instated on 28.01.14.On 16.01.14 a faulty compressor battery was replaced and on the 28th of the month the mains cabling fault was repaired and a new mains compressor installed.On the 25.02.14 a faulty compressor was replaced. On 11.06.14 general maintenance was carried out while on 20.08.14 a dual GSM unit was installed. No levelling was carried out during 2014.
+

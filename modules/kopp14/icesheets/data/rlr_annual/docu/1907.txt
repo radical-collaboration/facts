@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000May10 :
+Float type gauge , installed 1999.  Digitised record.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jun04 :
+Skopelos            290/037 RLR(2000) is 8.760m below R69(YY)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Aug-2013 :   
+Benchmark R 69 YY no longer exists. Benchmark now R 20 0.48m above zero level
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2016 :   
+The supplying authority the Hellenic Navy Hydrographic Service has recently confirmed that the tide gauge at Skopelos is currently out of order due to gauge malfunction.
+

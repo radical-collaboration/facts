@@ -1,0 +1,4 @@
+Add 6.834m to data values up to 1973 to refer to RLR (1982)
+Add 3.714m to data values 1974-1982 to refer to RLR (1982)
+Add 3.724m to data 1983 onwards to refer to RLR (1982)
+RLR (1982) is 13.594m below BM TQ 6233 7567

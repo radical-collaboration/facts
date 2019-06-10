@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Grand Port          450/001 RLR(1959) is 8.2m below BM No1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Grand Port          450/001 RLR(1959) is 8.2m below BM No1
+Grand Port is an historic station last data 1960
+

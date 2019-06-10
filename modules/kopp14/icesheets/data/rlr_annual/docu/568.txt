@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+S Cruz de la Palma B370/015 RLR(1997) is 10.2m below BM borde metalico
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Dec-2008 :
+Whole dataset replaced by revised values sent from Maria Jesus. Previous values copied and put in file.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2010 :
+Santa Cruz de la Palma is in the Canary Islands.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Sep-2014 :
+Using values from a listing recently supplied by IEO the co-ordinates for Santa Cruz de la Palma have been revised.
+

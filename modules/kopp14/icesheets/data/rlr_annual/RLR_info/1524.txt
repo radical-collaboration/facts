@@ -1,0 +1,2 @@
+SUBTRACT 1.932m from data values to refer to RLR (1986)
+RLR (1986) is 13.793m below BM 1250 M 1991

@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-AUG-95 :
+A destructive earthquake and tsunami occurred in the Kuril Islands on
+4 October 1994 - see Earth System Monitor, 5(4), June 1995.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Monbetu I           641/001 RLR(1963) is 9.1m below BM Monbetu
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Monbetu I           641/001 RLR(1963) is 9.1m below BM Monbetu
+This is now an historic station last data 1978
+

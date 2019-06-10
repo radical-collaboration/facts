@@ -1,0 +1,2 @@
+Add 5.450m to all data values to refer to RLR (2004)
+RLR (2004) is 9.3m below BM AP1

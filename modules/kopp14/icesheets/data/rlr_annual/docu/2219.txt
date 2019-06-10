@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Apr-2014 :   
+Ashdod II is a new station. As benchmark and datum information have been supplied the station has been made RLR. Benchmark is asd 01 1.690m above TGZ.
+

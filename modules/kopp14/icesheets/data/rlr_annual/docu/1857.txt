@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
+SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR, 96(B3), 4325-4335, 1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
+Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains BM Cell 4B but now given the official NOAA title of 949 7645 CELL 4B 16.389m above gauge datum (TGZ)
+

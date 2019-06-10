@@ -1,0 +1,18 @@
+1932 - 1958 VALUES BASED ON READINGS OF HIGH AND LOW WATERS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Calcutta (Garden R) 500/141 RLR(1964) is 11.0m below BM 80/1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+Apparent unexplained datum shift around start 1976.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+The records of Calcutta and neighbouring stations will be significantly affected by river flow.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL. MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2008 :
+Last data received  for this station was for 2001. However as the Lat., Long., and benchmark details remain as before the data was simply added to the existing dataset. The benchmark name is BM 1615/1195 previously known as BM 80/1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jan-2016 :
+We have changed the first line above, indicating that the MTL ends in 1958, not 1956 as was previously stated.  We have verified that the values in the database are those from Pub. Sci. 20, in which they were indicated as MTL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=-51 mm has been applied to the RLR data for the period 1932-1958.  This value was derived from the average of three differences in the annual MSL and MTL listed for the station in Pub. Sci. 24.  Note that no correction has been applied to the metric data.
+

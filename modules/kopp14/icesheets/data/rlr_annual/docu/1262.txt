@@ -1,0 +1,7 @@
+NO BM INFORMATION BUT DATA SEEMS HOMOGENEOUS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Manfredonia         270/019 RLR(1971) is 8.9m below BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Manfredonia         270/019 RLR(1971) is 8.9m below BM
+Manfredonia is an historic station last data 1971
+

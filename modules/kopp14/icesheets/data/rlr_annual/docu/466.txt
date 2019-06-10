@@ -1,0 +1,15 @@
+1942 DATA SUPPLIED BY AUTHORITY NO. 66
+1956-1963 DATA SUPPLIED BY AUTHORITY NO. 19
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+La Pallice          190/121 RLR(1978) is 12.2m below BM C1(NGFN.6)1966
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-MAR-93 :
+There are anomalously low values for Oct 62 - April 63.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Dec06 :
+New acoustic gauge installed at La Pallice 28/4/1997 at 4609N 00113W
+(prev. 4610N).  This was replaced by a radar (Krohne BM70) gauge on 23/4/2001.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Mar-2012 :
+Name of the Primary benchmark has been changed to IGN O.O.K3 - 126 9.107m above
+Zero Hydrographique.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
+Using values from the SONEL website the latitude and longitude for La Rochelle have been revised. The downloaded data from SONEL contained some additional data points particularly for the early 1940's. Because of this the complete dataset has been reloaded.
+

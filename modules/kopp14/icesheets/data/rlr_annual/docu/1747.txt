@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Les Sables d'Olonne 190/116 RLR(1996) is 13.3m below BM NGF OHI-LA
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Aug31 :
+Sables d'Olonne acoustic gauge installed 11/05/1999.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Mar-2012 :   
+Primary benchmark for Les Sables d'Olonne is now IGN O.HI - 65 7.756m above
+Zero Hydrographique.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2014 :   
+Using data from SONEL the latitude and longitude for Les Sables D'Olonne has been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+When the data were downloaded from SONEL it was found that there were a number of revisions to the dataset. Because of this the complete dataset was re-loaded.
+

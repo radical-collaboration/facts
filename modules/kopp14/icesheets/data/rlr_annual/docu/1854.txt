@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-May-2012 :   
+Llandudno has been made an RLR station. Primary benchmark TGBM. TGZ (ACD) is 
+12.558m below TGBM. RLR factor is 2.942m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+There was some disruption to some high waters during June. There were 2 TGI visits 04.07.2013 for general maintenance to change the compressor and carry out a survey. 19.12.2013 to inspect the site for storm surge damage and investigate a phone line fault.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
+There were no site visits to Llandudno during 2014.
+

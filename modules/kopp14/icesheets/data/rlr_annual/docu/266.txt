@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
+SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR, 96(B3), 4325-4335, 1991 1964 - 1966 GAUGE SITED ON RAILWAY WHARF
+1966 TO DATE , GAUGE SITED ON ALASKA RAILROAD PIER
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Seward              821/017 RLR(1972) is 13.0m below BM22
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2011 :
+Using NOAA data the RLR diagram has been re-drawn. Data for the period 1925-1963 referred to benchmark BM K-11 which now no longer appears in the NOAA reports. Primary benchmark is now 5090 B 1978 8.314m above gauge datum. The previously used benchmark NO 22 1966 still exists at 9.458m above gauge datum.
+

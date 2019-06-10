@@ -1,0 +1,4 @@
+Add 3.295m to data values 1901-1915 to refer to RLR (1938)
+Add 5.31m to data values 1931-1938 to refer to RLR (1938)
+Add 1.947m to data 1965 onwards to refer to RLR (1938)
+RLR (1938) is 10.2m below BM  Church

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1991 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Baie Comeau         970/098 RLR(1977) is 11.6m below BM 79L004
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :   
+Last data received for this station was January 1991.
+

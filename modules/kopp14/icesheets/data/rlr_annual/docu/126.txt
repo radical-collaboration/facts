@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Trois-Rivieres      970/078 RLR(1983) is 7.5m below BM 3RIV3 1958
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-May-2006 :
+Data for Trois-Rivieres for 1994 replaced by revised values.
+New values appear approx. 40mm higher. 8.5.06
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2010 :
+Data for 1899-2008 referred to datum IGLD85 4.732m below TGBM BM 3RIV3 1958
+with an RLR factor of 2.768m. Data 2009 onwards referred to Chart Datum 1.806m
+below TGBM BM 3RIV3 1958 with an RLR factor of 5.694m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+

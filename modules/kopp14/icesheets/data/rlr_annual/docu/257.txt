@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-OCT-93 :
+1959-72, 1976-81, 1983-85 FCODE=HL, SOME MONTHS BASED ON INCOMPLETE DATA MORE DETAILS AVAILABLE ON REQUEST
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-SEP-94 :
+Gauge was a stilling well (instrument made at Port of Bristol to Tidal Institute specification) until the end of 1984 with tabulations supplied by the Port of Bristol authority.From 21 November 1984 the gauge has been an "A Class" bubbler.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from the University of Nottingham web site:http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Mar21 :
+Avonmouth - 170/171 RLR(1992) is 15.8m below TGBM ST 5057 7881
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
+Treat data 2000 onwards as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Jun-2010 :
+Although the Avonmouth gauge is still operational the jetty on which the gauge stands is collapsing. A replacement gauge has been installed at Portbury.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=127 mm has been derived by Philip Woodworth in preparation of his MTL/MSL manuscript.  In this case the values were derived using from the GESLA2 (high-frequency tide gauge) dataset using harmonic constituents. As the correction is only applied to RLR data and the data during the periods 1959-1972, 1976-1981, and 1983-1985 are metric, it is not used in the data set.  Should these period become metric in future, however, it would be used. The 001 flag has been set only because this correction is highly uncertain.
+

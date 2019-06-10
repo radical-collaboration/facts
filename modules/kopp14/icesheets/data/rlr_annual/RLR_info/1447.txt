@@ -1,0 +1,2 @@
+SUBTRACT 3.412m from data values to refer to RLR (1988)
+RLR (1988) is 10.2m below BM 975 1401 M 1983

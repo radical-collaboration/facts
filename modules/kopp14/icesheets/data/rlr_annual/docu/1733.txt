@@ -1,0 +1,8 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Kota Kinabalu       665/031 RLR(1988) is 10.7m below BM 2018
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Sep-2012 :   
+Publication Tidal Observation Records 2010 confirms the Primary benchmark
+remains BM 2018 6.179m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Oct-2014 :   
+After querying the data value for March 2013 this value has been revised from 4.110m to 2.437m.
+

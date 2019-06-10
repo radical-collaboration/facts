@@ -1,0 +1,17 @@
+NOTICEABLE METEOROLOGICAL INFLUENCES
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Mar del Plata(Club) 860/101 RLR(1977) is 11.8m below Repere No 11
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Mar del Plata(Club) 860/101 RLR(1977) is 11.8m below Repere No 11
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug20 :
+station is equipped with both float gauge and NGWLMS system
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Mar21 :
+Acoustic gauge installed 1992, alongside existing float gauge.
+Mid 1998 - tide gauge found to be left dry after dredging works.
+May 1999 gauge relocated 5km south, within Naval Base.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan09 :
+Mar del Plata (Club) gauge (38 03 S, 57 33W) moved to
+Mar del Plata (Naval Base) (38 02'S, 57 31'W) December
+1998 because of beach works.  New site levelled into
+old benchmark (Repere No.11) and data treated as continuous.
+

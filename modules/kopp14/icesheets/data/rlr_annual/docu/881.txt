@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tokyo I             642/070 RLR(1958) is 9.1m below Attached BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Tokyo I             642/070 RLR(1958) is 9.1m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Tokyo I ceased operating 31st December 1963, and was replaced by
+Tokyo II (642/071) 1st January 1968.
+============================ STATION RELOCATED ============================
+Station moved - new data held in station 642/071
+

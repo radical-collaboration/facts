@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Quebec (Lauzon)     970/071 RLR(1977) is 14.3m below BM 3162
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Aug-2010 :
+Up to 2008 data was referred to datum IGLD85 with a RLR factor of 6.340m. For 2009 onwards data is referred to Chart Datum and RLR factor becomes 4.363m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-May-2013 :
+Quebec (Lauzon) station was dismantled and removed on 31.10.2012
+

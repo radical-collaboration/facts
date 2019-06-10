@@ -1,0 +1,26 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+GAUGE RESITED 1974: DATA APRIL 1974 ONWARDS IS FROM NEW GAUGE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+North Shields       170/053 RLR(1971) is 11.0m below BM FB10888 NZ3560 6781
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-SEP-92 :
+1965-67 PERMANENT TIDE STAFF DISTURBED - REPORTED BY ORDNANCE SURVEY
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+North Shields       170/053 RLR(1971) is 11.0m below BM FB10888 NZ3560 6781
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JUL-94 :
+A T.B.Winter stilling well gauge was installed in 1894 which ran
+until October 1958 when a Lea gauge was installed in the same well.
+An Ott gauge was installed on a new site in February 1974 and a Munro
+a month later. The Ott was replaced in June 1978.
+Since June 1984 data have been taken from a POL-designed potentiometer
+system attached to the stilling well.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-May-2012 :   
+Previous Primary benchmark NZ 3560 6781 6.946m above TGZ no longer appears 
+in the NTSLF report. Primary benchmark is now NZ 3592 6823 6.754m above TGZ. 
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Jul-2014 :   
+TGI visited the site twice during 2013. 28.02.2013 to investigate a phone line fault and again on 16.05.2013 when the site was levelled and general maintenance carried out and the compressor changed.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-May-2015 :   
+there was a problem with channels blocking during April and May 2014. TGI were at site 15.05.14 for maintenance.
+

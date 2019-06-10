@@ -1,0 +1,2 @@
+Add 6.15m to all data values to refer to RLR (1984)
+RLR (1984) is 9.3m below BM 145

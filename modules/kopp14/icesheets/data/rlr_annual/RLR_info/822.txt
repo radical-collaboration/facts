@@ -1,0 +1,4 @@
+Add 6.202m to data values 1966-1971 to refer to RLR (2000).
+Add 6.227m to data values 1972-1975 to refer to RLR (2000).
+Add 6.0m to data values 1976 onwards to refer to RLR (2000).
+RLR (2000) is 9.102m below BM PSM 21764

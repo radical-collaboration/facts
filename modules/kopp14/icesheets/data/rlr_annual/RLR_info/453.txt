@@ -1,0 +1,2 @@
+Add 6.859m to data values to refer to RLR (1977)
+RLR (1977) is 11.905m below BM IGN N.CP-15

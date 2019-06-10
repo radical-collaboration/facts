@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Jan-2016 :   
+Prickly Bay, Grenada is a new station. Using information from the UH levelling sheet the station has been made RLR. Primary benchmark is UH 3 3.486m above the datum.
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+New London          960/151 RLR(1964) is 9.7m below BM13
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2011 :
+Using NOAA data the RLR diagram has been re-drawn. Primary benchmark is now 1490 B 1998 5.032m above gauge datum. Benchmark 15 1947 4.88m relative to gauge datum is listed as the second benchmark. Benchmark 13 1938 from the original RLR diagram does not appear in the Epoch 1983-2001 but does appear in the superseded Epoch 1960-1978 with the same value of 4.176m above gauge datum.
+

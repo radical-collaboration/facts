@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+North Salaminos     290/030 RLR(1988) is 8.5m below BM R114
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2011 :   
+Last data from this tide gauge was for 2000. After this the gauge was
+re-located to new site 37 59'N 23 32'E. Although one of the benchmarks remains
+R 114 it was decided to enter the new data as a separate station. North
+Salaminos II id.1938.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Aug-2013 :   
+Following receipt of datum diagrams from the Hellenic Navy the RLR diagran has been re-drawn. In consequence the RLR factor has changed.
+

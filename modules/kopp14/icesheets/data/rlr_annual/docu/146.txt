@@ -1,0 +1,13 @@
+1901-1915,1936 NO. OF READINGS PER DAY UNKNOWN
+1931-1935,1937-1938 VALUES BASED ON 1 READING PER DAY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Hel                 110/042 RLR(1938) is 10.2m below BM Church
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Hel                 110/042 RLR(1938) is 10.2m below BM Church
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Large value in December 1913 common to more than one station (see
+also Liepaja, ID 26).
+Hel is an historic station last data 1966
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Mar-2016 :   
+Data flags removed for 1913 - as mentioned above, the extreme value for December 1913 also appears in nearby records.
+

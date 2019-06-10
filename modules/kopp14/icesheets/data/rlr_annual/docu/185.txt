@@ -1,0 +1,8 @@
+ALSO KNOWN AS DESEADO
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Puerto Deseado      860/011 RLR(1973) is 12.2m below TGBM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Mar21 :
+Puerto Deseado had datum problems 1996 onwards. The equipment was temporarily removed 22/7/1999 because of pier work.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Oct-2015 :   
+Previously, last data we held for this station was for May 2002. The Sevicio de Hidrografia Naval have now supplied the data for Puert Deseado for 2010-2014. The data sheet comfirms that the datum and benchmarks remain the same as previously.
+

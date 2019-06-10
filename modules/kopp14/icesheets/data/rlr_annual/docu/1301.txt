@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Aug31 :
+Concarneau acoustic gauge installed 28/06/1999.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
+Data supplied by Service Hydrographique et Ocean. de la Marine, Brest.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Dec06 :
+Concarneau  RLR(2000) is 11.708m below BM IGN K3P3-11.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Mar-2012 :   
+Primary benchmark is now IGN O.L.K. 3P3 no 12 22.669m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :   
+Using values from the SONEL website the latitude and longitude for Concarneau has been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jun-2016 :   
+The dataset including the 2015 contained areas of revised data. Because of this the coplete dataset has been re-loaded.
+

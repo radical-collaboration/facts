@@ -1,0 +1,2 @@
+Add 6.312m to all data values to refer to RLR (1998).
+RLR (1998) is 10.696m below BM no.8

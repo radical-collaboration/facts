@@ -1,0 +1,13 @@
+1969-1980 Data  from readings of tide pole
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Alexandroupolis     290/065 RLR(1977) is 9.1m below BM R29
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Alexandroupolis     290/065 RLR(1977) is 9.1m below BM R29
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-97 :
+The contributing authority advises that anomalous values
+are the result of met. influences
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jun-2013 :
+The RLR diagram has temporarily been taken off line while a benchmark query is pursued.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Jul-2013 :
+Following the receipt of new datum diagrams from the Hellenic Navy the RLR factor for the historic data up to 2001 has been revised. As this solves the datum problem the RLR diagram has been switched online again.
+

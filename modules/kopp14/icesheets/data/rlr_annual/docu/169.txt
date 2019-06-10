@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-SEP-95 :
+See comments for CCODE = 840 concerning sea level difference either side of the Panama Canal.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Possible datum shift in RLR record at around 1940.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Cristobal           904/011 RLR(1964) is 8.8m below PBM 1A Cristobal
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999May17 :
+Cristobal data were considered to be affected by problems with automatic tide recorders in the early 1970s and several years of MSL look high compared to nearby stations e.g. Cartagena.
+Station moved to Coco Solo (PSMSL code 904/006) in October 1980.
+

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Leixoes             210/012 RLR(1984) is 11.1m below TGBM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Data prior to 1965 look suspect compared to the trend of later data.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Nov04 :
+data for 1985 replaced with revised values received from authority the Portugese Hydrographic Institute. Leixoes is an historic station last data 1995
+

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Raffles Lighthouse  555/011 RLR(1985) is 9.6m below Brass Bolt
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-94 :
+Several apparent datum shifts in the record.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2010 :
+There are several changes of both the benchmark and the level of ACD throughout the Raffles dataset. Primary benchmark for 1973-1979 was Dampier Survey 'T' mark 4.260m above ACD. For 1979-1985 the benchmark was changed to the Brass Bolt 0.026 below the Dampier Survey 'T' mark .From 1986 onwards the ACD was defined as 4.175m below the Brass Bolt. During 2001 a new jetty was constructed the ACD remained the same but the Benchmark is now Cut Mark 4.300m above ACD - this remains the primary benchmark.
+

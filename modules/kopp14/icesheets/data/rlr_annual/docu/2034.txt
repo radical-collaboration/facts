@@ -1,0 +1,4 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2010 :   
+Tanah Merah is a new station. First data 2008. TGBM is CUT MARK 4.415m above
+ACD. Tanah Merah is now RLR with an RLR year of 2008. RLR factor is 5.385m.
+

@@ -1,0 +1,20 @@
+BEFORE 1978 VALUES BASED ON READINGS OF HIGH AND LOW WATERS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-AUG-92 :
+ITALIAN LEVELS MAY BE INFLUENCED BY THE MESSINA EARTHQUAKE OF 1908 - SEE BOTTARI ET AL., TECTONOPHYSICS, 202, 269-275, 1992
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+The stations Porto Maurizio (250/001), Napoli Arsenale (250/041) and Napoli Mandraccio (250/051) appear to each have a datum shift around 1910. Evidence for regional coherence?
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-APR-94 :
+data for 1979-88 revised April 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+Anomalously large value for December 1989 queried with authority.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Dec07 :
+For a discussion of land movements in the area of the Gulf of Naples, see the paper by G.Berrino in Tectonophysics,294,323-332,1998.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Apr28 :
+1989 revised, 28th April 1999
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jan25 :
+Genova              250/011 RLR(1963) is 10.2m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=-2 mm has been applied to the RLR data for the period 1884-1977.  This value was derived by Philip Woodworth in preparation of his MTL/MSL manuscript.  In this case the values were derived using from the GESLA2 (high-frequency tide gauge) dataset using harmonic constituents.
+======================================================
+Genova is an historic station last data 1997
+

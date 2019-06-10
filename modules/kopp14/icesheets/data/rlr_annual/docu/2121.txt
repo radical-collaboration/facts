@@ -1,0 +1,4 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :   
+Aguadilla Puerto Rico is a new station data and metadata downloaded from NOAA.
+Primary benchmark is NO 3 1975 10.000m above TGZ. RLR factor is -0.100m.
+

@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-JAN-97 :
+Large earthquake offshore of Mexico about 19 degrees North on
+9 October 1995 with large tsunami generated. See article by
+A.E.Filonov in EOS, 78(3), 1997.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+La Paz              830/021 RLR(1964) is 9.9m below BM1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+La Paz              830/021 RLR(1964) is 9.9m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-May-2013 :   
+La Paz is an historic station. Originally RLR data ended 1982 whereas 'Metric' continued through to 1984. Dataset looks correct so RLR was extended to the complete dataset.
+

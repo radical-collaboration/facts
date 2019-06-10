@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Tadoussac           970/096 RLR(1981) is 18.5m below BM TAD 1-1967
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :   
+Last data received from Tadoussac was that for 1990.
+

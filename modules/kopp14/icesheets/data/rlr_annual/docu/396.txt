@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Wilmington          960/060 RLR(1964) is 8.4m below BM1(1935)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
+Using data from NOAA RLR diagram has been re-drawn. Primary benchmark appears to be 8120 D 1976 2.454 above gauge datum.During Epoch 1960-1978 this value was 2.453. Previous PSMSL benchmark BM1 2.755m above datum relates to NO 1 1935 of NOAA data. Value for this in Epoch 1960-1978 is 2.752m. In Epoch 1983-2001 value is 2.749m
+

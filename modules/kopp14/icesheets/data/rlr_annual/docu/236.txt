@@ -1,0 +1,5 @@
+=========================================================================
+ALL DUTCH METRIC DATA ARE MEASURED TO NAP (NORMAAL AMSTERDAMSCH PEIL) 1921 -1922 VALUES BASED ON 4 READINGS/DAY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Feb-2011 :
+From levelling data received from Douwe Dillingh it was possible to calculate RLR using values before NAP was re-levelled in 2005. RLR factors up to 2005 6.936m 2005 onwards 6.957m.
+

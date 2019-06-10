@@ -1,0 +1,2 @@
+Add 4.081m to all data values to refer to RLR (1885)
+RLR (1885) is 10.0m below BM 66/1

@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Ominato             647/111 RLR(1974) is 8.2m below BM Ominato
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Possible datum shift in record 1969 onwards.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2011 :
+When Ominato is buddy checked with Asamushi profile actually fits better after the supposed datum shift.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2013 :
+On the original RLR diagram in the late 1980s the value for BM/TGZ varies by 2-3mm returning to 2.834m in the early 1990s. These adjustments were not incorporated and the RLRFAC remails 5.366m throughout the dataset.
+

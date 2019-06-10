@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Apr-2013 :
+Motril is part of the newly established REDMAR network.Gauge is a MIROS radar sensor. Benchmark MOT2 is 2.528m relative to TGZ. Constant datum difference of 0.194m from 2007 onwards so RLR factor changes from 6.684m to 6.490m to account for this. See paper B. Perez et al 'Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Complete dataset has now been revised by Puertos del Estado so reverts to just one RLR factor of 6.472m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 36.716944 -3.518056 derived from a previously supplied degrees and minutes value to 36.72024 -3.52360 which is the site of the new MIROS gauge in decimal degrees.
+

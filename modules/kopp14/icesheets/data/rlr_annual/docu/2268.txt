@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Sep-2015 :   
+Vung Tau II is a new station data has been supplied by UHSLC. Using levelling information from UHSLC the station has been made RLR. Primary benchmark is RE 5.837m above the datum.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2015 :   
+Complete updated daset 2007-2014 loaded onto the database.
+

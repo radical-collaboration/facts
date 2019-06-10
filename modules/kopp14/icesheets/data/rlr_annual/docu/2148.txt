@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Nov-2012 :   
+Eilat North is a new station
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Apr-2014 :   
+Eilat North is now referred to as Eilat.nav from the Survey of Israel.
+

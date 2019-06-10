@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-AUG-96 :
+For discussions of MSL changes and extreme sea levels around Namibia and South Africa, see: G.B.Brundrit, S.Afr.J.Mar.Sci.,16,9-17,1995 and S.Searson and G.B.Brundrit, S.Afr.J.of Science, 91,579-588,1995. 1957 - 1972 VALUES BASED ON 8 READINGS PER DAY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Simons Bay          430/061 RLR(1964) is 9.6m below BMZZZ
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun14 :
+Data for Jan-April 1990 removed as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2009 :
+Heights of chart datum relative to land levelling datum LLD(MSL)in South Africa and Namibia: Simons Town (Bay) Datum: 1st Jan 1973 - 31st Dec 1978 = -0.651 Datum: 1st Jan 1979 - 31st Dec 1997 = -0.900 Datum: 1st Jan 1998 - 31st Dec 2002 = -1.003 Datum: 1st Jan 2003 onwards = -0.843 Datum is now LAT so unlikely to change.
+

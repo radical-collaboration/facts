@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Dec01 :
+values for March 1997 to January 1998 were revised in November 1998
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Nov18 :
+Original POL 'B gauge' installed May 1993 which ran until June
+1998, then replaced with new 'B gauge' in March 1999.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr26 :
+Ascension           402/001 RLR(1993) is 10.184m below BM POL13
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep10 :
+Ascension gauge failed March 2001.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jun-2014 :   
+The datum history at Ascension is complicated. Half-tide ref. 1993-1998 and 2006-2007 was used for the data June 1993-June 1998 and again for data Jan. 2006-Dec 2007. Half-tide datum Apr. 1999-Mar. 2001 was used specifically for that period. Half-tide ref. Ascension B datum Sept. 2005 was used for Nov. and Dec data 2005 and also data for Jan.2008- May 2010. Full tide datum B gauge 870mm below the original datum for 1993-1998 and 2006-2007 was used for data Dec. 2010 onwards.
+

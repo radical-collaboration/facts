@@ -1,0 +1,3 @@
+RLR is 11.812m below BM REPERE No. 11.
+For all data add 6.09m to refer to RLR.
+All values refer to RLR (1977).

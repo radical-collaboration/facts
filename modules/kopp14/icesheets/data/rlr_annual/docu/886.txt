@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Paget Island        950/001 RLR(1959) is 9.1m below BM1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Paget Island        950/001 RLR(1959) is 9.1m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2012 :   
+Paget Island is an Historic station. Last data received was that for 1961. This
+station no longer appears in the NOAA documentation.
+

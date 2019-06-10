@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Port Townsend       823/012 RLR(1974) is 9.0m below BM9
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
+Using NOAA data the RLR diagram has been revised.Previous Primary benchmark BM 9 - NO 9 1952 still appears in the NOAA reports with a value of 4.541m in the 1988 report and 4.546m in the report of 2003. The value for benchmark NO 9 1952 on the original RLR diagram is 4.548m. Current Primary benchmark is TIDAL BM 18 1975 6.559m above gauge datum.
+

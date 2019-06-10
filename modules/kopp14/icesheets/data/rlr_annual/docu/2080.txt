@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :   
+Livorno II on the west coast of Italy is a new station. Metric data id. 110
+Jan.1896-Sept.1911 is also on the database. Livorno II was downloaded from the
+Instituto Superiore per la Protezione e la Ricerca Ambientale
+(ISPRA) website. Database id. 2080. Metadata for the station was also
+downloaded.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :   
+Livorno II has been made RLR. Primary benchmark 0028-D02-003P 3.6925m
+(displayed as 3.693m on diagram) above national Italian Military Geographic
+Institute (IGM) altimetric datum.
+

@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-SEP-93 :
+TIDE GAUGE MOVED & NEW WELL IN 1980
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
+Dalian              610/044 RLR(1990) is 10.4m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-94 :
+1954-59, 1970-74 DATA RECEIVED FROM TOGA OFFICE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Apr03 :
+Dalian data 1977-9 clearly to different datum, and therefore removed from RLR.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Feb10 :
+Data for 1977-1979 were replaced by monthly mean from University
+of Hawaii (10.02.03)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Feb10 :
+Data for 1993-1999 are from University of Hawaii.
+

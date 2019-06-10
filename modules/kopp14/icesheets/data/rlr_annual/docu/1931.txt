@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-AUG-05 :
+Rothera             A  /103 RLR(2002) is 10.923m below Well Head BM
+The Well Head BM is deemed to be the primary benchmark as it is more stable
+than the Jetty BM
+

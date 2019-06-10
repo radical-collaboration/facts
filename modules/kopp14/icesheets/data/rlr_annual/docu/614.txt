@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Qinhuangdao         610/039 RLR(1980) is 11.4m below BM(1965.7)
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Qinhuangdao         610/039 RLR(1980) is 11.4m below BM(1965.7)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-93 :
+high value for August 1959 and low value for January 1963 noted but no
+explanation available
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
+December 1981 value low, queried with authority
+Qinhuangdao is an historic station last data 1994
+

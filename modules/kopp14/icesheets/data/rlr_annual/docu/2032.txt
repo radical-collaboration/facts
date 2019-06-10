@@ -1,0 +1,4 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2010 :   
+New station to PSMSL. First data 2008 id=2032. TGBM (CUT MARK) is 4.867m above
+ACD.
+

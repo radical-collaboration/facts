@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2007 :
+Data for Port Bloc has been added to the PSMSL database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Mar-2012 :
+Primary benchmark is O. NP-6 7.808m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :
+When downloaded from SONEL the Port Bloc dataset has a lots of additional data included particularly for the 1960s and 1970s other areas of data had also been revised. Because of this the whole dataset has been re-loaded. Using data also from the SONEL website the values of the latitude and longitude have been revised.
+

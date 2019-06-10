@@ -1,0 +1,2 @@
+Add 4.869m to all data values to refer to RLR (1977)
+RLR (1977) is 10.0m below BM Attach-19

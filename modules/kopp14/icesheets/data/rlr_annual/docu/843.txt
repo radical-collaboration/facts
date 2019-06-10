@@ -1,0 +1,10 @@
+Prior to 1976 data suppliede the Portugese Hydrographic Institute. BEFORE 1976 VALUES BASED ON READINGS OF HIGH AND LOW WATERS.STATION DESTROYED BY STORM IN JANUARY 1990
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Large values throughout 1980-81-82.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Flores              360/041 RLR(1981) is 12.6m below TGBM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jun-2010 :
+A revised dataset for Santa Cruz das Flores (1976-2009) was received from the Hydrographic Institute Portugal. Where the data already existed when compared the values were almost identical but it was decided to update the database with the revised values. Previously the station had been known as 'Flores' . As the Hydrographic Institute now refer to it as Santa Cruz das Flores the name was edited to agree with this.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=3 mm has been derived by Philip Woodworth in preparation of his MTL/MSL manuscript.  In this case the values were derived using from the GESLA2 (high-frequency tide gauge) dataset using harmonic constituents. As the correction is only applied to RLR data and the data from 1957-169 is metric, it is not used in the data set.  Should this period become metric in future, however, it would be used.
+

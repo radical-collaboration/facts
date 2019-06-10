@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Newport, Gwent      170/173 RLR(1995) is 15.5m below BM AUX 3
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+TGI visited the site on 08.02.2013 to change the compressor. During March 2013 the primary channel was blocking and reading up to ~80mm high. From April to September the primary channel was blocking up to 70mm high. TGI re-visited the site on 05.12.2013 and carried out general maintenance.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
+Channel2 was reading ~40mm high most has been flagged so for most of the year there is no data available. Channel1 the backup channel was working throughout. TGI were at site 18.06.14 for general maintenance and to change the compressor.
+

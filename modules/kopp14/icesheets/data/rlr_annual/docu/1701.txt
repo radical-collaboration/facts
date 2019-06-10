@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jun04 :
+Vaca Key            940/089 RLR(1990) is 8.2m below BM NO 1 1975
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
+Using NOAA data the RLR diagram has been reviewed. Primary benchmark is now 3970 N 1999 1.724m above gauge datum. There is now no reference to previous Primary benchmark NO 1 1975 2.073m relative to gauge datum (TGZ).
+

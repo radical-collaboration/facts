@@ -1,0 +1,21 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from the University of Nottingham web site: http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Dover               170/111 RLR(1984) is 13.8m below TGBMTR3193 4074
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Possible datum shift in RLR record after data gap in the late 1970's.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Dover               170/111 RLR(1984) is 13.8m below TGBMTR3193 4074
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-OCT-93 :
+1960 VALUES ARE BASED ON 8 READINGS/DAY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+Gauge was originally a Cary-Porter stilling well gauge, replaced by a Lege in July 1959, a Lea in October 1965, a Neyrpic in July 1976, and a Munro/Ott combination in 1978.  From March 1986 data have been from a POL-designed potentiometer attached to the stilling well.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-SEP-94 :
+March-December 1959: records unreliable 1976: harbour modifications
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-JUL-97 :
+data revised on receipt of additional TGBM information
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jul-2014 :
+No data available for Dover 2013 as the primary channel recording ~100m high in places and has been flagged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-May-2015 :
+There is no data available for 2014 for Dover reading were erratic with the primary channel being up to 100mm high due to blocking.
+

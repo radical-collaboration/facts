@@ -1,0 +1,7 @@
+A Russian island in Gulf of Finland. Formerly Finnish and known as Suursaari.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Sur Sari            080/001 RLR(1936) is 8.5m below BM P1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Sur Sari            080/001 RLR(1936) is 8.5m below BM P1
+Sur Sari is an historic station last data 1936
+

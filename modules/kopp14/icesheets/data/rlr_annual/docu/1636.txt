@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Duck Pier Outside   960/063 RLR(1985) is 10.9m below BM 865 1370 B 1977
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
+Using NOAA data the RLR diagram has been reviewed. Primary benchmark is still 865 1370 B 1977 now just referred to as 1370 B 1977 10.061m above gauge datum.
+

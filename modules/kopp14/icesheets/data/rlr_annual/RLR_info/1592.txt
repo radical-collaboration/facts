@@ -1,0 +1,4 @@
+RLR(1987) is 9.5m below BM T0283
+Add 4.812 to data 1984-1992 values to refer to RLR(1987)
+Add 4.827 to 1993 data values to refer to RLR(1987)
+Add 4.812 to data values 1994 onwards to refer to RLR(1987)

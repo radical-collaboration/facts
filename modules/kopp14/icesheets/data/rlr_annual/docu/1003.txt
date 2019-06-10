@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Feb22 :
+Gauge is a Russian type, CYM Honngu is an historic station last data 2001
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2015 :   
+Monthly mean sea leve data values for Hon Ngu 2001-2013 have been supplied by the Institute of Meteorology, Hydrology and Climate Change (IMHEN) Viet nam.
+

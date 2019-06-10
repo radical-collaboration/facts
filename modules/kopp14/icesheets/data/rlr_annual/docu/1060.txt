@@ -1,0 +1,11 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Miyake Sima         642/098 RLR(1969) is 9.7m below BM Miyake Sima
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Oct22 :
+Data for 1996-2001 received from University of Hawaii. The elevated mean levels of 9/2000-12/2001 are due to island sinking as a result of the volcanic eruption of Oyama during 6-8/2000.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Mar-2008 :
+Data 2001 onwards flagged as there appears to a sudden rise in the dataset.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful known earthquake to hit Japan triggering a tsunami with waves up to 40.5m and travelling up to 10km inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Mar-2016 :   
+The apparent datum shift occuring during 2000 has been investigated. What was originally thought of as a datum error is now recognised as a real event. On July 14th 2000 Mount Oyama on the island began a series of eruptions. By September of that year the island had been completely evacuated. After a 4 year period of volcanic emissions residents were allowed to return permanently in February 2005. Because this was a real event the data point flags have been removed. However, the station flag remains.
+

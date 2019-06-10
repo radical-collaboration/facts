@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Dauphin Island      940/037 RLR(1973) is 12.2m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
+Using NOAA data the RLR diagram has been revised. Primary benchmark remains BM1 now given the name as appears on the NOAA website NO 1 1960 6.288m above gauge datum.
+

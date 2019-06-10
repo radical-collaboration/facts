@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the
+coasts of Pakistan and India, see Clarke and Liu, Journal of
+Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL.
+MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Bombay (Prince's)   500/051 RLR(1920) is 13.0m below BM 2(PP)(1)
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Bombay (Prince's)   500/051 RLR(1920) is 13.0m below BM 2(PP)(1)
+This is an historic station last data 1920
+

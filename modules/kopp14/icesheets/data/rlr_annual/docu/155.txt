@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Honolulu            760/031 RLR(1964) is 12.0m below BM2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2011 :
+Using NOAA data the RLR diagram has been re-drawn. Primary benchmark is now B.M. ELV.8.06 FEET 3.734m above gauge datum. The previously used benchmark BM2 still remains but has been given its official title 161 2340 TIDAL 2 as it appears on the NOAA website. Value for 161 2340 TIDAL 2 is 6.347 in the NOAA report of 23.8.2000 and 6.346 in that dated 12.12.2003.
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Nov-2011 :
+Palermo II is a new station. Data and metadata downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Data January 2001 onwards. Database id.2093.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
+Palermo II is now RLR. Primary benchmark 102D1/1 4.09876m (displayed as 4099m on diagram) below national Italian Military Geographic Institute (IGM)altimetric datum.
+

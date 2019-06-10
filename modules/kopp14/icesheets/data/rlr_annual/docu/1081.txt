@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Cutler              960/197 RLR(1974) is 9.9m below BM3
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Cutler              960/197 RLR(1974) is 9.9m below BM3
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Feb-2012 :   
+Cutler is an Historic station last data is that for 1977 Primary benchmark was
+BM 3 6.498m above gauge datum. This station no longer features on the NOAA
+website 
+but a new gauge was installed at Lat. 44 39.4N Long. 67 12.6W in November 2010. 
+

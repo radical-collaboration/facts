@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :
+Bari on the |Adriatic coast of Italy is a new station. Data January 2001 onwards downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Database id.2075. Metadata for the station was also downloaded.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
+Bari has now been made RLR. Primary benchmark is nod. 49D1/3 3.48656m (displayed as 3.487m on the RLR diagram) above the national Italian Military Geographic Institute (IGM) altimetric datum.
+

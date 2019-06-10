@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2010 :   
+Singapore station West Coast - dataset starts April 1997. Station was made
+RLRin2009 RLR year is 2008. Primary benchmark MPA 2 is 4.95m above ACD. RLR
+(2008) is 10.2m below BM with an RLR factor of 5.250m.
+

@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
+A description of the sea level network in Finland can be found
+in 'Operational Oceanography: Implementation at the European
+and Regional scales.  2002 (pp.129-137)'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Ykspihlaja          060/031 RLR(1924) is 10.9m below BM1217D
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Ykspihlaja          060/031 RLR(1924) is 10.9m below BM1217D
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2012 :   
+Yksphlaja is an Historic station last data 1924
+

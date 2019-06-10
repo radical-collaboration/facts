@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-APR-95 :
+station recoded as 701/001 on 27th April 1995 (was 700/001)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 31-JUL-95 :
+Guam                701/001 RLR(1964) is 9.3m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 31-JUL-95 :
+Station is at Apra Harbor.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Oct16 :
+Guam - suspected land movement of 2-3cm in 1993 following earthquake.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jul-2011 :
+The operators of the Guam tide gauge, Center for Operational Oceanographic Products and Services (CO-OPS) part of NOAA note that a change in the sea level trend occurs after the 1993 Guam earthquake. The stability of the tide gauge datum for the post earthquake is therefore a concern.CO-OPS continue to monitor the site.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark  BM 1 no longer appears in the NOAA reports. Primary benchmark NO 4 1949 2.996m above gauge datum appears on the original RLR diagram as a secondary benchmark.
+

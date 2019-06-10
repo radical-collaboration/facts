@@ -1,0 +1,9 @@
+ALL DUTCH METRIC DATA ARE MEASURED TO NAP (NORMAAL AMSTERDAMSCH PEIL)
+1871-1883 VALUES BASED ON READINGS OF HIGH AND LOW WATERS 1884-1920 VALUES BASED ON 4 READINGS/DAY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-JUL-91 :
+IJMUIDEN VALUES FROM 1981 COME FROM A NEW GAUGE ON THE SOUTHERN PIER INSTEAD FROM THE OLD GAUGE AT THE SLUICES.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Feb-2011 :
+After receiving levelling values for NAP from Douwe Dillingh RLR was calculated. NAP was re-levelled in 2005. RLR factors are 6.929m up to 2005 and 6.950m from 2005 onwards.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+The note above stating that periods of the data are MTL is misleading.  Sections of the original data were MTL.  However, Pub. Sci. 5 states “For these periods a shallow water correction has been added to the mean heights of high and low water in order to give a mean height of sea-level comparable with those otherwise calculated for other periods.”  Thus, a correction to MSL has already been applied.
+

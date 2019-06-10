@@ -1,0 +1,2 @@
+SUBTRACT 3.989m from all data values to refer to RLR (1997)
+RLR (1997) is 12.4m below BM 949 7645 CELL 4B

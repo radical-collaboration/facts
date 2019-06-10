@@ -1,0 +1,2 @@
+Add 5.292m to all data values to refer to RLR (1993)
+RLR (1993) is 9.5m below BM

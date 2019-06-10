@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Split Rt Marjana    280/021 RLR(1964) is 9.5m below BM "O" TG
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Tide gauge of the Institute of Oceanography and Fisheries, Split
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Gauge=A. Ott, Kempten from 1985
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+data up to 1964 from Institut za Oceanografiju i Ribarstvo
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+Prior to 1990 data from Hidrografski Institut, Split
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2010 :
+After entering the data for 2008. Split Rt Marjana was buddy checked with the data for Split Harbour. The profiles generally agree apart from the data from May 2008 onwards when the data for Split Rt Marjana drops away.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Mar-2011 :
+From 1990 onwards the primary benchmark is PN 1313 3.351m above the datum.
+

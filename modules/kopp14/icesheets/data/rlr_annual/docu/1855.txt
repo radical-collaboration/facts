@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+St. Mary's          170/163 RLR(1997) is 11.3m below TGBM bolt
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Dec-2012 :   
+Possibly due to rounding the annual mean for the RLR year 1997 is 3.174m in the
+database.As a result the RLR factor has changed from 3.876m to 3.875m and the 
+height of MSL to RLR has changed from 7.05m to 7.049m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
+There were problems with pressure loss throughout the year with readings >60mm low in places. TGI were at site 27.09.14 to carry out general maintenance and survey the site for a new tide gauge once harbour works have been completed.
+

@@ -1,0 +1,13 @@
+1926-68 DATA FROM PORTSMOUTH (NAVY YARD) SITE
+1969-1972 DATA FROM SEAVEY IS, BACK CHANNEL SITE
+1973 TO DATE DATA FROM SEAVEY IS,BERTH 2 SITE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Seavey Island       960/177 RLR(1972) is 12.9m below BM12
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Seavey Island       960/177 RLR(1972) is 12.9m below BM12
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2012 :   
+Seavey Island is now an Historic station. Last data received was that for 1986.
+Information from the NOAA website confirms Primary benchmark to be NO 21 1975
+$.59m above TGZ. Benchmark 12 from the original RLR diagram no longer features
+on the NOAA website.
+

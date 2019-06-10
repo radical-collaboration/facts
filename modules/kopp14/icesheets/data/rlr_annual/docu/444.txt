@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+F Phrachula Chomklao600/041 RLR(1981) is 8.4m below BM PJ2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
+Sharp increase of trend after data gap in early 1960s.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-JUL-94 :
+SAME AS POM PHRACHUN
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+For a discussion of submergence near to Fort Phrachula Chomklao see Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges), 1991, Springer-Verlag, pages 35-36 and 100.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Nov-2006 :
+2005 data flagged suspect. Data looks way out - authority contacted to confirm datum etc. of data.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Sep-2008 :
+There is what appears to be a datum shift from 2003 onwards. Following levelling carried out at site the Authority has said that the offset for the data is 0.583m. When this was added to the relevant data the plot appears to be acceptable. The previous flags were removed from the individual data points as the station itself is flagged. However, the data must still be used with caution.
+
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jul-2011 :
+While researching datum and benchmark information prior to uploading the RLR
+diagram onto the website it was noted that the bench mark from 1987 onwards
+changes from BM PJ2 4.41m above the gauge datum to BM 1 5.826m above the datum.
+The datum remains the same.
+

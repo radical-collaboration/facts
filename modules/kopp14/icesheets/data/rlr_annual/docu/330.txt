@@ -1,0 +1,19 @@
+1929 - 1937 MSL VALUES BASED UPON INTEGRATION OF CONTINUOUS RECORD
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Klagshamn           050/051 RLR(1964) is 10.5m below BM  No Fix d
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Klagshamn           050/051 RLR(1964) is 10.5m below BM  No Fix d
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-94 :
+data for 1987-90 revised in October 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Nov-2006 :   
+1991 data flagged because of large spike within the data.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2009 :   
+relationship to the Swedish Height System 1900 has been adjusted 
+for this station. Previous value was 197.3 revised value is 199.2
+As a result RLRFAC adjusted to 4831.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-May-2010 :   
+Data for 1937-2008 given to 220cm below Swedish Height System 1900 (RH00)
+Data for 2009 onward given to local datum 799.2cm below RH00
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Jun-2010 :   
+Because of the change in reference datum the RLR value is now -961mm.
+

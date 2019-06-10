@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-JUL-93 :
+Cambridge II         RLR(1974) is 8.0m below BM 1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
+Using NOAA data the RLR diagram has been revised. Previous Primary benchmark BM 12.012m above gauge datum no longer appears in the NOAA reports. Primary benchmark is now 1892 D 1980 3.344m above gauge datum.
+

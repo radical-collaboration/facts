@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Wake Island         720/021 RLR(1972) is 9.8m below BM12
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Primary benchmark remains NO 12 1961 4.353m above gauge datum.
+

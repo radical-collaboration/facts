@@ -1,0 +1,13 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Brest               190/091 RLR(1964) is 12.5m below NGF no1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JAN-07 :
+Older data from Brest are taken from the original volumes of the Publications Scientifiques. In those, 1807-35 are said to be Mean Tide Level and 1846 onwards true Mean Sea Level. At Brest MSL is 23mm above MTL (some estimates say 29 mm), see Woppelmann et al. Ocean Dynamics, 56, 487-497, 2006 (and beware that the equation top of page 495 should read MTL-MSL). (NOTE: 23 and 29 mm values switched to better reflect paper. 26-Jan-2016)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Jul-2009 :
+All monthly means 1937, 1939-1943 replaced and small corrections made to 1917 following the work of Nicolas Pouvreau of the University of La Rochelle.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Aug-2014 :
+After investigation the RLR diagram has been revised. Primary benchmark remains the same but the name has been changed to agree with SONEL. Benchmark name is now NO-47. The RLR factor has also been changed when a 2mm discrepancy was found from the original diagram. RLR factor for 1996 onwards is now 2.959.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
+Using values from the SONEL website the latitude and longitude values have been revised. Additional data for 1857-1860 were included in the SONEL data this has now been added to the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2016 :   
+A value of MTL-MSL=-23 mm has been applied to the RLR data for the period 1807-1835.  This value was taken from the Wöppelmann et al. reference above.  Philip Woodworth obtained a similar value of -21 mm in his MTL/MSL manuscript.
+

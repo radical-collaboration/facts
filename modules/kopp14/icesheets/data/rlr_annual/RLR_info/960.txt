@@ -1,0 +1,3 @@
+Add 10.4m to data values up to 1978 to refer to RLR (1964)
+Add zero to data values 1979 onwards to refer to RLR (1964)
+RLR (1964) is 10.4m below BM NP 1

@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Yarmouth            970/007 RLR(1986) is 14.3m below BM YAR2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Nov-2006 :
+2005 spike Dec 2005 flagged as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+Isolated datapoints for Jan.-Jul.1900 have been switched to Metric.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2015 :   
+Historic data was included in the above complete dataset. The datum for the period 1956-1957 is currently being queried. Until the Fisheries and Oceans Canada confirm the datum this data has been made Metric.
+

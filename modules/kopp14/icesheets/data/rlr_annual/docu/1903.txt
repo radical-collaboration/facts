@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Feb-2013 :
+This station has been made RLR using information from the NOAA website. Primary benchmark is 5870 A 1983 9.098m above TGZ. RLR factor is 0.402m
+

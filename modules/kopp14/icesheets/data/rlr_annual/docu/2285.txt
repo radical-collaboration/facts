@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Feb-2016 :
+Severn Bridge is a new station operated by the Channel Coastal Observatory (CCO) based at NOC Southampton. Instrument type is a Rosemount WaveRadar REX. The datum of the data is Admiralty Chart Datum (ACD) which is 56.959m below the Primary benchmark TGBM.Tide Gauge Zero (TGZ) is 47.984m above ODN and 54.484m above ACD. Sampling interval is 10mins.
+

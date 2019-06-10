@@ -1,0 +1,2 @@
+Add 6.949m to all data values to refer to RLR (1995)
+RLR (1995) is 9.225m below BM NGW596

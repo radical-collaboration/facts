@@ -1,0 +1,33 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+Gauge is an "A Class" bubbler maintained by POL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+L'pool Gladstone    170/214 RLR(1994) is 16.3m below BM SJ 3249 9525
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Nov-2006 :
+Historic tide gauge information: Dataring installed in May 1991.
+Around building shows signs of subsidence.
+Pressure points re-levelled December 2001.
+January 2002 mid-tide connected. 2 O.S. benchmarks demolished while the
+remaining 2 were unstable.
+April 2002 site re-levelled using new benchmark on the other side of
+the dock.
+TGBM had dropped 148mm. Datum of gauge re-set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
+Treat data 2006 onwards as suspect.
+Data for Liverpool (Gladstone Dock) looks high from 2004 onwards particularly
+when
+viewed as annual rather than monthly means.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-May-2012 :
+Data looks 'high' 2004 onwards especially when viewed as annual means.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jul-2012 :
+It has now been realised that some areas surrounding Gladstone Dock are
+subsiding. Levelling investigation is to be carried out around the TGBM to try to
+accertain which areas are effected. There will be ongoing monitoring at site.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+There were several visits to site during 2013. 16.01.2013 TGi carried out installation in the refurbished building. 06.03.2013 two new benchmarks were established at either end of Gladstone Dock. 12.11.2013 site survey was carried out and a meeting held with the surveyors. It is known that the pier is subsiding.During April and May 2013 both full tide channels were recording ~40mm high. The two new benchmarks should monitor any movement.By the end of July channel 2 was fluctuating between 20mm low and 30mm high. From September channel 2 was showing ~60mm low on several falling tides.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
+The pier at Liverpool is subsiding Channel2 was ~60mm low on falling tides. TGI visited the site on a number of occasions sometimes to liase with Environment Agency personnel.
+

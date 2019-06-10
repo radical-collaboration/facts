@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Providence          960/158 RLR(1974) is 9.8m below BM6
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2011 :
+Using NOAA data the RLR diagram has been re-drawn.Primary benchmark previously known as BM6 has now been given the official name NO 6 RESET 1930 - it is still the same benchmark 4.493m above gauge datum.
+

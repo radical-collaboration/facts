@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Piraievs            290/031 RLR(1981) is 21.5m below BM R287
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Piraievs            290/031 RLR(1981) is 21.5m below BM R287
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-97 :
+The contributing authority advises that anomalous values are the result of met. influences. Values for July - September 1990 affected by missing data
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Apr-2008 :
+When the method of sea level measurement was changed from recording downwards to the more conventional upwards measurement the benchmark was changed from the previous R287 to the currently defined R10 7.130m R15 1.567m and R20 1.784m. PSMSL is currently in correspondence with HNHS to establish the relationship of these revised benchmarks with R287. We have been unable to establish a relationship between the benchmarks so the data remains 'Metric' from January 2003 and the station has been flagged. However the station retains its RLR status so that the 'good' RLR data is available on the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Aug-2013 :
+Following receipt of datum diagrams from the Hellenic Navy the RLR diagram has been re-drawn. In consequence both the RLR factors and the benchmark reference have changed.
+

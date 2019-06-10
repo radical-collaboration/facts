@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Mugho               620/061 RLR(1974) is 9.0m below TBM No2
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Mugho               620/061 RLR(1974) is 9.0m below TBM No2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-DEC-97 :
+Type of tide gauge: OTT float
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2012 :
+At the request of the data suppliers, KHOA the name of this station has been
+revised to Mukho. The values for lat. and long. have also been revised
+

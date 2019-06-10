@@ -1,0 +1,3 @@
+Add 4.901m to data values 1984-1992 to refer to RLR (1985)
+Add 4.915m to data values 1993 onwards to refer to RLR (1985)
+RLR (1985) is 9.9m below BM Nakano Sima

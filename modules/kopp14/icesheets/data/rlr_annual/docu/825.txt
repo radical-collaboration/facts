@@ -1,0 +1,12 @@
+Data up to 1978 supplied by C.S.I.R.O. Tasmania as High and Low waters
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
+Data for 1978-1985 revised with new set received from the National Tidal Centre, Bureau of Meteorology, South Australia
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Sep-2010 :
+Tide gauge zero confirmed as LAT, with benchmark RM2 6.21 m above it. RLR (2009) is defined as 10.9 m below RM2.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :
+The value of MTL-MSL is unknown, though Philip Woodworth estimate -20 mm for Rosslyn Bay and 4 mm for Bundaberg.  Given that the level is probably unknown to more than 10 mm, we have set the 001 flag for the MTL for the period 1957-1977.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jul-2016 :
+Using updated metadata from the NTC website the RLR diagram for Gladstone has been revised. Primary benchmark is now PM 10855 5.66m above LAT.
+

@@ -1,0 +1,16 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Wajima              647/071 RLR(1974) is 10.3m below BM F 17
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Wajima              647/071 RLR(1974) is 10.3m below BM F 17
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Nov-2006 :   
+Large spike in the dataset Nov. 2000 - data flagged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2011 :   
+Sea level profile compares well with that for Mikuni.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :   
+A massive earthquake magnitude 9.0 occurred at 14:46 JST (05:46 UTC) on Friday
+11th March 2011 with the epicenter approx. 70km east of the Oshika Peninsula
+Tohoku. It was the most powerful known earthquake tp hit Japan.The earthquake
+triggered tsunami waves of up to 40.5m travelling up to 10km inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :   
+The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P111 is 13.494m above RLR.
+

@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jul-2010 :   
+Mys Pikshueva is a new station to PSMSL.It was included in the International
+Polar Year project 'Long-term Sea Level Variability in the Nordic Seas
+(LEVANS). The project ran for the three years of 2007-2009 and was funded by
+the Research Council of Norway.
+The Project Team included Vladimir Pavlov (Project co-ordination) from the
+Norwegian Polar Institute and Igor Ashik from the Arctic and Antarctic Research
+Institute.
+The data span 1955-1990. It is unlikely we will receive any further data for
+this station.
+

@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Oct-2011 :
+Bowen II is a new station to PSMSL although data exists for Bowen id.676 for Oct.1951-Sept.1953. Data was downloaded from the National Tidal Centre,Australia. Dataset starts in Dec.1986. Because metadata was also available for this station we were able to make it RLR. Datum referred to is Lowest Astronomical Tide (LAT). Benchmark is PSM 10009 8.689m above LAT.RLR factor is 5.311m.
+

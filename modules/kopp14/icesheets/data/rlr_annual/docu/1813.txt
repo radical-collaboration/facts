@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
+Valencia new station 1992.  Data supplied by Climat Maritimo, Madrid.
+RLR(1995) is 8.766m below BM NGU66.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Apr-2013 :
+As part of the new REDMAR Spanish network a new MIROS radar gauge has been installed in Valencia from 2007 onwards. Datum differs by 0.969m this has been taken into account through the RLR factor. Previous factor 5.980m is now 6.949m.See paper B. Perez et al 'Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Complete dataset has been revised by Puertos del Estado. Reverts to just one RLR factor of 6.949m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 39.466667 -0.333333 to 39.44203 -031128 which is the site of the new MIROS gauge in decimal degrees.
+

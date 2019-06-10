@@ -1,0 +1,23 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Lowestoft           170/068 RLR(1978) is 9.6m below BM TM5477 9272
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Lowestoft           170/068 RLR(1978) is 9.6m below BM TM5477 9272
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-SEP-93 :
+AUGUST-OCTOBER 1979 DATUM SUSPECT
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-SEP-94 :
+A Lege stilling well gauge was installed in June 1955, replace
+by Munro and Ott systems in separate wells in May 1970.  From
+February 1985 data have been taken from a potentiometer
+attached to the Munro stilling well.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-JUL-97 :
+1989 - November 1996: possible error in data of 2-3mm
+November 1996: new gauge installed
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+TGI visited the site 04.12.2013 for general maintenance and changed the compressor.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-May-2015 :   
+TGI were at site on 02.05.14 and 23.11.14 for General Maintenance.
+

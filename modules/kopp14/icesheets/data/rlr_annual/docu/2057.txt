@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
+Mellila is a new station and is part of the newly established REDMAR network. Benchmark
+C.N. 2.0m relative to REDMAR network. The datum was changed by 15.5cm in July 2011 the supplied data had been adjusted accordingly so complete dataset was re-loaded.
+See paper B. Perez et al 'Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 35.291667 -2.928333 derived from the previously supplied degrees and minute value to 35.29061 -2.92853 the site of the new MIROS gauge in decimal degrees.
+

@@ -1,0 +1,4 @@
+Add 2.030m to data 1936-1977 to refer to RLR (2002)
+Add 7.140m to data 1978-1992 to refer to RLR (2002)
+Add 2.0m to data 1993- to refer to RLR (2002)
+RLR (2002) is 45.908m below BM 4 052 13 1321

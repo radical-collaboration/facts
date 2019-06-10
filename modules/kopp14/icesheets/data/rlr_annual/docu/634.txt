@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-97 :
+The contributing authority advises that anomalous values are the result of met. influences
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Iraklion            290/101 RLR(1988) is 8.7m below BM R A
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Mar-2011 :
+Because of the unresolved datum problem at Iraklion from when the sea level measurement was revised from measuring downwards to measuring the more conventional method of upwards the station has been flagged.The process adopted is that the station remains RLR so that the RLR data is still visible on the database up to the change in March 2002. From March 2002 the
+data reverts to being Metric. Previously data labelled Metric for the period Jan 1989-December 1997 has been upgraded to RLR status as there seems no reason for it to remain Metric. There is a gap in the data January 1995-August 1996.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jul-2011 :
+Following further information from the Hellenic Navy Ocranography Service an adjustment has been made to the data. The plotted data now appears to be correct. Therefore the station flag has been removed and the data once again reinstated to RLR status. The RLR diagram has also been updated.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Mar-2013 :
+Following datum diagrams supplied by the Hellenic Navy the RLR factors have been changed. Iraklion tide gauge was moved in September 2009. This station has been superceded by Iraklion II id. 2165
+

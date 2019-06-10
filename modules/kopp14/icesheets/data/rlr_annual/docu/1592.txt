@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-JUL-91 :
+RLR(1987) IS 9.5M BELOW BM NO. T 0283
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Chendering          550/017 RLR(1987) is 9.5m below BM T 0283
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Sep-2012 :   
+Publication Tidal Observation Records 2010 confirms the Primary benchmark 
+remains BM T0283 4.688m above TGZ.
+

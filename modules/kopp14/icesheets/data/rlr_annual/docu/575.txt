@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Canton Island       750/011 RLR(1966) is 8.6m below BM No2 1949
+The name of the island was revised to Kanton 17.3.1995
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Jan-2012 :   
+This station is no longer maintained by NOAA. Last data is that for December
+1974. The station has been switched to 'inactive'.
+

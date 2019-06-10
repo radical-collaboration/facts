@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
+Haikou              610/007 RLR(1990) is 9.7m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :   
+Using data from the latest UHSLC JASL cd data values for 1995-1997 have been
+added to the 'METRIC' dataset. Where the previous data and the Hawaii data
+overlap the data values are close but not identical.
+

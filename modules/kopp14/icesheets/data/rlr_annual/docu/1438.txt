@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Yaizu               642/122 RLR(1983) is 9.8m below BM Attach-32
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-May-2009 :
+Dataset after the gap in 1998 appears slightly higher.Treat data with caution.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on the 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake to strike Japan with waves of up to 40.5m and travelling up to 10km inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
+The GPS benchmark information has been downloaded from the SONEL website. The GPS benchmark P115 is 13.384m above RLR.
+

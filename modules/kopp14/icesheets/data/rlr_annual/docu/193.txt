@@ -1,0 +1,16 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1991 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Point Atkinson      822/051 RLR(1991) is 10.9m below BM 213-J-3
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Sep-2011 :
+Using data from FIsheries and Oceans Canada the RLR diagram has been updated.
+Primary benchmark remains 213-J-3 previous value was 6.936m above TGZ present
+value is 6.937m above TGZ. RLR diagram was left as before.
+Benchmark last inspected in 2006.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2015 :   
+Historic data was included in the above complete dataset. The datum for the period 1915-1945 is currently being queried. Until the Fisheries and Oceans Canada confirm the datum this data has been made Metric.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2016 :   
+Datum for the station has been confirmed. It has also been confirmed that from January 1967 the Chart Datum was lowered by 396mm (1.3ft). As the whole dataset was re-loaded this adjustment was already made. The historic data have now been added to the RLR dataset.
+

@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Aug-2010 :
+The complete dataset for Arrecife has been revised. Previous data was for
+1949-1951 only. These data have been copied both on paper in the correspondence
+file and electronically in new_data/spain/2010 There are entries on the
+database for Arrecife A,B and D. Each have small portions of data. It was
+decided to place the revised values in Arrecife to simplify things.There is
+no data available for 2008.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Jul-2013 :
+Arrecife has been made RLR with information supplied by the IEO.Primary benchmark is SSMfo 2.243m above TGZ. RLR factor is 5.157m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Sep-2014 :
+Using values from a listing recently supplied by IEO the positional co-ordinates for Arrecife have been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Feb-2016 :   
+There is no data available for Arrecife for 2013 and 2014. It is the IEO's intention to install a new tide gauge at the site.
+

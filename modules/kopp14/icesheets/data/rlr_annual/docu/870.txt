@@ -1,0 +1,6 @@
+NOTICEABLE METEOROLOGICAL INFLUENCES
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Rosales             860/061 RLR(1969) is 11.3m below Pilar SHN 1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Rosales             860/061 RLR(1969) is 11.3m below Pilar SHN 1
+

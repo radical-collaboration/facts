@@ -1,0 +1,2 @@
+Add 5.429m to all data values to refer to RLR (1966)
+RLR (1996) is 8.4m below BM 4

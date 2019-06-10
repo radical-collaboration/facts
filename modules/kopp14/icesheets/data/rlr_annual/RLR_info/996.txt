@@ -1,0 +1,4 @@
+Add 4.503m to data -1965 to refer to RLR (1988)
+Add 5.113m to data 1966-1972 to refer to RLR (1988)
+Add 5.079m to data 1973- to refer to RLR (1988)
+RLR (1988) is 11.8m below BM New Plymouth Fundamental

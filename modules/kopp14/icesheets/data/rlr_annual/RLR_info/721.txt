@@ -1,0 +1,6 @@
+Add 9.91m to data values 1954-1963 to refer to RLR (1974)
+Add 5.91m to data values 1964-1987 to refer to RLR (1974)
+Add 5.924m to data values 1988-1989 to refer to RLR (1974)
+Add 5.909m to data values 1990 onwards to refer to RLR (1974)
+RLR (1974) is 9.9m below BM Attach-15
+FP = Fixed Point

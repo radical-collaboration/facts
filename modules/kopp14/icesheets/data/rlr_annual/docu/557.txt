@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Puerto Cortes       908/031 RLR(1964) is 8.4m below BM2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
+Different trends pre- and post-1960 approximately.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :
+Station is now historic last data received was for 1968. Although it is still mentioned on the NOAA website there is no longer any supporting benchmark information available. Station has been labelled 'inactive'. Station was previously flagged the station flag has now been removed.
+

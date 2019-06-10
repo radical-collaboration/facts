@@ -1,0 +1,22 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-JUN-95 :
+1992 revised, June 1995
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Sep03 :
+Acoustic gauge (Aquatrak 4100 series sensor) installed in 1998
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun05 :
+New analogue chart, float gauges were installed in 1985 in 4 Turkish
+stations: Antalya II, Bodrum II, Metes/Izmir and Erdek. All were
+replaced by new acoustic systems in 1998-99.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun05 :
+Bodrum II           310/046 RLR(1986) is 8.608m below BM MAR 1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Jul-2010 :   
+During May 2010 the complete revised data holding from the Turkish Sea Level
+Monitoring Network were supplied to the PSMSL from the General Command of
+Mapping.All datasets including that for Bodrum II were replaced. Previously RLR
+the values were TGBM BM MARI 3.475m above Chart Datum. RLR (1986) 8.608m below
+TGBM BM MARI. RLR factor 6.0m.
+A revised RLR diagram was created with Primary Benchmarl BDRM-1 2.578m above
+TGZ.
+RLR (2008) 8.3m below TGBM BDRM-1. RLR factor 5.722m
+Add 5.722m to all data values to refer to RLR (2008).
+There also exists a secondary benchmark BDRM-2. This is 2.407m above TGZ.
+

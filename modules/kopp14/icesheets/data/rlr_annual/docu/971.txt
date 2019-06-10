@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Piney Point         960/077 RLR(1969) is 8.4m below BM3
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Piney Point         960/077 RLR(1969) is 8.4m below BM3
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Feb-2012 :   
+Piney Point is now an Historic station. Last data recived was that for 1973.
+Although it is still featured on the NOAA website no relevant benchmark/datum
+information is now available.
+

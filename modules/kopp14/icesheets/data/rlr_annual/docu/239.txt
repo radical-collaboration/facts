@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
+A description of the sea level network in Finland can be found
+in 'Operational Oceanography: Implementation at the European
+and Regional scales.  2002 (pp.129-137)'.
+PRIOR TO 1971 FCODE=06
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Turku/Abo           060/241 RLR(1964) is 9.0m below BM257F
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Turku/Abo           060/241 RLR(1964) is 9.0m below BM257F
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Jan-2012 :   
+Levelling information recently supplied by the Finnish Meteorological Institute
+confirms that the Primary benchmark remains 257 F 3.831m above gauge datum.
+

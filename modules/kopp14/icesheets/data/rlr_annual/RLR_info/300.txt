@@ -1,0 +1,4 @@
+Add 5.551m to data values up to 1945 to refer to RLR (1964)
+Add 5.554m to data values 1946 onwards to refer to RLR (1964)
+RLR (1964) is 10.217m below BM NO 4 1951
+.

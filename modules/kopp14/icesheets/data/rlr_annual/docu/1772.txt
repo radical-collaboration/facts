@@ -1,0 +1,25 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+Gauge is an "A Class" bubbler maintained by POL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Islay (Port Ellen)  170/244 RLR(1993) is 9.4m below TGBM NR 3635 4507
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2009 :
+The tide gauge at Port Ellen is sinking.
+This is because the quayside has been gradually
+collapsing since 2005. The TGI are aware of the
+problem and intend to re-site the gauge.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Oct-2009 :
+The measuring system at Port Ellen has had to be relocated
+due to the harbour wall subsiding. The new location is 2m
+from the original location and the measuring system is
+mounted on steel piling. A mid-tide sensor has also been
+added and levelling completed. Values are
+Full tide sensor -570mm ACD
+Mid-tide sensor +475mm ACD
+All other parameters remain the same.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jul-2014 :
+Last data avalable for Islay is January 2011. The tide gauge has been removed from the network due to harbour re-development. Work on a replacement installation has begun and is ongoing.
+

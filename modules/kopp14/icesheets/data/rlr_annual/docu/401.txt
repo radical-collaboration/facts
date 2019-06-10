@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Nevlunghavn         040/311 RLR(1964) is 9.8m below BM F38N3
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Nevlunghavn         040/311 RLR(1964) is 9.8m below BM F38N3
+Nevlunghavn is an historic station last data 1965
+

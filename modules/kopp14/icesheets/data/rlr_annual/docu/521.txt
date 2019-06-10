@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Kahului Harbor      760/051 RLR(1964) is 9.4m below BM2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark BM 2 3.456m above gauge datum no longer appears in the NOAA reports. Current Primary benchmark is 5680 A 1983 3.007m above gauge datum.
+

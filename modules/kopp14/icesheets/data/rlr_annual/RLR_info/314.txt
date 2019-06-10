@@ -1,0 +1,4 @@
+Add 4.622m to data values up to 1978 to refer to RLR (1986)
+Add 4.152m to data values 1979-1980 to refer to RLR (1986)
+Add 4.132m to data values 1981 onwards to refer to RLR (1986)
+RLR (1986) is 10.5m below TGBM NB 4228 3264

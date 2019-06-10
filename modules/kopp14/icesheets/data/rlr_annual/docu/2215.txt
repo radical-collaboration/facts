@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Feb-2014 :
+Bay Waveland Yacht Club II is a new station. Gauge was re-instated in 2005 and given a new id. 2215. Although the benchmark remains the same the datum has changed. The new data for 2005 onwards has been made RLR.
+

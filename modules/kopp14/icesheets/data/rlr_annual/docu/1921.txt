@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2007 :
+Data for Le Crouesty has been added to the PSMSL database. Following the input of 2009 data this station was made RLR. RLR (2009) is 19.700m below TGBM O.K.K3P3-no.53.
+RLR factor is 3.756m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :   
+Using values from the SONEL website the latitude and longitude for Le Crouesty have been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :   
+The Le Crouesty data downloaded from SONEL included revised data for 2007/8. Because of this the whole dataset has been re-loaded.
+

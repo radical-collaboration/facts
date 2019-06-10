@@ -1,0 +1,26 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Marseille           230/051 RLR(1963) is 8.5m below TGBM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-JUL-92 :
+1951-52: MALFUNCTION OF RECORDING MECHANISM BUT NO DETAILS AVAILABLE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-JUL-92 :
+BEFORE APRIL 1988 FCODE=24
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Possible faulty data in period 1945-58 - see B.C.Douglas, JGR 97(C8),12699-12706, 1992 - from comparison to nearby stations.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-MAY-93 :
+The Douglas comment stems from his use of a FWHM = 4 years low pass filter
+acting on the suspect data in 1951-52, rather than a suspect block of 13 years.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-JUL-93 :
+repairs made to sea water channel during May November 1992
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-MAR-98 :
+type of gauge=maregraphe totalisateur gauge not in use in 1997, replacemnet gauge planned for 1998
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Aug31 :
+Marseille acoustic gauge installed 16/06/1998.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
+Marseille data now supplied by Service Hydrographique et Ocean. de la Marine,Brest.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Sep-2007 :
+Mean Sea Level values for 2005/6 flagged suspect following report prepared for Xth GLOSS meeting. The acoustic gauge installed in 1998 appears to behave erratically for heights above a certain level.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Mar-2012 :
+Primary benchmark is M.AC-0-VIII 1.99m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
+Using values from the SONEL website the latitude and longitude for Marseille as been revised.
+

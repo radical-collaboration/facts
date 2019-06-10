@@ -1,0 +1,2 @@
+Add 5.986m to alldata values to refer to RLR (2010)
+RLR (2010) is 10.9m below BM 1Q

@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1991 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Tofino              822/116 RLR(1990) is 10.1m below BM 7, 1971
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-SEP-97 :
+present station constructed in 1971 and a backup pneumatic bubbler system
+was installed in 1995
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Sep-2011 :
+Using data from Fisheries and Oceans Canada the RLR diagram has been
+revised.Primary benchmark has been changed and is now 3-1958 4.046m above CD
+last inspected 2008. Previously used Primary benchmark 7-1971 is still active
+5.196m above TGZ last inspected 2008.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2015 :   
+Historic data was included in the above complete dataset. The datum for the period 1909-1920 is currently being queried. Until the Fisheries and Oceans Canada confirm the datum this data has been made Metric.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2016 :   
+The datum for the historic data for 1909-1920 has been confirmed to be the same as the remaining data. This data has now been added to the RLR data series.
+

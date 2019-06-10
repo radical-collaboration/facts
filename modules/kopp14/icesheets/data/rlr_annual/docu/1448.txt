@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-JUL-92 :
+GAUGES IN EASTERN GERMANY (WISMAR, WARNEMUNDE, SASSNITZ, KOSEROW) AS
+OF MARCH 1992 ARE TYPE 'STEREMAT', VERTICAL DRUM, SWIMMER PRINCIPLE,
+MEASURES 1:10, CONTINUOUS REGISTRATION ON PAPER CHART. (INFORMATION
+FROM L.BALLANI, POTSDAM).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-JUL-92 :
+DATA JANUARY 1974 - OCTOBER 1979 WERE SUMMED FROM 4 VALUES PER DAY AT
+(01,07,13,19 MEZ) AND NUMBER OF VALUES OVER ONE MONTH AVERAGED.
+DATA NOVEMBER 1979 - OCTOBER 1990 OBTAINED FROM ALL HOURLY VALUES IN
+THE MONTH. (INFORMATION FROM L.BALLANI MARCH 1992).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan23 :
+Koserow data up to 1992 supplied by Geoforschungszentrum Potsdam (08).
+Data 1993- supplied by Bundesamt fur Seeschiffahrt und Hydrographie (BSH),
+Hamburg (auth 16).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Aug-2010 :
+The data for Koserow was measured to PN=HN-514cm (HN=zero of official height
+system)Normal depth of PN=500cm. It is unusual to relate such a station to RLR as
+this 'breaks the rules' of RLR. Data now refers to TGZ.
+

@@ -1,0 +1,29 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah added 17/01/03 which supercedes old data.
+New data does not have any missing days information.
+Old data has been backed up.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan17 :
+New data from John Hannah was for Auckland II, Dunedin II,
+Lyttelton II and Wellington II.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-OCT-05 :
+There is a new John Hannah paper referring to New Zealand data for
+Wellington, Dunedin, Lyttelton and Auckland. The reference is:
+"An updated analysis of long-term sea level change in New Zealand."
+Geophysical Research Letters, V31, L03307, doi:10.1029/2003GL019166
+(2004).
+PRIOR TO 1984 DATA SUPPLIED BY AUTHORITY 53
+UP TO 1960 GAUGE AT 36 51 S 174 49 E
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Auckland-Waitemata  690/001 RLR(1986) is 10.2m below Auckland Harbour BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Auckland-Waitemata  690/001 RLR(1986) is 10.2m below Auckland Harbour BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar02 :
+Type of gauge=Munro Float gauge
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr26 :
+The RLR time series for Auckland-Waitemata (690/001) and Auckland II
+(690/002) are measured with respect to the same datum so they can
+be combined if required.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Feb07 :
+Auckland data now supplied by Land Information New Zealand (LINZ)
+Auth53.  Previously supplied by Royal NZ Navy (Auth=A5).
+

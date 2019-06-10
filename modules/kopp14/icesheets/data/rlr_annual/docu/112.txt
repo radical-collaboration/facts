@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Fernandina          960/021 RLR(1923) is 10.1m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-94 :
+No detailed benchmark information available.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2011 :
+Data downloaded directly from the NOAA website. Datum information also downloaded. NOAA Primary Benchmark is 34 1923 4.77m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
+Using data from NOAA the RLR diagram was re-drawn. Primary benchmark appears to be 34 1923 4.770m above gauge datum. The historical benchmark BM 27 previously used by PSMSL no longer appears in the NOAA report.
+

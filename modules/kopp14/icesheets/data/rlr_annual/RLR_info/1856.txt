@@ -1,0 +1,2 @@
+Add 4.908m to all data values to refer to RLR (2002)
+RLR (2002) is 10.5 m below TGBM 5043 8212 (Sheet 115)

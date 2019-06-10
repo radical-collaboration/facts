@@ -1,0 +1,2 @@
+Add 5.793m to data values to refer to RLR (1970)
+RLR (1970) is 11.392m below BM NO 1 1966

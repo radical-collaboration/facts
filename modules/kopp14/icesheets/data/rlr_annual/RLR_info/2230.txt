@@ -1,0 +1,2 @@
+Add 4.630m to all data values to refer to RLR (2014)
+RLR (2014) is 10.2m below BM GPS 32406

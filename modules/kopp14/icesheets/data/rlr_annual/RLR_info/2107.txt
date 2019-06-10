@@ -1,0 +1,2 @@
+SUBTRACT 0.715m from all data values to refer to RLR (1983)
+RLR (1983) is 9.595m below BM b

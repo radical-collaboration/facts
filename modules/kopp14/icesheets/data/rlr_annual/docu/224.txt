@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Lewes, Delaware     960/085 RLR(1971) is 10.2m below BM36
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
+Using data extracted from the NOAA website the RLR diagram has been re-drawn. The Primary benchmark now appears to be NO 20 1975 3.99m above the gauge datum. The previously used PSMSL benchmark BM36 4.651m above gauge datum no longer appears on the NOAA website.
+

@@ -1,0 +1,2 @@
+RLR(2001) is 8.645m below BM TRNCMAR01 
+Add 5.084m to all values to refer to RLR(2001)

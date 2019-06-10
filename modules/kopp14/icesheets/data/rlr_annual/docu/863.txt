@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Resolute            970/151 RLR(1964) is 14.6m below BM"Carrol"
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Resolute            970/151 RLR(1964) is 14.6m below BM"Carrol"
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Aug-2010 :   
+TGBM BM 4 1972 was referred to from 1975 onwards. The RLR factor remains the
+same at 5.999m.
+

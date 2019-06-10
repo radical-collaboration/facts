@@ -1,0 +1,15 @@
+NOTICEABLE METEOROLOGICAL INFLUENCES
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Buenos Aires        860/151 RLR(1977) is 25.2m below Peristilo de la Catedral
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Buenos Aires        860/151 RLR(1977) is 25.2m below Peristilo de la Catedral
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Anomalously large value in April 1959 - correct as received from
+authority - also seen in other records (e.g. Isla Martin Garcia
+PSMSL code 860/171).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Oct13 :
+The smoothed, normalized and detrended Buenos Aires monthly mean time
+series shows a high correlation with the Southern Oscillation Index,
+presumably through the influence of river flow (Bruce Douglas, private
+communication, October 1998)
+

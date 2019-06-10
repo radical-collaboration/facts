@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
+SEAFRAME station - owned and operated by the Port of Melbourne Authority
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-96 :
+SEAFRAME station installed January 1993
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-DEC-97 :
+1995 revised in update from National Tidal Facility
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+This is a "baseline station" of the Australian National Tidal Facility.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+Lorne               680/226 RLR(2000) is 33.974m below PM19
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Oct-2011 :
+Using informtion from the National Tidal Centre, Australia the RLR diagram has been revised.Benchmark PM19 is 28.374m above TGZ. Benchmark SUTRON is 4.461m above TGZ. The natinal datum reference AHD is 1.423m above TGZ. RLR factor is 5.6m.
+

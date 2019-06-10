@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Port Moresby        670/011 RLR(1959) is 9.0m below BM Waterfront
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-MAY-96 :
+Data for 1970 onwards was revised in May 1996
+

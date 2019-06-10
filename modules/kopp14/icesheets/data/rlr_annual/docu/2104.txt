@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Dec-2011 :   
+Although the tide gauge at Marviken has been operational since 1964 it has only now been added to the database. There are now a total of 23 Swedish stations on the website.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Apr-2015 :   
+The RLR factor was mistakenly referenced to tide gauge zero instead of the local height system. We have changed the RLR factor applied to the metric data. While the RLR diagram was correctly drawn, we did remove the reference to tide gauge zero.
+

@@ -1,0 +1,2 @@
+Add 6.205m to all data values to refer to RLR (1988)
+RLR (1988) is 8.6m below BM Standard Mark

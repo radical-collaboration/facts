@@ -1,0 +1,3 @@
+Add 12.5m to all data values 1958-1967 to refer to RLR (1972)
+Add 4.757m to all data values 1968 onwards to refer to RLR (1972)
+RLR (1972) is 12.5m below BM Repere A1-1964

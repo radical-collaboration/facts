@@ -1,0 +1,6 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Tanjung Sedili      550/012 RLR(1987) is 9.1m below BM J0801
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Sep-2012 :   
+Publication Tidal Observation Records 2010 confirms that the Primary benchmark
+remains BM J0801 4.459m above TGZ.
+

@@ -1,0 +1,2 @@
+Add 6.184 m to all data values to refer to RLR (1969)
+RLR (1969) is 9.6m below BM PL 8/5

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Chinhae             620/041 RLR(1964) is 9.9m below TBM No1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Chinhae             620/041 RLR(1964) is 9.9m below TBM No1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Aug-2012 :   
+Chinhae is an historic station last data 1976 and has been labelled 'inactive'.
+

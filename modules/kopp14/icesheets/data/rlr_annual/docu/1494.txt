@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-OCT-96 :
+instrument: OTT mechanical float/well
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-JUL-07 :
+data throughout received from UH Sea Level Center
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Jul-2007 :
+Mean Sea Level values are received from the University of Hawaii Sea Level Centre.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :
+Using data values extracted from the latest UHSLC JASL cd data for 2006/7 have been added to the database.
+

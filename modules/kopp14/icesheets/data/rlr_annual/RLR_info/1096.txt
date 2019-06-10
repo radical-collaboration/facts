@@ -1,0 +1,4 @@
+Add 4.658m to data values 1965-1984 to refer to RLR (1972)
+Add 4.651m to data values 1985-1994 to refer ro RLR (1972)
+Add 4.649m to data values 1995 onwards to refer to RLR (1972)
+RLR (1972) is 7.9m below BM Nisinoomote

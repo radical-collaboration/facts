@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Gadeog Do           620/043 RLR(1981) is 9.9m below TBM No1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Gadeog Do           620/043 RLR(1981) is 9.9m below TBM No1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-DEC-97 :
+Type of tide gauge: OTT float
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2012 :
+At the request of the data suppliers, KHOA the station name was been revised
+to Gadeokdo. The lat. and long. have also been revised.
+

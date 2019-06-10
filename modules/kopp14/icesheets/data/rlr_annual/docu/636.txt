@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Kiptopeke Beach     960/083 RLR(1973) is 9.8m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
+Using the data from NOAA the RLR diagram has been re-drawn. Primary benchmark L 418 1963 with a value if 4.093m above gauge datum for Epoch 1983-2001. Previous Epoch 1960-1978 value 4.094m. The benchmark originally used by PSMSL BM1 4.328m above gauge datum no longer appears within the NOAA data.
+

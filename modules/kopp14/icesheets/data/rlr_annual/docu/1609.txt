@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-96 :
+Revised data received from the National Tidal Centre, Bureau of Meteorology, South Australia
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-JAN-98 :
+Gauge operated by the Commonwealth Scientific and Industrial Research Organisation (CSIRO)
+

@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
+Sejingkat           663/021 RLR(1997) is 10.3m below BM no. 10001
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Sep-2012 :   
+Publication Tidal Observation Records 2010 confirms that the Primary benchmark
+remains BM No. 10001 8.983m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Nov-2012 :   
+There is no monthly mean data for Sejingkat 2011 as the data contains many
+errors.
+

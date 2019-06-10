@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
+La Palma is on the island of La Palma in the Canaries. It is a new station first
+data 2009 it forms part of the newly established REDMAR network. Gauge is a MIROS
+radar sensor. Benchmark Pto.6.020 is 4.302m relative to the REDMAR datum.
+See paper B. Perez et al 'Overlapping sea leveltime series measured using
+different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude of 28.668889 -17.766667 derived from the previously supplied degrees and minutes value has been revised to 28.67780 -17.76795 tthe postion of the new MIROS gauge in decimal degrees.
+

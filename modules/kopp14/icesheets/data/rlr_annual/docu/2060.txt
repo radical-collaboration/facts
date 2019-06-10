@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
+Formentera is a new station data from 2009 and forms part of the newly established REDMAR network.
+Gauge is a MIROS radar sensor. Benchmark NGAB MAR.FORMENT. 1.648m relative to the
+REDMAR datum and 1.408m relative to IGN. See paper B. Perez et al 'Overlapping sea
+level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been changed from 38.735000 1.418333 derived from the previously supplied degrees and minutes value 38.73466 1.41903 the site of the MIROS gauge in decimal degrees.
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Garibaldi           823/014 RLR(1974) is 10.0m below BM6
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Jan-2012 :
+This is an historic station. Last data received is that for December 1980. Although Garibaldi appears in the NOAA Historic stations list the benchmark details are not the same. Therefore a copy of the original RLR diagram has been incoporated onto the web site. The station has been switched to 'inactive'.
+

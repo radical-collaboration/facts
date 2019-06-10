@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Sumoto              643/026 RLR(1976) is 14.6m below Attached BM (i)
+Where two benchmarks have the same name the later one is suffixed.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70 km east of the Oshika Peninsular . It was the most powerful earthquake to have hit Japan triggering a tsunami with waves up to 40.5m and travelling up to 10 km inland.
+

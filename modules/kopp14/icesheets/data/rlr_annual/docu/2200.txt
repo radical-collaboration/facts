@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jan-2014 :   
+Benoa B is a new station in collaboration between UH and BAKOSURTANAL. As yet there is no datum link between this station and the previous BAKOSURTANAL gauge.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Jun-2014 :   
+Using metadata supplied by Pat Caldwell of UHSLC Benoa B has been made RLR. Primary Benchmark is TTG-LH 10.000m above TGZ
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :   
+Complete dataset reloaded with the updated JASL data.
+

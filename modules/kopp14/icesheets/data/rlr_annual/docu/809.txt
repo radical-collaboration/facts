@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Komatsushima        644/051 RLR(1976) is 8.6m below Attached BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Komatsushima        644/051 RLR(1976) is 8.6m below Attached BM
+Attached BM (i) superceded the previous benchmark in 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Feb-2011 :
+Buddy checked with Wakayama data profiles compare well.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday
+11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of
+Tohoku. It was the most powerful known earthquake to hit Japan triggering a
+tsunami with wave up to 40.5m and travelling up to 10km inland.
+

@@ -1,0 +1,2 @@
+Add 5.987m to all data values to refer to RLR (1939)
+RLR (1939) is 10.4m below BM P.O.

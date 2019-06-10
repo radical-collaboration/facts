@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Rikitea             808/001 RLR(1983) is 8.8m below BM#3
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-NOV-93 :
+1969-JUNE 1975 supplied by SHOM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-OCT-96 :
+Instrument type: Bristol Bubbler (BUB) (1969-6/1975); Fischer and Porter Analog-to-Digital Recorder (ADR) (6/1975-  )
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2013 :
+Complete dataset Oct. 1969 to April 2012 downloaded onto the database from UHSLC
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Feb-2014 :
+SHOM has confirmed that the current tide gauge at Rikitea belongs to UHSLC. However, SHOM work closely with UHSLC to maintain and control the instrumentation. SHOM has also recently installed a tide gauge which, longterm will replace the UHSLC gauge.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :
+Using updated JASL data the complete dataset has been reloaded. Using information from the UH levelling sheet benchmark BM 1 stable primary benchmark since 2001 has been added to the RLR diagram. BM 1 is 1.913m above the datum.
+

@@ -1,0 +1,18 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-AUG-96 :
+For discussions of MSL changes and extreme sea levels around Namibia
+and South Africa, see: G.B.Brundrit, S.Afr.J.Mar.Sci.,16,9-17,1995
+and S.Searson and G.B.Brundrit, S.Afr.J.of Science, 91,579-588,1995.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+East London         430/090 RLR(1967) is 11.2m below BM'TG Pit'
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2009 :   
+Heights of chart datum relative to land levelling
+datum in South Africa and Namibia: East London
+Datum: up to 31st Dec 1978 = -0.762
+Datum: 1st Jan 1979 - 31st Dec 1997 = -0.900
+Datum: 1st Jan 1998 - 31st Dec 2002 = -1.006
+Datum: 1st Jan 2003 onwards = -0.716
+Datum is now LAT so unlikely to change.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-May-2010 :   
+There appears to be a spike in the dataset for November 2002. This is possibly
+real as it appears in several of the S. African stations.
+

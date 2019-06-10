@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan10 :
+Data in this Sydney, Fort Denison record are true MSL (from hourly values) unlike the MTL of record 680/141. The analogue tide gauge was replaced by an acoustic digital gauge in 1996.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan10 :
+Sydney, F.Denison 2 680/140 RLR(1972,FD) is 12.7m below PM 101
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Jan-2013 :
+From documentation downloaded from NTC primary benchmark is confirmed as PM 101 (Dept. of Lands) a brass plug 6.647m above datum. There are two sensors at site both SONIC WATER LEVEL SENSORS and both Model SR-10
+

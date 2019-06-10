@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Recife              874/121 RLR(1964) is 9.7m below BM1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Recife              874/121 RLR(1964) is 9.7m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
+Station is now historic last data 1968 and no longer features on the NOAA
+website. Station has been labelled 'inactive'.
+

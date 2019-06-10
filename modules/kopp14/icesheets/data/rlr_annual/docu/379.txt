@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar10 :
+For a discussion on sea level trends along Black Sea coasts
+see Variations of the Black Sea Level by S.G.Boguslavsky et al.,
+Physical Oceanography, 9(3), 199-208, 1998.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar10 :
+Romanian sea levels likely to be heavily influenced by river flow.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar10 :
+See also comments under Bourgas (code 295/021).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jan25 :
+Constantza          297/021 RLR(1996) is 9.3m below BM bronze square plate
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Mar-2011 :   
+Datum of the data - Tide Gauge Zero is 2.48m below the Primary benchmark.
+

@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-JAN-96 :
+There was a magnitude 7.8 earthquake about 20 km offshore of northern Chile on 30 July 1995 which produced a tsunami of 1.3 m at Caldera and which was seen in many records across the Pacific (information from NTF, Australia).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan26 :
+For a review of the new Chilean tide gauge network, see "Tides in the Chilean Coasts" by Juan J. Fierro, Hydro International,Jan/Feb 2001, pp.7-9.TAKEN AS CONTINUOUS RECORD BY TOGA SEA LEVEL CENTER BUT MANY AD-HOC DATUM CORRECTIONS MADE TO ORIGINAL DATA.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-OCT-91 :
+ORIGINAL DATA ADJUSTED BY TOGA
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-MAR-93 :
+DATA RECEIVED FROM TOGA OFFICE Instrument type: standard mechanical (01/1945 - 02/1987),Metercraft bubbler  (03/1987+)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-OCT-04 :
+Data for the period 1945-99 were replaced by a new data set received from the supplying authority (SHOA)The revised data are not very different. However there are some changes both to the values and missing day information.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Oct-2010 :
+Following a review of the documentation the suspect station flag was removed.
+

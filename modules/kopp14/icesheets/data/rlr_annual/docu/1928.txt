@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2014 :
+Original dataset was 2002-2003.Complete dataset 2002-2012 loaded from UHSLC. Data is the same.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Oct-2015 :
+Complete dataset 2002-2014 loaded from the latest JASL dataset. Using the UH levelling information Settlement Point has been made RLR. Primary benchmark is UH 1 2.608m above the datum.
+

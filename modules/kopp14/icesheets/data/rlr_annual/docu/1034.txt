@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan09 :
+For an analysis of sea level changes in Hong Kong, see "Sea level changes in Hong Kong from tide gauge measurements" by X.Ding et al., Journal of Geodesy, 74, 683-689, 2001 and "Long-term sea-level changes in Hong Kong from tide-gauge records" by X.Ding et al., Journal of Coastal Research, 17, 749-754, 2001.
+Prior to 1986 the data was supplied by Port Works Division, Hong Kong
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jul-2010 :
+When generating the RLR diagram from the new database the MSL for 2001 was calculated to be 1.492m rather than the previous 1.505m. However the value of the RLR factor and the relationship between RLR and the benchmark remain unchanged.
+

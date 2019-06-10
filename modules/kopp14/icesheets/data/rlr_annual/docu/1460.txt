@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Cartagena           220/046 RLR(1978) is 13.5m below BM NP-1744
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Cartagena           220/046 RLR(1978) is 13.5m below BM NP-1744
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-DEC-93 :
+This is an historic station last data 1987
+

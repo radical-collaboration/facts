@@ -1,0 +1,17 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-05 :
+A paper by Marcos et al (JGR Volume 11, 2005) provides an overview
+of the tide gauge records on the northern coast of Spain.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
+Vigo II, new station 1997.  Data supplied by Climat Maritimo, Madrid.
+RLR(1997) is 11.039m below BM NGO 999.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Mar-2013 :
+The SRD acoustic gauge at Vigo has been moved and replaced by a new MIROS radar gauge. Both
+old and new gauges were running for the period 20.11.2008-31.12.2009 for inter-comparison purposes.
+A bias (mean difference) of -0.71cm was calculated. Hardware problems (de-lamination) were also initially experienced
+at the new MIROS gauge this has been taken into account in the supplied data. See paper by B. Perez et al 'Overlapping
+sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Further investigation by Puertos del Estado revealed the bias between old and new datasets was due to a problem with the old Acoustic gauge. Data from this was revised. Whole dataset has been re-entered onto the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been changed from 42.250000 -8.733333 which was derived from the previously supplied degrees and minutes value to 42.24314 -8.72600 which is the position of the new MIROS gauge in decimal degrees.
+

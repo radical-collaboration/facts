@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Nov-2011 :
+Taranto II is a new station. Data and metadata downloaded from the Istituto Superiore per la Protezione a la Ricerca Ambientale (ISPRA) website. Data January 2001 onwards. Database id=2095
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Aug-2012 :
+Taranto II is now RLR. Primary benchmark 91D4/1 is 3.19396 (displayed as 3.194m on diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
+

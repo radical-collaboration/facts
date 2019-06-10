@@ -1,0 +1,2 @@
+SUBTRACT 0.572m to all data values to refer to RLR (1973)
+RLR (1973) is 9.04m below BM d

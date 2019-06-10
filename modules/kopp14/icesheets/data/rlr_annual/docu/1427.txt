@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-AUG-96 :
+For discussions of MSL changes and extreme sea levels around Namibia
+and South Africa, see: G.B.Brundrit, S.Afr.J.Mar.Sci.,16,9-17,1995
+and S.Searson and G.B.Brundrit, S.Afr.J.of Science, 91,579-588,1995.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Salamander          430/037 RLR(1985) is 10.2m below TGBM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Salamander          430/037 RLR(1985) is 10.2m below TGBM
+

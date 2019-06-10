@@ -1,0 +1,24 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+Gauge is an "A Class" bubbler maintained by POL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-SEP-94 :
+Bubbler gauge installed in February 1992
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Workington          170/228 RLR(1993) is 14.1m below BM NX 9917 2928
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Jul-2011 :
+It was discovered that the data values for Workington were 18cm low from its
+installation in 1992 until it was re-levelled on 24.09.02 16:00 GMT.
+Unfortunately this information was not passed to the PSMSL at the time. This
+data period has now been adjusted using the BODC data values.
+Because of this the value of the annual mean for the RLR year 1993 has
+changed to 4.656m. Therefore the RLR factor has changed from 2.51m to
+2.31m. RLR reference to the benchmark NX 9917 2928 has also changed from
+14.1m to 13.9m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Jul-2014 :   
+TGI were at site on 18.02.2013 to repair a leak in the pneumatic panel. During July pneumatic problems were again noticed. TGI re-visted the site on 28.07.2013 to carry out general maintenance and repair the relief valve.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
+TGI were at site twice during 2014 first visit was 14.05.14 for a meeting with the electrical inspector and then again on 10.11.14 for general maintenance and to change the compressor.
+

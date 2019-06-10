@@ -1,0 +1,31 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Maloy            040/211 RLR(1964) is 10.1m below BM No7
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Maloy               040/211 RLR(1964) is 10.1m below BM No7
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+prior to 1978 fcode=C
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+tide gauge network modernised, new equipment installed in 1986
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
+Following the input of revised data values station made
+Metric awaiting datum information.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Apr-2009 :
+2007/8 mean sea level values entered as METRIC only
+awaiting confirmation of a datum query.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Oct-2009 :
+The Norwegian Mapping Authority have revised their datasets.
+Whole dataset for Maloy now refers to TGBM A29 N26
+6.615m above TGZ. A RLR value for 2008 was calculated.
+Add 5.785 to all data to refer to RLR (2008)
+RLR (2008) is 12.4m below TGBM A29 N26
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Apr-2010 :
+The datapoints for 1959 and 1960 where switched off as there appears to be a
+datum error for this period. This data does not appear on the Norwegian
+website.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2012 :
+For information on sea level rise along the Norwegian coast see paper
+"Contributions to sea level variability along the Norwegian coast for 1960-2010"
+by K. Richter, J.E.O. Nilsen and H Drange.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Jul-2013 :   
+The Norwegian authority has now confirmed that the Maloy data for 1959-1960 is missing from their database. They have asked PSMSL not to display this data.
+

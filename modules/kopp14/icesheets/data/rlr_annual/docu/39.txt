@@ -1,0 +1,10 @@
+For a discussion of submergence near to Venice see Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges), 1991, Springer-Verlag, page 34.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Nov23 :
+Venezia(S.Stefano)  270/051 RLR(1919) is 9.9m below BM Palace Facade
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Nov23 :
+The San Stefano gauge was moved to a new position on 26 August 1911.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Nov24 :
+RLR values for Venice San Stefano (270/051) and Punta della Salute (270/054) should be to essentially the same datum enabling one composite record to be made.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr11 :
+Data in the San Stefano record for 1872-1886 come via Dr Paolo Pirazzoli from F.C.Rossi, 1887, Il Commune Marino di Venezia. Data for 1887-1895 were obtained from Paolo Pirazzoli in March 2000. Later data came from Instituto Idrografico Della Marina, Genova. All data are MTL rather than MSL.
+

@@ -1,0 +1,5 @@
+Add 5.281m to all data values 1958-1972 to refer to RLR  (1964)
+Add 6.046m to all data values 1973-1978 to refer to RLR (1964)
+Add 6.059m to all data values 1979-1997 to refer to RLR (1964)
+Add 5.993m to all data values1998 onwards to refer to RLR (1964)
+RLR (1964) is 10.7m below BM Trig

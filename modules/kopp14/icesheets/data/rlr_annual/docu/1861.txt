@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 31-Aug-2010 :
+Supplying authority have confirmed datum of observations is local tide staff zero. Benchmark FBM 4 is 4.3102 above tide staff zero RLR (2009) has been defined as 10.6 m below FBM 4
+

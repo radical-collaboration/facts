@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Rangoon             530/011 RLR(1962) is 10.5m below New Sule BM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Rangoon             530/011 RLR(1962) is 10.5m below New Sule BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Aug-2012 :   
+Rangoon is an historic station last data 1962. Station has been switched as
+'inactive'.
+

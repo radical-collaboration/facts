@@ -1,0 +1,4 @@
+Add 4.945m to data values 1979-1997 to refer to RLR (1994)
+Add 4.941m to data values for 1998 to refer to RLR (1994)
+Add 4.945m to data values 1999 onwards to refer to RLR (1994)
+RLR (1994) is 12.14m below Attached BM - Standard Mark

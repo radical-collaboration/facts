@@ -1,0 +1,3 @@
+For data 1879-1903 add 7.087m to data values to refer to RLR (1964).
+For data 1904- add 5.120m to refer to RLR (1964).
+RLR (1964) is 9.6m below BM 7HB

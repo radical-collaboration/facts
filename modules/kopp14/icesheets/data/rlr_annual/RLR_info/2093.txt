@@ -1,0 +1,2 @@
+Add 6.901m to all data values to refer to RLR (2009)
+RLR (2009) is 11.0m below BM 102D1/1

@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2010 :
+Station created RLR. RLR year=1964. RLR factor is 6.165m. RLR (1964) is 9.0m
+below TGBM BM. For some reason this was not listed as an RLR station and only
+came to light when the new database was being implemented.
+This is an hisroric station last data 1966
+

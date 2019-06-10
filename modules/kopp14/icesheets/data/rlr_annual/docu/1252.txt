@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-APR-95 :
+station recoded from 710/021 to 711/021 on 26th April 1995
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 31-JUL-95 :
+Malakal             711/021 RLR(1983) is 9.3m below BM2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-OCT-96 :
+gauge type: unconfirmed (1969-70)Bristol bubbler (1971-7/1974)Fischer and Porter Analog-to-Digital Recorder (ADR) (8/1974-)Handar Encoder (ENC), (1990-) (*used as primary gauge beginning May 1991)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-NOV-97 :
+data 1969-70 contributed by authority code 85
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2010 :
+Complete dataset 1969 - 2009 supplied by UHSLC. After checking these with existing data values these data have been loaded onto the database.RLR remains 5.424m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2013 :
+Complete dataset May 1969 to April 2012 loaded onto the database from UHSLC
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Oct-2015 :
+Complete updated JASL data through to 2014 added to the database. From the UHSLC levelling sheet from 2005 Primary Benchmark is now UH 4 6.834m above datum. This has been added to the RLR diagram. The previous Primary benchmark BM 2 was destroyed in the early 1990's.
+

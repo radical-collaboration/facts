@@ -1,0 +1,3 @@
+Add 4.676m to data up to 1980 to refer to RLR (1974)
+Add 4.793m to data 1981onwards to refer to RLR (1974)
+RLR (1974) is 11.0m below BM RF-N2

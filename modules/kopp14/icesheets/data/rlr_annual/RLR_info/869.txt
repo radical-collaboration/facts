@@ -1,0 +1,4 @@
+Add 6.08m to data up to 1961 to refer to RLR (1961)
+Add 6.104m to data values 1962-1966 to refer to RLR (1961)
+Add 6.105m to data values 1967 onwards to refer to RLR (1961)
+RLR (1961) is 8.048m below BM

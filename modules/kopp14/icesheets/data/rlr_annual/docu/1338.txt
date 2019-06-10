@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Matapeake           960/082 RLR(1974) is 9.1m below BM1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Matapeake           960/082 RLR(1974) is 9.1m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Mar-2012 :   
+Matapeake is an Historic station last data received was that for 1983. Primary
+benchmark remained BM NO 1 1972 3.536m relative to gauge datum.
+

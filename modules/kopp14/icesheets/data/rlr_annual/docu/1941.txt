@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Apr-2008 :
+New station SAMOS ISLAND began operating in November 2005
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2011 :
+Samos has now been created RLR. Primary benchmark has been taken as R 20 0.480m
+relative to TGZ
+

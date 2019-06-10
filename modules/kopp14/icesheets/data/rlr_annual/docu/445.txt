@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
+SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR,96(B3), 4325-4335, 1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Yakutat             821/026 RLR(1963) is 14.1m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
+Using data from the NOAA website the RLR diagram has been revised. Previous Primary benchmark BM 1 does not appear in the NOAA reports. Current Primary benchmark is 3220 Z 1986 8.745m above gauge datum
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Mar-2016 :   
+The sea level at Yakutat appears to have an accelerating downward trend. Particularly when buddy checked with both Ketchikan and Sitka.
+

@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Fortaleza           874/151 RLR(1964) is 9.9m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-JUL-93 :
+DATA QUALITY POOR 1958-61;GAUGE MAINTENANCE AND DATUM QUESTIONABLE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
+Clear datum shift either side of data gap around 1960.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :
+Station is now historic last data received was that for 1968. Station no longer features on the NOAA website. It has now been labelled 'inactive'.
+

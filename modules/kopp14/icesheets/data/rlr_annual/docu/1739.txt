@@ -1,0 +1,8 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Tarawa-C, Betio     730/008 RLR(1989) is 9.2m below BM 2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-OCT-96 :
+primary gauge 1988-90: Leupold & Stevens Analog-to-Digital Recorder (ADR)
+primary gauge 1991 -   : Handar Encoder 436 (ENC)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Dec31 :
+data for 1995-96 revised, December 1998
+

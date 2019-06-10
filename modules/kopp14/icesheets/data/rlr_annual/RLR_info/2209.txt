@@ -1,0 +1,2 @@
+SUBTRACT 0.265m from all data values to refer to RLR (2009)
+RLR (2009) is 9.735m below BM 2695 A 2005

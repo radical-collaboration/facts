@@ -1,0 +1,2 @@
+Add 6.0m to all data values to refer to RLR (1996)
+RLR (1996) is 8.753m below BM DMH 098

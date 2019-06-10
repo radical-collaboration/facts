@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
+Tokyo III           642/069 RLR(1993) is 10.0m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Tokyo III replaced Tokyo II April 1982.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Nov20 :
+Datum 1996 is 1.852m below Tokyo Peil. Datum 1999 is 1.853m below Tokyo Peil. Datum 2001 is 1.854m below Tokyo Peil.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the largest earthquake ever to hit Japan and triggered a tsunami with waves of up to 40.5m travelling inland up to 10km.
+

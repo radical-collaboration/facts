@@ -1,0 +1,16 @@
+NO BM INFORMATION BUT DATA SEEMS HOMOGENEOUS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Vigo                200/041 RLR(1963) is 8.4m below BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug12 :
+all data for 1943-87 replaced with revised set for 1943-91
+The RLR definition was redefined on receipt of revised data and additional datum and BM details. BM now is BM NAPG - 800.5.29m above TGZ.
+RLR (1997) is 9.6m below BM NAPG - 800. RLR factor is 4.310m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-05 :
+A paper by Marcos et al (JGR Volume 11, 2005) provides an overview of the tide gauge records on the northern coast of Spain.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Dec-2008 :
+Complete dataset updated using revised values supplied by Maria Jesus (IEO). Previous values copied and stored in file.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Sep-2014 :
+Using values from a listing recently supplied by IEO the co-ordinates for Vigo have been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Mar-2016 :   
+IEO have supplied a revised dataset for Vigo. Some time ago the TGZ at Vigo changed but IEO continued to supply the data referenced to the previous TGZ to the PSMSL for continuity. To avoid problems in the future they have now decided to supply the revised dataset and reference information. The datum remains TGZ(new)with primary benchmark NAPG-470 4.83m abone TGZ. The RLR diagram has been revised to accommodate these changes. RLR factor is now 4.870m
+

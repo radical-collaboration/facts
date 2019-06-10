@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
+A description of the sea level network in Finland can be found
+in 'Operational Oceanography: Implementation at the European
+and Regional scales.  2002 (pp.129-137)'.
+1866 - 1912 VALUES BASED ON 1 OR 3 READINGS PER DAY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Russaro             060/316 RLR(1936) is 8.9m below BMBoltP
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Russaro             060/316 RLR(1936) is 8.9m below BMBoltP
+

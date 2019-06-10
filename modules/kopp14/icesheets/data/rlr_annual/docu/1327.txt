@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-SEP-95 :
+Data 1975-1991 received from Toga office
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-SEP-95 :
+1975-5/1989:Fischer and Porter Analog-to-Digital Recorder 6/1989-1990: Leupold and Stevens ADR gauge Aquatrak acoustic gauge, NOAA Next Generation Water Level Measuring System (NGWLMS) (1991-)March 1989: site moved from  18 07.9S 178 25.6E to  18 08.2S 178 25.6E
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+For Information: A gauge was maintained on behalf of the TOGA Sea Lvel Center until it was withdrawn in May 1989. A gauge at Kings Wharf was destroyed in November 1983 and was re-located to Walu Bay Naval Facility (operated by University of Hawaii)There was a 3 month overlap between the new NOAA gauge and the Walu gauge.
+From November 1997 the responsibility for the station in Suva was taken over by the Australian National Tidal Facility from the US NOAA. Comparison of daily means for Suva with those for Lautoka and satellite altimetry suggest there could be land subsidence at the Suva station equating to a slow positive sea level trend.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Mar-2011 :
+From the VLIZ site in Ostende a tsunami is visible 29-30 September 2009.
+

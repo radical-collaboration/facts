@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tago                642/119 RLR(1983) is 11.6m below BM Attach-31
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-May-2009 :
+Data 1999 onwards appears to be slightly higher than previously.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JTS (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the largest earthquake ever to hit Japan triggering a tsunami with waves of up to 40.5m and travelling up to 10km inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
+The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P114 is 14.073m above RLR.
+

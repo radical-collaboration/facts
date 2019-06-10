@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+St Georges          950/011 RLR(1964) is 8.4m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-NOV-94 :
+station at Biological station discontinued and replaced by station at Esso Pier
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Dec-2011 :
+BM1 was an old mark that no longer exists. Benchmark 5535 H 1978 2.445m above station datum was the Primary benchmark for the Bermuda Biological Station gauge. Benchmark 5540 A 1979 is the Primary benchmark for the Esso Pier tide gauge. From the NOAA website is the following warning 'Benchmarks 5535 F 1978 and 5535 H 1978 are based on one differential levelling connection and do not meet the quality control standards of NOS. Therefore, caution should be used when deriving elevations for these marks'.
+

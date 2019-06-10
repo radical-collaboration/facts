@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jun-2011 :
+October-December 2009 values replaced to bring PSMSL record in line with NOAA website, which was updated to account for ongoing issues related to Hurricane Ike in September 2008
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Feb-2013 :
+Sabine Pass North has been made a RLR station. Primary Benchmark is 0570 A 1985 3.264m above TGZ. RLR factor is 5.736m
+

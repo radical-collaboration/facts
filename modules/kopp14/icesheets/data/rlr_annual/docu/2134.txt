@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Mar-2012 :
+Noumea-Numbo replaces the previous gauge at Noumea-Chaleix. Chart datum is different at the two sites so they will remain two different series. Primary benchmark is Ba.m3n3-16 4.377m above Chart Datum
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jun-2016 :   
+The dataset including the 2015 data contained several areas of revise ddata. Because of this the complete dataset was re-loaded.
+

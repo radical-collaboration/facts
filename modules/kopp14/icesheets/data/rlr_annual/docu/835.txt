@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JAN-98 :
+Data up to 1985 received from authority Queensland D.O.T
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Aug-2010 :
+Supplying authority have confirmed that measurement datum for data from 1985 is LAT, and primary benchmark PSM 10222 is 6.808 m above LAT. RLR (2008) defined as 11.6 m below PSM 10222
+

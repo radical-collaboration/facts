@@ -1,0 +1,17 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-AUG-96 :
+For discussions of MSL changes and extreme sea levels around Namibia and South Africa, see: G.B.Brundrit, S.Afr.J.Mar.Sci.,16,9-17,1995 and S.Searson and G.B.Brundrit, S.Afr.J.of Science, 91,579-588,1995. 1959 - 1972 VALUES BASED ON 8 READINGS PER DAY
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Port Nolloth        430/021 RLR(1963) is 11.8m below BM CDM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun12 :
+Data for 1991 deleted as clearly anomalous.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun14 :
+Data for 1993 deleted as clearly anomalous.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Aug-2006 :
+Following the recent supply of data from the South African Hydrographic Office the data for 2000 has now been revised with official figures.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2009 :
+Heights of chart datum relative to land levelling datum in South Africa and Namibia: Port Nolloth Datum: up to 31st Dec 1993= -0.718 Datum: 1st Jan 1994 - 31st Dec 1997 = -0.900 Datum: 1st Jan 1998 - 31st Dec 2002 = -1.075 Datum: 1st Jan 2003 onwards = -0.925 Datum is now LAT so unlikely to change.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Oct-2009 :
+SANHO is in the process of re-evaluating and standardising all the tidal station benchmarks. Confirming their accuracy in relation to the existing national benchmark network. This process was carried out at Port Nolloth jetty resurveyed Mar.2008 new benchmark fitted mid 2009. the new benchmark is PN1 LLD +3.278m however SANHO are not completely happy with it and intend to resurvey it at some stage.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Mar-2013 :
+On the original RLR diagram there is a comment that for the period 1973-1993 there is an anomaly of .02m between the datum values supplied. On the original diagram rlrfac was given as 6.077m. When entered onto the database the value was given as 6.057m. This value has now been used.
+

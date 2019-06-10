@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Sep03 :
+Acoustic gauge (Aquatrak 4100 series sensor) installed in April 1999
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun05 :
+New analogue chart, float gauges were installed in 1985 in 4 Turkish
+stations: Antalya II, Bodrum II, Metes/Izmir and Erdek. All were
+replaced by new acoustic systems in 1998-99.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun05 :
+Erdek               310/038 RLR(1995) is 8.561m below BM MAR 1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2010 :   
+Erdek is on the Sea of Marmara. This station forms part of the Turkish Sea Level
+Monitoring Network.The total dataset has been revised by the authority.
+A new RLR diagram has been created. Coast/Station code 310/038 id=1598. RLR
+(2009) is 7.700m  below TGBM
+ERDK-1. RLR factor is 5.110m.
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Nov-2011 :
+Salerno on the west coast of Italy is a new station.Data for 2001 onwards was downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Database id. 2086 the accompanying metadata was also downloaded.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
+Salerno is now RLR. Primary benchmark 83/21' is 2.7777m (displayed as 2.778m on diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
+

@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Progreso            920/001 RLR(1964) is 13.8m below BM1
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Progreso            920/001 RLR(1964) is 13.8m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Anomalously low value May 1959 - correct as received from authority.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jan-2012 :
+Regarding the comment above re. the data spike in May 1959. In the old system
+it was only possible to flag a whole year as suspect. This is not the case with
+the new database. As the rest of the data for 1959 looks correct the flags have
+been removed so May 1959 is the only month flagged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jun-2015 :   
+Levelling information has been received from UNAM. Primary benchmark remains BM 1. However the TGZ is now 12.301m below BM 1.
+

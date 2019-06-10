@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Feb-2014 :   
+Tubuai is a new station in French Polynesia. Using levelling information from SONEL the station has been made RLR.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Oct-2014 :   
+Using data from SONEL the latitude and longitude for Tubuai has been updated.
+

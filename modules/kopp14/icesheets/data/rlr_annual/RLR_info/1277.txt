@@ -1,0 +1,2 @@
+Add 4.524m to all data values to refer to RLR (1988)
+RLR (1988) is 8.9m below BM 4

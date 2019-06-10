@@ -1,0 +1,18 @@
+1931 - 1958 VALUES BASED ON READINGS OF HIGH AND LOW WATERS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Bombay (Apollo B)   500/041 RLR(1964) is 13.0m below BM 2(PP)(1)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL. MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Apr-2009 :
+Benchmark and datum details for 2005/6 remain the same as previously so the same RLRFAC was used.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Sep-2010 :
+Benchmark for the historic data up to 1965 was BM 2PP1 up to 1936 the datum was 9.132m below this benchmark. For data 1937 onwards the datum was 'Chart Datum' with BM 2PP1 being 8.522m above this. In 1966 the benchmark was changed to BM 5/88 7.44m above chart datum.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jun-2014 :
+Please Note that the monthly mean sea level values for the period 1931 to 1936 were reported only to the nearest tenth of a foot, approximately 30mm. This explains the appearance of discrete sampling in height of the sea level variation during this time.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jan-2016 :
+We have changed the first line above, indicating that the MTL ends in 1958, not 1956 as was previously stated.  We have verified that the values in the database are those from Pub. Sci. 20, in which they were indicated as MTL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=31 mm has been applied to the RLR data for the period 1931-1958.  This value was derived from the average of three differences in the annual MSL and MTL listed in Pub. Sci. 24.  Note that no correction has been applied to the metric data.
+

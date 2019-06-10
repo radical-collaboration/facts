@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
+Revised  data for 1966-1985 recived from the National Tidal Centre, Bureau of Meteorology, South Australia
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-JAN-98 :
+Formerly known as Bundaberg.  The GLOSS Handbook Station sheets refer to Burnett Heads 1960-76: float/stilling well gauges at different locations on same wharf 1976-79: float/stilling well gauge on Tug Berth Queensland Beach Protection Authority operate analogue and digital recorders at Burmett Heads 2.5km away.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-JAN-98 :
+Gauge type is currently a float/stilling well type
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002May27 :
+Anomalously high value for February 1971.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002May27 :
+Bundaberg, B. Heads 680/073 RLR(2000) is 11.061m below BM PSM 3853 From documentation downloaded from NTC the primary benchmark remains PSM 3853 6.061m above the datum
+

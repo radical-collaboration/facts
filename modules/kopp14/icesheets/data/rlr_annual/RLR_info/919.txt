@@ -1,0 +1,2 @@
+Add 6.205m to data values to refer to RLR (1973)
+RLR (1973) is 8.4m below BM 2 USE

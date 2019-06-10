@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-JUN-95 :
+tide gauge installed 21st August 1992,
+tide gauge replaced 22nd September 1993
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JUL-95 :
+22 September 1993: tide gauge replaced
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Sep-2012 :   
+Primary benchmark BM 1641 5.795m above TGZ is confirmed in the Malaysian 
+publication Tidal Observation Records 2010.
+

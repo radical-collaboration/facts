@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+San Diego           823/081 RLR(1973) is 10.2m below BM14A(1942)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2011 :
+Using NOAA data the RLR digram has been re-drawn. Primary benchmark is now 12 1926 6.325m above gauge datum. The previously used benchmark BM 14A official name BM 14 A RESET 1943 as appears on the NOAA website has a value of 5.148m above TGZ in the NOAA report of 3.6.1991 and 5.150m in the report of 21.4.2003.
+For information: data values for the early 1980's may look high in comparison. This could be due to the El Nino Southern Oscillation (ENSO) as it is mirrored along the Californian coast.
+

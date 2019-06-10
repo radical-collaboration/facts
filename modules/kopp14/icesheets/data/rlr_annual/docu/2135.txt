@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Apr-2012 :
+Bonavista is a new station Primary benchmark is 90F9091 4.238m above CD.The
+station has been made RLR with RLR factor 6.362m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+Two isolated datapoints for August 1953 and June 1990 have been switched to Metric.
+

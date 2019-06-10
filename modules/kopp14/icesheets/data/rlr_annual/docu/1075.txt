@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-NOV-92 :
+BAR        281/011 RLR(1965) IS 10.4M BELOW BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+Anomalously large value for December 1989 checked correct as
+received from authority.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+data up to 1964 from auth 64
+gauge destroyed 25 February 1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
+PRIOR TO 1990 DATA FROM AUTH 26
+Bar is an historic station. The tide gauge was destroyed in February 1991.
+

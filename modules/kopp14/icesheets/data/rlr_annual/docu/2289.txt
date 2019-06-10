@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2016 :
+Cayo Loco is a newly supplied Cuban station. Using information supplied by the Cuban National Tidal Service Cayo Loco has been made RLR. Primary benchmark is TGBM PRP 2.857m above Tide Gauge Zero (TGZ) and 1.307m above Geodesic National Datum (GND).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+Information received from Cuba confirms that the tide gauge sensor are since 1992 a float recording hourly plus since 2013 a radar with 6 minute frequency.
+

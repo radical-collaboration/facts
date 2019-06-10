@@ -1,0 +1,4 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
+National Tidal Facility SEAFRAME station
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 : Supplying authority have confirmed that tide gauge zero is chart datum (1990)Tide gauge benchmark TON 1 is 2.0686 m above chart datum RLR is defined as 8.0 m below TON 1
+

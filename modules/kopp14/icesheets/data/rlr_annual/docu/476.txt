@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Dakar               390/001 RLR(1965) is 8.3m below Repere Fondamental
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Dakar               390/001 RLR(1965) is 8.3m below Repere Fondamental
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Nov-2008 :
+Following information from Guy Woppelmann the RLR diagram for Dakar was redrawn to show the relationship between benchmarks Nr.0 bis,Nr.0 and Nr.21. The UH TGZ is the same as the French Zero Hydrographique.
+

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+Boucau              190/139 RLR(1993) is 13.2m below BM NGF no. 22
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :   
+Using figures from the SONEL website the latitude and longitude values have been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :   
+When downloaded from the SONEL website there is a lot more data values for 1969-1991. Existing values were either the same or just 1mm different. The whole dataset has been entered onto the database.
+

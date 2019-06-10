@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-FEB-97 :
+data for 1951, 1977, 1987, 1993 and 1994 revised in February 1997
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar03 :
+Kolobrzeg           110/072 RLR(1997) is 2.001m below BM iron bolt
+Last data for Kolobrzeg is 1999 due to data policy issues in Poland
+

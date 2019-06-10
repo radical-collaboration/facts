@@ -1,0 +1,16 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-AUG-96 :
+For discussions of MSL changes and extreme sea levels around Namibia and South Africa, see: G.B.Brundrit, S.Afr.J.Mar.Sci.,16,9-17,1995 and S.Searson and G.B.Brundrit, S.Afr.J.of Science, 91,579-588,1995. 1967-1972 VALUES BASED ON 8 READINGS PER DAY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Granger Bay         430/045 RLR(1968) is 10.4m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
+Not a good looking record with several possible datum shifts.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2009 :
+Heights of chart datum relative to land levelling datum in South Africa and Namibia: Granger Bay Cape Town Datum: up to 31st Dec 1978 = -0.829 Datum: 1st Jan 1979 - 31st Dec 1997 = -0.900
+Datum: 1st Jan 1998 - 31st Dec 2002 = -0.975 Datum: 1st Jan 2003 onwards = -0.825 Datum is now LAT so unlikely to change.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-May-2010 :
+There appears to be a spike in the dataset for November 2002. This is possibly real as a spike appears in Nov/Dec 2002 in several of the S. African stations.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-May-2015 :
+The apparent spike in the monthly value for May 2014 was queried with the data suppliers. It was confirmed that the value was correct and was probably due to meteorological effects as the weather was described as 'shocking' with very strong onshore winds.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-May-2016 :   
+The apparent rise in sea level from June 2015 has been queried with the South African Navy. They have replied that there is quite a bit of seaweed growth in the area which may be contributing and intend to arrange for divers to cut this back.However, the data levels compare well with the predictions.
+

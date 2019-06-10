@@ -1,0 +1,2 @@
+Add 5.523m to all data values to refer to RLR (2002)
+RLR (2002) is 9.0m below BM 1

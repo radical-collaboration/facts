@@ -1,0 +1,18 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+Data for 1961-1962 was supplied by Australian Ocean Data Centre N.S.W.These data are based on High and Low water readings.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-NOV-91 :
+Data for 1969 was supplied by the National Tidal Centre, Bureau of Meteorology, South Australia based on hourly values
+========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
+Revised data for 1985-1990 was supplied by the National Tidal Centre, Bureau of Meteorology, South Australia. SEAFRAME station installed 04/09/92. Cocos (Keeling) Is. is a cooperative station between NTF and NOAA/NOS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JAN-98 :
+1985-1992: gauge type=Float/well system Stevens analog-to-digital recorder
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JAN-98 :
+1961-65: float/stilling well gauge located on original jetty West Is. 1968-71 float/stilling well gauge located near jetty, West Is.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+This is a "baseline station" of the Australian National Tidal Facility.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+Cocos Is.(Home Is.) 680/521 RLR(1996) is 8.604 below PSM101
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Oct-2011 :
+Using metadata from the National Tidal Centre, Australia the RLR diagram has been revised. Primary benchmark is SEAFRAME sensor benchmark 3.554m above Tide Gauge Zero (TGZ). RLR factor is 6.20m.
+

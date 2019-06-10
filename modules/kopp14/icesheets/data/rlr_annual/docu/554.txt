@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Alert Bay           822/021 RLR(1968) is 14.4m below BM 5,1965
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Alert Bay           822/021 RLR(1968) is 14.4m below BM 5,1965
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Aug-2010 :   
+To clarify the RLR diagram BM 1 1947 was in use 1947-1957, BM 2 1947 was in use
+1957-1965. BM 5 1965 came into use 1965 onwards. RLR facto is 4.075m. BM 5 1965
+is 14.4m below TGBM BM 5 1965.
+

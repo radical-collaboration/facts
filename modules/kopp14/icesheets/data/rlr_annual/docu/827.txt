@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-AUG-95 :
+A destructive earthquake and tsunami occurred in the Kuril Islands on 4 October 1994 - see Earth System Monitor, 5(4), June 1995.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Several datum shifts suggested in RLR record e.g. about March 1980.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Nagaeva Bay         630/011 RLR(1964) is 11.5m below BM No1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-FEB-96 :
+data Jan-Jun 1993 omitted because of gauge failure
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Jul-2008 :
+Following enquiries from PSMSL Dr. Oleinikoff of the Russian NODC confirmed that the Mean Sea Level data for the period October 2003 to May 2004 is defective. Relevent data has been flagged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2013 :
+There is no data available for 2011 due to a gauge malfunction.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2016 :   
+data for Nagayevo for 2014 were received in October 2015. Slightly revised data values were received 26-01-2016 these have been entered onto the database.
+

@@ -1,0 +1,19 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Rorvik              040/136 RLR(1972) is 9.2m below BM FM5
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Rorvik              040/136 RLR(1972) is 9.2m below BM FM5
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+tide gauge network modernised, new equipment installed in 1988
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Jul-2010 :   
+The Norwegian Mapping Authority has revised the complete dataset for
+Rorvik.Primary bench mark is now H20 N61 7.077m above TGZ (see copy of the
+Rorvik page from the Norwegian website
+attached to the new RLR diagram).
+RLR for the station has been re-calculated using 2008 as the RLR year. New RLR
+factor is 5.723m
+while RLR (2008) is 12.8m below TGBM H20 N61. 
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2012 :   
+For information on sea level change along the Norwegian coast see paper
+"Contributions to sea level variability along the Norwegian coast for 1960-2010"
+by K.Richter, J.E.O. Nilsen and H Drange.
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Nov-2011 :
+Vieste on the Adriatic coast of Italy is a new station. Data for 2001 onwards was downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Database id.2087. The accompanying metadata were also downloaded.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Aug-2012 :
+Vieste is now RLR. Primary benchmark 0153-113 is 3.72046m (displayed as 3.72m on diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
+

@@ -1,0 +1,20 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Nov22 :
+The Port Stanley float gauge (Lea company) was installed in
+November 1964 as an arrangement between Fuchs and Irving around 1963.
+It was run by the Colonial Office to about 1975 but the quality of
+the records from 1970 is said to be poor. It was located inside the
+conference room at the west end of the Government Jetty in Stanley
+Harbour and still existed in some condition up to 1982. The tide
+gauge zero was Chart Datum which was 20.53 feet below the BM on
+the PWD Office.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Dec06 :
+The RLR datums for both Stanley I (863/001) and Stanley II (863/002)
+have been set to be 10.7 m below benchmark A which is the same as 12.83 m below
+the PWD Office BM. The two RLR series can be combined if required
+although there is a large passage of time between them.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-SEP-05 :
+Sea level changes at Port Stanley are discussed by
+Woodworth, P.L., Pugh, D.T., Meredith, M.P. and Blackman, D.L. 2005.
+Sea level changes at Port Stanley, Falkland Islands. Journal
+of Geophysical Research, Vol. 110, C06013, doi:10.1029/2004JC002648.
+

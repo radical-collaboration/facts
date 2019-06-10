@@ -1,0 +1,17 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 31-MAR-93 :
+data received from toga office
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-DEC-94 :
+DATA 1983-84 RECEIVED FROM TOGA
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-FEB-98 :
+data for 1990-91 revised and data for 1990-97 received direct from authority 68
+1990: gauge at 28 06 N 15 24 W replaced by new equipment at 28 08 N 15 25 W
+New equipment is located in the dam of Santa Sofia in the Puerto de la Luz
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar22 :
+Data for 1992-97 revised
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Dec-2008 :
+Database updated with revised values supplied by Maria Jesus. Previous values copied and put in the file.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2010 :
+This Las Palmas (Puerto de la Luz) is on the Canary Islands
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Sep-2014 :
+Using values from a listing recently supplied by IEO the co-ordinates for Las Palmas (Puerto de la Luz) have been revised.
+

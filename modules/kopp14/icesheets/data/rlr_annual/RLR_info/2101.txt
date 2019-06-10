@@ -1,0 +1,2 @@
+SUBTRACT 0.800m to all data values to refer RLR (1976)
+RLR (1976) is 9.2m below BM a

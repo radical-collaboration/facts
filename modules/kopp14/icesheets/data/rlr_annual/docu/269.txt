@@ -1,0 +1,10 @@
+GAUGE RE SITED IN 1984
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Macau               609/001 RLR(1967) is 9.7m below BMII
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Macau               609/001 RLR(1967) is 9.7m below BMII
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Anmalously low value September 1931 followed by anomalously high
+value in October 1931.
+Macau is an historic station last data 1985
+

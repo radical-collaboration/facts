@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Sep-2010 :
+Aquatrak sensor installed August 1998. Tide gauge zero is Chart Datum, benchmark PSM 85837 is 6.89 m above it RLR (2009) is defined as 12.1 m below PSM 85837
+

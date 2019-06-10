@@ -1,0 +1,2 @@
+Add 5.380m to all data values to refer to RLR (1922)
+RLR (1922) is 14.0m below Fundamental BM

@@ -1,0 +1,4 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan27 :
+Unreasonable data value of -770 deleted from February 1976.
+Russkii (Russkii Ostrov) is an historic station last data 1989
+

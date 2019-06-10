@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :
+Culebra Puerto Rica is a new station data and metadata were downloaded from the NOAA website. Data was made RLR. Primary benchmark is 2235 D 2005  9.49m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Feb-2015 :
+The RLR diagram had an error and was redrawn. However, the RLR factor applied to the data was correct, and thus none of the RLR values have changed.
+

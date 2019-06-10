@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Oct16 :
+Data for 1985-95 from Dzaoudzi were obtained from a SHOM, France gauge (A.OTT type 16 float gauge) with data processed by the University of Hawaii Sea Level Center.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2009 :
+Dataset 1985-1995 replaced with revised data supplied by SHOM. Copy of previous data held in file.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Oct-2009 :
+The new gauge at Dzaoudzi has been installed at the same location as the previous gauge. The datum reference has remained the same with new benchmark F. The previous benchmark A was destroyed between 1997 and 2000. Details supplied by SHOM.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Mar-2012 :
+The data following the gauges re-installation in 2008 looks slightly higher than previously. Because of the remote location it is difficult to confirm this.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
+Using values from the SONEL website the latitude and longitude for Dzaoudzi have been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2014 :
+Using SHOM data Dzaoudzi has been made RLR from its re-installation in 2008. Primary benchmark is N-402-BIS 7.332m above Zero Hydrographique.
+

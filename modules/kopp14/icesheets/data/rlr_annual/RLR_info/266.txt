@@ -1,0 +1,4 @@
+Add 3.664m to data values up to 1938 to refer to RLR (1972)
+Add 2.716m to data values 1944-1963 to refer to RLR (1972)
+Add 3.542m to data values 1964 onwards to refer to RLR (1972)
+RLR (1972) is 11.856m below BM 5090 B 1978

@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-NOV-93 :
+DATA RECEIVED FROM TOGA OFFICE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-OCT-96 :
+float and well type gauge (Munro)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug27 :
+data for 1979 and 1995-96 received directly from authority G5
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Jun-2013 :   
+Following instructions from Phil Woodworth the RLR diagram for Charchanga has been revised. Previously rlrfac adjustments were made 1980-1981 and 1982-1985. However, when the PSMSL data holdings were compared with the UHSLC data anomalies were found. As a result just one rlrfac of 4.804m has been applied to the complete dataset.
+

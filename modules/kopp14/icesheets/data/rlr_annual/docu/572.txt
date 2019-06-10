@@ -1,0 +1,12 @@
+PRIOR TO 1970 DATA SUPPLIED BY AUTHORITY CODE NO. 52
+DATA PRIOR TO 1985 RECEIVED FROM AUTHORITY A7
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Cartagena           902/021 RLR(1964) is 9.1m below BM4
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-FEB-92 :
+GAUGE AFFECTED BY SILTING
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Cartagena           902/021 RLR(1964) is 9.1m below BM4
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-APR-94 :
+From January 1993 gauge at CIOH building
+1991-92 data from Stevens gauge, 1993 (Feb-July) data from digital gauge
+

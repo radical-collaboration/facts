@@ -1,0 +1,3 @@
+RLR(1963) is 8.5m below TGBM M.AC-0-VIII
+Add 6.840m to all values -1996 to refer to RLR(1963)
+Add 6.510m to all values 1998-  to refer to RLR(1963)

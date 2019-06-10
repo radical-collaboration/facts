@@ -1,0 +1,28 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Bodo                040/101 RLR(1964) is 10.6m below BM K13 N31
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-DEC-92 :
+UP TO 1986 ACODE=03
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Bodo                040/101 RLR(1964) is 10.6m below BM K13 N31
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+tide gauge network modernised, new equipment installed in 1989
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :   
+Following the input of revised data values station made
+Metric awaiting datum information.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Apr-2009 :   
+2007/8 mean sea level values entered as METRIC only
+awaiting confirmation of a datum query.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Oct-2009 :   
+From the Norwegian Mapping Authoriy website it is obvious that they have
+revised their datasets. RLR (2008) was calculated for Bodo giving a value of
+5.149m
+this was applied to the whole dataset. RLR (2008) is 30.2m below TGBM K13 N47.
+Data now looks OK although confirmation required from the Norwegian Mapping
+Authority.
+Data point for May 1970 has been 'switched off' as it is a spike. Data for this
+month does not appear on the Norwegian website.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2012 :   
+For information on sea level change along the Norwegian coast see paper
+"Contributions to sea level variability along the Norwegian coast for 1960-2010"
+by K. Richter, J.E.O. Nilsen and H. Drange.
+

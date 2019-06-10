@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Apr-2016 :
+Elfin Cove, Alaska is a newly downloaded NOAA station. The Primary benchmark is 4 1959. Several Alaskan stations have been newly downloaded from the NOAA website to help with the Quality Control of the data (buddy check).
+

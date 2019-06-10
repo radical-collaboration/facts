@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Apr-2012 :
+Reggio Calabria is a new station dataset begins January 2001.Data and metadata were downloaded from the ISPRA website idno. 2142.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
+Reggio Calabria II is now RLR. Primary benchmark 100D1/1 3.1323m (displayed as 3.132m on diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
+

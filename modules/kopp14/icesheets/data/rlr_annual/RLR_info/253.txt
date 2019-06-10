@@ -1,0 +1,2 @@
+SUBTRACT 11.088m from all data values to refer to RLR (1946)
+RLR (1946) is 8.3m below BM

@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1991 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Victoria            822/101 RLR(1988) is 9.8m below BM 737-J
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Sep-2011 :
+Using data from Fisheries and Oceans Canada the RLR diagram has been reviewed.
+Primary benchmark remains 737-J 1905 4.694m above CD last inspected 2001.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than sending just the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+

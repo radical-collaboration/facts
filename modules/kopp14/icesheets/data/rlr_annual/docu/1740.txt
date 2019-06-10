@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar28 :
+DATA FROM US NAVAL OCEANOGRAPHIC COMMAND DETACHMENT VIA HAWAII
+SEA LEVEL CENTER.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar28 :
+Diego Garcia-C      453/003 RLR(1993) is 10.7m below BM 1000 D 1990
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar28 :
+Data from before 1992 (i.e. from before the establishment of NGWLMS gauge
+by NOS) were from a UH gauge about 10 metres away
+This is now an historic station last data is 2000
+

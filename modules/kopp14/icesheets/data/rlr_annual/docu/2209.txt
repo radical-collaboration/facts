@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Feb-2014 :
+Esperanza is on the small island of Vieques off Puerto Rico. Data for this station has been newly downloaded from the NOAA site. As benchmark information is available for Essperanza the station has been made RLR.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Feb-2015 :   
+While the RLR factor was correct, the RLR diagram had an error.  The RLR diagram has been redrawn.
+

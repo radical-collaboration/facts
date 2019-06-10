@@ -1,0 +1,3 @@
+Add 2.186m to all data values 1862-1930 and 1964 onwards to refer to RLR (1965)
+Add 4.014m to all data values 1931-1963 to refer to RLR (1965)
+RLR (1965) is 10.4m below BM NJ9558 0581

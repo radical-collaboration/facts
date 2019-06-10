@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Willets Point       960/141 RLR(1964) is 10.2m below BM737
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Willets Point       960/141 RLR(1964) is 10.2m below BM737
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :   
+Using NOAA data the RLR diagram was re-drawn. Primary benchmark NO 3 1944 is
+5.115m above gauge datum.
+Previous PSMSL benchmark BM 737 5.831m above gauge datum no longer appears in
+the NOAA reports.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Feb-2015 :   
+NOAA website confirms station was removed in November 2000.
+

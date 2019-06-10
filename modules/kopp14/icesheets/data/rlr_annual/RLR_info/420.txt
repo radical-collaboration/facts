@@ -1,0 +1,2 @@
+Add 0.677m to data values 1937 onwards to refer to RLR (1955)
+RLR (1955) is 13.0m below BM 21 (PP)

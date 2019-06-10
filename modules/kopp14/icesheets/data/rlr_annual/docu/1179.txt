@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
+SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2
+EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR,
+96(B3), 4325-4335, 1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+St Paul's Harbor    821/009 RLR(1970) is 10.0m below BM14
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+St Paul's Harbor    821/009 RLR(1970) is 10.0m below BM14
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Jan-2012 :   
+This is an historic station. Last data value received it that for September
+1984. Station status has been switched to 'inactive'.
+

@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994.However, when the data is 'buddy checked' with several local stations the monthly values for July and August 1989 appear low. These points have been flagged as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Saint John          970/001 RLR(1991) is 14.5m below BM TS2 1958
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Jun-2012 :
+See recently published paper ' Climate Change, Mean Sea Level and High Tides in the Bay of Fundy' by David Greenberg. See page 5 for Tidal Costituents.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jul-2015 :
+Previously the RLR factor had been switched off with the supply of the data for 2000 pending a possible datum query regarding data for 1999/2000. The primary benchmark at that time was TS 2-1958.The Canadian metadata confirms that this benchmark was last inspected in 1999 but has since been destroyed. The current primary benchmark is 77B152 the datum has remained Chart Datum throughout. I suspect that what was thought as a possible datum shift around 2000 was possibly due to other factors as there is no eveidence in the metadata of a datum shift. If anything it is the data for 1997-1999 which appears possibly suspect. The RLR factor has been re-instated.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to sent revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+

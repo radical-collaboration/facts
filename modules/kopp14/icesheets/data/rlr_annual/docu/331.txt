@@ -1,0 +1,10 @@
+DATA FROM 1966 ONWARDS LOOKS IRREGULAR AND UNRELIABLE
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Takoradi            410/001 RLR(1970) is 9.2m below BM GCSH4
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-NOV-95 :
+Gauge type is a Baldwin Lathanis, installed in 1926 1992-95 problems with gauge reported
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-JUN-96 :
+Gauge reported on 17 January 1996 as not operational because of its age.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Mar-2009 :
+2007/8 one minute sea level data downloaded from the IOC Sea Level Station Monitoring Facility Ostend. This is then converted to 15min. data for processing. 2007/8 monthly and annual mean sea level values have now been extrapolated from the data. As the relationship for the prime bench mark remains the same there is no need to alter RLR. Details of the bench marks has been derived from site installation information. Copies of these have been included in the port files and RLR file for reference.
+

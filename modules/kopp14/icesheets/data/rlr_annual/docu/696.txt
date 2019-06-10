@@ -1,0 +1,18 @@
+1952 - 1957 VALUES BASED ON READINGS OF HIGH AND LOW WATERS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Mangalore           500/071 RLR(1964) is 10.4m below BM 54
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Possible datum shift following the data gap around 1960.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL. MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-FEB-08 :
+Mangalore tide gauge was located in a river estuary, unlike Mangalore Panamburu (500/070) which is on the open coast. The seasonal cycles of MSL are very different at the two locations.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Oct-2012 :
+Mangalore is now an historic station. Last data is 1976.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2016 :   
+We have changed the first line above, indicating that the MTL ends in 1957, not 1956 as was previously stated.  We have verified that the values in the database are those from Pub. Sci. 20, in which they were indicated as MTL.  In addition, the starting year of 1953 was changed to 1952, in that the three values from 1952 are also MTL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2016 :   
+A value of MTL-MSL=0 mm has been applied to the RLR data for the period 1952-1957.  This value was derived by Philip Woodworth in preparation of his MTL/MSL manuscript.  In this case the value was derived using a historic databank of harmonic tidal constants gathered by the International Hydrographic Organization (IHO).  Care must be taken when using these IHO constants, though, as there are many known errors in tidal amplitudes and phases.
+

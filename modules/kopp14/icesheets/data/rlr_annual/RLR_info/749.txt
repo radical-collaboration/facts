@@ -1,0 +1,2 @@
+Add 4.39m to all data values to refer to RLR (1961)
+RLR (1961) is 10.3m below BM Kure

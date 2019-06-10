@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar27 :
+Legaspi             660/021 RLR(1964) is 9.1m below BM1 (1961). Gauge type = Ott, (30th March 1999).BM1 (1961) disturbed October 1983, but datum of data unchanged.BM2 (1989) disturbed when pier repaired in 1994, but the datum of the data has remained unchanged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2010 :
+There has been a number of changes to the datum value over the years as different levelling excercises have taken place.1947-1984 BM 1 3.675m above TSO 1947 1985-88 BM 1 3.702m above TSO 1947 see letter dated 22.01.1988 1989-1997 BM 2 3.818m above TSO 1947 1998-9 BM 2 3.790m above TSO 1947 2000-2002 BM 2 4.009m above TSO 1947 2003 benchmark name becomes B 22 2005-7 value rounded to 4.01m 2008 back to 4.009m Gauge type is THALIMEDES/SUTRON Different values were not included on the RLR diagram as the RLR factor does not change
+

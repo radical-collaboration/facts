@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-May-2012 :   
+Porto Garibaldi , Comacchio, Ferrara - Italy is a new station. The monthly mean
+sea level data values have been supplied by Alberto Pellegrinelli from the
+University of Ferrara.Primary benchmark is TGBM0 3.538m above Tide Gauge Zero
+(TGZ). Also at the tide gauge is benchmark 0169#-###-38# referenced as 1.946m
+above the Italian National Datum System IGM. Station has now been made RLR with
+factor 6.863m.
+

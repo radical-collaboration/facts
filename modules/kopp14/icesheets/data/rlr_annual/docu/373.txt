@@ -1,0 +1,18 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Thessaloniki        290/051 RLR(1981) is 9.2m below BM R16
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Thessaloniki        290/051 RLR(1981) is 9.2m below BM R16
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Nov-2006 :
+Whole dataset flagged due to unresolved datum query.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Apr-2008 :
+Since the change in the method of sea level recording from
+measuring downwards to the usual measuring upwards the tidal
+plot for Thessalonika had appeared in error as there seemed
+to be a large upwards jump. Following lengthy correspondence
+with the HNHS it transpires that following a datum control
+and levelling exercise a correction of +0.34m was applied
+to the TGZ. When this correction was applied the data
+plot appears to be OK.See Greek letter in reply to the letter of 26th March 2007.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Aug-2013 :   
+The Hellenic Navy have recently supplied datum diagrams for each of there stations. Previously used benchmark R 16 does not appear on the new diagram. In consequence the RLR diagram has been re-drawn using benchmark R. As a result the RLR factors have changed.
+

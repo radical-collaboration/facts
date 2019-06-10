@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :
+Mona Island Puerto Rico is a new station. Data and metadata were downloaded from NOAA. Station is RLR. Primary benchmark is 9938 A 2006 10.0m above TGZ. RLR factor is -1.900m.
+

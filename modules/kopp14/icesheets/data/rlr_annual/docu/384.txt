@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Friday Harbor       823/006 RLR(1971) is 11.3m below BM 2 1932
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Anomalously low value in January 1962 - correct as received from authority.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2011 :
+Using NOAA information the RLR diagram has been revised. Former Primary benchmark 2 1932 6.815m above gauge datum appears in the NOAA report of 1988 but not in the report of 2003. Current Primary benchmark NO 10 1964 4.892m above gauge datum appears on the original RLR diagram as being the reference benchmark from 1975 onwards.
+

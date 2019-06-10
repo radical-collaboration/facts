@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar10 :
+Dakar 2             390/002 RLR(1997) is 9.1m below BM Port of Commerce no. 21
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-NOV-05 :
+Data prior to 1996 were provided by NOAA i.e. prior to handover of responsibility for the gauge to UHSLC.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2010 :
+Complete dataset 1996-2009 received from UHSLC. Values were checked with previous data before being added to the database. There is very little data between 2003-2007.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jun-2014 :
+Using information from UHSLC the RLR diagram has been re-drawn. Primary benchmark is BM A 8.6705m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Nov-2015 :   
+Updated JASL UHSLC data added for 2012-2014.
+

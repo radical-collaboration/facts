@@ -1,0 +1,7 @@
+Add 7.134m to data values up to 1927 to refer to RLR (1975).
+Add 4.391m to data values 1951-1952 to refer to RLR (1975)
+Add 4.079m to data values 1968-1975 to refer to RLR (1975).
+Add 4.07m to data values 1976-1983 to refer to RLR (1975).
+Add 1.55m to data values 1984-1986 to refer to RLR (1975).
+Add 4.068m to data values 1987 onwards to refer to RLR (1975).
+RLR (1975) is 11.6m below BM TQ 90807549

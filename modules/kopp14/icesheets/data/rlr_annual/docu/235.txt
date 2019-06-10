@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Boston              960/171 RLR(1964) is 11.0m below BM7
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2011 :
+Using NOAA data the RLR diagram was re-drawn. Primary benchmark is now K 12 MASS G.S. 1936 14.292 6.858m above gauge datum. Previous benchmark BM 7 is no longer listed on the NOAA site.
+

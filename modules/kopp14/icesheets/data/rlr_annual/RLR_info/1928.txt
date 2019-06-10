@@ -1,0 +1,2 @@
+Add 5.892m to all data values to refer to RLR (2005)
+RLR (2005) is 8.5m below BM UH1

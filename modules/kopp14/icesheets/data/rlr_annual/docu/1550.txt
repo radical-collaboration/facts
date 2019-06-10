@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2011 :
+Using information from the National Tidal Centre (NTC), Australia Port Giles has been made RLR from April 1995 this date was chosen after the data were buddy checked with a nearby station as the earlier data looks suspect. Benchmark is NMV/E/58 5.207m above chart datum. RLR factor is 5.693m.
+

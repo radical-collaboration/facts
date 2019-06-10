@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-FEB-97 :
+data for January 1990-February 1994 revised in February 1997
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+L'Estartit          220/081 RLR(1978) is 7.0m below mark N-78
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Feb-2012 :   
+Josep Pascual has supplied the complete dataset for l'Estartit 1990-2011. Some
+of the values have been revised so that the whole dataset has been re-entered.
+

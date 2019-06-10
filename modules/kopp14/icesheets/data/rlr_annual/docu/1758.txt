@@ -1,0 +1,21 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+An "A Class" bubbler system installed in March 1990.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-SEP-94 :
+Hinkley Point   170/168     RLR(1992) is 15.6m below TGBM ST 2104 4634
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Nov-2006 :   
+Historic tige gauge information: Initially gauge fitted with 
+incorrect datum level.
+September 1991 underwater transducers lifted and re-levelled.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Nov-2006 :   
+Historic tige gauge information: Initially gauge fitted with
+incorrect datum level.
+September 1991 underwater transducers lifted and re-levelled.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jul-2014 :   
+Due to fouling of the sensors additional sensors were installed in May 2012. For the 2013 data some of the low waters were flagged due to siltation.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
+TGI were at site 12.03.14 and again 12.06.14 for general maintenance. Data from Channel2 has been flagged throughout due to fouling of the sensor. Channel1 was flagged over some low waters possibly due to the effects of turbulance during stormy weather.
+

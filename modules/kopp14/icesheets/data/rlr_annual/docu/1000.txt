@@ -1,0 +1,17 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Tuktoyaktuk         970/211 RLR(1963) is 14.0m below BM4-1957
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Tuktoyaktuk         970/211 RLR(1963) is 14.0m below BM4-1957
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-NOV-93 :
+Since 1980 monthly means received from Canadian authority are in cm.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Sep-2011 :
+Using data from the Fisheries and Oceans Canada the RLR diagram has been
+update. Primary benchmark is now MO39008 5.113m above TGZ established 2003.
+The previous Primary benchmark -4 1957 7.324m above TGZ no longer appears
+on the website. Benchmark 1-1996 also previously known 3.064m above TGZ
+appears in the listing with a value now of 3.063m above TGZ. Last visited 2005.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2015 :   
+Historic data was included in the above complete dataset. The datum for the historic data 1961-1991 is currently being queried to ensure the datum is the same throughout the series. We await confirmation from Fisheries and Oceans Canada.
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Dec-2011 :   
+Although the gauge at Viken has been operational since 1976 we have only now received the data and added it to the database. There are now a total of 23 Swedish stations on the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Apr-2015 :   
+The RLR diagram incorrectly referenced the data to the tide gauge zero value rather than to the local height system. We have redrawn the RLR diagram and removed the reference to tide gauge zero.  The RLR height did change, but the RLR factor applied to the metric data did not change.
+

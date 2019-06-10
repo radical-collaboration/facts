@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Feb25 :
+Oostende            160/021 RLR(1974) is 11.4m below BM DH4-II
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2011 :
+There seems to have been some confusion regarding the RLR factor for Ostend following the introduction of the TAW datum in 1981. Previously RLR factor 4.730m was added to the data. From the correspondence file this now appears in error, from 1981 data onwards the RLR factor has been reset to 4.733m, the data have been adjusted.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Jul-2012 :
+While preparing the 2010 data values for entry it was noticed that on occasion the non Doodson filtered data values had been entered for 2008/9. These values were replaced with the Doodson filtered values.
+

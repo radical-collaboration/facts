@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
+Revised data supplied by the National Tidal Centre, Bureau of Meteorology, South Australia. SEAFRAME station installed 03/09/1992
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
+Burnie is run by NTF/CSIRO
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+This is a "baseline station" of the Australian National Tidal Facility.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+Burnie              680/193 RLR(2000) is 10.1m below SPM9087
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Oct-2011 :
+Using information from the National Tidal Centre, Australia the RLR diagram has been revised. Primary benchmark is 5.0m above TGZ. Seaframe sensor benchmark 11090RM 1 is 6.535m above TGZ - This is the NTC Levelling fixture after July 2008. The national Datum AHD is 1.938m above TGZ. RLR factor is 5.1m.
+

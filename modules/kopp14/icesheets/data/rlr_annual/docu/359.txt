@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Mera                642/061 RLR(1976) is 11.2m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
+Several apparent datum problems in the 1950s and 1960s
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2011 :
+By buddy checking the data for Mera against that for Aburatsubo and adding the residuals there does seem to be datum problems during the late 40's through to the mid 60's.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
+A massive earthquake of magnitude 9.0 occurred at 14:46 JST (05:46 UTC) on Friday 11th March 2011 with the epicenter approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful known earthquake to hit Japan generating a tsunami with waves up to 40.5m travelling up to 10km inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
+The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P206 is 16.204m above RLR.
+

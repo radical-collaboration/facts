@@ -1,0 +1,20 @@
+1980 DATA SUSPECT - CONDUCTING TUBE IN BAD CONDITION
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Hosojima            645/011 RLR(1974) is 9.4m below BM Attach-4
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Hosojima            645/011 RLR(1974) is 9.4m below BM Attach-4
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2011 :   
+Previously data points for December 1979 - December 1980 had been
+flagged.However when the station was buddy checked with nearby station Aburatsu
+this period of the sea level profile shows the same pattern. Flag points were
+therefore removed. The profiles appear to separeate more during the 1990's
+onwards.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :   
+A massive earthquake magnitude 9.0 ocurred at 14:46 JST (05:46 UTC) on Friday
+11th March 2011  with the epicenter approx. 70km east of the Oshika Peninsula
+of Tohoku. It was the most powerful known earthquake to hit Japan. The
+earthquake triggered a tsunami with waves of up to 40.5m travelling up to 10km
+inland.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :   
+The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark is P122 13.797m above RLR.
+

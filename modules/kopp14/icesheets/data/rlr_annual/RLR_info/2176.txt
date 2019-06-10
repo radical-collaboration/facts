@@ -1,0 +1,2 @@
+Add 5.442m to all data values to refer to RLR (2011)
+RLR (2011) is 40.0m below BM 4

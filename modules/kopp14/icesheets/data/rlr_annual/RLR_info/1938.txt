@@ -1,0 +1,2 @@
+Add 6.465m to data values to refer to RLR (2006)
+RLR (2006) is 9.1m below BM R 20

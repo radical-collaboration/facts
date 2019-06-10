@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Sation density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-MAY-96 :
+Data up to 1964 was supplied by the Department of Marine and Harbours, Adelaide. Revised data for 1964 onwards was received from the National Tidal Centre, Bureau of Meteorology, South Australia. A SEAFRAME station installed on 19/03/1992
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+This is a "baseline station" of the Australian National Tidal Facility.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
+Thevenard           680/441 RLR(1996) is 11.471m below BM1476
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Oct-2011 :
+Using information from the National Tidal Centre, Australia the RLR diagram has been revised. Benchmark BM1476 is 5.471m below TGZ. Benchmark 5633/1591 SEAFRAME sensor benchmark (SSBM) is 5.492m above TGZ while AHD the national datum reference is 0.993m above TGZ. RLR factor is 6.0m.
+

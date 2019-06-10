@@ -1,0 +1,4 @@
+Add 5.814m to data values 1962 to1977 to refer to RLR (1974)
+Add 6.277m to data values 1978 to 1986 to refer to RLR (1974)
+Add 5.814m to data values 1987 onwards to refer to RLR (1974)
+RLR (1974) is 8.414m below BM 5371 A 1977

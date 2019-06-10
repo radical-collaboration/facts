@@ -1,0 +1,4 @@
+RLR (1964) is 9.9 m below BM 1992
+For data 1892-1936 add 11.232 m to all values to refer to RLR (1964)
+For data 1937-2008 add 5.352 m to all values to refer to RLR (1964)
+For data 2009 onwards SUBTRACT 0.1 m from all values to refer to RLR (1964)

@@ -1,0 +1,28 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-JUL-92 :
+GAUGES IN EASTERN GERMANY (WISMAR, WARNEMUNDE, SASSNITZ, KOSEROW) AS
+OF MARCH 1992 ARE TYPE 'STEREMAT', VERTICAL DRUM, SWIMMER PRINCIPLE,
+MEASURES 1:10, CONTINUOUS REGISTRATION ON PAPER CHART. (INFORMATION
+FROM L.BALLANI, POTSDAM).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan29 :
+The Sassnitz data from 1936-1977 are the so-called 'Lindner values'
+measured with respect to Pegelnull (PN) = 5000 mm below NN.
+Data were supplied by authority 98 (Wasserwirtschaftsdirektion Kuste
+of the former DDR). They were derived mostly from once per day
+values as follows:
+JAN 36 - FEB 52 ONCE PER DAY AT 1200; MAR 52 - JUN 52 AT 1300;
+JUL 52 - OCT 55 AT 0800; NOV 55 - OCT 59 FROM SO CALLED
+APPROXIMATED DAILY MEANS; NOV 59 - OCT 80 AT 0700
+(INFORMATION FROM L.BALLANI, POTSDAM MARCH 1992).
+The location in this period was said to be 54 32N 13 40 E.
+   The data for 1978-87 were obtained from authority 08
+(Geoforschungszentrum Potsdam) based on 24 readings per day.
+Data for 1992- were obtained from BSH, Germany based on 24
+readings per day.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan29 :
+Sassnitz            120/004 RLR(2002) is 45.908m below BM 4.052.13.1321
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Aug-2010 :   
+The data for Sassnitz 1936-1977 was measured to PN datum (PN=HN-514cm.)
+Data from 1978-1987 referred to datum HN76.
+It is unusual for a station such as this to be made RLR as it
+'breaks the rules' of RLR. Data now refers to TGZ.
+

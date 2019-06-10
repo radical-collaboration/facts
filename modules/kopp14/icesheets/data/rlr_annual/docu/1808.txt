@@ -1,0 +1,18 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-05 :
+A paper by Marcos et al (JGR Volume 11, 2005) provides an overview
+of the tide gauge records on the northern coast of Spain.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug20 :
+Gauge type=SONAR acoustic
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
+La Coruna III       200/032 RLR(1995) is 10.3m below BM SSM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Apr-2013 :
+The old SRD acoustic gauge at La Coruna has been replaced by a new MIROS radar gauge. Because of a sudden malfunction towards the end of the operation of the SRD gauge both old and new gauges were running in parallel for just a 4 month period 25.04.2008-28.10.2008 for inter-comparison purposes. A bias (mean difference) of -2.15cm was calculated between the two gauges. See paper B. Perez et al ' Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Further investigation from Puertos del Estado established that the bias between the old and new datasets was due to a problem with the old Acoustic gauge. The old dataset has been revised because of this. Whole dataset was re-entered onto the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been changed from 43.366667 -8.383333 which derives from the previously supplied degrees and minutes value to 43.35731 -8.38933 which is the position of the new gauge in decimal degrees.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Oct-2014 :
+During 2013 an error was detected with the dataset for REDMAR station Coruna. After lengthy investigation the complete dataset has been revised by Puertos del Estado.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Jan-2016 :   
+On instructions from Begona at PE the complete dataset 1992-2014 has been reloaded. It was realised there were problems from the istallation of the MIROS gauge and when this was replaced in Nov 2011 due to delamination. Following this a new time series has been generated with a datum change of 4.5cm for data 2007-2011 and 2.5cm for the historic data 1992-2007. PE has confirmed that all changes and corrections have been documented internally.
+

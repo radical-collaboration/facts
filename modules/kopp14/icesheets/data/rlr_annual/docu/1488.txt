@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
+Nagoya II           642/132 RLR(1994) is 9.1m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Nagoya II replaced Nagoya I April 1979.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Nov20 :
+Datum 1998 is 2.045m below Tokyo Peil. Datum 1999 is 2.041m below Tokyo Peil.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
+A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the largest ever earthquake to hit Japan triggering a tsunami with waves of up to 40.5m high and travelling inland up to 10km.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jan-2013 :
+When Tokyo Peil was added to the RLR diagram in 2003 the relationship between Tokyo Peil and the datum was drawn as 2.061m. The correct figure is 2.041m see letter of 16th Dec.2002. When this was corrected the RLR factors changed from 1998 value of 4.961m to 4.941m and 1999 onwards value from 4.965m to 4.945m. The data has been adjusted
+

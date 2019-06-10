@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2012 :
+Kawaihae, Hawaii Island has been downloaded from NOAA as a new station. Station is RLR, Primary benchmark is 7433 B 1989 3.094m above TGZ. RLR factor is 6.006m.
+

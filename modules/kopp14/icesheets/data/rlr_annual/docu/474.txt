@@ -1,0 +1,16 @@
+1942 DATA SUPPLIED BY AUTHORITY NO. 66
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Dieppe              190/031 RLR(1977) is 12.4m below BM NGFNCP3.2
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Dieppe              190/031 RLR(1977) is 12.4m below BM NGFNCP3.2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUL-94 :
+Informal information suggests local sinking near gauge.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2010 :
+Tide gauge re-instated 2009 TGBM and Chart Datum remain the same see email from Ronan Creach 19.08.10. Therefore the RLR factor remains 2.070m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Mar-2012 :
+The data following the gauges re-installation in 2009 appears to be slightly higher than previous. However, when the data for Dieppe is buddy checked with both Le Havre and Boulogne the data following the gap appears to be in better agreement.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
+Using values from the SONEL website the latitude and longitude values for Dieppe have been revised.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :
+New data points have been added to the data for Dieppe in particular data has been added for the period 1993-2007. Because of this the whole dataset has been re-loaded.
+

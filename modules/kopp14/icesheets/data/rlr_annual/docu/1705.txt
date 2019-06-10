@@ -1,0 +1,9 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Port Irene          660/003 RLR(1992) is 10.6m below BM 1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar30 :
+gauge type = Ott
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2009 :   
+2006 is the last data received from Port Irene as the
+tide gauge has been removed due to development of the pier.
+A replacement gauge has been established at San Vicente.
+

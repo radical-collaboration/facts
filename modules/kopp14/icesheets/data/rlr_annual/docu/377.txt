@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Santa Monica        823/049 RLR(1965) is 13.7m below BM(PBM)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2011 :
+Using NOAA information the RLR diagram has been revised. Previous Primary benchmark BM (PBM) no longer appears in the NOAA listings.Secondary benchmark 3 1940 value confirmed as 8.534m above gauge datumin 1990 is still referred to with a value of 8.536m in 1991 and 8.524m in 2003. Primary benchmark is now TIDAL BM 12 1974 15.065m in 1991 and 15.060m in 2003.
+For Information: Data values during the 1980's can appear high by comparison. This could be due to the El Nino Southern Oscillation (ENSO) as it is mirrored along the Californian coast.
+

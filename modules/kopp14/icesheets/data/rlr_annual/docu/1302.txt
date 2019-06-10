@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Mar22 :
+Data for 1971-99 revised March 2001
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2013 :   
+3 UHSLC data files d082a.tsk 1962-07 to 2001-07, d082b.tsk 2001-08 to 2009-12, d082c.tsk 2010-08 to 2012-04 loaded. the original dataset for Acajutla 2 on the database was actually parts of the now overall data plot.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2015 :   
+Using levelling information received from UHSLC Acajutla 2 has been made RLR from 2011. The levelling was referenced to the top of the tide staff which is 3.000m above the datum.
+

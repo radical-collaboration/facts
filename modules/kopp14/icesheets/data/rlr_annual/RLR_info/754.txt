@@ -1,0 +1,4 @@
+Add 2.361m to data values up to 1970 to refer to RLR (1978)
+Add 2.336m to data values 1971-1983 to refer to RLR (1978)
+Add 5.431m to data values 1984 onwards to refer to RLR (1978)
+RLR (1978) is 9.914m below TGBM TM 5482 9273

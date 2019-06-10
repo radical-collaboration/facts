@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
+National Tidal Facility SEAFRAME station
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2010 :
+Supplying authority have confirmed that BM 27 is 5.355 m above tide gauge zero,which is the zero of the University of Hawaii tide staff.RLR (2009) has beeen defined as 11.7 m below BM 27
+

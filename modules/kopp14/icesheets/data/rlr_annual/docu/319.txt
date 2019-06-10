@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been reordered compared to those in earlier versions of the PSMSL data set. The Tide Gauge is affected by flood flows in Richmond River.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Ballina             680/081 RLR(1964) is 9.2m below BMNo1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2012 :
+This is an Historic station last data 1964. Previously this station was flagged. The station flag has now been removed as the data seems good.
+

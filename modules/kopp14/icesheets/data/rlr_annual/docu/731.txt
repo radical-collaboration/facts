@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
+Probably several datum shifts in the RLR record obscured by the seasonal cycle.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Yantai              610/036 RLR(1972) is 11.0m below BM(1968.2)
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
+datum queries for 1956/57 and 1966/67 noted, followed up with authority. Yantai is an historic station last data 1994
+

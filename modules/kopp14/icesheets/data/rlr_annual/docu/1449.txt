@@ -1,0 +1,10 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Qui-Nhon            605/041 RLR(1990) is 8.9m below TGBM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-JAN-96 :
+April 1993: station moved 500m, new reference BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Feb23 :
+data for 1987-94 revised with data set received for 1977-97 from
+authority D9. Following receipt of 1977-97 data the RLR for Quinhon was revised and RLR(1997) is 10.8m below BM MHV 2 Gauge type: 1977-September 1993 = Russian type CYM and for October 1993 onwards = American type, Stevens A35 The gauge was relocated to another bank of the Quinhon Gulf in April 1993
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2015 :   
+Monthly mean sea leve data values for Qui Nhon 2001-2013 have been supplied by the Institute of Meteorology, Hydrology and Climate Change (IMHEN) Viet nam.
+

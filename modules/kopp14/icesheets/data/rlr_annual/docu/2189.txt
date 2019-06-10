@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Jan-2014 :   
+These data were originally added to Quepos id. 844. Quepos B does not relate to the same reference zero as Quepos.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2015 :   
+Using information from the UHSLC levelling sheet Quepos B has been made RLR. It has been confirmed by UHSLC that the gauge ha been moved. The site has been levelled just twice in 2009 and again in 2012. The Primary Benchmark has been confirmed as 2Q which appears on the diagram, but there is only one levelling value for this benchmark. On the RLR diagram I have used 1Q as this has a stable value from both levelling exercises. The diagram can be updated at a later date if further levelling is carried out.
+

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
+Manzanillo is now RLR. both the benchmark ICH-5 and TGZ are referred to the Geodesic National Datum (GND). ICH-5 is 1.576m above GND while TGZ is 1.42m below GND. Data is referred to TGZ and RLR factor is 4.004m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Mar-2016 :
+To reflect the fact that the monthly means supplied refer to TGZ and not GND the RLR diagram has been redrawn. As a result the RLRFAC has changed fron 4.004m to 5.504m. RLR (2007) is now 8.5m below TGBM ICH-5.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+Information supplied by Cuba confirms that since 1992 the tide gauge sensor is a float recording hourly.
+

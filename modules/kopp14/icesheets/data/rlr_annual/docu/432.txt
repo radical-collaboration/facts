@@ -1,0 +1,6 @@
+DATUM CHANGED FROM PORT DATUM TO L.A.T. ON 1/1/78; L.A.T. IS 0.23M BELOW PORT DATUM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Dublin              175/071 RLR(1987) is 10.6m below TGBM Estabished 1895
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Jun-2010 :
+Up until 2001 the data for Dublin was sent on a regular basis to POL by the Dublin Port Company datum at that time was referred to L.A.T.. However in 2002 the Hydrographic Department closed down and although the gauge is still running and the records kept by the Harbour Master Capt. David Dignam he has assumed the datum to be chart datum. Capt. Dignam has supplied the high frequency data for 2002-2009 which has now been processed.
+

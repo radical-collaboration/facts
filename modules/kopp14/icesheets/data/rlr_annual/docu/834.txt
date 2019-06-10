@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set. Data up to 1963 supplied by the Australian Ocean Data Centre, N.S.W.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-MAY-96 :
+Revised data for 1963-1985 received from authority the National Tidal Centre, Bureau of Meteorology, South Australia
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Sep-2010 :
+Station originally located in outer harbour at 33° 18' 34.8" S, 115° 38' 28.1" E Relocated to inner harbour in September 2001
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Sep-2010 :
+Supplier has confirmed that for all metric data, tide gauge zero is Chart Datum. At previous location primary benchmark A103 was 3.951 m above Chart Datum. Primary benchmark Tidal BM 2001 is 3.939 m above Chart Datum. RLR (2008) defined as 10.2 m below Tidal BM 2001.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Oct-2011 :
+Using data from the National Tidal Centre, Australia benchmark A426 3.698m above CD has been added to the RLR diagram.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Aug-2013 :
+When recently downloaded from the NTC website the data up to 2009 had an offset of 70mm. The owning authority had adjusted the historic data to agree with the data values following the revision of the datum to LAT. The RLR factor for the data up to 2009 has been adjusted to accomodate this.
+

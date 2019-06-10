@@ -1,0 +1,16 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+PRIOR TO 1963 VALUES BASED ON 8 READINGS/DAY.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Swansea             170/178 RLR(1961) is 13.1m below TGBM SS 6683 9204
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Swansea             170/178 RLR(1961) is 13.1m below TGBM SS 6683 9204
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-SEP-93 :
+replaced by Mumbles
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+Replaced by Mumbles (170/179).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-SEP-94 :
+Munro/stilling well installed October 1959
+

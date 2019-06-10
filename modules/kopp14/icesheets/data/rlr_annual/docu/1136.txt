@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+St Marks            940/047 RLR(1967) is 8.1m below BM6
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+St Marks            940/047 RLR(1967) is 8.1m below BM6
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2012 :   
+St. Marks is now an Historic Station. Last data received was that for 1975.
+Although there are entries for both St. Marks Lighthouse and St. Marks City and
+the latter does list an earlier benchmark 6 the reference to this and the TGZ
+does not tally with the value from the original RLR diagram.
+

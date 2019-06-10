@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Charleston II       823/019 RLR(1972) is 10.6m below BM7
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
+Using NOAA data the RLR diagram has been revised. Previous Primary benchmark BM7 5.956m above gauge datum no longer appears in the NOAA reports. Primary benchmark is now 2780 A 1981 5.895m above gauge datum. This benchmark also appears on the original RLR diagram with the same value.
+

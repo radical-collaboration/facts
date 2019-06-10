@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Yosu                620/036 RLR(1966) is 11.1m below TBM No2
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Yosu                620/036 RLR(1966) is 11.1m below TBM No2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2012 :
+At the request of the data supplier, KHOA the name of this station has been
+changed to Yeosu. The values for lat. and long, have also been revised.
+Tide gauge is a MIROS radar gauge
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Aug-2012 :
+When preparing the RLR diagram to be displayed on the PSMSL website it was
+noted that the data for 1966-1969 was not RLR. There are no problems with
+the data for this period so the whole dataset 1966 onwards is now RLR.
+

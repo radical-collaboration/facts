@@ -1,0 +1,2 @@
+Add 6.079m to all data values to refer to RLR (1988)
+RLR (1988) is 8.0m below BM KVG 1

@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1991 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+Port Renfrew        822/106 RLR(1987) is 10.0m below BM 1,1957
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr20 :
+Port Renfrew discontinued 1997
+

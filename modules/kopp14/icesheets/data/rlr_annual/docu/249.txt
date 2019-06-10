@@ -1,0 +1,15 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
+A description of the sea level network in Finland can be found
+in 'Operational Oceanography: Implementation at the European
+and Regional scales.  2002 (pp.129-137)'.
+PRIOR TO 1971FCODE=06
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Degerby             060/281 RLR(1964) is 9.5m below BM1849C
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Degerby             060/281 RLR(1964) is 9.5m below BM1849C
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Jan-2012 :   
+This station is now more commonly referred to as Foglo. Former Primary
+benchmark 1849 c is now no longer used. Benchmark 73125 3.355m relative to 
+gauge datum was added in 1973. While benchmark 75400 3.964m relative
+to gauge datum was added in 1975.
+

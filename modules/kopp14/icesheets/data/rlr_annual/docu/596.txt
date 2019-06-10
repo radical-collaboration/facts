@@ -1,0 +1,16 @@
+1950-1951 Values are MTL not MSL. Gauge was re-sited in 1963
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Kandla              500/011 RLR(1964) is 11.3m below BM 133
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-JUL-97 :
+data for 1952-56 revised with values which are based on 24 readings per day
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL. MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2008 :
+Last data received for this station was 1996. However as the Lat., Long., and benchmark details remain as before the data was simply added to the existing dataset. Primary benchmark since 1966 is BM 130 7.37m above chart datum. Previous benchmark 1950-1964 was BM 133 8.227m above chart datum.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Oct-2010 :
+There appears to be a shift in datum from 1954 onwards.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
+A value of MTL-MSL=-157 mm has been applied to the RLR data for the period 1950-1951.  This value was derived from the average of three differences in the annual MSL and MTL listed for the station in Pub. Sci. 24.  Note that no correction has been applied to the metric data.
+

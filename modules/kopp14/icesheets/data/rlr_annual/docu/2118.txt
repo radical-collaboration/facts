@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :
+Christiansted Harbour on St. Croix of the Virgin Islands is a new station downloaded from the NOAA website. Datum and benchmark details were also downloaded allowing the station to be made RLR. Primary benchmark is 1364 A 2006 10.00m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Feb-2015 :
+The RLR diagram contained an error and so has been was redrawn. However, the RLR factor applied to the data was correct, thus the RLR values have not changed.
+

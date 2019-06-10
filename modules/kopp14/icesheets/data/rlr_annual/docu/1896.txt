@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2010 :   
+West Tuas is a completely different station to Tuas (West Jurong). Dataset
+begins Jan 1997.Made RLR in 2010. RLR year is 2007. RLR (2007) is 10.3m below
+BM MPA 3.
+RLR factor is 5.358.
+

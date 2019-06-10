@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Jolo                660/141 RLR(1963) is 9.3m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-JUN-93 :
+December 1959 for Jolo is anomalously large.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar30 :
+gauge type = Leupold & Stevens/EMS-16
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Jul29 :
+For 1996 there is no change in the datum of observations reported.  There are lengthy gaps which may be relevant to the apparent higher values.
+

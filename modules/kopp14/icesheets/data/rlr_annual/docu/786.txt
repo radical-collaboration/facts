@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-JUL-93 :
+Reedy Point         960/089 RLR(1988) is 9.5m below BM 1 1933
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Primary benchmark is now R 41 1979 2.031m above gauge datum. Previously used benchmark PORT PENN NO 1 1933 is referred to in the NOAA report of 1992 with a value of 3.746m. It does not appear in the 2003 report.
+

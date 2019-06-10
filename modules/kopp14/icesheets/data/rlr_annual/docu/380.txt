@@ -1,0 +1,10 @@
+PRIOR TO 1976 DATA SUPPLIED BY AUTHORITY the National Institute of Meteorology and Geophysics, Lisbon
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Angra do Herismo    360/011 RLR(1979) is 11.5m below TGBM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Angra do Herismo    360/011 RLR(1979) is 11.5m below TGBM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
+RLR record appears to suggest an increasing trend.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Nov04 :
+data for 1984-85 replaced with revised values received from authority the Hydrographic Institute, Lisbon
+

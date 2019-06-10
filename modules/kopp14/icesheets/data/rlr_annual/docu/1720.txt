@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-JUL-93 :
+Bucksport, Waccamaw R.   960/048 RLR(1988) is 10.8m below BM Bucks NO 7 1974
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Bucksport, Waccamaw 960/048 RLR(1988) is 10.8m below BM Bucks NO 7 1974
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2012 :   
+Bucksport is now an Historic station. Primary benchmark is BUCKS NO 7 1975
+5.331m relative to TGZ. On the original diagram it is referred to as BUCKS NO 7
+1974 but appears to be the same.
+

@@ -1,0 +1,6 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Backevik            050/021 RLR(1964) is 8.7m below BM1292M
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Backevik            050/021 RLR(1964) is 8.7m below BM1292M
+Backevik is an historic station last data 1928
+

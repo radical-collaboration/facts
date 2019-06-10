@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2016 :
+Nuevitas Punta Practico is a newly supplied Cuban station. Using information supplied by the Cuban National Tidal Service Nuevitas Punta Practico has been made RLR. Primary benchmark is TGBM 006D 2.144m above Tide Gauge Zero (TGZ)and 1.304m above the Geodesic National Datum (GND).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+Using information recently supplied from Cuba the tide gauge sensors are from 1992 a float recording hourly together with a datalogger cuopled to the float with 6 minute frequency.
+

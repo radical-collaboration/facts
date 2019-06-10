@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun26 :
+Tel Aviv 320/019 RLR(1998) is 9.972m below BM55F
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Mar-2009 :
+Data for 2008 loaded onto the database. Awaiting further data 2001-2007 from Survey of Israel. Because of this 2008 data entered as Metric. All data now RLR again.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Jan-2013 :
+As from Oct. 2010 this station has now been replaced by Tel Aviv-Yasso id. 2147
+

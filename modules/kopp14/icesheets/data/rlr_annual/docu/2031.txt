@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Aug-2010 :
+This is a new station on the Iles de la Madeleine in the Gulf of St. Lawrence.
+It is the permanent gauge replacement for Ile d'Entree.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Sep-2011 :
+Station has been made RLR. Primary benchmark is 79KZ130 3.206m above TGZ. RLR
+year is 2008 and RLR factor 6.094m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2015 :   
+Historic data was included in the above complete dataset. The datum for the period 1964-2001 is currently being queried. Until the Fisheries and Oceans Canada confirm the datum this data has been made Metric.
+

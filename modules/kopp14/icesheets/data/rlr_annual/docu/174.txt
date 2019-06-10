@@ -1,0 +1,13 @@
+DATA FOR 1910-1915 SUPPLIED BY AUTHORITY CODE NO. 74
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Ko Lak              600/021 RLR(1981) is 8.4m below BM A
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Ko Lak              600/021 RLR(1981) is 8.4m below BM A
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Jul-2009 :   
+Although the data for Ko Lak 2008 was supplied directly from
+The Hydrographic Dept. of the Royal Thai Navy the missing days
+information was erroneous. When queried with them they insisted
+that the figures were correct (missing days included 720,95 days)
+so figures were obviously wrong. Decision was taken to use the 
+missing day information for 2008 from the JASL CD.
+

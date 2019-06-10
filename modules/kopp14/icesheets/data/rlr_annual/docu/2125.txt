@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :
+Arena Cove, California is a new station, data and metadata downloaded from NOAA. The station has been made RLR with Primary benchmark 6 1945 11.604m above TGZ RLR factor -2.804m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2012 :
+For information : data values for the early 1980's appear to be particularly high. This phenomenon could be due to the El Nino Southern Oscillation (ENSO)as it is mirrored all along the Californian coast.
+

@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+San Francisco       823/031 RLR(1964) is 10.1m below BM180
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jul-2011 :
+The PSMSL record for San Francisco is made of three sections of data from 1854-1877 at Fort Point, 1878-1897 at Sausilito and for 1898 onwards at the Presidio Park. Datum differences at each site are reflected in the RLR factors which convert 'Metric' data to RLR. For a detailed discussion of the San Francisco record, see Smith, R.A. 1980. Golden Gate tidal measurements
+1854-1978. Journal of the waterways, Port Coastal and Ocean Division, Proceedings of the American Society of Civil Engineers, 106, 407-410. See also NOAA Technical Report NOS CO-OPS 035, Historical Golden Gate tidal series, 2002.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2012 :
+For information: Data values during the early 1980's appear to be particularly high. This phenomenon could be due to the El Nino Southern Oscillation (ENSO)as it is mirrored all along the Californian coast.
+

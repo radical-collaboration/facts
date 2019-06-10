@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Kuantan Port        550/014 RLR(1986) is 10.7m below BM No C0331
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Kuantan Port        550/014 RLR(1986) is 10.7m below BM No C0331
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JAN-97 :
+1995 data revised January 1997
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Sep-2012 :   
+Publication Tidal Observation Records 2010 confirms that the Primary benchmark 
+remains BM C0331 6.496m above TGZ.
+

@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Feb-2016 :
+Mariel Boca is a newly supplied Cuban station. Using information supplied by the Cuban National Tidal Service Mariel Boca has been made RLR. Primary benchmark is TGBM ICH-256 3.404m above the Tide Gauge Zero (TGZ) and 2.764m above the Geodesic National Datum (GND).
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+Using recent information supplied by Cuba the tide gauge sensors are from 1999 a float recording hourly and from 2013 a pressure sensor with 6 minute frequency.
+

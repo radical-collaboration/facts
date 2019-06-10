@@ -1,0 +1,4 @@
+Add 6.169m to data values 1948 to Aug. 1950 to refer to RLR (1969)
+Add 6.154m to data values Sept. 1950 to 1987 to refer to RLR (1969)
+Add 6.157m to data values 1988 onwards to refer to RLR (1969)
+RLR (1969) is 8.6m below BM P.M. 84

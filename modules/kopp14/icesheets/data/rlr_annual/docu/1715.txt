@@ -1,0 +1,14 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-JUL-93 :
+Bay Waveland Yacht Club    940/036 RLR(1987) is 7.9m below BM 7437 A
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Bay Waveland Y.C.   940/036 RLR(1987) is 7.9m below BM 7437 A
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2012 :   
+Station Bay Waveland Yacht Club is an Historic station. Last data was that for
+1995. This station is still included on the NOAA website as one of the Historic
+data sites. Primary benchmark is listed as NO 1 1968 2.473m above TGZ. This
+benchmark does not appear on the original RLR diagram. Benchmark on the
+original diagram was 7437 A 1978 1.871m above TGZ. This benchmark still appears
+on the NOAA benchmark sheet for this station.
+

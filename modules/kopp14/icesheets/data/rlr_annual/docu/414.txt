@@ -1,0 +1,14 @@
+1937 - 1957 VALUES BASED ON READINGS OF HIGH AND LOW WATERS
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Vishakhapatnam      500/101 RLR(1964) is 13.1m below BM 71
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
+For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
+SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL. MSL is much higher during La Nina tropical cyclones than during El Nino.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Sep-2010 :
+Several datums have been used over the years at Vishakhapatnam. Historically the 1879-1884 benchmark used was BM 29 5.777m above the then datum. The benchmark was later changed to the now Primary benchmark BM 71 PP between 1937-1952 the datum was 6.831m below this point in 1953-1955 6.844m. From 1956 onwards the datum was defined as 'Chart Datum' 6.837m below BM 71 PP this reference remains.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jan-2016 :
+We have changed the first line above, indicating that the MTL ends in 1957, not 1956 as was previously stated.  We have verified that the values in the database are those from Pub. Sci. 20, in which they were indicated as MTL.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :
+A value of MTL-MSL=3 mm has been applied to the RLR data for the period 1937-1957.  This value was derived from the average of three differences in the annual values of MSL and MTL listed in Pub. Sci. 20 and 24.  Note that no correction has been applied to the metric data.
+

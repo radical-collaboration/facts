@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Woods Hole          960/165 RLR(1972) is 9.4m below BM11
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2011 :
+Using NOAA data the RLR diagram has been redrawn. Primary benchmark remains BM 11 3.447m above gauge datum but has now been given the official name 11 1932.
+

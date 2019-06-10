@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Mar-2013 :
+Rhodos tide gauge was moved in November 2009. This station supercedes the previous Rhodos station. Rhodos II has been made RLR Primary benchmark is R 30 3.246m above zero level
+

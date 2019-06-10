@@ -1,0 +1,29 @@
+1969-76 1978-79 Data  from readings of tide pole
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Levkas              290/004 RLR(1981) is 8.1m below BM RB
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Levkas              290/004 RLR(1981) is 8.1m below BM RB
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-97 :
+The contributing authority advises that anomalous values
+are the result of met. influences
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Mar-2007 :   
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-MAR-07 :     
+Following instructions from HNHS, see letter of 22.02.07                        
+the RLR value for this station has been revised                                 
+to 6500                                                                         
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :   
+Treat data 1979-1982 as suspect.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Mar-2010 :   
+There has been some confusion with the Greek
+stations as they change from recording the
+sea level height downwards to the more
+conventional upwards measurement. For this
+reason RLR was revoked at Lefkas. However
+with the addition of 2009 data the dataset
+looks OK. RLR has been re-instated.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Mar-2011 :   
+When Levkas was buddy checked with Prevesa the early data for Levkas 1969-1979
+appears low.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Oct-2013 :   
+Using values supplied by the Hellenic Navy the RLR diagram for Levkas has been re-drawn.
+

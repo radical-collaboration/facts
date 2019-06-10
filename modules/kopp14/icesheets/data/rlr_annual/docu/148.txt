@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Baltimore           960/081 RLR(1964) is 8.2m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Low values in early 1977 are probably correct - for example, compare to 960/080 Annapolis. These values were flagged but because the data compares well with Annapolis the flags have been removed.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Aug-2011 :
+Using NOAA data the RLR diagram has been updated. Primary benchmark is now 32 1922 3.158m above the gauge datum. The previous benchmark BM1 does not appear in the current NOAA report dated 21.4.2003 or the previous report of 28.3.1988.
+

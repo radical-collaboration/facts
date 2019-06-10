@@ -1,0 +1,36 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Hammerfest          040/021 RLR(1964) is 9.8m below BM U3N23
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Hammerfest          040/021 RLR(1964) is 9.8m below BM U3N23
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-OCT-93 :
+DATA UP TO 1986 FROM AUTHORITY CODE 03
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-MAR-95 :
+tide gauge network modernised, new equipment installed in 1990
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
+Following the input of revised data values station made
+Metric awaiting datum information.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Apr-2009 :
+2007/8 mean sea level values entered as METRIC only
+awaiting confirmation of a datum query.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Oct-2009 :
+The Norwegian Mapping Authority have revised their datasets
+The benchmark reference for Hammerfest is now U3 N25 which
+is 8.655m above TGZ. As a result RLR was re-calculated using
+2008 for the RLR year. The revised RLR factor is now 5.045m.
+RLR (2008) is 13.7m below TGBM U3 N25
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Oct-2009 :
+The PSMSL dataset begins in Jan 1957. Apparently there
+is earlier data on the Norwegian database but according
+to the site sheet the data before 1957 should not be
+used in any analysis.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Aug-2010 :
+There is a datum problem with Hammerfest data for 1970. Because of this the data
+has been 'switched off' within the database. This period of data does not
+appear on the Norwegian website.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2012 :
+For information on sea level change along the Norwegian coast see paper
+"Contributions to sea level variability along the Norwegian coast for 1960-2010"
+by K. Richter, J.E.O. Nilsen, and H. Drange.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Jul-2013 :
+The Norwegian authority has now confirmed that the data for Hammerfest for 1970 is missing from their database. They have asked PSMSL not to display this data.
+

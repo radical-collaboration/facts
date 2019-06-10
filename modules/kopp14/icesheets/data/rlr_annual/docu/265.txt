@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Astoria             823/013 RLR(1971) is 11.6m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+The Columbia River outflow apparently has a major effect on Astoria sea level.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2011 :
+Using NOAA data the RLR diagram has been re-drawn. Primary benchmark is now TIDAL 11 1959 5.934m above gauge datum. The previously used benchmark BM1 6.718m no longer features in the NOAA reports.
+

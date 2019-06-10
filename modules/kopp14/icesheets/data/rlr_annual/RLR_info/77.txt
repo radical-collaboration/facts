@@ -1,0 +1,2 @@
+Add 4.978m to all data values to refer to RLR (1930)
+RLR (1930) is 9.0m below BM 171 M

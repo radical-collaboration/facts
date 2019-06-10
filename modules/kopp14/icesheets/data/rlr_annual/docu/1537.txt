@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Beaufort            960/036 RLR(1984) is 9.0m below BM 7999 G 1980
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Beaufort            960/036 RLR(1984) is 9.0m below BM 7999 G 1980
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2012 :   
+Beaufort, South Carolina is now an Historic station.Primary benchmark remained
+7999 G 1980 4.258m relative to TGZ.
+

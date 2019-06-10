@@ -1,0 +1,13 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-APR-98 :
+data for 1990-94 revised with values in dataset received in April 1998
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Feb18 :
+Data for 1997 were replaced by the new data obtained from University of Hawaii. Data for 1998-2002 are obtained from University of Hawaii.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2008 :
+Data for the period 2003-2006 was downloaded from UHSLC The values were corrected for the Hawaii adjusted offset.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jan-2008 :
+Following the confirmation of bench mark details an RLR value of 5732 was applied to the data from 1990 onwards.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jan-2008 :
+Following confirmation of bench mark details RLR value 3688 was added to all data post 1998. See Elaines letter of 23.4.98. However the plot still looks suspect so the station was flagged.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Feb-2009 :
+Following confirmation from the Chinese authority queried value for Nansha November 2008 was corrected from 384cm to 332cm. Plot now looks OK.
+

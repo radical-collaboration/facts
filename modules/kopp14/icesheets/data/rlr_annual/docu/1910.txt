@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
+Cabo Cruz has been made RLR.Both the BM ICH_A and TGZ refer to the Geodesic National Datum (GND). Data is referred to TGZ. BM ICH-A is 2.666m above GND while TGZ is -0.88m below GND. RLR factor is 5.054m
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Mar-2016 :
+To reflect the fact that the monthly means supplied refer to TGZ and not GND the RLR diagram has been redrawn. As a result the RLRFAC has changed fron 5.054m to 5.954m. RLR (2008) is now 9.5m below TGBM ICH-A
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
+Information received from Cuba confirms that the tide gauge sensor since 1992 is a float recording hourly.
+

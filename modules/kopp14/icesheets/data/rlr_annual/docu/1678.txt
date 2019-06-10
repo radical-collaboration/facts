@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Pulau Tioman        550/013 RLR(1986) is 10.8m below BM No C0501
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Pulau Tioman        550/013 RLR(1986) is 10.8m below BM No C0501
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JAN-97 :
+1995 data revised January 1997
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Sep-2012 :   
+Publication Tidal Observation Records 2010 confirms the Primary benchmark
+remains 
+BM C0501 6.586m above TGZ.
+

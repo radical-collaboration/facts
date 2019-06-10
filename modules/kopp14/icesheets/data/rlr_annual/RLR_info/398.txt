@@ -1,0 +1,4 @@
+Add 9.139m to data values 1931-1958 to refer to RLR (1966)
+Add 7.126m to data values 1959-1986 to refer tp RLR (1966)
+Add 6.126m to data values 1987 onwards to refer to RLR (1966)
+RLR (19660 is 8.7m below BM B 29 N N 16 Kjolsdal III

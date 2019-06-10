@@ -1,0 +1,6 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Penang Port         550/003 RLR(1988) is 9.2m below BM No. P0001
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Sep-2012 :   
+From the publication Tidal Observation Records 2010 the Primary benchmark has
+changed from BM P0001 to BM P0379 4.962m above TGZ.
+

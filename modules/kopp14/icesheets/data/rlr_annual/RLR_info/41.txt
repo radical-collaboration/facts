@@ -1,0 +1,3 @@
+Add 5.799m to data values 1874-1960 to refer to RLR (1993)
+Add 2.039m to data 1961 onwards to refer to RLR (1993)
+RLR (1993) is 9.4m below BM

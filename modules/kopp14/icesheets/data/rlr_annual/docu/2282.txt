@@ -1,0 +1,3 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Feb-2016 :   
+West Bay Harbour is a new station operated by the Channel Coastal Observatory (CCO) based at NOC Southampton. Instrument type is a Rosemount WaveRadar REX. The datum of the data is Ordnance Datum Newlyn (ODN). ThPrimary benchmark TGBM is 3.951m above ODN. Tide Gauge Zero (TGZ) 2.425m below ODN, 0.175m below Admiralty Chart Datum and 6,376m below TGBM. Sampling interval is 10mins.
+

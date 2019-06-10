@@ -1,0 +1,13 @@
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Kobe                643/024 RLR(1968) is 8.8m below Attached BM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
+See comments for Osaka (643/021) and see also those of Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges) 1991 (Springer-Verlag) on subsidence in the Osaka-Kobe area.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-FEB-97 :
+February 1997: data 1984-92 recoded as 643/024 (from 643/025)on advice of authority
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Kobe gauge replaced 1st January 1984.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
+Kobe ceased operating 1992 and was replaced by Kobe II (643/025).
+============================ STATION RELOCATED ============================
+Station moved - new data held in station 643/025
+

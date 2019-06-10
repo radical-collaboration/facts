@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
+SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR, 96(B3), 4325-4335, 1991
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Sand Point          821/006 RLR(1986) is 11.4m below BM 5 1943
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
+Using NOAA data the RLR diagram has been revised. Previous Primary benchmark 5 1943 14.886m relative to gauge datum does not appear in the NOAA reports of 2001 and 2003. Primary benchmark is now 9450 R 1991 13.894m above gauge datum.
+

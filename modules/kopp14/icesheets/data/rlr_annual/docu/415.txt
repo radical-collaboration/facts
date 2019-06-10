@@ -1,0 +1,14 @@
+PRIOR TO 1983 DATA WAS SUPPLIED BY THE HARBOUR AUTHORITY
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Port of Spain       890/001 RLR(1987) is 8.6m below HUBM001
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-OCT-92 :
+1983-85 NEYRTEC GAUGE, MUNRO GAUGE INSTALLED IN 1985
+1989 MUNRO GAUGE DESTROYED BY HEAVY SWELL IN JULY,
+      NEYRTEC GAUGE INSTALLED IN NOVEMBER
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Port of Spain       890/001 RLR(1987) is 8.6m below HUBM001
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Nov15 :
+Data for 1991-92 were obtained from University of Hawaii digitisation
+of charts from Port of Spain.
+Port of Spain is an historic station last data 1992
+

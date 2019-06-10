@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-May-2010 :
+New station Iles du Salut French Guiana. Country/station code 876/011.TGBM is benchmark 'A' 6.884m above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Feb-2014 :
+Whole dataset has been re-loaded from SONEL. Several datapoints have been revised/added.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Nov-2015 :   
+This station was previously known as Iles du Salut the collective name for the three islands off French Guiana. This has now been changed to Ile Royale the name of the island on which the tide gauge is situated.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jun-2016 :   
+While adding the 2015 data to the dataset it was noted that values for April-September 2012 had been revised.
+

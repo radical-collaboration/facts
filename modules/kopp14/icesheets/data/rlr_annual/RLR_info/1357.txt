@@ -1,0 +1,2 @@
+Add 4.467m to all data values to refer to RLR (1980)
+RLR (1980) is 8.4m below BM 1

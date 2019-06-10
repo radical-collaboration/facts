@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Jul-2010 :   
+The data for Aion 1954-2000 was previously on the database the oracle values
+were copied and stored in a boxfile on one of the PSMSL roller front
+cupboards.A revised listing
+1954-2008 was downloaded from the Arctic and Antarctic Research Institute
+website and entered onto the database. The RLR factor remains 7.000m as before.
+

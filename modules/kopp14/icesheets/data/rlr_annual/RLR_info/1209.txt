@@ -1,0 +1,4 @@
+Add 4.299m to data values up to 1984 to refer to RLR (1972)
+Add 4.284m to data values 1985-1992 to refer to RLR (1972)
+Add 4.262m to data values 1993 onwards to refer to RLR (1972)
+RLR (1972) is 10.4m below BM Kure

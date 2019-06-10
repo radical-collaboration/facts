@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
+data up to 1992 revised, March 1994
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-May-2013 :
+Port Saint Francois has now been made RLR. Datum up to 2008 is UGLD85 and from 2009 onwards is Chart Datum. Full dataset to Chart Datum including the relationship between IGLD85 and Chart Datum. were supplied but to 2 decimal places only. Using the relationship between the two datums the rlrfactor was used to correct the complete dataset. Benchmark POSF1-60 is 4.268m above Chart Datum.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
+This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2015 :
+Historic data was included in the above complete dataset. The datum for the period 1900-1903 is currently being queried. Until the Fisheries and Oceans Canada confirm the datum this data has been made Metric.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2016 :   
+It has now been confirmed from the Canadian Authority that the historic data for 1900-1903 should be ignored as there is no supporting metadata for these data.
+

@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
+station density along some sections of the Australian coast
+has meant that station codes 601 onwards have been reordered
+compared to those in earlier versions of the PSMSL data set.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Whyalla             680/411 RLR(1945) is 14.4m below BM Conveyor Bin
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Whyalla             680/411 RLR(1945) is 14.4m below BM Conveyor Bin
+Whyalla is an historic station last data 1946
+

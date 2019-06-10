@@ -1,0 +1,8 @@
+1921 - 1925 VALUES BASED ON 3 READINGS PER DAY
+Station is in Russia. Formerly Finland and known as Koivisto
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Primorsk            080/004 RLR(1938) is 10.1m below BM 2215X
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Primorsk            080/004 RLR(1938) is 10.1m below BM 2215X
+Primorsk is an historic station last data 1939
+

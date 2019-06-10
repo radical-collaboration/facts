@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
+Alcudia is on the island of Majorca this is a new station first data 2009
+which forms part of the newly established REDMAR network.  Gauge is a MIROS radar sensor.
+Benchmark MAREOG-ALCUDIA is 2.307m relative to the REDMAR datum and 1.925m
+relative to IGN. See paper B. Perez et al 'Overlapping sea level time series
+measured using different technologies: an example from the REDMAR Spanish network'.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 39.833333 3.140000 as derived from the previously supplied degrees and minutes value to 39.83456 3.13898 the site of the MIROS gauge in decimal degrees.
+

@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Christmas Island II 770/022 RLR(1983) is 9.5m below BMUH-1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-OCT-96 :
+(1974-present) Leupold and Stevens Analog-to-Digital Recorder (ADR);(11/1982-present) Handar Encoder (ENC)Primary gauge: ADR:1974-90, ENC 1991-
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2013 :
+Complete dataset Feb 1974 to April 2012 was loaded onto the database from UHSLC
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jun-2014 :
+Using benchmark information supplied by UHSLC the RLR diagram has been revised. Primary benchmark is now UH2 3.17m above the gauge datum. As a result the RLR factor has changed from 6.476m to 6.330m.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Oct-2015 :   
+Complete updated JASL data through to 2014 has been loaded onto the database.
+

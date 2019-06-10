@@ -1,0 +1,12 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
+This is a newly entered station. Although data has previously been supplied
+latitude and longitude were unknown. Station made RLR. RLR year is 2004 factor
+5.488m.
+Benchmark is SSMARE 3.812m relative to REDMAR datum and 2.807m relative to IGN.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Apr-2013 :
+The Aanderaa pressure gauge at Fuerteventura has been moved to a different position in the harbour and replaced by a new MIROS radar gauge. Both old and new gauges were running in parallel for the period 1.12.2009- 07.02.2011.for inter-comparison purposes. A bias (mean difference) of 4.25cm was found between the two gauges. See paper B. Perez et al 'Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
+Further investigation revealed that the bias was due to a problem with the old pressure gauge. Data from this has been revised. Complete dataset was re-entered onto the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
+At the request of Puertos del Estado the latitude and longitude have been revised from 28.500000 -13.851667 derived from the previously supplied degrees and minutes value to 28.49251 -13.85822 which is the site of the new MIROS gauge in decimal degrees.
+

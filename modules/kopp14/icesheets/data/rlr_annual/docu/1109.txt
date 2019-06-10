@@ -1,0 +1,20 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
+Recent work on vertical land movements in the UK can be found from
+the University of Nottingham web site:
+http://ukcogr.iessg.nottingham.ac.uk/~eosi/
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Wick                170/005 RLR(1977) is 10.0m below BM ND3667 5081
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Wick                170/005 RLR(1977) is 10.0m below BM ND3667 5081
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-JUL-94 :
+A Lea stilling well gauge was installed in November 1964. From
+October 1985 the gauge has been an "A Class" bubbler.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-May-2012 :   
+The original ND 3667 5081 5.077m above TGZ was destroyed during site 
+re-furbishment. New Primary benchmark also ND 3667 5081 is 5.084m 
+above TGZ.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Jul-2014 :   
+TGI visited the site on 06.02.2013 to carry out general maintenance and investigate a blocking channel. The primary channel started blocking during March 2013. there were also problems with the secondary channel which was recording a constant value. TGI returned to site on 14.04.2013 to repair both channels, one was found to be blocked while the other had a leaking relief valve. During May the primary channel was again blocking and from mid July 2013 there were also recording issues with the data on the falling tide.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-May-2015 :   
+TGI were at site twice during 2014 08.09.14 when they were diving to clear the blocking channel and 05.10.14 for general maintenance and to change the compressor.
+

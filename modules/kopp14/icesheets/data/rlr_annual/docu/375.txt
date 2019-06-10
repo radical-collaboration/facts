@@ -1,0 +1,11 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Kavalla             290/061 RLR(1982) is 8.4m below BM R
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-AUG-92 :
+THE RECORD FOR KAVALLA LOOKS UNTYPICAL OF OTHER GREEK RECORDS - SEE FLEMMING AND WOODWORTH, TECTONOPHYSICS, 148, 59-72, 1988.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-97 :
+The contributing authority advises that anomalous values are the result of met. influences
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Aug-2013 :
+Following receipt of datum diagrams from the Hellenic Navy the RLR diagram has been re-drawn. In consequence the RLR factors have changed.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2016 :   
+The supplying authority the Hellenic Navy Hydrographic Service has confirmed that the tide gauge at Kavala is currently not operational due to gauge malfunction.
+

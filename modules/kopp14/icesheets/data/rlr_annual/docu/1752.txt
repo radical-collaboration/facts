@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-AUG-95 :
+Destructive earthquakes and tsunamis occurred in Indonesia on 3 June and 6 October 1994 - see Earth System Monitor, 5(4), June 1995.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-JUL-06 :
+Data received from University of Hawaii Sea Level Center
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2015 :
+Using information from the UHSLC levelling sheet Sibolga II has been made RLR for 2005 onwards. Primary benchmark is UH1 5.303m above the datum. Using the updated JASL data the complete dataset has been reloaded.
+

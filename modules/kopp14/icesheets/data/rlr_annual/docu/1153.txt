@@ -1,0 +1,5 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Cape May            960/090 RLR(1966) is 10.5m below BM1
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
+Using information from the NOAA website the RLR diagram has been revised. Primary benchmark remains BM 1 but has now been given the full name as appears  on NOAA BM 1 NO 1 1965 4.892m relative to gauge datum.
+

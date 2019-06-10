@@ -1,0 +1,9 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
+Many stations on the Gulf coast have large values for September 1961.
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Sabine Pass         940/009 RLR(1972) is 7.8m below BM2
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
+For a discussion of submergence near to Galveston, Freeport and Sabine Pass, see Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges), 1991, Springer-Verlag, page 39.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2012 :
+Sabine Pass is now an Historic station. Although it does appear in the Historic Data section of the NOAA website there is now no benchmark information and very little datum information available.
+

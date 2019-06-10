@@ -1,0 +1,7 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Digby NS            970/005 RLR(1969) is 16.1m below BM 921G
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Digby NS            970/005 RLR(1969) is 16.1m below BM 921G
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :   
+Last data recived from Digby was that for 1970.
+

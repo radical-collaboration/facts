@@ -1,0 +1,3 @@
+Add 4.380m  to all data values 1948-1994 to refer to RLR (1989)
+Add 4.690m to all data values 1995 onwards to refer to RLR (1989)
+RLR (1989) is 19.1m below BM 8

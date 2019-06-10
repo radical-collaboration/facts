@@ -1,0 +1,10 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Ulneung Do          620/059 RLR(1982) is 10.0m below TBM No3
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Ulneung Do          620/059 RLR(1982) is 10.0m below TBM No3
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-DEC-97 :
+Type of tide gauge: OTT float
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2012 :
+At the request of the data suppliers, KHOA the name for this station has been
+changed to ULLEUNG. The values of the lat. and long. have also been revised.
+

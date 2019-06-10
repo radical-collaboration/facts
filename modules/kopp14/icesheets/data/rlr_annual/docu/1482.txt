@@ -1,0 +1,8 @@
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Viana               210/011 RLR(1984) is 18.0m below TGBM
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Viana               210/011 RLR(1984) is 18.0m below TGBM
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Nov04 :
+data for 1984-85  replaced with revised values received from authority 41
+Viana is an historic station last data 1985
+

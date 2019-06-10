@@ -1,0 +1,11 @@
+1943 DATA SUPPLIED BY AUTHORITY NO. 66
+1942,1944,1960-1962 DATA SUPPLIED BY AUTHORITY NO.19
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
+Cherbourg           190/061 RLR(1975) is 12.5m below BMNGFNPQ35
+=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
+Cherbourg           190/061 RLR(1975) is 12.5m below BMNGFNPQ35
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
+Using values from the SONEL website the latitude and longitude values have been revised. The SONEL data included additional data points for October 1976,October 1978,December 1985,August-December 1994 and January-November 2009. These have been added to the database.
+=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Jun-2016 :   
+When loaded the 2015 dataset it was noted that the datapoint for October 2012 had been revised.
+
