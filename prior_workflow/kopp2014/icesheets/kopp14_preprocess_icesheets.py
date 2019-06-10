@@ -1,5 +1,6 @@
 import numpy as np
 import pickle as p
+import os
 
 ''' kopp14_preprocess_icesheets.py
 
@@ -39,14 +40,17 @@ if __name__ == '__main__':
 
 	# Collate the correlation data into a single dictionary
 	corr_is = {'bacorris': bacorris, 'arcorris': arcorris}
+	
+	# Define the data directory
+	outdir = os.path.join(os.path.dirname(__file__), 'data')
 
 	# Write the rates data to a pickle file
-	ratefile = open("kopp14_icesheets_rates.pkl", 'wb')
+	ratefile = open(os.path.join(outdir, "kopp14_icesheets_rates.pkl"), 'wb')
 	p.dump(data_is, ratefile)
 	ratefile.close()
 
 	# Write the correlation data to a pickle file
-	corrfile = open("kopp14_icesheets_corr.pkl", 'wb')
+	corrfile = open(os.path.join(outdir, "kopp14_icesheets_corr.pkl"), 'wb')
 	p.dump(corr_is, corrfile)
 	corrfile.close() 
 

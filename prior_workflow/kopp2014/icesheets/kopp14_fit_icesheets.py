@@ -1,5 +1,6 @@
 import pickle
 import sys
+import os
 import numpy as np
 from CalcISDists import CalcISDists as calcDists
 
@@ -43,16 +44,21 @@ def kopp14_fit_icesheets(infile):
 				'islastdecade': islastdecade}
 	
 	# Write the results to a file
-	outfile = open("kopp14_icesheets_fit.pkl", 'wb')
+	outdir = os.path.join(os.path.dirname(__file__), 'data')
+	outfile = open(os.path.join(outdir, "kopp14_icesheets_fit.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
 
 if __name__ == '__main__':
 	
-	# Run the fitting process on the file specified from the command line argument
-	preprocess_file = sys.argv[1]
-	kopp14_fit_icesheets(preprocess_file)
+	# Run the fitting process using the provided rate file from preprocessing stage
+	try:
+		rate_file = sys.argv[1]
+	except:
+		rate_file = os.path.join(os.path.dirname(__file__), "data", "kopp14_icesheets_rates.pkl")
+	finally:
+		kopp14_fit_icesheets(rate_file)
 	
 	# Done
 	exit()

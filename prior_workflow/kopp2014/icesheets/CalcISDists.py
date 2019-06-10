@@ -54,7 +54,8 @@ def CalcISDists(barates2100, lastdecadegt, aris2090):
 	arrates2100 = (arisaccel0*(2100-2011)) + arislastdecade.reshape(2,1)
 	
 	# Fit log-normal distributions to the AR5 estimates
-	arthetais = fitLN(arrates2100[1,0], arrates2100[1,:], -3, [0.5,0.167,0.833])
-	arthetgis = fitLN(arrates2100[0,0], arrates2100[0,:], 0, [0.5,0.167,0.833])
+	arthetais = fitLN(arrates2100[1,1], arrates2100[1,:], -3, [0.167,0.5,0.833])
+	#arthetais = np.array([-169.3219, 5.1349, 0.0156])   # Matlab version's results
+	arthetgis = fitLN(arrates2100[0,1], arrates2100[0,:], 0, [0.167,0.5,0.833])
 	
 	return(batheteais, bathetwais, bathetgis, arthetais, arthetgis, islastdecade)

@@ -1,5 +1,6 @@
 import pickle
 import sys
+import os
 import numpy as np
 from SampleISDists import SampleISDists
 from ProjectGSL import ProjectGSL
@@ -77,7 +78,8 @@ def kopp14_project_icesheets(nsamps, parfile, corfile, seed=1234):
 	output = {'arsamps': arsamps, 'basamps': basamps, 'hysamps': hysamps}
 	
 	# Write the results to a file
-	outfile = open("kopp14_icesheets_projections.pkl", 'wb')
+	outdir = os.path.join(os.path.dirname(__file__), "data")
+	outfile = open(os.path.join(outdir, "kopp14_icesheets_projections.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
@@ -85,15 +87,27 @@ def kopp14_project_icesheets(nsamps, parfile, corfile, seed=1234):
 if __name__ == '__main__':
 	
 	# Run the projection process for the parameters specified from the command line argument
-	nsamps = int(sys.argv[1])
-	preprocess_file = sys.argv[2]
-	correlation_file = sys.argv[3]
+	try:
+		nsamps = int(sys.argv[1])
+	except:
+		nsamps = 20000
+	
+	try:
+		fit_file = sys.argv[2]
+	except:
+		fit_file = os.path.join(os.path.dirname(__file__), "data", "kopp14_icesheets_fit.pkl")
+	
+	try:
+		correlation_file = sys.argv[3]
+	except:
+		correlation_file = os.path.join(os.path.dirname(__file__), "data", "kopp14_icesheets_corr.pkl")
+		
 	try:
 		seed = int(sys.argv[4])
 	except:
 		seed = 1234
 	finally:
-		kopp14_project_icesheets(nsamps, preprocess_file, correlation_file, seed)
+		kopp14_project_icesheets(nsamps, fit_file, correlation_file, seed)
 	
 	# Done
 	exit()
