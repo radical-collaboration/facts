@@ -7,37 +7,84 @@ from pprint import pprint
 from radical.entk import Pipeline, Stage, Task, AppManager
 
 
-def GeneratePipeline(wcfg, pcfg):
+def GeneratePipeline(pcfg, ecfg, pipe_name):
 	
 	# Initialize the pipeline object
 	p = Pipeline()
 	
 	# Give the pipeline a name
-	p.name = "_".join((pcfg['module_set'], pcfg['module']))
+	p.name = pipe_name
 	
 	# Loop through the necessary stages for this module
-	for this_stage in wcfg.keys():
-		print(this_stage)
-	p.add_stages(GenerateStage(wcfg, pcfg, p.name))
+	stage_names = ["pre_process", "fit", "project", "post_process"]
+	for this_stage in stage_names:
+		if this_stage in pcfg.keys():
+			
+			# Populate the pipeline with the stages
+			p.add_stages(GenerateStage(pcfg[this_stage], ecfg, p.name, this_stage))
 	
 	return(p)
 
 
-def GenerateStage(wcfg, scfg, pipe_name):
+def GenerateStage(scfg, ecfg, pipe_name, stage_name):
 	
+	# Initialize a stage object
 	s = Stage()
-	s.name="Test Stage"
-	s.add_tasks(GenerateTask(wcfg, scfg))
 	
+	# Provide a name for this stage
+	s.name=stage_name
+	
+	# Loop through the tasks for this stage
+	for this_task in scfg.keys():
+		
+		# Populate the stage object with the tasks
+		s.add_tasks(GenerateTask(scfg[this_task], ecfg, pipe_name, stage_name, this_task))
+	
+	# Return the stage object
 	return(s)
 
 
-def GenerateTask(wcfg, tcfg):
+def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	
+	# Initialize a task object
 	t = Task()
-	t.name="Test Task"
-	#t = []
 	
+	# Give this task object a name
+	t.name=task_name
+	
+	# Pre exec let you load modules, set environment before executing the workload
+	t.pre_exec = [tcfg['pre_exec']]
+	
+	# Executable to use for the task
+	t.executable = tcfg['executable']
+
+	# List of arguments for the executable
+	t.arguments = match_options(tcfg['options'], ecfg['options'])
+
+	# CPU requirements for this task
+	t.cpu_threads = {
+						'processes': tcfg['cpu']['processes'],
+						'process-type': tcfg['cpu']['process-type'],
+						'threads-per-process': tcfg['cpu']['threads-per-process'],
+						'thread-type': tcfg['cpu']['thread-type'],
+					}
+
+	# Upload data from your local machine to the remote machine
+	# Note: Remote machine can be the local machine
+	t.upload_input_data = tcfg['upload_input_data']
+
+	# Copy data from other stages/tasks for use in this task
+	copy_list = []
+	if "copy_input_data" in tcfg.keys():
+		for copy_stage in tcfg['copy_input_data'].keys():
+			for copy_task in tcfg['copy_input_data'][copy_stage].keys():
+				loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
+				copy_list.append(['%s/%s'%(loc, x) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
+	
+	# Append the copy list (if any) to the task object	
+	t.copy_input_data = copy_list
+
+	# Return the task object
 	return(t)
 
 
@@ -88,16 +135,17 @@ def run_experiment(exp_dir, debug_mode):
 	# Loop through the user-requested modules
 	for this_mod in ecfg.keys():
 		
-		# Load the workflow configuration file for this module
-		wcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "workflow.yml")
-		if not os.path.isfile(wcfg_file):
-			print '%s does not exist' % wcfg_file
+		# Load the pipeline configuration file for this module
+		pcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "pipeline.yml")
+		if not os.path.isfile(pcfg_file):
+			print '%s does not exist' % pcfg_file
 			sys.exit(1)
-		with open(wcfg_file, 'r') as fp:
-			wcfg = yaml.safe_load(fp)
+		with open(pcfg_file, 'r') as fp:
+			pcfg = yaml.safe_load(fp)
 		
 		# Generate a pipeline for this module
-		pipelines.append(GeneratePipeline(wcfg, ecfg[this_mod]))
+		pipe_name = "_".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
+		pipelines.append(GeneratePipeline(pcfg, ecfg[this_mod], pipe_name))
 	
 	# Print out PST info if in debug mode
 	if debug_mode:
