@@ -1,9 +1,0 @@
-PRIOR TO 1970 DATA SUPPLIED BY AUTHORITY CODE NO. 52
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Riohacha            902/011 RLR(1964) is 10.3m below BM4
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Riohacha            902/011 RLR(1964) is 10.3m below BM4
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Anomalously low value for February 1959 - correct as received from
-authority.
-

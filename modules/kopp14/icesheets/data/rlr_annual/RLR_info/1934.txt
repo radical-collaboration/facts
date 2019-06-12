@@ -1,3 +1,0 @@
-Add 5.504m to data to refer to RLR (2007)
-RLR (2007) is 8.5m below TGBM  ICH-5
-Geodesic National Datum (GND)

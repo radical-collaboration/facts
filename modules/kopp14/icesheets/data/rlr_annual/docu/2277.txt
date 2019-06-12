@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Feb-2016 :
-Deal Pier is a new station operated by the Channel Coastal Observatory (CCO) based at NOC Southampton. Instrument type is a Rosemount WaveRadar Rex. The datum of the data is Admiralty Chart Datum (ACD) 7.293m below Primary benchmark TGBM. Tide Gauge Zero (TGZ) is 10.386m above ACD and 6.986m above Ordnance Datum Newlyn (ODN). The Primary benchmark (TGBM) is 3.093m below TGZ. Data sampling interval is 10mins.
-

@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Pohnpeei              710/031 RLR(1982) is 8.9m below BMUGGS#1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-OCT-96 :
-1974-1990 primary gauge=Leupold & Stevens Analog-to-Digital Recorder (ADR)1991-  primary gauge=Handar Encoder (ENC)
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2015 :
-Complete updated JASL dataset loaded onto the database. UHSLC metadata reports that data 2001-2004 were adjusted by +7mm to link to the zero assigned to the update of 2005-2012 provided in May 2013 by NTC.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Dec-2015 :   
-Referring to the UH levelling sheet for Pohnpei benchmark USGS1 is confirmed as the Primary Benchmark. However, through successive levellings it is not completely stable. It appears that the RLR diagram was prepared using the 1976/1981 values of 2.479m rounded to 3 decimal places. This agrees with the historic levelling sheet found with the original RLR diagram. Over time the values change from a maximum of 2.4792m in 1976 to a minimum of 2.4725m in 1991. Value for the last levelling exercise in 2004 is 2.4778m.
-

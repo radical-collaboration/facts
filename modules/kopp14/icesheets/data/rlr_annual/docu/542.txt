@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Imbitula            874/031 RLR(1964) is 9.1m below BM1-M
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Imbitula            874/031 RLR(1964) is 9.1m below BM1-M
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
-Station is now historic last data received was that for 1968. This station no
-longer features on the NOAA website. Station has been labelled 'inactive'.
-

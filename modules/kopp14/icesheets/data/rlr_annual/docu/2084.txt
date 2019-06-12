@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :
-Porto Torres is on the northern coast of Sardinia and is a new station. Database id.2084 data for 2001 onwards was downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Metadata for the station were also extracted.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
-Porto Torres is now RLR. Primary benchmark Nodale 51D1/19 3.08496m (displayed as 3.085m on diagram) above national Italian Military Geographic Institute (IGM)altimetric datum.
-

@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-NOV-91 :
-BEFORE 1975 GAUGE AT MUELLE WASHINGTON, 34 55 S 56 13 W 1975-1983 GAUGE AT MUELLE MATARAS, 34 53 S 56 11 W
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Montevideo          870/011 RLR(1962) is 29.9m below BM Repere del Cabildo
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
-Record will be affected by the confluence of the Parana and Uruguay Rivers.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-May-2009 :
-Data for 1995-2008 received from SOHMA. 1995 data had been revised. Full dataset entered plot 2003/4 seems low.
-

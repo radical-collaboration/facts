@@ -1,3 +1,0 @@
-Add 6.787m to all data values 1908-1912 to refer to RLR (1927)
-Add 5.024m to all data values 1914 onwards to refer to RLR (1927)
-RLR (1927) is 10.6m below BM 456

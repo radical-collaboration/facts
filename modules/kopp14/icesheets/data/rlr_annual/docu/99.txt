@@ -1,8 +1,0 @@
-1896 - 1936 MSL VALUES BASED UPON INTEGRATION OF CONTINUOUS RECORD
-1937 - 1961 VALUES BASED ON 24 READINGS PER DAY
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Nedre Gavle         050/171 RLR(1964) is 10.0m below BM No fix 451
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Nedre Gavle         050/171 RLR(1964) is 10.0m below BM No fix 451
-Nedre Gavle is an historic station last data 1986
-

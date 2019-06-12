@@ -1,2 +1,0 @@
-Add 6.311m to all data values to refer to RLR (2010)
-RLR (2010) is 12.9m below BM NGAB-MAR

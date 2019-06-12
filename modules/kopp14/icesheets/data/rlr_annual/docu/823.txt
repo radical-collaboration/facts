@@ -1,6 +1,0 @@
-DATA PRIOR TO 1970 BASED ON 24 READINGS OF TIDAL HEIGHT PER DAY
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Mokuoloe Island     760/041 RLR(1969) is 8.4m below BM7
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Primary benchmark is now NO 1 1957 1.969m above gauge datum. This benchmark appears on the original RLR diagram as a secondary benchmark with the same value. Previous Primary benchmark NO 7 1968 is included in the NOAA report for 2000 with a value of 2.657m relative to the gauge datum but does not appear in the NOAA report of 2003.
-

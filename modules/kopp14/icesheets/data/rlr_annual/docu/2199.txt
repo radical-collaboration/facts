@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jan-2014 :
-Cilacap B is a new station from a collaboration between UH and BAKOSURTANAL. There is no datum link between this station and the previous BAKOSURTANAL gauge. Using benchmark information supplied by UHSLC Cilacap B has been made RLR.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :   
-Whole dataset has been reloaded using the updated JASL data.
-

@@ -1,4 +1,0 @@
-Add 8.947m to data values 1930-1963 to refer to RLR (1974)
-Add 5.947m to data values 1964-1988 to refer to RLR (1974)
-Add 5.951m to data values 1989 onwards to refer to RLR (1974)
-RLR (1974) is 10.3m below BM F 17

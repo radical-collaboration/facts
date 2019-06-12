@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1992 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Ste Anne-des Monts  970/057 RLR(1973) is 12.8m below BM MCCCLCCCIX
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :   
-Last data received from this station was that for 1994.
-

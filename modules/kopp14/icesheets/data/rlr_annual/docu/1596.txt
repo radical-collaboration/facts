@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-AUG-95 :
-A destructive earthquake and tsunami occurred in the Kuril Islands on 4 October 1994 - see Earth System Monitor, 5(4), June 1995.
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Yosioka             641/034 RLR(1986) is 9.0m below Standard Mark
-

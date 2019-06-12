@@ -1,5 +1,0 @@
-* All data (1963-85) supplied to the PSMSL to NN, with the above corrections
-assumed to have already been applied.  Data 1986 onwards supplied to TGZ.
-RLR(2000) is defined to be 6.565m below TGBM  
-For data 1963-85 add 7.0m to all values to refer to RLR(2000) 
-For data 1986-  add 2.0m to all values to refer to RLR(2000)

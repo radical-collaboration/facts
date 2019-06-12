@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Washington          960/076 RLR(1971) is 10.1m below BM B1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2011 :
-Using data from NOAA the RLR diagram has been revised. Previous Primary benchmark BM B1 4.971m above gauge datum no longer appears in the NOAA listings. Primary benchmark is now  TIDAL NO 1 1951 4.115m above gauge datum.
-

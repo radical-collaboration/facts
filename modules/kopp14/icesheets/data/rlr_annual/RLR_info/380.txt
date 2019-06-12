@@ -1,2 +1,0 @@
-Add 6.0m to all data values to refer to RLR (1979)
-RLR (1979) is 11.5m below TGBM

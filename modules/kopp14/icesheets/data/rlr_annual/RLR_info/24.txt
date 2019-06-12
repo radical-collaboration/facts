@@ -1,3 +1,0 @@
-Add 6.815m to data up to 2005 to refer to RLR (2007)
-Add 6.823m to data 2005 onwards to refer to RLR (2007)
-RLR (2007) is 11.1m below TGBM

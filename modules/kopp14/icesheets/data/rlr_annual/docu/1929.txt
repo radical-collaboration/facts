@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2007 :
-Data for Ajaccio Corsica has been added to the PSMSL database.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Mar-2012 :
-Ajaccio Corsica is an RLR station. Primary benchmark is IGN FM-5 which is 2.905m above the Hydrographique Zero (TGZ)
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :
-The data downloaded from the SONEL website contained additional historic data. The complete dataset has been entered onto the database. Most of the values are identical or 1mm different.
-

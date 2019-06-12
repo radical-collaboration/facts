@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1992 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Champlain           970/080 RLR(1975) is 12.1m below BM MMMCXXX
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :   
-Last data received for Champlain was that for 1994.
-

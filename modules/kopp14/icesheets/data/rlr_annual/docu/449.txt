@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Ko Sichang          600/051 RLR(1981) is 9.1m below BM PSCI
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Ko Sichang          600/051 RLR(1981) is 9.1m below BM PSCI
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003May28 :
-Reported monthly mean sea level for August 2002 is suspiciously low.
-Ko Sichang is an historic station last data 2002
-

@@ -1,4 +1,0 @@
-Detailed BM information is not available. 
-However, the Russian sea level network has a complete geodetic history. 
-All stations have one or more fixed geodetic benchmarks. 
-These benchmarks were related to the Baltic System (Kronshtadt gauge). 

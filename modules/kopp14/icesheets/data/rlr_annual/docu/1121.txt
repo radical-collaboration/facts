@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1992 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Pictou              970/021 RLR(1988) is 11.5m below BM TS 1907
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-JUN-98 :
-station closed in 1996
-

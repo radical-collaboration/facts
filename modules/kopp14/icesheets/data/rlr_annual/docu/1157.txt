@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
-Revised data up to 1985 received from the National Tidal Centre, Bureau of Meteorology, South Australia
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2010 :
-Data supplier has confirmed that tide gauge zero is LAT, and tide gauge benchmark PSM 15094 is 7.287 m above LAT. RLR (2009) is defined as 12.4 m below PSM 15094
-

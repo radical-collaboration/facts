@@ -1,2 +1,0 @@
-SUBTRACT 1.8m from all data values to refer to RLR (2009)
-RLR (2009) is 8.2m below BM  2447  A  2006

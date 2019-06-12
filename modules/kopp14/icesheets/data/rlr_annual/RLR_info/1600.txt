@@ -1,3 +1,0 @@
-Add 4.925m to all data values up to 1992 to refer to RLR(1986)
-Add 4.938m to all data values 1993 onwards to refer to RLR(1986)
-RLR (1986) is 10.714m below TGBM 1

@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-JUL-93 :
-Charlotte Amalie            939/001 RLR(1988) is 7.9m below BM 1975 # 1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
-Using NOAA data the RLR diagram has been revised. Previous Primary benchmark 1975 # 1 2.591m relative to gauge datum does not feature in the NOAA reports of 1989 and 2005. Primary benchmark is now 1639 F 1983 3.267m above gauge datum.
-

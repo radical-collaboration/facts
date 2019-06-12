@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Los Angeles         823/051 RLR(1964) is 10.4m below BM8
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
-For a discussion of submergence near to Los Angeles and Long Beach see Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges), 1991, Springer-Verlag, page 39.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2011 :
-Using NOAA data the RLR diagram has been re-drawn. Primary benchmark remains BM8 5.361m above gauge datum but has now been given its official title 8 -14FT ABOVE MLLW to agree with the NOAA website.
-For information: Data values during the 1980's can look high. This could be due to the El Nino Southern Oscillation (ENSO) as it is mirrored along the Californian coast.
-

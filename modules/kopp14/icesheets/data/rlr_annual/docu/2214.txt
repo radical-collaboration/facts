@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Feb-2014 :
-Garibaldi II is a re-instated station. Old gauge ceased operation in 1981 id.1285. New data is to a different datum and so has been made a new station id.2214. Using information from the NOAA website the station has been made RLR.
-

@@ -1,7 +1,0 @@
-NO BM INFORMATION BUT DATA SEEMS HOMOGENEOUS
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-S Cruz de la Palma  370/011 RLR(1959) is 7.1m below BM
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-S Cruz de la Palma  370/011 RLR(1959) is 7.1m below BM
-This is now an historic station last data 1960
-

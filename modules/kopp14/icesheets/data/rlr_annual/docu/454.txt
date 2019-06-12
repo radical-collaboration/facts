@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2010 :   
-Following the input of the 2009 data this station was made RLR. RLR (2009) is
-14.700m below TGBM N.Q.K3L3-45. Add 0.215m to all data to refer to RLR (2009).
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2014 :   
-After downloading the St Malo data from SONEL it was realised a lot of additional data for the 1990s and 2000s had been added. Because of this the whole dataset was re-loaded.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Oct-2014 :   
-Also using data from SONEL the latitude and longitude for St. Malo has been updated.
-

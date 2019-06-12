@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Nauru               715/001 RLR(1983) is 9.9m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-OCT-96 :
-May 1974-October 1985: primary gauge=Fischer and Porter October 1985-December 1994: primary gauge=Leupold and Stevens
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-98 :
-4 January 1995: Aquatrak acoustic gauge (SEAFRAME) installed by the National Tidal Facility. This is now the primary gauge.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr11 :
-All data up to and including 1998 has been received from the UHSLC so the supplying authority has been changed to UHSLC. From the UH levelling sheet the RLR diagram was produced using the 1983 levelling information. Primary benchmark UH 1 12.791ft(3.899m) above the datum. The value remained the same for the 1986 levelling but became unstable from the 1988 levelling onwards.
-

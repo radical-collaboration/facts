@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Monterey            823/036 RLR(1986) is 10.8m below BM 2 1924
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains 2 1924 5.669m above gauge datum but has been given its full title as appears on the NOAA website.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2012 :
-For information: Data values during the early 1980's appear to be particularly high. This phenomenon could be due to the El Nino Southern Oscillation (ENSO)as it is mirrored all along the Californian coast.
-

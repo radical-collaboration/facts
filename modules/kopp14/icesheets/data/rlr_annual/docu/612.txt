@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Jan27 :
-Suspicious spike (with value = 960) in April 1981 flagged.
-Sterlegova (Sterlegova Mys) is an historic station last data 1995
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Aug-2013 :   
-Following the recent download of data it was noted that some of the historic values differed slightly. Because of this the whole dataset has been re-loaded.
-

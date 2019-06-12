@@ -1,2 +1,0 @@
-RLR is 14.389m below TGBM SPM 8521.
-Add 6.0m to data to refer to RLR (1996)

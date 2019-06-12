@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2010 :
-Previous data Apr. 2000- Aug. 2001. Complete dataset 2000 - Sept.2010 supplied by UHSLC. Data was checked with previous values before being entered onto the database.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Nov-2015 :
-Complete updated JASL data 2000-2014 has been loaded. Datum has been revised from the previous JASL dataset (2000-2010). Using UH levelling information the station has now been made RLR.
-

@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Nase I              646/001 RLR(1958) is 9.7m below BM Nase
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Nase I              646/001 RLR(1958) is 9.7m below BM Nase
-This is an historic station last data 1961
-

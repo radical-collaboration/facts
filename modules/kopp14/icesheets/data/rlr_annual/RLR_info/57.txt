@@ -1,3 +1,0 @@
-Add 5.333m to data values 1883-1906 and 1913 onwards to refer to RLR (1964)
-Add 6.628m to data values 1907-1912 to refer to RLR (1964)
-RLR (1964) is 8.627m below BM 00003

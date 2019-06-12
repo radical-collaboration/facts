@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Jul-2010 :   
-Data for Vankarem 1950-2000 were previously in the database these values were
-copied and stored in a box file on top of one of the PSMSL roller front
-cupboards. Revised data values for
-1950-2009 were downloaded from the Arctic and Antarctic Research Institute
-website and loaded onto the database. The RLR factor remains 7.000m as before.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Aug-2013 :   
-following the recent download of data it was noted that some of the historic values differed slightly. Because of this the whole dataset has been re-loaded.
-

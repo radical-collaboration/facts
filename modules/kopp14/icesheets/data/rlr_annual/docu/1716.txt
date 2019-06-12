@@ -1,4 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-MAR-93 :
-DATA RECEIVED FROM TOGA OFFICE
-Muscat is an historic station dataset 1987-1993 only
-

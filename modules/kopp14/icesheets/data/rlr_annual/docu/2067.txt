@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Mar-2011 :   
-Station Soudhas 2002 onwards was split off to create Soudhas II. The Original
-benchmark for Soudhas was BMR145 which was destroyed. The Hellenic Navy have no
-information on how this benchmark relates to the currently used R12 2.618m
-above TGZ.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Aug-2013 :   
-Using new information from the Hellenic Navy the dataset for Soudhas can now be rejoined.See id.1232 for full dataset. No further data will be added to this id.
-

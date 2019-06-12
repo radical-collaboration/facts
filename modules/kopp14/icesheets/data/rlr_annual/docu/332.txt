@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Eastport            960/201 RLR(1964) is 18.3m below BM3(1918)
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Aug-2011 :
-Using NOAA data the RLR diagram has been updated. Primary benchmark remains BM3 15.685m above TGZ the name has been changed to its official name NO 3 1918 as appears on the NOAA website.
-

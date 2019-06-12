@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JUL-95 :
-23 August 1993: tide gauge replaced
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Sep-2012 :   
-Publication Tidal Observation Records 2010 confirms that the Primary benchmark
-remains BM 5113 6.116m above TGZ.
-

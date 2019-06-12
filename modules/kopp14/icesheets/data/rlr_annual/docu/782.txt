@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Puerto de Hierro    900/001 RLR(1962) is 9.3m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Puerto de Hierro    900/001 RLR(1962) is 9.3m below BM1
-Puerto de Hierro is an historic station last data 1963
-

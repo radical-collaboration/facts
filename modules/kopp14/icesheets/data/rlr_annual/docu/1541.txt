@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Depoe Bay           823/015 RLR(1982) is 10.6m below BM 6 1973
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Depoe Bay           823/015 RLR(1982) is 10.6m below BM 6 1973
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Jan-2012 :   
-This is an historic station. Last data received was that for December 1982.
-Station has be switched to 'inactive'.
-

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Massacre Bay        820/001 RLR(1963) is 10.4m below BM6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
-Apparent datum shift at approximately 1965 because of this the station has been flagged.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Jan-2012 :
-This is an historic data site. Last data value received is that for Decmber 1966. Station has been switched to 'inactive'.
-

@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Port Orford         823/020 RLR(1986) is 11.0m below BM 6 1937
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains 6 1937 12.256m above gauge datum (TGZ). Benchmark 1 1924 13.027m above TGZ included in the original RLR diagram is mentioned in the NOAA report of 1992 with a value of 13.028m. It is not included in the later NOAA report of 2003.
-
-

@@ -1,2 +1,0 @@
-Add 3.086m to data values to refer to RLR (1970)
-RLR (1970) is 9.2m below BM GCS BM H4

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Awa Sima            647/090 RLR(1971) is 9.1m below BM Awa Sima
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-During the 1980s and 1990s the value for the benchmark above TGZ varies from 3.126m to a max of 3.129m. Throughout the RLRFAC remained the same
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70 km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake known to hit Japan triggering a tsunami with waves up to 40.5m and travelling up to 10 km inland.
-

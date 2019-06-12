@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Vilsandi            080/021 RLR(1937) is 9.7m below BM barn
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Vilsandi            080/021 RLR(1937) is 9.7m below BM barn
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUL-94 :
-This station is in Estonia.
-Vilsandi is an historic station last data 1938
-

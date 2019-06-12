@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1983 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Pointe-au-Pere      970/061 RLR(1978) is 12.7m below BM 78K0066
-

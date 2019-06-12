@@ -1,7 +1,0 @@
-ALL DUTCH METRIC DATA ARE MEASURED TO NAP (NORMAAL AMSTERDAMSCH PEIL)
-PRIOR TO 1936 VALUES BASED ON HIGH AND LOW WATERS OR ON 4 OR 8 READINGS/DAY
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-Feb-2011 :
-From information received regarding the values of NAP pre. and post the re-levelling of 2005 the station has now been made RLR. RLR factor pre.2005 6.775m 2005 onwards 6.799m.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jan-2016 :   
-The note above stating periods of the data are MTL is misleading.  Sections of the original data were MTL.  However, Pub. Sci. 5 states “For these periods a shallow water correction has been added to the mean heights of high and low water in order to give a mean height of sea-level comparable with those otherwise calculated for other periods.”  Thus, a correction to MSL has already been applied.
-

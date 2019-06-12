@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
-Supplying authority have confirmed that tide gauge zero is 1.009 m below AHD (Australian Height Datum) Tide gauge benchmark PM 60000 is 4.267 m above tide gauge zero RLR (2009) is defined as 10.3 m below PM 60000
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2010 :
-It has been confirmed that the present dataset for Newcastle is a compendium of station 267 to the end of the record (December 1988) and then station 837 from January 1989 to present. Apparently both gauges were run in parallel for a number of years until station 837 was synched with the monthly records of station 267 when 837 became the primary gauge. See Phil Watson's letter of 25.10.10. The numbers have also been checked and the situation verified.
-

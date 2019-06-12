@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
-National Tide Centre (Australia) SEAFRAME station NTC have confirmed the data is supplied to Nauru Island Datum (NID). Tide gauge benchmark NAU 1 is 7.293 m above NID. RLR (2009) has been defined as 12.8 m below NAU 1.
-

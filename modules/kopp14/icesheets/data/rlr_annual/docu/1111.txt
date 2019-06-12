@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Nantucket           960/166 RLR(1973) is 9.3m below BM22
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Aug-2011 :
-Using NOAA data the RLR diagram has been revised. Primary benchmark is now NO 25 1968 3.157m above TGZ in Epoch 1960-1978 and 3.147m above TGZ in Epoch 1983-2001. Previous benchmark BM 22 still exists and remains 3.685m above gauge datum. This has now been given the official name NO 22 1934. The station name has been changed from Nantucket to Nantucket Island to agree with the NOAA website.
-

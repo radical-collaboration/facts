@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Apr-2012 :
-The tide gauge at Belledune has been in operation since 2003. Benchmark
-information is now available and the station has been made RLR. Primary
-benchmark is 98B9000 5.489m above CD. RLR factor is 5.711m.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jul-2015 :   
-This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
-

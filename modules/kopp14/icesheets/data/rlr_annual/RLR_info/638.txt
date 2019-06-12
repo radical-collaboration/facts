@@ -1,2 +1,0 @@
-RLR(1973) is 17.398m below BM 3277
-Add 4.860m to all values to refer to RLR(1973)

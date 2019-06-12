@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2012 :
-Port Angeles, Washington is a new station. Data and metadata downloaded from NOAA. Station is RLR Primary benchmark L 467 1974 14.475m above TGZ RLR factor is -3.575m.
-

@@ -1,3 +1,0 @@
-Add 5.55m to data values 1900-1912 to refer to RLR (1936)
-Add 5.015m to data values 1913 onwards to refer to RLR (1936)
-RLR (1936) is 11.5m below BM  263

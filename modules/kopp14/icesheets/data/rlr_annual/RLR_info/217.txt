@@ -1,4 +1,0 @@
-Add 5.043m to all values -1959 to refer to RLR (1986)
-Add 4.128m to all values 1960-1961 to refer to RLR (1986)
-Add 5.195m to all data values 1984- to refer to RLR (1986)
-RLR (1986) is 10.2m below Auckland Harbour Board BM

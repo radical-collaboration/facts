@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-St Petersburg       940/061 RLR(1964) is 8.4m below BM4
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark BM 4 2.667m above the gauge datum no longer appears on the NOAA report. Current Primary benchmark 6520 D 1991 is 2.850m above gauge datum.
-

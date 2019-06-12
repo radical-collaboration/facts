@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan09 :
-For an analysis of sea level changes in Hong Kong, see "Sea level changes in Hong Kong from tide gauge measurements" by X.Ding et al., Journal of Geodesy, 74, 683-689, 2001 and "Long-term sea-level changes in Hong Kong from tide-gauge records" by X.Ding et al., Journal of Coastal Research,17, 749-754, 2001.
-Prior to 1986 data was supplied by Port Works Division, Hong Kong
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-JUN-92 :
-1991 Data unavailable due to siltation problems
-

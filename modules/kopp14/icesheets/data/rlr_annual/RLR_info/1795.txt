@@ -1,3 +1,0 @@
-Add 1.042m to data values 1992-1996 to refer to RLR (1995)
-Add 0.994m to data values 1997 onwards to refer to RLR (1995)
-RLR (1995) is 14.7m below TGBM 6465 4764

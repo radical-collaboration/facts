@@ -1,5 +1,0 @@
-Add 5.998m to data values 1979-1981 to refer to RLR (1993)
-Add 5.318m to data values 1982-1997 to refer to RLR (1993)
-Add 5.758m to data values 2006-2007 to refer to RLR (1993)
-Add 5.888m to data 2008 onwards to refer to RLR (1993)
-RLR (1993) is 8.293m below BM 014A

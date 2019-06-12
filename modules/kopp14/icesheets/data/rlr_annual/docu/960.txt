@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Alicante II         220/052 RLR(1964) is 10.4m below NP1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Alicante II         220/052 RLR(1964) is 10.4m below NP1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-FEB-97 :
-1991 revised, February 1997
-

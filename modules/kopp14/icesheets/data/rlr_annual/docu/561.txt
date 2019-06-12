@@ -1,5 +1,0 @@
-Pasajes is an historic station last data 1963
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-05 :
-A paper by Marcos et al (JGR Volume 11, 2005) provides an overview
-of the tide gauge records on the northern coast of Spain.
-

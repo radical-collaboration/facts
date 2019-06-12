@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Honiara II          734/002 RLR(1983) is 9.0m below BMUH-1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-OCT-96 :
-Instrument type:(1974-present) Leupold and Stevens Analog-to-Digital Recorder (ADR); (11/1984-present) Handar Encoder (ENC)Primary gauge: ADR:1974-90, ENC 1991-95
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-JAN-98 :
-4 January 1995: Aquatrak acoustic gauge (SEAFRAME) installed by the National Tidal Facility (authority code 62).  This is now the primary gauge.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr11 :
-All data up to and including 1998 has been received from the UHSLC
-

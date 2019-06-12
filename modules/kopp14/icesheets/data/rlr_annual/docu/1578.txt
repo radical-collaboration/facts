@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Zlarin              280/017 RLR(1985) is 9.3m below BM
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Zlarin              280/017 RLR(1985) is 9.3m below BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
-gauge discontinued 2 June 1988
-

@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Jul-2010 :   
-Data for Ambarchik 1950-2000 was previously in the database these values where
-printed out and stored in a box file on top of one of PSMSL roller front
-cupboards. A revised listing
-1950-2009 was downloaded from the Arctic and Antarctic Research Institute
-website these were then loaded onto the database. The RLR factor remains 7.000m 
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Aug-2013 :   
-After the recent download of data it was noted that some of the historic values differed slightly. The whole dataset has been re-loaded.
-

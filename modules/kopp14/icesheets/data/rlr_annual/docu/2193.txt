@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Jul-2015 :
-The complete dataset is from UH
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Sep-2015 :
-Using information from the UH levelling sheet for Padang B the station has been made RLR. Primary benchmark is UH3 10.288m above the datum RLR factor is 5.212m.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :   
-Using the updated JASL data the complete datset has been reloaded.
-

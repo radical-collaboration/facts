@@ -1,3 +1,0 @@
-Add 6.907 to data values 1978-1983 to refer to RLR (2009)
-Add 6.516 to data values 2007- to refer to RLR (2009)
-RLR (2009) is 9.100m below TGBM EM47

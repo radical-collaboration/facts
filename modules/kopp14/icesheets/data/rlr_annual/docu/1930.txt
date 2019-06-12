@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Sep-2011 :
-New station from January 2003.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2011 :
-This station was previously called Holman. Station made RLR following the input of 2010 data. Primary benchmark is GEOD 15.627m above CD.RLR factor is 6.573m and RLR year 2004.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
-This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
-

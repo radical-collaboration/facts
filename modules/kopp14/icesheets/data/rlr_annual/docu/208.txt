@@ -1,6 +1,0 @@
-APPARENT DATUM SHIFT BETWEEN EARLIER AND LATER PART OF RECORD
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Alicante I          220/051 RLR(1965) is 10.4m below BMNP1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-FEB-97 :
-1991 revised, February 1997. This is now an historic station last data 1996
-

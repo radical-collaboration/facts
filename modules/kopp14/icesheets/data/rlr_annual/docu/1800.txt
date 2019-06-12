@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
-SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR, 96(B3), 4325-4335, 1991
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
-Treat data Jan-Mar 1994 flagged as suspect Nov 2005 also suspect.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains the same as before with the full title 946 8756 SHEET PILE C 5.611m above gauge datum (TGZ).
-

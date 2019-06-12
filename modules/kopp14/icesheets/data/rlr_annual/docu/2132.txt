@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Mar-2012 :   
-Landsort Norra was previously combined with the dataset for Landsort. However
-the SMHI treat the two datasets separately. The decision was taken to mirror
-the SMHI website. The two datasets are levelled in one to the other so can
-still be used as a single time series.
-

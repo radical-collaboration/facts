@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JUN-91 :
-PORT LOUIS          450/011 RLR(1963) IS 8.8M BELOW BM NO1 MUNRO GAUGE
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Aug-2012 :
-This is now an historic station. Last data December 1965.
-

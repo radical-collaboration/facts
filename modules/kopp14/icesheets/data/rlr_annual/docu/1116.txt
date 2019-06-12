@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.1965 data supplied by C.S.I.R.O Tasmania
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
-Revised data for 1966-1986 received from the National Tidal Centre, Bureau of Meteorology, South Australia
-========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2010 :
-Data supplier has confirmed that from August 1984, tide gauge zero is Chart Datum. Benchmark A112 is 10.136 m above Chart Datum. RLR (2008) is defined as 12.7 m below A112.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Mar-2013 :
-The reference datum changed from Chart Datum to Lowest Astronomical Tide (LAT) on 01/01/2008. The difference between the two is 0.26m the RLR factor has changed from 2.564m to 2.304m
-

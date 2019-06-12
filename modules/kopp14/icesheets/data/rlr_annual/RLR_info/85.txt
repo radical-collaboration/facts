@@ -1,2 +1,0 @@
-Add 5.066m to all data values to refer to RLR (1926)
-RLR (1926) is 14.2m below BM

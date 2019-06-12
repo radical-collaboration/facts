@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Jan-2014 :
-These data were originally combined with Matarani id. 458. The gauge is an UHSLC gauge in collaboration with Direccion Hidrografia y Navigacion de la Marina (DHNM). Matarani B is to a different datum to Matarani.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Sep-2015 :
-Matarani B has been made RLR from 2011 using information extracted from the UH levelling sheet. Using updated JASL data complete dataset has been added.
-

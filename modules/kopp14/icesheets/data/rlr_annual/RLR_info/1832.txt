@@ -1,2 +1,0 @@
-Add 0.960m to all data values to refer to RLR (1995)
-RLR (1995) is 15.485m below TGBM ST 3163 8392

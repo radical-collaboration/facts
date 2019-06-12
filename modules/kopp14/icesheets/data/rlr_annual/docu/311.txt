@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Annapolis           960/080 RLR(1974) is 8.4m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Low values in early 1977 follow a data gap but are probably correct - for example, compare to 960/081 Baltimore. Previously this data had been flagged but because Baltimore compares well the flags have been removed.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2011 :
-Using NOAA data the RLR diagram has been revised. Previous Primary benchmark was BM 1 now referred to as BM 1 1928. Original value was 2.957m above the gauge datum. In 1986 this value was 2.949m and in 2003 2.942m New Primary benchmark is BM 7 with a value of 2.876m in 1986 and 2.869m in 2003.
-

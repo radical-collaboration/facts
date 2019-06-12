@@ -1,2 +1,0 @@
-SUBTRACT 1.114m from data values to refer to RLR (1986)
-RLR (1986) is 14.8m below BM NO 2 1975

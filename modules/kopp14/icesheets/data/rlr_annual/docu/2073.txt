@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Oct-2011 :
-Urangan is a new addition to the database. Data was downloaded from the National Tidal Centre, Australia. Dataset actually starts in October 1986. Because metadat is also available for this station it was made RLR. Datum is Lowest Astronomical Tide (LAT). Benchmark is PSM 11028 5.835m above LAT. RLR factor is 4.965m.
-

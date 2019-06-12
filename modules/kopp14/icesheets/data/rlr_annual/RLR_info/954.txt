@@ -1,3 +1,0 @@
-Add 4.843m to all data values 1960-1982 to refer to RLR (1964)
-Add 4.685m to all data values 1983- to refer to RLR (1964)
-RLR (1964) is 8.821m below TBM No. 3

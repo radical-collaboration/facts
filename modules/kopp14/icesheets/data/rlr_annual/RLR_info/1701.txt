@@ -1,2 +1,0 @@
-Add 6.127m to data values to refer to RLR (1990)
-RLR (1990) is 7.851m below BM 3970 N 1999

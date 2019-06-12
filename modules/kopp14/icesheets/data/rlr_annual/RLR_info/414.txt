@@ -1,4 +1,0 @@
-Add 6.269 to data values 1937-1952 to refer to RLR(1964)
-Add 6.256 to data values 1953-1955 to refer to RLR(1964)
-Add 6.263 to data values 1956 onwards to refer to RLR(1964)
-RLR (1964) is 13.1m below BM 71 PP

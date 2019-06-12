@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-AUG-96 :
-For discussions of MSL changes and extreme sea levels around Namibia and South Africa, see: G.B.Brundrit, S.Afr.J.Mar.Sci.,16,9-17,1995 and S.Searson and G.B.Brundrit, S.Afr.J.of Science, 91,579-588,1995.
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Walvis Bay          427/001 RLR(1964) is 10.7m below BMTrig
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun12 :
-Data for 1993 deleted as clearly anomalous.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2009 :
-Heights of chart datum relative to land levelling datum LLD(MSL)in South Africa and Namibia: Walvis Bay Datum: 1st Jan 1958 - 31st Dec 1978 = -0.913 Datum: 1st Jan 1979 - 31st Dec 1997 = -0.900 Datum: 1st Jan 1998 - 31st Dec 2002 = -0.966 Datum: 1st Jan 2003 onwards = -0.966 Datum is now LAT so unlikely to change.
-

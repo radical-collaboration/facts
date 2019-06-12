@@ -1,3 +1,0 @@
-Add 6.552m to data values 1889-1912 to refer to RLR (1924)
-Add 5.070m to data values 1913 onwards to refer to RLR (1924)
-RLR (1924) is 10.9m below BM 1217 D

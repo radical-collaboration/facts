@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Nov-2011 :   
-Napoli II is a new station, data and metadata downloaded from the Istituto
-Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Data
-January 2001 onwards. Database id. 2092.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :   
-Napoli II has been made RLR. Primary bencmark 0120_004P is 3.786m above
-national Italian Military Geographic Institute (IGM) altimetric datum.
-

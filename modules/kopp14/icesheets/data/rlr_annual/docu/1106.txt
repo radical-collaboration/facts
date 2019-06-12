@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Fort Myers          940/065 RLR(1973) is 8.3m below BM 6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark BM 6 no longer appears in the NOAA reports. Benchmark 5520 C 1978 which appears in the original RLR diagram is included in the NOAA 1987 report with the same value of 2.755m but does not feature in the 2003 report. Current Primary benchmark appears in both reports 5520 A 1978 with the same value of 2.746m relative to gauge datum.
-

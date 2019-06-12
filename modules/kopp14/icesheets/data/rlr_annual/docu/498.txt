@@ -1,9 +1,0 @@
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Ceuta               340/001 RLR(1963) is 10.3m below BM NGR 101
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2006 :
-Previous data for this station for the years 1944-1964 was replaced by revised data supplied by Maria Jesus Garcia from the IEO. Supplied dataset is from 1944-2005.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-Sep-2006 :
-Copies of the original data kept. Updated dataset plotted - plot looks O.K.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Sep-2014 :
-using values from a listing recently supplied by IEO the co-ordinates for Ceuta have been revised.
-

@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Sep-2013 :   
-Lajes das Flores is a new station. Using levelling information supplied the station has been made RLR. Benchmark IH OF 96 (MC) is 3.167m above Hydrographic Zero.
-

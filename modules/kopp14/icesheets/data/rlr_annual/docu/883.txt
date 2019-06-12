@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-San Clemente Island 823/061 RLR(1961) is 11.1m below BM2
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-San Clemente Island 823/061 RLR(1961) is 11.1m below BM2
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
-This is an historic station. Last data value received July 1962. The station
-has been labelled 'inactive'.
-

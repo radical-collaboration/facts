@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2010 :
-Real, Quezon is a new station. Coastline and stationcode 660/024. Datum is TSO 2000. Primary benchmark is BM 1 3.6747 above TSO 2000
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Feb-2012 :
-Real, Quezon has been made a RLR station with RLR factor 5.025m. Gauge type is THALIMEDES
-

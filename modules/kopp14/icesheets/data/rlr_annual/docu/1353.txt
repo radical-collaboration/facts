@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
-SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR, 96(B3), 4325-4335, 1991
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Valdez              821/019 RLR(1986) is 11.3m below BM 21
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains 21 1966 8.327m above gauge datum.
-

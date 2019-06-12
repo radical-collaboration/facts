@@ -1,4 +1,0 @@
-Add 7.955m to data values up to 2002 to refer to RLR (1981)
-Add 6.540m to data values 2003-2005 to refer to RLR (1981)
-Add 6.700m to data values 2006 onwards to refer to RLR (1981)
-RLR (1981) is 8.3m below BM RB

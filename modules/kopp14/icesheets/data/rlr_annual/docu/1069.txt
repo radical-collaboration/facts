@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
-Revised data for 1964-1985 received from the National Tidal Centre, Bureau of Meteorology, South Australia
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Oct-2011 :
-Using metadata from the National Tidal Centre, Australia Victor Harbour has been made RLR. Datum is chart datum while benchmark is unnamed but described as 'Arrow on brick plinth on north east corner of railway goods shed'. Benchmark is 4.883m above chart datum. RLR factor is 6.317m.
-

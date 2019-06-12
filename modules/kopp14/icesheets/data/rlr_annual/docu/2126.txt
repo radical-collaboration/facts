@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :
-Santa Barbar, California is a new station data and metadata downloaded from NOAA. Station made RLR Primary benchmark is 1340 S 2005 4.141m above TGZ. RLR factor 5.159m.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2012 :
-For information: Data values during the early 1980's appear to be particurlarly high. This phenomenon could be due to the El Nino Southern Oscillation (ENSO)as it is mirrored all along the Californian coast.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Mar-2014 :
-The datum has changed to be Mean Lower Low Water. Using the NOAA datum sheet the RLR diagram has been revised.Reference benchmark remains the same but the RLR factor has changed beacause of this.
-

@@ -1,3 +1,0 @@
-Add 6.482m to data values for 1954 to refer to RLR (1964)
-Add 6.477m to data 1955 onwards to refer to RLR (1964)
-RLR (1964) is 10.4m below BM PN 165

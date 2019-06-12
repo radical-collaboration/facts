@@ -1,3 +1,0 @@
-Add 7.047m to data 1969-2008 to refer to RLR (2003)
-Add 3.653m to data 2009- to refer to RLR (2003)
-RLR (2003) is 11.166m below Primary BM SJOE4-1979

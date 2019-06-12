@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Bar Harbor          960/191 RLR(1964) is 10.7m below BM6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Aug-2011 :
-Using NOAA data the RLR diagram has been re-drawn. Primary benchmark is now NO 13 1975 7.545m above TGZ. The previously used BM6 6.383m above TGZ still exists but has been given its official title NO 6 1911 as appears on the NOAA website.
-

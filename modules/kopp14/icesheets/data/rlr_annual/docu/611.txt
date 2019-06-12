@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Aug-2013 :   
-Following the recent download of data it was noted the some of the historic values differ slightly. Because of this the whole dataset has been re-loaded.
-

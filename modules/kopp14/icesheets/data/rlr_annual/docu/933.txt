@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-94 :
-1959-74 DATA RECEIVED FROM TOGA OFFICE
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-APR-98 :
-Following the receipt of TGBM information the RLR datum was redefined.
-Up to October 1967 recordings were made with gauging rods.
-In November 1967 a float gauge type HJC 1 was installed.
-

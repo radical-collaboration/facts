@@ -1,3 +1,0 @@
-Add 5.968m to data values 1910-1912 to refer to RLR (1964)
-Add 5.293m to data values 1913 onwards to refer to RLR (1964)
-RLR (1964) is 9.263m above BM 89110

@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Dec-2011 :
-Although the Tide Gauge has been operational since 1974 Kalix has only just been added to the database. Total of 23 Swedish stations on the database. Kalix is now RLR with RLR factor 8.420m
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Mar-2015 :
-RLR factor was mistakenly referenced to tide gauge zero instead of the local height system.  We have changed the RLR factor applied to the metric data. While the RLR diagram was correctly drawn, we did remove the reference to tide gauge zero.
-

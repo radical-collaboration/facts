@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1991 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Prince Rupert       822/001 RLR(1987) is 13.0m below BM 651, 1944
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Sep-2011 :
-Using data from Fisheries and Oceans Canada the RLR diagram has been reviewed.Primary benchmark remains 651 1944 9.904m above CD but has been re-named simply 651 last inspected 2008.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
-This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
-

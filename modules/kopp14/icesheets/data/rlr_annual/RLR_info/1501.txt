@@ -1,2 +1,0 @@
-Add 6.5 m to all data values to refer to RLR (1979)
-RLR (1979) is 9.309m below BM A

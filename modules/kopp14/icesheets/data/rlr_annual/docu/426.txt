@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
-SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR, 96(B3), 4325-4335, 1991
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Sitka               821/031 RLR(1964) is 9.5m below BM8
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Pugh, 1987 (Tides, surges and mean sea-level. Wiley) refers to a magnitude 7.1 earthquake in July 1972, centred 40km off-shore of Sitka, which apparently had no effect on the tide gauge record.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark BM 8 - named 8 1924 on the NOAA site appears in the 1984 report with a value of 5.518m relative to gauge datum but does not appear in the 2003 report. Current Primary benchmark is 1600 L 1982 with a value of 13.669m above gauge datum.
-

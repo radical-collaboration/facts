@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2010 :   
-Erdemli is on the Eastern Mediterranean Coast. This station forms part of the
-Turkish Sea Level Monitoring Network. Coast/Station code 310/071 id=2009. The
-total dataset has been revised by the authority. This station was madev RLR.
-RLR (2009) is 8.700m below TGBM ERDM-1. RLR factor is 5.827m.
-

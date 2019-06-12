@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :
-Lampedusa a small island off Sicily is new. Data for Lampedusa 2001 onwards was downloaded from the Instituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Database id. 2079. Metadata was also downloaded.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
-Lampedusa is now RLR. Primary benchmark rete altimetrica inesistente is 2.59236m (displayed as 2.592m on the diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
-

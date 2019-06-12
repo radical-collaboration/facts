@@ -1,4 +1,0 @@
-Add 4.422m to data values up to 1964 to refer to RLR (1967)
-Add 4.424m to data values for 1965 to refer to RLR (1967)
-Add 4.427m to data values 1967 onwards to refer to RLR (1967)
-RLR (1967) is 10.1m below BM Tokuyama

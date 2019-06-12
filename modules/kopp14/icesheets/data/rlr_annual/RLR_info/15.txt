@@ -1,3 +1,0 @@
-Add 2.3m to data values up to 1974 to refer to RLR (1981)
-Add 1.8m to data values 1975 onwards to refer to RLR (1981)
-RLR (1981) is 14.0m below BM No. G3979

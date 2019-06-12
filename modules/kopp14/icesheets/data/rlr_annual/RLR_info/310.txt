@@ -1,2 +1,0 @@
-Add 6.054m to all data values to refer to RLR (2008)
-RLR (2008) is 10.4m below BM SSM 38357

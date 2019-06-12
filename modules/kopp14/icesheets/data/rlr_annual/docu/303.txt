@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-S Cruz de TenerifeI 370/021 RLR(1964) is 12.2m below NAP-380
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
-Many anomalously low monthly values in the mid-1950s and the mid- and late-1980s.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-DEC-93 :
-GAUGE OUT OF ORDER SINCE 1990 This is an historic station last data 1990
-

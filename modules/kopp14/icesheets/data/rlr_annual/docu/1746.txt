@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-APR-94 :
-REPLACES KEPPEL HARBOUR
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-DEC-97 :
-1st January 1997: tide gauge upgraded from float/stilling well to acoustic gauge
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2010 :
-Primary benchmark is CB 1 which is 4.658m above ACD. RLR year is 1992 with RLR factor 5.442m. BM CB 1 is the same as 'CUT MARK'.
-

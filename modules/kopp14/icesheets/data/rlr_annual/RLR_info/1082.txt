@@ -1,2 +1,0 @@
-Add 6.572m to all data values to refer to RLR (1969)
-RLR (1969) is 12.83m below PWD BM

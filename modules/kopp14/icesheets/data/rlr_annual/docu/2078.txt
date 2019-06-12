@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :
-Imperia on the Mediterranean coast is a new station. Data for 2001 onwards downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Database id. 2078. Metadata was also downloaded.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
-Imperia has been made RLR. Primary benchmark 00GF_071S 2.8735m (displayed as 2.874m on diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
-

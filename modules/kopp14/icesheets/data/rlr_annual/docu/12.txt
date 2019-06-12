@@ -1,7 +1,0 @@
-DATA 1922-1926 INTERPOLATED FROM HALF-TIDE LEVELS
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-New York            960/121 RLR(1964) is 12.0m above BM748
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
-Using data extracted from the NOAA website the RLR diagram has been re-drawn.Primary benchmark now appears to be NO 7 1975 5.470m above TGZ. The benchmark previously used by PSMSL was BM748 6.724m above TGZ. In the NOAA benchmark report this is listed as 'BM' upon further investigation this relates to 851 8750 TIDAL 748 with a value of 6.722m from Epoch 1983-2001.
-Title of the Station was updated to New York (The Battery) to agree with the NOAA website.
-

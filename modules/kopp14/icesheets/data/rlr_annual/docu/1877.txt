@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
-Lahat Datu          665/053 RLR(1997) is 10.0m below BM LDU 1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Sep-2012 :   
-Publication Tidal Observation Records 2010 confirms the Primary benchmark
-remains BM LDU 1 5.734m above TGZ.
-

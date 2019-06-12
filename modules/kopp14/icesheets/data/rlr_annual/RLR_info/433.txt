@@ -1,3 +1,0 @@
-Add 5.93m to data values 1954-1962, 1964 and 1981 onwards to refer to RLR (1981)
-Add 6.272m to data values 1963, 1965-1979 to refer to RLR (1981)
-RLR (1981) is 11.1m below BM SHN 30169 Aliscafos

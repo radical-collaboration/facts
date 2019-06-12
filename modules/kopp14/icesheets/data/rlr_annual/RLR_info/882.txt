@@ -1,3 +1,0 @@
-Add 5.348m to data to refer to RLR (1962)
-RLR (1962) is 11.2m below BM S.A.N.2
-LLD = Land Levelling Datum

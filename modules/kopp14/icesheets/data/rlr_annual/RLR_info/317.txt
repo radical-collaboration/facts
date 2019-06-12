@@ -1,4 +1,0 @@
-Because of subsidence at the station site the RLR factor was adjusted annually throughout the dataset.
-It is therefore not possible to quote a specific RLR factor. See the attached documentation
-for futher information.
-RLR (1995) is 11.5m below BM No. 12

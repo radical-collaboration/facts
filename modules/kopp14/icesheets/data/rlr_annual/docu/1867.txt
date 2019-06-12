@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
-Recent work on vertical land movements in the UK can be found from
-the University of Nottingham web site:
-http://ukcogr.iessg.nottingham.ac.uk/~eosi/
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Jul-2014 :   
-There were two visits by TGI to Portrush during 2013. 14.01.2013 when a new GSM antenna to improve data retrieval was fitted together with new DQ cards and again on 12.09.2013 when general and diving maintenance was carried out.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jun-2015 :   
-From June-Sept data values were ~25mm high then from Oct-Dec there were problems with blocking. TGI were at site 13.05.14 for general maintenance and change the compressor and 13.08.14 again for general maintenance and an inspection dive.
-

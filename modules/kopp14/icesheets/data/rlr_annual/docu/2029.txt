@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Jul-2010 :
-Scott Base Antarctica is a new station to PSMSL. Supplied to the PSMSL by Rob Bell of the NIWA. There is enough data of quality to define the station as RLR. RLR year is 2003. RLR factor is 5.110m and RLR (2003) is 16.4m below TGBM BM A (DJRB).
-

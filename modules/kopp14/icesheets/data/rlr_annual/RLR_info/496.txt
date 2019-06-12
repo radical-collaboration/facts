@@ -1,3 +1,0 @@
-Add 6.038m to all data values up to1961 to refer to RLR (1997)
-Add 5.960m to all data values 1962 onwards to refer to RLR (1997)
-RLR (1997) is 7.6m below BM SSK - 236

@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
-Data up to 1959 supplied by Austarlian Ocean Data Centre N.S.W. Revised data for 1959-1985 supplied by the National Tidal Centre, Bureau of Meteorology, South Australia
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-JAN-98 :
-Gauge type currently float/stilling well Queensland Beach Protection Authority  operates analogue and digital recorders on nearby Ro-Ro Wharf.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002May31 :
-Townsville I 680/051 RLR(2000) is 11.379 below BM NMV/B/309A From metadata downloaded from NTC the primary benchmark is now PSM 100011 9.025m above the datum. Tide gauge is a MACE recorder model 2000.
-

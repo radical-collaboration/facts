@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jul-2012 :
-Casilda has been made a RLR station using information supplied by Cuba. The early data looks suspect and so has been flagged. However, the remaining data looks favourable when compared with other Cuban stations. The data will continue to be monitored.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :
-Using corrected information from Cuba the RLR diagram has been revised. PSMSL have been advised that the Primary benchmark up until 2006 when it was destroyed was CF-5 1.316m above GND. This was replaced by Primary benchmark 014A 1.345m above GND. Information received from Cuba confirms that the tide gauge sensor at Casilda since 1974 is a float recording hourly.
-

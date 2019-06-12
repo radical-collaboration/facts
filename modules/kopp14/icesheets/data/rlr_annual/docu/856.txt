@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-New Rochelle        960/143 RLR(1974) is 9.4m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-New Rochelle        960/143 RLR(1974) is 9.4m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Feb-2012 :   
-New Rochelle is now an Historic station last data received was that for 1981.
-Primary benchmark NO 1 1957 on the NOAA website this has a value of 4.024m
-relative to TGZ on the original RLR diagram this was 4.023m
-

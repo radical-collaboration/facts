@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Oct-2013 :
-Mambajao Camiguin is a new station, first data 2011. Tide gauge type is STEVENS. The station has been made RLR. Primary benchmark BM1 is 4.911m above datum TSO 2009
-

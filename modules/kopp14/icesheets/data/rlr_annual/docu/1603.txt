@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-MAY-98 :
-gauge type: pneumatic bubbler
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Sep17 :
-The base at Puerto Soberania is operated by the Chilean Navy and is called Base Prat.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-OCT-04 :
-Data for the period 1983-97 were replaced by a new data set received from Chilean authority SHOA.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Aug-2012 :
-Puerto Soberania is an historic station and has been labelled 'inactive'.
-

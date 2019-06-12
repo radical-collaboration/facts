@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Rincon Island       823/044 RLR(1973) is 11.0m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Rincon Island       823/044 RLR(1973) is 11.0m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
-This is an historic station. Last data value received is that for October
-1990.Station has been switched to 'inactive'.
-

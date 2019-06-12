@@ -1,6 +1,0 @@
-Add 5.922m to all data values up to 1978 to refer to RLR (1985)
-Add 5.860m to all data values 1979-1997 to refer to RLR (1985)
-Add 5.734m to all data values 1998-2002 to refer to RLR (1985)
-Add 5.924m to all data values 2003 onwards to refer to RLR (1985)
-RLR (1985) is 9.4m below BM
-LLD = Land Levelling Datum

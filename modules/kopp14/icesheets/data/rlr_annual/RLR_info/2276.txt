@@ -1,2 +1,0 @@
-Add 4.156m to all data values to refer to RLR (2012)
-RLR (2012) is 12.4m below TGBM

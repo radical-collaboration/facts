@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Ushuaia II          860/002 RLR(1977) is 10.0m below Pilar MOP No 4377
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
-Evidence for possible datum shift following gap in 1970s.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug20 :
-station is equipped with both float gauge and NGWLMS system. Last data 2006
-

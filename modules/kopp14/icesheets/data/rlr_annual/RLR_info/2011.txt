@@ -1,2 +1,0 @@
-SUBTRACT 0.026m from all data values to refer to RLR (2010)
-RLR (2010) is 9.2m below TGBM ST 4953 7815

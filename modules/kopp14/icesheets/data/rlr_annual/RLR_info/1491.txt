@@ -1,2 +1,0 @@
-Add 4.244m to all data values to refer to RLR (1990)
-RLR (1990) is 11.1m below TGBM NM 5069 5530

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-JUL-93 :
-Port San Luis              823/042 RLR(1986) is 10.6m below BM 6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Primary benchmark remains BM 6 named 6 1936 in the NOAA report 5.691m above TGZ.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2012 :
-For Information: Data values during the early 1980's appear to be particularly high. This phenomenon could be due to the El Nino Southern Oscillation (ENSO) as it is mirrored all along the Californian coast.
-

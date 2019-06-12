@@ -1,3 +1,0 @@
-Add 2.4m to data values 1992 - 2009 to refer to RLR (1996)
-Add 1.54m to data values 2010 onwards to refer to RLR (1996)
-RLR (1996) is 14.94m below Tidal BM

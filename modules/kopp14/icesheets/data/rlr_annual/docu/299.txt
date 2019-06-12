@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Hampton Roads       960/071 RLR(1964) is 10.6m below BM6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
-Using NOAA data RLR diagram has been re-drawn. Primary benchmark is now 8610 G 2006 4.315m above TGZ benchmark 6 1927 relates to the previously named BM6. Value in Epoch 1960-1978 5.197m above gauge datum, Epoch 1983-2001 value 5.198m. This benchmark no longer appears in the NOAA listing. The station name has also been re-arranged to agree with the NOAA website.
-

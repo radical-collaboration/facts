@@ -1,3 +1,0 @@
-Add 5.718m to data values 1975-1998 to refer to RLR (1991)
-Add 5.729m to data values 1999 - to refer to RLR (1991)
-RLR (1991) is 8.8m below Attached Benchmark.

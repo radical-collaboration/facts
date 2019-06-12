@@ -1,3 +1,0 @@
-Add 4.607m to data values up to 1980 to refer to RLR (1974)
-Add 4.735m to data values 1981 onwards to refer to RLR (1974)
-RLR (1974) is 11.5m below BM RF-Z1

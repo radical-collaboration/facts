@@ -1,3 +1,0 @@
-Add 5.541m to data values up to 1912 to refer to RLR (1938)
-Add 4.914m to data values 1913 onwards to refer to RLR (1938)
-RLR (1938) is 10.8m below BM 753 D

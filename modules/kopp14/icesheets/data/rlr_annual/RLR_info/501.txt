@@ -1,3 +1,0 @@
-Add 3.410m to data values -1947 to refer to RLR (1977).
-Add 3.980m to data values 1957- to refer to RLR (1977).
-RLR (1977) is 12.2m below BM Punto Fijo No. 2.

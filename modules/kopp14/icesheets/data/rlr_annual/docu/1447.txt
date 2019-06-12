@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
-Data for Lime Tree Bay begins in November 1977. Using NOAA data the RLR diagram has been reviewed.Primary benchmark remains 975 1401 M 1983 13.612m relative to Gauge datum.
-

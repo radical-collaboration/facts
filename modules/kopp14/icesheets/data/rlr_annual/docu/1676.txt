@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Pulau Langkawi      550/002 RLR(1986) is 10.3m below BM K0173
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Sep-2012 :
-From the Malaysian publication Tidal Observation Records 2010 the Primary benchmark at Pulau Langkawi is now BM K0172 5.545m above gauge datum.
-

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Apalachicola        940/043 RLR(1973) is 11.0m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
-Using NOAA data the RLR diagram has been revised. Original RLR diagram had Primary benchmark BM1 5.672m above chart datum. This may correspond to the current Primary benchmark NO 1 1933 14.124 with a value of 5.669m relative to gauge datum as appears in the last two NOAA reports.
-

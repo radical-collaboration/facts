@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2010 :   
-Trabzon II is on the Black Sea. This station forms part of the Turkish Sea
-Level Monitoring Network. Coast/Station 310/013 id=1927.Total dataset revised
-by the authority station was made RLR.
-RLR (2007) is 8.000m below TGBM TRBZ-1. RLR factor is 5.343m. 
-

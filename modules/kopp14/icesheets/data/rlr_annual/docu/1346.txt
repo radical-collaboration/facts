@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Kamaisi II          642/017 RLR(1975) is 8.6m below BM Kamaisi
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the largest earthquake ever to strike Japan and triggered a tsunami with waves of up to 40.5m travelling inland up to 10km. From the data plot it can be seen that obviously the tide gauge was badly damaged. Data following the earthquake flagged.
-

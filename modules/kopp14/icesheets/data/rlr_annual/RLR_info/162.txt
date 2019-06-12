@@ -1,3 +1,0 @@
-Add 9.843m to data values 1908-1962 to refer to RLR (1974)
-Add 10.0m to data values 1965 onwards to refer to RLR (1974)
-RLR (1974) is 10.0m below BM OP

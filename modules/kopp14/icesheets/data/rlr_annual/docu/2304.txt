@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Apr-2016 :
-Village Cove, Alaska is a newly downloaded NOAA station. The Primary benchmark is RBD 1 1994. Several Alaskan stations stations have been newly downloaded from the NOAA website to help with the Quality Control of the data (buddy check).
-

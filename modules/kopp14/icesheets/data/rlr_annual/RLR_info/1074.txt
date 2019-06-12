@@ -1,4 +1,0 @@
-Add 4.155m to data values 1964-1966 to refer to RLR (1964)
-Add 4.179m to data values 1967-1972 to refer to RLR (1964)
-Add 3.75m to data values 1973 onwards to refer to RLR (1964)
-RLR (1964) is 11.4m below BM NT 1000 8171

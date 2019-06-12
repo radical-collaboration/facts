@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
-National Tidal Facility SEAFRAME station
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Oct-2011 :
-Using metadata from the National Tidal Centre Australia, Lautoka, Fiji has been made RLR. Primary benchmark is BM 3243 3.126m above the datum Tide Staff Zero (TSZ). RLR factor is 5.674m.
-

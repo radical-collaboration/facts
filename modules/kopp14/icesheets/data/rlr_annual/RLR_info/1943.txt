@@ -1,2 +1,0 @@
-Add 3.799m to all data values to refer to RLR (2006)
-RLR (2006) is 8.5m below BM Type 'B'

@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Kwajalein           720/011 RLR(1964) is 8.6m below BMA
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Previous Primary BM A no longer appears in the NOAA report. Primary benchmark is NO 8 1951 2.853m above gauge datum. This benchmark has been added to the original diagram as a secondary benchmark.
-

@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Chesapeake Bay Br T 960/070 RLR(1986) is 14.8m below BM NO 2 1975
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains NO 2 1975 15.914m above gauge datum.
-

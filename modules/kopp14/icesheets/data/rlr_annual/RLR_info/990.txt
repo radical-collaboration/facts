@@ -1,2 +1,0 @@
-Add 6.16m to all data values to refer to RLR (1970)
-RLR (1970) is 9.6m belwo BM

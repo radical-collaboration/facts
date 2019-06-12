@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Oct-2011 :
-Port Alma has been added as a new station. Data was downloaded from the National Tidal Centre, Australia. Dataset actually begins in January 1986. As metadata is also available the station has been made RLR. Datum reference is Lowest Astronomical Tide (LAT). benchmark is PSM 22966 6.706m above LAT. RLR factor is 4.194m.
-

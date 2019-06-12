@@ -1,3 +1,0 @@
-Add 6.718m to data 1962-2008 to refer to RLR (1974)
-Add 4.183m to data 2009- to refer to RLR (1974)
-RLR (1974) is 16.0m below TGBM BM SFO-3-1974

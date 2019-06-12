@@ -1,6 +1,0 @@
-Puerto Plata        936/021 RLR(1959) is 9.2m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-94 :
-There appears to be a shift in datum following the re-instatment of the gauge for 1965 onwards.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2012 :
-Puerto Plata is now an Historic station. Dataset 1949-1969 with a gap 1959-1965. Puerto Plata no longer features on the NOAA website.
-

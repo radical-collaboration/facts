@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Feb-2016 :
-Herne Bay is a new station operated by the Channel Coastal Observatory (CCO) based at NOC Southampton. Instrument type is an Etrometa Step Gauge. The Datum of the data is Admiralty Chart Datum (ACD) 8.244m below TGBM. Tide Gauge Zero (TGZ) is 9.034m below the Primary benchmark TGBM and 0.79m below ACD.
-

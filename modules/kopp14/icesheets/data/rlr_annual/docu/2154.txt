@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Dec-2012 :
-Macabalan Port, Cagayan de Oro is a newly supplied station. Primary benchmark is BM 4.558m above datum TSO 1991. Gauge type OTT THALIMEDES
-

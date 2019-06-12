@@ -1,4 +1,0 @@
-Add 10.2m to data values up to 1958 to refer to RLR (1960)
-Datum line up to 1958 is the same as BM J17 N6 line.
-Add 7.137m to data values 1959 onwards to refer to RLR (1960)
-RLR (1960) is 10.2m below BM J17 N6

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Omaezaki II         642/124 RLR(1974) is 9.5m below Attached BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake to hit Japan and triggered a tsunami with waves up to 40.5m high and travelling up to 10km inland.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jan-2013 :
-The RLR factor for data 2000 onwards had been wrongly calculated at 5.209m Value should be 5.309m - the data has now been adjusted.
-

@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Vadso               040/005 RLR(1970) is 9.7m below BM AE4N11
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAR-93 :
-Possible datum shift in RLR record in the late 1970s.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-OCT-93 :
-Data up to 1986 from Statens Kartverk
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 10-OCT-94 :
-Vadso is an historic station last data 1987
-

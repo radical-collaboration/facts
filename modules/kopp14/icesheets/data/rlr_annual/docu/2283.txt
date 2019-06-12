@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Feb-2016 :
-Teignmouth is a new station operated by the Channel Coastal Observatory (CCO) based at NOC Southampton. Istrument type is a Rosemount WaveRadar Rex. The datum of the data is Admiralty Chart Datum (ACD) 9.263m below Primary benchmark TGBM. Sampling interval is 10mins. The tide gauge was de-commissioned in February 2014 following storm damage.
-

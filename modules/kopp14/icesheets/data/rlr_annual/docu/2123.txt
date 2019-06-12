@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Jan-2012 :
-Trident Pier, Port Canaveral is a new station, data and metadata were downloaded from NOAA. Primary benchmark is 1604 A 1994 9.303m above TGZ. Station made RLR with RLR factor 0.997m.
-

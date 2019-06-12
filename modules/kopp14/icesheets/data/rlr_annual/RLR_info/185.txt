@@ -1,2 +1,0 @@
-RLR is 12.200m below TGBM.
-Add 3.920m to the data to refer to RLR (1973).

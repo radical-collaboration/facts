@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Jul-2010 :   
-Funchal II is a new station. Due to harbour construction the previous tide
-gauge was giving bad data results. The new gauge is levelled into a new TGBM
-and so cannot be added to the previous dataset.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Jul-2010 :   
-This station has now been made RLR. RLR year is 2006 with RLR factor 5.421m.
-RLR (2006) is 9.5m below TGBM BH 20/02.
-

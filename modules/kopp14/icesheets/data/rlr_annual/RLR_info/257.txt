@@ -1,2 +1,0 @@
-Add 0.089m to all data values to refer to RLR (1992)
-RLR (1992) is 15.8m below BM ST 5057 7881

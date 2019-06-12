@@ -1,2 +1,0 @@
-Add 5.565m to data values to refer to RLR (1963)
-RLR (1963) is 10.1m below BM SB 25

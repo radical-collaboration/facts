@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Seattle             823/011 RLR(1964) is 11.7m below BM7
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Aug-2011 :
-Using NOAA data the RLR diagram has been re-drawn. Primary benchmark is now 23 1954 8.851m above the gauge datum. The previously used benchmark NO 7 still exists original value was 9.010m above gauge datum. In the NOAA report of 11.6.1996 this value was 9.004m and in the latest NOAA report dated 21.4.2003 the value is 9.001m. The value for the new Primary benchmark 23 1954 is 8.851m in both reports.
-

@@ -1,4 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Sibaura             642/072 RLR(1972) is 9.7m below BM Sibaura
-There is some confusion on the original RLR diagram on this diagram data 1961-1963 has a BM?TGZ of 5.119m. However, there is a comment that data 1960- has a BM/TGZ value of 4.531 in pub.no.793 of Nov 1965. RLRFAC has not been adjusted until the data for 1985- where the BM/TGZ is given as 4.519m
-

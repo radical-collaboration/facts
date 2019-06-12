@@ -1,4 +1,0 @@
-Add 5.008m to data -1985 to refer to RLR (1955)
-Add 4.977m to data 1986- to refer to RLR(1955)
-RLR (1955) is 9.9m below BM PLBM 270
-BM PLBM 270 is the same as 'Cut Mark'

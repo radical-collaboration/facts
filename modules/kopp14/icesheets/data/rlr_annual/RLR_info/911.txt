@@ -1,7 +1,0 @@
-Add 5.315m to data values 1958-1972 to refer to RLR (1968)
-Add 6.204m to data values 1973-1993 to refer to RLR (1968)
-Add 6.169m to data values 1994-1997 to refer to RLR (1968)
-Add 6.134m to data values 1998-2002 to refer to RLR (1968)
-Add 6.014m to data values 2003 onwards to refer to RLR (1968)
-RLR (1968) is 9.463m below BM LUD 1
-LLD = Land Levelling Datum

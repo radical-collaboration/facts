@@ -1,2 +1,0 @@
-Add 6.081m to all data values to refer to RLR (1981)
-RLR (1981) is 9.9m below TBM No.1

@@ -1,2 +1,0 @@
-Add 4.944m to all data values to refer to RLR (1965).
-RLR (1965) is 8.9m below TGBM TM 2617 3277

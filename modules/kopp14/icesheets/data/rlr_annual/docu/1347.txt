@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Roscoff             190/086 RLR(1980) is 14.7m below BM NGFN.10
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2009 :
-The benchmark details for Roscoff have been confirmed by Ronan Creach of SHOM as primary BM Nr k3 y3 matricule13 as being 12.983m above chart datum. This agrees with the previously named BM NGFN10 as there is only 1mm diff in the values. NGFN10 is 12.983m above Chart datum. With a RLR factor of 1.717
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :
-New data is available for Roscoff for 2002-2007. The whole dataset has been re-loaded. Odd spikes have been flagged. Using data from the SONEL website the latitude and longitude for Roscoff have been updated.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Jun-2016 :   
-While loading the Roscoff 2015 data it was noted that the value for February 2011 had been revised.
-

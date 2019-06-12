@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-JUL-93 :
-Grand Isle                940/021 RLR(1978) is 8.0m below BM 6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-JUL-94 :
-For a discussion of submergence near to Eugene Island and Grand Isle/Bayou Rigaud, see Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges), 1991, Springer-Verlag, page 40.
-

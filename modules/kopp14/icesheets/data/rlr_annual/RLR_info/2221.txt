@@ -1,2 +1,0 @@
-Add 6.860m to all data values to refer to RLR (2014)
-RLR (2014) is 7.9m below BM haf01

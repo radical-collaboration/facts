@@ -1,8 +1,0 @@
-Data prior to 1906 should be considered unreliable as the zero point
-was not stable.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Stromstad           050/001 RLR(1964) is 9.5m below BM No1173Z
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Stromstad           050/001 RLR(1964) is 9.5m below BM No1173Z
-Stromstad is an historic station last data 1967
-

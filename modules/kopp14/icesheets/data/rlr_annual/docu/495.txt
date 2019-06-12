@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
-SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR,96(B3), 4325-4335, 1991 1944 - 1970 VALUES BASED ON 24 READINGS PER DAY
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Skagway, Alaska     821/041 RLR(1974) is 14.0m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-AUG-95 :
-A tsunami triggered by a landslide and not an earthquake occurred on 1 November 1994 in Skagway Harbor - see Earth System Monitor,5(4), June 1995.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using Information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark BM 1 11.015m above TGZ does not now appear in the NOAA report. Current Primary benchmark NO 11 1969 11.646m above TGZ appeared on the original RLR diagram. The original RLR year was 1974 data 1971-1974 was deleted to correspond with the publication 'Sea Level Variations in U.S. 1855-1986'. RLR was re-defined using RLR year 2009. New RLR factor is 3.585m.
-

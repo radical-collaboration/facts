@@ -1,3 +1,0 @@
-Add 5.682m to data values 1948-1949 and 1989 onwards to refer to RLR (1949)
-Add 5.07m to data values 1985-1988 to refer to RLR (1949)
-RLR (1949) is 9.5m below BM No. 1 (1948)

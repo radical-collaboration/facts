@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Buzzards Bay        960/163 RLR(1973) is 9.9m below BM2
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Buzzards Bay        960/163 RLR(1973) is 9.9m below BM2
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Feb-2012 :   
-Buzzards Bay is an Historic station last data received was that for 1976.
-According to NOAAs listing the Primary benchmark remained NO 2 1931 3.636m
-above gauge datum.
-

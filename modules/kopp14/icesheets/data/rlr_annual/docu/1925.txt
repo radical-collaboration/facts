@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
-Supplying authority has confirmed that tide gauge benchmark FSM1 is 2.438 m above TGZ RLR (2009) has been defined as 8.7 m below FSM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 16-Mar-2016 :   
-Pohnpei C has been buddy checked with the UH gauge Pohnpei B id.1370 although the data for 2015 is not yet available the profiles compare well.
-

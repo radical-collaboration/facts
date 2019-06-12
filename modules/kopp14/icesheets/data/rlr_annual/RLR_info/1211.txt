@@ -1,3 +1,0 @@
-For data 1968-2008 add 5.512 m to all values to refer to RLR (1978)
-For data 2009 onwards SUBTRACT 1.098 from all vaules to refer to RLR (1978)
-RLR (1978) is 8.9m below BM Spikarna a

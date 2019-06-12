@@ -1,3 +1,0 @@
-Add 3.875 to data values 1937-1943 to refer to RLR (1964)
-Add 3.741m to data 1945 onwards to refer to RLR (1964)
-RLR (1964) is 9.7m below BM 66 / 1

@@ -1,2 +1,0 @@
-Add 3.685m to all data values to refer to RLR (1962)
-RLR (1962) is 11.2m below Kunsan TGBM

@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :
-Complete JASL dataset has been loaded onto the database. Using the UHSLC levelling sheet Sabang has been made RLR. Primary Benchmark is UH 1 10.0m above the datum.
-

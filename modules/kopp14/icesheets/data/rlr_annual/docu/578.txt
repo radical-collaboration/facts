@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Salvador            874/111 RLR(1964) is 8.6m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :
-Station is now historic last data received is 1968 and it no longer features on the NOAA website. Station has been labelled 'inactive'.
-

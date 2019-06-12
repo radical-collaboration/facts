@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1984 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Sooke               822/104 RLR(1984) is 7.9m below BM 1, 1958
-Sooke is an historic station last data 1984
-

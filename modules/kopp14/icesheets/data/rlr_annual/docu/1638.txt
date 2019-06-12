@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Clearwater Beach    940/060 RLR(1985) is 8.3m below BM LP 10 RM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains LP 10 RM 1 2.234m above gauge datum (TGZ)
-

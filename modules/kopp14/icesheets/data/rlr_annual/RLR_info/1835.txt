@@ -1,2 +1,0 @@
-Add 5.736m to all data values to refer to RLR (2000)
-RLR (2000) is 9.0m below BM 0570 A 1985

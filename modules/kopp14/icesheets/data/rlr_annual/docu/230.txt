@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
-Data up to 1964 was supplied by the Department of Marine and Harbours, Adelaide.Revised data for 1964-1985 was supplied by the National Tidal Centre, Bureau of Meteorology, South Australia.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2011 :
-Using information from the National Tidal Centre, Australia Port Lincoln has been made RLR from May 1965 onwards. Data prior to this was not made RLR as it is not included on the National Tidal Centre website. The benchmark does not have a name/number but is described as 'Bolt in concrete at base of flagpole at Harbor Master's office'. Datum is chart datum 4.610m below TGBM. RLR factor is 6.090m.
-

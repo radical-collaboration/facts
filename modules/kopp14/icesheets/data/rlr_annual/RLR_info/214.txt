@@ -1,5 +1,0 @@
-Add 3.746m to data values up to 1981 to refer to RLR (1983).
-Add 3.575m to data values 1982-1984 to refer to RLR (1983).
-Add 4.575m to data values 1985-1987 to refer to RLR (1983).
-Add 4.81m to data values 1988 onwards to refer to RLR (1983).
-RLR (1983) is 10.5m below BM TM 3001 3414

@@ -1,4 +1,0 @@
-Because of subsidence at the station site the RLR factor was adjusted annually throughout the dataset.
-It is therefore not possible to quote a specific RLR factor for the data. See the attached documentation and
-also station Bourgas id. 317 for further information.
-RLR (1939) is 40.4m below BM No. 11

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
-Tide gauge of the State Hydrographic Institute at Split
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JAN-96 :
-Gauge=A. Ott, Kempten
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2010 :
-After entering the data for 2008 Zadar was buddy checked with Bakar. The profiles agree.
-

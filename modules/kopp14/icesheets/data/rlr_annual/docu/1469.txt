@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jun-2010 :
-SHOM have confirmed that the Benchmark throughout the total dataset remains the same i.e. EM47. However, the early data 1978-1983 was related to datum IGN69 which is 2.193m below EM47. The later data 2007 onwards is set to Chart Datum 2.584m below EM47. This station was made RLR and the adjustment to the data applied using the RLR factor. Because of the large gap in the data it is difficult to assess the quality of the earlier dataset. RLR 1978-83 6907 RLR 2007-   6516 RLR 2009 is 9.100m below TGBM EM47
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :
-When downloaded from SONEL new data for the 1980s was included. Because of this the whole dataset was re-loaded. However, the early data looks suspect. The data was made RLR from 1984. Also, from the SONEL website the latitude and longitude for Port Vendres have been revised.
-

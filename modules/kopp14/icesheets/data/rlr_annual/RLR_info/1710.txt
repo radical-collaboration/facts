@@ -1,3 +1,0 @@
-Add 5.105m to data 1992-1997 to refer to RLR (1998)
-Add 5.473m to data 1998- to refer to RLR (1998)
-RLR (1998) is 9.5m below BM SSMFo

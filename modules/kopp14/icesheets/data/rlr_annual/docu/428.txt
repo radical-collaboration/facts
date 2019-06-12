@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Cedar Keys II       940/052 RLR(1974) is 8.9m below BM11
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2011 :
-Data is downloaded directly from the NOAA website. Datum information also downloaded NOAA Primary Benchmark is BM 8 2.347m above the datum.
-

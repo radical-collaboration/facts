@@ -1,7 +1,0 @@
-1886-1938 NO. OF OBSERVATIONS PER DAY UNKNOWN
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-FEB-97 :
-1953 data revised in February 1997
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Mar03 :
-Gdansk/Nowy Port    110/022 RLR(1997) is 14.0m below BM iron bolt
-Last data for Gdansk is 1999 due to data policy issues in Poland
-

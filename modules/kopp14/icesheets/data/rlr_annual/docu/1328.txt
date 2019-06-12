@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-MAY-96 :
-Revised data for 1972-1986 received from the National Tidal Centre, Bureau of Meteorology, South Australia
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Aug-2010 :
-Supplier has confirmed that for data from September 1983, vertical datum is LAT, and primary benchmark B923 is 12.929m above LAT. RLR (2008) defined as 16.6m below B923
-

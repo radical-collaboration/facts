@@ -1,8 +1,0 @@
-These data values are derived from daily observations only.
-Data prior to 1902 are unreliable as the zero point was not stable.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Mar-2012 :
-Previously the data values for Goteborg-Ringon were included with those for
-Goteborg-Klippan. However, the SMHI treat the two stations separately. A
-decision was made to mirror the SMHI website and separate the two datasets.
-Goteborg-Ringon is an historic station last data 1958
-

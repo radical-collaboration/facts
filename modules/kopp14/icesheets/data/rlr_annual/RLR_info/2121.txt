@@ -1,2 +1,0 @@
-SUBTRACT 0.100m from data values to refer to RLR (2009)
-RLR (2009) is 9.9m below BM NO 3 1975

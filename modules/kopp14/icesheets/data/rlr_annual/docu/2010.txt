@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2010 :   
-Marmara Ereglisi is on the Sea of Marmara. This station forms part of the
-Turkish Sea Level Monitoring Network. Coast/Station code 310/037 id=2010. 
-Total dataset was revised by the authority and this station was created RLR.
-RLR (2008) is 8.700m below TGBM MERG-1. RLR factor is 5.673m.
-

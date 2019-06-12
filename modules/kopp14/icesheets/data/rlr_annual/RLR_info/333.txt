@@ -1,5 +1,0 @@
-RLR(1975) is 11.2m below BM Rifleman's Bolt 
-For all data add 5.619 to refer to RLR(1975) 
-Principal Datum (formerly Ordnance Datum) is approx. 1.23m below MSL(1965-83).
-North Point (611/011) was replaced by Quarry Bay (611/010) and they can be 
-considered to be the same site.

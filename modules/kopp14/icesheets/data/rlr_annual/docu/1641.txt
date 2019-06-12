@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Panama City         940/042 RLR(1986) is 9.7m below BM L 9108 1977
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains L 9108 1977 3.965m above gauge datum (TGZ)
-

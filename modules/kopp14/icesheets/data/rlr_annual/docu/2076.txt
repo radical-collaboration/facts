@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :
-Carloforte on the island of Sardinia is a new station. Data for January 2001 onwards was downloaded fron the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Database id. 2076.Metadata for the station was also downloaded.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
-Carloforte has been made RLR. Primary benchmark linee di livellazione inesistenti is 3.05106m (displayed as 3.051m on diagram) above nation Italian Military Geographic Institute (IGM) altimetric datum.
-

@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Gingerville Creek   960/079 RLR(1973) is 21.0m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Gingerville Creek   960/079 RLR(1973) is 21.0m below BM1
-This is now an historic station last data 1973
-

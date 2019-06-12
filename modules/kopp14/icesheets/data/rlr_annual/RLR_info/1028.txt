@@ -1,6 +1,0 @@
-Add 3.931m to data values 1963-1970 to refer to RLR (1976)
-Add 3.916m to data values 1971-1977 to refer to RLR (1976)
-Add 3.912m to data values 1978-1986 to refer to TLT (1976)
-Add 3.898m to data values 1987-1993 to refer to RLR (1976)
-Add 3.905m to data values 1994 onwards to refer to RLR (1976)
-RLR (1976) is 10.0m below BM Hirosima

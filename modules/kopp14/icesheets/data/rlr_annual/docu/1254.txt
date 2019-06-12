@@ -1,4 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-MAY-96 :
-Revised data received from the National Tidal Centre, Bureau of Meteorology, South Australia
-data previously supplied by the Commercial Scientific and Industrial Research Organisation (CSIRO)
-

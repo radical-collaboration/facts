@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
-SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR, 96(B3), 4325-4335, 1991
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Nikiski             821/013 RLR(1973) is 14.4m below BM#5
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jan-2009 :
-Treat early data as suspect.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
-Using NOAA data the RLR diagram has been revised.Previous Primary benchmark BM #5 13.228m above gauge datum no longer features in the NOAA reports. Current Primary benchmark is 5760 L 1983 14.85m above gauge datum.
-

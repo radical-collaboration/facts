@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :
-Palinuro on the West coast of Italy is a new station. Data 2001 onwards was downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Database id. 2082. The metadata was also downloaded for this station.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
-Palinuro is now RLR. Primary benchmark 94/D4-34 3.05526m (displayed as 3.055m on diagram) above national Italian Military Geographic Institute (IGM)altimetric datum.
-

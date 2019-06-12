@@ -1,3 +1,0 @@
-Add 5.055m to data values up to 1990 to refer to RLR (1985)
-Add 5.05m to data values 1991 onwards to refer to RLR (1985)
-RLR (19850 is 12.3m below BM Steel Pin

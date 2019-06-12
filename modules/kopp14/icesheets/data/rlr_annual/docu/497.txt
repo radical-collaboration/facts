@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Many stations on the Gulf coast have large values for September 1961.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Port Isabel         940/001 RLR(1970) is 9.0m below BM6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2011 :
-The data was downloded from the NOAA site. Datum information was also extracted. The NOAA Primary Benchmark is now NO 10 1973 4.276 above TGZ.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Feb-2014 :
-Whole dataset was downloaded from NOAA. There were data point revised throughout 1971-1972 and 1977-1995. Adjustments were in the order of 2-3mm. Datum level for Sept. 2011 - Oct. 2012 was also adjusted.
-

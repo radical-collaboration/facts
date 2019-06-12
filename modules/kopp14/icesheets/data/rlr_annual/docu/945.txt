@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Virginia Beach      960/064 RLR(1970) is 10.4m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Virginia Beach      960/064 RLR(1970) is 10.4m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2012 :   
-Virginia Beach is now an Historic station last data received was for 1970.
-Although the station still appears on the NOAA website there is very little
-information available.
-

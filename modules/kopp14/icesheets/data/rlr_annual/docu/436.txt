@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Famagusta           315/001 RLR(1939) is 9.1m below Fundamental BM
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Famagusta           315/001 RLR(1939) is 9.1m below Fundamental BM
-

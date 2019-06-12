@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Esperanza           A  /001 RLR(1977) is 10.1m below Pilar de Referencia
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Esperanza           A  /001 RLR(1977) is 10.1m below Pilar de Referencia
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Mar21 :
-Bahia Esperanza - acoustic gauge installed 1993.
-February 1994 - December 1995 datum problems.
-Became responsibility of NOS/NOAA in 1996.
-

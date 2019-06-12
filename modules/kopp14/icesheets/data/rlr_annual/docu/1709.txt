@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-JUL-06 :
-Data received from University of Hawaii Sea Level Center
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2010 :
-Complete dataset 1987-2009 supplied by UHSLC. After comparing these with existing data values they were downloaded onto the database. Many gaps throughout the data - station remains Metric.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2015 :   
-UHSLC data through to 2012 has now been loaded. Using UHSLC levelling information the station has been made RLR from September 2008 onwards.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Oct-2015 :   
-Complete dataset has been reloaded using the updated JASL data.
-

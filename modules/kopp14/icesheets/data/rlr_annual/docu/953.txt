@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set. DATA Data up to 1960 were supplied by the Australian Oceanographic Data Centre N.S.W. Harbour and city area are unstable as they are on filled land.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
-Revised data for 1960-1982 supplied by the National Tidal Centre, Bureau of Meteorology, South Australia
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Aug-2010 :
-Supplying authority have confirmed measurement datum is LAT, and the primary tide gauge bench mark, PSM 96052, is 5.008m above LAT. RLR (2009) has been defined as 10.3m below PSM 96052
-

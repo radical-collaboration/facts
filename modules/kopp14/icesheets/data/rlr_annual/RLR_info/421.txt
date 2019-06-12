@@ -1,3 +1,0 @@
-Add 4.637m to all data values 1887-91 to refer to RLR (1941)
-Add 5.661m to all data values 1937-42 to refer to RLR (1941)
-RLR (1941) is 10.6m below BM  19

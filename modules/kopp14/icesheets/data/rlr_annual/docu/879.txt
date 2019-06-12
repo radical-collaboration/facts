@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Choshi I            642/051 RLR(1958) is 10.0m below Attached BM
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Choshi I            642/051 RLR(1958) is 10.0m below Attached BM
-Choshi I is an historic station last data 1963
-

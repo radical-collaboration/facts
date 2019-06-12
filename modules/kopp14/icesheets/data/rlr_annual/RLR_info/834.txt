@@ -1,3 +1,0 @@
-Add 6.191m to data values up to 2009 to refer to RLR (2009)
-Add 6.261m to data values 2010 onwards to refer to RLR (2009)
-RLR (2009) is 10.2m below Tidal BM 2001

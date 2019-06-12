@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Apr-2016 :   
-USCG Freeport, Texas is a replacement gauge for a previous station at Freeport. Data has been newly downloaded. Primary benchmark is 2447 A 2006.
-

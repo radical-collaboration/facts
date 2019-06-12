@@ -1,7 +1,0 @@
-Add 5.771m to data values 1960-1972 to refer to RLR (1964)
-Add 6.104m to data values 1973-1978 to refer to RLR (1964)
-Add 5.829m to data values 1979-1997 to refer to RLR (1964)
-Add 5.681m to data values 1998-2002 to refer to RLR (1964)
-Add 5.941m to data values 2003 onwards to refer to RLR (1964)
-RLR (1964) is 10.199mbelow BM 36 JK A1
-LLD = Land Levelling Datum

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1991 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Point Tupper        970/014 RLR(1989) is 13.7m below BM WSC-1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Apr-2012 :   
-Last data received from station Point Tupper was that for 1992.
-

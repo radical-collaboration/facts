@@ -1,2 +1,0 @@
-Add 6.150m to all data values to refer to RLR (1952)
-RLR (1952) is 8.5m below BM A

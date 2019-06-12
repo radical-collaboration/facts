@@ -1,4 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Dec-2012 :   
-Balintang, Quezon, Palawan is a newly supplied station. Primary benchmark is
-BM 3 8.222m above datum TSO 2000. Gauge type is STEVENS AXSYS
-

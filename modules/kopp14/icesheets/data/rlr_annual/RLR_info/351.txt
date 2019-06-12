@@ -1,2 +1,0 @@
-RLR is 8.832m below BM 6 1943.
-Add 6.019m to data to refer to RLR (1964).

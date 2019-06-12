@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Maisaka             642/126 RLR(1975) is 9.5m below Attached BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-All records from approximately Maisaka (642/126) to Kushimoto (642/141) show large rates of rise of sea level, with large falls around 1980. Several factors might be at work. Emery and Aubrey (Sea Levels, Land Levels and Tide Gauges. Springer-Verlag. 1991. page 37) point to submergence caused by withdrawal of groundwater in the Nagoya area. In addition, Professor Minoru Odamaki informs us that sea levels in the area are well known to be affected by Kuroshio meanders. This is reported in Tsumura Kenshiro (1963) :" Investigation of the Mean Sea Level and its Variation along the Coast of Japan (Part I) ", Journal of Geodetical Society Japan, vol 9, 49-90,( in Japanese, with English abstract) and recently Kawabe M. (1980) : Sea level variations along the south coast of Japan and the large Meander in the Kuroshio. J. Oceanopgraphical Soc. Japan,36, 97-104.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Nov20 :
-Benchmark Attached BM (i) supercedes the previous benchmark Datum 1998 is 2.357m below Tokyo Peil.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful known earthquake to hit Japan and triggered a tsunami with waves up to 40.5m and travelling up to 10km inland.
-

@@ -1,3 +1,0 @@
-Add 5.217m to data values up to 1964 to refer to RLR (1997)
-Add 5.067m to data values 1965 onwards to refer to RLR (1997)
-RLR (1997) is 11.4m below BM MHV 1

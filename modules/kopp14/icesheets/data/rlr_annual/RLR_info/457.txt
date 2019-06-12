@@ -1,3 +1,0 @@
-Add 3.905m to data 1941-1942 to refer to RLR (1974)
-Add 3.505m to data 1943 onwards to refer to RLR (1974) * please refer to the documentation *
-RLR (1974) is 12.757m below BM IGN NGF OKS 69

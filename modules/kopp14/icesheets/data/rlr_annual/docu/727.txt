@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-NOV-91 :
-RLR(1989) IS 12.2M BELOW TGBM 72831
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Xiamen              610/005 RLR(1989) is 12.2m below TGBM 72831
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-94 :
-1992 DATA RECEIVED FROM TOGA OFFICE
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct03 :
-"Xiamen" means "small gate", in the approaches to Shanghai.
-

@@ -1,4 +1,0 @@
-Add 5.9m to data values up to 1970 and 1972 to 1973 to refer to RLR (1972)
-Add 6.0m to data for 1971 to refer to RLR (1972)
-Add 6.2m to data values 1974and 1975to refer to RLR (1972)
-RLR (1972) is 8.3m below BM DET 9

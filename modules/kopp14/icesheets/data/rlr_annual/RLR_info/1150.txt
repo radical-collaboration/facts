@@ -1,3 +1,0 @@
-Add 3.717m to data values up to 1999 to refer to RLR (1976)
-Add 3.724m to data values 2000 onwards to refer to RLR (1976)
-RLR (1976) is 8.7m below Attached BM

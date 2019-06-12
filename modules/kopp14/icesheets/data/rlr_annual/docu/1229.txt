@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Evans Head          680/093 RLR(1969) is 16.5m below Primary BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2012 :
-This is an historic station last data 1970.
-

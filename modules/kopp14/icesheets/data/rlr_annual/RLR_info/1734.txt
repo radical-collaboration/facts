@@ -1,3 +1,0 @@
-Add 4.284m to data values 1988-1992 and 1994 onwards to refer to RLR (1995)
-Add 4.288m to data for 1993 to refer to oRLR (1995)
-RLR (1995) is 10.4m below BM 5113

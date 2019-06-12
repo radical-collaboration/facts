@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Montauk             960/135 RLR(1964) is 9.0m below BM9
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
-Using NOAA data the RLR diagram was updated. Primary benchmark  is now 8510560 J 1977 3.618m above gauge datum. Previous PSMSL benchmark relates to NO 9 1947 BM9 for 1947-1982 the value was 3.453m above TGZ. For 1983 onwards value given as 3.448m on the NOAA website.
-

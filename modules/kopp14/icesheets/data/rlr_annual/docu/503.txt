@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-OCT-97 :
-Analysis of Suez Canal data is described by F.M.Eid, S.H.Sharaf El-Din and K.A.Alam El-Din, "Sea-level variation along the Suez Canal",Estuarine, Coastal and Shelf Science, 44, 613-619, 1997. The data 1944-89 is from a float gauge located in the western harbour. These data were provided by Dr. Omran E Frihy of the Coastal Research Institute, Alexandria.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2012 :
-Data for 1944-1989 are from the harbour float gauge located in the Western Harbour and were supplied by Dr. Omran E. Frihy of the Coastal Research Institute of Alexandria. The continuation of the Alexandria data 1990-2006 from the same gauge was supplied by Prof. Mohamed Said of the National Institute of Oceanography and Fisheries (NIOF) Alexandria.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2013 :
-The original data supplied by Frihy were referred to Land Survey Datum (LSD). The Said data on the otherhand referred to datum TGZ. When the two series were amalgamated the difference between the two datums 0.338m was subtracted from the Said dataset. Therefore the whole series now refers to the LSD datum.
-

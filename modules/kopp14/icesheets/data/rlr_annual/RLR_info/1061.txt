@@ -1,4 +1,0 @@
-Add 5.517m to data values up to 1977 to refer to RLR (1970)
-Add 5.503m to data values 1978-1992 to refer to RLR (1970)
-Add 5.499m to data values 1993 onwards to refer to RLR (1970)
-RLR (1970) is 12.1m below BM Kozu Sima

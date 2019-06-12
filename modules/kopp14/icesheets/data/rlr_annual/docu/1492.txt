@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-MAR-96 :
-SEAFRAME station installed 12/09/1991
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
-This is a "baseline station" of the Australian National Tidal Facility.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr10 :
-Cape Ferguson       680/054 RLR(2000) is 16.661m below PSM7173
-

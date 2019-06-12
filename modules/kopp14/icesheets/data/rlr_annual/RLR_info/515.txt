@@ -1,3 +1,0 @@
-Add 6.106m to data values 1946-1950 to refer to RLR (1950)
-Add 6.38m to data values 1951 onwards to refer to RLR (1950)
-RLR (1950) is 10.8m below BM No. 1

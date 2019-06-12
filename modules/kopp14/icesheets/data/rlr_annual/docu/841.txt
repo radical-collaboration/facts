@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-NOV-97 :
-1960 data received from the University of Hawaii Sea Level Center, the contributor of the data is unknown
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-NOV-97 :
-Instrument type is unknown
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Feb22 :
-1960 data replaced with dataset 1957-97 received from authority D9 Gauge is a Russian type, CYM Hondau is now an historic station last data 2001
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2015 :
-Monthly mean sea leve data values for Hon Dau 2001-2013 have been supplied by the Institute of Meteorology, Hydrology and Climate Change (IMHEN) Viet nam.
-

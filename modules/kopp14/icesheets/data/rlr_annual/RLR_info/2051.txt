@@ -1,2 +1,0 @@
-Add 5.470m to all data values to refer to RLR (2006)
-RLR (2006) is 9.793m below BM MARE.HIERRO2

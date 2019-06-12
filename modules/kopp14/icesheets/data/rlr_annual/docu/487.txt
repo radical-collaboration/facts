@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Adak                820/011 RLR(1985) is 12.2m below BM 18
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
-Apparent shifts at data gaps in the late 1950s and early 1960s.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using information from the NOAA website the RLR diagram was revised. Primary benchmark is still 18 1957 - named NO 18 1957 on the NOAA website 6.7m above gauge datum.
-
-
-

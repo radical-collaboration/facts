@@ -1,3 +1,0 @@
-Add 5.81m to data values up to 1971 to refer to RLR (1971)
-Add 5.83m to data values 1972 onwards to refer to RLR (1971)
-RLR (1971) is 8.6m below BM

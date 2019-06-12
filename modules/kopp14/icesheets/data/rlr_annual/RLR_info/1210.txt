@@ -1,6 +1,0 @@
-Add 4.357m to data values 1968-1973 to refer to RLR (1971)
-Add 4.343m to data values 1974-1977 to refer to RLR (1971)
-Add 4.335m to data values 1978-1985 to refer to RLR (1971)
-Add 4.332m to data values 1986-1989 to refer to RLR (1971)
-Add 4.328m to data values 1990 onwards to refer to RLR (1971)
-RLR (1971) is 9.9m below BM Tokuyama

@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Jan02 :
-Recent work on vertical land movements in the UK can be found from the University of Nottingham web site: http://ukcogr.iessg.nottingham.ac.uk/~eosi/ GAUGE RESITED IN 1967
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Tilbury             170/083 RLR(1982) is 11.5m below BM TQ 6397 7511
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-SEP-94 :
-A Cary-Porter stilling well gauge was in use from 1912 to July 1950. A Kent gauge was installed in February 1951,another Kent in December 1967 and a further Kent in January 1979.
-Tilbury is an historic station last data 1983
-

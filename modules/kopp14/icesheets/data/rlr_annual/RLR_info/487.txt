@@ -1,2 +1,0 @@
-RLR(1985) is 12.2m below BM 18 
-For data 1943-  add 5.500 to all values to refer to RLR(1985)

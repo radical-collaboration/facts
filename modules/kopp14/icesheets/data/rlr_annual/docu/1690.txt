@@ -1,4 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Jun28 :
-Port Sudan          477/001 RLR(1994) is 8.8m below BM 11158
-Port Sudan is an historic station last data 1994
-

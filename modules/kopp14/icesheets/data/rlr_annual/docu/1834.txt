@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Feb23 :
-Sandakan            665/045 RLR(1994) is 10.3m below BM SS1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-Sep-2012 :   
-Publication Tidal Observation Records 2010 confirms that the Primary benchmark
-remains BM SS1 5.976m above TGZ.
-

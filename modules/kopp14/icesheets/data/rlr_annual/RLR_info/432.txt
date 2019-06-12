@@ -1,3 +1,0 @@
-Add 4.815m to data values up to 1977 to refer to RLR (1987)
-Add 4.577m to data values 1978 onwards to refer to RLR (1987)
-RLR (1987) is 10.594m below BM (estab. 1970)

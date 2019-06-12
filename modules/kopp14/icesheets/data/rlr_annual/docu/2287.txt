@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2016 :
-Santiago de Cuba is a newly supplied Cuban station. Using information supplied by the Cuban National Tidal Service Santiago de Cuba has been made RLR. Primary benchmark is TGBM 010A 3.379m above Tide Gauge Zero and 1.849m above Geodesic National Datum (GND).
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Jun-2016 :   
-Information supplied by Cuba confirms that since 1992 the tide gauge sensor is a float recording hourly.
-

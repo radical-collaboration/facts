@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Feb-2014 :
-Rangiroa is a new station. Using levelling information from SONEL the station was made RLR.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Oct-2014 :   
-Using data from the SONEL website the latitude and longitude for Rangiroa has been updated.
-

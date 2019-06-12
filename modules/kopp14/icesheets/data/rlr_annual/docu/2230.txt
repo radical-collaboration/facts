@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Jul-2015 :   
-Panwa Cape is a new permanent station. Using information from the data sheets the station has been made RLR. Primary benchmark is GPS 32406 5.5704m above TGZ.
-

@@ -1,3 +1,0 @@
-Add 5.542m to data values up to 1998 to refer to RLR (1993)
-Add 5.53m to data 1999 onwards to refer to RLR (1993)
-RLR (1993) is 9.6m below Attached BM

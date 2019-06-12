@@ -1,3 +1,0 @@
-Add 7.191m to data 1855-1992 to refer to RLR (1991)
-Add 2.051m to data 1993- to refer to RLR (1991)
-RLR (1991) is 7.3m below TGBM BM 4 061 13 1051

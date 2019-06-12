@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2001Dec10 :
-Santander I         200/011 RLR(2000) is 10.506m below BM NGU 84
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAY-05 :
-A paper by Marcos et al (JGR Volume 11, 2005) provides an overview of the tide gauge records on the northern coast of Spain.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 03-Sep-2014 :
-Using values from a listing recently supplied by IEO the co-ordinates for Santander have been revised.
-

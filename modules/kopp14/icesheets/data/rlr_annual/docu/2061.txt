@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
-Palma de Mallorca is a new station first data 2009 and forms part of the newly established REDMAR network.
-Gauge is a MIROS radar sensor Benchmark MAREOG-PALMA is 1.627m relative to the
-REDMAR datum and 1.790m relative to IGN. See paper B. Perez et al 'Overlapping sea level
-time series measured using different technologies: an example from the REDMAR Spanish network'.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
-At the request of Puertos del Estado the latitude and longitude have been revised from 39.560000 2.638333 derived from the previously supplied degreees and minutes value to 39.56015 2.63748 the site of the new MIROS gauge in decimal degrees.
-

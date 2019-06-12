@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-OCT-96 :
-data received from UH SLC
-float and well type gauge (Munro)
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Aug27 :
-data for 1977-86 and 1995-96 received directly from authority G5
-

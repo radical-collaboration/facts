@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Ayukawa             642/031 RLR(1963) is 9.6m below Attached BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-May-2009 :
-From the dataset plot there appears to be a rising trend at this station.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2011 :
-Profile buddy checks well with Ofunato II.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14:46 JST (05:46 UTC) on Friday 11th March 2011 with the epicenter approx. 70 km east of the Oshika Peninsula of Tohoku. It was the most powerful known earthquake ever to have hit Japan. The earthquake triggered tsunami waves up to 40.5m travelling up to 10km inland. As is obvious from the data plot the tide gauge site was badly effected. The data following the tsunami is flagged.
-

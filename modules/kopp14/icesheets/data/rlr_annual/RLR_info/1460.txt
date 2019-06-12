@@ -1,2 +1,0 @@
-Add zero to all data values to refer to RLR (1978)
-RLR (1978) is 13.5m below BM NP -1744

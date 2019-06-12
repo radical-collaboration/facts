@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JAN-97 :
-1995 data revised January 1997
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Aug-2010 :
-Despite reassurance from the authority that the re-instated gauge at Miri has been levelled into the same Zero of Tide Gauge when plotted the data appears to be approximately 20cms higher than previously - because of this the station has been flagged as suspect.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Oct-2014 :
-The supplying authority JUPEM has supplied revised data values for Miri for 2013. These have been entered into the database.
-

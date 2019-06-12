@@ -1,3 +1,0 @@
-Add 3.259m to data values 1949-1964 to refer to RLR (1986)
-SUBTRACT 2.324m to data values 1984 onwards to refer to RLR (1986)
-RLR (1986) is 11.8m below BM 7292 B 1984

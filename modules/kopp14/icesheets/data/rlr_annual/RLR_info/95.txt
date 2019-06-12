@@ -1,4 +1,0 @@
-Add 4.557m to data values up to 1957 to refer to RLR (1971)
-Add 4.575m to data values 1958-1973 to refer to RLR (1971)
-Add 4.054m to data values 1974 onwards to refer to RLR (1971)
-RLR (1971) is 10.808m below TGBM NZ 3592 6823

@@ -1,2 +1,0 @@
-Add 7.9m to all data values to refer to RLR (1921)
-RLR (1921) is 8.1m below TGBM

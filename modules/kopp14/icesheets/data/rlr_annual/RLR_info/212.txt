@@ -1,2 +1,0 @@
-Add 4.466m to all data values to refer to RLR (1920)
-RLR (1920) is 13.0m below BM 2(PP)(1)

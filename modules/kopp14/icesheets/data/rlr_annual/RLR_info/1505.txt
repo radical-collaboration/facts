@@ -1,5 +1,0 @@
-
-Add 3.495m to data values for 1981 to refer to RLR(1992)
-Add 3.493m to data values 1982-1987 to refer to RLR(1992)
-Add 3.795m to data values 1988 onwards to refer to RLR(1992)
-RLR (1992) is 12.9m below TGBM NZ 8986 1141

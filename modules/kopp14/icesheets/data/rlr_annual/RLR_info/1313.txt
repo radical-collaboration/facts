@@ -1,2 +1,0 @@
-Add 5.92m to all data values to refer to RLR (1975)
-RLR (1975) is 10.9m below BM Repere IGN A2

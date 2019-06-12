@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
-Shanwei             610/006 RLR(1990) is 9.7m below BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :
-Using data from the latest UHSLC JASL cd data for 1995-1997 was extracted and
-added to the 'METRIC' dataset. Where the Hawaii data overlapped with that
-previously held for this station there were differences of approximately 10mm.
-Shanwei is an historic station last data that for 1997 supplied by UHSLC see
-above.
-

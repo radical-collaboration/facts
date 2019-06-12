@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
-Beihai              610/001 RLR(1990) is 12.0m below BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :
-Using data from the latest UHSLC JASL cd data values for 1995-1997 have been
-added to the 'METRIC' dataset.
-Beihai is an historic site last data added to 'Metric' dataset was for 1997
-from UHSLC
-

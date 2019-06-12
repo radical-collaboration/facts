@@ -1,3 +1,0 @@
-Add 5.628m to data values up to 1996 to refer to RLR (1986)
-Add 5.128m to data values 1997 onwards to refer to RLR (1986)
-RLR (1986) is 10.5m below BM 13-J (59)

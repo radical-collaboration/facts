@@ -1,4 +1,0 @@
-Add 4.828m to data values1984-1985 to refer to RLR(1986)
-Add 4.825m to data values for 1986 to refer to RLR(1986)
-Add 4.815m to data valuesfor 1987 onwards to refer to RLR(1986)
-RLR (1986) is 10.5m below BM A0401

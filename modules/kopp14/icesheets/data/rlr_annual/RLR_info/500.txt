@@ -1,5 +1,0 @@
-*Data 1944-April 1973 supplied already
-corrected to TGZ (1944-89)*
-Add 6.283m to data values up to April 1973 to refer to RLR (1983)
-Add  5.978m to data values May 1973 onwards to refer to RLR (1983)
-RLR (1983) is 10.2m below BM K 80/4

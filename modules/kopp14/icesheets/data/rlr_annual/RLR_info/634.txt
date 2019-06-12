@@ -1,3 +1,0 @@
-Add 8.039m to data values up to 2001 to refer to RLR (1988)
-Add 6.619m to data values 2002 onwards to refer to RLR (1988)
-RLR (1988) is 8.843m below BM R 65

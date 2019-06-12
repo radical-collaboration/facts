@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan10 :
-Gauge is a float gauge with shaft encoder and digital data logger. Hourly values are available from 1897.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Jan10 :
-Fremantle           680/471 RLR(1996) is 9.320m below BM NMV/F/6A
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Jul-2012 :
-On the RLR diagram for 2002 the Primary benchmark was NMV/F/6A3.32m above TGZ. Information for the updated RLR diagram was extracted from the National Tidal Centre of Australia website.
-

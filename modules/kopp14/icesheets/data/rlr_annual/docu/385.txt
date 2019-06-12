@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Neah Bay            823/001 RLR(1964) is 12.0m below BM15
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using information from the NOAA website the RLR diagram was revised. Previous Primary benchmark BM15 6.943m above TGZ no longer appears in their reports. Primary benchmark is now NO 19 1962 6.507m above TGZ.
-

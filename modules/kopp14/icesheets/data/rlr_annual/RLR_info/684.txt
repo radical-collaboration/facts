@@ -1,3 +1,0 @@
-Add 2.508m to all data values -1985 to refer to RLR (1972)
-Add 2.516m to all data values 1986- to refer to RLR (1972)
-RLR (1972) is 11.029m below BM

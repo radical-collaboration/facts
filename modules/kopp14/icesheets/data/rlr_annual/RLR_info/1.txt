@@ -1,4 +1,0 @@
-For data up to 1995 add 2.459m to all values to refer to RLR(1964)
-For data 1996 onwards add 2.959m to all values to refer to RLR(1964)
-RLR (1964) is 12.5m below BM NO-47
-HZ = Hydrographic Zero

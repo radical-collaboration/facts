@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-San Juan            938/021 RLR(1974) is 10.2m below BM13
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-JUL-93 :
-Gauge moved to new location in 1977
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Primary benchmark is now 5371 A 1977 with a value of 2.6m relative to the gauge datum in the NOAA report of 2003 and 2.597m in the report of 1989. Previous benchmark NO 13 1962 is mentioned in the 1989 report with the same value of 4.386m relative to the gauge datum but does not appear in the 2003 report.
-

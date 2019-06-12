@@ -1,3 +1,0 @@
-Add 7.209m to data values 1969-1986 to refer to RLR (1970)
-Add 5.069m to data values 1987 onwards to refer to RLR (1970)
-RLR (1970) is 9.7m below BM AE 4 N 11

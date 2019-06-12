@@ -1,2 +1,0 @@
-Add 6.105 m to all data values to refer to RLR (1963)
-RLR (1963) is 10.3m below BM NGR 101

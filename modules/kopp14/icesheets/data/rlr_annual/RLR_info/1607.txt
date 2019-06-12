@@ -1,2 +1,0 @@
-Add 6.035m to all data values to refer to RLR (1989)
-RLR (1989) is 8.8m below BM ALU 5

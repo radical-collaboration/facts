@@ -1,2 +1,0 @@
-SUBTRACT 1.7m from all data values to refer to RLR (1999)
-RLR (1999) is 8.3m below BM 7766B B 1996

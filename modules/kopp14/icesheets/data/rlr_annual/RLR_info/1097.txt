@@ -1,4 +1,0 @@
-Add 4.011m to data values 1965-1977 and 1992 onwards to refer to RLR (1975)
-Add 4.013m to data values 1978-1980 to refer to RLR (1975)
-Add 4.012m to data values 1981-1991 to refer to RLR (1975)
-RLR (1975) is 8.5m below BM Odomari

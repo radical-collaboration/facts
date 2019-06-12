@@ -1,3 +1,0 @@
-Add 5.167m to data values 1884-1888 to refer to RLR (1978)
-Add 5.75m to data values 1969 onwards to refer to RLR (1978)
-RLR (1978) is 10.6m below BM 21 / 132

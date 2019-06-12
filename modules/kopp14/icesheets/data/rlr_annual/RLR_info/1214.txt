@@ -1,3 +1,0 @@
-Add 1.417m to data values up to 1984 to refer to RLR (1988).
-Add 2.021m to data values 1985 onwards to refer to RLR (1988).
-RLR (1988) is 14.4m below TGBM SS 5263 4791

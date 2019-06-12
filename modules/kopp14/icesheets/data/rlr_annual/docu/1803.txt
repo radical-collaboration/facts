@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Oct19 :
-RLR(1995) is 11.661m below BM NGU 320.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Mar-2013 :
-The SRD acoustic gauge at Tenerife has been replaced by a new MIROS radar sensor. Both old and new gauges were running for the period 22.05.2009-12.08.2010 for inter-comparison purposes during this time a malfunction in the old sensor was detected. A bias (mean difference) of 1.28cm between the two gauges  was calculated. There was a datum change 0f 1.2cm from Oct.2012 this has been accounted for in the supplied data. See paper by B. Perez et al 'Overlapping sea level time series measured using different technologies: an example from the REDMAR Spanish network'.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Jan-2014 :
-Further investigation revealed the bias was due to a problem with the old Acoustic gauge. Data from this was revised. Complete dataset was re-entered onto the database.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Apr-2014 :
-At the request of Puertos del Estado the latitude and longitude have been revised from 28.483333 -16.233333 derived from the previously supplied degrees and minutes value to 28.47722 -16.24111 which is the position of the new MIROS gauge in decimal degrees.
-

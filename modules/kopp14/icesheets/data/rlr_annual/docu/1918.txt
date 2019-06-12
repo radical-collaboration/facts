@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Oct-2007 :   
-data for Arcachon-Eyrac has been added to the PSMSL database.
-Data span for Arcachon-Eyrac is now 2001-2009. Therefore with the input of 
-the 2009 data the station was made RLR. RLR (2009) is 11.000m below 
-TGBM O.B.N3-69. Add 4.482 to all data to refer to RLR (2009)
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Oct-2014 :   
-The data downloaded from SONEL contained additional data points for the 1960's,1980's and 1990's. To accomodate these the complete dataset has been re-loaded.
-

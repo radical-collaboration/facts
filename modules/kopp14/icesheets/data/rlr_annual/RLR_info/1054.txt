@@ -1,3 +1,0 @@
-Add 4.638m to data values up to 1965 to refer to RLR (1966)
-Add 4.656m to data values 1966 onwards to refer to RLR (1966)
-RKR (1966) is 10.6m below BM MN 1

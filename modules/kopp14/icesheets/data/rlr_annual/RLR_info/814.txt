@@ -1,3 +1,0 @@
-Add 5.438m to all data values to refer to RLR (1974)
-Suffixes a,b,c added to ABMs to destinguish
-RLR (1974) is 9.9m below TGBM Attached Benchmark

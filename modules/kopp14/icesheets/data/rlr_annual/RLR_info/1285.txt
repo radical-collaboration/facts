@@ -1,2 +1,0 @@
-Add 4.535m to data values to refer to RLR (1974)
-RLR (1974) is 10.0m below BM 6

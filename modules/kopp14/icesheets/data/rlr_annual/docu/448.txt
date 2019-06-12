@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-MAY-96 :
-Revised data for the period 1944-1985 was supplied by the National Tidal Centre, Bureau of Meteorology, South Australia.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Oct-2011 :
-Using information from the National Tidal Centre, Australia Port Adelaide has been made an RLR station. The benchmark does not have a name/number but is described as ' Bolt (nut) set in wall of Signal Station 5.984m above chart datum. RLR factor is 5.616m.
-

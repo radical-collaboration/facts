@@ -1,3 +1,0 @@
-Add 8.004m to data values up to 2002 to refer to RLR (1980)
-Add 6.384m to data values 2003 onwards to refer to RLR (1980)
-RLR (1980) is 9.0m below BM R 19

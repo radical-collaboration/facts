@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2010 :   
-Amasra station is on the Black Sea and is part of the Turkish Sea Level
-Monitoring Network. Previous Coast/Station code 310/026. Id=1919. Total dataset
-revised by the authority. Station was made RLR. RLR(2008) is 8.000m below TGBM
-AMSR-1. 
-RLR factor is 4836m.
-

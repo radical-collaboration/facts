@@ -1,2 +1,0 @@
-Add 7.7m to all data values to refer to RLR (1913)
-RLR (1913) is 7.7m below BM / datum

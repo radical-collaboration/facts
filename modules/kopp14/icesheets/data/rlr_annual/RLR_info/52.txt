@@ -1,2 +1,0 @@
-RLR(1964) is 11.2m below BM OB1  
-Add 11.2 to all values to refer to RLR(1964)

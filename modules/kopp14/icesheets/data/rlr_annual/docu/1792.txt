@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002May13 :
-Ko Mattaphon        600/011 RLR(1993) is 10.3m below BM 127
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Jul-2011 :
-While checking details before releasing the RLR diagram online it was noted that from 1998 data onwards the benchmark becomes BM 126 5.6848m above the datum of the tide gauge. The RLR diagram was adjusted accordingly.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 08-Sep-2014 :
-The supplying authority has confirmed that following re-organisation in October 2010 the data quality at station Ko Mattaphon deteriorated data during this period - October 2010-August 2012 has been flagged. The old float gauge was replaced by a radar gauge in September 2012. Data following the gauge replacement is again good quality data.
-

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
-Seville is a new station first data 1992. Gauge is a MIROS radar sensor
-Although data has previously been supplied we have only now received the
-latitude and longitude. Benchmark name is JPS 9.026m above datum REDMAR and
-8.477m above IGN. See paper B.Perez et al 'Overlapping sea level time series
-measured using different technologies: an example from the REDMAR Spanish network'.
-

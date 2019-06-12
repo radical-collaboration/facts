@@ -1,4 +1,0 @@
-Add 5.618m to data 1872-1886 to refer to RLR (1919)
-Add 5.393m to data 1887-1895 to refer to RLR (1919)
-Add 6.618m to data 1896-1920 to refer to RLR (1919)
-RLR (1919) is 9.9m below BM Palace Facade.

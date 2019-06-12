@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
-National Tidal Facility SEAFRAME station
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Oct16 :
-Approx. 11cm rise in sea level 2nd Jan 2002 following earthquake.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Sep-2010 :
-Benchmark VAN 1 is 2.854m above TGZ (ORSTOM) RLR (2008) has been defined as 8.9m below VAN 1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Mar-2011 :
-From data available from the VLIZ site in Ostende a tsunami can be seen 29-30 September 2009.
-

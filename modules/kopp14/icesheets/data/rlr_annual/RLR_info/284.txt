@@ -1,6 +1,0 @@
-Add 5.569m to data values 1971-1972 to refer to RLR (1972)
-Add 5.956m to data values 1973-1978 to refer to RLR (1972)
-Add 5.894m to data values 1979-1997 to refer to RLR (1972)
-Add 5.681m to data values 2000-2002 to refer to RLR (1972)
-Add 5.881m to data values 2003 onwards to refer to RLR (1972)
-RLR (1972) is 10.6m below TGBM

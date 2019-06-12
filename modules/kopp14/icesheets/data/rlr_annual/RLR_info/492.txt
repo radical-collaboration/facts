@@ -1,2 +1,0 @@
-Add 6.488m to all data values to refer to RLR (1945)
-RLR (1945) is 9.7m below BM

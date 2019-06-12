@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-JAN-98 :
-Lombrum is an NTF SEAFRAME station
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-JAN-98 :
-1995 (April-Dec): gauge was decommissioned while the jetty was repaired
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2010 :
-Supplying authority has confirmed that benchmark PNG 1 is 2.2988 m above tide gauge zero.RLR (2008) is defined as as 8.5 m below benchmark PNG 1
-

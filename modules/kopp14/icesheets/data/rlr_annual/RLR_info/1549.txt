@@ -1,3 +1,0 @@
-Add 4.123m to data values up to 2008 to refer to RLR (2008)
-Add 4.243m to data values 2009 onwards to refer to RLR (2008)
-RLR (2008) is 11.6m below BM A 958

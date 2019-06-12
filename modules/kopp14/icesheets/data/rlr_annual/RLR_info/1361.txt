@@ -1,2 +1,0 @@
-Add 6.342m to all data values to refer to RLR (1983)
-RLR (1983) is 7.9m below BM UH-2

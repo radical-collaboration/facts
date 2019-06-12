@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Naha                646/024 RLR(1976) is 14.7m below BM no. 9631
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake to hit Japan triggering a tsunami with waves of up to 40.5m high and travelling up to 10km inland.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
-The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P212 is 14.130m above RLR.
-

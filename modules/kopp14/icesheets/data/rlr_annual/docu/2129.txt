@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2012 :   
-Port Allen, Hanapepe Bay, Kauai island has been downloaded from NOAA as a new
-station. Data is RLR Primary benchmark 1347 A 1988 is 4.432m above TGZ. RLR
-factor is 5.768m.
-

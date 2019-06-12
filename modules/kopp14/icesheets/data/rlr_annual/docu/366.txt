@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Sandy Hook          960/101 RLR(1964) is 9.0m below BM2
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-Aug-2011 :
-Using data extracted from the NOAA website the RLR diagram has been re-drawn Primary benchmark now appears to tbe 1680 A 1979. There is now no record of BM 2 previously used by PSMSL.
-

@@ -1,5 +1,0 @@
-Add 4.086m to data values up to 1971 to refer to RLR (1966)
-Add 4.082m to data values 1972-1980 and 1989-1993 to refer to RLR (1966)
-Add 4.085m to data values 1981-1984 and 1994 onwards to refer to RLR (1966)
-Add 4.08m to data values 1985-1988 to refer to RLR (1966)
-RLR (1966) is 10.25m below BM Mozi (i)

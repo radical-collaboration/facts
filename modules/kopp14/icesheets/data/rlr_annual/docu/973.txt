@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-San Jose            832/011 RLR(1964) is 12.3m below BMEST20
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-San Jose            832/011 RLR(1964) is 12.3m below BMEST20
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
-This is an historic station San Jose Guatemala is no longer referred to on the
-NOAA website. As no further information is available the original RLR diagram
-has been added to the PSMSL website. Station is now marked as 'inactive'.
-

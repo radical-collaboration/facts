@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Cadiz II            220/002 RLR(1977) is 11.2m below BM NAPA-724
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Cadiz II            220/002 RLR(1977) is 11.2m below BM NAPA-724
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-DEC-93 :
-GAUGE OUT OF ORDER SINCE 1990
-Cadiz II is an historic station last data 1988
-

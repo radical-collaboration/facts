@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Nov-2011 :
-Porto Empedocle on Sicily is a new station database id.2083. 2001 data onwards was downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA) website. Metadata were also extracted.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Aug-2012 :
-Porto Empedocle is now RLR. Primary benchmark 103D3/1 3.8627m (displayed as 3.863m on diagram) above national Italian Military Geographic Institute (IGM)altimetric datum.
-

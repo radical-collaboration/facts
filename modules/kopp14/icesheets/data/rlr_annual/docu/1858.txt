@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr26 :
-Virginia Key        960/008 RLR(1999) is 7.605m below BM 3214 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Feb-2012 :   
-From the NOAA website Primary benchmark is now 3214 B 1994 5.000m above TGZ.
-

@@ -1,4 +1,0 @@
-Add 3.26m to data values 1901-2008 to refer to RLR(1974).
-Add 5.17m to data values 2009 onwards to refer to RLR (1974)
-RLR (1974) is 9.6m below BM CROWSFOOT
-IGLD refers to the International Great Lakes Datum.

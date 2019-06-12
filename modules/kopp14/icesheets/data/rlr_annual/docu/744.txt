@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Port Royal          932/011 RLR(1964) is 7.6m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Port Royal          932/011 RLR(1964) is 7.6m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 09-Feb-2012 :   
-This is an Historic station and no longer appears on the NOAA website as such
-it has been labelled 'inactive'. Last data is that for 1969.
-

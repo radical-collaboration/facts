@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-La Libertad         845/011 RLR(1964) is 10.9m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-La Libertad         845/011 RLR(1964) is 10.9m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Jan-2012 :   
-This station is an historic station last data received is 1969. No further
-information is now available on the NOAA website. Station has been marked
-'inactive'.
-

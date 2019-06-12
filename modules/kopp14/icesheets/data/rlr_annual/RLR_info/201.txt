@@ -1,3 +1,0 @@
-RLR (1992) is 9.50m below BM CAPA 3
-Add 4.432m to values1915-2008  to refer to RLR(1992).
-Add 5.127m to data 2009- to refer to RLR (1992)

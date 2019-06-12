@@ -1,3 +1,0 @@
-Add 9.8m to data values up to 1958 to refer to RLR (1964)
-Add 6.993m to data values 1959 onwards to refer to RLR (1964)
-RLR (1964) is 9.8m below BM F38  N3

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Mar-2012 :
-Fort de France has been re-instated by S.H.O.M. Primary benchmark is A 1.475m above TGZ.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2014 :
-Using values from the SONEL website the latitude and longitude for Fort de France have been revised.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-Sep-2014 :
-New data points for the 1980s have been added to the dataset. Other points have been revised by SHOM. Because of this the whole dataset has been re-entered.
-

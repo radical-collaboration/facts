@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-MAR-94 :
-data up to 1991 revised, March 1994
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Steveston           822/083 RLR(1991) is 7.9m below BM 77-C-008
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr20 :
-Steveston discontinued 1998
-

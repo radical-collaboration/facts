@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Jun-2010 :   
-Iskenderun II is on the Eastern Mediterranean Coast. This station forms part of
-the Turkish Sea Level Monitoring Network. Coast/Station code 310/066 id=2020.
-This station has been re-instated but it is not possible to combine the two
-datasets.
-Therefore a new series was created and an RLR diagram created.
-RLR (2009) is 7.600m below TGBM ISKD-1. RLR factor is 4.770m.
-

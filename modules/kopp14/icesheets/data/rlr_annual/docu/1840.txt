@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
-National Tidal Facility SEAFRAME station
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2010 :
-Supplying authority (NTC) have confirmed that all data refers to LAT (93-94). Tide gauge benchmark BM 201 is 2.0229 m above LAT. RLR (2009) is defined as 8.2 m below BM 201 =========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2010 :
-Sensor appears to be subsiding NTC's Pacific country report for Samoa (December 2009) states that over the period 1992-2009, the sensor has fallen relative to the TGBM by 0.9 mm per year
-

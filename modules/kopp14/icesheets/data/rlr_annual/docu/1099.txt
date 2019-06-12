@@ -1,9 +1,0 @@
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Osaka               643/021 RLR(1976) is 8.3m below Attached BM W61
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-JUL-94 :
-Pugh, 1987 (Tides, surges and mean sea-level. Wiley) refers to subsidence at Osaka caused by ground water extraction.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Nov20 :
-Datum 2001 is 3.583m below Tokyo Peil.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.40 UTC) on Friday 11th March 2011 with the epicentre approx. 70 km east of the Oshika Peninsula of Tohoku. It was themost powerful earthquake known to have hit Japan triggering a tsunami with waves up to 40.5m and travelling up to 10km inland.
-

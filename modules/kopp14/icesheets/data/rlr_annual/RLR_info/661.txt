@@ -1,4 +1,0 @@
-Add 5.333m to data values 1961-1963 to refer to RLR (1973)
-Add 5.315m to data values 1964-1972 to refer to RLR (1973)
-Add 5.312m to data values 1973 onwards to refer to RLR (1973)
-RLR (1973) is 9.4m below BM Izuhara

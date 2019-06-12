@@ -1,3 +1,0 @@
-Add 5.022m to data values up to 1956 to refer to RLR (1959)
-Add 4.996m to data 1959 onwards to refer to RLR (1959)
-RLR (1959) is 8.9m below BM Tukizi

@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Lumut               550/005 RLR(1986) is 10.5m below BM No A0401
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Lumut               550/005 RLR(1986) is 10.5m below BM No A0401
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Sep-2012 :   
-Publication Tidal Observation Records 2010 confirms Primary benchmark remains 
-A0401 5.685m above TGZ.
-

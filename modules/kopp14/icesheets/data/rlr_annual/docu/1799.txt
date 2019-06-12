@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr25 :
-Winter Harbour      822/124 RLR(1994) is 8.8m below BM 64C9528
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Sep-2011 :
-Using data from Fisheries and Oceans Canada the RLR diagram has been revised.
-Primary benchmark remains the same but has been re-named 3-1964 3.953m above
-TGZ.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2015 :
-This year, rather than just sending the latest year of data, the complete dataset has been supplied. This has highlighted some differences in the data. From communications in the correspondence file for 2002 it appears that the Oceans and Fisheries meant to supply revised data for the stations supplied. This did not happen. The complete dataset includes these data revisions. Therefore, the whole dataset has now been re-entered.
-

@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Mar-2013 :   
-Greek station Iraklion was moved in September 2009. The zero level was set 
-12cm below the previous one. Primary benchmark is R 10 4.77m above TGZ.
-RLR factor is 6.33m. The station is now named Iraklion II
-

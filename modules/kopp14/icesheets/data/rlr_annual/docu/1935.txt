@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 01-Sep-2011 :
-Relatively new station starts July 2004. Primary Benchmark is M04T9500 5.22m above CD.Made RLR 1.9.2011
-

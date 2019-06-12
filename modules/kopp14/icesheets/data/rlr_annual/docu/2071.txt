@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Oct-2011 :
-Low Head Tasmania is a new station. Gauge zero is given as 1.852m below AHD (TAS).
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 07-Jul-2016 :   
-Using information form the NTC website Low Head has been made RLR. Primary benchmark is SPM 9214 3.861m above the gauge datum.
-

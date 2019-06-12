@@ -1,2 +1,0 @@
-Add 6.096m to data values to refer to RLR (1989)
-RLR (1989) is 13.7m below BM WSC-1

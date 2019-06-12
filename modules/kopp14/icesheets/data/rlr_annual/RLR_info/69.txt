@@ -1,5 +1,0 @@
-Add 4.362m to data values 1887-1922 to refer to RLR (1964)
-Add 8.721m to data values 1923-1936 to refer to RLR (1964)
-Add 4.731m to data values1937-2008 to refer to RLR (1964)
-Add 0.3m to data values 2009 onwards to refer to RLR (1964)
-RLR (1964) is 10.3m below BM c

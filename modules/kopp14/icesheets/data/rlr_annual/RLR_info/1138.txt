@@ -1,3 +1,0 @@
-Add 6.194m to data 1965-1971 to refer to RLR (1965)
-Add 6.377m to data 1972- to refer to RLR (1965)
-RLR (1965) is 14.2m below TGBM BM TS5 1962

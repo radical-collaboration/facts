@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2000Apr26 :
-Toke Point          823/009 RLR(1999) is 9.579m below Tidal BM 0910 L 1978
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Feb-2012 :
-Primary benchmark for Toke Point is now BM P 1983 5.406m above TGZ. Previous Primary benchmark Tidal BM 0910 L 1978 6.079m is still listed in the NOAA report but now with a value of 6.058m.
-

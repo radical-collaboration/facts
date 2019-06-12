@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-station density along some sections of the Australian coast has meant that station codes 601 onwards have been reordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Coff's Harbour(I)   680/111 RLR(1964) is 12.7m below BMNo1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Sep-2012 :
-This is an historic station last data 1970. Station name has been changed from Coff,s Harbour I to Coff's Harbour
-

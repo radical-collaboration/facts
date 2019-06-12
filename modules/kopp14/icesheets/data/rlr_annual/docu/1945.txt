@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Nov-2009 :
-The tide gauge at Ploce replaces that for Sucuje A new gauge sampling interval is 1min. The instrument is located on Quey 4 inside free zone of the Port of Ploce Authority. Tide gauge datum is 446.7cm below the tide gauge bench mark.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-Nov-2010 :
-After entering the 2008 data for Ploce this was buddy checked with Dubrovnic the tidal profiles were compatable.
-

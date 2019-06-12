@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Crescent City       823/021 RLR(1964) is 10.5m below BM10
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 29-JUL-93 :
-Anomalously low value April 1945 - correct as received from authority.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-Oct-2011 :
-Using NOAA information the RLR diagram has been revised.Former Primary benchmark BM 10 5.678m above gauge datum no longer appears in the NOAA listings. Current Primary benchmark TIDAL 20 1959 RESET 1960 5.227m above gauge datum was confirmed by letter in 1990.
-For Information: Data values during the early 1980's appear to be particularly high. This phonomenon could be due to the El Nino Southern Oscillation (ENSO) as it is mirrored all along the Californian coast.
-

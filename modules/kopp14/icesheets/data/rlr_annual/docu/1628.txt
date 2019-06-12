@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Wido                620/024 RLR(1986) is 12.4m below TBM No1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Wido                620/024 RLR(1986) is 12.4m below TBM No1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 30-Jul-2012 :
-Following new information received from the data supplier, KHOA the values for
-lat.and long. have been revised.
-Tide gauge is a MIROS radar gauge
-

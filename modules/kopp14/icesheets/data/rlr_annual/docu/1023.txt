@@ -1,6 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Kure III            643/042 RLR(1966) is 9.9m below BM Kure
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Kure III            643/042 RLR(1966) is 9.9m below BM Kure
-This is an historic station last data 1967
-

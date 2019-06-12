@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Nawiliwili Bay      760/021 RLR(1964) is 8.3m below BM5
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Primary benchmark is now NO 14 1974 3.155m above gauge datum. Previous Primary benchmark NO 5 1954 is still in the NOAA reports at 2.254m above gauge datum - previous value was 2.256m.
-

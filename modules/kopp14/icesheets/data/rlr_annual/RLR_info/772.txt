@@ -1,5 +1,0 @@
-Add 3.499m to data values 1955-1964 to refer to RLR (1963)
-Add 3.493m to data values 1965-1968 to refer to RLR (1963)
-Add 3.488m to data values 1969-1972 to refer to RLR (1963)
-Add 3.474m to data values 1973 onwards to refer to RLR (1963)
-RLR (1963) is 11.904m below BM Monbetu (i)

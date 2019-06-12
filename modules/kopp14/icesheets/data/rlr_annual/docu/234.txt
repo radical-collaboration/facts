@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Charleston I        960/041 RLR(1964) is 9.7m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Jul-2011 :
-Data downloaded directly from the NOAA database. Datum information also downloaded. NOAA Primary Benchmark is NO 13 1928 ELEV 8.264FT 4.02m above TGZ. Previous benchmark used BM1 4.334m above gauge zero. This corresponde with benchmark PORT 1962 values 4.333m above gauge datum for Epoch 1960-1978. 4.334m above for Epoch 1983-2001.
-

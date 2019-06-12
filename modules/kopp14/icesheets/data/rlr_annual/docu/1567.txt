@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2003Nov17 :
-This data was formerly under KOCHI II (644/002). The station was replaced in 1983 after 2 years without data. Although the datum information seems to show continuity with KOCHI II (linked through Tokyo Peil), the time-series clearly shows a datum shift and so has been moved to a new time-series.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 05-May-2009 :
-Seems to be a slight rise in the dataset after the gap in 2001-2002.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the largest earthquake to strike Japan triggering a tsunami with waves of up to 40.5m high and travelling inland up to 10km.
-

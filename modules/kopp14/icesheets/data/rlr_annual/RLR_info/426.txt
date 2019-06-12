@@ -1,2 +1,0 @@
-Add 3.986m to all data values to refer to RLR (1964).
-RLR (1964) is 17.655m below BM 1600 L 1982

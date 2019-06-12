@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
-SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR,96(B3), 4325-4335, 1991 GAUGE IN USE AT ST PAULS HARBOR 1964-1984
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Womens Bay          821/011 RLR(1986) is 11.8m below BM 7292 B 1984
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Primary benchmark remains as 7292 B 1984 14.124m above gauge datum 1984 onwards. This station was previously known just as Womens Bay.
-

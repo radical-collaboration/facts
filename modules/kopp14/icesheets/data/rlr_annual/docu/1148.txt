@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Tajiri              647/047 RLR(1977) is 10.0m below BM Attach-19
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 17-Nov-2009 :
-The relevant authority for this station is the Geographical Survey Institute. For some reason the data for 1998 was not downloaded from this authority. Data downloaded and entered 17.11.09.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST ( 05.46 UTC) on Friday 11th March 2011 with the epicentre approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake to hit Japan and triggered a tsunami with waves of up to 40.5m high travelling up to 10km inland.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
-The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark P118 is 13.678m above RLR.
-

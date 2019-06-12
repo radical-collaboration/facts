@@ -1,3 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-Oct-2013 :
-Caticlan Malay Aklan is a new station, first data 2011. Tide gauge is an OTT THALIMEDES Caticlan malay Aklan has been made RLR.Primary BM 1 is 3.55m above datum TSO 2008.
-

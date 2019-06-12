@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-APR-92 :
-SOUTH ALASKAN COASTLINE EARTHQUAKE PRONE - E.G. MAGNITUDE 9.2 EARTHQUAKE OF 28 MARCH 1964 - SEE SAVAGE AND PLAFKER, JGR,96(B3), 4325-4335, 1991
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Cordova             821/020 RLR(1974) is 13.2m below BM11
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1998Dec10 :
-Data for 1949-53 received from University of Hawaii Sea Level Center
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Nov-2011 :
-Using information from the NOAA website the RLR diagram has been revised. Previous Primary benchmark 11 10.025m above gauge datum no longer appears in the NOAA reports. Secondary benchmark 4050 E 1982 7.498m above gauge datum appears both on the original RLR diagram and the NOAA report. Current Primary benchmark is 4050 Q 1998 16.455m above gauge datum.
-

@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Sep24 :
-A description of the sea level network in Finland can be found
-in 'Operational Oceanography: Implementation at the European
-and Regional scales.  2002 (pp.129-137)'.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Skuru               060/344 RLR(1936) is 11.5m below BM263
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Skuru               060/344 RLR(1936) is 11.5m below BM263
-

@@ -1,5 +1,0 @@
-SUBTRACT 1.066m from data values up to 1952 to refer to RLR (1988)
-SUBTRACT 1.089m from data values 1953-1959 to refer to RLR (1988)
-Add 0.002m to data values 1960-1971 to refer to RLR (1988)
-Add 3.763m to data values 1979 onwards to refer to RLR (1988)
-RLR (1988) is 11.199m below TGBM SH 2553 8287

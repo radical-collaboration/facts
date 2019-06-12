@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Eniwetok            720/001 RLR(1964) is 9.1m below BM1
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Eniwetok            720/001 RLR(1964) is 9.1m below BM1
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Jan-2012 :   
-NOAA no longer maintain this station. Last data is that for May 1972. For this
-reason the station has been switched to 'inactive'.
-

@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Reykjavik           010/001 RLR(1973) is 17.4m below BM No.77
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-96 :
-March 1994:new tide gauge, pressure type
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Sep-2010 :   
-Primary benchmark is BM 3277 12.538m above TGZ and TGZ=chart datum.
-

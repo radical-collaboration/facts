@@ -1,7 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Point Reyes         823/030 RLR(1981) is 9.9m below BM B243 1949
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 20-Dec-2011 :
-Using NOAA data the RLR diagram has been reviewed. Primary benchmark remains B 243 1949 4.977m above gauge datum.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Sep-2012 :
-For information: Data values during the early 1980's appear to be particularly high. This phenomenon could be due to the El Nino Southern Oscillation (ENSO)as it is mirrored all along the Californian coast.
-

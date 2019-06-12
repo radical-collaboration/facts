@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Jan-2011 :
-La Gomera is a new station first data 2007 and forms part of the newly established REDMAR
-network.Gauge is a MIROS radar sensor. Benchmark S/N is 2.899m relative to the REDMAR datum and
-1.431m to IGN.
-See paper B. Perez et al 'Overlapping sea level time series measured using different technologies:
-an example from the REDMAR Spanish network'.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 28-Apr-2014 :
-At the request of Puertos del Estado the latitude and longitude for this station has been revised from 28.086667 -17.108333 derived from the previously supplied degrees and minutes value  to 28.08777 -17.10831 which is the position of the new MIROS gauge in decimal degrees.
-

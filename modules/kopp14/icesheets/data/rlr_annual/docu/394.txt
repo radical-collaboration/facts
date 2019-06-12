@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Cebu                660/101 RLR(1966) is 9.1m below BM6
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 1999Mar30 :
-gauge type = Ott
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 14-Oct-2010 :
-Primary benchmark up to 2000 is BM6 3.839m above TSO 1935. For 2001 onwards Primary benchmark is  BM 3A 4.708m above datum TSO 1935.  RLR year is 1966 and RLR factor is 5.247m. RLR (1966) is 9.1m below BM 3A.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 27-Feb-2012 :
-Cebu has been 'buddy checked' with Surigao. Cebu has what appears to be suspect data for the period Aug 1973-Feb 1975 and again Dec 1997-Dec 1999. Data for Surigao does not start until May 1987 but there is a similar sea level profile for the period Dec 1997-Dec 1999. Because of this the data has not been flagged. Gauge type is AXSYS
-

@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
-National Tidal Facility SEAFRAME station
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Aug-2010 :
-Data supplier has confirmed that tide gauge zero for all data is LAT (93-94)Tide gauge benchmark MAR 3 is 2.659 m above LAT.RLR (2009) is defined as 8.6 m below MAR 3
-

@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
-National Tidal Facility SEAFRAME station
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 25-Aug-2010 :
-Supplying authority have confirmed tide gauge benchmark KIR 1 is 3.5334 m above tide gauge zero.RLR (2009) is defined as 8.8 m below KIR 1
-

@@ -1,6 +1,0 @@
-Add 5.279m to data values 1965-1976 to refer to RLR (1973)
-Add 5.27m to data values 1977-1980 to refer to RLR (1973)
-Add 5.265m to data values 1981-1986 to refer to RLR (1973)
-Add 5.275m to data values 1987-1992 to refer to RLR (1973)
-Add 5.266m to data values 1993 onwards to refer to RLR (1973)
-RLR (1973) is 9.5m below BM Hakata

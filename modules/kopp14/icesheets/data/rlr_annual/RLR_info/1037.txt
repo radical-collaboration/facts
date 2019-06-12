@@ -1,6 +1,0 @@
-** All data (1963-99) supplied to the PSMSL to NN, with the above corrections
-assumed to have already been applied.  Data 2000 onwards supplied to TGZ **
-RLR(2000) is defined to be 11.543m below TGBM 1
-For data 1963-99 add 7.0m to all values to refer to RLR(2000)
-For data 2000-  add 1.98m to all values to refer to RLR(2000)
-For data 2003-2004 RLR factor adjusted to 1.97m following email from Dr Sylvin Mueller-Navarra

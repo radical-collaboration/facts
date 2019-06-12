@@ -1,8 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 19-OCT-93 :
-Shijiuso		610/034  RLR(1990) is 13.4m below BM
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 18-Jan-2012 :
-Using data extracted from the latest UHSLC JASL cd the data values for
-1995-1997 have been added to the 'METRIC' dataset. Where the data from Hawaii
-overlapped with that previously held differences of 15-20mm were noted.
-Shijiuso is an historic station
-

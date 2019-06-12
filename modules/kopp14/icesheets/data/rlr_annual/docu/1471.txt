@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 02-MAY-95 :
-Station density along some sections of the Australian coast has meant that station codes 601 onwards have been re-ordered compared to those in earlier versions of the PSMSL data set.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 24-Aug-2010 :
-Supplying authority have confirmed tide gauge zero is LAT, and benchmark PM 10077 is 6.058 m above LAT. RLR (2009) has been defined as 11.4 m below PM 10077
-

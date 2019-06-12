@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Ito                 642/112 RLR(1975) is 8.7m below BM Attach-28
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 12-JUL-93 :
-Datum shift and/or trend difference following short gap in 1978.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 22-Feb-2012 :
-A massive earthquake magnitude 9.0 occurred at 14.46 JST (05.46 UTC) on Friday 11th March 2011 with the epicentre situated approx. 70km east of the Oshika Peninsula of Tohoku. It was the most powerful earthquake to strike Japan triggering a tsunamia with waves of up to 40.5m and travelling inland up to 10km.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-Mar-2014 :
-The GPS benchmark information has been downloaded from the SONEL website. GPS benchmark is P113 13.771m above RLR.
-

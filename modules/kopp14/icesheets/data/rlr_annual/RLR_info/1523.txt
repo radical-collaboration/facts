@@ -1,3 +1,0 @@
-Add 5.93m to data values up to 1992 to refer to RLR (1982)
-Add 5.927m to data values 1993 onwards to refer to RLR (1982)
-RLR (1982) is 8.2m below BM Maizuru

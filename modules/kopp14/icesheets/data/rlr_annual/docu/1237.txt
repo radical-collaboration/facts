@@ -1,9 +1,0 @@
-1969-77(Aug) Data  from readings of tide pole
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Khalkis North       290/034 RLR(1982) is 8.7m below BM R98
-=========================== BENCHMARK INFORMATION UPDATE ADDED  12-JUL-93 :
-Khalkis North       290/034 RLR(1982) is 8.7m below BM R98
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-MAR-97 :
-The contributing authority advises that anomalous values
-are the result of met. influences
-

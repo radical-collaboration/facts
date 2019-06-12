@@ -1,5 +1,0 @@
-Add 5.974m to data values up to 1997 to refer to RLR (1990)
-Add 5.669m to data values 1998-2002 to refer to RLR (1990)
-Add 5.859m to data values 2003 onwards to refer to RLR (1990)
-RLR (1990) is 11.9m below BM NH 1
-LLD = Land Levelling Datum

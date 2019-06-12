@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Mar26 :
-Nagoya ceased operating April 1979 and was replaced by Nagoya II (642/132).
-============================ STATION RELOCATED ============================
-Station moved - new data held in station 642/132. Last data 1979
-

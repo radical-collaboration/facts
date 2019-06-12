@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 21-Nov-2011 :
-Venezia II is a new station. Data and metadata downloaded from the Istituto Superiore per la Protezione e la Ricerca Ambientale (ISPRA). Data January 2001 onwards. Database id.2100.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 06-Aug-2012 :
-Venezia II is now RLR. Primary benchmark 0170_D02_001 is 4.4729m (displayed as 4.473m on diagram) above national Italian Military Geographic Institute (IGM) altimetric datum.
-

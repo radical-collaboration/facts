@@ -1,9 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 04-AUG-94 :
-For a discussion of interannual variability of sea level along the coasts of Pakistan and India, see Clarke and Liu, Journal of Physical Oceanography, 24, 1224, 1994.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 2002Dec06 :
-SMRC Newsletter Jul-Dec 2001 reports high E coast correlation with SOI and MSL. MSL is much higher during La Nina tropical cyclones than during El Nino.
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Mangalore(Panamburu)500/070 RLR(1984) is 9.3m below BM 145
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 23-Apr-2013 :
-Last data prior to 2009 was that for 2000. However, according to the data sheet the datum and benchmark remain the same and when plotted data looks to be correct.
-

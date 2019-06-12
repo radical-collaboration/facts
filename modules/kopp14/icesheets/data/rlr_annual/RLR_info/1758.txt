@@ -1,2 +1,0 @@
-Add 0.861m to all data values to refer to RLR (1992)
-RLR (1992) is 15.6m below TGBM ST 2104 4634

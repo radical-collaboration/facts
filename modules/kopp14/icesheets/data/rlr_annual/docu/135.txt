@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 11-JUN-91 :
-Philadelphia        960/087 RLR(1971) is 9.8m below BM21
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 15-Feb-2012 :
-Data 1900-1989 for Philadelphia on the NOAA website is NOAA No. 845 5530 where primary benchmark is listed as 35 1931 3.802m above TGZ. This information is written on the original RLR diagram. From 1989 onwards delegated NOAA number is 845 5240 4.688m above TGZ. Benchmark 21 from the original RLR diagra no longer features on the NOAA website.
-

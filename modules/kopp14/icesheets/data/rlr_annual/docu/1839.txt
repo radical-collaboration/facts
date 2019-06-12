@@ -1,5 +1,0 @@
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 13-JAN-98 :
-National Tidal Facility SEAFRAME station
-=========================== FOLLOWING PSMSL DOCUMENTATION ADDED 26-Oct-2011 :
-Using metadata from the National Tidal Centre Australia, Funafuti B, Tuvalu has been made RLR. Primary benchmark BM 22 is 4.012m above datum Tide Staff Zero(TSZ). RLR factor is 4.968m.
-
