@@ -16,7 +16,7 @@ def GeneratePipeline(pcfg, ecfg, pipe_name):
 	p.name = pipe_name
 	
 	# Loop through the necessary stages for this module
-	stage_names = ["pre_process", "fit", "project", "post_process"]
+	stage_names = ["pre-process", "fit", "project", "post-process"]
 	for this_stage in stage_names:
 		if this_stage in pcfg.keys():
 			
@@ -79,7 +79,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 		for copy_stage in tcfg['copy_input_data'].keys():
 			for copy_task in tcfg['copy_input_data'][copy_stage].keys():
 				loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
-				copy_list.append(['%s/%s'%(loc, x) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
+				copy_list.extend(['%s/%s'%(loc, x) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
 	
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
@@ -144,7 +144,7 @@ def run_experiment(exp_dir, debug_mode):
 			pcfg = yaml.safe_load(fp)
 		
 		# Generate a pipeline for this module
-		pipe_name = "_".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
+		pipe_name = "-".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
 		pipelines.append(GeneratePipeline(pcfg, ecfg[this_mod], pipe_name))
 	
 	# Print out PST info if in debug mode
@@ -165,8 +165,8 @@ def run_experiment(exp_dir, debug_mode):
 		
 		# Exit
 		sys.exit(0)
-	'''
-    amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'])
+	
+	amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'])
 	
 	res_desc = {'resource': rcfg['resource-desc']['name'],
 		'walltime': rcfg['resource-desc']['walltime'],
@@ -177,7 +177,7 @@ def run_experiment(exp_dir, debug_mode):
 	amgr.resource_desc = res_desc
 	amgr.workflow = pipelines
 	amgr.run()
-	'''
+
 	return(None)
 
 
@@ -201,13 +201,5 @@ if __name__ == "__main__":
 	# Go ahead and try to run the experiment
 	run_experiment(args.edir, args.debug)
 
-	'''	
-	for this_stage in wcfg.keys():
-		print(this_stage)
-		stage_options = wcfg[this_stage]['options']
-		user_options = ucfg['icesheets']['options']
-		matched_options = match_options(stage_options, user_options)
-		print("{} {} {}".format(wcfg[this_stage]['executable'], wcfg[this_stage]['script'], " ".join(str(e) for e in matched_options)))
-	'''
 	
 	sys.exit(0)
