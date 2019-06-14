@@ -59,7 +59,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	t.executable = tcfg['executable']
 
 	# List of arguments for the executable
-	t.arguments = match_options(tcfg['options'], ecfg['options'])
+	t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
 
 	# CPU requirements for this task
 	t.cpu_threads = {
@@ -83,6 +83,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
+	
+	# Set the file for stderr and stdout
+	err_file = "{}_{}_{}_err.txt".format(pipe_name, stage_name, task_name)
+	out_file = "{}_{}_{}_out.txt".format(pipe_name, stage_name, task_name)
+	t.stderr = err_file
+	t.stdout = out_file
+	t.download_output_data = [err_file, out_file]
 
 	# Return the task object
 	return(t)
@@ -202,4 +209,4 @@ if __name__ == "__main__":
 	run_experiment(args.edir, args.debug)
 
 	
-	sys.exit(0)
+	#sys.exit(0)
