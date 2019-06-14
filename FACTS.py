@@ -53,7 +53,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	t.name=task_name
 	
 	# Pre exec let you load modules, set environment before executing the workload
-	t.pre_exec = [tcfg['pre_exec']]
+	if tcfg['pre_exec'] != "":
+		t.pre_exec = [tcfg['pre_exec']]
 	
 	# Executable to use for the task
 	t.executable = tcfg['executable']
@@ -85,10 +86,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	t.copy_input_data = copy_list
 	
 	# Set the file for stderr and stdout
+	cur_dir = os.path.dirname(os.path.abspath(__file__))
 	err_file = "{}_{}_{}_err.txt".format(pipe_name, stage_name, task_name)
 	out_file = "{}_{}_{}_out.txt".format(pipe_name, stage_name, task_name)
-	t.stderr = err_file
-	t.stdout = out_file
+	t.stderr = os.path.join(cur_dir, err_file)
+	t.stdout = os.path.join(cur_dir, out_file)
 	t.download_output_data = [err_file, out_file]
 
 	# Return the task object
