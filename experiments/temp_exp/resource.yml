@@ -1,0 +1,11 @@
+rabbitmq:
+  hostname: 'localhost'
+  port: 5672
+
+resource-desc:
+  name: 'local.localhost'
+  walltime: 30
+  cpus: 2
+  gpus: 0
+  queue: ''
+  project: ''

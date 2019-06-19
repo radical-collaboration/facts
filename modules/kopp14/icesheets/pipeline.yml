@@ -1,0 +1,93 @@
+pre-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_preprocess_icesheets.py"
+    options:
+      - "scenario"
+    upload_input_data:
+      - "./modules/kopp14/icesheets/kopp14_preprocess_icesheets.py"
+
+
+fit:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_fit_icesheets.py"
+    options:
+      - "rate_file"
+    upload_input_data:
+      - './modules/kopp14/icesheets/kopp14_fit_icesheets.py'
+      - './modules/kopp14/icesheets/CalcISDists.py'
+      - './modules/kopp14/lib/FitLNDistQuants.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "kopp14_icesheets_rates.pkl"
+
+
+project:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_project_icesheets.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "fit_file"
+      - "corr_file"
+    upload_input_data:
+      - './modules/kopp14/icesheets/kopp14_project_icesheets.py'
+      - './modules/kopp14/icesheets/SampleISDists.py'
+      - './modules/kopp14/lib/cholcov.py'
+      - './modules/kopp14/icesheets/ProjectGSL.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "kopp14_icesheets_corr.pkl"
+      fit:
+        task1:
+          - "kopp14_icesheets_fit.pkl"
+
+
+# NOTE FOR POST_PROCESS:  Need to upload full directories of data too...
+
+post-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_postprocess_icesheets.py"
+    options:
+      - "proj_file"
+      - "samp_type"
+    upload_input_data:
+      - './modules/kopp14/icesheets/kopp14_postprocess_icesheets.py'
+      - './modules/kopp14/icesheets/SampleISDists.py'
+#      - './modules/kopp14/icesheets/pyssht.so'
+      - './modules/kopp14/lib/read_annual.py'
+      - './modules/kopp14/lib/AssignFP.py'
+      - './modules/kopp14/lib/ReadFingerprint.py'
+    copy_input_data:
+      project:
+        task1:
+          - "kopp14_icesheets_projections.pkl"
