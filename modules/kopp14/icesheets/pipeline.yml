@@ -6,7 +6,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: "pip install numpy; mkdir -p data"
     script: "kopp14_preprocess_icesheets.py"
     options:
       - "scenario"
