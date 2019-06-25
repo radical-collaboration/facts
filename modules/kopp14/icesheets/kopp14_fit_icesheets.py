@@ -3,9 +3,6 @@ import sys
 import os
 import argparse
 import numpy as np
-
-# Import external code
-sys.path.append("../lib")
 from CalcISDists import CalcISDists as calcDists
 
 ''' kopp14_fit_icesheets.py
@@ -48,7 +45,7 @@ def kopp14_fit_icesheets(infile):
 				'islastdecade': islastdecade}
 	
 	# Write the results to a file
-	outdir = os.path.join(os.path.dirname(__file__), 'data')
+	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "kopp14_icesheets_fit.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
@@ -62,7 +59,7 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--rate_file', '-f', help="Rate file produced by the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_icesheets_rates.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_rates.pkl"))
 	
 	# Parse the arguments
 	args = parser.parse_args()

@@ -6,7 +6,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install numpy; mkdir -p data"
+    pre_exec: "pip install numpy scipy netCDF4"
     script: "kopp14_preprocess_icesheets.py"
     options:
       - "scenario"
@@ -29,7 +29,7 @@ fit:
     upload_input_data:
       - './modules/kopp14/icesheets/kopp14_fit_icesheets.py'
       - './modules/kopp14/icesheets/CalcISDists.py'
-      - './modules/kopp14/lib/FitLNDistQuants.py'
+      - './modules/kopp14/icesheets/FitLNDistQuants.py'
     copy_input_data:
       pre-process:
         task1:
@@ -54,7 +54,7 @@ project:
     upload_input_data:
       - './modules/kopp14/icesheets/kopp14_project_icesheets.py'
       - './modules/kopp14/icesheets/SampleISDists.py'
-      - './modules/kopp14/lib/cholcov.py'
+      - './modules/kopp14/icesheets/cholcov.py'
       - './modules/kopp14/icesheets/ProjectGSL.py'
     copy_input_data:
       pre-process:
@@ -63,6 +63,8 @@ project:
       fit:
         task1:
           - "kopp14_icesheets_fit.pkl"
+    download_output_data:
+      - "kopp14_icesheets_projections.pkl"
 
 
 # NOTE FOR POST_PROCESS:  Need to upload full directories of data too...
@@ -75,7 +77,7 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: "tar -xzf kopp14_icesheets_data.tgz"
     script: "kopp14_postprocess_icesheets.py"
     options:
       - "proj_file"
@@ -84,10 +86,13 @@ post-process:
       - './modules/kopp14/icesheets/kopp14_postprocess_icesheets.py'
       - './modules/kopp14/icesheets/SampleISDists.py'
 #      - './modules/kopp14/icesheets/pyssht.so'
-      - './modules/kopp14/lib/read_annual.py'
-      - './modules/kopp14/lib/AssignFP.py'
-      - './modules/kopp14/lib/ReadFingerprint.py'
+      - './modules/kopp14/icesheets/read_annual.py'
+      - './modules/kopp14/icesheets/AssignFP.py'
+      - './modules/kopp14/icesheets/ReadFingerprint.py'
+      - './modules/kopp14/icesheets/data/kopp14_icesheets_data.tgz'
     copy_input_data:
       project:
         task1:
           - "kopp14_icesheets_projections.pkl"
+    download_output_data:
+      - "local_slr.nc"

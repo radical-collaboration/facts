@@ -3,12 +3,8 @@ import sys
 import os
 import argparse
 import numpy as np
-
-# Import external code
-sys.path.append("../lib")
 from SampleISDists import SampleISDists
 from ProjectGSL import ProjectGSL
-
 import cholcov
 
 ''' kopp14_project_icesheets.py
@@ -82,7 +78,7 @@ def kopp14_project_icesheets(nsamps, parfile, corfile, seed):
 	output = {'arsamps': arsamps, 'basamps': basamps, 'hysamps': hysamps}
 	
 	# Write the results to a file
-	outdir = os.path.join(os.path.dirname(__file__), "data")
+	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "kopp14_icesheets_projections.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
@@ -99,10 +95,10 @@ if __name__ == '__main__':
 	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
 	
 	parser.add_argument('--fit_file', help="Fit file produced in the fitting stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_icesheets_fit.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_fit.pkl"))
 	
 	parser.add_argument('--corr_file', help="Correlation file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_icesheets_corr.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_corr.pkl"))
 	
 	# Parse the arguments
 	args = parser.parse_args()

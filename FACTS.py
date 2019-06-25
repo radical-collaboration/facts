@@ -7,7 +7,10 @@ from pprint import pprint
 from radical.entk import Pipeline, Stage, Task, AppManager
 
 
-def GeneratePipeline(pcfg, ecfg, pipe_name):
+def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir):
+	
+	# Append the exp_dir to the ecfg dictionary to simplify things a bit
+	ecfg['exp_dir'] = exp_dir
 	
 	# Initialize the pipeline object
 	p = Pipeline()
@@ -85,13 +88,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
 	
-	# Set the file for stderr and stdout
-	cur_dir = os.path.dirname(os.path.abspath(__file__))
-	err_file = "{}_{}_{}_err.txt".format(pipe_name, stage_name, task_name)
-	out_file = "{}_{}_{}_out.txt".format(pipe_name, stage_name, task_name)
-	t.stderr = os.path.join(cur_dir, err_file)
-	t.stdout = os.path.join(cur_dir, out_file)
-	t.download_output_data = [err_file, out_file]
+	# Set the download data for the task
+	download_list = []
+	if "download_output_data" in tcfg.keys():
+		download_list.extend(['%s > %s/%s'%(x,ecfg['exp_dir'],x) for x in tcfg['download_output_data']]) 
+	
+	# Append the download list to this task
+	t.download_output_data = download_list
 
 	# Return the task object
 	return(t)
@@ -154,7 +157,7 @@ def run_experiment(exp_dir, debug_mode):
 		
 		# Generate a pipeline for this module
 		pipe_name = "-".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
-		pipelines.append(GeneratePipeline(pcfg, ecfg[this_mod], pipe_name))
+		pipelines.append(GeneratePipeline(pcfg, ecfg[this_mod], pipe_name, exp_dir))
 	
 	# Print out PST info if in debug mode
 	if debug_mode:

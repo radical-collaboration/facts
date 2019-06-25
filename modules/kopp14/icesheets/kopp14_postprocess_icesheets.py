@@ -5,9 +5,6 @@ import pickle
 import time
 import argparse
 from netCDF4 import Dataset
-
-# Import external code
-sys.path.append("../lib")
 from read_annual import read_annual
 from AssignFP import AssignFP
 
@@ -38,7 +35,7 @@ def kopp14_postprocess_icesheets(projfile, samptype):
 		sys.exit(1)
 	
 	# Load the site locations
-	rlrdir = os.path.join(os.path.dirname(__file__), "data", "rlr_annual")
+	rlrdir = os.path.join(os.path.dirname(__file__), "rlr_annual")
 	sites = read_annual(rlrdir, True)
 	
 	# Extract site lats, lons, and ids
@@ -60,7 +57,7 @@ def kopp14_postprocess_icesheets(projfile, samptype):
 	f.close()
 	
 	# Get the fingerprints for all sites from all ice sheets
-	fpdir = os.path.join(os.path.dirname(__file__), "data", "FPRINT")
+	fpdir = os.path.join(os.path.dirname(__file__), "FPRINT")
 	gisfp = AssignFP(os.path.join(fpdir,"fprint_gis.mn"), site_lats, site_lons)
 	waisfp = AssignFP(os.path.join(fpdir,"fprint_wais.mn"), site_lats, site_lons)
 	eaisfp = AssignFP(os.path.join(fpdir,"fprint_eais.mn"), site_lats, site_lons)
@@ -71,7 +68,7 @@ def kopp14_postprocess_icesheets(projfile, samptype):
 	eaissl = np.multiply.outer(projdata[:,:,2], eaisfp)
 	
 	# Write the localized projections to a netcdf file
-	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "data", "local_slr.nc"), "w", format="NETCDF4")
+	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "local_slr.nc"), "w", format="NETCDF4")
 
 	# Define Dimensions
 	site_dim = rootgrp.createDimension("nsites", len(site_inds))
@@ -124,7 +121,7 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected	
 	parser.add_argument('--proj_file', help="Projection file produced in the projection stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_icesheets_projections.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_projections.pkl"))
 	
 	parser.add_argument('--samp_type', help="Type of samples to post-process",\
 	choices=['hysamps', 'arsamps', 'basamps'], default="hysamps")

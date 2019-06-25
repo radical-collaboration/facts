@@ -1,5 +1,5 @@
 import numpy as np
-#import os
+import os
 
 
 ''' read_annual.py
@@ -59,7 +59,7 @@ def read_annual(dataDir, metaonly=False):
 	
 	# Load the catalogue file
 	psmsl_sites = []
-	f = open(dataDir+"/filelist.txt", 'r')
+	f = open(os.path.join(dataDir, "filelist.txt"), 'r')
 	for line in f:
 		
 		# Get the metadata for this site
@@ -77,7 +77,7 @@ def read_annual(dataDir, metaonly=False):
 			# Store everything in an instance of the Sites class
 			psmsl_sites.append(Site(id, lat, lon, name, coastline, stationcode, stationflag))
 		else:
-			df = open(dataDir+"/data/"+id.strip()+".rlrdata", 'r')
+			df = open(os.path.join(dataDir, "data", id.strip()+".rlrdata"), 'r')
 		
 			# Extract the data from the file
 			for dline in df:

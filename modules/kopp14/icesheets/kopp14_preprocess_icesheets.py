@@ -52,7 +52,7 @@ def kopp14_preprocess_icesheets(rcp_scenario):
 	corr_is = {'bacorris': bacorris, 'arcorris': arcorris}
 	
 	# Define the data directory
-	outdir = os.path.join(os.path.dirname(__file__), 'data')
+	outdir = os.path.dirname(__file__)
 
 	# Write the rates data to a pickle file
 	ratefile = open(os.path.join(outdir, "kopp14_icesheets_rates.pkl"), 'wb')
