@@ -39,7 +39,7 @@ def kopp14_preprocess_thermalexp(rcp_scenario, modeldir, driftcorr):
 	
 	# Apply the drift correction if needed
 	if(driftcorr):
-		gslfile = os.path.join(os.path.dirname(__file__), "data", "CSIRO_Recons_gmsl_yr_2011.csv")
+		gslfile = os.path.join(os.path.dirname(__file__), "CSIRO_Recons_gmsl_yr_2011.csv")
 		(sZOSTOGA, CWdrift, histGICrate, selectyears) = DriftCorr(sZOSTOGA, datayears, baseyear, rcp_scenario, gslfile)
 	else:
 		CWdrift = np.nan
@@ -53,7 +53,7 @@ def kopp14_preprocess_thermalexp(rcp_scenario, modeldir, driftcorr):
 		'GCMprobscale': GCMprobscale}
 	
 	# Write the configuration to a file
-	outdir = os.path.join(os.path.dirname(__file__), "data")
+	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "kopp14_thermalexp_config.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
@@ -77,7 +77,7 @@ if __name__ == '__main__':
 	parser.add_argument('--scenario', help="RCP Scenario [default=\'rcp85\']", choices=['rcp85', 'rcp60', 'rcp45', 'rcp26'], default='rcp85')
 	
 	parser.add_argument('--model_dir', help="Directory containing ZOS/ZOSTOGA GCM output",\
-	default=os.path.join(os.path.dirname(__file__), "data", "SLR_ALL"))
+	default=os.path.join(os.path.dirname(__file__), "SLR_ALL"))
 	
 	parser.add_argument('--no_drift_corr', help="Do not apply the drift correction", action='store_true')
 	

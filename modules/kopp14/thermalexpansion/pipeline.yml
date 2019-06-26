@@ -8,21 +8,21 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: "pip install numpy"
     script: "kopp14_preprocess_thermalexp.py"
     options:
       - "scenario"
       - "model_dir"
       - "no_drift_corr"
     upload_input_data:
-      - "./modules/kopp14/thermal_expansion/kopp14_preprocess_thermalexp.py"
-      - "./modules/kopp14/thermal_expansion/IncludeModels.py"
-      - "./modules/kopp14/thermal_expansion/SmoothZOSTOGA.py"
-      - "./modules/kopp14/thermal_expansion/DriftCorr.py"
-      - "./modules/kopp14/lib/Smooth.py"
-      - "./modules/kopp14/lib/read_CSRIO.py"
-      - "./modules/kopp14/lib/readMarzeion.py"
-      - "./modules/kopp14/thermal_expansion/data/CSIRO_Recons_gmsl_yr_2011.csv"
+      - "./modules/kopp14/thermalexpansion/kopp14_preprocess_thermalexp.py"
+      - "./modules/kopp14/thermalexpansion/IncludeModels.py"
+      - "./modules/kopp14/thermalexpansion/SmoothZOSTOGA.py"
+      - "./modules/kopp14/thermalexpansion/DriftCorr.py"
+      - "./modules/kopp14/thermalexpansion/Smooth.py"
+      - "./modules/kopp14/thermalexpansion/read_CSRIO.py"
+      - "./modules/kopp14/thermalexpansion/readMarzeion.py"
+      - "./modules/kopp14/thermalexpansion/data/CSIRO_Recons_gmsl_yr_2011.csv"
 
 
 fit:
@@ -63,10 +63,7 @@ project:
       - "config_file"
       - "fit_file"
     upload_input_data:
-      - './modules/kopp14/icesheets/kopp14_project_thermalexp.py'
-      - './modules/kopp14/icesheets/SampleISDists.py'
-      - './modules/kopp14/lib/cholcov.py'
-      - './modules/kopp14/icesheets/ProjectGSL.py'
+      - './modules/kopp14/thermalexpansion/kopp14_project_thermalexp.py'
     copy_input_data:
       pre-process:
         task1:
@@ -74,25 +71,3 @@ project:
       fit:
         task1:
           - "kopp14_thermalexp_fit.pkl" 
-
-#post-process:
-#  executable: "python"
-#  cpu:
-#    processes: 1
-#    process-type: None
-#    threads-per-process: 1
-#    thread-type: None
-#  pre_exec: ""
-#  script: "kopp14_postprocess_icesheets.py"
-#  options:
-#    - "proj_file"
-#    - "samp_type"
-#  upload_input_data:
-#    - './modules/kopp14/icesheets/kopp14_postprocess_icesheets.py'
-#    - './modules/kopp14/icesheets/SampleISDists.py'
-#    - './modules/kopp14/icesheets/pyssht.so'
-#    - './modules/kopp14/lib/read_annual.py'
-#    - './modules/kopp14/lib/AssignFP.py'
-#    - './modules/kopp14/lib/ReadFingerprint.py'
-#  copy_input_data:
-#    - "kopp14_icesheets_projections.pkl"

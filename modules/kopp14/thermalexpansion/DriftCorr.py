@@ -1,9 +1,6 @@
 import numpy as np
 import pickle
 import sys
-
-# Import external code
-sys.path.append("../lib")
 from read_CSIRO import *
 from Smooth import *
 from readMarzeion import *
@@ -49,8 +46,8 @@ def DriftCorr(ZOSTOGA, years, baseyear, scenario, gslfile):
 	selectyears = np.array([1861, np.floor(GSLx[inds.max(),2])])
 	
 	# Load the glacier data
-	glacdir = os.path.join(os.path.dirname(__file__), "data", "Marzeion2012supplement")
-	fpmap = os.path.join(os.path.dirname(__file__), "data", "fingerprint_region_map.csv")
+	glacdir = os.path.join(os.path.dirname(__file__), "Marzeion2012supplement")
+	fpmap = os.path.join(os.path.dirname(__file__), "fingerprint_region_map.csv")
 	(projGIC85, projGIC85se, projGIC85yrs, projGIC85model) = readMarzeion(scenario, glacdir, fpmap, discardAntarctica=True)
 	
 	# Find which indices in the glacier data correspond to the start and end years in selectyears
@@ -106,10 +103,10 @@ def DriftCorr(ZOSTOGA, years, baseyear, scenario, gslfile):
 
 if __name__ == '__main__':
 	
-	gslfile = os.path.join(os.path.dirname(__file__), "data", "CSIRO_Recons_gmsl_yr_2011.csv")
+	gslfile = os.path.join(os.path.dirname(__file__), "CSIRO_Recons_gmsl_yr_2011.csv")
 	
 	# Load the ZOSTOGA file
-	zostogafile = os.path.join(os.path.dirname(__file__), "data", "kopp14_thermalexp_ZOSTOGA.pkl")
+	zostogafile = os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_ZOSTOGA.pkl")
 	try:
 		f = open(zostogafile, 'rb')
 	except:

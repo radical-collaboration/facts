@@ -1,8 +1,5 @@
 import numpy as np
 import sys
-
-# Import external code
-sys.path.append("../lib")
 from Smooth import Smooth
 
 ''' SmoothZOSTOGA.py
