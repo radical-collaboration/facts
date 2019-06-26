@@ -79,7 +79,7 @@ def kopp14_fit_thermalexp(configfile, zostogafile):
 	# Store the thermal expansion variables in a pickle
 	output = {'ThermExpMean': ThermExpMean, 'ThermExpStd': ThermExpStd,\
 		'ThermExpYears': ThermExpYears,	'ThermExpN': ThermExpN}
-	outfile = open(os.path.join(os.path.dirname(__file__), "data", "kopp14_thermalexp_fit.pkl"), 'wb')
+	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_fit.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -91,10 +91,10 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--config_file', help="Configuration file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_thermalexp_config.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_config.pkl"))
 	
 	parser.add_argument('--zostoga_file', help="ZOSTOGA file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_thermalexp_ZOSTOGA.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_ZOSTOGA.pkl"))
 	
 	# Parse the arguments
 	args = parser.parse_args()

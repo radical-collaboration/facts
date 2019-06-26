@@ -87,7 +87,7 @@ def kopp14_project_thermalexp(configfile, fitfile, nsamps, seed):
 
 	# Save the global thermal expansion projections to a pickle
 	output = {"thermsamps": thermsamps}
-	outfile = open(os.path.join(os.path.dirname(__file__), "data", "kopp14_thermexp_projections.pkl"), 'wb')
+	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_thermexp_projections.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -102,10 +102,10 @@ if __name__ == '__main__':
 	parser.add_argument('--seed', '-s', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	
 	parser.add_argument('--config_file', help="Configuration file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_thermalexp_config.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_config.pkl"))
 	
 	parser.add_argument('--fit_file', help="Fit file produced in the fitting stage",\
-	default=os.path.join(os.path.dirname(__file__), "data", "kopp14_thermalexp_fit.pkl"))
+	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_fit.pkl"))
 	
 	# Parse the arguments
 	args = parser.parse_args()
