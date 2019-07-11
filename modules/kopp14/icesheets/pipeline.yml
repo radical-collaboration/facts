@@ -6,7 +6,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install numpy scipy netCDF4"
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_icesheets.py"
     options:
       - "scenario"
