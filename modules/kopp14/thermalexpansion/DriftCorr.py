@@ -48,7 +48,7 @@ def DriftCorr(ZOSTOGA, years, baseyear, scenario, gslfile):
 	# Load the glacier data
 	glacdir = os.path.join(os.path.dirname(__file__), "Marzeion2012supplement")
 	fpmap = os.path.join(os.path.dirname(__file__), "fingerprint_region_map.csv")
-	(projGIC85, projGIC85se, projGIC85yrs, projGIC85model) = readMarzeion(scenario, glacdir, fpmap, discardAntarctica=True)
+	(projGIC85, projGIC85se, projGIC85yrs, projGIC85model,_,_,_) = readMarzeion(scenario, glacdir, fpmap, discardAntarctica=True)
 	
 	# Find which indices in the glacier data correspond to the start and end years in selectyears
 	startyear_ind = np.nonzero(projGIC85yrs[:,0] == selectyears[0])[0]

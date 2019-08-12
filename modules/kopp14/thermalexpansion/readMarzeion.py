@@ -18,6 +18,9 @@ GIC = Array of glacier contributions to sea-level rise (year, region, model)
 GICse = Standard error for each entry in GIC (year, region, model)
 GICyrs = Years associated with the glacier data (year, model)
 GICmodel = Names of models from which data were collected (model)
+fpmapperids = Fingerprint Mapper IDs (IceID from Marzeion file)
+fpmaps = Fingerprint IDs (that match fingerprint data files)
+GICnames = Names of the glacier regions
 
 Note: 
 
@@ -80,4 +83,4 @@ def readMarzeion(scen, glacdir, fpmap, discardAntarctica=False):
 		GICmodel.append(regex_test.group(1).lower())
 	
 	# Return the objects
-	return(GIC, GICse, GICyrs, GICmodel)
+	return(GIC, GICse, GICyrs, GICmodel, fpmapperids, fpmaps, GICnames)
