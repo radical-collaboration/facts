@@ -19,25 +19,25 @@ Output: Pickle file containing the data and configuration for the glaciers submo
 def kopp14_preprocess_glaciers(rcp_scenario):
 	
 	# Use readMarzeion to read in the glacier data
-	glacdir = os.path.join(os.path.dirname(__file__), "Marzeion2012supplement")
+	glacdir = "."
 	fpmap = os.path.join(os.path.dirname(__file__), "fingerprint_region_map.csv")
-	(projGIC, projGICse, projGICyrs, projGICmodel, fpmapperids, fpmaps, _) = readMarzeion(scenario, glacdir, fpmap, discardAntarctica=True)
+	(projGIC, projGICse, projGICyrs, projGICmodel, fpmapperids, fpmaps, _) = readMarzeion(rcp_scenario, glacdir, fpmap, discardAntarctica=True)
 		
-	# Store the configuration in a pickle
+	# Store the data in a pickle
 	output = {'rcp_scenario': rcp_scenario, 'projGIC': projGIC,\
 		'projGICse': projGICse,	'projGICyrs': projGICyrs,\
 		'projGICmodel': projGICmodel}
 	
-	# Write the configuration to a file
+	# Write the data to a file
 	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "kopp14_glaciers_data.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
-	# Store the ZOSTOGA variables in a pickle
-	output = {'fpmappers': fpmappers, 'fpmaps': fpmaps}
+	# Store the fingerprint variables in a pickle
+	output = {'fpmapperids': fpmapperids, 'fpmaps': fpmaps}
 	
-	# Write the ZOSTOGA variables to a file
+	# Write the fingerprint variables to a file
 	outfile = open(os.path.join(outdir, "kopp14_glaciers_fp.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Pass the model directory in via command line
+	# Run the preprocessing stage with the provided arguments
 	kopp14_preprocess_glaciers(args.scenario)
 	
 	exit()
