@@ -19,26 +19,27 @@ pre-process:
       - "kopp14_glaciers_data.pkl"
       - "kopp14_glaciers_fp.pkl"
 
-
-#fit:
-# task1:
-#   executable: "python"
-#   cpu:
-#     processes: 1
-#     process-type: None
-#     threads-per-process: 1
-#     thread-type: None
-#   pre_exec: ""
-#   script: "kopp14_fit_glaciers.py"
-#   options:
-#     - "data_file"
-#   upload_input_data:
-#     - './modules/kopp14/icesheets/kopp14_fit_glaciers.py'
-#   copy_input_data:
-#     pre-process:
-#       task1:
-#         - "kopp14_glaciers_data.pkl"
-
+fit:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_fit_glaciers.py"
+    options:
+      - "data_file"
+    upload_input_data:
+      - './modules/kopp14/glaciers/kopp14_fit_glaciers.py'
+      - './modules/kopp14/glaciers/cholcov.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "kopp14_glaciers_data.pkl"
+    download_output_data:
+      - "kopp14_glaciers_fit.pkl"
 
 #project:
 #  task1:
