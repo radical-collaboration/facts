@@ -10,13 +10,18 @@ This script runs the glaciers fitting task for the Kopp 2014 workflow.
 This task generates the t-distributions for projecting glacier contributions.
 
 Parameters: 
-data_file = The glacier data/configuration file
+data_file = The glacier data file from the pre-processing stage
+config_file = The configuration information from the pre-processing stage
 
-Output: 
+Output: Pickle file containing...
+meanGIC = Multi-model, 9-year windowed average GIC contribution
+T = Covariance matrix
+NGIC = Number of GIC models contributing to the model mean
+targyears = The years at which projections are produced
 
 '''
 
-def kopp14_fit_glaciers(data_file):
+def kopp14_fit_glaciers(data_file, config_file):
 	
 	# Load the data file
 	try:
@@ -28,14 +33,23 @@ def kopp14_fit_glaciers(data_file):
 	my_config = pickle.load(f)
 	f.close()
 	
-	#rcp_scenario = my_config["rcp_scenario"]
 	projGIC = my_config["projGIC"]
 	projGICse = my_config["projGICse"]
 	projGICyrs = my_config["projGICyrs"]
 	projGICmodel = my_config["projGICmodel"]
 	
-	# Define the target years
-	targyears = np.arange(2010, 2101, 10)
+	# Load the configuration file
+	try:
+		f = open(config_file, 'rb')
+	except:
+		print("Cannot open config file\n")
+	
+	# Extract the data variables
+	my_config = pickle.load(f)
+	f.close()
+	
+	targyears = my_config["targyears"]
+
 	
 	# Big Assumption: Years available across all models are the same... 1851 - 2300
 	GICyears = projGICyrs[:,0]	
@@ -86,10 +100,13 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--data_file', help="Pickle file containing Glacier data produced from preprocessing stage [default=\'kopp14_glaciers_data.pkl\']", default='kopp14_glaciers_data.pkl')
 	
+	# Define the command line arguments to be expected
+	parser.add_argument('--config_file', help="Pickle file containing Glacier configuration information from preprocessing stage [default=\'kopp14_glaciers_config.pkl\']", default='kopp14_glaciers_config.pkl')
+	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the fitting process with the provided command line arguments
-	kopp14_fit_glaciers(args.data_file)
+	kopp14_fit_glaciers(args.data_file, args.config_file)
 	
 	exit()

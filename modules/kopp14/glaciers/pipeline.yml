@@ -6,18 +6,18 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_glaciers_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf kopp14_glaciers_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_glaciers.py"
     options:
       - "scenario"
     upload_input_data:
       - "./modules/kopp14/glaciers/kopp14_preprocess_glaciers.py"
       - "./modules/kopp14/glaciers/readMarzeion.py"
-      - "./modules/kopp14/glaciers/data/kopp14_glaciers_data.tgz"
-      - "./modules/kopp14/glaciers/data/fingerprint_region_map.csv"
+      - "./modules/kopp14/glaciers/data/kopp14_glaciers_preprocess_data.tgz"
     download_output_data:
       - "kopp14_glaciers_data.pkl"
       - "kopp14_glaciers_fp.pkl"
+      - "kopp14_glaciers_config.pkl"
 
 fit:
   task1:
@@ -31,6 +31,7 @@ fit:
     script: "kopp14_fit_glaciers.py"
     options:
       - "data_file"
+      - "config_file"
     upload_input_data:
       - './modules/kopp14/glaciers/kopp14_fit_glaciers.py'
       - './modules/kopp14/glaciers/cholcov.py'
@@ -38,39 +39,37 @@ fit:
       pre-process:
         task1:
           - "kopp14_glaciers_data.pkl"
+          - "kopp14_glaciers_config.pkl"
     download_output_data:
       - "kopp14_glaciers_fit.pkl"
 
-#project:
-#  task1:
-#    executable: "python"
-#    cpu:
-#      processes: 1
-#      process-type: None
-#      threads-per-process: 1
-#      thread-type: None
-#    pre_exec: ""
-#    script: "kopp14_project_icesheets.py"
-#    options:
-#      - "nsamps"
-#      - "seed"
-#      - "fit_file"
-#      - "corr_file"
-#    upload_input_data:
-#      - './modules/kopp14/icesheets/kopp14_project_icesheets.py'
-#      - './modules/kopp14/icesheets/SampleISDists.py'
-#      - './modules/kopp14/icesheets/cholcov.py'
-#      - './modules/kopp14/icesheets/ProjectGSL.py'
-#    copy_input_data:
-#      pre-process:
-#        task1:
-#          - "kopp14_icesheets_corr.pkl"
-#      fit:
-#        task1:
-#          - "kopp14_icesheets_fit.pkl"
-#    download_output_data:
-#      - "kopp14_icesheets_projections.pkl"
-#
+project:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_project_glaciers.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "fit_file"
+      - "config_file"
+    upload_input_data:
+      - './modules/kopp14/glaciers/kopp14_project_glaciers.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "kopp14_glaciers_config.pkl"
+      fit:
+        task1:
+          - "kopp14_glaciers_fit.pkl"
+    download_output_data:
+      - "kopp14_glaciers_projections.pkl"
+
 #
 ## NOTE FOR POST_PROCESS:  Need to upload full directories of data too...
 #
@@ -82,12 +81,13 @@ fit:
 #      process-type: None
 #      threads-per-process: 1
 #      thread-type: None
-#    pre_exec: "tar -xzf kopp14_icesheets_data.tgz"
-#    script: "kopp14_postprocess_icesheets.py"
+#    pre_exec: "tar -xzf kopp14_glaciers_postprocess_data.tgz"
+#    script: "kopp14_postprocess_glaciers.py"
 #    options:
 #      - "proj_file"
-#      - "samp_type"
-#    upload_input_data:
+#      - "fp_file"
+#      - "config_file"
+#    upload_input_data:  #--------------------- LEFT OFF HERE!!!
 #      - './modules/kopp14/icesheets/kopp14_postprocess_icesheets.py'
 #      - './modules/kopp14/icesheets/SampleISDists.py'
 ##      - './modules/kopp14/icesheets/pyssht.so'

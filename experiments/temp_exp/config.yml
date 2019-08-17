@@ -3,6 +3,8 @@ glaciers:
     module: "glaciers"
     options:
         scenario: "rcp85"
+        nsamps: 20000
+        seed: 1234
 
 #icesheets:
 #    module_set: "kopp14"

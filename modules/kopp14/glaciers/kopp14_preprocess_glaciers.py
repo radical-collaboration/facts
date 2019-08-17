@@ -12,7 +12,10 @@ This task generates the variables needed to configure the glaciers submodel.
 Parameters: 
 rcp_scenario = The RCP scenario (default: rcp85)
 
-Output: Pickle file containing the data and configuration for the glaciers submodel
+Output:
+"kopp14_glaciers_data.pkl" = Contains the GIC data
+"kopp14_glaciers_config.pkl" = Contains the configuration parameters
+"kopp14_glaciers_fp.pkl" = Contains the fingerprint information
 
 '''
 
@@ -22,15 +25,25 @@ def kopp14_preprocess_glaciers(rcp_scenario):
 	glacdir = "."
 	fpmap = os.path.join(os.path.dirname(__file__), "fingerprint_region_map.csv")
 	(projGIC, projGICse, projGICyrs, projGICmodel, fpmapperids, fpmaps, _) = readMarzeion(rcp_scenario, glacdir, fpmap, discardAntarctica=True)
-		
+	
+	# Define the target years for projections
+	targyears = np.arange(2010, 2101, 10)
+	
 	# Store the data in a pickle
-	output = {'rcp_scenario': rcp_scenario, 'projGIC': projGIC,\
-		'projGICse': projGICse,	'projGICyrs': projGICyrs,\
-		'projGICmodel': projGICmodel}
+	output = {'projGIC': projGIC, 'projGICse': projGICse, 'projGICyrs': projGICyrs, 'projGICmodel': projGICmodel}
 	
 	# Write the data to a file
 	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "kopp14_glaciers_data.pkl"), 'wb')
+	pickle.dump(output, outfile)
+	outfile.close()
+	
+	# Store the configuration in a pickle
+	output = {'rcp_scenario': rcp_scenario, 'targyears': targyears}
+	
+	# Write the configuration to a file
+	outdir = os.path.dirname(__file__)
+	outfile = open(os.path.join(outdir, "kopp14_glaciers_config.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
