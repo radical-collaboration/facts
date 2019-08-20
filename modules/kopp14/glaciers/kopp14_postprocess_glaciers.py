@@ -68,7 +68,7 @@ def kopp14_postprocess_glaciers(projfile, fpfile, configfile):
 	
 	
 	# Load the site locations
-	rlrdir = os.path.join(os.path.dirname(__file__), "data", "rlr_annual")
+	rlrdir = os.path.join(os.path.dirname(__file__), "rlr_annual")
 	sites = read_annual(rlrdir, True)
 	
 	# Extract site lats, lons, and ids
@@ -96,9 +96,8 @@ def kopp14_postprocess_glaciers(projfile, fpfile, configfile):
 		# Get the fingerprint file name for this region
 		thisRegion = fpmaps[i]
 		
-		# Get the fingerprints for these site from this region
-		regionfile = os.path.join(os.path.dirname(__file__),"data", "FPRINT", "fprint_{0}.mn".format(thisRegion))
-		print(regionfile)
+		# Get the fingerprints for these sites from this region
+		regionfile = os.path.join(os.path.dirname(__file__), "FPRINT", "fprint_{0}.mn".format(thisRegion))
 		regionfp = AssignFP(regionfile, site_lats, site_lons)
 		
 		# Multiply the fingerprints and the projections
@@ -121,7 +120,7 @@ def kopp14_postprocess_glaciers(projfile, fpfile, configfile):
 	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
 
 	# Create a data variable
-	localsl = rootgrp.createVariable("localSL", "f4", ("samples", "years", "regions", "nsites"), zlib=True, least_significant_digit=2)
+	localsl = rootgrp.createVariable("localSL", "f4", ("nsites", "samples", "regions", "years"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from glaciers and ice caps according to Kopp 2014 workflow"
