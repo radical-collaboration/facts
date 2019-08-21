@@ -58,23 +58,7 @@ def DriftCorr(ZOSTOGA, years, baseyear, scenario, gslfile):
 	histGIC = np.sum(projGIC85, axis=1)
 	
 	# Calculate the historic rate of change of GIC contributions and convert to meters
-	histGICrate = (histGIC[startyear_ind,:] - histGIC[endyear_ind,:]) / np.diff(selectyears) / 1000
-	
-	'''
-	# Find where the glacier data overlaps the global SLR data
-	(overlap_years, GSLyear_inds, GICyear_inds) = np.intersect1d(np.floor(GSLx[:,2]), projGIC85yrs[:,0], return_indices=True)
-	
-	# Calculate GSL less the mean, min, and max (across models) glacier contributions
-	GSLlessGICmean = GSLy[GSLyear_inds] - np.mean(np.sum(projGIC85[GICyear_inds,:,:], axis=1), axis=1)/1000
-	GSLlessGICmin = GSLy[GSLyear_inds] - np.min(np.sum(projGIC85[GICyear_inds,:,:], axis=1), axis=1)/1000
-	GSLlessGICmax = GSLy[GSLyear_inds] - np.max(np.sum(projGIC85[GICyear_inds,:,:], axis=1), axis=1)/1000
-	
-	# Center the GSLlessGIC values to the baseyear
-	overlap_baseyear_ind = np.nonzero(overlap_years == baseyear)[0]
-	GSLlessGICmean = GSLlessGICmean - GSLlessGICmean[overlap_baseyear_ind]
-	GSLlessGICmin = GSLlessGICmin - GSLlessGICmin[overlap_baseyear_ind]
-	GSLlessGICmax = GSLlessGICmax - GSLlessGICmax[overlap_baseyear_ind]
-	'''
+	histGICrate = (histGIC[endyear_ind,:] - histGIC[startyear_ind,:]) / np.diff(selectyears) / 1000
 	
 	# Find the difference between the CWdrift and the mean historical GIC rate
 	# Note: Units are in meters

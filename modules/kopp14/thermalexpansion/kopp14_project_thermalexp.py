@@ -87,7 +87,7 @@ def kopp14_project_thermalexp(configfile, fitfile, nsamps, seed):
 
 	# Save the global thermal expansion projections to a pickle
 	output = {"thermsamps": thermsamps}
-	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_thermexp_projections.pkl"), 'wb')
+	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_projections.pkl"), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 

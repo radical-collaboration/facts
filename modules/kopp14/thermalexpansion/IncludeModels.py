@@ -32,6 +32,10 @@ def IncludeModels(model_dir, varnames, years):
 	# Loop through available models in model_dir
 	for model in os.listdir(model_dir):
 		
+		# Skip if the folder/file found in this directory is hidden
+		if(model.startswith(".")):
+			continue
+		
 		# Initialize "foundvar"
 		foundvar = False
 		
@@ -40,7 +44,7 @@ def IncludeModels(model_dir, varnames, years):
 			
 			# Move onto the next iteration if the variable doesn't exist
 			# or if we've already found a viable variable candidate
-			vardir = os.path.join(model_dir, model, this_var)
+			vardir = os.path.join(model_dir, model, this_var.lower())
 			if(os.path.isdir(vardir) and (not foundvar)):
 				
 				# Note that we found a viable variable

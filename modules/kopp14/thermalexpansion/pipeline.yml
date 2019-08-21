@@ -1,5 +1,3 @@
-# NOTE: The entire data directory needs to be copied over for the various stages
-
 pre-process:
   task1:
     executable: "python"
@@ -8,7 +6,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install numpy"
+    pre_exec: "tar -xzf kopp14_thermalexp_data.tgz; pip install numpy"
     script: "kopp14_preprocess_thermalexp.py"
     options:
       - "scenario"
@@ -20,9 +18,12 @@ pre-process:
       - "./modules/kopp14/thermalexpansion/SmoothZOSTOGA.py"
       - "./modules/kopp14/thermalexpansion/DriftCorr.py"
       - "./modules/kopp14/thermalexpansion/Smooth.py"
-      - "./modules/kopp14/thermalexpansion/read_CSRIO.py"
+      - "./modules/kopp14/thermalexpansion/read_CSIRO.py"
       - "./modules/kopp14/thermalexpansion/readMarzeion.py"
-      - "./modules/kopp14/thermalexpansion/data/CSIRO_Recons_gmsl_yr_2011.csv"
+      - "./modules/kopp14/thermalexpansion/data/kopp14_thermalexp_data.tgz"
+    download_output_data:
+      - "kopp14_thermalexp_config.pkl"
+      - "kopp14_thermalexp_ZOSTOGA.pkl"
 
 
 fit:
@@ -45,6 +46,8 @@ fit:
         task1:
           - "kopp14_thermalexp_config.pkl"
           - "kopp14_thermalexp_ZOSTOGA.pkl"
+    download_output_data:
+      - "kopp14_thermalexp_fit.pkl"
 
 
 project:
@@ -70,4 +73,6 @@ project:
           - "kopp14_thermalexp_config.pkl"
       fit:
         task1:
-          - "kopp14_thermalexp_fit.pkl" 
+          - "kopp14_thermalexp_fit.pkl"
+    download_output_data:
+      - "kopp14_thermalexp_projections.pkl"
