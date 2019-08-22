@@ -1,3 +1,5 @@
+# Kopp14 Ice Sheets Pipeline
+
 pre-process:
   task1:
     executable: "python"
@@ -65,9 +67,6 @@ project:
           - "kopp14_icesheets_fit.pkl"
     download_output_data:
       - "kopp14_icesheets_projections.pkl"
-
-
-# NOTE FOR POST_PROCESS:  Need to upload full directories of data too...
 
 post-process:
   task1:

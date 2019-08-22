@@ -1,3 +1,5 @@
+# Kopp14 Glaciers and Ice Caps Pipeline
+
 pre-process:
   task1:
     executable: "python"
@@ -67,8 +69,8 @@ project:
       fit:
         task1:
           - "kopp14_glaciers_fit.pkl"
-#    download_output_data:
-#      - "kopp14_glaciers_projections.pkl"
+    download_output_data:
+      - "kopp14_glaciers_projections.pkl"
 
 
 post-process:

@@ -1,3 +1,5 @@
+# Kopp14 Thermal Expansion Pipeline
+
 pre-process:
   task1:
     executable: "python"
@@ -21,9 +23,9 @@ pre-process:
       - "./modules/kopp14/thermalexpansion/read_CSIRO.py"
       - "./modules/kopp14/thermalexpansion/readMarzeion.py"
       - "./modules/kopp14/thermalexpansion/data/kopp14_thermalexp_data.tgz"
-    download_output_data:
-      - "kopp14_thermalexp_config.pkl"
-      - "kopp14_thermalexp_ZOSTOGA.pkl"
+#    download_output_data:
+#      - "kopp14_thermalexp_config.pkl"
+#      - "kopp14_thermalexp_ZOSTOGA.pkl"
 
 
 fit:
@@ -46,8 +48,8 @@ fit:
         task1:
           - "kopp14_thermalexp_config.pkl"
           - "kopp14_thermalexp_ZOSTOGA.pkl"
-    download_output_data:
-      - "kopp14_thermalexp_fit.pkl"
+#    download_output_data:
+#      - "kopp14_thermalexp_fit.pkl"
 
 
 project:

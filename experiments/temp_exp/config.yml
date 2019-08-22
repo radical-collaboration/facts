@@ -1,24 +1,33 @@
-#glaciers:
-#    module_set: "kopp14"
-#    module: "glaciers"
-#    options:
-#        scenario: "rcp85"
-#        nsamps: 20000
-#        seed: 1234
+glaciers:
+    module_set: "kopp14"
+    module: "glaciers"
+    options:
+        scenario: "rcp85"
+        nsamps: 20000
+        seed: 1234
 
-#icesheets:
-#    module_set: "kopp14"
-#    module: "icesheets"
-#    options:
-#        scenario: "rcp85"
-#        nsamps: 20000
-#        seed: 1234
-#        samptype: "hysamps"
+icesheets:
+    module_set: "kopp14"
+    module: "icesheets"
+    options:
+        scenario: "rcp85"
+        nsamps: 20000
+        seed: 1234
+        samptype: "hysamps"
 
 thermalexpansion:
     module_set: "kopp14"
     module: "thermalexpansion"
     options:
         scenario: "rcp85"
+        nsamps: 20000
+        seed: 1234
+
+landwaterstorage:
+    module_set: "kopp14"
+    module: "landwaterstorage"
+    options:
+        dotriangular: 0
+        includepokherl: 0
         nsamps: 20000
         seed: 1234

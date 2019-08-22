@@ -1,0 +1,102 @@
+# Kopp14 Land water storage pipeline
+
+pre-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf kopp14_landwaterstorage_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "kopp14_preprocess_landwaterstorage.py"
+    options:
+      - "scenario"
+    upload_input_data:
+      - "./modules/kopp14/landwaterstorage/kopp14_preprocess_landwaterstorage.py"
+      - "./modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_data.tgz"
+#    download_output_data:
+#      - "kopp14_landwaterstorage_data.pkl"
+#      - "kopp14_landwaterstorage_config.pkl"
+
+fit:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_fit_landwaterstorage.py"
+    options:
+      - "datafile"
+      - "configfile"
+    upload_input_data:
+      - './modules/kopp14/landwaterstorage/kopp14_fit_landwaterstorage.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "kopp14_landwaterstorage_data.pkl"
+          - "kopp14_landwaterstorage_config.pkl"
+#    download_output_data:
+#      - "kopp14_landwaterstorage_fit.pkl"
+
+project:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_project_landwaterstorage.py"
+    options:
+      - "fitfile"
+      - "configfile"
+      - "nsamps"
+      - "seed"
+    upload_input_data:
+      - './modules/kopp14/landwaterstorage/kopp14_project_landwaterstorage.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "kopp14_landwaterstorage_config.pkl"
+      fit:
+        task1:
+          - "kopp14_landwaterstorage_fit.pkl"
+    download_output_data:
+      - "kopp14_landwaterstorage_projections.pkl"
+
+
+#post-process:
+#  task1:
+#    executable: "python"
+#    cpu:
+#      processes: 1
+#      process-type: None
+#      threads-per-process: 1
+#      thread-type: None
+#    pre_exec: "tar -xzf kopp14_landwaterstorage_postprocess_data.tgz"
+#    script: "kopp14_postprocess_landwaterstorage.py"
+#    options:
+#      - "proj_file"
+#      - "fp_file"
+#      - "config_file"
+#    upload_input_data:
+#      - './modules/kopp14/landwaterstorage/kopp14_postprocess_landwaterstorage.py'
+#      - './modules/kopp14/landwaterstorage/read_annual.py'
+#      - './modules/kopp14/landwaterstorage/AssignFP.py'
+#      - './modules/kopp14/landwaterstorage/ReadFingerprint.py'
+#      - './modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_postprocess_data.tgz'
+#    copy_input_data:
+#      pre-process:
+#        task1:
+#          - "kopp14_landwaterstorage_fp.pkl"
+#          - "kopp14_landwaterstorage_config.pkl"
+#      project:
+#        task1:
+#          - "kopp14_landwaterstorage_projections.pkl"
+#    download_output_data:
+#      - "kopp14_landwaterstorage_localsl.nc"

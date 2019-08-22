@@ -84,7 +84,7 @@ def kopp14_fit_glaciers(data_file, config_file):
 		covGIC = covGIC + (np.diag(meanGICse)**2)
 		T[:,:,i] = cholcov(covGIC)
 	
-	# Store the thermal expansion variables in a pickle
+	# Store the variables in a pickle
 	output = {'meanGIC': meanGIC, 'T': T, 'NGIC': NGIC}
 	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_glaciers_fit.pkl"), 'wb')
 	pickle.dump(output, outfile)
