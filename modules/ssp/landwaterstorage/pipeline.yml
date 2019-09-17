@@ -1,0 +1,102 @@
+# SSP Land water storage pipeline
+
+pre-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf ssp_landwaterstorage_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "ssp_preprocess_landwaterstorage.py"
+    options:
+      - "scenario"
+    upload_input_data:
+      - "./modules/ssp/landwaterstorage/ssp_preprocess_landwaterstorage.py"
+      - "./modules/ssp/landwaterstorage/data/ssp_landwaterstorage_data.tgz"
+#    download_output_data:
+#      - "ssp_landwaterstorage_data.pkl"
+#      - "ssp_landwaterstorage_config.pkl"
+
+fit:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "ssp_fit_landwaterstorage.py"
+    options:
+      - "datafile"
+      - "configfile"
+    upload_input_data:
+      - './modules/ssp/landwaterstorage/ssp_fit_landwaterstorage.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "ssp_landwaterstorage_data.pkl"
+          - "ssp_landwaterstorage_config.pkl"
+#    download_output_data:
+#      - "ssp_landwaterstorage_fit.pkl"
+
+project:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "ssp_project_landwaterstorage.py"
+    options:
+      - "fitfile"
+      - "configfile"
+      - "nsamps"
+      - "seed"
+    upload_input_data:
+      - './modules/ssp/landwaterstorage/ssp_project_landwaterstorage.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "ssp_landwaterstorage_config.pkl"
+      fit:
+        task1:
+          - "ssp_landwaterstorage_fit.pkl"
+    download_output_data:
+      - "ssp_landwaterstorage_projections.pkl"
+
+
+#post-process:
+#  task1:
+#    executable: "python"
+#    cpu:
+#      processes: 1
+#      process-type: None
+#      threads-per-process: 1
+#      thread-type: None
+#    pre_exec: "tar -xzf ssp_landwaterstorage_postprocess_data.tgz"
+#    script: "ssp_postprocess_landwaterstorage.py"
+#    options:
+#      - "proj_file"
+#      - "fp_file"
+#      - "config_file"
+#    upload_input_data:
+#      - './modules/ssp/landwaterstorage/ssp_postprocess_landwaterstorage.py'
+#      - './modules/ssp/landwaterstorage/read_annual.py'
+#      - './modules/ssp/landwaterstorage/AssignFP.py'
+#      - './modules/ssp/landwaterstorage/ReadFingerprint.py'
+#      - './modules/ssp/landwaterstorage/data/ssp_landwaterstorage_postprocess_data.tgz'
+#    copy_input_data:
+#      pre-process:
+#        task1:
+#          - "ssp_landwaterstorage_fp.pkl"
+#          - "ssp_landwaterstorage_config.pkl"
+#      project:
+#        task1:
+#          - "ssp_landwaterstorage_projections.pkl"
+#    download_output_data:
+#      - "ssp_landwaterstorage_localsl.nc"
