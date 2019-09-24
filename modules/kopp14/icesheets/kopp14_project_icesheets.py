@@ -16,21 +16,18 @@ input files generated from the previous stages.
 
 Parameters: 
 nsamps = Number of samples to produce
-parfile = Name of the file containing the fitted distribution data
-corfile = Name of the file containing the correlation information
 seed = The seed to use for the random number gerneration
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output: Pickled file containing "nsamps" of global sea-level rise due to ice sheets
 
-Note: The 'infile' must contain the variables 'batheteais', 'bathetwais', 'bathetgis', 
-'arthetais', 'arthetgis', and 'islastdecade' within a single dictionary.
-
 '''
 
-def kopp14_project_icesheets(nsamps, parfile, corfile, seed):
+def kopp14_project_icesheets(nsamps, seed, pipeline_id):
 	
 	## Read in the fitted parameters from parfile
 	# Open the file
+	parfile = "{}_fit.pkl".format(pipeline_id)
 	try:
 		f = open(parfile, 'rb')
 	except:
@@ -47,6 +44,7 @@ def kopp14_project_icesheets(nsamps, parfile, corfile, seed):
 	f.close()
 	
 	## Read in the correlation information
+	corfile = "{}_corr.pkl".format(pipeline_id)
 	try:
 		f = open(corfile, 'rb')
 	except:
@@ -79,7 +77,7 @@ def kopp14_project_icesheets(nsamps, parfile, corfile, seed):
 	
 	# Write the results to a file
 	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "kopp14_icesheets_projections.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
@@ -93,18 +91,13 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
-	
-	parser.add_argument('--fit_file', help="Fit file produced in the fitting stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_fit.pkl"))
-	
-	parser.add_argument('--corr_file', help="Correlation file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_corr.pkl"))
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the projection process for the parameters specified from the command line argument
-	kopp14_project_icesheets(args.nsamps, args.fit_file, args.corr_file, args.seed)
+	kopp14_project_icesheets(args.nsamps, args.seed, args.pipeline_id)
 	
 	# Done
 	exit()

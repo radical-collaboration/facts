@@ -15,18 +15,17 @@ for the log-normal distributions representing ice sheet contributions to future 
 rise
 
 Parameters: 
-infile = Name of the file containing the pre-processed data
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output: Pickled file containing the fitted parameter values
 
-Note: The 'infile' must contain the variables 'barates', 'lastdecadegt', and 'aris2090' 
-within a single dictionary.
 
 '''
 
-def kopp14_fit_icesheets(infile):
+def kopp14_fit_icesheets(pipeline_id):
 	
 	# Open the file
+	infile = "{}_rates.pkl".format(pipeline_id)
 	try:
 		f = open(infile, 'rb')
 	except:
@@ -46,7 +45,7 @@ def kopp14_fit_icesheets(infile):
 	
 	# Write the results to a file
 	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "kopp14_icesheets_fit.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_fit.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
@@ -58,14 +57,13 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--rate_file', '-f', help="Rate file produced by the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_rates.pkl"))
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the fitting process using the provided rate file from preprocessing stage
-	kopp14_fit_icesheets(args.rate_file)
+	kopp14_fit_icesheets(args.pipeline_id)
 	
 	# Done
 	exit()

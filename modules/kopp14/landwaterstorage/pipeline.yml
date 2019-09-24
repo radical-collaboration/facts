@@ -11,13 +11,15 @@ pre-process:
     pre_exec: "tar -xzf kopp14_landwaterstorage_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_landwaterstorage.py"
     options:
-      - "scenario"
+      - "dotriangular"
+      - "includepokherl"
+      - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/landwaterstorage/kopp14_preprocess_landwaterstorage.py"
       - "./modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_data.tgz"
 #    download_output_data:
-#      - "kopp14_landwaterstorage_data.pkl"
-#      - "kopp14_landwaterstorage_config.pkl"
+#      - "%PIPELINE_ID%_data.pkl"
+#      - "%PIPELINE_ID%_config.pkl"
 
 fit:
   task1:
@@ -30,17 +32,16 @@ fit:
     pre_exec: ""
     script: "kopp14_fit_landwaterstorage.py"
     options:
-      - "datafile"
-      - "configfile"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/landwaterstorage/kopp14_fit_landwaterstorage.py'
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_landwaterstorage_data.pkl"
-          - "kopp14_landwaterstorage_config.pkl"
+          - "%PIPELINE_ID%_data.pkl"
+          - "%PIPELINE_ID%_config.pkl"
 #    download_output_data:
-#      - "kopp14_landwaterstorage_fit.pkl"
+#      - "%PIPELINE_ID%_fit.pkl"
 
 project:
   task1:
@@ -53,21 +54,20 @@ project:
     pre_exec: ""
     script: "kopp14_project_landwaterstorage.py"
     options:
-      - "fitfile"
-      - "configfile"
       - "nsamps"
       - "seed"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/landwaterstorage/kopp14_project_landwaterstorage.py'
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_landwaterstorage_config.pkl"
+          - "%PIPELINE_ID%_config.pkl"
       fit:
         task1:
-          - "kopp14_landwaterstorage_fit.pkl"
+          - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
-      - "kopp14_landwaterstorage_projections.pkl"
+      - "%PIPELINE_ID%_projections.pkl"
 
 
 #post-process:
@@ -81,9 +81,7 @@ project:
 #    pre_exec: "tar -xzf kopp14_landwaterstorage_postprocess_data.tgz"
 #    script: "kopp14_postprocess_landwaterstorage.py"
 #    options:
-#      - "proj_file"
-#      - "fp_file"
-#      - "config_file"
+#      - "pipeline_id"
 #    upload_input_data:
 #      - './modules/kopp14/landwaterstorage/kopp14_postprocess_landwaterstorage.py'
 #      - './modules/kopp14/landwaterstorage/read_annual.py'
@@ -93,10 +91,10 @@ project:
 #    copy_input_data:
 #      pre-process:
 #        task1:
-#          - "kopp14_landwaterstorage_fp.pkl"
-#          - "kopp14_landwaterstorage_config.pkl"
+#          - "%PIPELINE_ID%_fp.pkl"
+#          - "%PIPELINE_ID%_config.pkl"
 #      project:
 #        task1:
-#          - "kopp14_landwaterstorage_projections.pkl"
+#          - "%PIPELINE_ID%_projections.pkl"
 #    download_output_data:
-#      - "kopp14_landwaterstorage_localsl.nc"
+#      - "%PIPELINE_ID%_localsl.nc"

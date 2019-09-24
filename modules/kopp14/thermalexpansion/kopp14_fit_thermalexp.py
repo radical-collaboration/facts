@@ -11,8 +11,7 @@ expansion quantities into a mean and standard deviation (along with drift correc
 if necessary).
 
 Parameters: 
-configfile = Configuration pickle produced by kopp14_preprocess_thermalexp.py
-zostogafile = ZOSTOGA pickle produced b kopp14_preprocess_thermalexp.py
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output: Pickle file containing the multi-model mean and standard deviation of global
 		thermal expansion. The file also contains the years across which these data are
@@ -20,9 +19,10 @@ Output: Pickle file containing the multi-model mean and standard deviation of gl
 
 '''
 
-def kopp14_fit_thermalexp(configfile, zostogafile):
+def kopp14_fit_thermalexp(pipeline_id):
 	
 	# Load the configuration file
+	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
@@ -42,6 +42,7 @@ def kopp14_fit_thermalexp(configfile, zostogafile):
 	#GCMprobscale = my_config["GCMprobscale"]
 	
 	# Load the ZOSTOGA file
+	zostogafile = "{}_ZOSTOGA.pkl".format(pipeline_id)
 	try:
 		f = open(zostogafile, 'rb')
 	except:
@@ -79,7 +80,7 @@ def kopp14_fit_thermalexp(configfile, zostogafile):
 	# Store the thermal expansion variables in a pickle
 	output = {'ThermExpMean': ThermExpMean, 'ThermExpStd': ThermExpStd,\
 		'ThermExpYears': ThermExpYears,	'ThermExpN': ThermExpN}
-	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_fit.pkl"), 'wb')
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_fit.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -90,16 +91,12 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--config_file', help="Configuration file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_config.pkl"))
-	
-	parser.add_argument('--zostoga_file', help="ZOSTOGA file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_ZOSTOGA.pkl"))
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the fitting process on the file specified from the command line argument
-	kopp14_fit_thermalexp(args.config_file, args.zostoga_file)
+	kopp14_fit_thermalexp(args.pipeline_id)
 	
 	exit()

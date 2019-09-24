@@ -13,8 +13,7 @@ This task generates global contributions to sea-level change due to glacier and 
 melt.
 
 Parameters: 
-fitfile = Pickle file produced by kopp14_fit_glaciers.py
-configfile = Pickle file produced by kopp14_preprocess_glaciers.py
+pipeline_id = Unique identifier for the pipeline running this code
 nsamps = Numer of samples to produce
 seed = Seed for the random number generator
 
@@ -23,9 +22,10 @@ gicsamps = Glacier and Ice Cap contributions to sea-level rise (nsamps, regions,
 
 '''
 
-def kopp14_project_glaciers(fitfile, configfile, nsamps, seed):
+def kopp14_project_glaciers(nsamps, seed, pipeline_id):
 	
 	# Load the fit file
+	fitfile = "{}_fit.pkl".format(pipeline_id)
 	try:
 		f = open(fitfile, 'rb')
 	except:
@@ -40,6 +40,7 @@ def kopp14_project_glaciers(fitfile, configfile, nsamps, seed):
 	NGIC = my_fit["NGIC"]
 	
 	# Load the config file
+	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
@@ -84,7 +85,7 @@ def kopp14_project_glaciers(fitfile, configfile, nsamps, seed):
 
 	# Save the global thermal expansion projections to a pickle
 	output = {"gicsamps": gicsamps}
-	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_glaciers_projections.pkl"), 'wb')
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -98,17 +99,12 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', '-n', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', '-s', help="Seed value for random number generator [default=1234]", default=1234, type=int)
-	
-	parser.add_argument('--fit_file', help="Fit file produced in the glaciers fitting stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_glaciers_fit.pkl"))
-	
-	parser.add_argument('--config_file', help="Configuration file produced in the glaciers preprocessing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_glaciers_config.pkl"))
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the projection process on the files specified from the command line argument
-	kopp14_project_glaciers(args.fit_file, args.config_file, args.nsamps, args.seed)
+	kopp14_project_glaciers(args.nsamps, args.seed, args.pipeline_id)
 	
 	exit()

@@ -12,17 +12,19 @@ This script runs the land water storage pre-processing task for the SSP LWS work
 This task generates the data and variables needed to configure the LWS submodel.
 
 Parameters:
-scen 				The RCP or SSP scenario (default: RCP85) 
+scen    			The RCP or SSP scenario (default: rcp85) 
 dotriangular        Logical 0 or 1, to use triangular distribution for gwd [1,1]
-includepokhrel      Logical 0 or 1, to include Pokhrel data for gwd [1,1] 
+includepokhrel      Logical 0 or 1, to include Pokhrel data for gwd [1,1]
+pipeline_id         Unique identifier for the pipeline running this module
 
 Output:
-"ssp_landwaterstorage_data.pkl" = Contains the LWS data
-"ssp_landwaterstorage_config.pkl" = Contains the configuration parameters
+"%PIPELINE_ID%_data.pkl" = Contains the LWS data
+"%PIPELINE_ID%_config.pkl" = Contains the configuration parameters
 
+Note: %PIPELINE_ID% is replaced with 'pipeline_id' at run time
 '''
 
-def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel):
+def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, pipeline_id):
 	
 	##################################################
 	# configure run (could be separate script)
@@ -141,7 +143,7 @@ def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel):
 	
 	# Write the data to a file
 	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "ssp_landwaterstorage_data.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_data.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
@@ -152,7 +154,7 @@ def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel):
 	
 	# Write the data to a file
 	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "ssp_landwaterstorage_config.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_config.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -164,14 +166,15 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the SSP LWS module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--scen', help="Use RCP or SSP scenario[default=RCP85]", choices=["RCP19","RCP26","RCP45","RCP70","RCP85","SSP1","SSP2","SSP3","SSP4","SSP5"], default="RCP85")
-	parser.add_argument('--dotriangular', help="Use triangular distribution for GWD [default=0]", choices=[0, 1], default=0)
-	parser.add_argument('--includepokherl', help="Include Pokherl data for GWD [default=0]", choices=[0, 1], default=0)
+	parser.add_argument('--scenario', help="Use RCP or SSP scenario[default=rcp85]", choices=["rcp19","rcp26","rcp45","rcp70","rcp85","ssp1","ssp2","ssp3","ssp4","ssp5"], default="rcp85")
+	parser.add_argument('--dotriangular', help="Use triangular distribution for GWD [default=0]", choices=[0, 1], default=0, type=int)
+	parser.add_argument('--includepokherl', help="Include Pokherl data for GWD [default=0]", choices=[0, 1], default=0, type=int)
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	ssp_preprocess_landwaterstorage(args.scen, args.dotriangular, args.includepokherl)
+	ssp_preprocess_landwaterstorage(args.scenario, args.dotriangular, args.includepokherl, args.pipeline_id)
 	
 	exit()

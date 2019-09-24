@@ -1,0 +1,44 @@
+# Generic Module 'Direct Sample' pipeline
+
+pre-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "genmod_preprocess_directsample.py"
+    options:
+      - "input_data_file"
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/genmod/directsample/genmod_preprocess_directsample.py"
+#    download_output_data:
+#      - 
+#      - "%PIPELINE_ID%_data.pkl"
+
+project:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "genmod_project_directsample.py"
+    options:
+      - "nsamps"
+      - "pipeline_id"
+      - "replace"
+      - "seed"
+    upload_input_data:
+      - './modules/genmod/directsample/genmod_project_directsample.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_projections.pkl"

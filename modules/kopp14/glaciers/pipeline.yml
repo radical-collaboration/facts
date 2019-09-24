@@ -12,14 +12,15 @@ pre-process:
     script: "kopp14_preprocess_glaciers.py"
     options:
       - "scenario"
+      - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/glaciers/kopp14_preprocess_glaciers.py"
       - "./modules/kopp14/glaciers/readMarzeion.py"
       - "./modules/kopp14/glaciers/data/kopp14_glaciers_preprocess_data.tgz"
 #    download_output_data:
-#      - "kopp14_glaciers_data.pkl"
-#      - "kopp14_glaciers_fp.pkl"
-#      - "kopp14_glaciers_config.pkl"
+#      - "%PIPELINE_ID%_data.pkl"
+#      - "%PIPELINE_ID%_fp.pkl"
+#      - "%PIPELINE_ID%_config.pkl"
 
 fit:
   task1:
@@ -32,18 +33,17 @@ fit:
     pre_exec: ""
     script: "kopp14_fit_glaciers.py"
     options:
-      - "data_file"
-      - "config_file"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/glaciers/kopp14_fit_glaciers.py'
       - './modules/kopp14/glaciers/cholcov.py'
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_glaciers_data.pkl"
-          - "kopp14_glaciers_config.pkl"
+          - "%PIPELINE_ID%_data.pkl"
+          - "%PIPELINE_ID%_config.pkl"
 #    download_output_data:
-#      - "kopp14_glaciers_fit.pkl"
+#      - "%PIPELINE_ID%_fit.pkl"
 
 project:
   task1:
@@ -58,19 +58,18 @@ project:
     options:
       - "nsamps"
       - "seed"
-      - "fit_file"
-      - "config_file"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/glaciers/kopp14_project_glaciers.py'
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_glaciers_config.pkl"
+          - "%PIPELINE_ID%_config.pkl"
       fit:
         task1:
-          - "kopp14_glaciers_fit.pkl"
+          - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
-      - "kopp14_glaciers_projections.pkl"
+      - "%PIPELINE_ID%_projections.pkl"
 
 
 post-process:
@@ -84,9 +83,7 @@ post-process:
     pre_exec: "tar -xzf kopp14_glaciers_postprocess_data.tgz"
     script: "kopp14_postprocess_glaciers.py"
     options:
-      - "proj_file"
-      - "fp_file"
-      - "config_file"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/glaciers/kopp14_postprocess_glaciers.py'
       - './modules/kopp14/glaciers/read_annual.py'
@@ -96,10 +93,10 @@ post-process:
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_glaciers_fp.pkl"
-          - "kopp14_glaciers_config.pkl"
+          - "%PIPELINE_ID%_fp.pkl"
+          - "%PIPELINE_ID%_config.pkl"
       project:
         task1:
-          - "kopp14_glaciers_projections.pkl"
+          - "%PIPELINE_ID%_projections.pkl"
     download_output_data:
-      - "kopp14_glaciers_localsl.nc"
+      - "%PIPELINE_ID%_localsl.nc"

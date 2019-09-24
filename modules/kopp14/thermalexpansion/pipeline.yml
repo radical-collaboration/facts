@@ -14,6 +14,7 @@ pre-process:
       - "scenario"
       - "model_dir"
       - "no_drift_corr"
+      - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/thermalexpansion/kopp14_preprocess_thermalexp.py"
       - "./modules/kopp14/thermalexpansion/IncludeModels.py"
@@ -24,8 +25,8 @@ pre-process:
       - "./modules/kopp14/thermalexpansion/readMarzeion.py"
       - "./modules/kopp14/thermalexpansion/data/kopp14_thermalexp_data.tgz"
 #    download_output_data:
-#      - "kopp14_thermalexp_config.pkl"
-#      - "kopp14_thermalexp_ZOSTOGA.pkl"
+#      - "%PIPELINE_ID%_config.pkl"
+#      - "%PIPELINE_ID%_ZOSTOGA.pkl"
 
 
 fit:
@@ -39,17 +40,16 @@ fit:
     pre_exec: ""
     script: "kopp14_fit_thermalexp.py"
     options:
-      - "config_file"
-      - "zostoga_file"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/thermalexpansion/kopp14_fit_thermalexp.py'
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_thermalexp_config.pkl"
-          - "kopp14_thermalexp_ZOSTOGA.pkl"
+          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_ZOSTOGA.pkl"
 #    download_output_data:
-#      - "kopp14_thermalexp_fit.pkl"
+#      - "%PIPELINE_ID%_fit.pkl"
 
 
 project:
@@ -65,16 +65,15 @@ project:
     options:
       - "nsamps"
       - "seed"
-      - "config_file"
-      - "fit_file"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/thermalexpansion/kopp14_project_thermalexp.py'
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_thermalexp_config.pkl"
+          - "%PIPELINE_ID%_config.pkl"
       fit:
         task1:
-          - "kopp14_thermalexp_fit.pkl"
+          - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
-      - "kopp14_thermalexp_projections.pkl"
+      - "%PIPELINE_ID%_projections.pkl"

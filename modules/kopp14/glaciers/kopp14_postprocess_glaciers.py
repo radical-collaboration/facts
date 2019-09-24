@@ -18,17 +18,16 @@ netCDF4 file that contains spatially and temporally resolved samples of GIC cont
 to local sea-level rise
 
 Parameters: 
-projfile = Name of the file containing the global GIC projection data
-fpfile = Name of the Fingerprint file produced in the pre-processing stage
-configfile = Name of the Configuration file produced in the pre-processing stage
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output: NetCDF file containing local contributions from GIC
 
 '''
 
-def kopp14_postprocess_glaciers(projfile, fpfile, configfile):
+def kopp14_postprocess_glaciers(pipeline_id):
 	
 	# Read in the global projections
+	projfile = "{}_projections.pkl".format(pipeline_id)
 	try:
 		f = open(projfile, 'rb')
 	except:
@@ -41,6 +40,7 @@ def kopp14_postprocess_glaciers(projfile, fpfile, configfile):
 	f.close()
 	
 	# Read in the fingerprint information
+	fpfile = "{}_fp.pkl".format(pipeline_id)
 	try:
 		f = open(fpfile, 'rb')
 	except:
@@ -54,6 +54,7 @@ def kopp14_postprocess_glaciers(projfile, fpfile, configfile):
 	f.close()
 	
 	# Read in the configuration information
+	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
@@ -104,7 +105,7 @@ def kopp14_postprocess_glaciers(projfile, fpfile, configfile):
 		local_sl[:,:,i,:] = np.transpose(np.multiply.outer(gicsamps[:,i,:], regionfp), (2,0,1))
 		
 	# Write the localized projections to a netcdf file
-	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "kopp14_glaciers_localsl.nc"), "w", format="NETCDF4")
+	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
 
 	# Define Dimensions
 	site_dim = rootgrp.createDimension("nsites", nsites)
@@ -151,20 +152,13 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected	
-	parser.add_argument('--proj_file', help="Projection file produced in the projection stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_glaciers_projections.pkl"))
-	
-	parser.add_argument('--fp_file', help="Fingerprint file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_glaciers_fp.pkl"))
-	
-	parser.add_argument('--config_file', help="Configuration file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_glaciers_config.pkl"))
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 		
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the postprocessing for the parameters specified from the command line argument
-	kopp14_postprocess_glaciers(args.proj_file, args.fp_file, args.config_file)
+	kopp14_postprocess_glaciers(args.pipeline_id)
 	
 	# Done
 	exit()

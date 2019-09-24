@@ -12,6 +12,7 @@ pre-process:
     script: "kopp14_preprocess_icesheets.py"
     options:
       - "scenario"
+      - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/icesheets/kopp14_preprocess_icesheets.py"
 
@@ -27,7 +28,7 @@ fit:
     pre_exec: ""
     script: "kopp14_fit_icesheets.py"
     options:
-      - "rate_file"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/icesheets/kopp14_fit_icesheets.py'
       - './modules/kopp14/icesheets/CalcISDists.py'
@@ -35,7 +36,7 @@ fit:
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_icesheets_rates.pkl"
+          - "%PIPELINE_ID%_rates.pkl"
 
 
 project:
@@ -51,8 +52,7 @@ project:
     options:
       - "nsamps"
       - "seed"
-      - "fit_file"
-      - "corr_file"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/icesheets/kopp14_project_icesheets.py'
       - './modules/kopp14/icesheets/SampleISDists.py'
@@ -61,12 +61,12 @@ project:
     copy_input_data:
       pre-process:
         task1:
-          - "kopp14_icesheets_corr.pkl"
+          - "%PIPELINE_ID%_corr.pkl"
       fit:
         task1:
-          - "kopp14_icesheets_fit.pkl"
+          - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
-      - "kopp14_icesheets_projections.pkl"
+      - "%PIPELINE_ID%_projections.pkl"
 
 post-process:
   task1:
@@ -79,8 +79,8 @@ post-process:
     pre_exec: "tar -xzf kopp14_icesheets_data.tgz"
     script: "kopp14_postprocess_icesheets.py"
     options:
-      - "proj_file"
       - "samp_type"
+      - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/icesheets/kopp14_postprocess_icesheets.py'
       - './modules/kopp14/icesheets/SampleISDists.py'
@@ -92,6 +92,6 @@ post-process:
     copy_input_data:
       project:
         task1:
-          - "kopp14_icesheets_projections.pkl"
+          - "%PIPELINE_ID%_projections.pkl"
     download_output_data:
-      - "local_slr.nc"
+      - "%PIPELINE_ID%_localsl.nc"

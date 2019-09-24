@@ -3,14 +3,37 @@ import os
 import argparse
 import yaml
 import sys
+import re
+import errno
 from pprint import pprint
 from radical.entk import Pipeline, Stage, Task, AppManager
 
+# Magic variable replacement functions ================================
+def mvar_replace_var(mvar, sub, string):
+	mvar = "%{}%".format(mvar)
+	return(re.sub(mvar, str(sub), string))
+
+def mvar_replace_dict(dict, string):
+	for var in dict.keys():
+		string = mvar_replace_var(var, dict[var], string)
+	return(string)
+
+def mvar_replace_list(dict, list):
+	return([mvar_replace_dict(dict, x) for x in list])
+
+# =====================================================================
 
 def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir):
 	
 	# Append the exp_dir to the ecfg dictionary to simplify things a bit
 	ecfg['exp_dir'] = exp_dir
+	
+	# Append the input file to the list of options (if need be)
+	if "input_data_file" in ecfg.keys():
+		ecfg['options']['input_data_file'] = ecfg['input_data_file']
+	
+	# Append the pipeline id to the list of options
+	ecfg['options']['pipeline_id'] = pipe_name
 	
 	# Initialize the pipeline object
 	p = Pipeline()
@@ -52,6 +75,9 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	# Initialize a task object
 	t = Task()
 	
+	# Define magic variable dictionary
+	mvar_dict = {"PIPELINE_ID": pipe_name}
+	
 	# Give this task object a name
 	t.name=task_name
 	
@@ -61,6 +87,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	
 	# Executable to use for the task
 	t.executable = tcfg['executable']
+	
+	# If there's a user-defined input file (likely for genmod modules), add it to the
+	# options list and upload file list if needed
+	if "input_data_file" in tcfg['options']:
+		tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
 
 	# List of arguments for the executable
 	t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
@@ -83,15 +114,16 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 		for copy_stage in tcfg['copy_input_data'].keys():
 			for copy_task in tcfg['copy_input_data'][copy_stage].keys():
 				loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
-				copy_list.extend(['%s/%s'%(loc, x) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
+				copy_list.extend(['%s/%s'%(loc, mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
 	
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
 	
 	# Set the download data for the task
 	download_list = []
+	outdir = os.path.join(ecfg['exp_dir'], "output")
 	if "download_output_data" in tcfg.keys():
-		download_list.extend(['%s > %s/%s'%(x,ecfg['exp_dir'],x) for x in tcfg['download_output_data']]) 
+		download_list.extend(['%s > %s/%s'%(mvar_replace_dict(mvar_dict,x),outdir,mvar_replace_dict(mvar_dict,x)) for x in tcfg['download_output_data']]) 
 	
 	# Append the download list to this task
 	t.download_output_data = download_list
@@ -143,6 +175,13 @@ def run_experiment(exp_dir, debug_mode):
 		rcfg = yaml.safe_load(fp)
 	with open(cfile, 'r') as fp:
 		ecfg = yaml.safe_load(fp)
+		
+	# Does the output directory exist? If not, make it
+	try:
+		os.makedirs(os.path.join(exp_dir, "output"))
+	except OSError as e:
+		if e.errno != errno.EEXIST:
+			raise
 	
 	# Loop through the user-requested modules
 	for this_mod in ecfg.keys():
@@ -156,7 +195,7 @@ def run_experiment(exp_dir, debug_mode):
 			pcfg = yaml.safe_load(fp)
 		
 		# Generate a pipeline for this module
-		pipe_name = "-".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
+		pipe_name = "-".join((this_mod, ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
 		pipelines.append(GeneratePipeline(pcfg, ecfg[this_mod], pipe_name, exp_dir))
 	
 	# Print out PST info if in debug mode

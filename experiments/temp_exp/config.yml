@@ -23,20 +23,39 @@
 #        nsamps: 20000
 #        seed: 1234
 
-#landwaterstorage:
-#    module_set: "kopp14"
-#    module: "landwaterstorage"
-#    options:
-#        dotriangular: 0
-#        includepokherl: 0
-#        nsamps: 20000
-#        seed: 1234
-
-landwaterstorage:
-    module_set: "ssp"
+landwaterstorage1:
+    module_set: "kopp14"
     module: "landwaterstorage"
     options:
         dotriangular: 0
         includepokherl: 0
         nsamps: 20000
         seed: 1234
+
+#landwaterstorage2:
+#    module_set: "ssp"
+#    module: "landwaterstorage"
+#    options:
+#        scenario: "rcp85"
+#        dotriangular: 0
+#        includepokherl: 0
+#        nsamps: 20000
+#        seed: 1234
+
+#directsample1:
+#    module_set: "genmod"
+#    module: "directsample"
+#    input_data_file: "test_samples.csv"
+#    options:
+#        nsamps: 10000
+#        replace: 0
+#        seed: 1234
+
+#directsample2:
+#    module_set: "genmod"
+#    module: "directsample"
+#    input_data_file: "test_samples.csv"
+#    options:
+#        nsamps: 5000
+#        replace: 1
+#        seed: 1234

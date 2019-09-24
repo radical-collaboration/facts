@@ -17,20 +17,20 @@ projects the future contribution of groundwater depletion and reservoir impoundm
 to global mean sea level based on different scenarios of population growth.
 
 Parameters: 
-fitfile = Pickle file containing the LWS sub-model fits generated from the fitting stage
-configfile = Pickle file containing the LWS configuration data from the pre-processing stage
 Nsamps = Number of samples to project
 rng_seed = Seed value for the random number generator
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output:
-"kopp14_landwaterstorage_projections.pkl" = Pickle file that contains the global LWS projections
+"%PIPELINE_ID%_projections.pkl" = Pickle file that contains the global LWS projections
 
 '''
 
 
-def kopp14_project_landwaterstorage(fitfile, configfile, Nsamps, rng_seed):
+def kopp14_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	
 	# Load the fit file
+	fitfile = "{}_fit.pkl".format(pipeline_id)
 	try:
 		f = open(fitfile, 'rb')
 	except:
@@ -48,6 +48,7 @@ def kopp14_project_landwaterstorage(fitfile, configfile, Nsamps, rng_seed):
 	std_dgwd_dt_dpop = my_fit['std_dgwd_dt_dpop']
 	
 	# Load the configuration file
+	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
@@ -145,8 +146,8 @@ def kopp14_project_landwaterstorage(fitfile, configfile, Nsamps, rng_seed):
 	lwssamps = gwdsamps + damsamps
 	
 	# Store the variables in a pickle
-	output = {'lwssamps': lwssamps}
-	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_landwaterstorage_projections.pkl"), 'wb')
+	output = {'lwssamps': lwssamps, "years": yrs}
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()	
 	
@@ -160,14 +161,12 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', '-n', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', '-s', help="Seed value for random number generator [default=1234]", default=1234, type=int)
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
-	parser.add_argument('--fitfile', help="Data file produced in the fitting stage", default='kopp14_landwaterstorage_fit.pkl')
-	parser.add_argument('--configfile', help="Configuration file produced in the pre-processing stage", default='kopp14_landwaterstorage_config.pkl')
-
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	kopp14_project_landwaterstorage(args.fitfile, args.configfile, args.nsamps, args.seed)
+	kopp14_project_landwaterstorage(args.nsamps, args.seed, args.pipeline_id)
 	
 	exit()

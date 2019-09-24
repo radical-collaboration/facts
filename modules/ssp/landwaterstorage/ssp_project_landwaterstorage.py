@@ -15,21 +15,21 @@ This script runs the land water storage projections for the SSP LWS workflow. Th
 projects the future contribution of groundwater depletion and reservoir impoundment
 to global mean sea level based on the selected SSP of population growth.
 
-Parameters: 
-fitfile = Pickle file containing the LWS sub-model fits generated from the fitting stage
-configfile = Pickle file containing the LWS configuration data from the pre-processing stage
+Parameters:
 Nsamps = Number of samples to project
 rng_seed = Seed value for the random number generator
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output:
-"ssp_landwaterstorage_projections.pkl" = Pickle file that contains the global LWS projections
+"%PIPELINE_ID%_projections.pkl" = Pickle file that contains the global LWS projections
 
 '''
 
 
-def ssp_project_landwaterstorage(fitfile, configfile, Nsamps, rng_seed):
+def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	
 	# Load the fit file
+	fitfile = "{}_fit.pkl".format(pipeline_id)
 	try:
 		f = open(fitfile, 'rb')
 	except:
@@ -47,6 +47,7 @@ def ssp_project_landwaterstorage(fitfile, configfile, Nsamps, rng_seed):
 	std_dgwd_dt_dpop = my_fit['std_dgwd_dt_dpop']
 	
 	# Load the configuration file
+	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
@@ -73,24 +74,24 @@ def ssp_project_landwaterstorage(fitfile, configfile, Nsamps, rng_seed):
 	#select scenario population using target RCP or SSP scenario	
 	# prefered SSP RCP combinations (correspondence with Aimee)    
 	RCPtoSSP = {
-		"RCP19": "SSP1",
-    	"RCP26": "SSP1",
-        "RCP45": "SSP2",
-        "RCP70": "SSP3",
-        "RCP85": "SSP5",
+		"rcp19": "ssp1",
+    	"rcp26": "ssp1",
+        "rcp45": "ssp2",
+        "rcp70": "ssp3",
+        "rcp85": "ssp5",
         }     
         
     # SSP ordered from low to high projections
 	SSPorder = {
-        "SSP1": 0,
-        "SSP5": 1,
-        "SSP2": 2,
-        "SSP4": 3,
-        "SSP3": 4,
+        "ssp1": 0,
+        "ssp5": 1,
+        "ssp2": 2,
+        "ssp4": 3,
+        "ssp3": 4,
         }  
     
     # extract SSP scenario from configured target RCP or SSP scenario
-	if scen[0:3] == "RCP":
+	if scen[0:3] == "rcp":
 		targetSSP = RCPtoSSP[scen]
 		if scen not in RCPtoSSP:
 			raise Exception('Configured RCP scenario does not have a preferred SSP combination.')
@@ -174,8 +175,8 @@ def ssp_project_landwaterstorage(fitfile, configfile, Nsamps, rng_seed):
 	lwssamps = gwdsamps + damsamps
 	
 	# Store the variables in a pickle
-	output = {'lwssamps': lwssamps}
-	outfile = open(os.path.join(os.path.dirname(__file__), "ssp_landwaterstorage_projections.pkl"), 'wb')
+	output = {'lwssamps': lwssamps, 'years': yrs}
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()	
 	
@@ -189,14 +190,12 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', '-n', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', '-s', help="Seed value for random number generator [default=1234]", default=1234, type=int)
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
-	parser.add_argument('--fitfile', help="Data file produced in the fitting stage", default='ssp_landwaterstorage_fit.pkl')
-	parser.add_argument('--configfile', help="Configuration file produced in the pre-processing stage", default='ssp_landwaterstorage_config.pkl')
-
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	ssp_project_landwaterstorage(args.fitfile, args.configfile, args.nsamps, args.seed)
+	ssp_project_landwaterstorage(args.nsamps, args.seed, args.pipeline_id)
 	
 	exit()

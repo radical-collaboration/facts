@@ -12,14 +12,16 @@ could easily be altered to take filenames as parameters from which these data ar
 This would be useful for testing multiple sets of these data (likely with different
 assumptions) in batch.
 
-Parameters: NONE
+Parameters:
+rcp_scenario = RCP scenario (default = 'rcp85')
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output: Pickled file containing barates, lastdecadegt, and aris2090 variables within a
 dictionary vairable.
 
 '''
 
-def kopp14_preprocess_icesheets(rcp_scenario):
+def kopp14_preprocess_icesheets(rcp_scenario, pipeline_id):
 
 	# Fill the rates data matricies
 	barates = np.array([[0.8, 1.0, 1.2, 2.4, 5.8],\
@@ -55,12 +57,12 @@ def kopp14_preprocess_icesheets(rcp_scenario):
 	outdir = os.path.dirname(__file__)
 
 	# Write the rates data to a pickle file
-	ratefile = open(os.path.join(outdir, "kopp14_icesheets_rates.pkl"), 'wb')
+	ratefile = open(os.path.join(outdir, "{}_rates.pkl".format(pipeline_id)), 'wb')
 	p.dump(data_is, ratefile)
 	ratefile.close()
 
 	# Write the correlation data to a pickle file
-	corrfile = open(os.path.join(outdir, "kopp14_icesheets_corr.pkl"), 'wb')
+	corrfile = open(os.path.join(outdir, "{}_corr.pkl".format(pipeline_id)), 'wb')
 	p.dump(corr_is, corrfile)
 	corrfile.close()
 
@@ -73,12 +75,13 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--scenario', '-s', help="RCP Scenario", choices=['rcp85', 'rcp60', 'rcp45', 'rcp26'], default='rcp85')
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	kopp14_preprocess_icesheets(args.scenario)
+	kopp14_preprocess_icesheets(args.scenario, args.pipeline_id)
 	
 	# Done
 	exit()

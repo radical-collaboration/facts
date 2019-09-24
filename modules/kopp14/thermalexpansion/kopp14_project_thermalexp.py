@@ -13,19 +13,18 @@ This task generates global contributions to sea-level change due to thermosteric
 of the ocean.
 
 Parameters: 
-configfile = Pickle file containing the thermal expansion component's configuration.
-			 This is produced by kopp14_preprocess_thermalexp.py.
-fitfile = Pickle file produced by kopp14_fit_thermalexp.py
 nsamps = Numer of samples to produce
 seed = Seed for the random number generator
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output: Pickle file containing the global sea-level rise projections
 
 '''
 
-def kopp14_project_thermalexp(configfile, fitfile, nsamps, seed):
+def kopp14_project_thermalexp(nsamps, seed, pipeline_id):
 	
 	# Load the configuration file
+	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
@@ -45,6 +44,7 @@ def kopp14_project_thermalexp(configfile, fitfile, nsamps, seed):
 	GCMprobscale = my_config["GCMprobscale"]
 	
 	# Load the fit file
+	fitfile = "{}_fit.pkl".format(pipeline_id)
 	try:
 		f = open(fitfile, 'rb')
 	except:
@@ -86,8 +86,8 @@ def kopp14_project_thermalexp(configfile, fitfile, nsamps, seed):
 		thermsamps[:,i] = (ThermExpScale * temp * ThermExpStd[this_year_ind]) + ThermExpMean[this_year_ind]
 
 	# Save the global thermal expansion projections to a pickle
-	output = {"thermsamps": thermsamps}
-	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_projections.pkl"), 'wb')
+	output = {"thermsamps": thermsamps, "years": targyears}
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -100,17 +100,12 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', '-n', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', '-s', help="Seed value for random number generator [default=1234]", default=1234, type=int)
-	
-	parser.add_argument('--config_file', help="Configuration file produced in the pre-processing stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_config.pkl"))
-	
-	parser.add_argument('--fit_file', help="Fit file produced in the fitting stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_thermalexp_fit.pkl"))
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the projection process on the files specified from the command line argument
-	kopp14_project_thermalexp(args.config_file, args.fit_file, args.nsamps, args.seed)
+	kopp14_project_thermalexp(args.nsamps, args.seed, args.pipeline_id)
 	
 	exit()

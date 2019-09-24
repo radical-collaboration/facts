@@ -11,15 +11,16 @@ This task generates the variables needed to configure the glaciers submodel.
 
 Parameters: 
 rcp_scenario = The RCP scenario (default: rcp85)
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output:
-"kopp14_glaciers_data.pkl" = Contains the GIC data
-"kopp14_glaciers_config.pkl" = Contains the configuration parameters
-"kopp14_glaciers_fp.pkl" = Contains the fingerprint information
+"%PIPELINE_ID%_data.pkl" = Contains the GIC data
+"%PIPELINE_ID%_config.pkl" = Contains the configuration parameters
+"%PIPELINE_ID%_fp.pkl" = Contains the fingerprint information
 
 '''
 
-def kopp14_preprocess_glaciers(rcp_scenario):
+def kopp14_preprocess_glaciers(rcp_scenario, pipeline_id):
 	
 	# Use readMarzeion to read in the glacier data
 	glacdir = "."
@@ -34,7 +35,7 @@ def kopp14_preprocess_glaciers(rcp_scenario):
 	
 	# Write the data to a file
 	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "kopp14_glaciers_data.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_data.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
@@ -43,7 +44,7 @@ def kopp14_preprocess_glaciers(rcp_scenario):
 	
 	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "kopp14_glaciers_config.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_config.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
@@ -51,7 +52,7 @@ def kopp14_preprocess_glaciers(rcp_scenario):
 	output = {'fpmapperids': fpmapperids, 'fpmaps': fpmaps}
 	
 	# Write the fingerprint variables to a file
-	outfile = open(os.path.join(outdir, "kopp14_glaciers_fp.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_fp.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -63,11 +64,12 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--scenario', help="RCP Scenario [default=\'rcp85\']", choices=['rcp85', 'rcp60', 'rcp45', 'rcp26'], default='rcp85')
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	kopp14_preprocess_glaciers(args.scenario)
+	kopp14_preprocess_glaciers(args.scenario, args.pipeline_id)
 	
 	exit()

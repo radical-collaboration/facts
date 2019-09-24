@@ -17,17 +17,17 @@ This task fits a linear relation between historical population data and groundwa
 depletion, and a sigmoidal relation between population and reservoir impoundment. 
 
 Parameters: 
-datafile = Pickle file containing the LWS data generated from the pre-processing stage
-configfile = Pickle file containing the LWS configuration data from the pre-processing stage
+pipeline_id		Unique identifier for the pipeline running this code
 
 Output:
-"kopp14_landwaterstorage_fit.pkl" = Pickle file that contains the fitted submodel information
+"%PIPELINE_ID%_fit.pkl" = Pickle file that contains the fitted submodel information
 
 '''
 
-def kopp14_fit_landwaterstorage(datafile, configfile):
+def kopp14_fit_landwaterstorage(pipeline_id):
 	
 	# Load the data file
+	datafile = "{}_data.pkl".format(pipeline_id)
 	try:
 		f = open(datafile, 'rb')
 	except:
@@ -47,6 +47,7 @@ def kopp14_fit_landwaterstorage(datafile, configfile):
 	popscen = my_data["popscen"]
 	
 	# Load the configuration file
+	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
@@ -158,7 +159,7 @@ def kopp14_fit_landwaterstorage(datafile, configfile):
 	output = {'popscen': popscen, 'popscenyr': popscenyr, 'popscenids': popscenids,\
 				'dams_popt': dams_popt, 'mean_dgwd_dt_dpop': mean_dgwd_dt_dpop, \
 				'std_dgwd_dt_dpop': std_dgwd_dt_dpop}
-	outfile = open(os.path.join(os.path.dirname(__file__), "kopp14_landwaterstorage_fit.pkl"), 'wb')
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_fit.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -170,13 +171,12 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--datafile', help="Data file produced in the pre-processing stage", default='kopp14_landwaterstorage_data.pkl')
-	parser.add_argument('--configfile', help="Configuration file produced in the pre-processing stage", default='kopp14_landwaterstorage_config.pkl')
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	kopp14_fit_landwaterstorage(args.datafile, args.configfile)
+	kopp14_fit_landwaterstorage(args.pipeline_id)
 	
 	exit()

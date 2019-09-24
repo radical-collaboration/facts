@@ -12,13 +12,16 @@ This script runs the ocean dynamics pre-processing task for the Kopp 2014 workfl
 This task generates the variables needed to configure the ocean dynamics submodel.
 
 Parameters: 
-None
+rcp_scenario = RCP scenario of interest (default = "rcp85")
+modeldir = Directory that contains the GCM model data
+driftcorr = Apply the drift correction?
+pipeline_id = Unique identifier for the pipeline running this code
 
 Output: Pickle file containing the configuration for the ocean dynamics submodel
 
 '''
 
-def kopp14_preprocess_thermalexp(rcp_scenario, modeldir, driftcorr):
+def kopp14_preprocess_thermalexp(rcp_scenario, modeldir, driftcorr, pipeline_id):
 	
 	# Define variables
 	datayears = np.arange(1861,2300)
@@ -54,7 +57,7 @@ def kopp14_preprocess_thermalexp(rcp_scenario, modeldir, driftcorr):
 	
 	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "kopp14_thermalexp_config.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_config.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 	
@@ -63,7 +66,7 @@ def kopp14_preprocess_thermalexp(rcp_scenario, modeldir, driftcorr):
 		'histGICrate': histGICrate, 'selectyears': selectyears}
 	
 	# Write the ZOSTOGA variables to a file
-	outfile = open(os.path.join(outdir, "kopp14_thermalexp_ZOSTOGA.pkl"), 'wb')
+	outfile = open(os.path.join(outdir, "{}_ZOSTOGA.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
 
@@ -81,10 +84,12 @@ if __name__ == '__main__':
 	
 	parser.add_argument('--no_drift_corr', help="Do not apply the drift correction", action='store_true')
 	
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Pass the model directory in via command line
-	kopp14_preprocess_thermalexp(args.scenario, args.model_dir, not args.no_drift_corr)
+	kopp14_preprocess_thermalexp(args.scenario, args.model_dir, not args.no_drift_corr, args.pipeline_id)
 	
 	exit()

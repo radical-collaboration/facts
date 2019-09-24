@@ -18,16 +18,17 @@ file that contains spatially and temporally resolved samples of ice sheet contri
 to local sea-level rise
 
 Parameters: 
-projfile = Name of the file containing the fitted distribution data
 samptype = Type of samples to use.  One of (arsamps, basamps, hysamps [default])
+pipeline_id = Unique identifer for the pipeline running this code
 
 Output: NetCDF file containing local contributions from ice sheets
 
 '''
 
-def kopp14_postprocess_icesheets(projfile, samptype):
+def kopp14_postprocess_icesheets(samptype, pipeline_id):
 	
 	# Read in the fitted parameters from parfile
+	projfile = "{}_projections.pkl".format(pipeline_id)
 	try:
 		f = open(projfile, 'rb')
 	except:
@@ -68,7 +69,7 @@ def kopp14_postprocess_icesheets(projfile, samptype):
 	eaissl = np.multiply.outer(projdata[:,:,2], eaisfp)
 	
 	# Write the localized projections to a netcdf file
-	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "local_slr.nc"), "w", format="NETCDF4")
+	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
 
 	# Define Dimensions
 	site_dim = rootgrp.createDimension("nsites", len(site_inds))
@@ -120,17 +121,14 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected	
-	parser.add_argument('--proj_file', help="Projection file produced in the projection stage",\
-	default=os.path.join(os.path.dirname(__file__), "kopp14_icesheets_projections.pkl"))
-	
-	parser.add_argument('--samp_type', help="Type of samples to post-process",\
-	choices=['hysamps', 'arsamps', 'basamps'], default="hysamps")
+	parser.add_argument('--samp_type', help="Type of samples to post-process", choices=['hysamps', 'arsamps', 'basamps'], default="hysamps")
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the postprocessing for the parameters specified from the command line argument
-	kopp14_postprocess_icesheets(args.proj_file, args.samp_type)
+	kopp14_postprocess_icesheets(args.samp_type, args.pipeline_id)
 	
 	# Done
 	exit()
