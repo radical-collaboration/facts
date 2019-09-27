@@ -1,0 +1,75 @@
+# Kopp14 Vertical Land Motion Pipeline
+
+pre-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml"
+    script: "kopp14_preprocess_verticallandmotion.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/kopp14/verticallandmotion/kopp14_preprocess_verticallandmotion.py"
+      - "./modules/kopp14/verticallandmotion/data/SLRProjections161027GRIDDEDcore.mat"
+#    download_output_data:
+#      - "%PIPELINE_ID%_data.pkl"
+
+
+fit:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_fit_verticallandmotion.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/kopp14/verticallandmotion/kopp14_fit_verticallandmotion.py'
+
+
+project:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_project_verticallandmotion.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/kopp14/verticallandmotion/kopp14_project_verticallandmotion.py'
+
+post-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14_postprocess_verticallandmotion.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "site_ids"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/kopp14/verticallandmotion/kopp14_postprocess_verticallandmotion.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_localsl.nc"
