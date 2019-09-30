@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_thermalexp_data.tgz; pip install numpy"
+    pre_exec: "tar -xzf kopp14_thermalexp_preprocess_data.tgz; pip install numpy"
     script: "kopp14_preprocess_thermalexp.py"
     options:
       - "scenario"
@@ -23,7 +23,7 @@ pre-process:
       - "./modules/kopp14/thermalexpansion/Smooth.py"
       - "./modules/kopp14/thermalexpansion/read_CSIRO.py"
       - "./modules/kopp14/thermalexpansion/readMarzeion.py"
-      - "./modules/kopp14/thermalexpansion/data/kopp14_thermalexp_data.tgz"
+      - "./modules/kopp14/thermalexpansion/data/kopp14_thermalexp_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_config.pkl"
 #      - "%PIPELINE_ID%_ZOSTOGA.pkl"
@@ -76,4 +76,29 @@ project:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
-      - "%PIPELINE_ID%_projections.pkl"
+      - "%PIPELINE_ID%_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
+
+post-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf kopp14_thermalexp_postprocess_data.tgz"
+    script: "kopp14_postprocess_thermalexp.py"
+    options:
+      - "site_ids"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/kopp14/thermalexpansion/kopp14_postprocess_thermalexp.py'
+      - './modules/kopp14/thermalexpansion/read_annual.py'
+      - './modules/kopp14/thermalexpansion/data/kopp14_thermalexp_postprocess_data.tgz'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_localsl.nc"

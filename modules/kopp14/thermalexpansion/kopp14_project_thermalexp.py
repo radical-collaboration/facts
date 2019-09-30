@@ -3,6 +3,8 @@ import pickle
 import sys
 import os
 import argparse
+import time
+from netCDF4 import Dataset
 from scipy.stats import norm
 from scipy.stats import t
 
@@ -34,7 +36,7 @@ def kopp14_project_thermalexp(nsamps, seed, pipeline_id):
 	my_config = pickle.load(f)
 	f.close()
 	
-	#rcp_scenario = my_config["rcp_scenario"]
+	rcp_scenario = my_config["rcp_scenario"]
 	#datayears = my_config["datayears"]
 	targyears = my_config["targyears"]
 	#mergeZOSZOSTOGA = my_config["mergeZOSZOSTOGA"]
@@ -86,10 +88,41 @@ def kopp14_project_thermalexp(nsamps, seed, pipeline_id):
 		thermsamps[:,i] = (ThermExpScale * temp * ThermExpStd[this_year_ind]) + ThermExpMean[this_year_ind]
 
 	# Save the global thermal expansion projections to a pickle
-	output = {"thermsamps": thermsamps, "years": targyears}
+	output = {"thermsamps": thermsamps, "targyears": targyears, "rcp_scenario": rcp_scenario}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
+	
+	# Write the total global projections to a netcdf file
+	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
+	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
+
+	# Define Dimensions
+	year_dim = rootgrp.createDimension("years", len(targyears))
+	samp_dim = rootgrp.createDimension("samples", nsamps)
+
+	# Populate dimension variables
+	year_var = rootgrp.createVariable("year", "i4", ("years",))
+	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+
+	# Create a data variable
+	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	
+	# Assign attributes
+	rootgrp.description = "Global SLR contribution from thermal expansion according to Kopp 2014 workflow"
+	rootgrp.history = "Created " + time.ctime(time.time())
+	rootgrp.source = "FACTS: {0} - {1}".format(pipeline_id, rcp_scenario)
+	year_var.units = "[-]"
+	samp_var.units = "[-]"
+	samps.units = "mm"
+
+	# Put the data into the netcdf variables
+	year_var[:] = targyears
+	samp_var[:] = np.arange(0,nsamps)
+	samps[:,:] = np.transpose(thermsamps)
+
+	# Close the netcdf
+	rootgrp.close()	
 
 if __name__ == '__main__':
 	
