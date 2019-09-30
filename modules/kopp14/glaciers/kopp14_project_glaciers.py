@@ -3,6 +3,8 @@ import pickle
 import sys
 import os
 import argparse
+import time
+from netCDF4 import Dataset
 from scipy.stats import norm
 from scipy.stats import t
 
@@ -17,8 +19,9 @@ pipeline_id = Unique identifier for the pipeline running this code
 nsamps = Numer of samples to produce
 seed = Seed for the random number generator
 
-Output: Pickle file containing...
-gicsamps = Glacier and Ice Cap contributions to sea-level rise (nsamps, regions, years)
+Output: 
+- Pickle file containing Glacier and Ice Cap contributions to sea-level rise (nsamps, regions, years)
+- NetCDF files containing the sum total global contributions across all glacier regions
 
 '''
 
@@ -83,11 +86,49 @@ def kopp14_project_glaciers(nsamps, seed, pipeline_id):
 		else:
 			gicsamps[:,:,i] = np.nan
 
-	# Save the global thermal expansion projections to a pickle
+	# Save the global glacier and ice caps projections to a pickle
 	output = {"gicsamps": gicsamps}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
+	
+	# Sum over all the regions
+	total_glac_samps = np.apply_along_axis(np.sum, 1, gicsamps)
+		
+	# Write the total global projections to a netcdf file
+	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
+	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
+
+	# Define Dimensions
+	year_dim = rootgrp.createDimension("years", len(targyears))
+	samp_dim = rootgrp.createDimension("samples", nsamps)
+
+	# Populate dimension variables
+	year_var = rootgrp.createVariable("year", "i4", ("years",))
+	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+
+	# Create a data variable
+	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	
+	# Assign attributes
+	rootgrp.description = "Global SLR contribution from glaciers and ice caps according to Kopp 2014 workflow"
+	rootgrp.history = "Created " + time.ctime(time.time())
+	rootgrp.source = "FACTS: {}".format(pipeline_id)
+	year_var.units = "[-]"
+	samp_var.units = "[-]"
+	samps.units = "mm"
+
+	# Put the data into the netcdf variables
+	year_var[:] = targyears
+	samp_var[:] = np.arange(0,nsamps)
+	samps[:,:] = np.transpose(total_glac_samps)
+
+	# Close the netcdf
+	rootgrp.close()	
+	
+	# Done
+	return(0)
+
 
 
 if __name__ == '__main__':

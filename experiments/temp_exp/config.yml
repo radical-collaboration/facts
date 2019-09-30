@@ -1,20 +1,21 @@
-#glaciers:
+glaciers:
+    module_set: "kopp14"
+    module: "glaciers"
+    options:
+        scenario: "rcp85"
+        nsamps: 20000
+        site_ids: 12
+        seed: 1234
+
+#icesheets:
 #    module_set: "kopp14"
-#    module: "glaciers"
+#    module: "icesheets"
 #    options:
 #        scenario: "rcp85"
 #        nsamps: 20000
 #        seed: 1234
-
-icesheets:
-    module_set: "kopp14"
-    module: "icesheets"
-    options:
-        scenario: "rcp85"
-        nsamps: 20000
-        seed: 1234
-        site_ids: 12
-        samptype: "hysamps"
+#        site_ids: 12
+#        samptype: "hysamps"
 
 #thermalexpansion:
 #    module_set: "kopp14"

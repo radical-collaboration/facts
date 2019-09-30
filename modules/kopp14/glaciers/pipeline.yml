@@ -69,7 +69,8 @@ project:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
-      - "%PIPELINE_ID%_projections.pkl"
+      - "%PIPELINE_ID%_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
 
 
 post-process:
@@ -83,6 +84,7 @@ post-process:
     pre_exec: "tar -xzf kopp14_glaciers_postprocess_data.tgz"
     script: "kopp14_postprocess_glaciers.py"
     options:
+      - "site_ids"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/glaciers/kopp14_postprocess_glaciers.py'

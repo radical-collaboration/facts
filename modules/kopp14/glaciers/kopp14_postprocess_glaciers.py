@@ -4,6 +4,7 @@ import os
 import pickle
 import time
 import argparse
+import re
 from netCDF4 import Dataset
 from read_annual import read_annual
 from AssignFP import AssignFP
@@ -18,13 +19,14 @@ netCDF4 file that contains spatially and temporally resolved samples of GIC cont
 to local sea-level rise
 
 Parameters: 
+focus_site_ids = Location IDs for localization (from PSMSL)
 pipeline_id = Unique identifier for the pipeline running this code
 
 Output: NetCDF file containing local contributions from GIC
 
 '''
 
-def kopp14_postprocess_glaciers(pipeline_id):
+def kopp14_postprocess_glaciers(focus_site_ids, pipeline_id):
 	
 	# Read in the global projections
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -79,9 +81,7 @@ def kopp14_postprocess_glaciers(pipeline_id):
 	(site_lats, site_lons, site_ids) = vdecomp_site(sites)
 	
 	# FOR SIMPLICITY, LOCALIZE TO ONLY A FEW LOCATIONS
-	#sites_include = np.array([12,299,396,188,161,10,405,155,43,269,860,526,235,88,1])
-	sites_include = np.array([12,299])
-	_, _, site_inds = np.intersect1d(sites_include, site_ids, return_indices=True)
+	_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
 	site_ids = site_ids[site_inds]
 	site_lats = site_lats[site_inds]
 	site_lons = site_lons[site_inds]
@@ -152,13 +152,17 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected	
+	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 		
 	# Parse the arguments
 	args = parser.parse_args()
 	
+	# Convert the string of site_ids to a list
+	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
+	
 	# Run the postprocessing for the parameters specified from the command line argument
-	kopp14_postprocess_glaciers(args.pipeline_id)
+	kopp14_postprocess_glaciers(site_ids, args.pipeline_id)
 	
 	# Done
 	exit()
