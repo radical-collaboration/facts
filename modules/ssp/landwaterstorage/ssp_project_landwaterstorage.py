@@ -175,7 +175,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	lwssamps = gwdsamps + damsamps
 	
 	# Store the variables in a pickle
-	output = {'lwssamps': lwssamps, 'years': yrs}
+	output = {'lwssamps': lwssamps, 'years': yrs, 'scen': scen}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()	

@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ssp_landwaterstorage_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ssp_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ssp_preprocess_landwaterstorage.py"
     options:
       - "scenario"
@@ -17,7 +17,7 @@ pre-process:
       - "pipeline_id"
     upload_input_data:
       - "./modules/ssp/landwaterstorage/ssp_preprocess_landwaterstorage.py"
-      - "./modules/ssp/landwaterstorage/data/ssp_landwaterstorage_data.tgz"
+      - "./modules/ssp/landwaterstorage/data/ssp_landwaterstorage_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_config.pkl"
@@ -69,3 +69,27 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
       - "%PIPELINE_ID%_projections.pkl"
+
+post-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf ssp_landwaterstorage_postprocess_data.tgz"
+    script: "ssp_postprocess_landwaterstorage.py"
+    options:
+      - "site_ids"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/ssp/landwaterstorage/ssp_postprocess_landwaterstorage.py'
+      - './modules/ssp/landwaterstorage/read_annual.py'
+      - './modules/ssp/landwaterstorage/data/ssp_landwaterstorage_postprocess_data.tgz'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_localsl.nc"
