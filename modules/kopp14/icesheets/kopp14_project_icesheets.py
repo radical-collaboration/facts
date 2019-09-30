@@ -6,6 +6,8 @@ import numpy as np
 from SampleISDists import SampleISDists
 from ProjectGSL import ProjectGSL
 import cholcov
+import time
+from netCDF4 import Dataset
 
 ''' kopp14_project_icesheets.py
 
@@ -19,7 +21,9 @@ nsamps = Number of samples to produce
 seed = The seed to use for the random number gerneration
 pipeline_id = Unique identifier for the pipeline running this code
 
-Output: Pickled file containing "nsamps" of global sea-level rise due to ice sheets
+Output: 
+- Pickled file containing "nsamps" of global sea-level rise due to ice sheets (internal)
+- NetCDF files for GIS, EAIS, and WAIS global contributions (external)
 
 '''
 
@@ -69,17 +73,68 @@ def kopp14_project_icesheets(nsamps, seed, pipeline_id):
 	arissamps = SampleISDists(nsamps, sigmas, mus, offsets, arislastdecade, arcorris, seed+1234)
 	
 	# Project global sea-level rise over time
-	targyears = np.arange(2010, 2101, 10)
+	targyears = np.arange(2010, 2201, 10)
 	(arsamps, basamps, hysamps) = ProjectGSL(baissamps, arissamps, islastdecade, targyears)
 	
 	# Put the results into a dictionary
-	output = {'arsamps': arsamps, 'basamps': basamps, 'hysamps': hysamps}
+	output = {'arsamps': arsamps, 'basamps': basamps, 'hysamps': hysamps, 'targyears': targyears}
 	
 	# Write the results to a file
 	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
+	
+	# Loop over the ice sheets
+	icesheet_names = ["GIS", "EAIS", "WAIS"]
+	for i in np.arange(0,len(icesheet_names)):
+		
+		# This ice sheet
+		this_icesheet_name = icesheet_names[i]
+		
+		# Write the hybrid data to the netCDF file
+		writeNetCDF(np.transpose(hysamps[:,:,i]), pipeline_id, this_icesheet_name, targyears, nsamps)
+	
+	# Done
+	return(0)
+
+
+
+def writeNetCDF(data, pipeline_id, icesheet_name, targyears, nsamps):
+	
+	# Write the localized projections to a netcdf file
+	nc_filename = os.path.join(os.path.dirname(__file__), "{}_{}_globalsl.nc".format(pipeline_id, icesheet_name))
+	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
+
+	# Define Dimensions
+	year_dim = rootgrp.createDimension("years", len(targyears))
+	samp_dim = rootgrp.createDimension("samples", nsamps)
+
+	# Populate dimension variables
+	year_var = rootgrp.createVariable("year", "i4", ("years",))
+	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+
+	# Create a data variable
+	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	
+	# Assign attributes
+	rootgrp.description = "Global SLR contribution from {} according to Kopp 2014 workflow".format(icesheet_name)
+	rootgrp.history = "Created " + time.ctime(time.time())
+	rootgrp.source = "FACTS: {}".format(pipeline_id)
+	year_var.units = "[-]"
+	samp_var.units = "[-]"
+	samps.units = "mm"
+
+	# Put the data into the netcdf variables
+	year_var[:] = targyears
+	samp_var[:] = np.arange(0,nsamps)
+	samps[:,:] = data
+
+	# Close the netcdf
+	rootgrp.close()	
+	
+	# Done
+	return(0)
 	
 
 if __name__ == '__main__':

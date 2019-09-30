@@ -4,6 +4,7 @@ import os
 import pickle
 import time
 import argparse
+import re
 from netCDF4 import Dataset
 from read_annual import read_annual
 from AssignFP import AssignFP
@@ -19,13 +20,14 @@ to local sea-level rise
 
 Parameters: 
 samptype = Type of samples to use.  One of (arsamps, basamps, hysamps [default])
+site_ids = Location ids to fingerprint the icesheet contributions (from PSMSL)
 pipeline_id = Unique identifer for the pipeline running this code
 
 Output: NetCDF file containing local contributions from ice sheets
 
 '''
 
-def kopp14_postprocess_icesheets(samptype, pipeline_id):
+def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	
 	# Read in the fitted parameters from parfile
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -45,9 +47,8 @@ def kopp14_postprocess_icesheets(samptype, pipeline_id):
 	vdecomp_site = np.vectorize(decomp_site)
 	(site_lats, site_lons, site_ids) = vdecomp_site(sites)
 	
-	# FOR SIMPLICITY, LOCALIZE TO ONLY A FEW LOCATIONS
-	sites_include = np.array([12,299,396,188,161,10,405,155,43,269,860,526,235,88,1])
-	_, _, site_inds = np.intersect1d(sites_include, site_ids, return_indices=True)
+	# Test to make sure the list of sites are valid
+	_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
 	site_ids = site_ids[site_inds]
 	site_lats = site_lats[site_inds]
 	site_lons = site_lons[site_inds]
@@ -55,6 +56,7 @@ def kopp14_postprocess_icesheets(samptype, pipeline_id):
 	# Extract the data from the file
 	my_data = pickle.load(f)
 	projdata = my_data[samptype]
+	targyears = my_data['targyears']
 	f.close()
 	
 	# Get the fingerprints for all sites from all ice sheets
@@ -73,7 +75,7 @@ def kopp14_postprocess_icesheets(samptype, pipeline_id):
 
 	# Define Dimensions
 	site_dim = rootgrp.createDimension("nsites", len(site_inds))
-	year_dim = rootgrp.createDimension("years", projdata.shape[1])
+	year_dim = rootgrp.createDimension("years", len(targyears))
 	samp_dim = rootgrp.createDimension("samples", projdata.shape[0])
 
 	# Populate dimension variables
@@ -105,7 +107,8 @@ def kopp14_postprocess_icesheets(samptype, pipeline_id):
 	lat_var[:] = site_lats
 	lon_var[:] = site_lons
 	id_var[:] = site_ids
-	year_var[:] = 2010 + 10*(np.arange(0,projdata.shape[1]))
+	#year_var[:] = 2010 + 10*(np.arange(0,projdata.shape[1]))
+	year_var[:] = targyears
 	samp_var[:] = np.arange(0,projdata.shape[0])
 	localgis[:,:,:] = gissl
 	localwais[:,:,:] = waissl
@@ -122,13 +125,17 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected	
 	parser.add_argument('--samp_type', help="Type of samples to post-process", choices=['hysamps', 'arsamps', 'basamps'], default="hysamps")
+	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
+	# Convert the string of site_ids to a list
+	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
+	
 	# Run the postprocessing for the parameters specified from the command line argument
-	kopp14_postprocess_icesheets(args.samp_type, args.pipeline_id)
+	kopp14_postprocess_icesheets(args.samp_type, site_ids, args.pipeline_id)
 	
 	# Done
 	exit()
