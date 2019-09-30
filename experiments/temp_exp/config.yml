@@ -17,23 +17,24 @@
 #        site_ids: 12
 #        samptype: "hysamps"
 
-thermalexpansion:
-    module_set: "kopp14"
-    module: "thermalexpansion"
-    options:
-        scenario: "rcp85"
-        nsamps: 20000
-        site_ids: 12
-        seed: 1234
-
-#landwaterstorage1:
+#thermalexpansion:
 #    module_set: "kopp14"
-#    module: "landwaterstorage"
+#    module: "thermalexpansion"
 #    options:
-#        dotriangular: 0
-#        includepokherl: 0
+#        scenario: "rcp85"
 #        nsamps: 20000
+#        site_ids: 12
 #        seed: 1234
+
+landwaterstorage1:
+    module_set: "kopp14"
+    module: "landwaterstorage"
+    options:
+        dotriangular: 0
+        includepokherl: 0
+        nsamps: 20000
+        seed: 1234
+        site_ids: 12
 
 #landwaterstorage2:
 #    module_set: "ssp"
