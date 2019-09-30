@@ -6,6 +6,8 @@ from scipy.special import erf
 import argparse
 import os
 import pickle
+import time
+from netCDF4 import Dataset
 
 ''' ssp_project_landwaterstorage.py
 
@@ -178,7 +180,38 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	output = {'lwssamps': lwssamps, 'years': yrs, 'scen': scen}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
-	outfile.close()	
+	outfile.close()
+	
+	# Write the total global projections to a netcdf file
+	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
+	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
+
+	# Define Dimensions
+	year_dim = rootgrp.createDimension("years", len(yrs))
+	samp_dim = rootgrp.createDimension("samples", Nsamps)
+
+	# Populate dimension variables
+	year_var = rootgrp.createVariable("year", "i4", ("years",))
+	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+
+	# Create a data variable
+	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	
+	# Assign attributes
+	rootgrp.description = "Global SLR contribution from land water storage according to Kopp 2014 workflow"
+	rootgrp.history = "Created " + time.ctime(time.time())
+	rootgrp.source = "FACTS: {0} - {1}".format(pipeline_id, scen)
+	year_var.units = "[-]"
+	samp_var.units = "[-]"
+	samps.units = "mm"
+
+	# Put the data into the netcdf variables
+	year_var[:] = yrs
+	samp_var[:] = np.arange(0,Nsamps)
+	samps[:,:] = lwssamps
+
+	# Close the netcdf
+	rootgrp.close()
 	
 
 if __name__ == '__main__':

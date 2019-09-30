@@ -68,7 +68,8 @@ project:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
     download_output_data:
-      - "%PIPELINE_ID%_projections.pkl"
+      - "%PIPELINE_ID%_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
 
 post-process:
   task1:
