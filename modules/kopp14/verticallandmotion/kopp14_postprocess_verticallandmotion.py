@@ -44,7 +44,7 @@ def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 	# Make sure all the requested IDs are available
 	missing_ids = np.setdiff1d(site_ids, targregions)
 	if(len(missing_ids) != 0):
-		missing_ids_string = ",".join(str(this) for this in z)
+		missing_ids_string = ",".join(str(this) for this in missing_ids)
 		raise Exception("The following IDs are not available: {}".format(missing_ids_string))
 	
 	# Map the requested site IDs to target regions
