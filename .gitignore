@@ -5,3 +5,4 @@
 *.pkl
 *.csv
 *.mat
+/experiments/kopp14_site_verification/*
