@@ -50,13 +50,17 @@ def IncludeModels(model_dir, varnames, years):
 				# Note that we found a viable variable
 				foundvar = True
 				
+				# Note to incorporate this model/variable
+				incorporate = True
+				
 				# Read in the data file
 				infile = os.listdir(vardir)[0]
 				with open(os.path.join(vardir, infile), 'r') as f:
-					dat = np.loadtxt(f, skiprows=1, delimiter=',')
-				
-				# Note to incorporate this model/variable
-				incorporate = True
+					try:
+						dat = np.loadtxt(f, skiprows=1, delimiter=',')
+					except:
+						print("Failed to read in data for {0}/{1}".format(vardir, infile))
+						incorporate = False
 				
 				# If the change is too small, ignore this
 				good_inds = np.nonzero(~np.isnan(dat[:,1]))[0]
