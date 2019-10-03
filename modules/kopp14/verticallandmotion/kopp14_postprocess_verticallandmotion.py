@@ -48,7 +48,8 @@ def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 		raise Exception("The following IDs are not available: {}".format(missing_ids_string))
 	
 	# Map the requested site IDs to target regions
-	site_ids_map = np.flatnonzero(np.in1d(targregions, site_ids))
+	site_ids_map = np.flatnonzero(np.isin(targregions, site_ids))
+	site_ids = targregions[site_ids_map]
 	
 	# Evenly sample an inverse normal distribution
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]

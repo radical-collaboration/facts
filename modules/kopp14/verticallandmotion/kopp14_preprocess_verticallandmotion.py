@@ -27,8 +27,8 @@ def kopp14_preprocess_verticallandmotion(pipeline_id):
 	mat = scipy.io.loadmat(mat_file)
 	
 	# Extract the relevant data
-	targyears = mat['targyears'][0]
-	targregions = mat['targregions']
+	targyears = np.squeeze(mat['targyears'])
+	targregions = np.squeeze(mat['targregions'])
 	targregionnames = mat['targregionnames']
 	rateprojs = mat['rateprojs']
 	rateprojssd = mat['rateprojssd']

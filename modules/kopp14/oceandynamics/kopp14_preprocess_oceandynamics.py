@@ -37,7 +37,7 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, pipeline_id):
 	
 	# Extract the relevant data
 	targyears = np.squeeze(mat['targyears'])
-	targregions = mat['targregions']
+	targregions = np.squeeze(mat['targregions'])
 	targregionnames = mat['targregionnames']
 	OceanDynYears = mat['OceanDynYears']
 	ThermExpYears = mat['ThermExpYears']
