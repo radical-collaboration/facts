@@ -39,6 +39,7 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, pipeline_id):
 	targyears = np.squeeze(mat['targyears'])
 	targregions = np.squeeze(mat['targregions'])
 	targregionnames = mat['targregionnames']
+	targsitecoords = mat['targsitecoords']
 	OceanDynYears = mat['OceanDynYears']
 	ThermExpYears = mat['ThermExpYears']
 	OceanDynMean = np.squeeze(mat['OceanDynMean'][:,:,rcp_ind])
@@ -60,7 +61,7 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, pipeline_id):
 		'ThermExpYears': ThermExpYears, 'OceanDynMean': OceanDynMean, 'OceanDynStd': OceanDynStd, \
 		'OceanDynTECorr': OceanDynTECorr, 'tesamps': tesamps, 'ThermExpMean': ThermExpMean, \
 		'ThermExpStd': ThermExpStd, 'targregions': targregions, 'targregionnames': targregionnames, \
-		'GCMprobscale': GCMprobscale, 'maxDOF': maxDOF}
+		'targsitecoords': targsitecoords, 'GCMprobscale': GCMprobscale, 'maxDOF': maxDOF}
 	
 	
 	# Define the data directory

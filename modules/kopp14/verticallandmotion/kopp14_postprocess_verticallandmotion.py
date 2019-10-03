@@ -37,6 +37,7 @@ def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 	targyears = my_data['targyears']
 	targregions = my_data['targregions']
 	targregionnames = my_data['targregionnames']
+	targsitecoords = my_data['targsitecoords']
 	rateprojs = my_data['rateprojs']
 	rateprojssd = my_data['rateprojssd']
 	baseyear = my_data['baseyear']
@@ -50,6 +51,10 @@ def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 	# Map the requested site IDs to target regions
 	site_ids_map = np.flatnonzero(np.isin(targregions, site_ids))
 	site_ids = targregions[site_ids_map]
+	
+	# Extract the lat/lon for the sites
+	site_lats = targsitecoords[site_ids_map,0]
+	site_lons = targsitecoords[site_ids_map,1]
 	
 	# Evenly sample an inverse normal distribution
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
@@ -92,8 +97,8 @@ def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 	samp_dim = rootgrp.createDimension("samples", nsamps)
 
 	# Populate dimension variables
-	#lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
-	#lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
+	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
+	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
 	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
 	year_var = rootgrp.createVariable("year", "i4", ("years",))
 	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
@@ -105,16 +110,16 @@ def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 	rootgrp.description = "Local SLR contributions from vertical land motion according to Kopp 2014 workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
 	rootgrp.source = "FACTS: {}".format(pipeline_id)
-	#lat_var.units = "Degrees North"
-	#lon_var.units = "Degrees West"
+	lat_var.units = "Degrees North"
+	lon_var.units = "Degrees West"
 	id_var.units = "[-]"
 	year_var.units = "[-]"
 	samp_var.units = "[-]"
 	localsl.units = "mm"
 
 	# Put the data into the netcdf variables
-	#lat_var[:] = site_lats
-	#lon_var[:] = site_lons
+	lat_var[:] = site_lats
+	lon_var[:] = site_lons
 	id_var[:] = site_ids
 	year_var[:] = targyears
 	samp_var[:] = np.arange(0,nsamps)

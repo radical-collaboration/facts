@@ -29,6 +29,7 @@ def kopp14_preprocess_verticallandmotion(pipeline_id):
 	# Extract the relevant data
 	targyears = np.squeeze(mat['targyears'])
 	targregions = np.squeeze(mat['targregions'])
+	targsitecoords = mat['targsitecoords']
 	targregionnames = mat['targregionnames']
 	rateprojs = mat['rateprojs']
 	rateprojssd = mat['rateprojssd']
@@ -38,8 +39,8 @@ def kopp14_preprocess_verticallandmotion(pipeline_id):
 	
 	# Populate the output dictionary
 	outdata = {'targyears': targyears, 'targregions': targregions, \
-		'targregionnames': targregionnames, 'rateprojs': rateprojs, \
-		'rateprojssd': rateprojssd, 'baseyear': baseyear}
+		'targsitecoords': targsitecoords, 'targregionnames': targregionnames, \
+		'rateprojs': rateprojs, 'rateprojssd': rateprojssd, 'baseyear': baseyear}
 	
 	
 	# Define the data directory
