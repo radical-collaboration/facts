@@ -86,7 +86,7 @@ def kopp14_project_icesheets(nsamps, seed, pipeline_id):
 	outfile.close()
 	
 	# Loop over the ice sheets
-	icesheet_names = ["GIS", "EAIS", "WAIS"]
+	icesheet_names = ["GIS", "WAIS", "EAIS"]
 	for i in np.arange(0,len(icesheet_names)):
 		
 		# This ice sheet
