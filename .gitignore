@@ -6,3 +6,4 @@
 *.csv
 *.mat
 /experiments/kopp14*
+/modules/ipccar6/

@@ -21,7 +21,7 @@ pipeline_id = Unique identifier for the pipeline running this code
 
 '''
 
-def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
+def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 
 	# Read in the data from the preprocessing stage
 	datafile = "{}_data.pkl".format(pipeline_id)
@@ -132,7 +132,7 @@ def kopp14_project_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 if __name__ == '__main__':	
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the pre-processing stage for the Kopp14 vertical land motion workflow",\
+	parser = argparse.ArgumentParser(description="Run the post-processing stage for the Kopp14 vertical land motion workflow",\
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
@@ -148,7 +148,7 @@ if __name__ == '__main__':
 	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
 	
 	# Run the postprocessing stage
-	kopp14_project_verticallandmotion(args.nsamps, args.seed, site_ids, args.pipeline_id)
+	kopp14_postprocess_verticallandmotion(args.nsamps, args.seed, site_ids, args.pipeline_id)
 	
 	# Done
 	exit()
