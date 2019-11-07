@@ -12,83 +12,114 @@ from netCDF4 import Dataset
 ''' kopp14_postprocess_oceandynamics.py
 
 This runs the post-processing stage for the ocean dynamics component of the Kopp14
-workflow. Projections generated from this stage are site-specific.
+workflow. Projections generated from this stage are site-specific and include both the
+ocean dynamics and thermal expansion contributions.
 
 Parameters:
 nsamps = Number of samples to draw
 rng_seed = Seed value for the random number generator
-site_ids = ID numbers of the sites of interest
 pipeline_id = Unique identifier for the pipeline running this code
+
+Note that the value of 'nsamps' and 'rng_seed' are shared between the projection stage
+and the post-processing stage when run within FACTS.
 
 '''
 
-def kopp14_postprocess_oceandynamics(nsamps, rng_seed, site_ids, pipeline_id):
+def kopp14_postprocess_oceandynamics(nsamps, rng_seed, pipeline_id):
 	
-	# Read in the data from the preprocessing stage
-	datafile = "{}_data.pkl".format(pipeline_id)
+	# Read in the configuration -----------------------------------
+	infile = "{}_config.pkl".format(pipeline_id)
 	try:
-		f = open(datafile, 'rb')
+		f = open(infile, 'rb')
 	except:
-		print("Cannot open datafile\n")
+		print("Cannot open infile\n")
+		raise
 	
 	# Extract the data from the file
 	my_data = pickle.load(f)
 	
 	# Extract the relevant data
 	targyears = my_data['targyears']
-	targregions = my_data['targregions']
-	targregionnames = my_data['targregionnames']
-	targsitecoords = my_data['targsitecoords']
-	OceanDynYears = my_data['OceanDynYears']
+	rcp_scenario = my_data['rcp_scenario']
+	GCMprobscale = my_data['GCMprobscale']
+	maxDOF = my_data['maxDOF']
+	
+	# Read in the ZOS data file ------------------------------------
+	infile = "{}_ZOS.pkl".format(pipeline_id)
+	try:
+		f = open(infile, 'rb')
+	except:
+		print("Cannot open infile\n")
+		raise
+	
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	
+	focus_site_ids = my_data['focus_site_ids']
+	focus_site_lats = my_data['focus_site_lats']
+	focus_site_lons = my_data['focus_site_lons']
+	
+	# Read in the TE fit data file --------------------------------
+	infile = "{}_thermalexp_fit.pkl".format(pipeline_id)
+	try:
+		f = open(infile, 'rb')
+	except:
+		print("Cannot open infile\n")
+		raise
+	
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	
+	ThermExpMean = my_data['ThermExpMean']
+	ThermExpStd = my_data['ThermExpStd']
 	ThermExpYears = my_data['ThermExpYears']
+	
+	# Read in the OD fit data file --------------------------------
+	infile = "{}_oceandynamics_fit.pkl".format(pipeline_id)
+	try:
+		f = open(infile, 'rb')
+	except:
+		print("Cannot open infile\n")
+		raise
+	
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	
+	OceanDynYears = my_data['OceanDynYears']
 	OceanDynMean = my_data['OceanDynMean']
 	OceanDynStd = my_data['OceanDynStd']
 	OceanDynN = my_data['OceanDynN']
 	OceanDynTECorr = my_data['OceanDynTECorr']
-	tesamps = my_data['tesamps']
-	ThermExpMean = my_data['ThermExpMean']
-	ThermExpStd = my_data['ThermExpStd']
-	GCMprobscale = my_data['GCMprobscale']
-	maxDOF = my_data['maxDOF']
 	
-	# Sample 'tesamps' according to the nsamps requested
-	np.random.seed(rng_seed)
-	if(nsamps <= tesamps.shape[0]):
-		s_inds = np.random.choice(tesamps.shape[0], nsamps, replace=False)
-	else:
-		s_inds = np.random.choice(tesamps.shape[0], nsamps, replace=True)
-	tesamps = tesamps[s_inds,:]
+	# Read in the TE projections data file ------------------------
+	infile = "{}_projections.pkl".format(pipeline_id)
+	try:
+		f = open(infile, 'rb')
+	except:
+		print("Cannot open infile\n")
+		raise
 	
-	# Make sure all the requested IDs are available
-	missing_ids = np.setdiff1d(site_ids, targregions)
-	if(len(missing_ids) != 0):
-		missing_ids_string = ",".join(str(this) for this in missing_ids)
-		raise Exception("The following IDs are not available: {}".format(missing_ids_string))
+	# Extract the data from the file
+	my_data = pickle.load(f)
 	
-	# Map the requested site IDs to target regions
-	site_ids_map = np.flatnonzero(np.isin(targregions, site_ids))
-	site_ids = targregions[site_ids_map]
-	
-	# Extract the lat/lon for the sites
-	site_lats = targsitecoords[site_ids_map,0]
-	site_lons = targsitecoords[site_ids_map,1]
+	tesamps = my_data['thermsamps']
 	
 	# Evenly sample an inverse normal distribution
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
 	norm_inv = norm.ppf(x)
 	
 	# Initialize variable to hold the samples
-	samps = np.empty((nsamps, len(targyears), len(site_ids)))
+	samps = np.empty((nsamps, len(targyears), len(focus_site_ids)))
 	
-	# Determine the scale coefficient
+	# Determine the thermal expansion scale coefficient
 	ThermExpScale = norm.ppf(0.95)/norm.ppf(GCMprobscale)
 	
 	# Loop over the sites
-	nsites = len(site_ids)
+	nsites = len(focus_site_ids)
 	for i in np.arange(0,nsites):
 		
 		# This site index
-		this_site_ind = site_ids_map[i]
+		this_site_ind = i
 		
 		# Reset the RNG seed
 		np.random.seed(rng_seed)
@@ -135,7 +166,7 @@ def kopp14_postprocess_oceandynamics(nsamps, rng_seed, site_ids, pipeline_id):
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from ocean dynamics according to Kopp 2014 workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: {}".format(pipeline_id)
+	rootgrp.source = "FACTS: {0} - {1}".format(pipeline_id, rcp_scenario)
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees West"
 	id_var.units = "[-]"
@@ -144,9 +175,9 @@ def kopp14_postprocess_oceandynamics(nsamps, rng_seed, site_ids, pipeline_id):
 	localsl.units = "mm"
 
 	# Put the data into the netcdf variables
-	lat_var[:] = site_lats
-	lon_var[:] = site_lons
-	id_var[:] = site_ids
+	lat_var[:] = focus_site_lats
+	lon_var[:] = focus_site_lons
+	id_var[:] = focus_site_ids
 	year_var[:] = targyears
 	samp_var[:] = np.arange(0,nsamps)
 	localsl[:,:,:] = samps
@@ -164,17 +195,13 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
-	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Convert the string of site_ids to a list
-	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
-	
 	# Run the postprocessing stage
-	kopp14_postprocess_oceandynamics(args.nsamps, args.seed, site_ids, args.pipeline_id)
+	kopp14_postprocess_oceandynamics(args.nsamps, args.seed, args.pipeline_id)
 	
 	# Done
 	exit()

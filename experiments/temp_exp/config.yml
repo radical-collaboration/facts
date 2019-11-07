@@ -36,16 +36,16 @@
 #        seed: 1234
 #        site_ids: 12
 
-landwaterstorage2:
-    module_set: "ssp"
-    module: "landwaterstorage"
-    options:
-        scenario: "rcp85"
-        dotriangular: 0
-        includepokherl: 0
-        nsamps: 20000
-        seed: 1234
-        site_ids: 12
+#landwaterstorage2:
+#    module_set: "ssp"
+#    module: "landwaterstorage"
+#    options:
+#        scenario: "rcp85"
+#        dotriangular: 0
+#        includepokherl: 0
+#        nsamps: 20000
+#        seed: 1234
+#        site_ids: 12
 
 #directsample1:
 #    module_set: "genmod"
@@ -73,11 +73,11 @@ landwaterstorage2:
 #        seed: 1234
 #        site_ids: 12
 
-#oceandynamics:
-#    module_set: "kopp14"
-#    module: "oceandynamics"
-#    options:
-#        scenario: "rcp85"
-#        nsamps: 20000
-#        seed: 1234
-#        site_ids: 12
+oceandynamics:
+    module_set: "kopp14"
+    module: "oceandynamics"
+    options:
+        scenario: "rcp85"
+        nsamps: 20000
+        seed: 1234
+        site_ids: 12,10

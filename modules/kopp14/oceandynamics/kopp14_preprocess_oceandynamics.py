@@ -1,9 +1,15 @@
 import numpy as np
-import pickle as p
+import pickle
 import os
 import sys
+import re
 import argparse
-import scipy.io
+from IncludeModels import IncludeModels
+from IncludeDABZOSModels import *
+from SmoothZOSTOGA import SmoothZOSTOGA
+from DriftCorr import DriftCorr
+from read_annual import read_annual
+from Smooth import Smooth
 
 ''' kopp14_preprocess_oceandynamics.py
 
@@ -11,65 +17,140 @@ This runs the preprocessing stage for the ocean dynamics component of the Kopp14
 workflow.
 
 Parameters:
-rcp_scenario = RCP scenario (default = 'rcp85')
+rcp_scenario = RCP scenario of interest (default = "rcp85")
+zostoga_modeldir = Directory that contains the ZOSTOGA model data
+zos_modeldir = Directory that contains the ZOS model data (in *.mat format)
+driftcorr = Apply the drift correction?
+focus_site_ids = ID numbers of the sites of interest
 pipeline_id = Unique identifier for the pipeline running this code
 
-Note: The script currently loads the results saved from the original ProjectSL code in
-the Kopp14 workflow. These then get passed through a NULL process "fitting" stage and 
-pick up at the global projection stage.  With time we would like to port the entirety of
-the Kopp14 ocean dynamics component.
 
 '''
 
-def kopp14_preprocess_oceandynamics(rcp_scenario, pipeline_id):
-
-	# Which RCP scenario does the user want?
-	rcp_list = ["rcp85", "rcp60", "rcp45", "rcp26"]
-	try:
-		rcp_ind = rcp_list.index(rcp_scenario)
-	except:
-		print("kopp14 oceandynamics: Invalid RCP scenario \"{0}\"".format(rcp_scenario))
-		sys.exit(1);
-
-	# Read in the matlab output file
-	mat_file = os.path.join(os.path.dirname(__file__), "SLRProjections161027GRIDDEDcore.mat")
-	mat = scipy.io.loadmat(mat_file)
+def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir, driftcorr, focus_site_ids, pipeline_id):
 	
-	# Extract the relevant data
-	targyears = np.squeeze(mat['targyears'])
-	targregions = np.squeeze(mat['targregions'])
-	targregionnames = mat['targregionnames']
-	targsitecoords = mat['targsitecoords']
-	OceanDynYears = mat['OceanDynYears']
-	ThermExpYears = mat['ThermExpYears']
-	OceanDynMean = np.squeeze(mat['OceanDynMean'][:,:,rcp_ind])
-	OceanDynStd = np.squeeze(mat['OceanDynStd'][:,:,rcp_ind])
-	OceanDynN = np.squeeze(mat['OceanDynN'][:,:,rcp_ind])
-	OceanDynTECorr = np.squeeze(mat['OceanDynTECorr'][:,:,rcp_ind])
-	tesamps = np.squeeze(mat['samps'][:,mat['colTE']-1,:,rcp_ind])
-	ThermExpMean = np.squeeze(mat['ThermExpMean'][:,rcp_ind])
-	ThermExpStd = np.squeeze(mat['ThermExpStd'][:,rcp_ind])
-	
-	# Define the GCM probability scale
+	# Define variables
+	datayears = np.arange(1861,2300)
+	targyears = np.arange(2010,2101,10)
+	mergeZOSZOSTOGA = True
+	smoothwin = 19
+	baseyear = 2000
 	GCMprobscale = 0.833
-	
-	# Define the maximum degrees of freedom
 	maxDOF = np.inf
 	
-	# Populate the output dictionary
-	outdata = {'targyears': targyears, 'OceanDynYears': OceanDynYears, 'OceanDynN': OceanDynN, \
-		'ThermExpYears': ThermExpYears, 'OceanDynMean': OceanDynMean, 'OceanDynStd': OceanDynStd, \
-		'OceanDynTECorr': OceanDynTECorr, 'tesamps': tesamps, 'ThermExpMean': ThermExpMean, \
-		'ThermExpStd': ThermExpStd, 'targregions': targregions, 'targregionnames': targregionnames, \
-		'targsitecoords': targsitecoords, 'GCMprobscale': GCMprobscale, 'maxDOF': maxDOF}
+	#--------- Begin Thermal Expansion ---------------------------------------------------
+	# Read in the ZOSTOGA data
+	zostoga_modeldir = os.path.join(zostoga_modeldir, rcp_scenario)
+	(zostoga_modellist, ZOSTOGA) = IncludeModels(zostoga_modeldir, ("ZOSTOGA", "ZOSGA"), datayears)	
 	
+	# Center, suture, and smooth ZOSTOGA
+	sZOSTOGA = np.nan * ZOSTOGA
+	for i in np.arange(0,ZOSTOGA.shape[1]):
+		(ZOSTOGA[:,i], sZOSTOGA[:,i]) = SmoothZOSTOGA(ZOSTOGA[:,i], datayears, baseyear, smoothwin)
 	
-	# Define the data directory
+	# Apply the drift correction if needed
+	if(driftcorr):
+		gslfile = os.path.join(os.path.dirname(__file__), "CSIRO_Recons_gmsl_yr_2011.csv")
+		(sZOSTOGA, CWdrift, histGICrate, selectyears) = DriftCorr(sZOSTOGA, datayears, baseyear, rcp_scenario, gslfile)
+	else:
+		CWdrift = np.nan
+		histGICrate = np.nan
+		selectyears = np.nan	
+	
+	# Store the configuration in a pickle
+	output = {'rcp_scenario': rcp_scenario, 'datayears': datayears,\
+		'targyears': targyears,	'mergeZOSZOSTOGA': mergeZOSZOSTOGA,\
+		'smoothwin': smoothwin, 'driftcorr': driftcorr, 'baseyear': baseyear,\
+		'GCMprobscale': GCMprobscale, 'maxDOF': maxDOF}
+	
+	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)
-
-	# Write the rates data to a pickle file
-	outfile = open(os.path.join(outdir, "{}_data.pkl".format(pipeline_id)), 'wb')
-	p.dump(outdata, outfile)
+	outfile = open(os.path.join(outdir, "{}_config.pkl".format(pipeline_id)), 'wb')
+	pickle.dump(output, outfile)
+	outfile.close()
+	
+	# Store the ZOSTOGA variables in a pickle
+	output = {'sZOSTOGA': sZOSTOGA, 'zostoga_modellist': zostoga_modellist, 'CWdrift': CWdrift,\
+		'histGICrate': histGICrate, 'selectyears': selectyears}
+	
+	# Write the ZOSTOGA variables to a file
+	outfile = open(os.path.join(outdir, "{}_ZOSTOGA.pkl".format(pipeline_id)), 'wb')
+	pickle.dump(output, outfile)
+	outfile.close()
+	
+	
+	
+	#------------ Begin Ocean Dynamics ---------------------------------------------------
+	
+	# Load the site locations
+	rlrdir = os.path.join(os.path.dirname(__file__), "rlr_annual")
+	psmsl_sites = read_annual(rlrdir, True)
+	
+	# Extract site lats, lons, and ids
+	def decomp_site(site):
+		return(site.lat, site.lon, site.id)
+	vdecomp_site = np.vectorize(decomp_site)
+	(targregion_lats, targregion_lons, targregion_ids) = vdecomp_site(psmsl_sites)
+	
+	# Make sure all the requested IDs are available
+	missing_ids = np.setdiff1d(focus_site_ids, targregion_ids)
+	if(len(missing_ids) != 0):
+		missing_ids_string = ",".join(str(this) for this in missing_ids)
+		raise Exception("The following IDs are not available: {}".format(missing_ids_string))
+	
+	# Map the requested site IDs to target regions
+	focus_site_ids_map = np.flatnonzero(np.isin(targregion_ids, focus_site_ids))
+	focus_site_ids = targregion_ids[focus_site_ids_map]
+	focus_site_lats = targregion_lats[focus_site_ids_map]
+	focus_site_lons = targregion_lons[focus_site_ids_map]
+	
+	# Load the ZOS data
+	(zos_modellist, ZOS_raw) = IncludeDABZOSModels(zos_modeldir, rcp_scenario, focus_site_lats, focus_site_lons)
+	
+	# Find the overlap between ZOS and ZOSTOGA
+	comb_modellist, zostoga_model_idx, zos_model_idx = np.intersect1d(zostoga_modellist, zos_modellist, return_indices=True)
+		
+	'''
+	NOTE: POTENTIAL BUG IN ORIGINAL CODE
+	The original code uses the smoothed ZOSTOGA data as the raw ZOSTOGA values. This in
+	turn smooths the ZOSTOGA data over the 'smoothwin' period twice. To replicate the
+	bug, set 'ZOSTOGAadj' to a subset of 'sZOSTOGA' instead of 'ZOSTOGA'.
+	'''
+	ZOSTOGAadj = sZOSTOGA[:,zostoga_model_idx]  # Replicate potential bug
+	#ZOSTOGAadj = ZOSTOGA[:,zostoga_model_idx]  # Fix for potential bug
+	ZOS_raw = ZOS_raw[:, zos_model_idx, :]	
+	
+	# Should we merge ZOSTOGA and ZOS?
+	# NOTE: ZOS starts at 1860 while ZOSTOGA starts at 1861. Pop off the 1860 value for
+	# ZOS and merge if necessary
+	if(mergeZOSZOSTOGA):
+		ZOS = ZOS_raw + ZOSTOGAadj[:,:,np.newaxis]
+	else:
+		ZOS = ZOS_raw
+	
+	# Smooth ZOS and ZOSTOGA over 19 year smoothing window
+	def nanSmooth(x, w):
+		idx = np.flatnonzero(~np.isnan(x))
+		temp = x
+		temp[idx] = Smooth(x[idx], w)
+		return(temp)
+	
+	sZOS = np.apply_along_axis(nanSmooth, axis=0, arr=ZOS, w=smoothwin)
+	sZOSTOGAadj = np.apply_along_axis(nanSmooth, axis=0, arr=ZOSTOGAadj, w=smoothwin)
+	
+	# Center the smoothed ZOS/ZOSTOGAadj to the baseyear
+	baseyear_idx = np.flatnonzero(datayears == baseyear)
+	sZOS = np.apply_along_axis(lambda z, idx: z - z[idx], axis=0, arr=sZOS, idx=baseyear_idx)
+	sZOSTOGAadj = np.apply_along_axis(lambda z, idx: z - z[idx], axis=0, arr=sZOSTOGAadj, idx=baseyear_idx)
+	
+	# Store the ZOS variable in a pickle
+	output = {'sZOS': sZOS, 'zos_modellist': zos_modellist, 'datayears': datayears, \
+				'focus_site_ids': focus_site_ids, 'focus_site_lats': focus_site_lats, \
+				'focus_site_lons': focus_site_lons, 'sZOSTOGAadj': sZOSTOGAadj, 'comb_modellist': comb_modellist}
+	
+	# Write the ZOS variables to a file
+	outfile = open(os.path.join(outdir, "{}_ZOS.pkl".format(pipeline_id)), 'wb')
+	pickle.dump(output, outfile)
 	outfile.close()
 
 	
@@ -80,14 +161,28 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--scenario', '-s', help="RCP Scenario", choices=['rcp85', 'rcp60', 'rcp45', 'rcp26'], default='rcp85')
+	parser.add_argument('--scenario', help="RCP Scenario [default=\'rcp85\']", choices=['rcp85', 'rcp60', 'rcp45', 'rcp26'], default='rcp85')
+	
+	parser.add_argument('--zostoga_model_dir', help="Directory containing ZOSTOGA GCM output",\
+	default=os.path.join(os.path.dirname(__file__), "SLR_ALL"))
+	
+	parser.add_argument('--zos_model_dir', help="Directory containing ZOS GCM output",\
+	default=os.path.join(os.path.dirname(__file__), "zosfinal"))
+	
+	parser.add_argument('--no_drift_corr', help="Do not apply the drift correction", action='store_true')
+	
+	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
+	
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Run the preprocessing stage with the user defined RCP scenario
-	kopp14_preprocess_oceandynamics(args.scenario, args.pipeline_id)
+	# Convert the string of site_ids to a list
+	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
+	
+	# Pass the model directory in via command line
+	kopp14_preprocess_oceandynamics(args.scenario, args.zostoga_model_dir, args.zos_model_dir, not args.no_drift_corr, site_ids, args.pipeline_id)
 	
 	# Done
 	exit()

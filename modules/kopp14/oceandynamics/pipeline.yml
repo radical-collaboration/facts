@@ -8,14 +8,23 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml"
+    pre_exec: "tar -xzf kopp14_oceandynamics_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
     script: "kopp14_preprocess_oceandynamics.py"
     options:
       - "scenario"
+      - "site_ids"
       - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/oceandynamics/kopp14_preprocess_oceandynamics.py"
-      - "./modules/kopp14/oceandynamics/data/SLRProjections161027GRIDDEDcore.mat"
+      - "./modules/kopp14/oceandynamics/IncludeModels.py"
+      - "./modules/kopp14/oceandynamics/IncludeDABZOSModels.py"
+      - "./modules/kopp14/oceandynamics/SmoothZOSTOGA.py"
+      - "./modules/kopp14/oceandynamics/DriftCorr.py"
+      - "./modules/kopp14/oceandynamics/Smooth.py"
+      - "./modules/kopp14/oceandynamics/read_annual.py"
+      - "./modules/kopp14/oceandynamics/read_CSIRO.py"
+      - "./modules/kopp14/oceandynamics/readMarzeion.py"
+      - "./modules/kopp14/oceandynamics/data/kopp14_oceandynamics_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
@@ -34,6 +43,12 @@ fit:
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/oceandynamics/kopp14_fit_oceandynamics.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_ZOSTOGA.pkl"
+          - "%PIPELINE_ID%_ZOS.pkl"
 
 project:
   task1:
@@ -47,8 +62,19 @@ project:
     script: "kopp14_project_oceandynamics.py"
     options:
       - "pipeline_id"
+      - "nsamps"
+      - "seed"
     upload_input_data:
       - './modules/kopp14/oceandynamics/kopp14_project_oceandynamics.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_config.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_thermalexp_fit.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_globalsl.nc"
 
 post-process:
   task1:
@@ -63,13 +89,20 @@ post-process:
     options:
       - "nsamps"
       - "seed"
-      - "site_ids"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/oceandynamics/kopp14_postprocess_oceandynamics.py'
     copy_input_data:
       pre-process:
         task1:
-          - "%PIPELINE_ID%_data.pkl"
+          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_ZOS.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_thermalexp_fit.pkl"
+          - "%PIPELINE_ID%_oceandynamics_fit.pkl"
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
     download_output_data:
       - "%PIPELINE_ID%_localsl.nc"
