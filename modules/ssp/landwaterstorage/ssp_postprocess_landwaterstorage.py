@@ -5,7 +5,8 @@ import os
 import argparse
 import time
 import re
-from read_annual import read_annual
+from read_bkgdrate import read_bkgdrate
+from AssignFP import AssignFP
 from netCDF4 import Dataset
 
 ''' ssp_postprocess_landwaterstorage.py
@@ -18,10 +19,6 @@ site_ids = Location IDs of sites to localize projections (from PSMSL)
 pipeline_id = Unique identifier for the pipeline running this code
 
 Output: NetCDF file containing the local sea-level rise projections
-
-Note: The Kopp14 workflow, upon which this module is based, does not apply a fingerprint 
-to the land water storage component. As such, this script applies an implicit fingerprint 
-coefficient of '1' and produces localized slr projections for the site ids provided.
 
 '''
 
@@ -42,15 +39,9 @@ def ssp_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
 	scen = my_proj['scen']
 	lwssamps = np.transpose(my_proj["lwssamps"])
 	
-	# Load the site locations
-	rlrdir = os.path.join(os.path.dirname(__file__), "rlr_annual")
-	sites = read_annual(rlrdir, True)
-	
-	# Extract site lats, lons, and ids
-	def decomp_site(site):
-		return(site.lat, site.lon, site.id)
-	vdecomp_site = np.vectorize(decomp_site)
-	(site_lats, site_lons, site_ids) = vdecomp_site(sites)
+	# Load the site locations	
+	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
+	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	
 	# Match the user selected sites to those in the PSMSL data
 	_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
@@ -62,8 +53,10 @@ def ssp_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
 	(nsamps, ntimes) = lwssamps.shape
 	nsites = len(site_ids)
 	
-	# Apply the effective fingerprint of "1" to the global projections for each site
-	local_sl = np.tile(lwssamps, (nsites, 1, 1))
+	# Apply the fingerprints
+	fpfile = os.path.join(os.path.dirname(__file__), "REL_GROUNDWATER_NOMASK.nc")
+	fpsites = AssignFP(fpfile, site_lats, site_lons)
+	local_sl = lwssamps[np.newaxis,:,:] * fpsites[:,np.newaxis,np.newaxis]
 		
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")

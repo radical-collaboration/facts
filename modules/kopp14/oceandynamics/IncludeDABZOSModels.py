@@ -98,8 +98,6 @@ def IncludeDABZOSModels(model_dir, rcp_scen, focus_site_lats, focus_site_lons):
 	# Loop through available models in the model/rcp directory
 	rcp_dir = os.path.join(model_dir, rcp_scen)
 	for model in glob.iglob(os.path.join(rcp_dir, "*zos.mat")):
-	#for model in glob.iglob(os.path.join(rcp_dir, "HadGEM2-CC_rcp85_zos.mat")):
-	#for model in glob.iglob(os.path.join(rcp_dir, "GISS-E2-R-CC_rcp85_zos.mat")):
 		
 		# Get the model name from the file name
 		match_string = rcp_dir + r"/(.*)_rcp\d\d_zos.mat$"
@@ -140,4 +138,4 @@ if __name__ == "__main__":
 	end_time = time.clock()
 	
 	print(end_time - start_time)
-	print(zos[240:243,:,0])
+	print(zos[238,0,:])
