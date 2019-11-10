@@ -8,7 +8,7 @@ from IncludeModels import IncludeModels
 from IncludeDABZOSModels import *
 from SmoothZOSTOGA import SmoothZOSTOGA
 from DriftCorr import DriftCorr
-from read_annual import read_annual
+from read_bkgdrate import read_bkgdrate
 from Smooth import Smooth
 
 ''' kopp14_preprocess_oceandynamics.py
@@ -82,15 +82,9 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir
 	
 	#------------ Begin Ocean Dynamics ---------------------------------------------------
 	
-	# Load the site locations
-	rlrdir = os.path.join(os.path.dirname(__file__), "rlr_annual")
-	psmsl_sites = read_annual(rlrdir, True)
-	
-	# Extract site lats, lons, and ids
-	def decomp_site(site):
-		return(site.lat, site.lon, site.id)
-	vdecomp_site = np.vectorize(decomp_site)
-	(targregion_lats, targregion_lons, targregion_ids) = vdecomp_site(psmsl_sites)
+	# Load the site locations	
+	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
+	(_, targregion_ids, targregion_lats, targregions_lons) = read_bkgdrate(ratefile, True)
 	
 	# Make sure all the requested IDs are available
 	missing_ids = np.setdiff1d(focus_site_ids, targregion_ids)

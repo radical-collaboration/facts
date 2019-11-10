@@ -6,7 +6,7 @@ import time
 import argparse
 import re
 from netCDF4 import Dataset
-from read_annual import read_annual
+from read_bkgdrate import read_bkgdrate
 from AssignFP import AssignFP
 
 
@@ -37,15 +37,9 @@ def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 		print("Cannot open projfile\n")
 		sys.exit(1)
 	
-	# Load the site locations
-	rlrdir = os.path.join(os.path.dirname(__file__), "rlr_annual")
-	sites = read_annual(rlrdir, True)
-	
-	# Extract site lats, lons, and ids
-	def decomp_site(site):
-		return(site.lat, site.lon, site.id)
-	vdecomp_site = np.vectorize(decomp_site)
-	(site_lats, site_lons, site_ids) = vdecomp_site(sites)
+	# Load the site locations	
+	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
+	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	
 	# Test to make sure the list of sites are valid
 	_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)

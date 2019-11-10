@@ -5,7 +5,7 @@ import os
 import argparse
 import time
 import re
-from read_annual import read_annual
+from read_bkgdrate import read_bkgdrate
 from netCDF4 import Dataset
 
 ''' kopp14_postprocess_thermalexp.py
@@ -43,15 +43,9 @@ def kopp14_postprocess_thermalexp(focus_site_ids, pipeline_id):
 	thermsamps = my_proj["thermsamps"]
 	rcp_scenario = my_proj['rcp_scenario']
 	
-	# Load the site locations
-	rlrdir = os.path.join(os.path.dirname(__file__), "rlr_annual")
-	sites = read_annual(rlrdir, True)
-	
-	# Extract site lats, lons, and ids
-	def decomp_site(site):
-		return(site.lat, site.lon, site.id)
-	vdecomp_site = np.vectorize(decomp_site)
-	(site_lats, site_lons, site_ids) = vdecomp_site(sites)
+	# Load the site locations	
+	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
+	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	
 	# FOR SIMPLICITY, LOCALIZE TO ONLY A FEW LOCATIONS
 	_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
