@@ -64,25 +64,46 @@ def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	waissl = np.multiply.outer(projdata[:,:,1], waisfp)
 	eaissl = np.multiply.outer(projdata[:,:,2], eaisfp)
 	
+	# Write to netcdf
+	writeNetCDF(gissl, pipeline_id, "GIS", targyears, site_lats, site_lons, site_ids)
+	writeNetCDF(waissl, pipeline_id, "WAIS", targyears, site_lats, site_lons, site_ids)
+	writeNetCDF(eaissl, pipeline_id, "EAIS", targyears, site_lats, site_lons, site_ids)
+
+
+def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lons, site_ids):
+	
+	# Calculate the quantiles
+	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
+	nq = len(out_q)
+	local_sl_q = np.nanquantile(data, out_q, axis=0)
+	local_sl_q = np.transpose(local_sl_q, (0,2,1))
+	
+	# Calculate the mean and sd of the samples
+	local_sl_mean = np.nanmean(data, axis=0).T
+	local_sl_sd = np.nanstd(data, axis=0).T	
+	
 	# Write the localized projections to a netcdf file
-	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
+	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{0}_{1}_localsl.nc".format(pipeline_id, icesheet_name)), "w", format="NETCDF4")
 
 	# Define Dimensions
-	site_dim = rootgrp.createDimension("nsites", len(site_inds))
-	year_dim = rootgrp.createDimension("years", len(targyears))
-	samp_dim = rootgrp.createDimension("samples", projdata.shape[0])
+	nsites = local_sl_mean.shape[0]
+	nyears = len(targyears)
+	nq = len(out_q)
+	site_dim = rootgrp.createDimension("nsites", nsites)
+	year_dim = rootgrp.createDimension("years", nyears)
+	q_dim = rootgrp.createDimension("quantiles", nq)
 
 	# Populate dimension variables
 	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
 	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
 	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
-	year_var = rootgrp.createVariable("year", "i4", ("years",))
-	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+	year_var = rootgrp.createVariable("years", "i4", ("years",))
+	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localgis = rootgrp.createVariable("localGIS", "f4", ("samples", "years", "nsites"), zlib=True, least_significant_digit=2)
-	localwais = rootgrp.createVariable("localWAIS", "f4", ("samples", "years", "nsites"), zlib=True, least_significant_digit=2)
-	localeais = rootgrp.createVariable("localEAIS", "f4", ("samples", "years", "nsites"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
+	localslmean = rootgrp.createVariable("localSL_mean", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
+	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from icesheets according to Kopp 2014 workflow"
@@ -90,26 +111,24 @@ def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	rootgrp.source = "SLR Framework: Kopp 2014 workflow"
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees West"
-	id_var.units = "[-]"
-	year_var.units = "[-]"
-	samp_var.units = "[-]"
-	localgis.units = "mm"
-	localwais.units = "mm"
-	localeais.units = "mm"
+	localslq.units = "mm"
+	localslmean.units = "mm"
+	localslsd.units = "mm"
 
 	# Put the data into the netcdf variables
 	lat_var[:] = site_lats
 	lon_var[:] = site_lons
 	id_var[:] = site_ids
-	#year_var[:] = 2010 + 10*(np.arange(0,projdata.shape[1]))
 	year_var[:] = targyears
-	samp_var[:] = np.arange(0,projdata.shape[0])
-	localgis[:,:,:] = gissl
-	localwais[:,:,:] = waissl
-	localeais[:,:,:] = eaissl
+	q_var[:] = out_q
+	localslq[:,:,:] = local_sl_q
+	localslmean[:,:] = local_sl_mean
+	localslsd[:,:] = local_sl_sd
 
 	# Close the netcdf
 	rootgrp.close()
+	
+	return(0)
 	
 if __name__ == '__main__':
 	

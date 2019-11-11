@@ -14,7 +14,7 @@ pre-process:
       - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/verticallandmotion/kopp14_preprocess_verticallandmotion.py"
-      - "./modules/kopp14/verticallandmotion/data/SLRProjections161027GRIDDEDcore.mat"
+      - "./modules/kopp14/verticallandmotion/data/bkgdrate.tsv"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

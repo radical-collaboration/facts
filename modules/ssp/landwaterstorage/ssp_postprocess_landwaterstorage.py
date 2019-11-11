@@ -57,6 +57,15 @@ def ssp_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
 	fpfile = os.path.join(os.path.dirname(__file__), "REL_GROUNDWATER_NOMASK.nc")
 	fpsites = AssignFP(fpfile, site_lats, site_lons)
 	local_sl = lwssamps[np.newaxis,:,:] * fpsites[:,np.newaxis,np.newaxis]
+	
+	# Calculate the quantiles
+	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
+	nq = len(out_q)
+	local_sl_q = np.nanquantile(local_sl, out_q, axis=1)
+	
+	# Calculate the mean and sd of the samples
+	local_sl_mean = np.nanmean(local_sl, axis=1)
+	local_sl_sd = np.nanstd(local_sl, axis=1)
 		
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
@@ -64,17 +73,19 @@ def ssp_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
 	# Define Dimensions
 	site_dim = rootgrp.createDimension("nsites", nsites)
 	year_dim = rootgrp.createDimension("years", ntimes)
-	samp_dim = rootgrp.createDimension("samples", nsamps)
+	q_dim = rootgrp.createDimension("quantiles", nq)
 
 	# Populate dimension variables
 	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
 	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
 	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
-	year_var = rootgrp.createVariable("year", "i4", ("years",))
-	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+	year_var = rootgrp.createVariable("years", "i4", ("years",))
+	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localsl = rootgrp.createVariable("localSL", "f4", ("nsites", "samples", "years"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
+	localslmean = rootgrp.createVariable("localSL_mean", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
+	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from land water storage from the SSP module set"
@@ -82,18 +93,19 @@ def ssp_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
 	rootgrp.source = "FACTS: {0} - {1}".format(pipeline_id, scen)
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees West"
-	id_var.units = "[-]"
-	year_var.units = "[-]"
-	samp_var.units = "[-]"
-	localsl.units = "mm"
+	localslq.units = "mm"
+	localslmean.units = "mm"
+	localslsd.units = "mm"
 
 	# Put the data into the netcdf variables
 	lat_var[:] = site_lats
 	lon_var[:] = site_lons
 	id_var[:] = site_ids
 	year_var[:] = targyears
-	samp_var[:] = np.arange(0,nsamps)
-	localsl[:,:,:] = local_sl
+	q_var[:] = out_q
+	localslq[:,:,:] = local_sl_q
+	localslmean[:,:] = local_sl_mean
+	localslsd[:,:] = local_sl_sd
 
 	# Close the netcdf
 	rootgrp.close()

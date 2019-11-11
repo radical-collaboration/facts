@@ -8,9 +8,9 @@ import re
 from scipy.stats import norm
 from netCDF4 import Dataset
 
-''' kopp14_postprocess_verticallandmotion.py
+''' ipccar6_postprocess_verticallandmotion.py
 
-This runs the post-processing stage for the vertical land motion component of the Kopp14
+This runs the post-processing stage for the vertical land motion component of the IPCC AR6
 workflow. Projections generated from this stage are site-specific.
 
 Parameters:
@@ -21,7 +21,7 @@ pipeline_id = Unique identifier for the pipeline running this code
 
 '''
 
-def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
+def ipccar6_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 
 	# Read in the data from the preprocessing stage
 	datafile = "{}_data.pkl".format(pipeline_id)
@@ -34,27 +34,30 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_i
 	my_data = pickle.load(f)
 	
 	# Extract the relevant data
-	targyears = my_data['targyears']
-	targregions = my_data['targregions']
-	targregionnames = my_data['targregionnames']
-	targsitecoords = my_data['targsitecoords']
-	rateprojs = my_data['rateprojs']
-	rateprojssd = my_data['rateprojssd']
+	names = my_data['names']
+	ids = my_data['ids']
+	lats = my_data['lats']
+	lons = my_data['lons']
+	rates = my_data['rates']
+	sds = my_data['sds']
 	baseyear = my_data['baseyear']
 	
+	# Define the target years
+	targyears = np.arange(2000, 2101, 10)
+	
 	# Make sure all the requested IDs are available
-	missing_ids = np.setdiff1d(site_ids, targregions)
+	missing_ids = np.setdiff1d(site_ids, ids)
 	if(len(missing_ids) != 0):
 		missing_ids_string = ",".join(str(this) for this in missing_ids)
 		raise Exception("The following IDs are not available: {}".format(missing_ids_string))
 	
 	# Map the requested site IDs to target regions
-	site_ids_map = np.flatnonzero(np.isin(targregions, site_ids))
-	site_ids = targregions[site_ids_map]
+	site_ids_map = np.flatnonzero(np.isin(ids, site_ids))
+	site_ids = [ids[x] for x in site_ids_map]
 	
 	# Extract the lat/lon for the sites
-	site_lats = targsitecoords[site_ids_map,0]
-	site_lons = targsitecoords[site_ids_map,1]
+	site_lats = [lats[x] for x in site_ids_map]
+	site_lons = [lons[x] for x in site_ids_map]
 	
 	# Evenly sample an inverse normal distribution
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
@@ -84,9 +87,18 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_i
 			targyear = targyears[j]
 		
 			# Calculate the samples for this location and time
-			GIAproj = rateprojs[this_site_ind] * (targyear - baseyear)
-			GIAprojsd = rateprojssd[this_site_ind] * (targyear - baseyear)
+			GIAproj = rates[this_site_ind] * (targyear - baseyear)
+			GIAprojsd = sds[this_site_ind] * (targyear - baseyear)
 			samps[:,j,i] = GIAproj + norm_inv_perm*GIAprojsd
+	
+	# Calculate the quantiles
+	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
+	nq = len(out_q)
+	local_sl_q = np.transpose(np.nanquantile(samps, out_q, axis=0), (0,2,1))
+	
+	# Calculate the mean and sd of the samples
+	local_sl_mean = np.nanmean(samps, axis=0).T
+	local_sl_sd = np.nanstd(samps, axis=0).T
 	
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
@@ -94,36 +106,39 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_i
 	# Define Dimensions
 	site_dim = rootgrp.createDimension("nsites", nsites)
 	year_dim = rootgrp.createDimension("years", ntimes)
-	samp_dim = rootgrp.createDimension("samples", nsamps)
+	q_dim = rootgrp.createDimension("quantiles", nq)
 
 	# Populate dimension variables
 	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
 	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
 	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
-	year_var = rootgrp.createVariable("year", "i4", ("years",))
-	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+	year_var = rootgrp.createVariable("years", "i4", ("years",))
+	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localsl = rootgrp.createVariable("localSL", "f4", ("samples", "years", "nsites"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
+	localslmean = rootgrp.createVariable("localSL_mean", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
+	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
-	rootgrp.description = "Local SLR contributions from vertical land motion according to Kopp 2014 workflow"
+	rootgrp.description = "Local SLR contributions from vertical land motion according to IPCC AR6 workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
 	rootgrp.source = "FACTS: {}".format(pipeline_id)
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees West"
-	id_var.units = "[-]"
-	year_var.units = "[-]"
-	samp_var.units = "[-]"
-	localsl.units = "mm"
+	localslq.units = "mm"
+	localslmean.units = "mm"
+	localslsd.units = "mm"
 
 	# Put the data into the netcdf variables
 	lat_var[:] = site_lats
 	lon_var[:] = site_lons
 	id_var[:] = site_ids
 	year_var[:] = targyears
-	samp_var[:] = np.arange(0,nsamps)
-	localsl[:,:,:] = samps
+	q_var[:] = out_q
+	localslq[:,:,:] = local_sl_q
+	localslmean[:,:] = local_sl_mean
+	localslsd[:,:] = local_sl_sd
 
 	# Close the netcdf
 	rootgrp.close()
@@ -132,8 +147,8 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_i
 if __name__ == '__main__':	
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the post-processing stage for the Kopp14 vertical land motion workflow",\
-	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	parser = argparse.ArgumentParser(description="Run the post-processing stage for the IPCC AR6 vertical land motion workflow",\
+	epilog="Note: This is meant to be run as part of the IPCC AR6 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
@@ -148,7 +163,7 @@ if __name__ == '__main__':
 	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
 	
 	# Run the postprocessing stage
-	kopp14_postprocess_verticallandmotion(args.nsamps, args.seed, site_ids, args.pipeline_id)
+	ipccar6_postprocess_verticallandmotion(args.nsamps, args.seed, site_ids, args.pipeline_id)
 	
 	# Done
 	exit()

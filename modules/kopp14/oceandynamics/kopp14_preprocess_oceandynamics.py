@@ -84,7 +84,7 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir
 	
 	# Load the site locations	
 	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
-	(_, targregion_ids, targregion_lats, targregions_lons) = read_bkgdrate(ratefile, True)
+	(_, targregion_ids, targregion_lats, targregion_lons) = read_bkgdrate(ratefile, True)
 	
 	# Make sure all the requested IDs are available
 	missing_ids = np.setdiff1d(focus_site_ids, targregion_ids)
