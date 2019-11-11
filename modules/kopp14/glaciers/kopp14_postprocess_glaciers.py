@@ -83,7 +83,7 @@ def kopp14_postprocess_glaciers(focus_site_ids, pipeline_id):
 	# Initialize variable to hold the localized projections
 	(nsamps, nregions, ntimes) = gicsamps.shape
 	nsites = len(site_ids)
-	local_sl = np.full((nsites, nsamps, nregions, ntimes), np.nan) 
+	local_sl = np.full((nsites, nsamps, ntimes), 0.0) 
 	
 	# Loop through the GIC regions
 	for i in np.arange(0,nregions):
@@ -95,12 +95,9 @@ def kopp14_postprocess_glaciers(focus_site_ids, pipeline_id):
 		regionfile = os.path.join(os.path.dirname(__file__), "FPRINT", "fprint_{0}.mn".format(thisRegion))
 		regionfp = AssignFP(regionfile, site_lats, site_lons)
 		
-		# Multiply the fingerprints and the projections
-		local_sl[:,:,i,:] = np.transpose(np.multiply.outer(gicsamps[:,i,:], regionfp), (2,0,1))
-	
-	
-	# Sum over the regions
-	local_sl = np.nansum(local_sl, axis=2)
+		# Multiply the fingerprints and the projections and add them to the running total
+		# over the regions
+		local_sl = local_sl + np.transpose(np.multiply.outer(gicsamps[:,i,:], regionfp), (2,0,1))
 	
 	# Calculate the quantiles
 	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
