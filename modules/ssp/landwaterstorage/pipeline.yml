@@ -86,7 +86,8 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/ssp/landwaterstorage/ssp_postprocess_landwaterstorage.py'
-      - './modules/ssp/landwaterstorage/read_annual.py'
+      - './modules/ssp/landwaterstorage/read_bkgdrate.py'
+      - './modules/ssp/landwaterstorage/AssignFP.py'
       - './modules/ssp/landwaterstorage/data/ssp_landwaterstorage_postprocess_data.tgz'
     copy_input_data:
       project:

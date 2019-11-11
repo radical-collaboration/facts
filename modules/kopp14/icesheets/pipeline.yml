@@ -89,7 +89,7 @@ post-process:
       - './modules/kopp14/icesheets/kopp14_postprocess_icesheets.py'
       - './modules/kopp14/icesheets/SampleISDists.py'
 #      - './modules/kopp14/icesheets/pyssht.so'
-      - './modules/kopp14/icesheets/read_annual.py'
+      - './modules/kopp14/icesheets/read_bkgdrate.py'
       - './modules/kopp14/icesheets/AssignFP.py'
       - './modules/kopp14/icesheets/ReadFingerprint.py'
       - './modules/kopp14/icesheets/data/kopp14_icesheets_data.tgz'
@@ -98,4 +98,6 @@ post-process:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     download_output_data:
-      - "%PIPELINE_ID%_localsl.nc"
+      - "%PIPELINE_ID%_GIS_localsl.nc"
+      - "%PIPELINE_ID%_WAIS_localsl.nc"
+      - "%PIPELINE_ID%_EAIS_localsl.nc"

@@ -7,4 +7,5 @@
 *.mat
 *.tsv
 /experiments/kopp14*
+/experiments/ipcc*
 /modules/ipccar6/

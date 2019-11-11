@@ -86,7 +86,7 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/landwaterstorage/kopp14_postprocess_landwaterstorage.py'
-      - './modules/kopp14/landwaterstorage/read_annual.py'
+      - './modules/kopp14/landwaterstorage/read_bkgdrate.py'
       - './modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_postprocess_data.tgz'
     copy_input_data:
       project:
