@@ -44,10 +44,11 @@ def ssp_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
 	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	
 	# Match the user selected sites to those in the PSMSL data
-	_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
-	site_ids = site_ids[site_inds]
-	site_lats = site_lats[site_inds]
-	site_lons = site_lons[site_inds]
+	if np.any([x >= 0 for x in focus_site_ids]):
+		_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
+		site_ids = site_ids[site_inds]
+		site_lats = site_lats[site_inds]
+		site_lons = site_lons[site_inds]
 	
 	# Initialize variable to hold the localized projections
 	(nsamps, ntimes) = lwssamps.shape

@@ -46,18 +46,24 @@ def ipccar6_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_
 	targyears = np.arange(2000, 2101, 10)
 	
 	# Make sure all the requested IDs are available
-	missing_ids = np.setdiff1d(site_ids, ids)
-	if(len(missing_ids) != 0):
-		missing_ids_string = ",".join(str(this) for this in missing_ids)
-		raise Exception("The following IDs are not available: {}".format(missing_ids_string))
+	if np.any([x >= 0 for x in site_ids]):
+		missing_ids = np.setdiff1d(site_ids, ids)
+		if(len(missing_ids) != 0):
+			missing_ids_string = ",".join(str(this) for this in missing_ids)
+			raise Exception("The following IDs are not available: {}".format(missing_ids_string))
 	
-	# Map the requested site IDs to target regions
-	site_ids_map = np.flatnonzero(np.isin(ids, site_ids))
-	site_ids = [ids[x] for x in site_ids_map]
+		# Map the requested site IDs to target regions
+		site_ids_map = np.flatnonzero(np.isin(ids, site_ids))
+		site_ids = [ids[x] for x in site_ids_map]
 	
-	# Extract the lat/lon for the sites
-	site_lats = [lats[x] for x in site_ids_map]
-	site_lons = [lons[x] for x in site_ids_map]
+		# Extract the lat/lon for the sites
+		site_lats = [lats[x] for x in site_ids_map]
+		site_lons = [lons[x] for x in site_ids_map]
+	else:
+		site_ids = ids
+		site_lats = lats
+		site_lons = lons
+		site_ids_map = np.arange(len(site_ids))
 	
 	# Evenly sample an inverse normal distribution
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]

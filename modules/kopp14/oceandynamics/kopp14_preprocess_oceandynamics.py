@@ -87,16 +87,21 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir
 	(_, targregion_ids, targregion_lats, targregion_lons) = read_bkgdrate(ratefile, True)
 	
 	# Make sure all the requested IDs are available
-	missing_ids = np.setdiff1d(focus_site_ids, targregion_ids)
-	if(len(missing_ids) != 0):
-		missing_ids_string = ",".join(str(this) for this in missing_ids)
-		raise Exception("The following IDs are not available: {}".format(missing_ids_string))
+	if np.any([x >= 0 for x in focus_site_ids]):
+		missing_ids = np.setdiff1d(focus_site_ids, targregion_ids)
+		if(len(missing_ids) != 0):
+			missing_ids_string = ",".join(str(this) for this in missing_ids)
+			raise Exception("The following IDs are not available: {}".format(missing_ids_string))
 	
-	# Map the requested site IDs to target regions
-	focus_site_ids_map = np.flatnonzero(np.isin(targregion_ids, focus_site_ids))
-	focus_site_ids = targregion_ids[focus_site_ids_map]
-	focus_site_lats = targregion_lats[focus_site_ids_map]
-	focus_site_lons = targregion_lons[focus_site_ids_map]
+		# Map the requested site IDs to target regions
+		focus_site_ids_map = np.flatnonzero(np.isin(targregion_ids, focus_site_ids))
+		focus_site_ids = targregion_ids[focus_site_ids_map]
+		focus_site_lats = targregion_lats[focus_site_ids_map]
+		focus_site_lons = targregion_lons[focus_site_ids_map]
+	else:
+		focus_site_ids = targregion_ids
+		focus_site_lats = targregion_lats
+		focus_site_lons = targregion_lons
 	
 	# Load the ZOS data
 	(zos_modellist, ZOS_raw) = IncludeDABZOSModels(zos_modeldir, rcp_scenario, focus_site_lats, focus_site_lons)

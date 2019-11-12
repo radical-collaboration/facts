@@ -42,10 +42,11 @@ def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	
 	# Test to make sure the list of sites are valid
-	_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
-	site_ids = site_ids[site_inds]
-	site_lats = site_lats[site_inds]
-	site_lons = site_lons[site_inds]
+	if np.any([x >= 0 for x in focus_site_ids]):
+		_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
+		site_ids = site_ids[site_inds]
+		site_lats = site_lats[site_inds]
+		site_lons = site_lons[site_inds]
 	
 	# Extract the data from the file
 	my_data = pickle.load(f)
