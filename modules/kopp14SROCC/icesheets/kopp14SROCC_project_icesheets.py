@@ -1,0 +1,158 @@
+import pickle
+import sys
+import os
+import argparse
+import numpy as np
+from SampleISDists import SampleISDists
+from ProjectGSL import ProjectGSL
+import cholcov
+import time
+from netCDF4 import Dataset
+
+''' kopp14SROCC_project_icesheets.py
+
+This script runs the ice sheet projection task for the Kopp 2014 SROCC workflow. This task
+requires data produced from the pre-processing and fit/calibration stages. This task
+also requires at the time of call the number of samples to produce and the names of the
+input files generated from the previous stages.
+
+Parameters: 
+nsamps = Number of samples to produce
+seed = The seed to use for the random number gerneration
+pipeline_id = Unique identifier for the pipeline running this code
+
+Output: 
+- Pickled file containing "nsamps" of global sea-level rise due to ice sheets (internal)
+- NetCDF files for GIS, EAIS, and WAIS global contributions (external)
+
+'''
+
+def kopp14SROCC_project_icesheets(nsamps, seed, pipeline_id):
+	
+	## Read in the fitted parameters from parfile
+	# Open the file
+	parfile = "{}_fit.pkl".format(pipeline_id)
+	try:
+		f = open(parfile, 'rb')
+	except:
+		print("Cannot open parfile\n")
+	
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	batheteais = my_data['batheteais']
+	bathetwais = my_data['bathetwais']
+	bathetgis = my_data['bathetgis']
+	arthetais = my_data['arthetais']
+	arthetgis = my_data['arthetgis']
+	islastdecade = my_data['islastdecade']
+	f.close()
+	
+	## Read in the correlation information
+	corfile = "{}_corr.pkl".format(pipeline_id)
+	try:
+		f = open(corfile, 'rb')
+	except:
+		print("Cannot open corfile\n")
+	
+	# Extract the data
+	my_data = pickle.load(f)
+	bacorris = my_data['bacorris']
+	arcorris = my_data['arcorris']
+	f.close()
+	
+	# Generate samples of ice sheet accelerations
+	sigmas = np.array([bathetgis[2], bathetwais[2], batheteais[2]])
+	mus = np.array([bathetgis[1], bathetwais[1], batheteais[1]])
+	offsets = np.array([bathetgis[0], bathetwais[0], batheteais[0]])
+	baissamps = SampleISDists(nsamps, sigmas, mus, offsets, islastdecade, bacorris, seed)
+	
+	sigmas = np.array([arthetgis[2], arthetais[2]])
+	mus = np.array([arthetgis[1], arthetais[1]])
+	offsets = np.array([arthetgis[0], arthetais[0]])
+	arislastdecade = np.array([islastdecade[0], islastdecade[1]+islastdecade[2]])
+	arissamps = SampleISDists(nsamps, sigmas, mus, offsets, arislastdecade, arcorris, seed+1234)
+	
+	# Project global sea-level rise over time
+	targyears = np.arange(2010, 2201, 10)
+	(arsamps, basamps, hysamps) = ProjectGSL(baissamps, arissamps, islastdecade, targyears)
+	
+	# Put the results into a dictionary
+	output = {'arsamps': arsamps, 'basamps': basamps, 'hysamps': hysamps, 'targyears': targyears}
+	
+	# Write the results to a file
+	outdir = os.path.dirname(__file__)
+	outfile = open(os.path.join(outdir, "{}_projections.pkl".format(pipeline_id)), 'wb')
+	pickle.dump(output, outfile)
+	outfile.close()
+	
+	# Loop over the ice sheets
+	icesheet_names = ["GIS", "WAIS", "EAIS"]
+	for i in np.arange(0,len(icesheet_names)):
+		
+		# This ice sheet
+		this_icesheet_name = icesheet_names[i]
+		
+		# Write the hybrid data to the netCDF file
+		writeNetCDF(np.transpose(hysamps[:,:,i]), pipeline_id, this_icesheet_name, targyears, nsamps)
+	
+	# Done
+	return(0)
+
+
+
+def writeNetCDF(data, pipeline_id, icesheet_name, targyears, nsamps):
+	
+	# Write the localized projections to a netcdf file
+	nc_filename = os.path.join(os.path.dirname(__file__), "{}_{}_globalsl.nc".format(pipeline_id, icesheet_name))
+	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
+
+	# Define Dimensions
+	year_dim = rootgrp.createDimension("years", len(targyears))
+	samp_dim = rootgrp.createDimension("samples", nsamps)
+
+	# Populate dimension variables
+	year_var = rootgrp.createVariable("year", "i4", ("years",))
+	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+
+	# Create a data variable
+	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	
+	# Assign attributes
+	rootgrp.description = "Global SLR contribution from {} according to Kopp 2014 SROCC workflow".format(icesheet_name)
+	rootgrp.history = "Created " + time.ctime(time.time())
+	rootgrp.source = "FACTS: {}".format(pipeline_id)
+	year_var.units = "[-]"
+	samp_var.units = "[-]"
+	samps.units = "mm"
+
+	# Put the data into the netcdf variables
+	year_var[:] = targyears
+	samp_var[:] = np.arange(0,nsamps)
+	samps[:,:] = data
+
+	# Close the netcdf
+	rootgrp.close()	
+	
+	# Done
+	return(0)
+	
+
+if __name__ == '__main__':
+	
+	# Initialize the command-line argument parser
+	parser = argparse.ArgumentParser(description="Run the projection stage for the Kopp14 SROCC SLR projection workflow",\
+	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	
+	# Define the command line arguments to be expected
+	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
+	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+	
+	# Parse the arguments
+	args = parser.parse_args()
+	
+	# Run the projection process for the parameters specified from the command line argument
+	kopp14SROCC_project_icesheets(args.nsamps, args.seed, args.pipeline_id)
+	
+	# Done
+	exit()

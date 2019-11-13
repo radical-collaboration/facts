@@ -1,0 +1,103 @@
+# Kopp14 SROCC Ice Sheets Pipeline
+
+pre-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "kopp14SROCC_preprocess_icesheets.py"
+    options:
+      - "scenario"
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/kopp14SROCC/icesheets/kopp14SROCC_preprocess_icesheets.py"
+
+
+fit:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14SROCC_fit_icesheets.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/kopp14SROCC/icesheets/kopp14SROCC_fit_icesheets.py'
+      - './modules/kopp14SROCC/icesheets/CalcISDists.py'
+      - './modules/kopp14SROCC/icesheets/FitLNDistQuants.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_rates.pkl"
+
+
+project:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "kopp14SROCC_project_icesheets.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/kopp14SROCC/icesheets/kopp14SROCC_project_icesheets.py'
+      - './modules/kopp14SROCC/icesheets/SampleISDists.py'
+      - './modules/kopp14SROCC/icesheets/cholcov.py'
+      - './modules/kopp14SROCC/icesheets/ProjectGSL.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_corr.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_GIS_globalsl.nc"
+      - "%PIPELINE_ID%_EAIS_globalsl.nc"
+      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
+
+post-process:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf kopp14SROCC_icesheets_data.tgz"
+    script: "kopp14SROCC_postprocess_icesheets.py"
+    options:
+      - "samp_type"
+      - "site_ids"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/kopp14SROCC/icesheets/kopp14SROCC_postprocess_icesheets.py'
+      - './modules/kopp14SROCC/icesheets/SampleISDists.py'
+#      - './modules/kopp14SROCC/icesheets/pyssht.so'
+      - './modules/kopp14SROCC/icesheets/read_bkgdrate.py'
+      - './modules/kopp14SROCC/icesheets/AssignFP.py'
+      - './modules/kopp14SROCC/icesheets/ReadFingerprint.py'
+      - './modules/kopp14SROCC/icesheets/data/kopp14SROCC_icesheets_data.tgz'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_GIS_localsl.nc"
+      - "%PIPELINE_ID%_WAIS_localsl.nc"
+      - "%PIPELINE_ID%_EAIS_localsl.nc"

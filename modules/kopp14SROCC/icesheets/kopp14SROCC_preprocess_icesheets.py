@@ -4,13 +4,13 @@ import os
 import sys
 import argparse
 
-''' kopp14_preprocess_icesheets.py
+''' kopp14SROCC_preprocess_icesheets.py
 
-This script runs the ice sheet pre-processing task for the Kopp 2014 workflow. Currently,
-the data are hard-coded in this script, from which a pickled file is generated. This
-could easily be altered to take filenames as parameters from which these data are read. 
-This would be useful for testing multiple sets of these data (likely with different
-assumptions) in batch.
+This script runs the ice sheet pre-processing task for the Kopp 2014 workflow with SROCC
+consideration. Currently, the data are hard-coded in this script, from which a pickled 
+file is generated. This could easily be altered to take filenames as parameters from which
+these data are read. This would be useful for testing multiple sets of these data 
+(likely with different assumptions) in batch.
 
 Parameters:
 rcp_scenario = RCP scenario (default = 'rcp85')
@@ -21,17 +21,19 @@ dictionary vairable.
 
 '''
 
-def kopp14_preprocess_icesheets(rcp_scenario, pipeline_id):
+def kopp14SROCC_preprocess_icesheets(rcp_scenario, pipeline_id):
 
 	# Fill the rates data matricies
 	barates = np.array([[0.8, 1.0, 1.2, 2.4, 5.8],\
 						[0.2, 3.0, 0.3, 1.5, 11.8],\
 						[-1.9, 2.8, -1.5, 0.2, 10.2]])
 	lastdecadegt = np.array([-211, -85-29, 26])
-	aris2090 = np.array([[[0.07, 0.12, 0.21], [-0.06, 0.04, 0.12]],\
-						[[0.04, 0.08, 0.13], [-0.04, 0.05, 0.13]],\
-						[[0.04, 0.08, 0.13], [-0.04, 0.05, 0.13]],\
-						[[0.04, 0.06, 0.10], [-0.03, 0.05, 0.14]]]) * 1000
+	
+	# Values consistent with SROCC 2019
+	aris2090 = np.array([[[0.07, 0.12, 0.21], [0.03, 0.12, 0.28]],\
+						[[0.04, 0.08, 0.13], [0.01, 0.05, 0.13]],\
+						[[0.04, 0.08, 0.13], [0.01, 0.05, 0.13]],\
+						[[0.04, 0.06, 0.10], [0.01, 0.04, 0.10]]]) * 1000
 					
 	# Fill the correlation data matricies
 	bacorris = np.array([[1.0, 0.7, -0.2], [0.7, 1.0, -0.2], [-0.2, -0.2, 1]])
@@ -70,8 +72,8 @@ def kopp14_preprocess_icesheets(rcp_scenario, pipeline_id):
 if __name__ == '__main__':	
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the pre-processing stage for the Kopp14 SLR projection workflow",\
-	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	parser = argparse.ArgumentParser(description="Run the pre-processing stage for the Kopp14 SLR projection workflow with SROCC consideration",\
+	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--scenario', '-s', help="RCP Scenario", choices=['rcp85', 'rcp60', 'rcp45', 'rcp26'], default='rcp85')
@@ -81,7 +83,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	kopp14_preprocess_icesheets(args.scenario, args.pipeline_id)
+	kopp14SROCC_preprocess_icesheets(args.scenario, args.pipeline_id)
 	
 	# Done
 	exit()
