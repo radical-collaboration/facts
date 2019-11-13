@@ -70,7 +70,7 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--baseyear', help="Baseline year from which to calculate changes in sea level", default=2000, type=int)
+	parser.add_argument('--baseyear', help="Baseline year from which to calculate changes in sea level", default=2005, type=int)
 	
 	# Parse the arguments
 	args = parser.parse_args()

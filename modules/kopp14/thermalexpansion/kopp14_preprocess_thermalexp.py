@@ -28,7 +28,7 @@ def kopp14_preprocess_thermalexp(rcp_scenario, modeldir, driftcorr, pipeline_id)
 	targyears = np.arange(2010,2201,10)
 	mergeZOSZOSTOGA = 1
 	smoothwin = 19
-	baseyear = 2000
+	baseyear = 2005
 	GCMprobscale = 0.833
 	
 	# Read in the ZOSTOGA data

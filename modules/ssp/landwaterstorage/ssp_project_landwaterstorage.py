@@ -131,7 +131,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	# 25% (default defined error elated to the impoundment rate. Kopp 2014: 2sigma=50%):
 	# - minus sign since reservoir storage leads to GSL drop - 
 
-	pop2000 = pop0[t0==2000]  #population at 2000
+	pop2000 = pop0[t0==2005]  #population at 2000
 
 	def damdraw(seed1): ###decide max of sigmoid or pop2000->choose
 		poprand = np.array([popdraw]) # random draw from population

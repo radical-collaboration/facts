@@ -34,7 +34,7 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir
 	targyears = np.arange(2010,2101,10)
 	mergeZOSZOSTOGA = True
 	smoothwin = 19
-	baseyear = 2000
+	baseyear = 2005
 	GCMprobscale = 0.833
 	maxDOF = np.inf
 	
