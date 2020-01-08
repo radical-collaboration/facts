@@ -5,7 +5,7 @@
 from setuptools import setup
 
 setup(
-    name='facts',
+    name='radical.facts',
     version='0.1.0',
     description='Framework for Assessing Changes To Sea-level (FACTS)',
     url='https://github.com/radical-collaboration/facts.git',
