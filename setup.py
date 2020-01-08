@@ -4,8 +4,6 @@
 
 from setuptools import setup
 
-from setuptools import setup
-
 setup(
     name='facts',
     version='0.1.0',
