@@ -1,0 +1,5 @@
+include MANIFEST.in README.md
+
+recursive-include experiments   *.yml
+recursive-include facts      	*.yml
+recursive-include other 	*.pdf
