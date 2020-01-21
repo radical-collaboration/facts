@@ -1,5 +1,4 @@
 import numpy as np
-import pickle
 from ReadFingerprint import ReadFingerprint as readfp
 from scipy import interpolate as interp
 
@@ -30,6 +29,6 @@ def AssignFP(fp_filename, qlats, qlons):
 	# Interpolate the fingerprint to these locations
 	lat_sort = np.argsort(fp_lats)
 	fp_interp = interp.RectBivariateSpline(fp_lats[lat_sort], fp_lons, fp[lat_sort,:], kx=1, ky=1)
-	fp_sites = fp_interp.ev(qlats, qlons+360)*1000
+	fp_sites = fp_interp.ev(qlats, np.mod(qlons, 360))*1000
 	
 	return(fp_sites)

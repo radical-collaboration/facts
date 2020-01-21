@@ -37,8 +37,27 @@ def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 		print("Cannot open projfile\n")
 		sys.exit(1)
 	
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	projdata = my_data[samptype]
+	targyears = my_data['targyears']
+	f.close() 
+	
+	# Read in the scenario from the corr file
+	projfile = "{}_corr.pkl".format(pipeline_id)
+	try:
+		f = open(projfile, 'rb')
+	except:
+		print("Cannot open projfile\n")
+		sys.exit(1)
+	
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	scenario = my_data['scenario']
+	f.close() 
+	
 	# Load the site locations	
-	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
+	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate_{}.tsv".format(scenario))
 	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	
 	# Test to make sure the list of sites are valid
@@ -48,11 +67,7 @@ def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 		site_lats = site_lats[site_inds]
 		site_lons = site_lons[site_inds]
 	
-	# Extract the data from the file
-	my_data = pickle.load(f)
-	projdata = my_data[samptype]
-	targyears = my_data['targyears']
-	f.close()
+	
 	
 	# Get the fingerprints for all sites from all ice sheets
 	fpdir = os.path.join(os.path.dirname(__file__), "FPRINT")

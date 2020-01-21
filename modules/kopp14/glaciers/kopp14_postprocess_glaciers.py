@@ -5,6 +5,7 @@ import pickle
 import time
 import argparse
 import re
+from memory_profiler import profile
 from netCDF4 import Dataset
 from read_bkgdrate import read_bkgdrate
 from AssignFP import AssignFP
@@ -25,7 +26,7 @@ pipeline_id = Unique identifier for the pipeline running this code
 Output: NetCDF file containing local contributions from GIC
 
 '''
-
+@profile
 def kopp14_postprocess_glaciers(focus_site_ids, pipeline_id):
 	
 	# Read in the global projections

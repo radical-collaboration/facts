@@ -64,6 +64,8 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	dgwd_dt_dpop_pcterr = my_config['dgwd_dt_dpop_pcterr']
 	dam_pcterr = my_config['dam_pcterr']
 	yrs = my_config['yrs']
+	baseyear = my_config['baseyear']
+	targyears = my_config['targyears']
 	scen = my_config['scen']
 	dotriangular = my_config['dotriangular']
 	includepokhrel = my_config['includepokhrel']
@@ -101,7 +103,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 		targetSSP = scen        
     
 	# draw scenario population from target scenario 
-	popdraw = popscen[:,SSPorder[targetSSP]]
+	popdraw = popscen[:,SSPorder[targetSSP]]	
 	
 	# interpolate to annual means
 	popdraw = np.interp(np.linspace(2000,2100,101),popscenyr,popdraw)
@@ -131,7 +133,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	# 25% (default defined error elated to the impoundment rate. Kopp 2014: 2sigma=50%):
 	# - minus sign since reservoir storage leads to GSL drop - 
 
-	pop2000 = pop0[t0==2005]  #population at 2000
+	pop2000 = pop0[t0==2000]  #population at 2000
 
 	def damdraw(seed1): ###decide max of sigmoid or pop2000->choose
 		poprand = np.array([popdraw]) # random draw from population
@@ -173,11 +175,23 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 			damsamps[:,ii] = damdraw(seeds[3,ii])
 			gwdsamps[:,ii] = gwddraw(seeds[1,ii],seeds[2,ii])
     
-	# add to total lws equivalent gsl    
-	lwssamps = gwdsamps + damsamps
+	# add to total lws equivalent gsl
+	# Note: Only 80% of ground water depletion makes it to the ocean
+	# Wada et al. 2016    
+	lwssamps = (gwdsamps * 0.8) + damsamps
+	#lwssamps = gwdsamps + damsamps
+	
+	# Center the samples to the baseyear
+	baseyear_idx = np.isin(yrs, baseyear)
+	center_values = lwssamps[baseyear_idx,:]
+	lwssamps -= center_values
+	
+	# Subset for the target years
+	targyear_idx = np.isin(yrs, targyears)
+	lwssamps = lwssamps[targyear_idx,:]
 	
 	# Store the variables in a pickle
-	output = {'lwssamps': lwssamps, 'years': yrs, 'scen': scen}
+	output = {'lwssamps': lwssamps, 'years': targyears, 'scen': scen}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
@@ -187,7 +201,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
 
 	# Define Dimensions
-	year_dim = rootgrp.createDimension("years", len(yrs))
+	year_dim = rootgrp.createDimension("years", len(targyears))
 	samp_dim = rootgrp.createDimension("samples", Nsamps)
 
 	# Populate dimension variables
@@ -206,7 +220,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	samps.units = "mm"
 
 	# Put the data into the netcdf variables
-	year_var[:] = yrs
+	year_var[:] = targyears
 	samp_var[:] = np.arange(0,Nsamps)
 	samps[:,:] = lwssamps
 

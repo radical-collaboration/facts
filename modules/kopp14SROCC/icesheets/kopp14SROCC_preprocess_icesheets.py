@@ -53,7 +53,7 @@ def kopp14SROCC_preprocess_icesheets(rcp_scenario, pipeline_id):
 	data_is = {'barates': barates, 'lastdecadegt': lastdecadegt, 'aris2090': aris2090[rcp_ind,:,:]}
 
 	# Collate the correlation data into a single dictionary
-	corr_is = {'bacorris': bacorris, 'arcorris': arcorris}
+	corr_is = {'bacorris': bacorris, 'arcorris': arcorris, 'scenario': rcp_scenario}
 	
 	# Define the data directory
 	outdir = os.path.dirname(__file__)

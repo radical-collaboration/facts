@@ -4,19 +4,14 @@ from netCDF4 import Dataset
 from scipy import interpolate as interp
 
 ''' AssignFP.py
-
 Assigns interpolated fingerprint coefficients to sites identified by the vectors
 of lats and lons provided.
-
 Parameters:
 fp_filename = Fingerprint file passed to ReadFingerprint
 qlats = Vector of latitudes of sites of interest [-90, 90]
 qlons = Vector of longitudes of sites of interest [-180, 180]
-
 Return:
 fp_sites = Vector of fingerprint coefficients for the sites of interest
-
-
 '''
 
 def AssignFP(fp_filename, qlats, qlons):
@@ -35,7 +30,7 @@ def AssignFP(fp_filename, qlats, qlons):
 	
 	# Interpolate the fingerprint to these locations
 	fp_interp = interp.RectBivariateSpline(fp_lats, fp_lons, fp, kx=1, ky=1)
-	fp_sites = fp_interp.ev(qlats, qlons+360)/100
+	fp_sites = fp_interp.ev(qlats, np.mod(qlons,360))/100
 	
 	return(fp_sites)
 

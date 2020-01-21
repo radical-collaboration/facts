@@ -30,7 +30,9 @@ def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, pipeline
 	# configure run (could be separate script)
 	dgwd_dt_dpop_pcterr = .25       # error on gwd slope
 	dam_pcterr = .25                # error on sigmoidal function reservoirs
-	yrs = np.linspace(2010,2100,10) # target years projections
+	baseyear = 2005					# Base year to which projetions are centered
+	targyears = np.linspace(2010,2100,10)	# target years for projections
+	yrs = np.append(baseyear, targyears) 		# years at which projections should be made
 
 	# paths to data
 	datadir = os.path.dirname(__file__)
@@ -150,7 +152,8 @@ def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, pipeline
 	# Store the configuration in a pickle
 	output = {'dgwd_dt_dpop_pcterr': dgwd_dt_dpop_pcterr, 'dam_pcterr': dam_pcterr,\
 				'yrs': yrs, 'scen': scen, 'dotriangular': dotriangular,\
-				'includepokhrel': includepokhrel,'pop0': pop0, 't0':t0}
+				'includepokhrel': includepokhrel,'pop0': pop0, 't0':t0,\
+				'baseyear': baseyear, 'targyears': targyears}
 	
 	# Write the data to a file
 	outdir = os.path.dirname(__file__)
