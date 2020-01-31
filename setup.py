@@ -19,11 +19,9 @@ if  sys.hexversion < 0x02070000 or sys.hexversion >= 0x03000000:
 # This copies the contents like examples/ dir under sys.prefix/share/$name
 # It needs the MANIFEST.in entries to work.
 base = 'share/%s' % 'facts'
-df = [('%s/'                      		% base, ['FACTS.py']),
-     ('%s/experiments/temp_exp'                 % base, glob.glob('experiments/temp_exp/*.yml')),
-     ('%s/experiments/temp_exp/input'           % base, glob.glob('experiments/temp_exp/input/*')),
-     ('%s/modules/genmod/directsample'  	% base, glob.glob('modules/genmod/directsample/*')),
-     ('%s/modules/gilford/icesheets'     	% base, glob.glob('modules/gilford/icesheets/*')),
+df = [('%s/'                      		        % base, ['FACTS.py']),
+     ('%s/modules/genmod/directsample'  	    % base, glob.glob('modules/genmod/directsample/*')),
+     ('%s/modules/gilford/icesheets'     	    % base, glob.glob('modules/gilford/icesheets/*')),
      ('%s/modules/kopp14/glaciers'              % base, glob.glob('modules/kopp14/glaciers/*')),
      ('%s/modules/kopp14/icesheets'             % base, glob.glob('modules/kopp14/icesheets/*')),
      ('%s/modules/kopp14/landwaterstorage'      % base, glob.glob('modules/kopp14/landwaterstorage/*')),
@@ -33,7 +31,7 @@ df = [('%s/'                      		% base, ['FACTS.py']),
      ('%s/modules/kopp14/verticallandmotion'    % base, glob.glob('modules/kopp14/verticallandmotion/*')),
      ('%s/modules/kopp14SROCC/icesheets'        % base, glob.glob('modules/kopp14SROCC/icesheets/*')),
      ('%s/modules/ssp/landwaterstorage'         % base, glob.glob('modules/ssp/landwaterstorage/*')),
-     ('%s/other'                  		% base, glob.glob('other/*')),
+     ('%s/other'                  		        % base, glob.glob('other/*')),
 ]
 
 
