@@ -2,4 +2,4 @@ include *.py *.json *.md *.sh
 include MANIFEST.in README.md
 
 recursive-include modules      	*
-recursive-include other 	      *
+recursive-include other 	  *
