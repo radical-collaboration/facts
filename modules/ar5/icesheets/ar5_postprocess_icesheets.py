@@ -10,16 +10,15 @@ from read_bkgdrate import read_bkgdrate
 from AssignFP import AssignFP
 
 
-''' kopp14SROCC_postprocess_icesheets.py
+''' ar5_postprocess_icesheets.py
 
-This script runs the ice sheet post-processing task for the Kopp 2014 SROCC workflow. This task
-uses the global projections from the 'kopp14SROCC_project_icesheets' script and applies
+This script runs the ice sheet post-processing task for the AR5 workflow. This task
+uses the global projections from the 'ar5_project_icesheets' script and applies
 spatially resolved fingerprints to the ice sheet contribution. The result is a netCDF4
 file that contains spatially and temporally resolved samples of ice sheet contributions 
 to local sea-level rise
 
 Parameters: 
-samptype = Type of samples to use.  One of (arsamps, basamps, hysamps [default])
 site_ids = Location ids to fingerprint the icesheet contributions (from PSMSL)
 pipeline_id = Unique identifer for the pipeline running this code
 
@@ -27,7 +26,7 @@ Output: NetCDF file containing local contributions from ice sheets
 
 '''
 
-def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
+def ar5_postprocess_icesheets(focus_site_ids, pipeline_id):
 	
 	# Read in the fitted parameters from parfile
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -36,25 +35,6 @@ def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	except:
 		print("Cannot open projfile\n")
 		sys.exit(1)
-	
-	# Extract the data from the file
-	my_data = pickle.load(f)
-	projdata = my_data[samptype]
-	targyears = my_data['targyears']
-	f.close() 
-	
-	# Read in the scenario from the corr file
-	projfile = "{}_corr.pkl".format(pipeline_id)
-	try:
-		f = open(projfile, 'rb')
-	except:
-		print("Cannot open projfile\n")
-		sys.exit(1)
-	
-	# Extract the data from the file
-	my_data = pickle.load(f)
-	scenario = my_data['scenario']
-	f.close() 
 	
 	# Load the site locations	
 	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
@@ -67,7 +47,13 @@ def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 		site_lats = site_lats[site_inds]
 		site_lons = site_lons[site_inds]
 	
-	
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	gissamps = my_data['gissamps']
+	waissamps = my_data['waissamps']
+	eaissamps = my_data['eaissamps']
+	targyears = my_data['data_years']
+	f.close()
 	
 	# Get the fingerprints for all sites from all ice sheets
 	fpdir = os.path.join(os.path.dirname(__file__), "FPRINT")
@@ -76,14 +62,16 @@ def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	eaisfp = AssignFP(os.path.join(fpdir,"fprint_eais.nc"), site_lats, site_lons)
 	
 	# Multiply the fingerprints and the projections
-	gissl = np.multiply.outer(projdata[:,:,0], gisfp)
-	waissl = np.multiply.outer(projdata[:,:,1], waisfp)
-	eaissl = np.multiply.outer(projdata[:,:,2], eaisfp)
+	gissl = np.multiply.outer(gissamps, gisfp)
+	waissl = np.multiply.outer(waissamps, waisfp)
+	eaissl = np.multiply.outer(eaissamps, eaisfp)
 	
 	# Write to netcdf
 	writeNetCDF(gissl, pipeline_id, "GIS", targyears, site_lats, site_lons, site_ids)
 	writeNetCDF(waissl, pipeline_id, "WAIS", targyears, site_lats, site_lons, site_ids)
 	writeNetCDF(eaissl, pipeline_id, "EAIS", targyears, site_lats, site_lons, site_ids)
+	
+	return(0)
 
 
 def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lons, site_ids):
@@ -126,7 +114,7 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	rootgrp.history = "Created " + time.ctime(time.time())
 	rootgrp.source = "SLR Framework: Kopp 2014 workflow"
 	lat_var.units = "Degrees North"
-	lon_var.units = "Degrees West"
+	lon_var.units = "Degrees East"
 	localslq.units = "mm"
 	localslmean.units = "mm"
 	localslsd.units = "mm"
@@ -149,11 +137,10 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 if __name__ == '__main__':
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the post-processing stage for the Kopp14 SROCC SLR projection workflow",\
-	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	parser = argparse.ArgumentParser(description="Run the post-processing stage for the AR5 icesheets SLR projection workflow",\
+	epilog="Note: This is meant to be run as part of the AR5 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected	
-	parser.add_argument('--samp_type', help="Type of samples to post-process", choices=['hysamps', 'arsamps', 'basamps'], default="hysamps")
 	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
@@ -164,7 +151,7 @@ if __name__ == '__main__':
 	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
 	
 	# Run the postprocessing for the parameters specified from the command line argument
-	kopp14SROCC_postprocess_icesheets(args.samp_type, site_ids, args.pipeline_id)
+	ar5_postprocess_icesheets(site_ids, args.pipeline_id)
 	
 	# Done
 	exit()

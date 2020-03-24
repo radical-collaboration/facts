@@ -2,7 +2,7 @@
 
 pre-process:
   task1:
-    executable: "python"
+    executable: "python3"
     cpu:
       processes: 1
       process-type: None
@@ -31,7 +31,7 @@ pre-process:
 
 fit:
   task1:
-    executable: "python"
+    executable: "python3"
     cpu:
       processes: 1
       process-type: None
@@ -54,7 +54,7 @@ fit:
 
 project:
   task1:
-    executable: "python"
+    executable: "python3"
     cpu:
       processes: 1
       process-type: None
@@ -81,7 +81,7 @@ project:
 
 post-process:
   task1:
-    executable: "python"
+    executable: "python3"
     cpu:
       processes: 1
       process-type: None

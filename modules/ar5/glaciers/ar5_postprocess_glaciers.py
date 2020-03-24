@@ -10,9 +10,9 @@ from read_bkgdrate import read_bkgdrate
 from AssignFP import AssignFP
 
 
-''' ar5_postprocess_glacierscmip6.py
+''' ar5_postprocess_glaciers.py
 
-This script runs the glacier post-processing task for the AR5 Glaciers CMIP6 workflow.
+This script runs the glacier post-processing task for the AR5 Glaciers workflow.
 
 Parameters: 
 focus_site_ids = Location IDs for localization (from PSMSL)
@@ -22,7 +22,7 @@ Output: NetCDF file containing local contributions from GIC
 
 '''
 
-def ar5_postprocess_glacierscmip6(focus_site_ids, pipeline_id):
+def ar5_postprocess_glaciers(focus_site_ids, pipeline_id):
 	
 	# Read in the global projections
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -50,17 +50,18 @@ def ar5_postprocess_glacierscmip6(focus_site_ids, pipeline_id):
 	# Extract the configuration data
 	my_data = pickle.load(f)
 	scenario = my_data["scenario"]
-	include_models = my_data['include_models']
-	include_scenarios = my_data['include_scenarios']
-	nmodels = len(include_models)
+	#include_models = my_data['include_models']
+	#include_scenarios = my_data['include_scenarios']
+	#nmodels = len(include_models)
 	f.close()
 	
 	# Produce the included model string
-	model_string_pieces = ["{0}-{1}".format(include_models[x], include_scenarios[x]) for x in np.arange(nmodels)]
-	model_string = "Models and scenarios included: " + ", ".join(model_string_pieces)
+	#model_string_pieces = ["{0}-{1}".format(include_models[x], include_scenarios[x]) for x in np.arange(nmodels)]
+	#model_string = "Models and scenarios included: " + ", ".join(model_string_pieces)
+	model_string = ""
 	
 	# Load the site locations
-	ratefilename = "bkgdrate.tsv"	
+	ratefilename = "bkgdrate.tsv"
 	ratefile = os.path.join(os.path.dirname(__file__), ratefilename)
 	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	
@@ -120,9 +121,9 @@ def ar5_postprocess_glacierscmip6(focus_site_ids, pipeline_id):
 	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
-	rootgrp.description = "Local SLR contributions from glaciers and ice caps according to AR5 glacier_cmip6 workflow"
+	rootgrp.description = "Local SLR contributions from glaciers and ice caps according to AR5 glaciers workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: AR5 Glacier-CMIP6 workflow - {0}. ".format(scenario) + model_string
+	rootgrp.source = "FACTS: AR5 Glaciers workflow - {0}. ".format(scenario) + model_string
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees East"
 	localslq.units = "mm"
@@ -160,7 +161,7 @@ if __name__ == '__main__':
 	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
 	
 	# Run the postprocessing for the parameters specified from the command line argument
-	ar5_postprocess_glacierscmip6(site_ids, args.pipeline_id)
+	ar5_postprocess_glaciers(site_ids, args.pipeline_id)
 	
 	# Done
 	exit()

@@ -6,6 +6,7 @@ import numpy as np
 import pickle
 import argparse
 import time
+import re
 from netCDF4 import Dataset
 
 
@@ -221,29 +222,79 @@ def ar5_project_icesheets(rng_seed, nmsamps, ntsamps, pipeline_id):
 	antdyn = antdyn[:,:,year_idx]
 	
 	# Total up components
-	greennet = greensmb + greendyn
-	antnet = antdyn + antsmb
+	greennet = (greensmb + greendyn) * 1000   # Convert to mm
+	antnet = (antdyn + antsmb) * 1000    # Convert to mm
+	totalnet = greennet + antnet
 	
-	# Save the global ice sheet projections to a pickle
-	output = {"greensmb": greensmb, "antsmb": antsmb, "greendyn": greendyn, \
-				"antdyn": antdyn, "data_years": data_years}
-	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
-	outfile.close()
+	# Flatten the ice sheet samples
+	greennet = greennet.reshape(-1, greennet.shape[-1])
+	antnet = antnet.reshape(-1, antnet.shape[-1])
+	totalnet = totalnet.reshape(-1, totalnet.shape[-1])
 	
 	# Write the netCDF output
 	WriteNetCDF(greennet, "GIS", data_years, scenario, pipeline_id)
 	WriteNetCDF(antnet, "AIS", data_years, scenario, pipeline_id)
 	
 	# Write out a total icesheets netcdf file
-	totalnet = greennet + antnet
 	WriteNetCDF(totalnet, "TIS", data_years, scenario, pipeline_id)
+	
+	# Load in the icesheet fraction data-------------------------------------------
+	# Note: There's were derived from the Kopp14 workflow.  
+	
+	# Initialize the data structures
+	ice_frac = []
+	ice_region_names = []
+	
+	# Open the icesheet fraction file
+	ice_frac_file = os.path.join(os.path.dirname(__file__), "icesheet_fraction.txt")
+	with open(ice_frac_file, 'r') as fp:
+		
+		# Get the fraction years from the header line
+		header_items = re.split(",\s*", fp.readline())
+		ice_frac_years = np.array([int(x) for x in header_items[1:]])
+		
+		# Read in the rest of the files
+		for line in fp:
+			line = line.rstrip()
+			
+			# Split the line into the region name and the fractions then append to data structures
+			line_parts = re.split(",\s*", line)
+			ice_region_names.append(line_parts[0])
+			ice_frac.append([float(x) for x in line_parts[1:]])
+	
+	# Convert the fraction data structure into a numpy array
+	ice_frac = np.array(ice_frac)
+	
+	# Subset the fraction data to the years of interest
+	year_idx = np.isin(ice_frac_years, data_years)
+	ice_frac = ice_frac[:,year_idx]
+	
+	# Reshape the samples and fraction data structures for broadcasting
+	antnet = antnet[:,np.newaxis,:]
+	ice_frac = ice_frac[np.newaxis,:,:]
+	
+	# Apply the regional fractions to the global projections
+	aissamps = antnet * ice_frac
+	
+	# Save the global glacier and ice caps projections to a pickle
+	output = {"gissamps": greennet, "aissamps": antnet, "totsamps": totalnet, \
+		"waissamps": aissamps[:,0,:], "eaissamps": aissamps[:,1,:], "data_years": data_years}
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
+	pickle.dump(output, outfile)
+	outfile.close()
+	
+	# Write the estimated east and west AIS contributions to netCDF files
+	WriteNetCDF(aissamps[:,0,:], "WAIS", data_years, scenario, pipeline_id)
+	WriteNetCDF(aissamps[:,1,:], "EAIS", data_years, scenario, pipeline_id)
+	
+	return(0)
+	
 
 
 def WriteNetCDF(icesamps, icetype, data_years, scenario, pipeline_id):
 	
 	# Flatten the samples
-	icesamps = icesamps.reshape(-1, icesamps.shape[-1]).T * 1000  # Convert to mm
+	icesamps = icesamps.T
 
 	# Write the total global projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{0}_{1}_globalsl.nc".format(pipeline_id, icetype))

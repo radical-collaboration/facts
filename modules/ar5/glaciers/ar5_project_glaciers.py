@@ -6,6 +6,7 @@ import numpy as np
 import pickle
 import argparse
 import time
+import re
 from netCDF4 import Dataset
 
 
@@ -110,8 +111,8 @@ def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
 		zgl=project_glacier1(zit,glparm[igl]['factor'],glparm[igl]['exponent'])
 		
 		# Store these samples
-		ifirst=igl*nrpergl
-		ilast=ifirst+nrpergl
+		ifirst=int(igl*nrpergl)
+		ilast=int(ifirst+nrpergl)
 		glacier[ifirst:ilast,...] = zgl[np.newaxis,:,:] + (mgl * r[ifirst:ilast,np.newaxis] * cvgl)[:,np.newaxis,:]
 		
 	
@@ -121,13 +122,14 @@ def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
 	glacier[glacier > glmass] = glmass
 	
 	# Save the global glacier and ice caps projections to a pickle
-	output = {"glacier": glacier, "data_years": data_years}
-	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
-	outfile.close()
+	#output = {"glacier": glacier, "data_years": data_years}
+	#outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
+	#pickle.dump(output, outfile)
+	#outfile.close()
 	
 	# Flatten the sample data structure
-	total_glac_samps = glacier.reshape(-1, glacier.shape[-1]).T * 1000  # Convert to mm
+	glacier = glacier.reshape(-1, glacier.shape[-1]) * 1000  # Convert to mm
+	total_glac_samps = glacier.T
 
 	# Write the total global projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
@@ -159,6 +161,53 @@ def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
 
 	# Close the netcdf
 	rootgrp.close()	
+	
+	# Load in the glacier fraction data-------------------------------------------
+	# Note: There's were derived from the Kopp14 workflow.  Apparently, glacier region 4
+	#		is not represented and region 7 is represented twice.  I'm not sure why, but
+	#		it's consistent with the K14 workflow, so it's been carried over to this.
+	
+	# Initialize the data structures
+	glac_frac = []
+	glac_region_names = []
+	
+	# Open the glacier fraction file
+	glac_frac_file = os.path.join(os.path.dirname(__file__), "glacier_fraction.txt")
+	with open(glac_frac_file, 'r') as fp:
+		
+		# Get the fraction years from the header line
+		header_items = re.split(",\s*", fp.readline())
+		glac_frac_years = np.array([int(x) for x in header_items[1:]])
+		
+		# Read in the rest of the files
+		for line in fp:
+			line = line.rstrip()
+			
+			# Split the line into the region name and the fractions then append to data structures
+			line_parts = re.split(",\s*", line)
+			glac_region_names.append(line_parts[0])
+			glac_frac.append([float(x) for x in line_parts[1:]])
+	
+	# Convert the fraction data structure into a numpy array
+	glac_frac = np.array(glac_frac)
+	
+	# Subset the fraction data to the years of interest
+	year_idx = np.isin(glac_frac_years, data_years)
+	glac_frac = glac_frac[:,year_idx]
+	
+	# Reshape the samples and fraction data structures for broadcasting
+	glacier = glacier[:,np.newaxis,:]
+	glac_frac = glac_frac[np.newaxis,:,:]
+	
+	# Apply the regional fractions to the global projections
+	gicsamps = glacier * glac_frac
+	
+	# Save the global glacier and ice caps projections to a pickle
+	output = {"gicsamps": gicsamps, "glac_region_names": glac_region_names, "data_years": data_years}
+	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
+	pickle.dump(output, outfile)
+	outfile.close()
+
 
 	return(0)
 

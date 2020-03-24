@@ -51,9 +51,11 @@ def ar5_preprocess_icesheets(scenario, startyr, pipeline_id):
 	# Note - The original code I believe performs a cumulative sum of the standard
 	# deviations, which is not correct.  Below I provide a fix to that bug as well as
 	# a replication of the bug for diagnostic purposes.
+	# Note - JG makes an assumption here so that standard deviations are able to be summed
+	# over time.
 	inttemp_mean = np.cumsum(temp_mean)
-	inttemp_sd = np.sqrt(np.cumsum(temp_sd**2))  # Fix the bug
-	#inttemp_sd = np.cumsum(temp_sd)  # Replicate the bug
+	#inttemp_sd = np.sqrt(np.cumsum(temp_sd**2))  # Fix the bug
+	inttemp_sd = np.cumsum(temp_sd)  # Replicate the bug
 		
 	# Store preprocessed data in pickles
 	output = {'temp_mean': temp_mean, 'temp_sd': temp_sd, 'exp_mean': exp_mean,\

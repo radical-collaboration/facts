@@ -84,7 +84,7 @@ def ar5_postprocess_glaciersfair(focus_site_ids, pipeline_id):
 		thisRegion = glac_region_names[i]
 		
 		# Get the fingerprints for these sites from this region
-		regionfile = os.path.join(os.path.dirname(__file__), "FPRINT", "fprint_{0}.mn".format(thisRegion))
+		regionfile = os.path.join(os.path.dirname(__file__), "FPRINT", "fprint_{0}.nc".format(thisRegion))
 		regionfp = AssignFP(regionfile, site_lats, site_lons)
 		
 		# Multiply the fingerprints and the projections and add them to the running total

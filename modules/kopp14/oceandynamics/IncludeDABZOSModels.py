@@ -112,12 +112,12 @@ def IncludeDABZOSModels(model_dir, rcp_scen, focus_site_lats, focus_site_lons):
 			raw_zos = np.array(mat['zosv2']).T
 		
 		# Calculate the zos values for all sites from this model
-		model_zos = map(lambda idx, w: IDW(raw_zos, w, idx), all_idx, all_weights)
+		model_zos = np.array(list(map(lambda idx, w: IDW(raw_zos, w, idx), all_idx, all_weights)))
 		
 		# Remove the 1860 value to be consistent with the ZOSTOGA data and pad the year 
 		# dimension to year 2300 to match length of ZOSTOGA (440 - 1 = 439 entries)
 		model_zos = map(lambda this_zos: (list(this_zos) + 440 * [np.nan])[1:440], model_zos)
-		ZOS.append(model_zos)
+		ZOS.append(np.array(list(model_zos)))
 		
 	# Convert the ZOS list to a numpy array
 	ZOS = np.array(ZOS)

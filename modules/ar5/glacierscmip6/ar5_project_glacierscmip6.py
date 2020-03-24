@@ -117,8 +117,8 @@ def ar5_project_glacierscmip6(rng_seed, nmsamps, ntsamps, pipeline_id):
 		zgl=project_glacier1(zit,glparm[igl]['factor'],glparm[igl]['exponent'])
 		
 		# Store these samples
-		ifirst=igl*nrpergl
-		ilast=ifirst+nrpergl
+		ifirst=int(igl*nrpergl)
+		ilast=int(ifirst+nrpergl)
 		glacier[ifirst:ilast,...] = zgl[np.newaxis,:,:] + (mgl * r[ifirst:ilast,np.newaxis] * cvgl)[:,np.newaxis,:]
 		
 	

@@ -13,9 +13,9 @@ This script runs the land water storage pre-processing task for the Kopp 2014 wo
 This task generates the data and variables needed to configure the LWS submodel.
 
 Parameters: 
-dotriangular        Logical 0 or 1, to use triangular distribution for gwd [1,1]
-includepokhrel      Logical 0 or 1, to include Pokhrel data for gwd [1,1] 
-pipeline_id         Unique identifier for the pipeline running this code
+dotriangular		Logical 0 or 1, to use triangular distribution for gwd [1,1]
+includepokhrel		Logical 0 or 1, to include Pokhrel data for gwd [1,1] 
+pipeline_id			Unique identifier for the pipeline running this code
 
 Output:
 "%PIPELINE_ID%_data.pkl" = Contains the LWS data
@@ -27,16 +27,16 @@ def kopp14_preprocess_landwaterstorage(dotriangular, includepokhrel, pipeline_id
 	
 	##################################################
 	# configure run (could be separate script)
-	dgwd_dt_dpop_pcterr = .25       # error on gwd slope
-	dam_pcterr = .25                # error on sigmoidal function reservoirs
+	dgwd_dt_dpop_pcterr = .25		# error on gwd slope
+	dam_pcterr = .25				# error on sigmoidal function reservoirs
 	yrs = np.linspace(2010,2200,20) # target years projections
 
 	# paths to data
 	datadir = os.path.dirname(__file__)
-	pophistfile     = 'UNWPP2012 population historical.csv'
-	reservoirfile   = 'Chao2008 groundwater impoundment.csv'
-	gwdfiles        = ['Konikow2011 GWD.csv','Wada2012 GWD.csv','Pokhrel2012 GWD.csv']
-	popscenfile     = 'UNWPP2012 population projections.csv'    
+	pophistfile		= 'UNWPP2012 population historical.csv'
+	reservoirfile	= 'Chao2008 groundwater impoundment.csv'
+	gwdfiles		= ['Konikow2011 GWD.csv','Wada2012 GWD.csv','Pokhrel2012 GWD.csv']
+	popscenfile		= 'UNWPP2012 population projections.csv'	
 
 	if len(gwdfiles) != 3:
 		dotriangular=0
@@ -44,11 +44,11 @@ def kopp14_preprocess_landwaterstorage(dotriangular, includepokhrel, pipeline_id
 	##################################################
 	# read population history .csv file
 	pophistfile = os.path.join(datadir, pophistfile)
-	with open(pophistfile,'rU') as csvfile:
-	   	popdata = csv.reader(csvfile)
+	with open(pophistfile,'r', newline='') as csvfile:
+		popdata = csv.reader(csvfile)
 		row_count = sum(1 for row in popdata)
 
-	with open(pophistfile,'rU') as csvfile:
+	with open(pophistfile,'r', newline='') as csvfile:
 		popdata = csv.reader(csvfile)
 		first_row = next(popdata)
 		i = 0
@@ -56,7 +56,7 @@ def kopp14_preprocess_landwaterstorage(dotriangular, includepokhrel, pipeline_id
 		pop=np.zeros(row_count-1)
 
 		for row in popdata:
-			t[i] = row[0]   # store years
+			t[i] = row[0]	# store years
 			pop[i] = row[1] # store population
 			i += 1
 
@@ -70,20 +70,20 @@ def kopp14_preprocess_landwaterstorage(dotriangular, includepokhrel, pipeline_id
 	##################################################
 	# read reservoir impoundment .csv file
 	reservoirfile = os.path.join(datadir, reservoirfile)
-	with open(reservoirfile,'rU') as csvfile:
+	with open(reservoirfile,'r', newline='') as csvfile:
 		damdata = csv.reader(csvfile)
 		row_count = sum(1 for row in damdata)
 
-	with open(reservoirfile,'rU') as csvfile:
+	with open(reservoirfile,'r', newline='') as csvfile:
 		damdata = csv.reader(csvfile)
 		first_row = next(damdata)
 		i = 0
 		tdams = dams=np.zeros(row_count-1)
 		dams=np.zeros(row_count-1) 
-    
+	
 		for row in damdata:
-			tdams[i] = row[0]   # store years
-			dams[i] = row[1]    # store reservoir impoundment
+			tdams[i] = row[0]	# store years
+			dams[i] = row[1]	# store reservoir impoundment
 			i += 1
 
 	##################################################
@@ -91,7 +91,7 @@ def kopp14_preprocess_landwaterstorage(dotriangular, includepokhrel, pipeline_id
 	
 	# Define function to count lines in a .csv file
 	def countlines(f):
-		with open(f,'rU') as csvfile:
+		with open(f,'r', newline='') as csvfile:
 			gwddata = csv.reader(csvfile)
 			row_count = sum(1 for row in gwddata)
 		return(row_count)
@@ -106,11 +106,11 @@ def kopp14_preprocess_landwaterstorage(dotriangular, includepokhrel, pipeline_id
 	
 	for j in np.arange(0,2+includepokhrel): # for different datasets
 		path = gwdfiles_full[j]
-		with open(path,'rU') as csvfile:
+		with open(path,'r', newline='') as csvfile:
 			gwddata = csv.reader(csvfile)
 			first_row = next(gwddata)
 			i = 0
-    
+	
 			for row in gwddata:
 				tgwd[j,i] = row[0] # store years
 				gwd[j,i] = row[1] # store gwd
@@ -119,24 +119,24 @@ def kopp14_preprocess_landwaterstorage(dotriangular, includepokhrel, pipeline_id
 	##################################################
 	# read population scenarios .csv file
 	popscenfile = os.path.join(datadir, popscenfile)
-	with open(popscenfile,'rU') as csvfile:
+	with open(popscenfile,'r', newline='') as csvfile:
 		popdata = csv.reader(csvfile)
 		row_count = sum(1 for row in popdata)
 
-	with open(popscenfile,'rU') as csvfile:
+	with open(popscenfile,'r', newline='') as csvfile:
 		popdata = csv.reader(csvfile)
 		first_row = next(popdata)
 		i = 0
 		popscenyr = np.zeros(row_count-1)
-		popscen   = np.zeros([row_count-1,3])
-    
+		popscen	  = np.zeros([row_count-1,3])
+	
 		for row in popdata:
 			popscenyr[i] = row[0] # store years
 			popscen[i,:] = row[1:4] # store population projections
 			i += 1
-    
-    ###################################################
-    # Store the data in a pickle
+	
+	###################################################
+	# Store the data in a pickle
 	output = {'t': t, 'pop': pop, 'tdams': tdams, 'dams': dams,\
 				'tgwd': tgwd, 'gwd': gwd, 'popscen': popscen, 'popscenyr': popscenyr}
 	

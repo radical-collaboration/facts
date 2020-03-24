@@ -114,7 +114,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 		for copy_stage in tcfg['copy_input_data'].keys():
 			for copy_task in tcfg['copy_input_data'][copy_stage].keys():
 				loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
-				copy_list.extend(['%s/%s'%(loc, mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
+				copy_list.extend(['{0}/{1}'.format(loc, mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
 	
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
@@ -123,7 +123,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	download_list = []
 	outdir = os.path.join(ecfg['exp_dir'], "output")
 	if "download_output_data" in tcfg.keys():
-		download_list.extend(['%s > %s/%s'%(mvar_replace_dict(mvar_dict,x),outdir,mvar_replace_dict(mvar_dict,x)) for x in tcfg['download_output_data']]) 
+		download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict,x),outdir) for x in tcfg['download_output_data']]) 
 	
 	# Append the download list to this task
 	t.download_output_data = download_list
@@ -162,12 +162,12 @@ def run_experiment(exp_dir, debug_mode):
 	
 	# Does the experiment configuration file exist?
 	if not os.path.isfile(cfile):
-		print '%s does not exist' % cfile
+		print('{} does not exist'.format(cfile))
 		sys.exit(1)
 
 	# Does the resource file exist?
 	if not os.path.isfile(rfile):
-	    print '%s does not exist' % rfile
+	    print('{} does not exist'.format(rfile))
 	    sys.exit(1)
 	
 	# Load the resource and experiment configuration files
@@ -189,7 +189,7 @@ def run_experiment(exp_dir, debug_mode):
 		# Load the pipeline configuration file for this module
 		pcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "pipeline.yml")
 		if not os.path.isfile(pcfg_file):
-			print '%s does not exist' % pcfg_file
+			print('{} does not exist'.format(pcfg_file))
 			sys.exit(1)
 		with open(pcfg_file, 'r') as fp:
 			pcfg = yaml.safe_load(fp)
@@ -251,7 +251,7 @@ if __name__ == "__main__":
 	
 	# Does the experiment directory exist?
 	if not os.path.isdir(args.edir):
-		print '%s does not exist' % args.edir
+		print('%s does not exist'.format(args.edir))
 		sys.exit(1)
 	
 	# Go ahead and try to run the experiment

@@ -1,4 +1,4 @@
-# Kopp14 SROCC Ice Sheets Pipeline
+# AR5 Ice Sheets Pipeline
 
 pre-process:
   task1:
@@ -8,13 +8,15 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
-    script: "kopp14SROCC_preprocess_icesheets.py"
+    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "ar5_preprocess_icesheets.py"
     options:
       - "scenario"
       - "pipeline_id"
+      - "startyear"
     upload_input_data:
-      - "./modules/kopp14SROCC/icesheets/kopp14SROCC_preprocess_icesheets.py"
+      - "./modules/ar5/icesheets/ar5_preprocess_icesheets.py"
+      - "./modules/ar5/icesheets/data/ar5_icesheets_preprocess_data.tgz"
 
 
 fit:
@@ -26,17 +28,15 @@ fit:
       threads-per-process: 1
       thread-type: None
     pre_exec: ""
-    script: "kopp14SROCC_fit_icesheets.py"
+    script: "ar5_fit_icesheets.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14SROCC/icesheets/kopp14SROCC_fit_icesheets.py'
-      - './modules/kopp14SROCC/icesheets/CalcISDists.py'
-      - './modules/kopp14SROCC/icesheets/FitLNDistQuants.py'
+      - './modules/ar5/icesheets/ar5_fit_icesheets.py'
     copy_input_data:
       pre-process:
         task1:
-          - "%PIPELINE_ID%_rates.pkl"
+          - "%PIPELINE_ID%_data.pkl"
 
 
 project:
@@ -47,21 +47,19 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
-    script: "kopp14SROCC_project_icesheets.py"
+    pre_exec: "tar -xzf ar5_icesheets_project_data.tgz"
+    script: "ar5_project_icesheets.py"
     options:
-      - "nsamps"
+      - "nmsamps"
+      - "ntsamps"
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14SROCC/icesheets/kopp14SROCC_project_icesheets.py'
-      - './modules/kopp14SROCC/icesheets/SampleISDists.py'
-      - './modules/kopp14SROCC/icesheets/cholcov.py'
-      - './modules/kopp14SROCC/icesheets/ProjectGSL.py'
+      - './modules/ar5/icesheets/ar5_project_icesheets.py'
     copy_input_data:
       pre-process:
         task1:
-          - "%PIPELINE_ID%_corr.pkl"
+          - "%PIPELINE_ID%_data.pkl"
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
@@ -69,6 +67,8 @@ project:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
+      - "%PIPELINE_ID%_TIS_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
 post-process:
@@ -79,20 +79,17 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14SROCC_icesheets_data.tgz"
-    script: "kopp14SROCC_postprocess_icesheets.py"
+    pre_exec: "tar -xzf ar5_icesheets_postprocess_data.tgz"
+    script: "ar5_postprocess_icesheets.py"
     options:
-      - "samp_type"
       - "site_ids"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14SROCC/icesheets/kopp14SROCC_postprocess_icesheets.py'
-      - './modules/kopp14SROCC/icesheets/SampleISDists.py'
-#      - './modules/kopp14SROCC/icesheets/pyssht.so'
-      - './modules/kopp14SROCC/icesheets/read_bkgdrate.py'
-      - './modules/kopp14SROCC/icesheets/AssignFP.py'
-      - './modules/kopp14SROCC/icesheets/ReadFingerprint.py'
-      - './modules/kopp14SROCC/icesheets/data/kopp14SROCC_icesheets_data.tgz'
+      - './modules/ar5/icesheets/ar5_postprocess_icesheets.py'
+      - './modules/ar5/icesheets/read_bkgdrate.py'
+      - './modules/ar5/icesheets/AssignFP.py'
+      - './modules/ar5/icesheets/ReadFingerprint.py'
+      - './modules/ar5/icesheets/data/ar5_icesheets_postprocess_data.tgz'
     copy_input_data:
       project:
         task1:

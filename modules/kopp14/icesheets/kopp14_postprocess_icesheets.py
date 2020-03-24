@@ -56,9 +56,9 @@ def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	
 	# Get the fingerprints for all sites from all ice sheets
 	fpdir = os.path.join(os.path.dirname(__file__), "FPRINT")
-	gisfp = AssignFP(os.path.join(fpdir,"fprint_gis.mn"), site_lats, site_lons)
-	waisfp = AssignFP(os.path.join(fpdir,"fprint_wais.mn"), site_lats, site_lons)
-	eaisfp = AssignFP(os.path.join(fpdir,"fprint_eais.mn"), site_lats, site_lons)
+	gisfp = AssignFP(os.path.join(fpdir,"fprint_gis.nc"), site_lats, site_lons)
+	waisfp = AssignFP(os.path.join(fpdir,"fprint_wais.nc"), site_lats, site_lons)
+	eaisfp = AssignFP(os.path.join(fpdir,"fprint_eais.nc"), site_lats, site_lons)
 	
 	# Multiply the fingerprints and the projections
 	gissl = np.multiply.outer(projdata[:,:,0], gisfp)
@@ -111,7 +111,7 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	rootgrp.history = "Created " + time.ctime(time.time())
 	rootgrp.source = "SLR Framework: Kopp 2014 workflow"
 	lat_var.units = "Degrees North"
-	lon_var.units = "Degrees West"
+	lon_var.units = "Degrees East"
 	localslq.units = "mm"
 	localslmean.units = "mm"
 	localslsd.units = "mm"

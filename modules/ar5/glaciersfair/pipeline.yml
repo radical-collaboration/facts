@@ -1,4 +1,4 @@
-# Kopp14 Glaciers and Ice Caps Pipeline
+# AR5 Glaciers CMIP6 Pipeline
 
 pre-process:
   task1:
@@ -8,19 +8,19 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_glaciers_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
-    script: "kopp14_preprocess_glaciers.py"
+    pre_exec: "tar -xzf ar5_glaciersfair_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "ar5_preprocess_glaciersfair.py"
     options:
       - "scenario"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/kopp14/glaciers/kopp14_preprocess_glaciers.py"
-      - "./modules/kopp14/glaciers/readMarzeion.py"
-      - "./modules/kopp14/glaciers/data/kopp14_glaciers_preprocess_data.tgz"
+      - "./modules/ar5/glaciersfair/ar5_preprocess_glaciersfair.py"
+      - "./modules/ar5/glaciersfair/Smooth.py"
+      - "./modules/ar5/glaciersfair/import_data.py"
+      - "./modules/ar5/glaciersfair/filter_data.py"
+      - "./modules/ar5/glaciersfair/data/ar5_glaciersfair_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
-#      - "%PIPELINE_ID%_fp.pkl"
-#      - "%PIPELINE_ID%_config.pkl"
 
 fit:
   task1:
@@ -31,17 +31,15 @@ fit:
       threads-per-process: 1
       thread-type: None
     pre_exec: ""
-    script: "kopp14_fit_glaciers.py"
+    script: "ar5_fit_glaciersfair.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/glaciers/kopp14_fit_glaciers.py'
-      - './modules/kopp14/glaciers/cholcov.py'
+      - './modules/ar5/glaciersfair/ar5_fit_glaciersfair.py'
     copy_input_data:
       pre-process:
         task1:
           - "%PIPELINE_ID%_data.pkl"
-          - "%PIPELINE_ID%_config.pkl"
 #    download_output_data:
 #      - "%PIPELINE_ID%_fit.pkl"
 
@@ -53,18 +51,20 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
-    script: "kopp14_project_glaciers.py"
+    pre_exec: "tar -xzf ar5_glaciersfair_project_data.tgz"
+    script: "ar5_project_glaciersfair.py"
     options:
-      - "nsamps"
+      - "nmsamps"
+      - "ntsamps"
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/glaciers/kopp14_project_glaciers.py'
+      - './modules/ar5/glaciersfair/ar5_project_glaciersfair.py'
+      - './modules/ar5/glaciersfair/data/ar5_glaciersfair_project_data.tgz'
     copy_input_data:
       pre-process:
         task1:
-          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_data.pkl"
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
@@ -81,22 +81,21 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_glaciers_postprocess_data.tgz"
-    script: "kopp14_postprocess_glaciers.py"
+    pre_exec: "tar -xzf ar5_glaciersfair_postprocess_data.tgz"
+    script: "ar5_postprocess_glaciersfair.py"
     options:
       - "site_ids"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/glaciers/kopp14_postprocess_glaciers.py'
-      - './modules/kopp14/glaciers/read_bkgdrate.py'
-      - './modules/kopp14/glaciers/AssignFP.py'
-      - './modules/kopp14/glaciers/ReadFingerprint.py'
-      - './modules/kopp14/glaciers/data/kopp14_glaciers_postprocess_data.tgz'
+      - './modules/ar5/glaciersfair/ar5_postprocess_glaciersfair.py'
+      - './modules/ar5/glaciersfair/read_bkgdrate.py'
+      - './modules/ar5/glaciersfair/AssignFP.py'
+      - './modules/ar5/glaciersfair/ReadFingerprint.py'
+      - './modules/ar5/glaciersfair/data/ar5_glaciersfair_postprocess_data.tgz'
     copy_input_data:
       pre-process:
         task1:
-          - "%PIPELINE_ID%_fp.pkl"
-          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_data.pkl"
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"

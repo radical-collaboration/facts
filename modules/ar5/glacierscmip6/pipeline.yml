@@ -1,4 +1,4 @@
-# Kopp14 Land water storage pipeline
+# AR5 Glaciers CMIP6 Pipeline
 
 pre-process:
   task1:
@@ -8,18 +8,16 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
-    script: "kopp14_preprocess_landwaterstorage.py"
+    pre_exec: "tar -xzf ar5_glacierscmip6_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "ar5_preprocess_glacierscmip6.py"
     options:
-      - "dotriangular"
-      - "includepokherl"
+      - "scenario"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/kopp14/landwaterstorage/kopp14_preprocess_landwaterstorage.py"
-      - "./modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_preprocess_data.tgz"
+      - "./modules/ar5/glacierscmip6/ar5_preprocess_glacierscmip6.py"
+      - "./modules/ar5/glacierscmip6/data/ar5_glacierscmip6_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
-#      - "%PIPELINE_ID%_config.pkl"
 
 fit:
   task1:
@@ -30,16 +28,15 @@ fit:
       threads-per-process: 1
       thread-type: None
     pre_exec: ""
-    script: "kopp14_fit_landwaterstorage.py"
+    script: "ar5_fit_glacierscmip6.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/landwaterstorage/kopp14_fit_landwaterstorage.py'
+      - './modules/ar5/glacierscmip6/ar5_fit_glacierscmip6.py'
     copy_input_data:
       pre-process:
         task1:
           - "%PIPELINE_ID%_data.pkl"
-          - "%PIPELINE_ID%_config.pkl"
 #    download_output_data:
 #      - "%PIPELINE_ID%_fit.pkl"
 
@@ -51,18 +48,20 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
-    script: "kopp14_project_landwaterstorage.py"
+    pre_exec: "tar -xzf ar5_glacierscmip6_project_data.tgz"
+    script: "ar5_project_glacierscmip6.py"
     options:
-      - "nsamps"
+      - "nmsamps"
+      - "ntsamps"
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/landwaterstorage/kopp14_project_landwaterstorage.py'
+      - './modules/ar5/glacierscmip6/ar5_project_glacierscmip6.py'
+      - './modules/ar5/glacierscmip6/data/ar5_glacierscmip6_project_data.tgz'
     copy_input_data:
       pre-process:
         task1:
-          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_data.pkl"
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
@@ -79,16 +78,21 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_landwaterstorage_postprocess_data.tgz"
-    script: "kopp14_postprocess_landwaterstorage.py"
+    pre_exec: "tar -xzf ar5_glacierscmip6_postprocess_data.tgz"
+    script: "ar5_postprocess_glacierscmip6.py"
     options:
       - "site_ids"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/landwaterstorage/kopp14_postprocess_landwaterstorage.py'
-      - './modules/kopp14/landwaterstorage/read_bkgdrate.py'
-      - './modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_postprocess_data.tgz'
+      - './modules/ar5/glacierscmip6/ar5_postprocess_glacierscmip6.py'
+      - './modules/ar5/glacierscmip6/read_bkgdrate.py'
+      - './modules/ar5/glacierscmip6/AssignFP.py'
+      - './modules/ar5/glacierscmip6/ReadFingerprint.py'
+      - './modules/ar5/glacierscmip6/data/ar5_glacierscmip6_postprocess_data.tgz'
     copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
