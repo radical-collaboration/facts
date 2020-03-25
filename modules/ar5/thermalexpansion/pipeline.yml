@@ -1,0 +1,91 @@
+# AR5 Thermal Expansion Pipeline
+
+pre-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf ar5_thermalexpansion_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "ar5_preprocess_thermalexpansion.py"
+    options:
+      - "scenario"
+      - "startyr"
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/ar5/thermalexpansion/ar5_preprocess_thermalexpansion.py"
+      - "./modules/ar5/thermalexpansion/data/ar5_thermalexpansion_preprocess_data.tgz"
+#    download_output_data:
+#      - "%PIPELINE_ID%_data.pkl"
+
+fit:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "ar5_fit_thermalexpansion.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/ar5/thermalexpansion/ar5_fit_thermalexpansion.py'
+#    copy_input_data:
+#      pre-process:
+#        task1:
+#          - "%PIPELINE_ID%_data.pkl"
+#    download_output_data:
+#      - "%PIPELINE_ID%_fit.pkl"
+
+project:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "ar5_project_thermalexpansion.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/ar5/thermalexpansion/ar5_project_thermalexpansion.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
+
+
+post-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf ar5_thermalexpansion_postprocess_data.tgz"
+    script: "ar5_postprocess_thermalexpansion.py"
+    options:
+      - "site_ids"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/ar5/thermalexpansion/ar5_postprocess_thermalexpansion.py'
+      - './modules/ar5/thermalexpansion/read_bkgdrate.py'
+      - './modules/ar5/thermalexpansion/data/ar5_thermalexpansion_postprocess_data.tgz'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_localsl.nc"

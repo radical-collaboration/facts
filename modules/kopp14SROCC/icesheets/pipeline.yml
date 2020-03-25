@@ -88,7 +88,6 @@ post-process:
     upload_input_data:
       - './modules/kopp14SROCC/icesheets/kopp14SROCC_postprocess_icesheets.py'
       - './modules/kopp14SROCC/icesheets/SampleISDists.py'
-#      - './modules/kopp14SROCC/icesheets/pyssht.so'
       - './modules/kopp14SROCC/icesheets/read_bkgdrate.py'
       - './modules/kopp14SROCC/icesheets/AssignFP.py'
       - './modules/kopp14SROCC/icesheets/ReadFingerprint.py'

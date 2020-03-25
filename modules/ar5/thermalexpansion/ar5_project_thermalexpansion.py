@@ -53,8 +53,8 @@ def ar5_project_thermalexpansion(rng_seed, nsamps, pipeline_id):
 	# Number of years in the data record
 	nyr = len(data_years)
 	
-	# Save the global glacier and ice caps projections to a pickle
-	output = {"zx": zx, "data_years": data_years}
+	# Save the global thermal expansion projections to a pickle
+	output = {"zx": zx, "data_years": data_years, "startyr": startyr, "scenario": scenario}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
