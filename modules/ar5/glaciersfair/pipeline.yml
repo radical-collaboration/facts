@@ -1,4 +1,4 @@
-# AR5 Glaciers CMIP6 Pipeline
+# AR5 Glaciers CMIP6-FAIR Pipeline
 
 pre-process:
   task1:
@@ -12,6 +12,8 @@ pre-process:
     script: "ar5_preprocess_glaciersfair.py"
     options:
       - "scenario"
+      - "startyear"
+      - "fullFAIR"
       - "pipeline_id"
     upload_input_data:
       - "./modules/ar5/glaciersfair/ar5_preprocess_glaciersfair.py"

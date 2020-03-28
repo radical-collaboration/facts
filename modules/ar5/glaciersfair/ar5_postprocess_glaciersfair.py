@@ -61,7 +61,7 @@ def ar5_postprocess_glaciersfair(focus_site_ids, pipeline_id):
 	model_string = ""
 	
 	# Load the site locations
-	ratefilename = "bkgdrate_{}.tsv".format(scenario)	
+	ratefilename = "bkgdrate.tsv"	
 	ratefile = os.path.join(os.path.dirname(__file__), ratefilename)
 	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
 	

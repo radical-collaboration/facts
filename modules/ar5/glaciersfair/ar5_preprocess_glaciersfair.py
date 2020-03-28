@@ -132,6 +132,87 @@ def ar5_preprocess_glaciersfair(scenario, startyr, pipeline_id):
 	return(0)
 
 
+
+def ar5_preprocess_glaciersfair_full(scenario, startyr, pipeline_id):
+	
+	# Acceptable SSP scenarios
+	ssp_scenarios = ['ssp585', 'ssp370', 'ssp245', 'ssp126', 'ssp119']
+	
+	# Test the provided scenario
+	scenario_test = re.search("^tlim(\d*\.?\d+)win(\d*\.?\d+)$", scenario)
+	if(scenario_test):
+		
+		# THIS SCENARIO HAS NOT BEEN IMPLEMENTED YET
+		raise Exception("Scenario \"{}\" has not been implemented yet".format(scenario))
+		
+		# This is a temperature limit, so extract the limit from the scenario string
+		temp_target = float(scenario_test.group(1))
+		temp_target_window = float(scenario_test.group(2))
+		
+		# Produce a list of models and scenarios that match the criteria
+		temp_data_filtered = tas_limit_filter(temp_data, temp_target, temp_target_window)
+		
+	elif(scenario in ssp_scenarios):
+		
+		# Define the temperature input file name
+		infilename = "FAIR_{}.nc".format(scenario)
+		infile = os.path.join(os.path.dirname(__file__), infilename)
+		
+		# Load the data set for this scenario
+		nc = Dataset(infile, 'r')
+		temp_years = nc.variables['years'][:]
+		temp_data = nc.variables['gmst'][:,:]
+		nc.close()
+		
+		# Filter the temperature data for this particular scenario
+		temp_data_filtered = {"years": temp_years, "data": temp_data.T}
+	
+	else:
+		
+		# This is an invalid scenario
+		raise Exception("Invalid scenario definition: {}".format(scenario))
+	
+	# The module is calibrated to use the temperature reference period for AR5, so center
+	# the temperature data to the mean of that period
+	ref_idx = np.flatnonzero(np.logical_and(temp_data_filtered["years"] >= 1986, temp_data_filtered["years"] <= 2005))
+	ref_tas = np.nanmean(temp_data_filtered["data"][:,ref_idx], axis=1)
+	temp_data_filtered["data"] = temp_data_filtered["data"] - ref_tas[:,np.newaxis]
+	
+	# Find the mean and sd of the matched models/scenarios
+	temp_mean = np.nanmean(temp_data_filtered['data'], axis=0)
+	temp_sd = np.nanstd(temp_data_filtered['data'], axis=0)
+	data_years = temp_data_filtered['years']
+	
+	# Find which year in the data years is the start year
+	baseyear_idx = np.flatnonzero(data_years == startyr)
+
+	# Integrate temperature to obtain K yr at ends of calendar years
+	# Note - The original code I believe performs a cumulative sum of the standard
+	# deviations, which is not correct.  Below I provide a fix to that bug as well as
+	# a replication of the bug for diagnostic purposes.
+	inttemp_mean = np.cumsum(temp_mean)
+	#inttemp_sd = np.sqrt(np.cumsum(temp_sd**2))  # Assume independence across models
+	inttemp_sd = np.cumsum(temp_sd)  # Assume correlation
+	
+	# Integrated quantities must be centered on the baseline year
+	inttemp_mean -= inttemp_mean[baseyear_idx]
+	inttemp_sd -= inttemp_sd[baseyear_idx]
+		
+	# Store preprocessed data in pickles
+	output = {'temp_mean': temp_mean, 'temp_sd': temp_sd, 'inttemp_mean': inttemp_mean, \
+				'inttemp_sd': inttemp_sd, 'data_years': data_years, 'startyr': startyr, \
+				'scenario': scenario}
+	
+	# Write the configuration to a file
+	outdir = os.path.dirname(__file__)
+	outfile = open(os.path.join(outdir, "{}_data.pkl".format(pipeline_id)), 'wb')
+	pickle.dump(output, outfile)
+	outfile.close()
+
+	return(0)
+
+
+
 if __name__ == '__main__':
 	
 	# Initialize the command-line argument parser
@@ -142,11 +223,15 @@ if __name__ == '__main__':
 	parser.add_argument('--scenario', help="SSP scenario (i.e. ssp585) or temperature target (i.e. tlim2.0win0.25)", default='ssp585')
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	parser.add_argument('--startyear', help="Year from which to start integrating temperature [default=2005]", type=int, default=2005)
+	parser.add_argument('--fullFAIR', help="Run the full set of FAIR temperature trajectories [default=1, use full set] [0, use 500 member subset]", type=int, choices=[0,1], default=1)
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	ar5_preprocess_glaciersfair(args.scenario, args.startyear, args.pipeline_id)
+	if(args.fullFAIR == 1):
+		ar5_preprocess_glaciersfair_full(args.scenario, args.startyear, args.pipeline_id)
+	else:
+		ar5_preprocess_glaciersfair(args.scenario, args.startyear, args.pipeline_id)
 	
 	exit()
