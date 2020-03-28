@@ -12,7 +12,7 @@ pre-process:
     script: "ar5_preprocess_thermalexpansion.py"
     options:
       - "scenario"
-      - "startyr"
+      - "startyear"
       - "pipeline_id"
     upload_input_data:
       - "./modules/ar5/thermalexpansion/ar5_preprocess_thermalexpansion.py"
