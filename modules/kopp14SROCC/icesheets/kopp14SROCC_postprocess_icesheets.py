@@ -34,7 +34,7 @@ def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	try:
 		f = open(projfile, 'rb')
 	except:
-		print("Cannot open projfile\n")
+		print("Cannot open proj file\n")
 		sys.exit(1)
 	
 	# Extract the data from the file
@@ -48,7 +48,7 @@ def kopp14SROCC_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 	try:
 		f = open(projfile, 'rb')
 	except:
-		print("Cannot open projfile\n")
+		print("Cannot open corr file\n")
 		sys.exit(1)
 	
 	# Extract the data from the file

@@ -56,6 +56,7 @@ project:
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/icesheets/ar5_project_icesheets.py'
+      - './modules/ar5/icesheets/data/ar5_icesheets_project_data.tgz'
     copy_input_data:
       pre-process:
         task1:
