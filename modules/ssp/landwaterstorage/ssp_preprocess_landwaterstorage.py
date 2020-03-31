@@ -24,13 +24,13 @@ Output:
 Note: %PIPELINE_ID% is replaced with 'pipeline_id' at run time
 '''
 
-def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, pipeline_id):
+def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, baseyear, pipeline_id):
 	
 	##################################################
 	# configure run (could be separate script)
 	dgwd_dt_dpop_pcterr = .25		# error on gwd slope
 	dam_pcterr = .25				# error on sigmoidal function reservoirs
-	baseyear = 2005					# Base year to which projetions are centered
+	#baseyear = 2005					# Base year to which projetions are centered
 	targyears = np.linspace(2010,2100,10)	# target years for projections
 	yrs = np.append(baseyear, targyears)		# years at which projections should be made
 
@@ -172,12 +172,13 @@ if __name__ == '__main__':
 	parser.add_argument('--scenario', help="Use RCP or SSP scenario[default=rcp85]", choices=["rcp19","rcp26","rcp45","rcp70","rcp85","ssp1","ssp2","ssp3","ssp4","ssp5"], default="rcp85")
 	parser.add_argument('--dotriangular', help="Use triangular distribution for GWD [default=0]", choices=[0, 1], default=0, type=int)
 	parser.add_argument('--includepokherl', help="Include Pokherl data for GWD [default=0]", choices=[0, 1], default=0, type=int)
+	parser.add_argument('--baseyear', help="Base year to which projections are centered [default=2000]", default=2000, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	ssp_preprocess_landwaterstorage(args.scenario, args.dotriangular, args.includepokherl, args.pipeline_id)
+	ssp_preprocess_landwaterstorage(args.scenario, args.dotriangular, args.includepokherl, args.baseyear, args.pipeline_id)
 	
 	exit()
