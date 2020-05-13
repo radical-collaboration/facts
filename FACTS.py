@@ -5,8 +5,10 @@ import yaml
 import sys
 import re
 import errno
+import time
 from pprint import pprint
 from radical.entk import Pipeline, Stage, Task, AppManager
+
 
 # Magic variable replacement functions ================================
 def mvar_replace_var(mvar, sub, string):
@@ -153,7 +155,7 @@ def match_options(wopts, eopts):
 
 def run_experiment(exp_dir, debug_mode):
 	
-	# Initialize a list of pipelines
+	# Initialize a list for pipelines
 	pipelines = []
 	
 	# Define the configuration and resource file names
@@ -230,9 +232,47 @@ def run_experiment(exp_dir, debug_mode):
 	
 	# Assign the list of pipelines to the workflow
 	amgr.workflow = pipelines
-	
+		
 	# Run the workflow
 	amgr.run()
+	
+	
+	
+	# -------- TEST ------------
+	# New pipeline
+	p1 = Pipeline()
+	p1.name = "Test-pipeline"
+	
+	# First stage with one task
+	s1 = Stage()
+	s1.name = "Test-stage"
+	t1 = Task()
+	t1.name = "Test-task"
+	t1.executable = '/bin/sleep'
+	t1.arguments = ['5']
+	
+	# Second stage with one task
+	s2 = Stage()
+	s2.name = "Test-stage2"
+	t2 = Task()
+	t2.name = "Test-task2"
+	t2.executable = '/bin/sleep'
+	t2.arguments = ['5']
+	
+	# Assign tasks and stages to pipeline
+	s1.add_tasks(t1)
+	s2.add_tasks(t2)
+	p1.add_stages(s1)
+	p1.add_stages(s2)
+	
+	# Assign the pipeline to the workflow and run
+	amgr.workflow = [p1]
+	amgr.run()
+
+	
+	# --------- TEST -------------
+	
+	
 
 	return(None)
 
