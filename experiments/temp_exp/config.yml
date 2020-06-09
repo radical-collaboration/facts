@@ -36,15 +36,15 @@ icesheets:
 #        site_ids: 12
 #        seed: 1234
 #
-landwaterstorage1:
-    module_set: "kopp14"
-    module: "landwaterstorage"
-    options:
-        dotriangular: 0
-        includepokherl: 0
-        nsamps: 20000
-        seed: 1234
-        site_ids: 12
+#landwaterstorage1:
+#    module_set: "kopp14"
+#    module: "landwaterstorage"
+#    options:
+#        dotriangular: 0
+#        includepokherl: 0
+#        nsamps: 20000
+#        seed: 1234
+#        site_ids: 12
 #
 #landwaterstorage2:
 #    module_set: "ssp"
