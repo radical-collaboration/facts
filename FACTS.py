@@ -220,7 +220,7 @@ def run_experiment(exp_dir, debug_mode):
 		sys.exit(0)
 	
 	# Initialize the EnTK App Manager
-	amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'])
+	amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'], autoterminate=False)
 	
 	# Apply the resource configuration provided by the user
 	res_desc = {'resource': rcfg['resource-desc']['name'],
@@ -268,7 +268,8 @@ def run_experiment(exp_dir, debug_mode):
 	# Assign the pipeline to the workflow and run
 	amgr.workflow = [p1]
 	amgr.run()
-
+	
+	amgr.terminate()
 	
 	# --------- TEST -------------
 	
