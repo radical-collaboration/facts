@@ -5,8 +5,10 @@ import yaml
 import sys
 import re
 import errno
+import time
 from pprint import pprint
 from radical.entk import Pipeline, Stage, Task, AppManager
+
 
 # Magic variable replacement functions ================================
 def mvar_replace_var(mvar, sub, string):
@@ -153,7 +155,7 @@ def match_options(wopts, eopts):
 
 def run_experiment(exp_dir, debug_mode):
 	
-	# Initialize a list of pipelines
+	# Initialize a list for pipelines
 	pipelines = []
 	
 	# Define the configuration and resource file names
@@ -183,8 +185,21 @@ def run_experiment(exp_dir, debug_mode):
 		if e.errno != errno.EEXIST:
 			raise
 	
+	# Reserved configuration entries
+	reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options"]
+	
+	# Are there global options?
+	if "global-options" in ecfg.keys():
+		global_options = ecfg["global-options"]
+	else:
+		global_options = {}
+	
 	# Loop through the user-requested modules
 	for this_mod in ecfg.keys():
+		
+		# Skip this entry if it's not associated with SLR projection workflow
+		if this_mod in reserved_econfig_entries:
+			continue
 		
 		# Load the pipeline configuration file for this module
 		pcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "pipeline.yml")
@@ -193,6 +208,9 @@ def run_experiment(exp_dir, debug_mode):
 			sys.exit(1)
 		with open(pcfg_file, 'r') as fp:
 			pcfg = yaml.safe_load(fp)
+		
+		# Append the global options to this module
+		ecfg[this_mod]["options"].update(global_options)
 		
 		# Generate a pipeline for this module
 		pipe_name = "-".join((this_mod, ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
@@ -218,7 +236,7 @@ def run_experiment(exp_dir, debug_mode):
 		sys.exit(0)
 	
 	# Initialize the EnTK App Manager
-	amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'])
+	amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'], autoterminate=False)
 	
 	# Apply the resource configuration provided by the user
 	res_desc = {'resource': rcfg['resource-desc']['name'],
@@ -230,9 +248,8 @@ def run_experiment(exp_dir, debug_mode):
 	
 	# Assign the list of pipelines to the workflow
 	amgr.workflow = pipelines
+	amgr.terminate()
 	
-	# Run the workflow
-	amgr.run()
 
 	return(None)
 
