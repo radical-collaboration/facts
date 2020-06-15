@@ -121,6 +121,17 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
 	
+	# Send the global and local files to the shared directory for totaling
+	copy_output_list = []
+	if "global_total_files" in tcfg.keys():
+		copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['global_total_files']])
+	
+	if "local_total_files" in tcfg.keys():
+		copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
+	
+	# Append the "total" lists to the copy output list
+	t.copy_output_data = copy_output_list
+	
 	# Set the download data for the task
 	download_list = []
 	outdir = os.path.join(ecfg['exp_dir'], "output")
@@ -248,6 +259,40 @@ def run_experiment(exp_dir, debug_mode):
 	
 	# Assign the list of pipelines to the workflow
 	amgr.workflow = pipelines
+	
+	# Run the SLR projection workflow
+	amgr.run()
+	
+	
+	# ------------------- TEST ----------------------------
+	# New pipeline
+	p1 = Pipeline()
+	p1.name = "Test-pipeline"
+	
+	# First stage with one task
+	s1 = Stage()
+	s1.name = "Test-stage"
+	t1 = Task()
+	t1.name = "Test-task1"
+	t1.executable = 'ls'
+	t1.arguments = ['$SHARED/to_total/global/']
+	t2 = Task()
+	t2.name = "Test-task2"
+	t2.executable = 'ls'
+	t2.arguments = ['$SHARED/to_total/local/']
+	
+	# Assign tasks and stages to pipeline
+	s1.add_tasks(t1)
+	s1.add_tasks(t2)
+	p1.add_stages(s1)
+	
+	# Assign the pipeline to the workflow and run
+	amgr.workflow = [p1]
+	amgr.run()
+	
+	# ---------------------- TEST ---------------------------
+	
+	# Close the application manager
 	amgr.terminate()
 	
 
