@@ -185,8 +185,21 @@ def run_experiment(exp_dir, debug_mode):
 		if e.errno != errno.EEXIST:
 			raise
 	
+	# Reserved configuration entries
+	reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options"]
+	
+	# Are there global options?
+	if "global-options" in ecfg.keys():
+		global_options = ecfg["global-options"]
+	else:
+		global_options = {}
+	
 	# Loop through the user-requested modules
 	for this_mod in ecfg.keys():
+		
+		# Skip this entry if it's not associated with SLR projection workflow
+		if this_mod in reserved_econfig_entries:
+			continue
 		
 		# Load the pipeline configuration file for this module
 		pcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "pipeline.yml")
@@ -195,6 +208,9 @@ def run_experiment(exp_dir, debug_mode):
 			sys.exit(1)
 		with open(pcfg_file, 'r') as fp:
 			pcfg = yaml.safe_load(fp)
+		
+		# Append the global options to this module
+		ecfg[this_mod]["options"].update(global_options)
 		
 		# Generate a pipeline for this module
 		pipe_name = "-".join((this_mod, ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
