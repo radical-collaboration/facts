@@ -8,12 +8,20 @@ def run():
 	amgr = AppManager(hostname="localhost", port=5672)
 	
 	# Apply the resource configuration provided by the user
+	# Amarel
 	res_desc = {'resource': "rutgers.amarel",
-		'walltime': 60,
-		'cpus': 4,
+		'walltime': 30,
+		'cpus': 16,
 		'queue': "kopp_1",
 		'project': "",
 		'schema': "local"}
+	# Local
+	#res_desc = {'resource': "local.localhost",
+	#	'walltime': 60,
+	#	'cpus': 2,
+	#	'queue': "",
+	#	'project': "",
+	#	'schema': ""}
 	amgr.resource_desc = res_desc
 	
 	# Push the input data to the shared directory
@@ -34,6 +42,7 @@ def run():
 	
 	t1 = Task()
 	t1.name = "Test-task1"
+	t1.cpu_reqs = {"processes": 1, "process_type": None, "threads_per_process": 1, "thread_type": None}
 	t1.pre_exec = ["pip3 install --upgrade; pip3 install pandas zarr cftime toolz \"dask[complete]\" bottleneck xarray"]
 	t1.executable = 'python3'
 	t1.arguments = ['xarray_script.py']
