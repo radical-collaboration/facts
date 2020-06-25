@@ -68,6 +68,8 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
@@ -94,5 +96,7 @@ post-process:
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

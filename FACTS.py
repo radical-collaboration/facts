@@ -121,6 +121,17 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
 	
+	# Send the global and local files to the shared directory for totaling
+	copy_output_list = []
+	if "global_total_files" in tcfg.keys():
+		copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['global_total_files']])
+	
+	if "local_total_files" in tcfg.keys():
+		copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
+	
+	# Append the "total" lists to the copy output list
+	t.copy_output_data = copy_output_list
+	
 	# Set the download data for the task
 	download_list = []
 	outdir = os.path.join(ecfg['exp_dir'], "output")
@@ -185,8 +196,21 @@ def run_experiment(exp_dir, debug_mode):
 		if e.errno != errno.EEXIST:
 			raise
 	
+	# Reserved configuration entries
+	reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options"]
+	
+	# Are there global options?
+	if "global-options" in ecfg.keys():
+		global_options = ecfg["global-options"]
+	else:
+		global_options = {}
+	
 	# Loop through the user-requested modules
 	for this_mod in ecfg.keys():
+		
+		# Skip this entry if it's not associated with SLR projection workflow
+		if this_mod in reserved_econfig_entries:
+			continue
 		
 		# Load the pipeline configuration file for this module
 		pcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "pipeline.yml")
@@ -195,6 +219,9 @@ def run_experiment(exp_dir, debug_mode):
 			sys.exit(1)
 		with open(pcfg_file, 'r') as fp:
 			pcfg = yaml.safe_load(fp)
+		
+		# Append the global options to this module
+		ecfg[this_mod]["options"].update(global_options)
 		
 		# Generate a pipeline for this module
 		pipe_name = "-".join((this_mod, ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
@@ -220,7 +247,7 @@ def run_experiment(exp_dir, debug_mode):
 		sys.exit(0)
 	
 	# Initialize the EnTK App Manager
-	amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'])
+	amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'], autoterminate=False)
 	
 	# Apply the resource configuration provided by the user
 	res_desc = {'resource': rcfg['resource-desc']['name'],
@@ -232,13 +259,12 @@ def run_experiment(exp_dir, debug_mode):
 	
 	# Assign the list of pipelines to the workflow
 	amgr.workflow = pipelines
-		
-	# Run the workflow
+	
+	# Run the SLR projection workflow
 	amgr.run()
 	
 	
-	
-	# -------- TEST ------------
+	# ------------------- TEST ----------------------------
 	# New pipeline
 	p1 = Pipeline()
 	p1.name = "Test-pipeline"
@@ -247,31 +273,27 @@ def run_experiment(exp_dir, debug_mode):
 	s1 = Stage()
 	s1.name = "Test-stage"
 	t1 = Task()
-	t1.name = "Test-task"
-	t1.executable = '/bin/sleep'
-	t1.arguments = ['5']
-	
-	# Second stage with one task
-	s2 = Stage()
-	s2.name = "Test-stage2"
+	t1.name = "Test-task1"
+	t1.executable = 'ls'
+	t1.arguments = ['$SHARED/to_total/global/']
 	t2 = Task()
 	t2.name = "Test-task2"
-	t2.executable = '/bin/sleep'
-	t2.arguments = ['5']
+	t2.executable = 'ls'
+	t2.arguments = ['$SHARED/to_total/local/']
 	
 	# Assign tasks and stages to pipeline
 	s1.add_tasks(t1)
-	s2.add_tasks(t2)
+	s1.add_tasks(t2)
 	p1.add_stages(s1)
-	p1.add_stages(s2)
 	
 	# Assign the pipeline to the workflow and run
 	amgr.workflow = [p1]
 	amgr.run()
-
 	
-	# --------- TEST -------------
+	# ---------------------- TEST ---------------------------
 	
+	# Close the application manager
+	amgr.terminate()
 	
 
 	return(None)

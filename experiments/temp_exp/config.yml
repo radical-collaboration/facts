@@ -1,3 +1,7 @@
+global-options:
+    nsamps: 20000
+    site_ids: 12,10
+
 glaciers:
     module_set: "ar5"
     module: "glaciers"
@@ -22,7 +26,7 @@ icesheets:
     module: "icesheets"
     options:
         scenario: "rcp85"
-        nsamps: 20000
+        nsamps: 10000
         seed: 1234
         site_ids: 12
         samptype: "hysamps"
@@ -46,16 +50,16 @@ icesheets:
 #        seed: 1234
 #        site_ids: 12
 #
-#landwaterstorage2:
-#    module_set: "ssp"
-#    module: "landwaterstorage"
-#    options:
-#        scenario: "rcp85"
-#        dotriangular: 0
-#        includepokherl: 0
-#        nsamps: 20000
-#        seed: 1234
-#        site_ids: 12
+landwaterstorage2:
+    module_set: "ssp"
+    module: "landwaterstorage"
+    options:
+        scenario: "rcp85"
+        dotriangular: 0
+        includepokherl: 0
+        nsamps: 20000
+        seed: 1234
+        site_ids: 12
 #
 #directsample1:
 #    module_set: "genmod"
