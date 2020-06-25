@@ -5,7 +5,7 @@ from radical.entk import Pipeline, Stage, Task, AppManager
 def run():
 	
 	# Initialize the EnTK App Manager
-	amgr = AppManager(hostname="localhost", port=5672)
+	amgr= AppManager(hostname='129.114.17.185', port=5672,username='abdullahg', password='tTvdqBf2ZZmVVJfR', autoterminate=False)
 	
 	# Apply the resource configuration provided by the user
 	res_desc = {'resource': "local.localhost",
