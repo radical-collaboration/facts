@@ -152,7 +152,7 @@ def time_projection(startratemean, startratepm, finalrange, nr, nt, data_years, 
 
 
 
-def ar5_project_icesheets(rng_seed, nmsamps, ntsamps, pipeline_id):
+def ar5_project_icesheets(rng_seed, nmsamps, ntsamps, nsamps, pipeline_id):
 	
 	# Define the target years
 	targyears = np.arange(2010,2101,10)
@@ -189,6 +189,13 @@ def ar5_project_icesheets(rng_seed, nmsamps, ntsamps, pipeline_id):
 	
 	# Set the seed for the random number generator
 	np.random.seed(rng_seed)
+	
+	# Divide "nsamps" into "nmsamps" and "ntsamps" if necessary
+	if nsamps is None:
+		nsamps = nmsamps * ntsamps
+	else:
+		nmsamps = int(np.ceil(np.sqrt(nsamps)))
+		ntsamps = nmsamps
 
 	# Generate perfectly correlated samples
 	z=np.random.standard_normal(ntsamps)[:,np.newaxis]
@@ -230,6 +237,13 @@ def ar5_project_icesheets(rng_seed, nmsamps, ntsamps, pipeline_id):
 	greennet = greennet.reshape(-1, greennet.shape[-1])
 	antnet = antnet.reshape(-1, antnet.shape[-1])
 	totalnet = totalnet.reshape(-1, totalnet.shape[-1])
+	greennet = greennet[:nsamps,:]
+	antnet = antnet[:nsamps,:]
+	totalnet = totalnet[:nsamps,:]
+	
+	print(greennet.shape)
+	print(antnet.shape)
+	print(totalnet.shape)
 	
 	# Write the netCDF output
 	WriteNetCDF(greennet, "GIS", data_years, scenario, pipeline_id)
@@ -342,6 +356,7 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nmsamps', help="Number of method samples to generate [default=1000]", default=1000, type=int)
 	parser.add_argument('--ntsamps', help="Number of climate samples to generate [default=450]", default=450, type=int)
+	parser.add_argument('--nsamps', help="Total number of samples to generate (replaces \'nmsamps\' and \'ntsamps\' if provided)", default=None, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
@@ -349,6 +364,6 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the projection process on the files specified from the command line argument
-	ar5_project_icesheets(args.seed, args.nmsamps, args.ntsamps, args.pipeline_id)
+	ar5_project_icesheets(args.seed, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
 	
 	exit()
