@@ -1,7 +1,0 @@
-1594476777.619 : radical.entk.resource_manager.0000 : 7157  : 4489596352 : ERROR    : Execution interrupted (probably by Ctrl+C) exit callback thread gracefully...
-Traceback (most recent call last):
-  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/execman/rp/resource_manager.py", line 179, in _submit_resource_request
-    self._pilot.wait([rp.PMGR_ACTIVE, rp.DONE, rp.FAILED, rp.CANCELED])
-  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/compute_pilot.py", line 536, in wait
-    time.sleep(0.1)
-KeyboardInterrupt

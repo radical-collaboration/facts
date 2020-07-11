@@ -1,6 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1594232508.4684620,sync_abs,umgr_scheduling_queue.put.0000,Thread-12,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232508.468311:1594232508.606843:ntp
-1594232512.3469388,put,umgr_scheduling_queue.put.0000,Thread-12,unit.000000,,
-1594232512.3469770,put,umgr_scheduling_queue.put.0000,Thread-12,unit.000001,,
-1594232512.3469980,put,umgr_scheduling_queue.put.0000,Thread-12,unit.000002,,
-1594232512.3470140,put,umgr_scheduling_queue.put.0000,Thread-12,unit.000003,,

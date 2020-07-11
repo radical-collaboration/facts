@@ -1,6 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1594476594.1323142,sync_abs,heartbeat.sub.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476594.1320949:1594476594.1249838:ntp
-#time,event,comp,thread,uid,state,msg
-1594476598.8737330,sync_abs,heartbeat.sub.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476598.873587:1594476598.8664758:ntp
-#time,event,comp,thread,uid,state,msg
-1594476603.3024130,sync_abs,heartbeat.sub.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476603.302319:1594476603.295208:ntp

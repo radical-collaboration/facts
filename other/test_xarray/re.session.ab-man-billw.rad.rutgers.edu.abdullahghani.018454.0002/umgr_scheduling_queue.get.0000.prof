@@ -1,8 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1594480673.3516359,sync_abs,umgr_scheduling_queue.get.0000,Thread-1,,,ab-man-billw.rad.rutgers.edu:127.0.0.1:1594480673.35137:1594480673.351619:ntp
-1594480673.3562040,requested,umgr_scheduling_queue.get.0000,Thread-1,,,
-1594480679.4022489,get_nowait,umgr_scheduling_queue.get.0000,Thread-1,unit.000000,,
-1594480679.4022870,get_nowait,umgr_scheduling_queue.get.0000,Thread-1,unit.000001,,
-1594480679.4022999,get_nowait,umgr_scheduling_queue.get.0000,Thread-1,unit.000002,,
-1594480679.4023099,get_nowait,umgr_scheduling_queue.get.0000,Thread-1,unit.000003,,
-1594480680.7619860,requested,umgr_scheduling_queue.get.0000,Thread-1,,,

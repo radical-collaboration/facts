@@ -1,3 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1594480505.3573399,sync_abs,pmgr_launching_queue.put.0000,MainThread,,,ab-man-billw.rad.rutgers.edu:127.0.0.1:1594480505.356949:1594480505.378982:ntp
-1594480507.1468360,put,pmgr_launching_queue.put.0000,MainThread,pilot.0000,,

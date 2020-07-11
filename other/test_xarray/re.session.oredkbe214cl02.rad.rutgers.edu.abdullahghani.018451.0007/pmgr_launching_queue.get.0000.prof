@@ -1,5 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1594232316.1510029,sync_abs,pmgr_launching_queue.get.0000,Thread-1,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232316.1508338:1594232316.1690738:ntp
-1594232316.1532810,requested,pmgr_launching_queue.get.0000,Thread-1,,,
-1594232319.2474849,get_nowait,pmgr_launching_queue.get.0000,Thread-1,pilot.0000,,
-1594232441.9019771,requested,pmgr_launching_queue.get.0000,Thread-1,,,

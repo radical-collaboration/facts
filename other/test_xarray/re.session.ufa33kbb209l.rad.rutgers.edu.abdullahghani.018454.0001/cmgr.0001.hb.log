@@ -1,5 +1,0 @@
-1594476600.041 : cmgr.0001.hb         : 7157  : 4489596352 : DEBUG    : bridge cmgr.0001.hb init
-1594476600.041 : cmgr.0001.hb         : 7157  : 4489596352 : INFO     : initialize bridge cmgr.0001.hb
-1594476600.042 : cmgr.0001.hb         : 7157  : 4489596352 : INFO     : bridge pub on  cmgr.0001.hb: tcp://127.0.0.1:62571
-1594476600.042 : cmgr.0001.hb         : 7157  : 4489596352 : INFO     :        sub on  cmgr.0001.hb: tcp://127.0.0.1:62572
-1594476600.042 : cmgr.0001.hb         : 7157  : 4489596352 : INFO     : started bridge cmgr.0001.hb

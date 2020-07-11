@@ -1,5 +1,0 @@
-1594229592.741 : radical.saga.pty     : 3551  : 4349246912 : ERROR    : Could not detect shell prompt (timeout) (/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/saga/utils/pty_shell_factory.py +301 (_initialize_pty)  :  raise rse.NoSuccess("Could not detect shell prompt (timeout)"))
-Traceback (most recent call last):
-  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/saga/utils/pty_shell_factory.py", line 301, in _initialize_pty
-    raise rse.NoSuccess("Could not detect shell prompt (timeout)")
-radical.saga.exceptions.NoSuccess: Could not detect shell prompt (timeout) (/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/saga/utils/pty_shell_factory.py +301 (_initialize_pty)  :  raise rse.NoSuccess("Could not detect shell prompt (timeout)"))

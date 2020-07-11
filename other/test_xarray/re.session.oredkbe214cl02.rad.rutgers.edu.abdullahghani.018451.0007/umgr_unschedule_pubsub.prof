@@ -1,7 +1,0 @@
-#time,event,comp,thread,uid,state,msg
-1594232504.5531781,sync_abs,umgr_unschedule_pubsub,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232504.552616:1594232504.6911478:ntp
-1594232504.5538130,bridge_start,umgr_unschedule_pubsub,MainThread,umgr_unschedule_pubsub,,
-#time,event,comp,thread,uid,state,msg
-1594232504.5552499,sync_abs,umgr_unschedule_pubsub,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232504.555155:1594232504.693687:ntp
-1594232504.5552781,init3,umgr_unschedule_pubsub,MainThread,umgr_unschedule_pubsub,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.oredkbe214cl02.rad.rutgers.edu.abdullahghani.018451.0007
-1594238321.0271811,term,umgr_unschedule_pubsub,Thread-2,umgr_unschedule_pubsub,,
