@@ -1,0 +1,8 @@
+#time,event,comp,thread,uid,state,msg
+1594476597.9688671,sync_abs,control_pubsub.pub.0000,Thread-1,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476597.9686348:1594476597.9615238:ntp
+#time,event,comp,thread,uid,state,msg
+1594476599.9347022,sync_abs,control_pubsub.pub.0000,Thread-4,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476599.934536:1594476599.927425:ntp
+#time,event,comp,thread,uid,state,msg
+1594476603.1985850,sync_abs,control_pubsub.pub.0000,Thread-1,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476603.1984918:1594476603.1913807:ntp
+1594476776.8423760,put,control_pubsub.pub.0000,MainThread,control_pubsub.pub.0000,,{'cmd': 'cancel_pilots', 'arg': {'pmgr': 'pmgr.0000', 'uids': ['pilot.0000']}}
+1594476777.6211059,put,control_pubsub.pub.0000,MainThread,control_pubsub.pub.0000,,{'cmd': 'cancel_pilots', 'arg': {'pmgr': 'pmgr.0000', 'uids': ['pilot.0000']}}

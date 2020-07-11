@@ -1,0 +1,15 @@
+#time,event,comp,thread,uid,state,msg
+1594480503.8487439,sync_abs,pmgr_launching.0000,MainThread,,,ab-man-billw.rad.rutgers.edu:127.0.0.1:1594480503.848394:1594480503.870427:ntp
+1594480503.8492801,comp_start,pmgr_launching.0000,MainThread,pmgr_launching.0000,,
+#time,event,comp,thread,uid,state,msg
+1594480504.2373641,sync_abs,pmgr_launching.0000,MainThread,,,ab-man-billw.rad.rutgers.edu:127.0.0.1:1594480504.237199:1594480504.259232:ntp
+1594480504.2374258,init1,pmgr_launching.0000,MainThread,pmgr_launching.0000,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.ab-man-billw.rad.rutgers.edu.abdullahghani.018454.0002
+1594480504.2451048,component_init,pmgr_launching.0000,Thread-1,,,
+1594480507.1698680,get,pmgr_launching.0000,Thread-1,pilot.0000,PMGR_LAUNCHING_PENDING,
+1594480507.1700180,advance,pmgr_launching.0000,Thread-1,pilot.0000,PMGR_LAUNCHING,
+1594480507.8551540,staging_in_start,pmgr_launching.0000,Thread-1,pilot.0000,,
+1594480625.4664471,staging_in_stop,pmgr_launching.0000,Thread-1,pilot.0000,,
+1594480625.4665349,submission_start,pmgr_launching.0000,Thread-1,pilot.0000,,
+1594480628.3728909,submission_stop,pmgr_launching.0000,Thread-1,pilot.0000,,
+1594480628.3730922,advance,pmgr_launching.0000,Thread-1,pilot.0000,PMGR_ACTIVE_PENDING,
+1594482448.1312990,advance,pmgr_launching.0000,Thread-3,pilot.0000,CANCELED,

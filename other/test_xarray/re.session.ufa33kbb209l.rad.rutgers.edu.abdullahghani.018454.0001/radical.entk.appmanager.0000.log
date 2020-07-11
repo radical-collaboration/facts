@@ -1,0 +1,16 @@
+1594476777.620 : radical.entk.appmanager.0000 : 7157  : 4489596352 : ERROR    : Execution interrupted by user (you probably hit Ctrl+C), trying to cancel enqueuer thread gracefully...
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/execman/rp/resource_manager.py", line 179, in _submit_resource_request
+    self._pilot.wait([rp.PMGR_ACTIVE, rp.DONE, rp.FAILED, rp.CANCELED])
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/compute_pilot.py", line 536, in wait
+    time.sleep(0.1)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/appman/appmanager.py", line 416, in run
+    self._rmgr._submit_resource_request()
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/execman/rp/resource_manager.py", line 192, in _submit_resource_request
+    raise KeyboardInterrupt
+KeyboardInterrupt

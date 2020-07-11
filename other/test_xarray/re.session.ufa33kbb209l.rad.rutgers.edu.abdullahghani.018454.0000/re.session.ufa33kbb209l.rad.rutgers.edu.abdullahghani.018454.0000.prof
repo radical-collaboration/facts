@@ -1,0 +1,3 @@
+#time,event,comp,thread,uid,state,msg
+1594476573.4340580,sync_abs,re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476573.4337192:1594476573.426608:ntp
+1594476573.4347141,session_start,re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0000,MainThread,re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0000,,1

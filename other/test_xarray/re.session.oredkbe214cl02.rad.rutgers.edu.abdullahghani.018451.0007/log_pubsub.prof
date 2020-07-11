@@ -1,0 +1,7 @@
+#time,event,comp,thread,uid,state,msg
+1594232308.9605601,sync_abs,log_pubsub,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232308.960324:1594232308.978564:ntp
+1594232308.9610441,bridge_start,log_pubsub,MainThread,log_pubsub,,
+#time,event,comp,thread,uid,state,msg
+1594232308.9627700,sync_abs,log_pubsub,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232308.962631:1594232308.980871:ntp
+1594232308.9628160,init3,log_pubsub,MainThread,log_pubsub,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.oredkbe214cl02.rad.rutgers.edu.abdullahghani.018451.0007
+1594238321.0238569,term,log_pubsub,Thread-2,log_pubsub,,

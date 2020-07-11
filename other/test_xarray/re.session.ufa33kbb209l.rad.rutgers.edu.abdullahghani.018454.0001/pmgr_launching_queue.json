@@ -1,0 +1,17 @@
+{
+    "bulk_size": 0,
+    "channel": "pmgr_launching_queue",
+    "cmgr": "cmgr.0001",
+    "heartbeat": {
+        "addr_pub": "tcp://127.0.0.1:62571",
+        "addr_sub": "tcp://127.0.0.1:62572",
+        "interval": 1.0,
+        "timeout": 60.0
+    },
+    "kind": "queue",
+    "log_level": "error",
+    "path": "/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001",
+    "sid": "re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001",
+    "stall_hwm": 0,
+    "uid": "pmgr_launching_queue"
+}

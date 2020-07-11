@@ -1,0 +1,16 @@
+1594476776.777 : pmgr.0000            : 7157  : 123145550475264 : ERROR    : [Callback]: pilot 'pilot.0000' failed (exit)
+1594476776.777 : pmgr.0000            : 7157  : 123145550475264 : ERROR    : idle thread failed: <bound method PilotManager._state_pull_cb of <radical.pilot.pilot_manager.PilotManager object at 0x7fabfe4155d0>>
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/utils/component.py", line 867, in run
+    ret = self._cb()
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/pilot_manager.py", line 285, in _state_pull_cb
+    if not self._update_pilot(pilot_dict, publish=True):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/pilot_manager.py", line 361, in _update_pilot
+    self._pilots[pid]._update(pilot_dict)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/compute_pilot.py", line 206, in _update
+    else      : cb([self])
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/compute_pilot.py", line 152, in _default_state_cb
+    ru.cancel_main_thread('int')
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/utils/threads.py", line 164, in cancel_main_thread
+    sys.exit()
+SystemExit

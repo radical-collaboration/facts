@@ -1,0 +1,50 @@
+#time,event,comp,thread,uid,state,msg
+1594480667.6836081,sync_abs,radical.entk.task_manager.0000,MainThread,,,ab-man-billw.rad.rutgers.edu:127.0.0.1:1594480667.683365:1594480667.683614:ntp
+1594480668.4185669,tmgr_create,radical.entk.task_manager.0000,MainThread,task_manager.0000,,
+1594480668.4186440,creating tmgr process,radical.entk.task_manager.0000,MainThread,task_manager.0000,,
+1594480668.4325609,starting tmgr process,radical.entk.task_manager.0000,MainThread,task_manager.0000,,
+1594480668.4365189,hbeat_create,radical.entk.task_manager.0000,MainThread,task_manager.0000,,
+1594480668.4368839,starting heartbeat thread,radical.entk.task_manager.0000,MainThread,task_manager.0000,,
+1594480668.4371378,hbeat_start,radical.entk.task_manager.0000,heartbeat,task_manager.0000,,
+1594480668.4399650,tmgr process started,radical.entk.task_manager.0000,MainThread,task_manager.0000,,
+1594480668.9553862,tmgr infrastructure setup done,radical.entk.task_manager.0000,MainThread,task_manager.0000,,
+1594480676.1607931,cud_create,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480676.1610260,cud from task - done,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480676.4952419,advance,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0000
+1594480676.4954932,pub_sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0000
+1594480676.8185410,sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0000
+1594480676.9547861,cud_create,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480676.9548850,cud from task - done,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480677.2812428,advance,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0000
+1594480677.2813661,pub_sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0000
+1594480677.6078451,sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0000
+1594480677.7420621,cud_create,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480677.7421670,cud from task - done,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480678.0800068,advance,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0001
+1594480678.0801332,pub_sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0001
+1594480678.3387799,sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0001
+1594480678.4678011,cud_create,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480678.4679019,cud from task - done,radical.entk.task_manager.0000,Thread-12,task.0000,,
+1594480678.7847612,advance,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0001
+1594480678.7848761,pub_sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0001
+1594480679.1070249,sync,radical.entk.task_manager.0000,Thread-12,task.0000,SUBMITTING,stage.0001
+1594480692.6133959,task_create,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480692.6140261,task_created,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480692.6140699,advance,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0000
+1594480692.6141491,pub_sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0000
+1594480692.8080649,sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0000
+1594480723.1759770,task_create,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480723.1783669,task_created,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480723.1784241,advance,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0000
+1594480723.1785369,pub_sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0000
+1594480723.4441731,sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0000
+1594480724.0362618,task_create,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480724.0369511,task_created,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480724.0370078,advance,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0001
+1594480724.0371270,pub_sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0001
+1594480724.2332799,sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0001
+1594480734.9275908,task_create,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480734.9334669,task_created,radical.entk.task_manager.0000,Thread-20,task.0000,,
+1594480734.9335320,advance,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0001
+1594480734.9336810,pub_sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0001
+1594480735.2707510,sync,radical.entk.task_manager.0000,Thread-20,task.0000,EXECUTED,stage.0001

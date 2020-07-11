@@ -1,0 +1,26 @@
+#time,event,comp,thread,uid,state,msg
+1594232500.9731300,sync_abs,umgr.0000,Thread-12,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232500.972932:1594232501.111464:ntp
+1594232500.9736960,init1,umgr.0000,Thread-12,umgr.0000,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.oredkbe214cl02.rad.rutgers.edu.abdullahghani.018451.0007
+1594232500.9814689,component_init,umgr.0000,Thread-13,,,
+1594232509.4011309,setup_done,umgr.0000,Thread-12,umgr.0000,,
+1594232512.2103438,advance,umgr.0000,Thread-12,unit.000000,NEW,
+1594232512.2128320,advance,umgr.0000,Thread-12,unit.000001,NEW,
+1594232512.2147200,advance,umgr.0000,Thread-12,unit.000002,NEW,
+1594232512.2169862,advance,umgr.0000,Thread-12,unit.000003,NEW,
+1594232512.3463931,advance,umgr.0000,Thread-12,unit.000000,UMGR_SCHEDULING_PENDING,
+1594232512.3463931,advance,umgr.0000,Thread-12,unit.000001,UMGR_SCHEDULING_PENDING,
+1594232512.3463931,advance,umgr.0000,Thread-12,unit.000002,UMGR_SCHEDULING_PENDING,
+1594232512.3463931,advance,umgr.0000,Thread-12,unit.000003,UMGR_SCHEDULING_PENDING,
+1594232512.3471010,put,umgr.0000,Thread-12,unit.000000,UMGR_SCHEDULING_PENDING,umgr_scheduling_queue.put.0000
+1594232512.3471010,put,umgr.0000,Thread-12,unit.000001,UMGR_SCHEDULING_PENDING,umgr_scheduling_queue.put.0000
+1594232512.3471010,put,umgr.0000,Thread-12,unit.000002,UMGR_SCHEDULING_PENDING,umgr_scheduling_queue.put.0000
+1594232512.3471010,put,umgr.0000,Thread-12,unit.000003,UMGR_SCHEDULING_PENDING,umgr_scheduling_queue.put.0000
+1594232535.6480100,get,umgr.0000,Thread-19,umgr.0000,,bulk size: 4
+1594232535.6480660,get,umgr.0000,Thread-19,unit.000000,,
+1594232535.6480839,get,umgr.0000,Thread-19,unit.000001,,
+1594232535.6480961,get,umgr.0000,Thread-19,unit.000002,,
+1594232535.6481071,get,umgr.0000,Thread-19,unit.000003,,
+1594232535.6481221,drop,umgr.0000,Thread-19,unit.000000,FAILED,
+1594232535.6481221,drop,umgr.0000,Thread-19,unit.000001,FAILED,
+1594232535.6481221,drop,umgr.0000,Thread-19,unit.000002,FAILED,
+1594232535.6481221,drop,umgr.0000,Thread-19,unit.000003,FAILED,

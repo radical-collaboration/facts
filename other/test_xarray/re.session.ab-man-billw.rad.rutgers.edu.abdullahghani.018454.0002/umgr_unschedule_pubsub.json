@@ -1,0 +1,17 @@
+{
+    "bulk_size": 0,
+    "channel": "umgr_unschedule_pubsub",
+    "cmgr": "cmgr.0002",
+    "heartbeat": {
+        "addr_pub": "tcp://127.0.0.1:51496",
+        "addr_sub": "tcp://127.0.0.1:51497",
+        "interval": 1.0,
+        "timeout": 60.0
+    },
+    "kind": "pubsub",
+    "log_level": "error",
+    "path": "/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.ab-man-billw.rad.rutgers.edu.abdullahghani.018454.0002",
+    "sid": "re.session.ab-man-billw.rad.rutgers.edu.abdullahghani.018454.0002",
+    "stall_hwm": 0,
+    "uid": "umgr_unschedule_pubsub"
+}

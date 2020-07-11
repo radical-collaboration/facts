@@ -1,0 +1,17 @@
+{
+    "bulk_size": 0,
+    "channel": "log_pubsub",
+    "cmgr": "cmgr.0000",
+    "heartbeat": {
+        "addr_pub": "tcp://127.0.0.1:62531",
+        "addr_sub": "tcp://127.0.0.1:62532",
+        "interval": 1.0,
+        "timeout": 60.0
+    },
+    "kind": "pubsub",
+    "log_level": "error",
+    "path": "/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001",
+    "sid": "re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001",
+    "stall_hwm": 1,
+    "uid": "log_pubsub"
+}

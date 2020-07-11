@@ -1,0 +1,14 @@
+#time,event,comp,thread,uid,state,msg
+1594476572.6604860,sync_abs,radical.entk.appmanager.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476572.660125:1594476572.6530144:ntp
+1594476572.6614668,amgr_creat,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476572.6616828,mqs_setup_start,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476573.3979290,mqs_setup_stop,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476573.3980238,amgr_created,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476573.4065468,assigning workflow,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476573.4066219,amgr_start,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476573.4066391,amgr run started,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476573.4067221,rreq_init,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476575.9301419,term_start,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476575.9302211,mqs_cleanup_start,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476576.7694080,mqs_cleanup_stop,radical.entk.appmanager.0000,MainThread,appmanager.0000,,
+1594476576.7695239,termination done,radical.entk.appmanager.0000,MainThread,appmanager.0000,,

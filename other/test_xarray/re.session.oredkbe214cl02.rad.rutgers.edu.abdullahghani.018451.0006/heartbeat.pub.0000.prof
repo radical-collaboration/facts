@@ -1,0 +1,6 @@
+#time,event,comp,thread,uid,state,msg
+1594229571.9638281,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594229571.963627:1594229571.979998:ntp
+#time,event,comp,thread,uid,state,msg
+1594229575.9017680,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594229575.901601:1594229575.917972:ntp
+#time,event,comp,thread,uid,state,msg
+1594229580.0427289,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594229580.0425699:1594229580.058941:ntp

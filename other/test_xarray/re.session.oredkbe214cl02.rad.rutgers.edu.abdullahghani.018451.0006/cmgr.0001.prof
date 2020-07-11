@@ -1,0 +1,7 @@
+#time,event,comp,thread,uid,state,msg
+1594229577.0393159,sync_abs,cmgr.0001,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594229577.039021:1594229577.055392:ntp
+1594229577.0397871,init2,cmgr.0001,MainThread,cmgr.0001,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.oredkbe214cl02.rad.rutgers.edu.abdullahghani.018451.0006
+1594229578.0974889,start_bridges_start,cmgr.0001,MainThread,cmgr.0001,,
+1594229579.3906629,start_bridges_stop,cmgr.0001,MainThread,cmgr.0001,,
+1594229579.3908191,start_components_start,cmgr.0001,MainThread,cmgr.0001,,
+1594229581.0826602,start_components_stop,cmgr.0001,MainThread,cmgr.0001,,

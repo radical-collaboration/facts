@@ -1,0 +1,13 @@
+#time,event,comp,thread,uid,state,msg
+1594476597.5592740,sync_abs,update.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476597.55893:1594476597.5518188:ntp
+1594476597.5598090,comp_start,update.0000,MainThread,update.0000,,
+#time,event,comp,thread,uid,state,msg
+1594476597.9646232,sync_abs,update.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476597.964473:1594476597.957362:ntp
+1594476597.9646988,init1,update.0000,MainThread,update.0000,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001
+1594476598.8325279,component_init,update.0000,Thread-1,,,
+1594476606.4082072,update_pushed,update.0000,Thread-3,,,bulk size: 1
+1594476608.1161470,update_pushed,update.0000,Thread-4,,,bulk size: 1
+1594476725.7241240,update_pushed,update.0000,Thread-3,,,bulk size: 1
+1594476778.2670720,update_pushed,update.0000,Thread-3,,,bulk size: 1
+1594476837.5913868,component_final,update.0000,Thread-5,,,
+1594476837.5916841,END,update.0000,Thread-5,,,

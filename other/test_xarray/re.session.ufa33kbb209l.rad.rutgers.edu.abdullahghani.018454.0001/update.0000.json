@@ -1,0 +1,22 @@
+{
+    "base": "/Users/abdullahghani/myenv/share/facts/other/test_xarray",
+    "bulk_size": 1024,
+    "bulk_time": 1.0,
+    "client_sandbox": "/Users/abdullahghani/myenv/share/facts/other/test_xarray",
+    "cmgr": "cmgr.0000",
+    "count": 1,
+    "dburl": "mongodb://abdullahg:tTvdqBf2ZZmVVJfR@129.114.17.185:27017/rp_db",
+    "default_dburl": "mongodb://rct:rct_test@two.radical-project.org/rct_test",
+    "heartbeat": {
+        "addr_pub": "tcp://127.0.0.1:62531",
+        "addr_sub": "tcp://127.0.0.1:62532",
+        "interval": 1.0,
+        "timeout": 60.0
+    },
+    "kind": "update",
+    "path": "/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001",
+    "record": null,
+    "session_base": "/Users/abdullahghani/myenv/share/facts/other/test_xarray",
+    "sid": "re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001",
+    "uid": "update.0000"
+}

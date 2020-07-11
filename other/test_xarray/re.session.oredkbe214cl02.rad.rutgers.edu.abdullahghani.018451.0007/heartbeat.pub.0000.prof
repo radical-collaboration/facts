@@ -1,0 +1,12 @@
+#time,event,comp,thread,uid,state,msg
+1594232307.3114290,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232307.31126:1594232307.3295:ntp
+#time,event,comp,thread,uid,state,msg
+1594232311.6480780,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232311.647935:1594232311.666175:ntp
+#time,event,comp,thread,uid,state,msg
+1594232316.2477880,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232316.247638:1594232316.265878:ntp
+#time,event,comp,thread,uid,state,msg
+1594232506.8993030,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232506.8984709:1594232507.0370028:ntp
+#time,event,comp,thread,uid,state,msg
+1594232507.4377110,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232507.43758:1594232507.576112:ntp
+#time,event,comp,thread,uid,state,msg
+1594232508.0639520,sync_abs,heartbeat.pub.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232508.063684:1594232508.202216:ntp

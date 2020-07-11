@@ -1,0 +1,10 @@
+#time,event,comp,thread,uid,state,msg
+1594476595.4877529,sync_abs,control_pubsub,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476595.487446:1594476595.480335:ntp
+1594476595.4890308,bridge_start,control_pubsub,MainThread,control_pubsub,,
+#time,event,comp,thread,uid,state,msg
+1594476595.4908371,sync_abs,control_pubsub,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476595.490711:1594476595.4836:ntp
+1594476595.4908791,init3,control_pubsub,MainThread,control_pubsub,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.ufa33kbb209l.rad.rutgers.edu.abdullahghani.018454.0001
+1594476597.9712541,subscribe,control_pubsub,Thread-1,control_pubsub,,b'\x01control_pubsub'
+1594476776.8431380,msg_fwd,control_pubsub,Thread-1,control_pubsub,,b'control_pubsub \x82\xa3cmd\xadcancel_pilots\xa3arg\x82\xa4pmgr\xa9pmgr.0000\xa4uids\x91\xaapilot.0000'
+1594476777.6226549,msg_fwd,control_pubsub,Thread-1,control_pubsub,,b'control_pubsub \x82\xa3cmd\xadcancel_pilots\xa3arg\x82\xa4pmgr\xa9pmgr.0000\xa4uids\x91\xaapilot.0000'
+1594476837.0486321,term,control_pubsub,Thread-2,control_pubsub,,

@@ -1,0 +1,9 @@
+#time,event,comp,thread,uid,state,msg
+1594229569.9498210,sync_abs,radical.entk.resource_manager.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594229569.9496:1594229569.965971:ntp
+1594229569.9498720,rmgr obj created,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594229569.9499331,rdesc_validate,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594229569.9499640,rdesc_valid,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594229569.9499810,populating rmgr,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594229569.9500010,rmgr populated,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594229569.9510081,creating rreq,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594229581.6090350,rreq created,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,

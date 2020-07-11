@@ -1,0 +1,12 @@
+#time,event,comp,thread,uid,state,msg
+1594232312.7036710,sync_abs,pmgr.0000,MainThread,,,oredkbe214cl02.rad.rutgers.edu:127.0.0.1:1594232312.703445:1594232312.721685:ntp
+1594232312.7046158,init1,pmgr.0000,MainThread,pmgr.0000,,/Users/abdullahghani/myenv/share/facts/other/test_xarray/re.session.oredkbe214cl02.rad.rutgers.edu.abdullahghani.018451.0007
+1594232312.7101510,component_init,pmgr.0000,Thread-4,,,
+1594232317.8240840,setup_done,pmgr.0000,MainThread,pmgr.0000,,
+1594232319.1407480,advance,pmgr.0000,MainThread,pilot.0000,NEW,
+1594232319.2107992,advance,pmgr.0000,MainThread,pilot.0000,PMGR_LAUNCHING_PENDING,
+1594232319.2114451,put,pmgr.0000,MainThread,pilot.0000,PMGR_LAUNCHING_PENDING,pmgr_launching_queue.put.0000
+1594232319.2486961,advance,pmgr.0000,Thread-11,pilot.0000,PMGR_LAUNCHING,
+1594232441.9034119,advance,pmgr.0000,Thread-11,pilot.0000,PMGR_ACTIVE_PENDING,
+1594232499.3942690,advance,pmgr.0000,Thread-9,pilot.0000,PMGR_ACTIVE,
+1594234264.6222169,advance,pmgr.0000,Thread-11,pilot.0000,CANCELED,

@@ -1,0 +1,11 @@
+1594237203.439 : radical.entk.wfprocessor.0000 : 4035  : 123145411444736 : ERROR    : Error in dequeue-thread
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/appman/wfprocessor.py", line 438, in _dequeue
+    queue=self._completed_queue[0])
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 2077, in basic_get
+    self._basic_getempty_result.is_ready)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 1292, in _flush_output
+    *waiters)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pika/adapters/blocking_connection.py", line 477, in _flush_output
+    result.reason_text)
+pika.exceptions.ConnectionClosed: (-1, "TimeoutError(60, 'Operation timed out')")

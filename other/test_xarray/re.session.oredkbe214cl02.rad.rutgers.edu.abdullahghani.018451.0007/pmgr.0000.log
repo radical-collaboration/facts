@@ -1,0 +1,40 @@
+1594237206.252 : pmgr.0000            : 4035  : 123145394606080 : ERROR    : idle thread failed: <bound method PilotManager._pilot_heartbeat_cb of <radical.pilot.pilot_manager.PilotManager object at 0x7ffaf1d19910>>
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/pool.py", line 613, in command
+    user_fields=user_fields)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/network.py", line 157, in command
+    reply = receive_message(sock, request_id)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/network.py", line 196, in receive_message
+    _receive_data_on_socket(sock, 16))
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/network.py", line 255, in _receive_data_on_socket
+    chunk_length = sock.recv_into(mv[bytes_read:])
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/utils/component.py", line 867, in run
+    ret = self._cb()
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/pilot_manager.py", line 259, in _pilot_heartbeat_cb
+    self._session._dbs.pilot_command('pilot_heartbeat', {'pmgr': self._uid})
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/db/database.py", line 255, in pilot_command
+    multi=True)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/collection.py", line 3215, in update
+    write_concern, collation=collation)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/collection.py", line 856, in _update_retryable
+    _update, session)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1491, in _retryable_write
+    return self._retry_with_session(retryable, func, s, None)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1384, in _retry_with_session
+    return func(session, sock_info, retryable)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/collection.py", line 852, in _update
+    retryable_write=retryable_write)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/collection.py", line 822, in _update
+    retryable_write=retryable_write).copy()
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/pool.py", line 618, in command
+    self._raise_connection_failure(error)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/pool.py", line 795, in _raise_connection_failure
+    _raise_connection_failure(self.address, error)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/pool.py", line 290, in _raise_connection_failure
+    raise AutoReconnect(msg)
+pymongo.errors.AutoReconnect: 129.114.17.185:27017: [Errno 60] Operation timed out

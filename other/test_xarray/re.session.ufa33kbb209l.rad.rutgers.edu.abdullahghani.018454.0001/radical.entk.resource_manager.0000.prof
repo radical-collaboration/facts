@@ -1,0 +1,12 @@
+#time,event,comp,thread,uid,state,msg
+1594476592.5243440,sync_abs,radical.entk.resource_manager.0000,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476592.524118:1594476592.5170069:ntp
+1594476592.5244060,rmgr obj created,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476592.5244732,rdesc_validate,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476592.5245099,rdesc_valid,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476592.5245309,populating rmgr,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476592.5245550,rmgr populated,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476592.5255649,creating rreq,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476604.8684270,rreq created,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476606.3393412,rreq submitted,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476777.6207201,rreq_cancel,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,
+1594476777.6221499,rreq_canceled,radical.entk.resource_manager.0000,MainThread,resource_manager.0000,,

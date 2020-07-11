@@ -1,0 +1,34 @@
+1594476575.930 : radical.entk.appmanager.0000 : 7131  : 4547362240 : ERROR    : Execution interrupted by user (you probably hit Ctrl+C), trying to cancel enqueuer thread gracefully...
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/execman/rp/resource_manager.py", line 147, in _submit_resource_request
+    self._session = rp.Session(uid=self._sid)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/session.py", line 147, in __init__
+    self._initialize_primary(dburl)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/session.py", line 173, in _initialize_primary
+    cfg=self._cfg, log=self._log)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/pilot/db/database.py", line 49, in __init__
+    self._mongo, self._db, _, _, _ = ru.mongodb_connect(str(dburl))
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/utils/misc.py", line 110, in mongodb_connect
+    db.authenticate(user, pwd)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/database.py", line 1471, in authenticate
+    connect=True)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/mongo_client.py", line 750, in _cache_credentials
+    writable_preferred_server_selector)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/topology.py", line 235, in select_server
+    address))
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/topology.py", line 193, in select_servers
+    selector, server_timeout, address)
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/pymongo/topology.py", line 218, in _select_servers_loop
+    self._condition.wait(common.MIN_HEARTBEAT_INTERVAL)
+  File "/Users/abdullahghani/opt/anaconda3/lib/python3.7/threading.py", line 300, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/appman/appmanager.py", line 416, in run
+    self._rmgr._submit_resource_request()
+  File "/Users/abdullahghani/myenv/lib/python3.7/site-packages/radical/entk/execman/rp/resource_manager.py", line 192, in _submit_resource_request
+    raise KeyboardInterrupt
+KeyboardInterrupt

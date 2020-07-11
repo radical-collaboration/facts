@@ -1,0 +1,16 @@
+#time,event,comp,thread,uid,state,msg
+1594476597.9703000,sync_abs,control_pubsub.sub.0000,Thread-1,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476597.9700549:1594476597.9629438:ntp
+#time,event,comp,thread,uid,state,msg
+1594476599.9355788,sync_abs,control_pubsub.sub.0000,Thread-4,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476599.9354482:1594476599.928337:ntp
+#time,event,comp,thread,uid,state,msg
+1594476603.1996150,sync_abs,control_pubsub.sub.0000,Thread-1,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476603.199523:1594476603.192412:ntp
+1594476776.8434949,call_cb,control_pubsub.sub.0000,Thread-2,control_pubsub.sub.0000,,_cancel_monitor_cb
+1594476776.8435059,call_cb,control_pubsub.sub.0000,Thread-5,control_pubsub.sub.0000,,_cancel_monitor_cb
+1594476776.8435881,call_cb,control_pubsub.sub.0000,Thread-2,control_pubsub.sub.0000,,_cancel_monitor_cb
+1594476776.8438690,call_cb,control_pubsub.sub.0000,Thread-2,control_pubsub.sub.0000,,_pmgr_control_cb
+1594476776.8438940,call_cb,control_pubsub.sub.0000,Thread-5,control_pubsub.sub.0000,,_staging_ack_cb
+1594476777.6231990,call_cb,control_pubsub.sub.0000,Thread-2,control_pubsub.sub.0000,,_cancel_monitor_cb
+1594476777.6232450,call_cb,control_pubsub.sub.0000,Thread-2,control_pubsub.sub.0000,,_cancel_monitor_cb
+1594476777.6232901,call_cb,control_pubsub.sub.0000,Thread-2,control_pubsub.sub.0000,,_pmgr_control_cb
+1594476777.6237299,call_cb,control_pubsub.sub.0000,Thread-5,control_pubsub.sub.0000,,_cancel_monitor_cb
+1594476777.6239429,call_cb,control_pubsub.sub.0000,Thread-5,control_pubsub.sub.0000,,_staging_ack_cb

@@ -1,0 +1,2 @@
+#time,event,comp,thread,uid,state,msg
+1594480669.0729070,sync_abs,heartbeat.sub.0002,Thread-12,,,ab-man-billw.rad.rutgers.edu:127.0.0.1:1594480669.072764:1594480669.0730128:ntp

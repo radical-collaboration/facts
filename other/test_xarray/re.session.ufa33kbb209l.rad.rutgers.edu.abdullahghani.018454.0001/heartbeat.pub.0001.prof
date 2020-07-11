@@ -1,0 +1,2 @@
+#time,event,comp,thread,uid,state,msg
+1594476600.0423870,sync_abs,heartbeat.pub.0001,MainThread,,,ufa33kbb209l.rad.rutgers.edu:127.0.0.1:1594476600.042229:1594476600.0351179:ntp
