@@ -5,7 +5,7 @@ from radical.entk import Pipeline, Stage, Task, AppManager
 def run():
 	
 	# Initialize the EnTK App Manager
-	amgr= AppManager(hostname='129.114.17.185', port=5672,username='abdullahg', password='tTvdqBf2ZZmVVJfR', autoterminate=False)
+	amgr= AppManager(hostname='*******', port=5672,username='abdullahg', password='*******', autoterminate=False)
 	
 	# Apply the resource configuration provided by the user
 	# Amarel
