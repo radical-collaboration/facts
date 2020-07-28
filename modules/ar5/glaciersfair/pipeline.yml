@@ -58,6 +58,7 @@ project:
     options:
       - "nmsamps"
       - "ntsamps"
+      - "nsamps"
       - "seed"
       - "pipeline_id"
     upload_input_data:
