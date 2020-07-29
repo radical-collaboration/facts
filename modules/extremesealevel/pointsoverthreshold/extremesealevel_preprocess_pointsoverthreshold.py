@@ -373,12 +373,12 @@ if __name__ == "__main__":
 		
 		# Extract just the projections that match the target years and matched site ids
 		# Note: Typecast the target year "idx" variable as a list in order to avoid singleton problems later.
-		proj_slc_qnts = proj_slc_qnts[::,this_id_idx,[slproj_targ_year_idx]]
+		proj_slc_qnts_subset = proj_slc_qnts[::,this_id_idx,[slproj_targ_year_idx]]
 	
 		# Generate the sea-level projection output dictionary
 		slproj_output[site_ids[this_id_idx]] = {'site_lat': site_lats[this_id_idx], 'site_lon': site_lons[this_id_idx],\
 			'site_id': site_ids[this_id_idx], 'proj_years': proj_yrs[slproj_targ_year_idx], 'proj_qnts': proj_qnts,\
-			'proj_slc_qnts': proj_slc_qnts}
+			'proj_slc_qnts': proj_slc_qnts_subset}
 	
 	# Generate the sea-level projection output file
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_slproj_data.pkl".format(args.pipeline_id)), 'wb')
