@@ -315,12 +315,15 @@ if __name__ == "__main__":
 	parser.add_argument('--gpd_pot_threshold', help="Percentile for GPD analysis [default=99.7]", type=float, default=99.7)
 	parser.add_argument('--cluster_lim', help="Maximum number of hours that define a cluster for extreme events [default=72]", type=int, default=72)
 	parser.add_argument('--total_localsl_file', help="Total localized sea-level projection file. Site lats/lons are taken from this file and mapped to the GESLA database", default="total-workflow_localsl.nc")
-	parser.add_argument('--target_years', help="Space-delimited list of projection years of interest (e.g. 2050 2100)", type=int, default=[2100], nargs="+")
+	parser.add_argument('--target_years', help="Comma-delimited list of projection years of interest (e.g. 2050,2100)", default="2100")
 	parser.add_argument('--gesla_dir', help="Directory containing GESLA database", default=os.path.join(os.path.dirname(__file__), "gesla_data"))
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
+	
+	# Convert target_years argument from comma-delimited string to integer list
+	target_years = [int(x) for x in args.target_years.split(",")]
 	
 	# Load the sea-level projection file
 	nc = Dataset(args.total_localsl_file, 'r')
@@ -343,7 +346,7 @@ if __name__ == "__main__":
 		raise Exception("Number of site IDs not equal to number of locations provided in lat/lon list ({0} != {1})".format(len(site_ids), len(site_lats))) 
 	
 	# Find the target years that overlap the projection years
-	slproj_targ_year_idx = np.flatnonzero(np.isin(proj_yrs, args.target_years))
+	slproj_targ_year_idx = np.flatnonzero(np.isin(proj_yrs, target_years))
 	if len(slproj_targ_year_idx) == 0:
 		raise Exception("Cannot find target years in projection years")
 	
@@ -388,7 +391,7 @@ if __name__ == "__main__":
 	# Write the configuration output file
 	config_output = {'minDays': minDays, 'minYears': minYears, 'match_lim': match_limit, \
 		'center_year': center_year, 'pctPot': pctPot, 'cluster_lim': cluster_lim, \
-		'total_localsl_file': args.total_localsl_file, 'target_years': args.target_years, \
+		'total_localsl_file': args.total_localsl_file, 'target_years': target_years, \
 		'gesla_dir': gesladir, 'pipeline_id': args.pipeline_id, 'gpd_pot_threshold': gpd_pot_threshold}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_config_data.pkl".format(args.pipeline_id)), 'wb')
 	pickle.dump(config_output, outfile)

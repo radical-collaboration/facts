@@ -6,6 +6,9 @@
 *.csv
 *.mat
 *.tsv
+*.log
+*.prof
+/re.session*
 /experiments/kopp14*
 /experiments/ipcc*
 /experiments/FACTS_ms/
