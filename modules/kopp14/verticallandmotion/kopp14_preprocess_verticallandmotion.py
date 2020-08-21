@@ -6,7 +6,7 @@ import argparse
 
 ''' kopp14_preprocess_verticallandmotion.py
 
-This runs the preprocessing stage for the vertical land motion component of the IPCC AR6
+This runs the preprocessing stage for the vertical land motion component of the Kopp 14
 workflow.
 
 Parameters:
@@ -65,8 +65,8 @@ def kopp14_preprocess_verticallandmotion(pipeline_id, baseyear):
 if __name__ == '__main__':	
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the pre-processing stage for the IPCC AR6 vertical land motion workflow",\
-	epilog="Note: This is meant to be run as part of the IPCC AR6 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	parser = argparse.ArgumentParser(description="Run the pre-processing stage for the Kopp 14 vertical land motion workflow",\
+	epilog="Note: This is meant to be run as part of the Kopp 14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")

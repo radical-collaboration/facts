@@ -10,7 +10,7 @@ from netCDF4 import Dataset
 
 ''' kopp14_postprocess_verticallandmotion.py
 
-This runs the post-processing stage for the vertical land motion component of the IPCC AR6
+This runs the post-processing stage for the vertical land motion component of the Kopp 14
 workflow. Projections generated from this stage are site-specific.
 
 Parameters:
@@ -127,7 +127,7 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_i
 	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
-	rootgrp.description = "Local SLR contributions from vertical land motion according to IPCC AR6 workflow"
+	rootgrp.description = "Local SLR contributions from vertical land motion according to Kopp 14 workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
 	rootgrp.source = "FACTS: {}".format(pipeline_id)
 	lat_var.units = "Degrees North"
@@ -153,8 +153,8 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_i
 if __name__ == '__main__':	
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the post-processing stage for the IPCC AR6 vertical land motion workflow",\
-	epilog="Note: This is meant to be run as part of the IPCC AR6 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	parser = argparse.ArgumentParser(description="Run the post-processing stage for the Kopp 14 vertical land motion workflow",\
+	epilog="Note: This is meant to be run as part of the Kopp 14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
