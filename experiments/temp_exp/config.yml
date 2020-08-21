@@ -40,15 +40,15 @@ icesheets:
 #        site_ids: 12
 #        seed: 1234
 #
-landwaterstorage1:
-    module_set: "kopp14"
-    module: "landwaterstorage"
-    options:
-        dotriangular: 0
-        includepokherl: 0
-        nsamps: 20000
-        seed: 91011
-        site_ids: 12
+#landwaterstorage1:
+#    module_set: "kopp14"
+#    module: "landwaterstorage"
+#    options:
+#        dotriangular: 0
+#        includepokherl: 0
+#        nsamps: 20000
+#        seed: 91011
+#        site_ids: 12
 #
 #landwaterstorage2:
 #    module_set: "ssp"
@@ -87,14 +87,14 @@ verticallandmotion:
         seed: 121314
         site_ids: 12
 
-oceandynamics:
-    module_set: "kopp14"
-    module: "oceandynamics"
-    options:
-        scenario: "rcp85"
-        nsamps: 20000
-        seed: 151617
-        site_ids: 12,10
+#oceandynamics:
+#    module_set: "kopp14"
+#    module: "oceandynamics"
+#    options:
+#        scenario: "rcp85"
+#        nsamps: 20000
+#        seed: 151617
+#        site_ids: 12,10
 
 total-options:
     options:

@@ -4,7 +4,7 @@ rabbitmq:
 
 resource-desc:
   name: 'rutgers.amarel'
-  walltime: 30
+  walltime: 15
   cpus: 1
   gpus: 0
   queue: 'kopp_1'

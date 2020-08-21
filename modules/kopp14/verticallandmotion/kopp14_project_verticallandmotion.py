@@ -1,6 +1,6 @@
 import argparse
 
-''' ipccar6_project_verticallandmotion.py
+''' kopp14_project_verticallandmotion.py
 
 This runs the projection stage for the vertical land motion component of the IPCC AR6
 workflow.
@@ -14,7 +14,7 @@ post-processing.
 
 '''
 
-def ipccar6_project_verticallandmotion(pipeline_id):
+def kopp14_project_verticallandmotion(pipeline_id):
 
 	return(0)
 
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	ipccar6_project_verticallandmotion(args.pipeline_id)
+	kopp14_project_verticallandmotion(args.pipeline_id)
 	
 	# Done
 	exit()

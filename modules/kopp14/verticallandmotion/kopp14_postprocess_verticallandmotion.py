@@ -8,7 +8,7 @@ import re
 from scipy.stats import norm
 from netCDF4 import Dataset
 
-''' ipccar6_postprocess_verticallandmotion.py
+''' kopp14_postprocess_verticallandmotion.py
 
 This runs the post-processing stage for the vertical land motion component of the IPCC AR6
 workflow. Projections generated from this stage are site-specific.
@@ -21,7 +21,7 @@ pipeline_id = Unique identifier for the pipeline running this code
 
 '''
 
-def ipccar6_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
+def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, site_ids, pipeline_id):
 
 	# Read in the data from the preprocessing stage
 	datafile = "{}_data.pkl".format(pipeline_id)
@@ -169,7 +169,7 @@ if __name__ == '__main__':
 	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
 	
 	# Run the postprocessing stage
-	ipccar6_postprocess_verticallandmotion(args.nsamps, args.seed, site_ids, args.pipeline_id)
+	kopp14_postprocess_verticallandmotion(args.nsamps, args.seed, site_ids, args.pipeline_id)
 	
 	# Done
 	exit()

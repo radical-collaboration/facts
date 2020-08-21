@@ -4,7 +4,7 @@ import os
 import sys
 import argparse
 
-''' ipccar6_preprocess_verticallandmotion.py
+''' kopp14_preprocess_verticallandmotion.py
 
 This runs the preprocessing stage for the vertical land motion component of the IPCC AR6
 workflow.
@@ -15,7 +15,7 @@ baseyear = The year from which projections should be zeroed
 
 '''
 
-def ipccar6_preprocess_verticallandmotion(pipeline_id, baseyear):
+def kopp14_preprocess_verticallandmotion(pipeline_id, baseyear):
 
 	# Initialize variables to hold data and site information
 	names = []
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	ipccar6_preprocess_verticallandmotion(args.pipeline_id, args.baseyear)
+	kopp14_preprocess_verticallandmotion(args.pipeline_id, args.baseyear)
 	
 	# Done
 	exit()
