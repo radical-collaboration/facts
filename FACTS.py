@@ -379,6 +379,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
 	
 	
 	# If the user want to run extremesealevel module, must perform a total and flag
+	do_extremesl_flag = False
 	if "extremesealevel-options" in ecfg.keys():
 		no_total_flag = False
 		do_extremesl_flag = True

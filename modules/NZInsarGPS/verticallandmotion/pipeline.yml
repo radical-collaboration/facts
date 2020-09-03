@@ -69,6 +69,7 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/NZInsarGPS/verticallandmotion/NZInsarGPS_postprocess_verticallandmotion.py'
+      - './modules/NZInsarGPS/verticallandmotion/read_locationfile.py'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
