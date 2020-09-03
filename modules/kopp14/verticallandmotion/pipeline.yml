@@ -67,6 +67,9 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/verticallandmotion/kopp14_postprocess_verticallandmotion.py'
+      - './modules/kopp14/verticallandmotion/read_locationfile.py'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       pre-process:
         task1:

@@ -5,7 +5,7 @@ import os
 import argparse
 import time
 import re
-from read_bkgdrate import read_bkgdrate
+from read_locationfile import ReadLocationFile
 from netCDF4 import Dataset
 
 ''' kopp14_postprocess_landwaterstorage.py
@@ -14,7 +14,7 @@ This script runs the thermal expansion postprocessing task for the Kopp 2014 wor
 This task generates localized contributions to sea-level change due to land water storage.
 
 Parameters: 
-site_ids = Location IDs of sites to localize projections (from PSMSL)
+locationfilename = File that contains points for localization
 pipeline_id = Unique identifier for the pipeline running this code
 
 Output: NetCDF file containing the local sea-level rise projections
@@ -25,7 +25,7 @@ localized slr projections for the site ids provided.
 
 '''
 
-def kopp14_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
+def kopp14_postprocess_landwaterstorage(locationfilename, pipeline_id):
 	
 	# Load the configuration file
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -42,15 +42,8 @@ def kopp14_postprocess_landwaterstorage(focus_site_ids, pipeline_id):
 	lwssamps = np.transpose(my_proj["lwssamps"])
 	
 	# Load the site locations	
-	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
-	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
-	
-	# Match the user selected sites to those in the PSMSL data
-	if np.any([x >= 0 for x in focus_site_ids]):
-		_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
-		site_ids = site_ids[site_inds]
-		site_lats = site_lats[site_inds]
-		site_lons = site_lons[site_inds]
+	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
+	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 	
 	# Initialize variable to hold the localized projections
 	(nsamps, ntimes) = lwssamps.shape
@@ -118,16 +111,13 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
+	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Convert the string of site_ids to a list
-	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
-	
 	# Run the projection process on the files specified from the command line argument
-	kopp14_postprocess_landwaterstorage(site_ids, args.pipeline_id)
+	kopp14_postprocess_landwaterstorage(args.locationfile, args.pipeline_id)
 	
 	exit()

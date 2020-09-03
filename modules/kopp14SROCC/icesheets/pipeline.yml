@@ -92,10 +92,12 @@ post-process:
     upload_input_data:
       - './modules/kopp14SROCC/icesheets/kopp14SROCC_postprocess_icesheets.py'
       - './modules/kopp14SROCC/icesheets/SampleISDists.py'
-      - './modules/kopp14SROCC/icesheets/read_bkgdrate.py'
+      - './modules/kopp14SROCC/icesheets/read_locationfile.py'
       - './modules/kopp14SROCC/icesheets/AssignFP.py'
       - './modules/kopp14SROCC/icesheets/ReadFingerprint.py'
       - './modules/kopp14SROCC/icesheets/data/kopp14SROCC_icesheets_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       pre-process:
         task1:

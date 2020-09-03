@@ -365,6 +365,12 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
 		'project': rcfg['resource-desc']['project']}
 	amgr.resource_desc = res_desc
 	
+	# Load the localization list
+	if(not os.path.isfile(os.path.join(exp_dir, "location.lst"))):
+		with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:
+			templocationfile.write("New_York\t12\t40.70\t-74.01")
+	amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
+	
 	# Assign the list of pipelines to the workflow
 	amgr.workflow = pipelines
 	

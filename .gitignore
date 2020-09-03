@@ -12,6 +12,7 @@
 /experiments/kopp14*
 /experiments/ipcc*
 /experiments/FACTS_ms/
+/experiments/test*
 /modules/ipccar6/
 
 # C extensions

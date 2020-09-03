@@ -21,10 +21,12 @@ pre-process:
       - "./modules/kopp14/oceandynamics/SmoothZOSTOGA.py"
       - "./modules/kopp14/oceandynamics/DriftCorr.py"
       - "./modules/kopp14/oceandynamics/Smooth.py"
-      - "./modules/kopp14/oceandynamics/read_bkgdrate.py"
+      - "./modules/kopp14/oceandynamics/read_locationfile.py"
       - "./modules/kopp14/oceandynamics/read_CSIRO.py"
       - "./modules/kopp14/oceandynamics/readMarzeion.py"
       - "./modules/kopp14/oceandynamics/data/kopp14_oceandynamics_data.tgz"
+    copy_shared_data:
+      - '$SHARED/location.lst'
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

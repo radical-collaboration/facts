@@ -8,7 +8,7 @@ from IncludeModels import IncludeModels
 from IncludeDABZOSModels import *
 from SmoothZOSTOGA import SmoothZOSTOGA
 from DriftCorr import DriftCorr
-from read_bkgdrate import read_bkgdrate
+from read_locationfile import ReadLocationFile
 from Smooth import Smooth
 
 ''' kopp14_preprocess_oceandynamics.py
@@ -21,13 +21,13 @@ rcp_scenario = RCP scenario of interest (default = "rcp85")
 zostoga_modeldir = Directory that contains the ZOSTOGA model data
 zos_modeldir = Directory that contains the ZOS model data (in *.mat format)
 driftcorr = Apply the drift correction?
-focus_site_ids = ID numbers of the sites of interest
+locationfilename = File that contains points for localization
 pipeline_id = Unique identifier for the pipeline running this code
 
 
 '''
 
-def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir, driftcorr, focus_site_ids, pipeline_id):
+def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir, driftcorr, locationfilename, pipeline_id):
 	
 	# Define variables
 	datayears = np.arange(1861,2300)
@@ -83,25 +83,8 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir
 	#------------ Begin Ocean Dynamics ---------------------------------------------------
 	
 	# Load the site locations	
-	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
-	(_, targregion_ids, targregion_lats, targregion_lons) = read_bkgdrate(ratefile, True)
-	
-	# Make sure all the requested IDs are available
-	if np.any([x >= 0 for x in focus_site_ids]):
-		missing_ids = np.setdiff1d(focus_site_ids, targregion_ids)
-		if(len(missing_ids) != 0):
-			missing_ids_string = ",".join(str(this) for this in missing_ids)
-			raise Exception("The following IDs are not available: {}".format(missing_ids_string))
-	
-		# Map the requested site IDs to target regions
-		focus_site_ids_map = np.flatnonzero(np.isin(targregion_ids, focus_site_ids))
-		focus_site_ids = targregion_ids[focus_site_ids_map]
-		focus_site_lats = targregion_lats[focus_site_ids_map]
-		focus_site_lons = targregion_lons[focus_site_ids_map]
-	else:
-		focus_site_ids = targregion_ids
-		focus_site_lats = targregion_lats
-		focus_site_lons = targregion_lons
+	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
+	(_, focus_site_ids, focus_site_lats, focus_site_lons) = ReadLocationFile(locationfile)
 	
 	# Load the ZOS data
 	(zos_modellist, ZOS_raw) = IncludeDABZOSModels(zos_modeldir, rcp_scenario, focus_site_lats, focus_site_lons)
@@ -170,18 +153,15 @@ if __name__ == '__main__':
 	
 	parser.add_argument('--no_drift_corr', help="Do not apply the drift correction", action='store_true')
 	
-	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
+	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Convert the string of site_ids to a list
-	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
-	
 	# Pass the model directory in via command line
-	kopp14_preprocess_oceandynamics(args.scenario, args.zostoga_model_dir, args.zos_model_dir, not args.no_drift_corr, site_ids, args.pipeline_id)
+	kopp14_preprocess_oceandynamics(args.scenario, args.zostoga_model_dir, args.zos_model_dir, not args.no_drift_corr, args.locationfile, args.pipeline_id)
 	
 	# Done
 	exit()

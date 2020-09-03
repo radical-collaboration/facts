@@ -6,8 +6,8 @@ import time
 import argparse
 import re
 from netCDF4 import Dataset
-from read_bkgdrate import read_bkgdrate
 from AssignFP import AssignFP
+from read_locationfile import ReadLocationFile
 
 
 ''' ar5_postprocess_glaciers.py
@@ -15,14 +15,14 @@ from AssignFP import AssignFP
 This script runs the glacier post-processing task for the AR5 Glaciers workflow.
 
 Parameters: 
-focus_site_ids = Location IDs for localization (from PSMSL)
+locationfile = File that contains points for localization
 pipeline_id = Unique identifier for the pipeline running this code
 
 Output: NetCDF file containing local contributions from GIC
 
 '''
 
-def ar5_postprocess_glaciers(focus_site_ids, pipeline_id):
+def ar5_postprocess_glaciers(locationfilename, pipeline_id):
 	
 	# Read in the global projections
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -61,16 +61,8 @@ def ar5_postprocess_glaciers(focus_site_ids, pipeline_id):
 	model_string = ""
 	
 	# Load the site locations
-	ratefilename = "bkgdrate.tsv"
-	ratefile = os.path.join(os.path.dirname(__file__), ratefilename)
-	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
-	
-	# FOR SIMPLICITY, LOCALIZE TO ONLY A FEW LOCATIONS
-	if np.any([x >= 0 for x in focus_site_ids]):
-		_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
-		site_ids = site_ids[site_inds]
-		site_lats = site_lats[site_inds]
-		site_lons = site_lons[site_inds]
+	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
+	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 	
 	# Initialize variable to hold the localized projections
 	(nsamps, nregions, ntimes) = gicsamps.shape
@@ -151,17 +143,14 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected	
-	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
+	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 		
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Convert the string of site_ids to a list
-	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
-	
 	# Run the postprocessing for the parameters specified from the command line argument
-	ar5_postprocess_glaciers(site_ids, args.pipeline_id)
+	ar5_postprocess_glaciers(args.locationfile, args.pipeline_id)
 	
 	# Done
 	exit()

@@ -88,10 +88,12 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/glaciers/ar5_postprocess_glaciers.py'
-      - './modules/ar5/glaciers/read_bkgdrate.py'
+      - './modules/ar5/glaciers/read_locationfile.py'
       - './modules/ar5/glaciers/AssignFP.py'
       - './modules/ar5/glaciers/ReadFingerprint.py'
       - './modules/ar5/glaciers/data/ar5_glaciers_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       pre-process:
         task1:

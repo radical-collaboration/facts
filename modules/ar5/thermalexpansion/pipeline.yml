@@ -83,8 +83,10 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/thermalexpansion/ar5_postprocess_thermalexpansion.py'
-      - './modules/ar5/thermalexpansion/read_bkgdrate.py'
+      - './modules/ar5/thermalexpansion/read_locationfile.py'
       - './modules/ar5/thermalexpansion/data/ar5_thermalexpansion_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       project:
         task1:

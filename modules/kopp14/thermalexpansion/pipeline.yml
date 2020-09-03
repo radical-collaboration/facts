@@ -96,8 +96,10 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/thermalexpansion/kopp14_postprocess_thermalexp.py'
-      - './modules/kopp14/thermalexpansion/read_bkgdrate.py'
+      - './modules/kopp14/thermalexpansion/read_locationfile.py'
       - './modules/kopp14/thermalexpansion/data/kopp14_thermalexp_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       project:
         task1:

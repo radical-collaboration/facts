@@ -90,10 +90,12 @@ post-process:
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/icesheets/ar5_postprocess_icesheets.py'
-      - './modules/ar5/icesheets/read_bkgdrate.py'
+      - './modules/ar5/icesheets/read_locationfile.py'
       - './modules/ar5/icesheets/AssignFP.py'
       - './modules/ar5/icesheets/ReadFingerprint.py'
       - './modules/ar5/icesheets/data/ar5_icesheets_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       project:
         task1:
