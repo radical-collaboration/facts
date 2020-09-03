@@ -1,0 +1,81 @@
+# NZ Insar GPS Vertical Land Motion Pipeline
+
+pre-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf NZInsarGPS_verticallandmotion_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml"
+    script: "NZInsarGPS_preprocess_verticallandmotion.py"
+    options:
+      - "pipeline_id"
+      - "baseyear"
+      - "inputtype"
+    upload_input_data:
+      - "./modules/NZInsarGPS/verticallandmotion/NZInsarGPS_preprocess_verticallandmotion.py"
+      - "./modules/NZInsarGPS/verticallandmotion/data/NZInsarGPS_verticallandmotion_data.tgz"
+#    download_output_data:
+#      - "%PIPELINE_ID%_data.pkl"
+
+
+fit:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "NZInsarGPS_fit_verticallandmotion.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/NZInsarGPS/verticallandmotion/NZInsarGPS_fit_verticallandmotion.py'
+
+
+project:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "NZInsarGPS_project_verticallandmotion.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/NZInsarGPS/verticallandmotion/NZInsarGPS_project_verticallandmotion.py'
+
+post-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "NZInsarGPS_postprocess_verticallandmotion.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "locationfile"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/NZInsarGPS/verticallandmotion/NZInsarGPS_postprocess_verticallandmotion.py'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_localsl.nc"
