@@ -83,11 +83,11 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14SROCC_icesheets_data.tgz"
+    pre_exec: "tar -xzf kopp14SROCC_icesheets_data.tgz; rm kopp14SROCC_icesheets_data.tgz"
     script: "kopp14SROCC_postprocess_icesheets.py"
     options:
       - "samp_type"
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14SROCC/icesheets/kopp14SROCC_postprocess_icesheets.py'

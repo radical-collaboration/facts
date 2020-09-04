@@ -63,7 +63,7 @@ post-process:
     options:
       - "nsamps"
       - "seed"
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/verticallandmotion/kopp14_postprocess_verticallandmotion.py'

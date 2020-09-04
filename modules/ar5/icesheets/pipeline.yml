@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; rm ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_icesheets.py"
     options:
       - "scenario"
@@ -47,7 +47,7 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_project_data.tgz"
+    pre_exec: "tar -xzf ar5_icesheets_project_data.tgz; rm ar5_icesheets_project_data.tgz"
     script: "ar5_project_icesheets.py"
     options:
       - "nmsamps"
@@ -83,10 +83,10 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_postprocess_data.tgz"
+    pre_exec: "tar -xzf ar5_icesheets_postprocess_data.tgz; rm ar5_icesheets_postprocess_data.tgz"
     script: "ar5_postprocess_icesheets.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/icesheets/ar5_postprocess_icesheets.py'

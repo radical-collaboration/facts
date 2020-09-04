@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf extremesealevel_pointsoverthreshold_data.tgz; pip install --upgrade pip; pip install numpy pandas netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf extremesealevel_pointsoverthreshold_data.tgz; rm extremesealevel_pointsoverthreshold_data.tgz; pip install --upgrade pip; pip install numpy pandas netCDF4 pyyaml matplotlib"
     script: "extremesealevel_preprocess_pointsoverthreshold.py"
     options:
       - "minDays"

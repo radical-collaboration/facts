@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_glaciers_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf kopp14_glaciers_preprocess_data.tgz; rm kopp14_glaciers_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_glaciers.py"
     options:
       - "scenario"
@@ -83,10 +83,10 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_glaciers_postprocess_data.tgz"
+    pre_exec: "tar -xzf kopp14_glaciers_postprocess_data.tgz; rm kopp14_glaciers_postprocess_data.tgz"
     script: "kopp14_postprocess_glaciers.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/glaciers/kopp14_postprocess_glaciers.py'

@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf kopp14_landwaterstorage_preprocess_data.tgz; rm kopp14_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_landwaterstorage.py"
     options:
       - "dotriangular"
@@ -81,10 +81,10 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_landwaterstorage_postprocess_data.tgz"
+    pre_exec: ""
     script: "kopp14_postprocess_landwaterstorage.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/landwaterstorage/kopp14_postprocess_landwaterstorage.py'

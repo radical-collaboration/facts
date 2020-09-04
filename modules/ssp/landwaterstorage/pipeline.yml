@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ssp_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ssp_landwaterstorage_preprocess_data.tgz; rm ssp_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ssp_preprocess_landwaterstorage.py"
     options:
       - "scenario"
@@ -82,10 +82,10 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ssp_landwaterstorage_postprocess_data.tgz"
+    pre_exec: "tar -xzf ssp_landwaterstorage_postprocess_data.tgz; rm ssp_landwaterstorage_postprocess_data.tgz"
     script: "ssp_postprocess_landwaterstorage.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ssp/landwaterstorage/ssp_postprocess_landwaterstorage.py'

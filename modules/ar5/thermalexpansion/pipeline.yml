@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_thermalexpansion_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_thermalexpansion_preprocess_data.tgz; rm ar5_thermalexpansion_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_thermalexpansion.py"
     options:
       - "scenario"
@@ -76,15 +76,14 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_thermalexpansion_postprocess_data.tgz"
+    pre_exec: ""
     script: "ar5_postprocess_thermalexpansion.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/thermalexpansion/ar5_postprocess_thermalexpansion.py'
       - './modules/ar5/thermalexpansion/read_locationfile.py'
-      - './modules/ar5/thermalexpansion/data/ar5_thermalexpansion_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

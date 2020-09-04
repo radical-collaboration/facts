@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_thermalexp_preprocess_data.tgz; pip install numpy"
+    pre_exec: "tar -xzf kopp14_thermalexp_preprocess_data.tgz; rm kopp14_thermalexp_preprocess_data.tgz; pip install numpy"
     script: "kopp14_preprocess_thermalexp.py"
     options:
       - "scenario"
@@ -89,10 +89,10 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_thermalexp_postprocess_data.tgz"
+    pre_exec: ""
     script: "kopp14_postprocess_thermalexp.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/thermalexpansion/kopp14_postprocess_thermalexp.py'

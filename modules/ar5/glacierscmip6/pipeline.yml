@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_glacierscmip6_preprocess_data.tgz; rm ar5_glacierscmip6_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glacierscmip6.py"
     options:
       - "scenario"
@@ -48,7 +48,7 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_project_data.tgz"
+    pre_exec: "tar -xzf ar5_glacierscmip6_project_data.tgz; rm ar5_glacierscmip6_project_data.tgz"
     script: "ar5_project_glacierscmip6.py"
     options:
       - "nmsamps"
@@ -81,10 +81,10 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_postprocess_data.tgz"
+    pre_exec: "tar -xzf ar5_glacierscmip6_postprocess_data.tgz; rm ar5_glacierscmip6_postprocess_data.tgz"
     script: "ar5_postprocess_glacierscmip6.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/glacierscmip6/ar5_postprocess_glacierscmip6.py'

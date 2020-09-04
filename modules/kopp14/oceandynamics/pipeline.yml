@@ -8,11 +8,11 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_oceandynamics_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
+    pre_exec: "tar -xzf kopp14_oceandynamics_data.tgz; rm kopp14_oceandynamics_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
     script: "kopp14_preprocess_oceandynamics.py"
     options:
       - "scenario"
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/oceandynamics/kopp14_preprocess_oceandynamics.py"
