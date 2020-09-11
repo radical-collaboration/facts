@@ -89,7 +89,7 @@ post-process:
     upload_input_data:
       - './modules/kopp14/landwaterstorage/kopp14_postprocess_landwaterstorage.py'
       - './modules/kopp14/landwaterstorage/read_locationfile.py'
-      - './modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_postprocess_data.tgz'
+#      - './modules/kopp14/landwaterstorage/data/kopp14_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
