@@ -27,7 +27,7 @@ Output:
 
 '''
 
-def kopp14_project_icesheets(nsamps, seed, pipeline_id):
+def kopp14_project_icesheets(nsamps, seed, baseyear, pyear_start, pyear_end, pyear_step, pipeline_id):
 	
 	## Read in the fitted parameters from parfile
 	# Open the file
@@ -73,11 +73,18 @@ def kopp14_project_icesheets(nsamps, seed, pipeline_id):
 	arissamps = SampleISDists(nsamps, sigmas, mus, offsets, arislastdecade, arcorris, seed+1234)
 	
 	# Project global sea-level rise over time
-	targyears = np.arange(2010, 2201, 10)
+	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
+	targyears = np.union1d(targyears, baseyear)
 	(arsamps, basamps, hysamps) = ProjectGSL(baissamps, arissamps, islastdecade, targyears)
 	
+	# Reference these projections to the base year
+	baseyear_idx = np.flatnonzero(targyears == baseyear)
+	arsamps = arsamps - arsamps[:,baseyear_idx,:]
+	basamps = basamps - basamps[:,baseyear_idx,:]
+	hysamps = hysamps - hysamps[:,baseyear_idx,:]
+	
 	# Put the results into a dictionary
-	output = {'arsamps': arsamps, 'basamps': basamps, 'hysamps': hysamps, 'targyears': targyears}
+	output = {'arsamps': arsamps, 'basamps': basamps, 'hysamps': hysamps, 'targyears': targyears, 'baseyear': baseyear}
 	
 	# Write the results to a file
 	outdir = os.path.dirname(__file__)
@@ -93,14 +100,14 @@ def kopp14_project_icesheets(nsamps, seed, pipeline_id):
 		this_icesheet_name = icesheet_names[i]
 		
 		# Write the hybrid data to the netCDF file
-		writeNetCDF(np.transpose(hysamps[:,:,i]), pipeline_id, this_icesheet_name, targyears, nsamps)
+		writeNetCDF(np.transpose(hysamps[:,:,i]), pipeline_id, this_icesheet_name, targyears, baseyear, nsamps)
 	
 	# Done
 	return(0)
 
 
 
-def writeNetCDF(data, pipeline_id, icesheet_name, targyears, nsamps):
+def writeNetCDF(data, pipeline_id, icesheet_name, targyears, baseyear, nsamps):
 	
 	# Write the localized projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{}_{}_globalsl.nc".format(pipeline_id, icesheet_name))
@@ -120,7 +127,7 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, nsamps):
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from {} according to Kopp 2014 workflow".format(icesheet_name)
 	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: {}".format(pipeline_id)
+	rootgrp.source = "FACTS: {0}, Baseyear: {1}".format(pipeline_id, baseyear)
 	year_var.units = "[-]"
 	samp_var.units = "[-]"
 	samps.units = "mm"
@@ -146,13 +153,31 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
+	parser.add_argument('--baseyear', help="Base or reference year for projetions [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
+	# Make sure the base year and target years are within data limits for this module
+	if(args.baseyear < 2000):
+		raise Exception("Base year cannot be less than year 2000: baseyear = {}".format(args.baseyear))
+	if(args.baseyear > 2300):
+		raise Exception("Base year cannot be greater than year 2300: baseyear = {}".format(args.baseyear))
+	if(args.pyear_start < 2000):
+		raise Exception("Projection year cannot be less than year 2000: pyear_start = {}".format(args.pyear_start))
+	if(args.pyear_end > 2300):
+		raise Exception("Projection year cannot be greater than year 2300: pyear_end = {}".format(args.pyear_end))
+	
+	# Make sure the target year stepping is positive
+	if(args.pyear_step < 1):
+		raise Exception("Projection year step must be greater than 0: pyear_step = {}".format(args.pyear_step))
+	
 	# Run the projection process for the parameters specified from the command line argument
-	kopp14_project_icesheets(args.nsamps, args.seed, args.pipeline_id)
+	kopp14_project_icesheets(args.nsamps, args.seed, args.baseyear, args.pyear_start, args.pyear_end, args.pyear_step, args.pipeline_id)
 	
 	# Done
 	exit()
