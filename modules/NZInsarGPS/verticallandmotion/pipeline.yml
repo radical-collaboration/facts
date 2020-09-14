@@ -12,7 +12,6 @@ pre-process:
     script: "NZInsarGPS_preprocess_verticallandmotion.py"
     options:
       - "pipeline_id"
-      - "baseyear"
       - "inputtype"
     upload_input_data:
       - "./modules/NZInsarGPS/verticallandmotion/NZInsarGPS_preprocess_verticallandmotion.py"
@@ -65,6 +64,10 @@ post-process:
     options:
       - "nsamps"
       - "seed"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "locationfile"
       - "pipeline_id"
     upload_input_data:

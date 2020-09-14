@@ -62,7 +62,7 @@ def NearestPoints(qlats, qlons, lats, lons, tol):
 	return(list(idx))
 	
 
-def NZInsarGPS_postprocess_verticallandmotion(nsamps, rng_seed, locationfilename, pipeline_id):
+def NZInsarGPS_postprocess_verticallandmotion(nsamps, rng_seed, locationfilename, baseyear, pyear_start, pyear_end, pyear_step, pipeline_id):
 
 	# Read in the data from the preprocessing stage
 	datafile = "{}_data.pkl".format(pipeline_id)
@@ -81,11 +81,11 @@ def NZInsarGPS_postprocess_verticallandmotion(nsamps, rng_seed, locationfilename
 	lons = my_data['lons']
 	rates = my_data['rates']
 	sds = my_data['sds']
-	baseyear = my_data['baseyear']
 	inputfile = my_data['inputfile']
 	
 	# Define the target years
-	targyears = np.arange(2020, 2151, 10)
+	targyears = np.arange(pyear_start, pyear_end, pyear_step)
+	targyears = np.union1d(targyears, baseyear)
 	
 	# Load site locations
 	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
@@ -148,7 +148,7 @@ def NZInsarGPS_postprocess_verticallandmotion(nsamps, rng_seed, locationfilename
 
 	# Create a data variable
 	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	localslq.scale_factor = 0.1
+	#localslq.scale_factor = 0.1
 	
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from vertical land motion according to NZInsarGPS workflow"
@@ -179,14 +179,32 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
+	parser.add_argument('--baseyear', help="Base or reference year for projetions [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
+	# Make sure the base year and target years are within data limits for this module
+	if(args.baseyear < 2000):
+		raise Exception("Base year cannot be less than year 2000: baseyear = {}".format(args.baseyear))
+	if(args.baseyear > 2300):
+		raise Exception("Base year cannot be greater than year 2300: baseyear = {}".format(args.baseyear))
+	if(args.pyear_start < 2000):
+		raise Exception("Projection year cannot be less than year 2000: pyear_start = {}".format(args.pyear_start))
+	if(args.pyear_end > 2300):
+		raise Exception("Projection year cannot be greater than year 2300: pyear_end = {}".format(args.pyear_end))
+	
+	# Make sure the target year stepping is positive
+	if(args.pyear_step < 1):
+		raise Exception("Projection year step must be greater than 0: pyear_step = {}".format(args.pyear_step))
+		
 	# Run the postprocessing stage
-	NZInsarGPS_postprocess_verticallandmotion(args.nsamps, args.seed, args.locationfile, args.pipeline_id)
+	NZInsarGPS_postprocess_verticallandmotion(args.nsamps, args.seed, args.locationfile, args.baseyear, args.pyear_start, args.pyear_end, args.pyear_step, args.pipeline_id)
 	
 	# Done
 	exit()

@@ -11,7 +11,7 @@ workflow.
 
 Parameters:
 pipeline_id = Unique identifier for the pipeline running this code
-baseyear = The year from which projections should be zeroed
+inputtype = Type of input for the module (grid_insar, grid_gps, hires)
 
 '''
 
@@ -74,7 +74,7 @@ def ReadData(filename):
 	return(ids, lats, lons, rates, sds)
 
 
-def NZInsarGPS_preprocess_verticallandmotion(pipeline_id, baseyear, inputtype):
+def NZInsarGPS_preprocess_verticallandmotion(pipeline_id, inputtype):
 	
 	# Define the input file based on input type
 	type2file = {"grid_insar": "VLM-grid_insar.dat", "grid_gps": "VLM-grid_gps.dat", "hires": "coast_ins.dat"}
@@ -87,7 +87,7 @@ def NZInsarGPS_preprocess_verticallandmotion(pipeline_id, baseyear, inputtype):
 	
 	# Populate the output dictionary
 	outdata = {'ids': ids, 'lats': lats, 'lons': lons, 'rates': rates, 'sds': sds,\
-				'baseyear': baseyear, 'nsites': len(ids), 'inputfile': inputfile}
+				'nsites': len(ids), 'inputfile': inputfile}
 	
 	# Define the data directory
 	outdir = os.path.dirname(__file__)
@@ -106,14 +106,13 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--baseyear', help="Baseline year from which to calculate changes in sea level", default=2005, type=int)
 	parser.add_argument('--inputtype', help="Type of data to use (default=\"grid_insar\")", choices=["grid_insar", "grid_gps", "hires"], default="grid_insar")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	NZInsarGPS_preprocess_verticallandmotion(args.pipeline_id, args.baseyear, args.inputtype)
+	NZInsarGPS_preprocess_verticallandmotion(args.pipeline_id, args.inputtype)
 	
 	# Done
 	exit()
