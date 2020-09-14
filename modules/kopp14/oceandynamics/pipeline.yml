@@ -12,6 +12,10 @@ pre-process:
     script: "kopp14_preprocess_oceandynamics.py"
     options:
       - "scenario"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "locationfile"
       - "pipeline_id"
     upload_input_data:

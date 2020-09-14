@@ -27,14 +27,14 @@ pipeline_id = Unique identifier for the pipeline running this code
 
 '''
 
-def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir, driftcorr, locationfilename, pipeline_id):
+def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir, driftcorr, baseyear, pyear_start, pyear_end, pyear_step, locationfilename, pipeline_id):
 	
 	# Define variables
 	datayears = np.arange(1861,2300)
-	targyears = np.arange(2010,2101,10)
+	targyears = np.arange(pyear_start, pyear_end, pyear_step)
+	targyears = np.union1d(targyears, baseyear)
 	mergeZOSZOSTOGA = True
 	smoothwin = 19
-	baseyear = 2005
 	GCMprobscale = 0.833
 	maxDOF = np.inf
 	
@@ -153,6 +153,11 @@ if __name__ == '__main__':
 	
 	parser.add_argument('--no_drift_corr', help="Do not apply the drift correction", action='store_true')
 	
+	parser.add_argument('--baseyear', help="Base or reference year for projetions [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
+	
 	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
@@ -160,8 +165,23 @@ if __name__ == '__main__':
 	# Parse the arguments
 	args = parser.parse_args()
 	
+	# Make sure the base year and target years are within data limits for this module
+	if(args.baseyear < 2000):
+		raise Exception("Base year cannot be less than year 2000: baseyear = {}".format(args.baseyear))
+	if(args.baseyear > 2300):
+		raise Exception("Base year cannot be greater than year 2300: baseyear = {}".format(args.baseyear))
+	if(args.pyear_start < 2000):
+		raise Exception("Projection year cannot be less than year 2000: pyear_start = {}".format(args.pyear_start))
+	if(args.pyear_end > 2300):
+		raise Exception("Projection year cannot be greater than year 2300: pyear_end = {}".format(args.pyear_end))
+	
+	# Make sure the target year stepping is positive
+	if(args.pyear_step < 1):
+		raise Exception("Projection year step must be greater than 0: pyear_step = {}".format(args.pyear_step))
+		
+	
 	# Pass the model directory in via command line
-	kopp14_preprocess_oceandynamics(args.scenario, args.zostoga_model_dir, args.zos_model_dir, not args.no_drift_corr, args.locationfile, args.pipeline_id)
+	kopp14_preprocess_oceandynamics(args.scenario, args.zostoga_model_dir, args.zos_model_dir, not args.no_drift_corr, args.baseyear, args.pyear_start, args.pyear_end, args.pyear_step, args.locationfile, args.pipeline_id)
 	
 	# Done
 	exit()
