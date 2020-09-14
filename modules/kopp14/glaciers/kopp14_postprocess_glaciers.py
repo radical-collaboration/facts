@@ -116,7 +116,7 @@ def kopp14_postprocess_glaciers(locationfilename, pipeline_id):
 
 	# Create a data variable
 	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	localslq.scale_factor = 0.1
+	#localslq.scale_factor = 0.1
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from glaciers and ice caps according to Kopp 2014 workflow"

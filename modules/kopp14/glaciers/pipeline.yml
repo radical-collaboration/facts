@@ -12,6 +12,10 @@ pre-process:
     script: "kopp14_preprocess_glaciers.py"
     options:
       - "scenario"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/glaciers/kopp14_preprocess_glaciers.py"

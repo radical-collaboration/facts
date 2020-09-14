@@ -41,6 +41,7 @@ def kopp14SROCC_postprocess_icesheets(samptype, locationfilename, pipeline_id):
 	my_data = pickle.load(f)
 	projdata = my_data[samptype]
 	targyears = my_data['targyears']
+	baseyear = my_data['baseyear']
 	f.close() 
 	
 	# Read in the scenario from the corr file
@@ -72,12 +73,12 @@ def kopp14SROCC_postprocess_icesheets(samptype, locationfilename, pipeline_id):
 	eaissl = np.multiply.outer(projdata[:,:,2], eaisfp)
 	
 	# Write to netcdf
-	writeNetCDF(gissl, pipeline_id, "GIS", targyears, site_lats, site_lons, site_ids)
-	writeNetCDF(waissl, pipeline_id, "WAIS", targyears, site_lats, site_lons, site_ids)
-	writeNetCDF(eaissl, pipeline_id, "EAIS", targyears, site_lats, site_lons, site_ids)
+	writeNetCDF(gissl, pipeline_id, "GIS", targyears, baseyear, scenario, site_lats, site_lons, site_ids)
+	writeNetCDF(waissl, pipeline_id, "WAIS", targyears, baseyear, scenario, site_lats, site_lons, site_ids)
+	writeNetCDF(eaissl, pipeline_id, "EAIS", targyears, baseyear, scenario, site_lats, site_lons, site_ids)
 
 
-def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lons, site_ids):
+def writeNetCDF(data, pipeline_id, icesheet_name, targyears, baseyear, scenario, site_lats, site_lons, site_ids):
 	
 	# Calculate the quantiles
 	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
@@ -85,15 +86,11 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	local_sl_q = np.nanquantile(data, out_q, axis=0)
 	local_sl_q = np.transpose(local_sl_q, (0,2,1))
 	
-	# Calculate the mean and sd of the samples
-	local_sl_mean = np.nanmean(data, axis=0).T
-	local_sl_sd = np.nanstd(data, axis=0).T	
-	
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{0}_{1}_localsl.nc".format(pipeline_id, icesheet_name)), "w", format="NETCDF4")
 
 	# Define Dimensions
-	nsites = local_sl_mean.shape[0]
+	nsites = len(site_ids)
 	nyears = len(targyears)
 	nq = len(out_q)
 	site_dim = rootgrp.createDimension("nsites", nsites)
@@ -108,19 +105,16 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
-	localslmean = rootgrp.createVariable("localSL_mean", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
-	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
+	#localslq.scale_factor = 0.1
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from icesheets according to Kopp 2014 workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "SLR Framework: Kopp 2014 workflow"
+	rootgrp.source = "SLR Framework: Kopp 2014 workflow, Scenario: {0}, Baseyear: {1}".format(scenario, baseyear)
 	lat_var.units = "Degrees North"
-	lon_var.units = "Degrees West"
+	lon_var.units = "Degrees East"
 	localslq.units = "mm"
-	localslmean.units = "mm"
-	localslsd.units = "mm"
 
 	# Put the data into the netcdf variables
 	lat_var[:] = site_lats
@@ -129,8 +123,6 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	year_var[:] = targyears
 	q_var[:] = out_q
 	localslq[:,:,:] = local_sl_q
-	localslmean[:,:] = local_sl_mean
-	localslsd[:,:] = local_sl_sd
 
 	# Close the netcdf
 	rootgrp.close()
