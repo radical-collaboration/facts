@@ -15,7 +15,7 @@ baseyear = The year from which projections should be zeroed
 
 '''
 
-def kopp14_preprocess_verticallandmotion(pipeline_id, baseyear):
+def kopp14_preprocess_verticallandmotion(pipeline_id):
 
 	# Initialize variables to hold data and site information
 	names = []
@@ -50,7 +50,7 @@ def kopp14_preprocess_verticallandmotion(pipeline_id, baseyear):
 	
 	# Populate the output dictionary
 	outdata = {'names': names, 'ids': ids, 'lats': lats, 'lons': lons, 'rates': rates,\
-				'sds': sds, 'baseyear': baseyear}
+				'sds': sds}
 	
 	
 	# Define the data directory
@@ -70,13 +70,12 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--baseyear', help="Baseline year from which to calculate changes in sea level", default=2005, type=int)
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	kopp14_preprocess_verticallandmotion(args.pipeline_id, args.baseyear)
+	kopp14_preprocess_verticallandmotion(args.pipeline_id)
 	
 	# Done
 	exit()

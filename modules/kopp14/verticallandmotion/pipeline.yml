@@ -63,6 +63,10 @@ post-process:
     options:
       - "nsamps"
       - "seed"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "locationfile"
       - "pipeline_id"
     upload_input_data:

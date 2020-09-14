@@ -153,7 +153,7 @@ def NZInsarGPS_postprocess_verticallandmotion(nsamps, rng_seed, locationfilename
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from vertical land motion according to NZInsarGPS workflow"
 	rootgrp.history = "Created " + time.ctime(time.time()) + " from input file: {}".format(inputfile)
-	rootgrp.source = "FACTS: {}".format(pipeline_id)
+	rootgrp.source = "FACTS: {0}, Baseyear: {1}".format(pipeline_id, baseyear)
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees East"
 	localslq.units = "mm"
