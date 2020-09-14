@@ -52,6 +52,10 @@ project:
     options:
       - "nsamps"
       - "seed"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "pipeline_id"
     upload_input_data:
       - './modules/kopp14/icesheets/kopp14_project_icesheets.py'
