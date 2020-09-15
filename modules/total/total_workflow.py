@@ -170,7 +170,8 @@ def total_local(directory, nsamps, seed):
 	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
+	#localslq.scale_factor = 0.1
 	
 	# Assign attributes
 	rootgrp.description = "Total SLR for workflow"
