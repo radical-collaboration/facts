@@ -15,6 +15,9 @@ pre-process:
       - "dotriangular"
       - "includepokherl"
       - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "pipeline_id"
     upload_input_data:
       - "./modules/ssp/landwaterstorage/ssp_preprocess_landwaterstorage.py"

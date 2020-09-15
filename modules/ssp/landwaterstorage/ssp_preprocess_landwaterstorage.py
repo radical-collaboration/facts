@@ -24,15 +24,15 @@ Output:
 Note: %PIPELINE_ID% is replaced with 'pipeline_id' at run time
 '''
 
-def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, baseyear, pipeline_id):
+def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, baseyear, pyear_start, pyear_end, pyear_step, pipeline_id):
 	
 	##################################################
 	# configure run (could be separate script)
 	dgwd_dt_dpop_pcterr = .25		# error on gwd slope
 	dam_pcterr = .25				# error on sigmoidal function reservoirs
 	#baseyear = 2005					# Base year to which projetions are centered
-	targyears = np.linspace(2010,2100,10)	# target years for projections
-	yrs = np.append(baseyear, targyears)		# years at which projections should be made
+	yrs = np.arange(pyear_start, pyear_end+1, pyear_step) # target years projections
+	yrs = np.union1d(yrs, baseyear)
 
 	# paths to data
 	datadir = os.path.dirname(__file__)
@@ -153,7 +153,7 @@ def ssp_preprocess_landwaterstorage(scen, dotriangular, includepokhrel, baseyear
 	output = {'dgwd_dt_dpop_pcterr': dgwd_dt_dpop_pcterr, 'dam_pcterr': dam_pcterr,\
 				'yrs': yrs, 'scen': scen, 'dotriangular': dotriangular,\
 				'includepokhrel': includepokhrel,'pop0': pop0, 't0':t0,\
-				'baseyear': baseyear, 'targyears': targyears}
+				'baseyear': baseyear, 'targyears': yrs}
 	
 	# Write the data to a file
 	outdir = os.path.dirname(__file__)
@@ -173,12 +173,31 @@ if __name__ == '__main__':
 	parser.add_argument('--dotriangular', help="Use triangular distribution for GWD [default=0]", choices=[0, 1], default=0, type=int)
 	parser.add_argument('--includepokherl', help="Include Pokherl data for GWD [default=0]", choices=[0, 1], default=0, type=int)
 	parser.add_argument('--baseyear', help="Base year to which projections are centered [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments
 	args = parser.parse_args()
 	
+	# Make sure the base year and target years are within data limits for this module
+	if(args.baseyear < 2000):
+		raise Exception("Base year cannot be less than year 2000: baseyear = {}".format(args.baseyear))
+	if(args.baseyear > 2010):
+		raise Exception("Base year cannot be greater than year 2010: baseyear = {}".format(args.baseyear))
+	if(args.baseyear > 2200):
+		raise Exception("Base year cannot be greater than year 2200: baseyear = {}".format(args.baseyear))
+	if(args.pyear_start < 2000):
+		raise Exception("Projection year cannot be less than year 2000: pyear_start = {}".format(args.pyear_start))
+	if(args.pyear_end > 2200):
+		raise Exception("Projection year cannot be greater than year 2200: pyear_end = {}".format(args.pyear_end))
+	
+	# Make sure the target year stepping is positive
+	if(args.pyear_step < 1):
+		raise Exception("Projection year step must be greater than 0: pyear_step = {}".format(args.pyear_step))
+	
 	# Run the preprocessing stage with the provided arguments
-	ssp_preprocess_landwaterstorage(args.scenario, args.dotriangular, args.includepokherl, args.baseyear, args.pipeline_id)
+	ssp_preprocess_landwaterstorage(args.scenario, args.dotriangular, args.includepokherl, args.baseyear, args.pyear_start, args.pyear_end, args.pyear_step, args.pipeline_id)
 	
 	exit()

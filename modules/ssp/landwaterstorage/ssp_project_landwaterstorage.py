@@ -106,8 +106,8 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	popdraw = popscen[:,SSPorder[targetSSP]]	
 	
 	# interpolate to annual means
-	popdraw = np.interp(np.linspace(2000,2100,101),popscenyr,popdraw)
-	popscenyr = np.linspace(2000,2100,101)
+	popdraw = np.interp(np.linspace(2000,2300,301),popscenyr,popdraw)
+	popscenyr = np.linspace(2000,2300,301)
 
 	# random draw functions for reservoirs and gwd
 
@@ -191,7 +191,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	lwssamps = lwssamps[targyear_idx,:]
 	
 	# Store the variables in a pickle
-	output = {'lwssamps': lwssamps, 'years': targyears, 'scen': scen}
+	output = {'lwssamps': lwssamps, 'years': targyears, 'scen': scen, 'baseyear': baseyear}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()

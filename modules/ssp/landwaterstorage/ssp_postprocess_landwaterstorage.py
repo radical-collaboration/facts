@@ -37,6 +37,7 @@ def ssp_postprocess_landwaterstorage(locationfilename, pipeline_id):
 	
 	targyears = my_proj["years"]
 	scen = my_proj['scen']
+	baseyear = my_proj['baseyear']
 	lwssamps = np.transpose(my_proj["lwssamps"])
 	
 	# Load the site locations	
@@ -56,10 +57,6 @@ def ssp_postprocess_landwaterstorage(locationfilename, pipeline_id):
 	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
 	nq = len(out_q)
 	local_sl_q = np.nanquantile(local_sl, out_q, axis=1)
-	
-	# Calculate the mean and sd of the samples
-	local_sl_mean = np.nanmean(local_sl, axis=1)
-	local_sl_sd = np.nanstd(local_sl, axis=1)
 		
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
@@ -77,19 +74,16 @@ def ssp_postprocess_landwaterstorage(locationfilename, pipeline_id):
 	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
-	localslmean = rootgrp.createVariable("localSL_mean", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
-	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
+	#localslq.scale_factor = 0.1
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from land water storage from the SSP module set"
 	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: {0} - {1}".format(pipeline_id, scen)
+	rootgrp.source = "FACTS: {0}, Scenario: {1}, Baseyear: {2}".format(pipeline_id, scen, baseyear)
 	lat_var.units = "Degrees North"
-	lon_var.units = "Degrees West"
+	lon_var.units = "Degrees East"
 	localslq.units = "mm"
-	localslmean.units = "mm"
-	localslsd.units = "mm"
 
 	# Put the data into the netcdf variables
 	lat_var[:] = site_lats
@@ -98,8 +92,6 @@ def ssp_postprocess_landwaterstorage(locationfilename, pipeline_id):
 	year_var[:] = targyears
 	q_var[:] = out_q
 	localslq[:,:,:] = local_sl_q
-	localslmean[:,:] = local_sl_mean
-	localslsd[:,:] = local_sl_sd
 
 	# Close the netcdf
 	rootgrp.close()
