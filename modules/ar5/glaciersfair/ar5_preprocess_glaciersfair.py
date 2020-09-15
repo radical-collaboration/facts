@@ -222,7 +222,7 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--scenario', help="SSP scenario (i.e. ssp585) or temperature target (i.e. tlim2.0win0.25)", default='ssp585')
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--startyear', help="Year from which to start integrating temperature [default=2005]", type=int, default=2005)
+	parser.add_argument('--baseyear', help="Year from which to start integrating temperature [default=2005]", type=int, default=2005)
 	parser.add_argument('--fullFAIR', help="Run the full set of FAIR temperature trajectories [default=1, use full set] [0, use 500 member subset]", type=int, choices=[0,1], default=1)
 	
 	# Parse the arguments
@@ -230,8 +230,8 @@ if __name__ == '__main__':
 	
 	# Run the preprocessing stage with the provided arguments
 	if(args.fullFAIR == 1):
-		ar5_preprocess_glaciersfair_full(args.scenario, args.startyear, args.pipeline_id)
+		ar5_preprocess_glaciersfair_full(args.scenario, args.baseyear, args.pipeline_id)
 	else:
-		ar5_preprocess_glaciersfair(args.scenario, args.startyear, args.pipeline_id)
+		ar5_preprocess_glaciersfair(args.scenario, args.baseyear, args.pipeline_id)
 	
 	exit()
