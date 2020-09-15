@@ -169,7 +169,7 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the SSP LWS module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--scenario', help="Use RCP or SSP scenario[default=rcp85]", choices=["rcp19","rcp26","rcp45","rcp70","rcp85","ssp1","ssp2","ssp3","ssp4","ssp5"], default="rcp85")
+	parser.add_argument('--scenario', help="Use RCP or SSP scenario[default=rcp85]", choices=["rcp19","rcp26","rcp45","rcp60","rcp70","rcp85","ssp1","ssp2","ssp3","ssp4","ssp5"], default="rcp85")
 	parser.add_argument('--dotriangular', help="Use triangular distribution for GWD [default=0]", choices=[0, 1], default=0, type=int)
 	parser.add_argument('--includepokherl', help="Include Pokherl data for GWD [default=0]", choices=[0, 1], default=0, type=int)
 	parser.add_argument('--baseyear', help="Base year to which projections are centered [default=2000]", default=2000, type=int)
