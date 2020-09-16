@@ -81,7 +81,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 		"rcp19": "ssp1",
     	"rcp26": "ssp1",
         "rcp45": "ssp2",
-        "rcp60": "ssp4"
+        "rcp60": "ssp4",
         "rcp70": "ssp3",
         "rcp85": "ssp5",
         }     
