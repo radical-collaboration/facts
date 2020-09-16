@@ -84,7 +84,7 @@ def NZInsarGPS_postprocess_verticallandmotion(nsamps, rng_seed, locationfilename
 	inputfile = my_data['inputfile']
 	
 	# Define the target years
-	targyears = np.arange(pyear_start, pyear_end, pyear_step)
+	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 	targyears = np.union1d(targyears, baseyear)
 	
 	# Load site locations

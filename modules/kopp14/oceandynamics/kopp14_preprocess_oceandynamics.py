@@ -31,7 +31,7 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir
 	
 	# Define variables
 	datayears = np.arange(1861,2300)
-	targyears = np.arange(pyear_start, pyear_end, pyear_step)
+	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 	targyears = np.union1d(targyears, baseyear)
 	mergeZOSZOSTOGA = True
 	smoothwin = 19

@@ -16,10 +16,10 @@ def sample_from_quantiles(qvals, q, nsamps, seed):
 	return(pool)
 
 
-def total_global(directory, nsamps):
+def total_global(directory, pyear_start, pyear_end, pyear_step, nsamps):
 	
 	# Years of interest
-	years = np.arange(2020,2101,10)
+	years = np.arange(pyear_start, pyear_end+1, pyear_step)
 	
 	# Output directory
 	outdir = os.path.dirname(__file__)
@@ -64,11 +64,12 @@ def total_global(directory, nsamps):
 	samp_dim = rootgrp.createDimension("samples", nsamps)
 
 	# Populate dimension variables
-	year_var = rootgrp.createVariable("year", "i4", ("years",))
-	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+	year_var = rootgrp.createVariable("years", "i4", ("years",))
+	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	samps = rootgrp.createVariable("samps", "i2", ("years", "samples"), zlib=True, complevel=4)
+	#samps.scale_factor = 0.1
 	
 	# Assign attributes
 	rootgrp.description = "Total SLR for workflow"
@@ -91,10 +92,10 @@ def total_global(directory, nsamps):
 
 
 
-def total_local(directory, nsamps, seed):
+def total_local(directory, pyear_start, pyear_end, pyear_step, nsamps, seed):
 	
 	# Define the years of interest
-	years = np.arange(2020,2101,10)
+	years = np.arange(pyear_start, pyear_end+1, pyear_step)
 	
 	# Output directory
 	outdir = os.path.dirname(__file__)
@@ -209,6 +210,9 @@ if __name__ == "__main__":
 	parser.add_argument('--directory', help="Directory containing files to aggregate", required=True)
 	parser.add_argument('--local', help="Are the listed files local or global files?", action='store_true')
 	parser.add_argument('--nsamps', help="Number of samples produced in the individual contributors", default=20000, type=int)
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
+	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
 
 	# Parse the arguments
@@ -216,9 +220,9 @@ if __name__ == "__main__":
 	
 	# Are these global or local files
 	if(args.local):
-		total_local(args.directory, args.nsamps, args.seed)
+		total_local(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.nsamps, args.seed)
 	else:
-		total_global(args.directory, args.nsamps)
+		total_global(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.nsamps)
 
 	
 	exit()
