@@ -86,7 +86,9 @@ def NZInsarGPS_preprocess_verticallandmotion(pipeline_id, inputtype):
 	(ids, lats, lons, rates, sds) = ReadData(inputfile)
 	
 	# Populate the output dictionary
-	outdata = {'ids': ids, 'lats': lats, 'lons': lons, 'rates': rates, 'sds': sds,\
+	# Note: Rates are provided as explicit vertical land motion, so relative sea-level 
+	# change should have the sign of the rates flipped.
+	outdata = {'ids': ids, 'lats': lats, 'lons': lons, 'rates': -1*rates, 'sds': sds,\
 				'nsites': len(ids), 'inputfile': inputfile}
 	
 	# Define the data directory

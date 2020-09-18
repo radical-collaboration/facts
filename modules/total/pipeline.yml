@@ -14,6 +14,9 @@ global:
     - "$RP_PILOT_STAGING/to_total/global/"
   options:
     - "nsamps"
+    - "pyear_start"
+    - "pyear_end"
+    - "pyear_step"
     - "seed"
   upload_input_data:
     - './modules/total/total_workflow.py'
@@ -36,6 +39,9 @@ local:
     - "$RP_PILOT_STAGING/to_total/local/"
   options:
     - "nsamps"
+    - "pyear_start"
+    - "pyear_end"
+    - "pyear_step"
     - "seed"
   upload_input_data:
     - './modules/total/total_workflow.py'
