@@ -386,7 +386,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
 	
 	# Setup and run the totaling workflow
 	if not no_total_flag:
-		ecfg['total-options'].update(ecfg['global-options'])
+		ecfg['total-options']["options"].update(ecfg['global-options'])
 		total_pipeline = GenerateTotalPipeline(ecfg['total-options'], exp_dir)
 		amgr.workflow = [total_pipeline]
 		amgr.run()
