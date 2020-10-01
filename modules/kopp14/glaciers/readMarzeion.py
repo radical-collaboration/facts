@@ -26,10 +26,7 @@ Note:
 
 '''
 
-def readMarzeion(scen, glacdir, fpmap, discardAntarctica=False):
-	
-	# Set the baseyear of interest
-	baseyear = 2005
+def readMarzeion(scen, glacdir, fpmap, baseyear, discardAntarctica=False):
 	
 	# Open the file
 	fpmap_data = np.genfromtxt(fpmap, dtype=None, names=True, delimiter=',', encoding=None)

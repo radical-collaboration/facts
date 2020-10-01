@@ -29,7 +29,7 @@ def kopp14_preprocess_glaciers(rcp_scenario, baseyear, pyear_start, pyear_end, p
 	# Use readMarzeion to read in the glacier data
 	glacdir = "."
 	fpmap = os.path.join(os.path.dirname(__file__), "fingerprint_region_map.csv")
-	(projGIC, projGICse, projGICyrs, projGICmodel, fpmapperids, fpmaps, _) = readMarzeion(rcp_scenario, glacdir, fpmap, discardAntarctica=True)
+	(projGIC, projGICse, projGICyrs, projGICmodel, fpmapperids, fpmaps, _) = readMarzeion(rcp_scenario, glacdir, fpmap, baseyear, discardAntarctica=True)
 	
 	# Define the target years for projections
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
