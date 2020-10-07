@@ -7,6 +7,7 @@ import argparse
 import os
 import pickle
 import time
+import sys
 from netCDF4 import Dataset
 
 ''' ssp_project_landwaterstorage.py
@@ -185,15 +186,18 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, dcyear_start, dcyear_end, dcr
 	# Apply correction for planned dam construction -------------------
 	# Which years overlap?
 	dc_year_idx = np.flatnonzero(np.logical_and(yrs >= dcyear_start, yrs <= dcyear_end))
+	dc_eyear_idx = np.flatnonzero(yrs > dcyear_end)
 	
 	# Generate samples of the rates
 	dc_rates = np.random.uniform(dcrate_lo, dcrate_hi, Nsamps)
 	
 	# Expand these rates into sea-level change over time
-	dc_samps = dc_rates[np.newaxis,:] * (yrs[dc_year_idx,np.newaxis] - dcyear_start)
+	dc_samps = np.zeros((len(yrs), Nsamps))
+	dc_samps[dc_year_idx,:] += dc_rates[np.newaxis,:] * (yrs[dc_year_idx,np.newaxis] - dcyear_start)
+	dc_samps[dc_eyear_idx,:] = (dc_rates[np.newaxis,:] * (dcyear_end - dcyear_start)) * np.ones((len(dc_eyear_idx),1))	
 	
 	# Add these dam correction samples back to the projections
-	lwssamps[dc_year_idx,:] += dc_samps
+	lwssamps += dc_samps
 	
 	# -----------------------------------------------------------------
 	
@@ -267,4 +271,4 @@ if __name__ == '__main__':
 	# Run the preprocessing stage with the provided arguments
 	ssp_project_landwaterstorage(args.nsamps, args.seed, args.dcyear_start, args.dcyear_end, args.dcrate_lo, args.dcrate_hi, args.pipeline_id)
 	
-	exit()
+	sys.exit()
