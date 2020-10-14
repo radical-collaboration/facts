@@ -21,10 +21,10 @@ def project_glacier1(it,factor,exponent):
 	it[it < 0] = 0.0
 	return scale*factor*(it**exponent)
 	
-def ar5_project_glaciersfair(rng_seed, nmsamps, ntsamps, nsamps, pipeline_id):
+def ar5_project_glaciersfair(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, ntsamps, nsamps, pipeline_id):
 	
 	# Define the target years
-	targyears = np.arange(2020,2101,10)
+	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 	
 	# Load the preprocessed data
 	data_file = "{}_data.pkl".format(pipeline_id)
@@ -232,6 +232,9 @@ if __name__ == '__main__':
 	parser.add_argument('--nmsamps', help="Number of method samples to generate [default=200]", default=200, type=int)
 	parser.add_argument('--ntsamps', help="Number of climate samples to generate [default=100]", default=100, type=int)
 	parser.add_argument('--nsamps', help="Total number of samples to generate (replaces \'nmsamps\' and \'ntsamps\' if provided)", default=None, type=int)
+	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
+	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
@@ -239,6 +242,6 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the projection process on the files specified from the command line argument
-	ar5_project_glaciersfair(args.seed, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
+	ar5_project_glaciersfair(args.seed, args.pyear_start, args.pyear_end, args.pyear_step, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
 	
 	exit()

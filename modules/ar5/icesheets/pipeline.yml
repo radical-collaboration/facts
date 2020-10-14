@@ -13,7 +13,7 @@ pre-process:
     options:
       - "scenario"
       - "pipeline_id"
-      - "startyear"
+      - "baseyear"
     upload_input_data:
       - "./modules/ar5/icesheets/ar5_preprocess_icesheets.py"
       - "./modules/ar5/icesheets/data/ar5_icesheets_preprocess_data.tgz"
@@ -53,6 +53,9 @@ project:
       - "nmsamps"
       - "ntsamps"
       - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "seed"
       - "pipeline_id"
     upload_input_data:

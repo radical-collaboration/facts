@@ -12,7 +12,7 @@ pre-process:
     script: "ar5_preprocess_glaciersfair.py"
     options:
       - "scenario"
-      - "startyear"
+      - "baseyear"
       - "fullFAIR"
       - "pipeline_id"
     upload_input_data:
@@ -59,6 +59,9 @@ project:
       - "nmsamps"
       - "ntsamps"
       - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "seed"
       - "pipeline_id"
     upload_input_data:

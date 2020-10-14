@@ -47,7 +47,7 @@ def ar5_fit_icesheets(pipeline_id):
 	smax=0.35 # max value of S in 13.SM.1.5
 	
 	# Greenland Dynamic -----------------------------------------------------
-	if scenario in ['rcp85','ssp5_85']:
+	if scenario in ['rcp85','ssp585']:
 		gdyn_finalrange=[0.020,0.085]
 	else:
 		gdyn_finalrange=[0.014,0.063]

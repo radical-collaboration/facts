@@ -7,6 +7,7 @@
 *.mat
 *.tsv
 *.dat
+*.lst
 *.log
 *.prof
 /re.session*

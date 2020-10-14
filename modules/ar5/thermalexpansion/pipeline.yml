@@ -12,7 +12,7 @@ pre-process:
     script: "ar5_preprocess_thermalexpansion.py"
     options:
       - "scenario"
-      - "startyear"
+      - "baseyear"
       - "pipeline_id"
     upload_input_data:
       - "./modules/ar5/thermalexpansion/ar5_preprocess_thermalexpansion.py"
@@ -54,6 +54,9 @@ project:
     options:
       - "nsamps"
       - "seed"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/thermalexpansion/ar5_project_thermalexpansion.py'

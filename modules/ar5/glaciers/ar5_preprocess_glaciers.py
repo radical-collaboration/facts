@@ -76,8 +76,12 @@ if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description="Run the glaciers pre-processing stage for the AR5 Global SLR projection workflow",\
 	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
+	# Scenario choices
+	scenario_choices = ['rcp85', 'rcp60', 'rcp45', 'rcp26', 'sresa1b', \
+						'ssp126', 'ssp129', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp585']
+	
 	# Define the command line arguments to be expected
-	parser.add_argument('--scenario', help="RCP Scenario [default=\'rcp85\']", choices=['rcp85', 'rcp60', 'rcp45', 'rcp26', 'sresa1b'], default='rcp85')
+	parser.add_argument('--scenario', help="Scenario [default=\'rcp85\']", choices=scenario_choices, default='rcp85')
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	parser.add_argument('--baseyear', help="Year from which to start integrating temperature [default=2006]", type=int, default=2006)
 	

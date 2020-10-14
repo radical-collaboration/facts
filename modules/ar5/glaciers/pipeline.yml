@@ -12,6 +12,7 @@ pre-process:
     script: "ar5_preprocess_glaciers.py"
     options:
       - "scenario"
+      - "baseyear"
       - "pipeline_id"
     upload_input_data:
       - "./modules/ar5/glaciers/ar5_preprocess_glaciers.py"
@@ -54,6 +55,9 @@ project:
       - "nmsamps"
       - "ntsamps"
       - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "seed"
       - "pipeline_id"
     upload_input_data:
