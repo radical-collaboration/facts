@@ -14,8 +14,10 @@ pre-process:
       - "scenario"
       - "pipeline_id"
       - "baseyear"
+      - "tlm_data"
     upload_input_data:
       - "./modules/ar5/icesheets/ar5_preprocess_icesheets.py"
+      - "./modules/ar5/icesheets/Import2lmData.py"
       - "./modules/ar5/icesheets/data/ar5_icesheets_preprocess_data.tgz"
 
 
