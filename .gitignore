@@ -1,6 +1,7 @@
 .DS_Store
 *.py[cod]
 *data.tgz
+*.h5
 *.nc
 *.pkl
 *.csv

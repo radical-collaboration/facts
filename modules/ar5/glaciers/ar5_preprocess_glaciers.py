@@ -24,7 +24,7 @@ def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id):
 	if tlm_flag:
 		
 		# Import the data
-		tlm_dict = Import2lmData("tmix", scenario, indir)
+		tlm_dict = Import2lmData("surface_temperature", scenario, indir)
 		
 		# Filter the data for the appropriate years
 		filtered_data_dict = Filter2lmData(tlm_dict, filter_years=np.arange(startyr,2301))
@@ -34,7 +34,8 @@ def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id):
 		
 		# FOR THE TEMPORARY 2LM DATA ONLY - USES ONLY 44 UNIQUE TRAJECTORIES
 		# Find the unique temperature trajectories
-		temp_samples = np.unique(filtered_data_dict["samples"], axis=0)
+		#temp_samples = np.unique(filtered_data_dict["samples"], axis=0)
+		temp_samples = filtered_data_dict["samples"]
 		
 		# Find the mean and sd of the ensemble
 		temp_mean = np.nanmean(temp_samples, axis=0)
