@@ -24,7 +24,7 @@ def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id):
 	if tlm_flag:
 		
 		# Import the data
-		tlm_dict = Import2lmData("surface_temperature", scenario, indir)
+		tlm_dict = Import2lmData("surface_temperature", scenario, indir, refyear_start=1986, refyear_end=2005)
 		
 		# Filter the data for the appropriate years
 		filtered_data_dict = Filter2lmData(tlm_dict, filter_years=np.arange(startyr,2301))
@@ -92,11 +92,11 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Scenario choices
-	scenario_choices = ['rcp85', 'rcp60', 'rcp45', 'rcp26', \
-						'ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp585']
+	#scenario_choices = ['rcp85', 'rcp60', 'rcp45', 'rcp26', \
+	#					'ssp119', 'ssp126', 'ssp245', 'ssp370', 'ssp434', 'ssp460', 'ssp585']
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--scenario', help="Scenario [default=\'rcp85\']", choices=scenario_choices, default='rcp85')
+	parser.add_argument('--scenario', help="Scenario [default=\'rcp85\']", default='rcp85')
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	parser.add_argument('--baseyear', help="Year from which to start integrating temperature [default=2006]", type=int, default=2006)
 	parser.add_argument('--tlm_data', help="Use the two-layer model data [default=0, do not use 2lm data]", default=0, type=int)

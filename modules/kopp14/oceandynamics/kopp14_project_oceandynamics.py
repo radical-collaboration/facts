@@ -11,7 +11,7 @@ from scipy.stats import t
 ''' kopp14_project_oceandynamics.py
 
 This runs the projection stage for the ocean dynamics component of the Kopp14
-workflow. The global projections are composed only of the thermal expansion portion. 
+workflow. The global projections are composed only of the thermal expansion portion.
 Localized projections for ocean dynamics are done in post-processing to remain consistent
 with the other module in this module set.
 
@@ -25,62 +25,63 @@ post-processing stage when run within FACTS.
 '''
 
 def kopp14_project_oceandynamics(nsamps, seed, pipeline_id):
-	
+
 	# Load the configuration file
 	configfile = "{}_config.pkl".format(pipeline_id)
 	try:
 		f = open(configfile, 'rb')
 	except:
 		print("Cannot open configuration file\n")
-	
+
 	# Extract the configuration variables
 	my_config = pickle.load(f)
 	f.close()
-	
+
 	rcp_scenario = my_config["rcp_scenario"]
 	targyears = my_config["targyears"]
 	GCMprobscale = my_config["GCMprobscale"]
-	
+
 	# Load the fit file
 	fitfile = "{}_thermalexp_fit.pkl".format(pipeline_id)
 	try:
 		f = open(fitfile, 'rb')
 	except:
 		print("Cannot open fit file\n")
-	
+
 	# Extract the fit variables
 	my_fit = pickle.load(f)
 	f.close()
-	
+
 	ThermExpMean = my_fit["ThermExpMean"]
 	ThermExpStd = my_fit["ThermExpStd"]
-	ThermExpYears = my_fit["ThermExpYears"]	
+	ThermExpYears = my_fit["ThermExpYears"]
 	ThermExpN = my_fit["ThermExpN"]
-	
+	ThermExpDOF = my_fit["ThermExpDOF"]
+
 	# Evenly sample an inverse normal distribution and permutate it
-	# Note: This may be a bug being ported over from Kopp 2014 which could result in 
+	# Note: This may be a bug being ported over from Kopp 2014 which could result in
 	# 		overconfident projections
 	np.random.seed(seed)
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
 	norm_inv = norm.ppf(x)
 	norm_inv_perm = np.random.permutation(norm_inv)
-	
+
 	# Determine the scale coefficient
 	ThermExpScale = norm.ppf(0.95)/norm.ppf(GCMprobscale)
-	
+
 	## Generate the samples --------------------------------------------------------------
 	# Initialize variable to hold the samples
 	thermsamps = np.full((nsamps, len(targyears)), np.nan)
-	
+
 	# Loop over the target years
 	for i in np.arange(0,len(targyears)):
-		
+
 		# Find the index of ThermExp* that matches this target year
 		this_year_ind = np.flatnonzero(ThermExpYears == targyears[i])
-		
+
 		# Generate the samples for this year
-		#temp = t.ppf(norm.cdf(norm_inv_perm), ThermExpN[this_year_ind]-1)
-		temp = t.ppf(norm.cdf(norm_inv_perm), ThermExpN[i]-1)  # Replicates bug in K14 master code
+		temp = t.ppf(norm.cdf(norm_inv_perm), ThermExpDOF[this_year_ind])
+		#temp = t.ppf(norm.cdf(norm_inv_perm), ThermExpN[i]-1)  # Replicates bug in K14 master code
 		thermsamps[:,i] = (ThermExpScale * temp * ThermExpStd[this_year_ind]) + ThermExpMean[this_year_ind]
 
 	# Save the global thermal expansion projections to a pickle
@@ -88,7 +89,7 @@ def kopp14_project_oceandynamics(nsamps, seed, pipeline_id):
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
-	
+
 	# Write the total global projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
 	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
@@ -102,8 +103,8 @@ def kopp14_project_oceandynamics(nsamps, seed, pipeline_id):
 	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
-	
+	samps = rootgrp.createVariable("samps", "i2", ("years", "samples"), zlib=True, complevel=4)
+
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from thermal expansion according to Kopp 2014 workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
@@ -118,25 +119,25 @@ def kopp14_project_oceandynamics(nsamps, seed, pipeline_id):
 	samps[:,:] = np.transpose(thermsamps)
 
 	# Close the netcdf
-	rootgrp.close()	
+	rootgrp.close()
 
-	
-if __name__ == '__main__':	
-	
+
+if __name__ == '__main__':
+
 	# Initialize the command-line argument parser
 	parser = argparse.ArgumentParser(description="Run the projection stage for the Kopp14 ocean dynamics workflow",\
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
-	
+
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', '-n', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', '-s', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	
+
 	# Parse the arguments
 	args = parser.parse_args()
-	
+
 	# Run the project stage with the user defined RCP scenario
 	kopp14_project_oceandynamics(args.nsamps, args.seed, args.pipeline_id)
-	
+
 	# Done
 	exit()

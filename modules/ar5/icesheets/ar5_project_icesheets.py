@@ -7,6 +7,7 @@ import pickle
 import argparse
 import time
 import re
+import sys
 from netCDF4 import Dataset
 
 
@@ -125,7 +126,8 @@ def time_projection(startratemean, startratepm, finalrange, nr, nt, data_years, 
 	fraction = fraction.reshape(nr,nt,1)
 	
 	# Number of years
-	nyr = len(data_years)
+	#nyr = len(data_years)
+	nyr = np.flatnonzero(data_years == 2100)
 
 	# For terms where the rate increases linearly in time t, we can write GMSLR as
 	#		S(t) = a*t**2 + b*t
@@ -152,7 +154,31 @@ def time_projection(startratemean, startratepm, finalrange, nr, nt, data_years, 
 
 
 
-def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, ntsamps, nsamps, pipeline_id):
+def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
+	
+	# If only one of the constant rate years is provided, imply the other
+	if cyear_start and not cyear_end:
+		cyear_end = cyear_start + 20
+	if cyear_end and not cyear_start:
+		cyear_start = cyear_end - 20
+	
+	# Find the start and end projection values for the rate calculation
+	proj_start = np.interp(cyear_start, targyears, sample)
+	proj_end = np.interp(cyear_end, targyears, sample)
+	
+	# Calculate the rate
+	rate = (proj_end - proj_start) / (cyear_end - cyear_start)
+	
+	# Make a new projection
+	ext_sample = sample
+	ext_sample[targyears >= cyear_end] = proj_end + (rate * (targyears[targyears >= cyear_end] - cyear_end))
+	
+	# Return this sample
+	return(ext_sample)
+
+
+
+def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_start, cyear_end, nmsamps, ntsamps, nsamps, pipeline_id):
 	
 	# Define the target years
 	targyears = np.arange(pyear_start,pyear_end+1, pyear_step)
@@ -219,6 +245,13 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps,
 	antsmb=project_antsmb(zit, my_fit, nmsamps, ntsamps, fraction=fraction)	
 	antdyn=project_antdyn(my_fit, nmsamps, ntsamps, data_years, fraction=fraction)
 	
+	# Center the projections to the baseyear
+	baseyear_idx = np.flatnonzero(data_years == startyr)
+	if len(baseyear_idx) > 0:
+		greensmb = greensmb - greensmb[:,:,baseyear_idx]
+		greendyn = greendyn - greendyn[:,:,baseyear_idx]
+		antsmb = antsmb - antsmb[:,:,baseyear_idx]
+		antdyn = antdyn - antdyn[:,:,baseyear_idx]
 	
 	# Reduce the years to just the target years
 	year_idx = np.isin(data_years, targyears)
@@ -227,23 +260,33 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps,
 	greendyn = greendyn[:,:,year_idx]
 	antsmb = antsmb[:,:,year_idx]
 	antdyn = antdyn[:,:,year_idx]
-	
-	# Total up components
-	greennet = (greensmb + greendyn) * 1000   # Convert to mm
-	antnet = (antdyn + antsmb) * 1000    # Convert to mm
-	totalnet = greennet + antnet
-	
+
 	# Flatten the ice sheet samples
-	greennet = greennet.reshape(-1, greennet.shape[-1])
-	antnet = antnet.reshape(-1, antnet.shape[-1])
-	totalnet = totalnet.reshape(-1, totalnet.shape[-1])
-	greennet = greennet[:nsamps,:]
-	antnet = antnet[:nsamps,:]
-	totalnet = totalnet[:nsamps,:]
+	greensmb = greensmb.reshape(-1, greensmb.shape[-1])
+	greendyn = greendyn.reshape(-1, greendyn.shape[-1])
+	antsmb = antsmb.reshape(-1, antsmb.shape[-1])
+	antdyn = antdyn.reshape(-1, antdyn.shape[-1])
+	greensmb = greensmb[:nsamps,:] * 1000.0		# Convert to mm
+	greendyn = greendyn[:nsamps,:] * 1000.0		# Convert to mm
+	antsmb = antsmb[:nsamps,:] * 1000.0		# Convert to mm
+	antdyn = antdyn[:nsamps,:] * 1000.0		# Convert to mm
+	
+	# If the user wants to extrapolate projections based on rates, do so here
+	if cyear_start or cyear_end:
+		for i in np.arange(nsamps):
+			greendyn[i,:] = ExtrapolateRate(greendyn[i,:], targyears, cyear_start, cyear_end)
+			antdyn[i,:] = ExtrapolateRate(antdyn[i,:], targyears, cyear_start, cyear_end)
+	
+	# Sum up the components
+	greennet = greendyn + greensmb
+	antnet = antdyn + antsmb
+	totalnet = greennet + antnet
 	
 	# Write the netCDF output
 	WriteNetCDF(greennet, "GIS", data_years, scenario, pipeline_id)
 	WriteNetCDF(antnet, "AIS", data_years, scenario, pipeline_id)
+	#WriteNetCDF(antsmb, "AISSMB", data_years, scenario, pipeline_id)
+	#WriteNetCDF(antdyn, "AISDYN", data_years, scenario, pipeline_id)
 	
 	# Write out a total icesheets netcdf file
 	WriteNetCDF(totalnet, "TIS", data_years, scenario, pipeline_id)
@@ -357,12 +400,14 @@ if __name__ == '__main__':
 	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
+	parser.add_argument('--crateyear_start', help="Constant rate calculation for projections starts at this year", default=None, type=int)
+	parser.add_argument('--crateyear_end', help="Constant rate calculation for projections ends at this year", default=None, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the projection process on the files specified from the command line argument
-	ar5_project_icesheets(args.seed, args.pyear_start, args.pyear_end, args.pyear_step, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
+	ar5_project_icesheets(args.seed, args.pyear_start, args.pyear_end, args.pyear_step, args.crateyear_start, args.crateyear_end, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
 	
 	exit()

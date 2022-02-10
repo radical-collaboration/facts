@@ -34,6 +34,7 @@ fit:
     script: "ar5_fit_glaciers.py"
     options:
       - "pipeline_id"
+      - "gmip"
     upload_input_data:
       - './modules/ar5/glaciers/ar5_fit_glaciers.py'
     copy_input_data:

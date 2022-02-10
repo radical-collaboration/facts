@@ -74,7 +74,7 @@ def ssp_postprocess_landwaterstorage(locationfilename, pipeline_id):
 	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
+	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
 	#localslq.scale_factor = 0.1
 
 	# Assign attributes

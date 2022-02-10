@@ -1,0 +1,96 @@
+# emulandice glaciers Pipeline
+
+pre-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "emulandice_preprocess_glaciers.py"
+    options:
+      - "input_data_file"
+      - "baseyear"
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/emulandice/glaciers/emulandice_preprocess_glaciers.py"
+
+
+fit:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "emulandice_fit_glaciers.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/emulandice/glaciers/emulandice_fit_glaciers.py"
+
+
+
+project:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf emulandice_glaciers_project_data.tgz; rm emulandice_glaciers_project_data.tgz"
+    script: "emulandice_project_glaciers.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/emulandice/glaciers/emulandice_project_glaciers.py"
+      - "./modules/emulandice/glaciers/data/emulandice_glaciers_project_data.tgz"
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_preprocess.pkl"
+          - "FACTS_CLIMATE_FORCING_DATA.csv"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
+
+post-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf emulandice_glaciers_postprocess_data.tgz; rm emulandice_glaciers_postprocess_data.tgz"
+    script: "emulandice_postprocess_glaciers.py"
+    options:
+      - "locationfile"
+      - "chunksize"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/emulandice/glaciers/emulandice_postprocess_glaciers.py'
+      - './modules/emulandice/glaciers/read_locationfile.py'
+      - './modules/emulandice/glaciers/AssignFP.py'
+      - './modules/emulandice/glaciers/ReadFingerprint.py'
+      - './modules/emulandice/glaciers/data/emulandice_glaciers_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_localsl.nc"

@@ -186,12 +186,12 @@ if __name__ == '__main__':
 		raise Exception("Base year cannot be less than year 2000: baseyear = {}".format(args.baseyear))
 	if(args.baseyear > 2010):
 		raise Exception("Base year cannot be greater than year 2010: baseyear = {}".format(args.baseyear))
-	if(args.baseyear > 2200):
-		raise Exception("Base year cannot be greater than year 2200: baseyear = {}".format(args.baseyear))
+	if(args.baseyear > 2300):
+		raise Exception("Base year cannot be greater than year 2300: baseyear = {}".format(args.baseyear))
 	if(args.pyear_start < 2000):
 		raise Exception("Projection year cannot be less than year 2000: pyear_start = {}".format(args.pyear_start))
-	if(args.pyear_end > 2200):
-		raise Exception("Projection year cannot be greater than year 2200: pyear_end = {}".format(args.pyear_end))
+	if(args.pyear_end > 2300):
+		raise Exception("Projection year cannot be greater than year 2300: pyear_end = {}".format(args.pyear_end))
 	
 	# Make sure the target year stepping is positive
 	if(args.pyear_step < 1):

@@ -12,6 +12,7 @@ pre-process:
     script: "kopp14_preprocess_icesheets.py"
     options:
       - "scenario"
+      - "srocc"
       - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/icesheets/kopp14_preprocess_icesheets.py"
