@@ -22,10 +22,10 @@ def project_glacier1(it,factor,exponent):
 	return scale*factor*(it**exponent)
 	
 
-def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
+def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, ntsamps, nsamps, pipeline_id):
 	
 	# Define the target years
-	targyears = np.arange(2010,2101,10)
+	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 	
 	# Load the preprocessed data
 	data_file = "{}_data.pkl".format(pipeline_id)
@@ -68,6 +68,14 @@ def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
 	
 	# Set the seed for the random number generator
 	np.random.seed(rng_seed)
+	
+	# Divide "nsamps" into "nmsamps" and "ntsamps" if necessary
+	if nsamps is None:
+		nsamps = nmsamps * ntsamps
+	else:
+		temp = int(np.ceil(np.sqrt(nsamps)))
+		nmsamps = int(temp - (temp % len(glparm)))
+		ntsamps = int(np.ceil(nsamps / nmsamps))
 
 	# Generate perfectly correlated samples
 	z=np.random.standard_normal(ntsamps)[:,np.newaxis]
@@ -130,6 +138,7 @@ def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
 	# Flatten the sample data structure
 	glacier = glacier.reshape(-1, glacier.shape[-1]) * 1000  # Convert to mm
 	total_glac_samps = glacier.T
+	total_glac_samps = total_glac_samps[:,:nsamps]
 
 	# Write the total global projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
@@ -137,7 +146,7 @@ def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
 
 	# Define Dimensions
 	year_dim = rootgrp.createDimension("years", len(data_years))
-	samp_dim = rootgrp.createDimension("samples", ntsamps*nmsamps)
+	samp_dim = rootgrp.createDimension("samples", nsamps)
 
 	# Populate dimension variables
 	year_var = rootgrp.createVariable("year", "i4", ("years",))
@@ -156,7 +165,7 @@ def ar5_project_glaciers(rng_seed, nmsamps, ntsamps, pipeline_id):
 
 	# Put the data into the netcdf variables
 	year_var[:] = targyears
-	samp_var[:] = np.arange(0,nmsamps*ntsamps)
+	samp_var[:] = np.arange(nsamps)
 	samps[:,:] = total_glac_samps
 
 	# Close the netcdf
@@ -222,6 +231,10 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nmsamps', help="Number of method samples to generate [default=1000]", default=1000, type=int)
 	parser.add_argument('--ntsamps', help="Number of climate samples to generate [default=450]", default=450, type=int)
+	parser.add_argument('--nsamps', help="Total number of samples to generate (replaces \'nmsamps\' and \'ntsamps\' if provided)", default=None, type=int)
+	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
+	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
@@ -229,6 +242,6 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the projection process on the files specified from the command line argument
-	ar5_project_glaciers(args.seed, args.nmsamps, args.ntsamps, args.pipeline_id)
+	ar5_project_glaciers(args.seed, args.pyear_start, args.pyear_end, args.pyear_step, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
 	
 	exit()

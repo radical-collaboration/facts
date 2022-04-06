@@ -23,6 +23,62 @@ Output:
 
 '''
 
+def extend_pop(popscen, popscenyrs):
+	
+	# Rate as a function of population scenario (in percent)
+	# Obtained from https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/files/documents/2020/Jan/un_2002_world_population_to_2300.pdf
+	# Table 1, page 14 (pdf page 28)
+	rates = np.array([[0.76, 0.04, -0.46, -0.74, -0.75, -0.60, -0.48, -0.38, -0.32, -0.31, -0.31, -0.32],
+						[1.03, 0.51, 0.13, -0.07, -0.15, -0.11, -0.03, 0.03, 0.06, 0.06, 0.05, 0.05], 
+						[1.28, 0.96, 0.64, 0.46, 0.35, 0.36, 0.45, 0.51, 0.54, 0.54, 0.54, 0.54]]) / 100 + 1
+	
+	# Extend these rates over the 25-year period they represent
+	ext_rates = np.repeat(rates, 25, axis=1)
+	ext_years = np.arange(2001, 2301)	# Rates are for years 2001 - 2300
+	
+	# SSP map to population scenario
+	# "popscen" is sorted in terms of lowest to highest projected population, which is
+	# SSP1, SSP5, SSP2, SSP4, SSP3
+	scenario_map = np.array([0,0,1,1,2])
+	
+	# Select the appropriate rates
+	scenario_rates = ext_rates[scenario_map,:].T
+	
+	# Which year in the extended years matches the next population year
+	# Note: SSP projection data should end in year 2100
+	year_idx = np.flatnonzero(ext_years == popscenyrs[-1]) + 1
+	
+	# Initialize variables to hold the extended population and years
+	# These will be appended to popscen and popscenyrs provided
+	ext_pop = []
+	ext_yrs = []
+	
+	# Set the initial population
+	pop0 = popscen[-1,:]
+	
+	# Loop over the extended years
+	for i in np.arange(year_idx, len(ext_years)):
+		
+		# Calculate the population for this year
+		ext_pop.append(pop0 * scenario_rates[i,:])
+		
+		# Set the current population for the next iteration
+		pop0 = np.array(ext_pop[int(i - year_idx)])
+		
+		# Append this year to the extended years
+		ext_yrs.append(ext_years[i])
+	
+	# Cast boundary rates and years from a list into a numpy arrays
+	ext_pop = np.array(ext_pop)
+	ext_yrs = np.array(ext_yrs)
+	
+	# Append the extension onto the original data
+	popscen = np.concatenate((popscen, ext_pop), axis=0)
+	popscenyrs = np.concatenate((popscenyrs, ext_yrs))
+	
+	return(popscen, popscenyrs)	
+
+
 def ssp_fit_landwaterstorage(pipeline_id):
 	
 	# Load the data file
@@ -133,9 +189,13 @@ def ssp_fit_landwaterstorage(pipeline_id):
 	if min(popscenyr)>2000:
 		popscenyr = np.insert(popscenyr,0,range(2000,int(min(popscenyr))))
 		popscen = np.concatenate((np.transpose(mb.repmat(np.interp(range(2000,int(min(popscenyr0))),t0,pop0),5,1)),popscen))
-
+	
+	# Extend the population projections
+	(popscen, popscenyr) = extend_pop(popscen, popscenyr)
+	
+	# Test to make sure the target years are within the projected population years
 	if max(yrs)>max(popscenyr):
-		raise Exception('Target years exceed the SSP population scenarios to 2100')
+		raise Exception("Target year {} exceeds the maximum year of SSP population scenarios {}".format(max(yrs), max(popscenyr)))
 	
 	# Store the variables in a pickle
 	output = {'popscen': popscen, 'popscenyr': popscenyr,\

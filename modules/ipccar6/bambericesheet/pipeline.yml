@@ -1,0 +1,103 @@
+# IPCC AR6 Bamber Ice Sheets Pipeline
+
+pre-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf ipccar6_bambericesheet_preprocess_data.tgz; rm ipccar6_bambericesheet_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "ipccar6_preprocess_bambericesheet.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/ipccar6/bambericesheet/ipccar6_preprocess_bambericesheet.py"
+      - "./modules/ipccar6/bambericesheet/data/ipccar6_bambericesheet_preprocess_data.tgz"
+
+
+fit:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "ipccar6_fit_bambericesheet.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/ipccar6/bambericesheet/ipccar6_fit_bambericesheet.py'
+
+
+project:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "ipccar6_project_bambericesheet.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "replace"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/ipccar6/bambericesheet/ipccar6_project_bambericesheet.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_GIS_globalsl.nc"
+      - "%PIPELINE_ID%_EAIS_globalsl.nc"
+      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_GIS_globalsl.nc"
+      - "%PIPELINE_ID%_EAIS_globalsl.nc"
+      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
+
+post-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf ipccar6_bambericesheet_postprocess_data.tgz; rm ipccar6_bambericesheet_postprocess_data.tgz"
+    script: "ipccar6_postprocess_bambericesheet.py"
+    options:
+      - "locationfile"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/ipccar6/bambericesheet/ipccar6_postprocess_bambericesheet.py'
+      - './modules/ipccar6/bambericesheet/read_locationfile.py'
+      - './modules/ipccar6/bambericesheet/AssignFP.py'
+      - './modules/ipccar6/bambericesheet/ReadFingerprint.py'
+      - './modules/ipccar6/bambericesheet/data/ipccar6_bambericesheet_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_GIS_localsl.nc"
+      - "%PIPELINE_ID%_WAIS_localsl.nc"
+      - "%PIPELINE_ID%_EAIS_localsl.nc"
+      - "%PIPELINE_ID%_AIS_localsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_GIS_localsl.nc"
+      - "%PIPELINE_ID%_WAIS_localsl.nc"
+      - "%PIPELINE_ID%_EAIS_localsl.nc"
+      - "%PIPELINE_ID%_AIS_localsl.nc"
