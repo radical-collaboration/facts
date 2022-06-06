@@ -8,13 +8,16 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ssp_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ssp_landwaterstorage_preprocess_data.tgz; rm ssp_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ssp_preprocess_landwaterstorage.py"
     options:
       - "scenario"
       - "dotriangular"
       - "includepokherl"
       - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "pipeline_id"
     upload_input_data:
       - "./modules/ssp/landwaterstorage/ssp_preprocess_landwaterstorage.py"
@@ -58,6 +61,10 @@ project:
     options:
       - "pipeline_id"
       - "nsamps"
+      - "dcyear_start"
+      - "dcyear_end"
+      - "dcrate_lo"
+      - "dcrate_hi"
       - "seed"
     upload_input_data:
       - './modules/ssp/landwaterstorage/ssp_project_landwaterstorage.py'
@@ -68,6 +75,8 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
@@ -80,19 +89,23 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ssp_landwaterstorage_postprocess_data.tgz"
+    pre_exec: "tar -xzf ssp_landwaterstorage_postprocess_data.tgz; rm ssp_landwaterstorage_postprocess_data.tgz"
     script: "ssp_postprocess_landwaterstorage.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ssp/landwaterstorage/ssp_postprocess_landwaterstorage.py'
-      - './modules/ssp/landwaterstorage/read_bkgdrate.py'
+      - './modules/ssp/landwaterstorage/read_locationfile.py'
       - './modules/ssp/landwaterstorage/AssignFP.py'
       - './modules/ssp/landwaterstorage/data/ssp_landwaterstorage_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

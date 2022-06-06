@@ -1,8 +1,8 @@
 import argparse
 
-''' ipccar6_project_verticallandmotion.py
+''' kopp14_project_verticallandmotion.py
 
-This runs the projection stage for the vertical land motion component of the IPCC AR6
+This runs the projection stage for the vertical land motion component of the Kopp 14
 workflow.
 
 Parameters:
@@ -14,7 +14,7 @@ post-processing.
 
 '''
 
-def ipccar6_project_verticallandmotion(pipeline_id):
+def kopp14_project_verticallandmotion(pipeline_id):
 
 	return(0)
 
@@ -22,8 +22,8 @@ def ipccar6_project_verticallandmotion(pipeline_id):
 if __name__ == '__main__':	
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the projection stage for the IPCC AR6 vertical land motion workflow",\
-	epilog="Note: This is meant to be run as part of the IPCC AR6 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	parser = argparse.ArgumentParser(description="Run the projection stage for the Kopp 14 vertical land motion workflow",\
+	epilog="Note: This is meant to be run as part of the Kopp 14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	ipccar6_project_verticallandmotion(args.pipeline_id)
+	kopp14_project_verticallandmotion(args.pipeline_id)
 	
 	# Done
 	exit()

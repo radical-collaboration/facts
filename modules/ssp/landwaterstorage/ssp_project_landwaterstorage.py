@@ -7,6 +7,7 @@ import argparse
 import os
 import pickle
 import time
+import sys
 from netCDF4 import Dataset
 
 ''' ssp_project_landwaterstorage.py
@@ -28,7 +29,7 @@ Output:
 '''
 
 
-def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
+def ssp_project_landwaterstorage(Nsamps, rng_seed, dcyear_start, dcyear_end, dcrate_lo, dcrate_hi, pipeline_id):
 	
 	# Load the fit file
 	fitfile = "{}_fit.pkl".format(pipeline_id)
@@ -81,6 +82,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 		"rcp19": "ssp1",
     	"rcp26": "ssp1",
         "rcp45": "ssp2",
+        "rcp60": "ssp4",
         "rcp70": "ssp3",
         "rcp85": "ssp5",
         }     
@@ -106,8 +108,8 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	popdraw = popscen[:,SSPorder[targetSSP]]	
 	
 	# interpolate to annual means
-	popdraw = np.interp(np.linspace(2000,2100,101),popscenyr,popdraw)
-	popscenyr = np.linspace(2000,2100,101)
+	popdraw = np.interp(np.linspace(2000,2300,301),popscenyr,popdraw)
+	popscenyr = np.linspace(2000,2300,301)
 
 	# random draw functions for reservoirs and gwd
 
@@ -181,6 +183,25 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	lwssamps = (gwdsamps * 0.8) + damsamps
 	#lwssamps = gwdsamps + damsamps
 	
+	# Apply correction for planned dam construction -------------------
+	# Which years overlap?
+	dc_year_idx = np.flatnonzero(np.logical_and(yrs >= dcyear_start, yrs <= dcyear_end))
+	dc_eyear_idx = np.flatnonzero(yrs > dcyear_end)
+	
+	# Generate samples of the rates
+	dc_rates = np.random.uniform(dcrate_lo, dcrate_hi, Nsamps)
+	
+	# Expand these rates into sea-level change over time
+	dc_samps = np.zeros((len(yrs), Nsamps))
+	dc_samps[dc_year_idx,:] += dc_rates[np.newaxis,:] * (yrs[dc_year_idx,np.newaxis] - dcyear_start)
+	dc_samps[dc_eyear_idx,:] = (dc_rates[np.newaxis,:] * (dcyear_end - dcyear_start)) * np.ones((len(dc_eyear_idx),1))	
+	
+	# Add these dam correction samples back to the projections
+	lwssamps += dc_samps
+	
+	# -----------------------------------------------------------------
+	
+	
 	# Center the samples to the baseyear
 	baseyear_idx = np.isin(yrs, baseyear)
 	center_values = lwssamps[baseyear_idx,:]
@@ -191,7 +212,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	lwssamps = lwssamps[targyear_idx,:]
 	
 	# Store the variables in a pickle
-	output = {'lwssamps': lwssamps, 'years': targyears, 'scen': scen}
+	output = {'lwssamps': lwssamps, 'years': targyears, 'scen': scen, 'baseyear': baseyear}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()
@@ -238,11 +259,16 @@ if __name__ == '__main__':
 	parser.add_argument('--nsamps', '-n', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', '-s', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+	parser.add_argument('--dcyear_start', help="Year in which dam correction application is started [default=2020]", default=2020, type=int)
+	parser.add_argument('--dcyear_end', help="Year in which dam correction application is ended [default=2040]", default=2040, type=int)
+	parser.add_argument('--dcrate_lo', help="Lower bound of dam correction rate [default=0.0]", default=0.0, type=float)
+	parser.add_argument('--dcrate_hi', help="Upper bound of dam correction rate [default=0.0]", default=0.0, type=float)
+	
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	ssp_project_landwaterstorage(args.nsamps, args.seed, args.pipeline_id)
+	ssp_project_landwaterstorage(args.nsamps, args.seed, args.dcyear_start, args.dcyear_end, args.dcrate_lo, args.dcrate_hi, args.pipeline_id)
 	
-	exit()
+	sys.exit()

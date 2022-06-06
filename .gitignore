@@ -6,10 +6,6 @@
 *.csv
 *.mat
 *.tsv
-/experiments/kopp14*
-/experiments/ipcc*
-/experiments/FACTS_ms/
-/modules/ipccar6/
 
 # C extensions
 *.so

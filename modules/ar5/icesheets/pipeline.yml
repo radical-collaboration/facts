@@ -8,14 +8,16 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; rm ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_icesheets.py"
     options:
       - "scenario"
       - "pipeline_id"
-      - "startyear"
+      - "baseyear"
+      - "tlm_data"
     upload_input_data:
       - "./modules/ar5/icesheets/ar5_preprocess_icesheets.py"
+      - "./modules/ar5/icesheets/Import2lmData.py"
       - "./modules/ar5/icesheets/data/ar5_icesheets_preprocess_data.tgz"
 
 
@@ -47,11 +49,15 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_project_data.tgz"
+    pre_exec: "tar -xzf ar5_icesheets_project_data.tgz; rm ar5_icesheets_project_data.tgz"
     script: "ar5_project_icesheets.py"
     options:
       - "nmsamps"
       - "ntsamps"
+      - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "seed"
       - "pipeline_id"
     upload_input_data:
@@ -64,6 +70,8 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_TIS_globalsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
@@ -80,21 +88,27 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_postprocess_data.tgz"
+    pre_exec: "tar -xzf ar5_icesheets_postprocess_data.tgz; rm ar5_icesheets_postprocess_data.tgz"
     script: "ar5_postprocess_icesheets.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/icesheets/ar5_postprocess_icesheets.py'
-      - './modules/ar5/icesheets/read_bkgdrate.py'
+      - './modules/ar5/icesheets/read_locationfile.py'
       - './modules/ar5/icesheets/AssignFP.py'
       - './modules/ar5/icesheets/ReadFingerprint.py'
       - './modules/ar5/icesheets/data/ar5_icesheets_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_GIS_localsl.nc"
+      - "%PIPELINE_ID%_WAIS_localsl.nc"
+      - "%PIPELINE_ID%_EAIS_localsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"

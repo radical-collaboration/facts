@@ -1,0 +1,87 @@
+# Extremesealevel Points-Over-Threshold pipeline configuration
+
+pre-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf extremesealevel_pointsoverthreshold_data.tgz; rm extremesealevel_pointsoverthreshold_data.tgz; pip install --upgrade pip; pip install numpy pandas netCDF4 pyyaml matplotlib"
+    script: "extremesealevel_preprocess_pointsoverthreshold.py"
+    options:
+      - "minDays"
+      - "minYears"
+      - "match_lim"
+      - "center_year"
+      - "pctPot"
+      - "gpd_pot_threshold"
+      - "cluster_lim"
+      - "total_localsl_file"
+      - "target_years"
+      - "gesla_dir"
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/extremesealevel/pointsoverthreshold/extremesealevel_preprocess_pointsoverthreshold.py"
+      - "./modules/extremesealevel/pointsoverthreshold/data/extremesealevel_pointsoverthreshold_data.tgz"
+    copy_shared_data:
+      - "$SHARED/totaled/total-workflow_localsl.nc"
+#    download_output_data:
+#      - "%PIPELINE_ID%_config_data.pkl"
+
+
+fit:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "extremesealevel_fit_pointsoverthreshold.py"
+    options:
+      - "station_data_file"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/extremesealevel/pointsoverthreshold/extremesealevel_fit_pointsoverthreshold.py'
+      - './modules/extremesealevel/pointsoverthreshold/gplike.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_station_data.pkl"
+
+
+project:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "extremesealevel_project_pointsoverthreshold.py"
+    options:
+      - "esl_fit_file"
+      - "slproj_file"
+      - "min_z"
+      - "max_z"
+      - "z_step"
+      - "allowance_freq"
+      - "nsamps"
+      - "seed"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/extremesealevel/pointsoverthreshold/extremesealevel_project_pointsoverthreshold.py'
+      - './modules/extremesealevel/pointsoverthreshold/sample_from_quantiles.py'
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_slproj_data.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    download_output_data:
+      - "%PIPELINE_ID%_extremesl.tgz"
