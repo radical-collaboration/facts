@@ -160,12 +160,6 @@ modules-data
 │           └── full_extremesealevel_pointsoverthreshold_data.tgz
 ├── fair
 │   └── temperature
-│       ├── fair_fit_temperature.py
-│       ├── fair_postprocess_temperature.py
-│       ├── fair_preprocess_temperature.py
-│       ├── fair_project_temperature.py
-│       ├── my_FAIR_forward.py
-│       └── pipeline.yml
 ├── FittedISMIP
 │   └── icesheet
 │       ├── 20201009_CLIMATE_FORCING.csv
@@ -3349,4 +3343,4 @@ modules-data
     ├── total_workflow_dev.py
     └── total_workflow.py
 
-236 directories, 3113 files
+236 directories, 3107 files
