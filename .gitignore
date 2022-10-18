@@ -1,16 +1,5 @@
 .DS_Store
-*.py[cod]
-*data.tgz
-*.h5
-*.nc
 *.pkl
-*.csv
-*.mat
-*.tsv
-*.dat
-*.lst
-*.log
-*.prof
 /re.session*
 /experiments/kopp14*
 /experiments/ipcc*
