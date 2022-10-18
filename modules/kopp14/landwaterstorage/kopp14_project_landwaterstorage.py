@@ -67,6 +67,7 @@ def kopp14_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	yrs = my_config['yrs']
 	dotriangular = my_config['dotriangular']
 	includepokhrel = my_config['includepokhrel']
+	baseyear = my_config['baseyear']
 	
 	# optimisation problem, least squares of fitting dams with sigmoidal function of population
 	def sigmoidal(pop0,a,b,c,I0):
@@ -102,7 +103,7 @@ def kopp14_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	# 25% (default defined error elated to the impoundment rate. Kopp 2014: 2sigma=50%):
 	# - minus sign since reservoir storage leads to GSL drop - 
 
-	pop2000 = pop0[t0==2005]  #population at 2000
+	pop2000 = pop0[t0==2000]  #population at 2000
 
 	def damdraw(seed1, seed2): ###decide max of sigmoid or pop2000->choose
 		poprand = np.array([popdraw(seed1)]) # random draw from population
@@ -147,8 +148,12 @@ def kopp14_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	# add to total lws equivalent gsl    
 	lwssamps = gwdsamps + damsamps
 	
+	# Reference these projections to the base year
+	baseyear_idx = np.flatnonzero(yrs == baseyear)
+	lwssamps = lwssamps - lwssamps[baseyear_idx,:]
+	
 	# Store the variables in a pickle
-	output = {'lwssamps': lwssamps, "years": yrs}
+	output = {'lwssamps': lwssamps, "years": yrs, "baseyear": baseyear}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	pickle.dump(output, outfile)
 	outfile.close()

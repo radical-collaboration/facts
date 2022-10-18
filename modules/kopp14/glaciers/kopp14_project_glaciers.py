@@ -53,7 +53,9 @@ def kopp14_project_glaciers(nsamps, seed, pipeline_id):
 	my_config = pickle.load(f)
 	f.close()
 	
+	scenario = my_config["rcp_scenario"]
 	targyears = my_config["targyears"]
+	baseyear = my_config["baseyear"]
 
 	
 	# Evenly sample an inverse normal distribution and permutate it
@@ -85,6 +87,10 @@ def kopp14_project_glaciers(nsamps, seed, pipeline_id):
 			gicsamps[:,:,i] = np.dot(temp, thisT) + thisMeanGIC
 		else:
 			gicsamps[:,:,i] = np.nan
+	
+	# Reference these projections to the base year
+	baseyear_idx = np.flatnonzero(targyears == baseyear)
+	gicsamps = gicsamps - gicsamps[:,:,baseyear_idx]
 
 	# Save the global glacier and ice caps projections to a pickle
 	output = {"gicsamps": gicsamps}
@@ -113,7 +119,7 @@ def kopp14_project_glaciers(nsamps, seed, pipeline_id):
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from glaciers and ice caps according to Kopp 2014 workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: {}".format(pipeline_id)
+	rootgrp.source = "FACTS: {}; scenario: {}; baseyear: {}".format(pipeline_id, scenario, baseyear)
 	year_var.units = "[-]"
 	samp_var.units = "[-]"
 	samps.units = "mm"

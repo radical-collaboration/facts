@@ -8,11 +8,11 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glaciersfair_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_glaciersfair_preprocess_data.tgz; rm ar5_glaciersfair_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glaciersfair.py"
     options:
       - "scenario"
-      - "startyear"
+      - "baseyear"
       - "fullFAIR"
       - "pipeline_id"
     upload_input_data:
@@ -53,11 +53,15 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glaciersfair_project_data.tgz"
+    pre_exec: "tar -xzf ar5_glaciersfair_project_data.tgz; rm ar5_glaciersfair_project_data.tgz"
     script: "ar5_project_glaciersfair.py"
     options:
       - "nmsamps"
       - "ntsamps"
+      - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "seed"
       - "pipeline_id"
     upload_input_data:
@@ -70,6 +74,8 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
@@ -83,17 +89,19 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glaciersfair_postprocess_data.tgz"
+    pre_exec: "tar -xzf ar5_glaciersfair_postprocess_data.tgz; rm ar5_glaciersfair_postprocess_data.tgz"
     script: "ar5_postprocess_glaciersfair.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/glaciersfair/ar5_postprocess_glaciersfair.py'
-      - './modules/ar5/glaciersfair/read_bkgdrate.py'
+      - './modules/ar5/glaciersfair/read_locationfile.py'
       - './modules/ar5/glaciersfair/AssignFP.py'
       - './modules/ar5/glaciersfair/ReadFingerprint.py'
       - './modules/ar5/glaciersfair/data/ar5_glaciersfair_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       pre-process:
         task1:
@@ -101,5 +109,7 @@ post-process:
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

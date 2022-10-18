@@ -27,8 +27,10 @@ def ProjectGSL(baaccelsamps, araccelsamps, islastdecade, targyears):
 	targyears = targyears.reshape(-1,1)
 	
 	# Calculate the contribution as estimated in BA
+	# Note: "targyears - 1999" is used instead of "targyears - 2000" like in original code
+	# to avoid divide-by-zero problems
 	def proj_over_samp(samp, targyears, islastdecade):
-		return((islastdecade * (targyears - 2005)) + (0.5 * samp * (targyears - 2011)**2 * (targyears > 2011)))
+		return((islastdecade * (targyears - 1999)) + (0.5 * samp * (targyears - 2011)**2 * (targyears > 2011)))
 	def add_last_two(x):
 		return(x[-1] + x[-2])
 		

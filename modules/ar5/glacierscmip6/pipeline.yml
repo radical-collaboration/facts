@@ -8,11 +8,12 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_glacierscmip6_preprocess_data.tgz; rm ar5_glacierscmip6_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glacierscmip6.py"
     options:
       - "scenario"
       - "pipeline_id"
+      - "baseyear"
     upload_input_data:
       - "./modules/ar5/glacierscmip6/ar5_preprocess_glacierscmip6.py"
       - "./modules/ar5/glacierscmip6/data/ar5_glacierscmip6_preprocess_data.tgz"
@@ -48,11 +49,15 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_project_data.tgz"
+    pre_exec: "tar -xzf ar5_glacierscmip6_project_data.tgz; rm ar5_glacierscmip6_project_data.tgz"
     script: "ar5_project_glacierscmip6.py"
     options:
       - "nmsamps"
       - "ntsamps"
+      - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
       - "seed"
       - "pipeline_id"
     upload_input_data:
@@ -65,6 +70,8 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
@@ -78,17 +85,19 @@ post-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_postprocess_data.tgz"
+    pre_exec: "tar -xzf ar5_glacierscmip6_postprocess_data.tgz; rm ar5_glacierscmip6_postprocess_data.tgz"
     script: "ar5_postprocess_glacierscmip6.py"
     options:
-      - "site_ids"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - './modules/ar5/glacierscmip6/ar5_postprocess_glacierscmip6.py'
-      - './modules/ar5/glacierscmip6/read_bkgdrate.py'
+      - './modules/ar5/glacierscmip6/read_locationfile.py'
       - './modules/ar5/glacierscmip6/AssignFP.py'
       - './modules/ar5/glacierscmip6/ReadFingerprint.py'
       - './modules/ar5/glacierscmip6/data/ar5_glacierscmip6_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
     copy_input_data:
       pre-process:
         task1:
@@ -96,5 +105,7 @@ post-process:
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

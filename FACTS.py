@@ -118,8 +118,23 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 				loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
 				copy_list.extend(['{0}/{1}'.format(loc, mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
 	
+	# Copy data from the shared directory
+	if "copy_shared_data" in tcfg.keys():
+		copy_list.extend(['{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_shared_data']])
+		
 	# Append the copy list (if any) to the task object	
 	t.copy_input_data = copy_list
+	
+	# Send the global and local files to the shared directory for totaling
+	copy_output_list = []
+	if "global_total_files" in tcfg.keys():
+		copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['global_total_files']])
+	
+	if "local_total_files" in tcfg.keys():
+		copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
+	
+	# Append the "total" lists to the copy output list
+	t.copy_output_data = copy_output_list
 	
 	# Set the download data for the task
 	download_list = []
@@ -132,6 +147,110 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 
 	# Return the task object
 	return(t)
+
+
+
+def GenerateTotalPipeline(ecfg, exp_dir):
+	
+	# Load the pipeline configuration file for this module
+	pcfg_file = os.path.join(os.path.dirname(__file__), "modules", "total", "pipeline.yml")
+	if not os.path.isfile(pcfg_file):
+		print('{} does not exist'.format(pcfg_file))
+		sys.exit(1)
+	with open(pcfg_file, 'r') as fp:
+		pcfg = yaml.safe_load(fp)
+	
+	# Initialize the pipeline object
+	p = Pipeline()
+	
+	# Give the pipeline a name
+	p.name = "TotalPipe"
+	
+	# Initialize a stage object
+	s = Stage()
+	
+	# Provide a name for this stage
+	s.name = "TotalStage"
+	
+	# Append the experiment directory to the configuration dictionary
+	ecfg['exp_dir'] = exp_dir
+	
+	# Define function to generate a totaling task
+	def GenTotalTask(tcfg, ecfg, pipe_name, stage_name, task_name):
+		
+		# Initialize the global totaling task
+		t = Task()
+		
+		# Define magic variable dictionary
+		mvar_dict = {"PIPELINE_ID": pipe_name}
+	
+		# Give this task object a name
+		t.name = task_name
+	
+		# Pre exec let you load modules, set environment before executing the workload
+		if tcfg['pre_exec'] != "":
+			t.pre_exec = [tcfg['pre_exec']]
+	
+		# Executable to use for the task
+		t.executable = tcfg['executable']
+
+		# List of arguments for the executable
+		t.arguments = [tcfg['script']] + [x for x in tcfg['arguments']] + match_options(tcfg['options'], ecfg['options'])
+
+		# CPU requirements for this task
+		t.cpu_threads = {
+							'processes': tcfg['cpu']['processes'],
+							'process-type': tcfg['cpu']['process-type'],
+							'threads-per-process': tcfg['cpu']['threads-per-process'],
+							'thread-type': tcfg['cpu']['thread-type'],
+						}
+
+		# Upload data from your local machine to the remote machine
+		t.upload_input_data = tcfg['upload_input_data']
+
+		# Copy data from other stages/tasks for use in this task
+		copy_list = []
+		if "copy_input_data" in tcfg.keys():
+			for copy_stage in tcfg['copy_input_data'].keys():
+				for copy_task in tcfg['copy_input_data'][copy_stage].keys():
+					loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
+					copy_list.extend(['{0}/{1}'.format(loc, mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
+	
+		# Append the copy list (if any) to the task object	
+		t.copy_input_data = copy_list
+	
+		# Set the download data for the task
+		download_list = []
+		copy_output_list = []
+		outdir = os.path.join(ecfg['exp_dir'], "output")
+		if "download_output_data" in tcfg.keys():
+			copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['download_output_data']])
+			download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict,x),outdir) for x in tcfg['download_output_data']]) 
+		
+		# Append the "total" lists to the copy output list
+		t.copy_output_data = copy_output_list
+		
+		# Append the download list to this task
+		t.download_output_data = download_list
+		
+		# GenTotalTask done
+		return(t)
+	
+	# Generate the totaling tasks
+	for this_task in pcfg.keys():
+		t = GenTotalTask(pcfg[this_task], ecfg, p.name, s.name, this_task)
+		s.add_tasks(t)
+		
+	# Add the stage to the pipeline
+	p.add_stages(s)
+	
+	return(p)
+
+
+
+#def GenerateESLPipeline():
+#	
+#	return(None)
 
 
 
@@ -153,7 +272,7 @@ def match_options(wopts, eopts):
 
 
 
-def run_experiment(exp_dir, debug_mode):
+def run_experiment(exp_dir, debug_mode, no_total_flag):
 	
 	# Initialize a list for pipelines
 	pipelines = []
@@ -246,8 +365,52 @@ def run_experiment(exp_dir, debug_mode):
 		'project': rcfg['resource-desc']['project']}
 	amgr.resource_desc = res_desc
 	
+	# Load the localization list
+	if(not os.path.isfile(os.path.join(exp_dir, "location.lst"))):
+		with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:
+			templocationfile.write("New_York\t12\t40.70\t-74.01")
+	amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
+	
 	# Assign the list of pipelines to the workflow
 	amgr.workflow = pipelines
+	
+	# Run the SLR projection workflow
+	amgr.run()
+	
+	
+	# If the user want to run extremesealevel module, must perform a total and flag
+	do_extremesl_flag = False
+	if "extremesealevel-options" in ecfg.keys():
+		no_total_flag = False
+		do_extremesl_flag = True
+	
+	# Setup and run the totaling workflow
+	if not no_total_flag:
+		ecfg['total-options']["options"].update(ecfg['global-options'])
+		total_pipeline = GenerateTotalPipeline(ecfg['total-options'], exp_dir)
+		amgr.workflow = [total_pipeline]
+		amgr.run()
+	
+	# Setup the extreme sea-level workflow if needed
+	if do_extremesl_flag:
+		this_mod = "extremesealevel-options"
+		pcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "pipeline.yml")
+		if not os.path.isfile(pcfg_file):
+			print('{} does not exist'.format(pcfg_file))
+			sys.exit(1)
+		with open(pcfg_file, 'r') as fp:
+			pcfg = yaml.safe_load(fp)
+	
+		# Append the global options to this module
+		ecfg[this_mod]["options"].update(global_options)
+	
+		# Generate a pipeline for this module
+		pipe_name = "-".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
+		esl_pipeline = GeneratePipeline(pcfg, ecfg[this_mod], pipe_name, exp_dir)
+		amgr.workflow = [esl_pipeline]
+		amgr.run()
+	
+	# Close the application manager
 	amgr.terminate()
 	
 
@@ -261,6 +424,7 @@ if __name__ == "__main__":
 	
 	# Add arguments for the resource and experiment configuration files
 	parser.add_argument('edir', help="Experiment Directory")
+	parser.add_argument('--no-total', help="Disable totaling of global and local sea-level projection wokflow", action="store_true")
 	parser.add_argument('--debug', help="Enable debug mode", action="store_true")
 	
 	# Parse the arguments
@@ -272,7 +436,7 @@ if __name__ == "__main__":
 		sys.exit(1)
 	
 	# Go ahead and try to run the experiment
-	run_experiment(args.edir, args.debug)
+	run_experiment(args.edir, args.debug, args.no_total)
 
 	
 	#sys.exit(0)

@@ -1,11 +1,11 @@
 .DS_Store
-*.py[cod]
-*data.tgz
-*.nc
 *.pkl
-*.csv
-*.mat
-*.tsv
+/re.session*
+/experiments/kopp14*
+/experiments/ipcc*
+/experiments/FACTS_ms/
+/experiments/test*
+/modules-data/
 
 # C extensions
 *.so

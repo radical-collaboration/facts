@@ -6,7 +6,7 @@ import time
 import argparse
 import re
 from netCDF4 import Dataset
-from read_bkgdrate import read_bkgdrate
+from read_locationfile import ReadLocationFile
 from AssignFP import AssignFP
 
 
@@ -20,14 +20,14 @@ to local sea-level rise
 
 Parameters: 
 samptype = Type of samples to use.  One of (arsamps, basamps, hysamps [default])
-site_ids = Location ids to fingerprint the icesheet contributions (from PSMSL)
+locationfilename = File that contains points for localization
 pipeline_id = Unique identifer for the pipeline running this code
 
 Output: NetCDF file containing local contributions from ice sheets
 
 '''
 
-def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
+def kopp14_postprocess_icesheets(samptype, locationfilename, pipeline_id):
 	
 	# Read in the fitted parameters from parfile
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -38,15 +38,8 @@ def kopp14_postprocess_icesheets(samptype, focus_site_ids, pipeline_id):
 		sys.exit(1)
 	
 	# Load the site locations	
-	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
-	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
-	
-	# Test to make sure the list of sites are valid
-	if np.any([x >= 0 for x in focus_site_ids]):
-		_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
-		site_ids = site_ids[site_inds]
-		site_lats = site_lats[site_inds]
-		site_lons = site_lons[site_inds]
+	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
+	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 	
 	# Extract the data from the file
 	my_data = pickle.load(f)
@@ -79,15 +72,11 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	local_sl_q = np.nanquantile(data, out_q, axis=0)
 	local_sl_q = np.transpose(local_sl_q, (0,2,1))
 	
-	# Calculate the mean and sd of the samples
-	local_sl_mean = np.nanmean(data, axis=0).T
-	local_sl_sd = np.nanstd(data, axis=0).T	
-	
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{0}_{1}_localsl.nc".format(pipeline_id, icesheet_name)), "w", format="NETCDF4")
 
 	# Define Dimensions
-	nsites = local_sl_mean.shape[0]
+	nsites = len(site_ids)
 	nyears = len(targyears)
 	nq = len(out_q)
 	site_dim = rootgrp.createDimension("nsites", nsites)
@@ -102,9 +91,8 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
-	localslmean = rootgrp.createVariable("localSL_mean", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
-	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
+	#localslq.scale_factor = 0.1
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from icesheets according to Kopp 2014 workflow"
@@ -113,8 +101,6 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees East"
 	localslq.units = "mm"
-	localslmean.units = "mm"
-	localslsd.units = "mm"
 
 	# Put the data into the netcdf variables
 	lat_var[:] = site_lats
@@ -123,8 +109,6 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	year_var[:] = targyears
 	q_var[:] = out_q
 	localslq[:,:,:] = local_sl_q
-	localslmean[:,:] = local_sl_mean
-	localslsd[:,:] = local_sl_sd
 
 	# Close the netcdf
 	rootgrp.close()
@@ -139,17 +123,14 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected	
 	parser.add_argument('--samp_type', help="Type of samples to post-process", choices=['hysamps', 'arsamps', 'basamps'], default="hysamps")
-	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
+	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Convert the string of site_ids to a list
-	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
-	
 	# Run the postprocessing for the parameters specified from the command line argument
-	kopp14_postprocess_icesheets(args.samp_type, site_ids, args.pipeline_id)
+	kopp14_postprocess_icesheets(args.samp_type, args.locationfile, args.pipeline_id)
 	
 	# Done
 	exit()

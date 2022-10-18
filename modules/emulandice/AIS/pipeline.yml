@@ -1,0 +1,101 @@
+# emulandice AIS Pipeline
+
+pre-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    script: "emulandice_preprocess_AIS.py"
+    options:
+      - "input_data_file"
+      - "baseyear"
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/emulandice/AIS/emulandice_preprocess_AIS.py"
+
+
+fit:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: ""
+    script: "emulandice_fit_AIS.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/emulandice/AIS/emulandice_fit_AIS.py"
+
+
+
+project:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf emulandice_AIS_project_data.tgz; rm emulandice_AIS_project_data.tgz"
+    script: "emulandice_project_AIS.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "./modules/emulandice/AIS/emulandice_project_AIS.py"
+      - "./modules/emulandice/AIS/data/emulandice_AIS_project_data.tgz"
+    copy_input_data:
+      pre-process:
+        task1:
+          - "%PIPELINE_ID%_preprocess.pkl"
+          - "FACTS_CLIMATE_FORCING_DATA.csv"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_EAIS_globalsl.nc"
+      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_PEN_globalsl.nc"
+      - "%PIPELINE_ID%_globalsl.nc"
+#      - "%PIPELINE_ID%_projections.pkl"
+
+post-process:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "tar -xzf emulandice_AIS_postprocess_data.tgz; rm emulandice_AIS_postprocess_data.tgz"
+    script: "emulandice_postprocess_AIS.py"
+    options:
+      - "locationfile"
+      - "chunksize"
+      - "pipeline_id"
+    upload_input_data:
+      - './modules/emulandice/AIS/emulandice_postprocess_AIS.py'
+      - './modules/emulandice/AIS/read_locationfile.py'
+      - './modules/emulandice/AIS/AssignFP.py'
+      - './modules/emulandice/AIS/ReadFingerprint.py'
+      - './modules/emulandice/AIS/data/emulandice_AIS_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_WAIS_localsl.nc"
+      - "%PIPELINE_ID%_EAIS_localsl.nc"
+      - "%PIPELINE_ID%_localsl.nc"

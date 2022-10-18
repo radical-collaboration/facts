@@ -7,7 +7,7 @@ import argparse
 import pickle
 import numpy as np
 
-def ar5_fit_glacierscmip6(pipeline_id):
+def ar5_fit_glacierscmip6(use_gmip, pipeline_id):
 	
 	# Read in the preprocessed data
 	data_file = "{}_data.pkl".format(pipeline_id)
@@ -36,11 +36,26 @@ def ar5_fit_glacierscmip6(pipeline_id):
 	glmass=1e-3*glmass # m SLE
 
 	# Calibrated parameters for glacier methods
-	glparm=[dict(name='SLA2012',factor=3.39,exponent=0.722,cvgl=0.15),\
-		dict(name='MAR2012',factor=4.35,exponent=0.658,cvgl=0.13),\
-		dict(name='GIE2013',factor=3.57,exponent=0.665,cvgl=0.13),\
-		dict(name='RAD2014',factor=6.21,exponent=0.648,cvgl=0.17),\
-		dict(name='GloGEM',factor=2.88,exponent=0.753,cvgl=0.13)]
+	# 0 = Original AR5 calibration, 1 = GMIP calibration, 2 = GMIP2 calibration
+	if use_gmip == 2:
+		glparm=[dict(name='GLIMB',factor=2.30,exponent=0.753,cvgl=0.209),\
+			dict(name='GloGEM',factor=2.77,exponent=0.793,cvgl=0.171),\
+			dict(name='JULES',factor=3.57,exponent=0.646,cvgl=0.197),\
+			dict(name='Mar-12',factor=3.31,exponent=0.727,cvgl=0.152),\
+			dict(name='OGGM',factor=2.90,exponent=0.791,cvgl=0.177),\
+			dict(name='RAD2014',factor=3.13,exponent=0.788,cvgl=0.147),\
+			dict(name='WAL2001',factor=1.44,exponent=0.852,cvgl=0.208)]
+	elif use_gmip == 1:
+		glparm=[dict(name='SLA2012',factor=3.39,exponent=0.722,cvgl=0.15),\
+			dict(name='MAR2012',factor=4.35,exponent=0.658,cvgl=0.13),\
+			dict(name='GIE2013',factor=3.57,exponent=0.665,cvgl=0.13),\
+			dict(name='RAD2014',factor=6.21,exponent=0.648,cvgl=0.17),\
+			dict(name='GloGEM',factor=2.88,exponent=0.753,cvgl=0.13)]
+	else:
+		glparm=[dict(name='Marzeion',factor=4.96,exponent=0.685,cvgl=0.20),\
+			dict(name='Radic',factor=5.45,exponent=0.676,cvgl=0.20),\
+			dict(name='Slangen',factor=3.44,exponent=0.742,cvgl=0.20),\
+			dict(name='Giesen',factor=3.02,exponent=0.733,cvgl=0.20)]
 	
 	# Write the fitted parameters to a pickle file
 	output = {'dmz': dmz, 'cvgl': cvgl, 'glmass': glmass, 'glparm': glparm}
@@ -63,11 +78,12 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+	parser.add_argument('--gmip', help="Use the GMIP calibration [default=2]", default=2, choices=[0,1,2], type=int)
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the fitting process with the provided command line arguments
-	ar5_fit_glacierscmip6(args.pipeline_id)
+	ar5_fit_glacierscmip6(args.gmip, args.pipeline_id)
 	
 	exit()

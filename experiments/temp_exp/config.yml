@@ -1,34 +1,31 @@
 global-options:
     nsamps: 20000
-    site_ids: 12,10
 
-glaciers:
-    module_set: "ar5"
-    module: "glaciers"
-    options:
-        scenario: "rcp85"
-        nmsamps: 200
-        ntsamps: 100
-        site_ids: 12
-        seed: 1234
-#
 #glaciers:
-#    module_set: "kopp14"
+#    module_set: "ar5"
 #    module: "glaciers"
 #    options:
 #        scenario: "rcp85"
-#        nsamps: 20000
+#        nmsamps: 200
+#        ntsamps: 100
 #        site_ids: 12
 #        seed: 1234
 #
+glaciers:
+    module_set: "kopp14"
+    module: "glaciers"
+    options:
+        scenario: "rcp85"
+        nsamps: 20000
+        seed: 1234
+
 icesheets:
     module_set: "kopp14"
     module: "icesheets"
     options:
         scenario: "rcp85"
         nsamps: 10000
-        seed: 1234
-        site_ids: 12
+        seed: 5678
         samptype: "hysamps"
 #
 #thermalexpansion:
@@ -37,7 +34,6 @@ icesheets:
 #    options:
 #        scenario: "rcp85"
 #        nsamps: 20000
-#        site_ids: 12
 #        seed: 1234
 #
 #landwaterstorage1:
@@ -47,19 +43,17 @@ icesheets:
 #        dotriangular: 0
 #        includepokherl: 0
 #        nsamps: 20000
-#        seed: 1234
-#        site_ids: 12
+#        seed: 91011
 #
-landwaterstorage2:
-    module_set: "ssp"
-    module: "landwaterstorage"
-    options:
-        scenario: "rcp85"
-        dotriangular: 0
-        includepokherl: 0
-        nsamps: 20000
-        seed: 1234
-        site_ids: 12
+#landwaterstorage2:
+#    module_set: "ssp"
+#    module: "landwaterstorage"
+#    options:
+#        scenario: "rcp85"
+#        dotriangular: 0
+#        includepokherl: 0
+#        nsamps: 20000
+#        seed: 1234
 #
 #directsample1:
 #    module_set: "genmod"
@@ -79,19 +73,30 @@ landwaterstorage2:
 #        replace: 1
 #        seed: 1234
 #
-#verticallandmotion:
-#    module_set: "kopp14"
-#    module: "verticallandmotion"
-#    options:
-#        nsamps: 20000
-#        seed: 1234
-#        site_ids: 12
-#
+verticallandmotion:
+    module_set: "kopp14"
+    module: "verticallandmotion"
+    options:
+        nsamps: 20000
+        seed: 121314
+
 #oceandynamics:
 #    module_set: "kopp14"
 #    module: "oceandynamics"
 #    options:
 #        scenario: "rcp85"
 #        nsamps: 20000
-#        seed: 1234
-#        site_ids: 12,10
+#        seed: 151617
+
+total-options:
+    options:
+        nsamps: 20000
+        seed: 1122
+
+extremesealevel-options:
+    module_set: "extremesealevel"
+    module: "pointsoverthreshold"
+    options:
+        target_years: 2050,2100
+        nsamps: 20000
+        seed: 3344

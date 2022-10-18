@@ -8,11 +8,15 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_oceandynamics_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
+    pre_exec: "tar -xzf kopp14_oceandynamics_data.tgz; rm kopp14_oceandynamics_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
     script: "kopp14_preprocess_oceandynamics.py"
     options:
       - "scenario"
-      - "site_ids"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "locationfile"
       - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/oceandynamics/kopp14_preprocess_oceandynamics.py"
@@ -21,10 +25,12 @@ pre-process:
       - "./modules/kopp14/oceandynamics/SmoothZOSTOGA.py"
       - "./modules/kopp14/oceandynamics/DriftCorr.py"
       - "./modules/kopp14/oceandynamics/Smooth.py"
-      - "./modules/kopp14/oceandynamics/read_bkgdrate.py"
+      - "./modules/kopp14/oceandynamics/read_locationfile.py"
       - "./modules/kopp14/oceandynamics/read_CSIRO.py"
       - "./modules/kopp14/oceandynamics/readMarzeion.py"
       - "./modules/kopp14/oceandynamics/data/kopp14_oceandynamics_data.tgz"
+    copy_shared_data:
+      - '$SHARED/location.lst'
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
@@ -73,6 +79,8 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_thermalexp_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_globalsl.nc"
 
@@ -104,5 +112,7 @@ post-process:
       project:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
     download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

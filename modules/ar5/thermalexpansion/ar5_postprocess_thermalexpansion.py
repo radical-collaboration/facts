@@ -5,7 +5,7 @@ import os
 import argparse
 import time
 import re
-from read_bkgdrate import read_bkgdrate
+from read_locationfile import ReadLocationFile
 from netCDF4 import Dataset
 
 ''' ar5_postprocess_thermalexp.py
@@ -15,7 +15,7 @@ This task generates localized contributions to sea-level change due to thermoste
 of the ocean.
 
 Parameters: 
-site_ids = Location IDs of sites to localize projections (from PSMSL)
+locationfile = File that contains points for localization
 pipeline_id = Unique identifier for the pipeline running this code
 
 Output: NetCDF file containing the local sea-level rise projections
@@ -26,7 +26,7 @@ localized slr projections for the site ids provided.
 
 '''
 
-def ar5_postprocess_thermalexp(focus_site_ids, pipeline_id):
+def ar5_postprocess_thermalexp(locationfilename, pipeline_id):
 	
 	# Load the projection file
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -45,15 +45,8 @@ def ar5_postprocess_thermalexp(focus_site_ids, pipeline_id):
 	rcp_scenario = my_proj['scenario']
 	
 	# Load the site locations	
-	ratefile = os.path.join(os.path.dirname(__file__), "bkgdrate.tsv")
-	(_, site_ids, site_lats, site_lons) = read_bkgdrate(ratefile, True)
-	
-	# FOR SIMPLICITY, LOCALIZE TO ONLY A FEW LOCATIONS
-	if np.any([x >= 0 for x in focus_site_ids]):
-		_, _, site_inds = np.intersect1d(focus_site_ids, site_ids, return_indices=True)
-		site_ids = site_ids[site_inds]
-		site_lats = site_lats[site_inds]
-		site_lons = site_lons[site_inds]
+	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
+	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 	
 	# Initialize variable to hold the localized projections
 	(nsamps, ntimes) = thermsamps.shape
@@ -66,10 +59,6 @@ def ar5_postprocess_thermalexp(focus_site_ids, pipeline_id):
 	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
 	nq = len(out_q)
 	local_sl_q = np.nanquantile(local_sl, out_q, axis=1)
-	
-	# Calculate the mean and sd of the samples
-	local_sl_mean = np.nanmean(local_sl, axis=1)
-	local_sl_sd = np.nanstd(local_sl, axis=1)
 	
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
@@ -87,9 +76,8 @@ def ar5_postprocess_thermalexp(focus_site_ids, pipeline_id):
 	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles", "nsites", "years"), zlib=True, least_significant_digit=2)
-	localslmean = rootgrp.createVariable("localSL_mean", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
-	localslsd = rootgrp.createVariable("localSL_std", "f4", ("nsites", "years"), zlib=True, least_significant_digit=2)
+	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
+	#localslq.scale_factor = 0.1
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from thermal expansion according to AR5 workflow"
@@ -98,8 +86,6 @@ def ar5_postprocess_thermalexp(focus_site_ids, pipeline_id):
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees East"
 	localslq.units = "mm"
-	localslmean.units = "mm"
-	localslsd.units = "mm"
 
 	# Put the data into the netcdf variables
 	lat_var[:] = site_lats
@@ -108,8 +94,6 @@ def ar5_postprocess_thermalexp(focus_site_ids, pipeline_id):
 	year_var[:] = targyears
 	q_var[:] = out_q
 	localslq[:,:,:] = local_sl_q
-	localslmean[:,:] = local_sl_mean
-	localslsd[:,:] = local_sl_sd
 
 	# Close the netcdf
 	rootgrp.close()
@@ -121,16 +105,13 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the AR5 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected
-	parser.add_argument('--site_ids', help="Site ID numbers (from PSMSL database) to make projections for")
+	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
-	# Convert the string of site_ids to a list
-	site_ids = [int(x) for x in re.split(",\s*", str(args.site_ids))]
-	
 	# Run the projection process on the files specified from the command line argument
-	ar5_postprocess_thermalexp(site_ids, args.pipeline_id)
+	ar5_postprocess_thermalexp(args.locationfile, args.pipeline_id)
 	
 	exit()
