@@ -16,7 +16,7 @@
 /experiments/ipcc*
 /experiments/FACTS_ms/
 /experiments/test*
-/modules/ipccar6/
+/modules-data/
 
 # C extensions
 *.so
