@@ -198,11 +198,11 @@ def GenerateTotalPipeline(ecfg, exp_dir):
         t.arguments = [tcfg['script']] + [x for x in tcfg['arguments']] + match_options(tcfg['options'], ecfg['options'])
 
         # CPU requirements for this task
-        t.cpu_threads = {
-                            'processes': tcfg['cpu']['processes'],
-                            'process-type': tcfg['cpu']['process-type'],
-                            'threads-per-process': tcfg['cpu']['threads-per-process'],
-                            'thread-type': tcfg['cpu']['thread-type'],
+        t.cpu_reqs = {
+                            'cpu_processes': tcfg['cpu']['processes'],
+                            'cpu_process_type': tcfg['cpu']['process-type'],
+                            'cpu_threads': tcfg['cpu']['threads-per-process'],
+                            'cpu_thread_type': tcfg['cpu']['thread-type'],
                         }
 
         # Upload data from your local machine to the remote machine
@@ -405,7 +405,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
         ecfg[this_mod]["options"].update(global_options)
 
         # Generate a pipeline for this module
-        pipe_name = "-".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
+        pipe_name = ".".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
         esl_pipeline = GeneratePipeline(pcfg, ecfg[this_mod], pipe_name, exp_dir)
         amgr.workflow = [esl_pipeline]
         amgr.run()
