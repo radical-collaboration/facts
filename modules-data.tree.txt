@@ -1,0 +1,3407 @@
+modules-data/
+├── ar5
+│   ├── glaciers
+│   │   ├── FPRINT
+│   │   │   ├── fprint_gis.nc
+│   │   │   ├── fprint_glac10.nc
+│   │   │   ├── fprint_glac11.nc
+│   │   │   ├── fprint_glac12.nc
+│   │   │   ├── fprint_glac13.nc
+│   │   │   ├── fprint_glac14.nc
+│   │   │   ├── fprint_glac15.nc
+│   │   │   ├── fprint_glac16.nc
+│   │   │   ├── fprint_glac17.nc
+│   │   │   ├── fprint_glac1.nc
+│   │   │   ├── fprint_glac2.nc
+│   │   │   ├── fprint_glac3.nc
+│   │   │   ├── fprint_glac4.nc
+│   │   │   ├── fprint_glac5.nc
+│   │   │   ├── fprint_glac6.nc
+│   │   │   ├── fprint_glac7.nc
+│   │   │   ├── fprint_glac8.nc
+│   │   │   └── fprint_glac9.nc
+│   │   └── twolayer_SSPs.h5
+│   ├── glacierscmip6
+│   │   └── tas -> ../../tlm/oceandynamics/data/cmip6/tas
+│   ├── glaciersfair
+│   │   ├── CLIMATE_FORCING_1850.csv
+│   │   └── FAIR_.nc-missing
+│   ├── icesheets
+│   │   ├── FPRINT
+│   │   │   ├── fprint_eais.nc
+│   │   │   ├── fprint_gis.nc
+│   │   │   └── fprint_wais.nc
+│   │   ├── rcp26_expansion_mean.nc
+│   │   ├── rcp26_expansion_sd.nc
+│   │   ├── rcp26_temperature_mean.nc
+│   │   ├── rcp26_temperature_sd.nc
+│   │   ├── rcp45_expansion_mean.nc
+│   │   ├── rcp45_expansion_sd.nc
+│   │   ├── rcp45_temperature_mean.nc
+│   │   ├── rcp45_temperature_sd.nc
+│   │   ├── rcp60_expansion_mean.nc
+│   │   ├── rcp60_expansion_sd.nc
+│   │   ├── rcp60_temperature_mean.nc
+│   │   ├── rcp60_temperature_sd.nc
+│   │   ├── rcp85_expansion_mean.nc
+│   │   ├── rcp85_expansion_sd.nc
+│   │   ├── rcp85_temperature_mean.nc
+│   │   ├── rcp85_temperature_sd.nc
+│   │   ├── ssp119_expansion_mean.nc
+│   │   ├── ssp119_expansion_sd.nc
+│   │   ├── ssp119_temperature_mean.nc
+│   │   ├── ssp119_temperature_sd.nc
+│   │   ├── ssp126_expansion_mean.nc
+│   │   ├── ssp126_expansion_sd.nc
+│   │   ├── ssp126_temperature_mean.nc
+│   │   ├── ssp126_temperature_sd.nc
+│   │   ├── ssp245_expansion_mean.nc
+│   │   ├── ssp245_expansion_sd.nc
+│   │   ├── ssp245_temperature_mean.nc
+│   │   ├── ssp245_temperature_sd.nc
+│   │   ├── ssp370_expansion_mean.nc
+│   │   ├── ssp370_expansion_sd.nc
+│   │   ├── ssp370_temperature_mean.nc
+│   │   ├── ssp370_temperature_sd.nc
+│   │   ├── ssp434_expansion_mean.nc
+│   │   ├── ssp434_expansion_sd.nc
+│   │   ├── ssp434_temperature_mean.nc
+│   │   ├── ssp434_temperature_sd.nc
+│   │   ├── ssp460_expansion_mean.nc
+│   │   ├── ssp460_expansion_sd.nc
+│   │   ├── ssp460_temperature_mean.nc
+│   │   ├── ssp460_temperature_sd.nc
+│   │   ├── ssp585_expansion_mean.nc
+│   │   ├── ssp585_expansion_sd.nc
+│   │   ├── ssp585_temperature_mean.nc
+│   │   ├── ssp585_temperature_sd.nc
+│   │   └── twolayer_SSPs.h5
+│   └── thermalexpansion
+│       ├── rcp26_expansion_mean.nc
+│       ├── rcp26_expansion_sd.nc
+│       ├── rcp26_temperature_mean.nc
+│       ├── rcp26_temperature_sd.nc
+│       ├── rcp45_expansion_mean.nc
+│       ├── rcp45_expansion_sd.nc
+│       ├── rcp45_temperature_mean.nc
+│       ├── rcp45_temperature_sd.nc
+│       ├── rcp60_expansion_mean.nc
+│       ├── rcp60_expansion_sd.nc
+│       ├── rcp60_temperature_mean.nc
+│       ├── rcp60_temperature_sd.nc
+│       ├── rcp85_expansion_mean.nc
+│       ├── rcp85_expansion_sd.nc
+│       ├── rcp85_temperature_mean.nc
+│       ├── rcp85_temperature_sd.nc
+│       ├── ssp119_expansion_mean.nc
+│       ├── ssp119_expansion_sd.nc
+│       ├── ssp119_temperature_mean.nc
+│       ├── ssp119_temperature_sd.nc
+│       ├── ssp126_expansion_mean.nc
+│       ├── ssp126_expansion_sd.nc
+│       ├── ssp126_temperature_mean.nc
+│       ├── ssp126_temperature_sd.nc
+│       ├── ssp245_expansion_mean.nc
+│       ├── ssp245_expansion_sd.nc
+│       ├── ssp245_temperature_mean.nc
+│       ├── ssp245_temperature_sd.nc
+│       ├── ssp370_expansion_mean.nc
+│       ├── ssp370_expansion_sd.nc
+│       ├── ssp370_temperature_mean.nc
+│       ├── ssp370_temperature_sd.nc
+│       ├── ssp434_expansion_mean.nc
+│       ├── ssp434_expansion_sd.nc
+│       ├── ssp434_temperature_mean.nc
+│       ├── ssp434_temperature_sd.nc
+│       ├── ssp460_expansion_mean.nc
+│       ├── ssp460_expansion_sd.nc
+│       ├── ssp460_temperature_mean.nc
+│       ├── ssp460_temperature_sd.nc
+│       ├── ssp585_expansion_mean.nc
+│       ├── ssp585_expansion_sd.nc
+│       ├── ssp585_temperature_mean.nc
+│       └── ssp585_temperature_sd.nc
+├── dp16
+│   ├── dp16_eais_.nc-missing
+│   ├── dp16_wais_.nc-missing
+│   └── FPRINT
+│       ├── fprint_eais.nc
+│       └── fprint_wais.nc
+├── dp21
+│   ├── dp21_eais_rcp26.nc
+│   ├── dp21_eais_rcp45.nc
+│   ├── dp21_eais_rcp85.nc
+│   ├── dp21_wais_rcp26.nc
+│   ├── dp21_wais_rcp45.nc
+│   ├── dp21_wais_rcp85.nc
+│   └── FPRINT
+│       ├── fprint_eais.nc
+│       └── fprint_wais.nc
+├── emulandice
+│   ├── emulandice-master
+│   │   ├── DESCRIPTION
+│   │   ├── emulandice.Rproj
+│   │   ├── inst
+│   │   │   └── extdata
+│   │   │       ├── 20201105_CLIMATE_FORCING.csv
+│   │   │       ├── 20201106_SLE_SIMULATIONS.csv
+│   │   │       ├── 20210215_CLIMATE_FORCING_IPCC.csv
+│   │   │       ├── data_for_tamsin.txt
+│   │   │       ├── FACTS_CLIMATE_FORCING.csv
+│   │   │       ├── output_gamma0_NonLocal_MeanAnt.dat
+│   │   │       ├── output_gamma0_NonLocal_PIGL.dat
+│   │   │       └── regionnames.txt
+│   │   ├── makeNewInstance.sh
+│   │   ├── man
+│   │   │   ├── e.Rd
+│   │   │   ├── main.Rd
+│   │   │   ├── plot_mme.Rd
+│   │   │   ├── read_forcing.Rd
+│   │   │   ├── read_melt.Rd
+│   │   │   ├── read_sealevel.Rd
+│   │   │   └── sensitivity_analysis.Rd
+│   │   ├── NAMESPACE
+│   │   ├── R
+│   │   │   ├── main.R
+│   │   │   ├── plot_mme.R
+│   │   │   ├── read_data.R
+│   │   │   └── sensitivity_analysis.R
+│   │   ├── README.md
+│   │   ├── run.sh
+│   │   ├── steer
+│   │   │   └── steer.R
+│   │   └── template
+│   │       ├── DESCRIPTION.foot
+│   │       ├── FACTS_CLIMATE_FORCING.csv.example
+│   │       └── FACTS_CLIMATE_FORCING.csv.head
+│   ├── FACTS_CLIMATE_FORCING.csv
+│   └── FPRINT
+│       ├── fprint_eais.nc
+│       ├── fprint_gis.nc
+│       ├── fprint_glac10.nc
+│       ├── fprint_glac11.nc
+│       ├── fprint_glac12.nc
+│       ├── fprint_glac13.nc
+│       ├── fprint_glac14.nc
+│       ├── fprint_glac15.nc
+│       ├── fprint_glac16.nc
+│       ├── fprint_glac17.nc
+│       ├── fprint_glac1.nc
+│       ├── fprint_glac2.nc
+│       ├── fprint_glac3.nc
+│       ├── fprint_glac4.nc
+│       ├── fprint_glac5.nc
+│       ├── fprint_glac6.nc
+│       ├── fprint_glac7.nc
+│       ├── fprint_glac8.nc
+│       ├── fprint_glac9.nc
+│       └── fprint_wais.nc
+├── extremesealevel
+│   └── pointsoverthreshold
+│       └── data
+│           ├── extremesealevel_pointsoverthreshold_data.tgz
+│           └── full_extremesealevel_pointsoverthreshold_data.tgz
+├── fair
+│   └── temperature
+│       ├── fair_fit_temperature.py
+│       ├── fair_postprocess_temperature.py
+│       ├── fair_preprocess_temperature.py
+│       ├── fair_project_temperature.py
+│       ├── my_FAIR_forward.py
+│       └── pipeline.yml
+├── FittedISMIP
+│   └── icesheet
+│       ├── 20201009_CLIMATE_FORCING.csv
+│       ├── FittedParms_AIS_EAIS.csv
+│       ├── FittedParms_AIS_PEN.csv
+│       ├── FittedParms_AIS_WAIS.csv
+│       ├── FittedParms_GrIS_ALL.csv
+│       ├── FittedParms_GrIS_ALL.csv.old.csv
+│       ├── FPRINT
+│       │   ├── fprint_eais.nc
+│       │   ├── fprint_gis.nc
+│       │   └── fprint_wais.nc
+│       └── twolayer_SSPs.h5
+├── genmod
+│   └── directsample
+│       ├── genmod_preprocess_directsample.py
+│       ├── genmod_project_directsample.py
+│       └── pipeline.yml
+├── ipccar6
+│   ├── bambericesheet
+│   │   ├── FPRINT
+│   │   │   ├── fprint_eais.nc
+│   │   │   ├── fprint_gis.nc
+│   │   │   └── fprint_wais.nc
+│   │   └── SLRProjections190726core_SEJ_full.mat
+│   ├── gmipemuglaciers
+│   │   ├── 191208_annual_CMIP6
+│   │   │   ├── projections_SSP126.csv
+│   │   │   ├── projections_SSP245.csv
+│   │   │   ├── projections_SSP370.csv
+│   │   │   ├── projections_SSP585.csv
+│   │   │   ├── summary_SSP126.csv
+│   │   │   ├── summary_SSP245.csv
+│   │   │   ├── summary_SSP370.csv
+│   │   │   └── summary_SSP585.csv
+│   │   ├── 201011_proj_TIMESERIES
+│   │   │   ├── projections_FAIR_SSP119.csv
+│   │   │   ├── projections_FAIR_SSP126.csv
+│   │   │   ├── projections_FAIR_SSP245.csv
+│   │   │   ├── projections_FAIR_SSP370.csv
+│   │   │   └── projections_FAIR_SSP585.csv
+│   │   ├── 20201009_CLIMATE_FORCING.csv
+│   │   ├── 20201112_CLIMATE_FORCING_IPCC.csv
+│   │   ├── 20210215_CLIMATE_FORCING_IPCC.csv
+│   │   ├── 2lm_projections
+│   │   │   ├── projections_FAIR_SSP119.csv
+│   │   │   ├── projections_FAIR_SSP126.csv
+│   │   │   ├── projections_FAIR_SSP245.csv
+│   │   │   ├── projections_FAIR_SSP370.csv
+│   │   │   └── projections_FAIR_SSP585.csv
+│   │   ├── fingerprint_region_map.csv
+│   │   └── FPRINT
+│   │       ├── fprint_gis.nc
+│   │       ├── fprint_glac10.nc
+│   │       ├── fprint_glac11.nc
+│   │       ├── fprint_glac12.nc
+│   │       ├── fprint_glac13.nc
+│   │       ├── fprint_glac14.nc
+│   │       ├── fprint_glac15.nc
+│   │       ├── fprint_glac16.nc
+│   │       ├── fprint_glac17.nc
+│   │       ├── fprint_glac1.nc
+│   │       ├── fprint_glac2.nc
+│   │       ├── fprint_glac3.nc
+│   │       ├── fprint_glac4.nc
+│   │       ├── fprint_glac5.nc
+│   │       ├── fprint_glac6.nc
+│   │       ├── fprint_glac7.nc
+│   │       ├── fprint_glac8.nc
+│   │       ├── fprint_glac9.nc
+│   │       └── fprint_wais.nc
+│   ├── ismipemuicesheet
+│   │   ├── 191208_annual_CMIP6
+│   │   │   ├── projections_SSP126.csv
+│   │   │   ├── projections_SSP245.csv
+│   │   │   ├── projections_SSP370.csv
+│   │   │   ├── projections_SSP585.csv
+│   │   │   ├── summary_SSP126.csv
+│   │   │   ├── summary_SSP245.csv
+│   │   │   ├── summary_SSP370.csv
+│   │   │   └── summary_SSP585.csv
+│   │   ├── 191220_emulated
+│   │   │   ├── projections_FAIR_SSP119.csv
+│   │   │   ├── projections_FAIR_SSP126.csv
+│   │   │   ├── projections_FAIR_SSP245.csv
+│   │   │   ├── projections_FAIR_SSP370.csv
+│   │   │   └── projections_FAIR_SSP585.csv
+│   │   ├── 201011_proj_TIMESERIES
+│   │   │   ├── projections_FAIR_SSP119.csv
+│   │   │   ├── projections_FAIR_SSP126.csv
+│   │   │   ├── projections_FAIR_SSP245.csv
+│   │   │   ├── projections_FAIR_SSP370.csv
+│   │   │   └── projections_FAIR_SSP585.csv
+│   │   ├── 20201009_CLIMATE_FORCING.csv
+│   │   ├── 20201106_SLE_SIMULATIONS_SI.csv
+│   │   ├── 20201112_CLIMATE_FORCING_IPCC.csv
+│   │   ├── 20210215_CLIMATE_FORCING_IPCC.csv
+│   │   ├── 2lm_projections
+│   │   │   ├── projections_FAIR_SSP119.csv
+│   │   │   ├── projections_FAIR_SSP126.csv
+│   │   │   ├── projections_FAIR_SSP245.csv
+│   │   │   ├── projections_FAIR_SSP370.csv
+│   │   │   └── projections_FAIR_SSP585.csv
+│   │   ├── CLIMATE_FORCING_1850.csv
+│   │   ├── FPRINT
+│   │   │   ├── fprint_eais.nc
+│   │   │   ├── fprint_gis.nc
+│   │   │   └── fprint_wais.nc
+│   │   └── SLE_SIMULATIONS.csv
+│   └── larmipicesheet
+│       ├── data
+│       │   ├── larmip_data_2lm
+│       │   │   ├── SL_AISM_VUB_SSP119.nc
+│       │   │   ├── SL_AISM_VUB_SSP126.nc
+│       │   │   ├── SL_AISM_VUB_SSP245.nc
+│       │   │   ├── SL_AISM_VUB_SSP370.nc
+│       │   │   ├── SL_AISM_VUB_SSP460.nc
+│       │   │   ├── SL_AISM_VUB_SSP585.nc
+│       │   │   ├── SL_BISI_LBL_SSP119.nc
+│       │   │   ├── SL_BISI_LBL_SSP126.nc
+│       │   │   ├── SL_BISI_LBL_SSP245.nc
+│       │   │   ├── SL_BISI_LBL_SSP370.nc
+│       │   │   ├── SL_BISI_LBL_SSP460.nc
+│       │   │   ├── SL_BISI_LBL_SSP585.nc
+│       │   │   ├── SL_CISM_NCA_SSP119.nc
+│       │   │   ├── SL_CISM_NCA_SSP126.nc
+│       │   │   ├── SL_CISM_NCA_SSP245.nc
+│       │   │   ├── SL_CISM_NCA_SSP370.nc
+│       │   │   ├── SL_CISM_NCA_SSP460.nc
+│       │   │   ├── SL_CISM_NCA_SSP585.nc
+│       │   │   ├── SL_FETI_ULB_SSP119.nc
+│       │   │   ├── SL_FETI_ULB_SSP126.nc
+│       │   │   ├── SL_FETI_ULB_SSP245.nc
+│       │   │   ├── SL_FETI_ULB_SSP370.nc
+│       │   │   ├── SL_FETI_ULB_SSP460.nc
+│       │   │   ├── SL_FETI_ULB_SSP585.nc
+│       │   │   ├── SL_GRIS_LSC_SSP119.nc
+│       │   │   ├── SL_GRIS_LSC_SSP126.nc
+│       │   │   ├── SL_GRIS_LSC_SSP245.nc
+│       │   │   ├── SL_GRIS_LSC_SSP370.nc
+│       │   │   ├── SL_GRIS_LSC_SSP460.nc
+│       │   │   ├── SL_GRIS_LSC_SSP585.nc
+│       │   │   ├── SL_IMAU_UU_SSP119.nc
+│       │   │   ├── SL_IMAU_UU_SSP126.nc
+│       │   │   ├── SL_IMAU_UU_SSP245.nc
+│       │   │   ├── SL_IMAU_UU_SSP370.nc
+│       │   │   ├── SL_IMAU_UU_SSP460.nc
+│       │   │   ├── SL_IMAU_UU_SSP585.nc
+│       │   │   ├── SL_ISSM_JPL_SSP119.nc
+│       │   │   ├── SL_ISSM_JPL_SSP126.nc
+│       │   │   ├── SL_ISSM_JPL_SSP245.nc
+│       │   │   ├── SL_ISSM_JPL_SSP370.nc
+│       │   │   ├── SL_ISSM_JPL_SSP460.nc
+│       │   │   ├── SL_ISSM_JPL_SSP585.nc
+│       │   │   ├── SL_ISSM_UCI_SSP119.nc
+│       │   │   ├── SL_ISSM_UCI_SSP126.nc
+│       │   │   ├── SL_ISSM_UCI_SSP245.nc
+│       │   │   ├── SL_ISSM_UCI_SSP370.nc
+│       │   │   ├── SL_ISSM_UCI_SSP460.nc
+│       │   │   ├── SL_ISSM_UCI_SSP585.nc
+│       │   │   ├── SL_MALI_DOE_SSP119.nc
+│       │   │   ├── SL_MALI_DOE_SSP126.nc
+│       │   │   ├── SL_MALI_DOE_SSP245.nc
+│       │   │   ├── SL_MALI_DOE_SSP370.nc
+│       │   │   ├── SL_MALI_DOE_SSP460.nc
+│       │   │   ├── SL_MALI_DOE_SSP585.nc
+│       │   │   ├── SL_PISM_AWI_SSP119.nc
+│       │   │   ├── SL_PISM_AWI_SSP126.nc
+│       │   │   ├── SL_PISM_AWI_SSP245.nc
+│       │   │   ├── SL_PISM_AWI_SSP370.nc
+│       │   │   ├── SL_PISM_AWI_SSP460.nc
+│       │   │   ├── SL_PISM_AWI_SSP585.nc
+│       │   │   ├── SL_PISM_DMI_SSP119.nc
+│       │   │   ├── SL_PISM_DMI_SSP126.nc
+│       │   │   ├── SL_PISM_DMI_SSP245.nc
+│       │   │   ├── SL_PISM_DMI_SSP370.nc
+│       │   │   ├── SL_PISM_DMI_SSP460.nc
+│       │   │   ├── SL_PISM_DMI_SSP585.nc
+│       │   │   ├── SL_PISM_PIK_SSP119.nc
+│       │   │   ├── SL_PISM_PIK_SSP126.nc
+│       │   │   ├── SL_PISM_PIK_SSP245.nc
+│       │   │   ├── SL_PISM_PIK_SSP370.nc
+│       │   │   ├── SL_PISM_PIK_SSP460.nc
+│       │   │   ├── SL_PISM_PIK_SSP585.nc
+│       │   │   ├── SL_PISM_VUW_SSP119.nc
+│       │   │   ├── SL_PISM_VUW_SSP126.nc
+│       │   │   ├── SL_PISM_VUW_SSP245.nc
+│       │   │   ├── SL_PISM_VUW_SSP370.nc
+│       │   │   ├── SL_PISM_VUW_SSP460.nc
+│       │   │   ├── SL_PISM_VUW_SSP585.nc
+│       │   │   ├── SL_PS3D_PSU_SSP119.nc
+│       │   │   ├── SL_PS3D_PSU_SSP126.nc
+│       │   │   ├── SL_PS3D_PSU_SSP245.nc
+│       │   │   ├── SL_PS3D_PSU_SSP370.nc
+│       │   │   ├── SL_PS3D_PSU_SSP460.nc
+│       │   │   ├── SL_PS3D_PSU_SSP585.nc
+│       │   │   ├── SL_SICO_ILTS_SSP119.nc
+│       │   │   ├── SL_SICO_ILTS_SSP126.nc
+│       │   │   ├── SL_SICO_ILTS_SSP245.nc
+│       │   │   ├── SL_SICO_ILTS_SSP370.nc
+│       │   │   ├── SL_SICO_ILTS_SSP460.nc
+│       │   │   ├── SL_SICO_ILTS_SSP585.nc
+│       │   │   ├── SL_UA_UNN_SSP119.nc
+│       │   │   ├── SL_UA_UNN_SSP126.nc
+│       │   │   ├── SL_UA_UNN_SSP245.nc
+│       │   │   ├── SL_UA_UNN_SSP370.nc
+│       │   │   ├── SL_UA_UNN_SSP460.nc
+│       │   │   └── SL_UA_UNN_SSP585.nc
+│       │   ├── larmip_data_2lm_ismip6
+│       │   │   ├── SL_AISM_VUB_SSP119.nc
+│       │   │   ├── SL_AISM_VUB_SSP126.nc
+│       │   │   ├── SL_AISM_VUB_SSP245.nc
+│       │   │   ├── SL_AISM_VUB_SSP370.nc
+│       │   │   ├── SL_AISM_VUB_SSP460.nc
+│       │   │   ├── SL_AISM_VUB_SSP585.nc
+│       │   │   ├── SL_BISI_LBL_SSP119.nc
+│       │   │   ├── SL_BISI_LBL_SSP126.nc
+│       │   │   ├── SL_BISI_LBL_SSP245.nc
+│       │   │   ├── SL_BISI_LBL_SSP370.nc
+│       │   │   ├── SL_BISI_LBL_SSP460.nc
+│       │   │   ├── SL_BISI_LBL_SSP585.nc
+│       │   │   ├── SL_CISM_NCA_SSP119.nc
+│       │   │   ├── SL_CISM_NCA_SSP126.nc
+│       │   │   ├── SL_CISM_NCA_SSP245.nc
+│       │   │   ├── SL_CISM_NCA_SSP370.nc
+│       │   │   ├── SL_CISM_NCA_SSP460.nc
+│       │   │   ├── SL_CISM_NCA_SSP585.nc
+│       │   │   ├── SL_FETI_ULB_SSP119.nc
+│       │   │   ├── SL_FETI_ULB_SSP126.nc
+│       │   │   ├── SL_FETI_ULB_SSP245.nc
+│       │   │   ├── SL_FETI_ULB_SSP370.nc
+│       │   │   ├── SL_FETI_ULB_SSP460.nc
+│       │   │   ├── SL_FETI_ULB_SSP585.nc
+│       │   │   ├── SL_GRIS_LSC_SSP119.nc
+│       │   │   ├── SL_GRIS_LSC_SSP126.nc
+│       │   │   ├── SL_GRIS_LSC_SSP245.nc
+│       │   │   ├── SL_GRIS_LSC_SSP370.nc
+│       │   │   ├── SL_GRIS_LSC_SSP460.nc
+│       │   │   ├── SL_GRIS_LSC_SSP585.nc
+│       │   │   ├── SL_IMAU_UU_SSP119.nc
+│       │   │   ├── SL_IMAU_UU_SSP126.nc
+│       │   │   ├── SL_IMAU_UU_SSP245.nc
+│       │   │   ├── SL_IMAU_UU_SSP370.nc
+│       │   │   ├── SL_IMAU_UU_SSP460.nc
+│       │   │   ├── SL_IMAU_UU_SSP585.nc
+│       │   │   ├── SL_ISSM_JPL_SSP119.nc
+│       │   │   ├── SL_ISSM_JPL_SSP126.nc
+│       │   │   ├── SL_ISSM_JPL_SSP245.nc
+│       │   │   ├── SL_ISSM_JPL_SSP370.nc
+│       │   │   ├── SL_ISSM_JPL_SSP460.nc
+│       │   │   ├── SL_ISSM_JPL_SSP585.nc
+│       │   │   ├── SL_ISSM_UCI_SSP119.nc
+│       │   │   ├── SL_ISSM_UCI_SSP126.nc
+│       │   │   ├── SL_ISSM_UCI_SSP245.nc
+│       │   │   ├── SL_ISSM_UCI_SSP370.nc
+│       │   │   ├── SL_ISSM_UCI_SSP460.nc
+│       │   │   ├── SL_ISSM_UCI_SSP585.nc
+│       │   │   ├── SL_MALI_DOE_SSP119.nc
+│       │   │   ├── SL_MALI_DOE_SSP126.nc
+│       │   │   ├── SL_MALI_DOE_SSP245.nc
+│       │   │   ├── SL_MALI_DOE_SSP370.nc
+│       │   │   ├── SL_MALI_DOE_SSP460.nc
+│       │   │   ├── SL_MALI_DOE_SSP585.nc
+│       │   │   ├── SL_PISM_AWI_SSP119.nc
+│       │   │   ├── SL_PISM_AWI_SSP126.nc
+│       │   │   ├── SL_PISM_AWI_SSP245.nc
+│       │   │   ├── SL_PISM_AWI_SSP370.nc
+│       │   │   ├── SL_PISM_AWI_SSP460.nc
+│       │   │   ├── SL_PISM_AWI_SSP585.nc
+│       │   │   ├── SL_PISM_PIK_SSP119.nc
+│       │   │   ├── SL_PISM_PIK_SSP126.nc
+│       │   │   ├── SL_PISM_PIK_SSP245.nc
+│       │   │   ├── SL_PISM_PIK_SSP370.nc
+│       │   │   ├── SL_PISM_PIK_SSP460.nc
+│       │   │   ├── SL_PISM_PIK_SSP585.nc
+│       │   │   ├── SL_PISM_VUW_SSP119.nc
+│       │   │   ├── SL_PISM_VUW_SSP126.nc
+│       │   │   ├── SL_PISM_VUW_SSP245.nc
+│       │   │   ├── SL_PISM_VUW_SSP370.nc
+│       │   │   ├── SL_PISM_VUW_SSP460.nc
+│       │   │   ├── SL_PISM_VUW_SSP585.nc
+│       │   │   ├── SL_SICO_ILTS_SSP119.nc
+│       │   │   ├── SL_SICO_ILTS_SSP126.nc
+│       │   │   ├── SL_SICO_ILTS_SSP245.nc
+│       │   │   ├── SL_SICO_ILTS_SSP370.nc
+│       │   │   ├── SL_SICO_ILTS_SSP460.nc
+│       │   │   └── SL_SICO_ILTS_SSP585.nc
+│       │   └── smb_data
+│       │       ├── rcp26_expansion_mean.nc
+│       │       ├── rcp26_expansion_sd.nc
+│       │       ├── rcp26_temperature_mean.nc
+│       │       ├── rcp26_temperature_sd.nc
+│       │       ├── rcp45_expansion_mean.nc
+│       │       ├── rcp45_expansion_sd.nc
+│       │       ├── rcp45_temperature_mean.nc
+│       │       ├── rcp45_temperature_sd.nc
+│       │       ├── rcp60_expansion_mean.nc
+│       │       ├── rcp60_expansion_sd.nc
+│       │       ├── rcp60_temperature_mean.nc
+│       │       ├── rcp60_temperature_sd.nc
+│       │       ├── rcp85_expansion_mean.nc
+│       │       ├── rcp85_expansion_sd.nc
+│       │       ├── rcp85_temperature_mean.nc
+│       │       ├── rcp85_temperature_sd.nc
+│       │       ├── sresa1b_expansion_mean.nc
+│       │       ├── sresa1b_expansion_sd.nc
+│       │       ├── sresa1b_temperature_mean.nc
+│       │       ├── sresa1b_temperature_sd.nc
+│       │       ├── ssp119_expansion_mean.nc
+│       │       ├── ssp119_expansion_sd.nc
+│       │       ├── ssp119_temperature_mean.nc
+│       │       ├── ssp119_temperature_sd.nc
+│       │       ├── ssp126_expansion_mean.nc
+│       │       ├── ssp126_expansion_sd.nc
+│       │       ├── ssp126_temperature_mean.nc
+│       │       ├── ssp126_temperature_sd.nc
+│       │       ├── ssp245_expansion_mean.nc
+│       │       ├── ssp245_expansion_sd.nc
+│       │       ├── ssp245_temperature_mean.nc
+│       │       ├── ssp245_temperature_sd.nc
+│       │       ├── ssp370_expansion_mean.nc
+│       │       ├── ssp370_expansion_sd.nc
+│       │       ├── ssp370_temperature_mean.nc
+│       │       ├── ssp370_temperature_sd.nc
+│       │       ├── ssp434_expansion_mean.nc
+│       │       ├── ssp434_expansion_sd.nc
+│       │       ├── ssp434_temperature_mean.nc
+│       │       ├── ssp434_temperature_sd.nc
+│       │       ├── ssp460_expansion_mean.nc
+│       │       ├── ssp460_expansion_sd.nc
+│       │       ├── ssp460_temperature_mean.nc
+│       │       ├── ssp460_temperature_sd.nc
+│       │       ├── ssp585_expansion_mean.nc
+│       │       ├── ssp585_expansion_sd.nc
+│       │       ├── ssp585_temperature_mean.nc
+│       │       ├── ssp585_temperature_sd.nc
+│       │       └── twolayer_SSPs.h5
+│       └── FPRINT
+│           ├── fprint_eais.nc
+│           └── fprint_wais.nc
+├── kopp14
+│   ├── glaciers
+│   ├── icesheets
+│   ├── landwaterstorage
+│   ├── oceandynamics
+│   ├── thermalexpansion
+│   └── verticallandmotion
+│       ├── bkgdrate-190924.tsv
+│       ├── bkgdrate-210306.tsv
+│       └── data
+│           └── bkgdrate.tsv
+├── larmip
+│   └── icesheet
+│       ├── data
+│       │   └── twolayer_SSPs.h5
+│       ├── FPRINT
+│       │   ├── fprint_eais.nc
+│       │   └── fprint_wais.nc
+│       └── larmip2020
+│           ├── ComputeBasalMeltProjections
+│           │   ├── larmip18_project_basalmelt_wTd_nos_RCP26.ipynb
+│           │   ├── larmip18_project_basalmelt_wTd_nos_RCP45.ipynb
+│           │   ├── larmip18_project_basalmelt_wTd_nos_RCP60.ipynb
+│           │   ├── larmip18_project_basalmelt_wTd_nos_RCP85.ipynb
+│           │   └── PercentilesBasalMelt
+│           │       ├── BM_wdT_nos_RCP26_R1_01pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R1_05pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R1_17pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R1_50pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R1_83pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R1_95pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R1_99pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R2_01pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R2_05pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R2_17pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R2_50pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R2_83pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R2_95pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R2_99pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R3_01pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R3_05pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R3_17pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R3_50pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R3_83pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R3_95pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R3_99pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R4_01pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R4_05pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R4_17pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R4_50pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R4_83pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R4_95pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R4_99pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R5_01pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R5_05pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R5_17pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R5_50pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R5_83pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R5_95pc.dat
+│           │       ├── BM_wdT_nos_RCP26_R5_99pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R1_01pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R1_05pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R1_17pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R1_50pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R1_83pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R1_95pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R1_99pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R2_01pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R2_05pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R2_17pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R2_50pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R2_83pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R2_95pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R2_99pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R3_01pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R3_05pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R3_17pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R3_50pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R3_83pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R3_95pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R3_99pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R4_01pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R4_05pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R4_17pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R4_50pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R4_83pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R4_95pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R4_99pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R5_01pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R5_05pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R5_17pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R5_50pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R5_83pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R5_95pc.dat
+│           │       ├── BM_wdT_nos_RCP45_R5_99pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R1_01pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R1_05pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R1_17pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R1_50pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R1_83pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R1_95pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R1_99pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R2_01pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R2_05pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R2_17pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R2_50pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R2_83pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R2_95pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R2_99pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R3_01pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R3_05pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R3_17pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R3_50pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R3_83pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R3_95pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R3_99pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R4_01pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R4_05pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R4_17pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R4_50pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R4_83pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R4_95pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R4_99pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R5_01pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R5_05pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R5_17pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R5_50pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R5_83pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R5_95pc.dat
+│           │       ├── BM_wdT_nos_RCP60_R5_99pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R1_01pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R1_05pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R1_17pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R1_50pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R1_83pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R1_95pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R1_99pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R2_01pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R2_05pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R2_17pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R2_50pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R2_83pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R2_95pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R2_99pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R3_01pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R3_05pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R3_17pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R3_50pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R3_83pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R3_95pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R3_99pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R4_01pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R4_05pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R4_17pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R4_50pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R4_83pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R4_95pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R4_99pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R5_01pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R5_05pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R5_17pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R5_50pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R5_83pc.dat
+│           │       ├── BM_wdT_nos_RCP85_R5_95pc.dat
+│           │       └── BM_wdT_nos_RCP85_R5_99pc.dat
+│           ├── ComputeCdfsOfProjections
+│           │   ├── cdf_2000_2100_wTd_nos_base_RCP26.ipynb
+│           │   ├── cdf_2000_2100_wTd_nos_base_RCP45.ipynb
+│           │   ├── cdf_2000_2100_wTd_nos_base_RCP60.ipynb
+│           │   ├── cdf_2000_2100_wTd_nos_base_RCP85.ipynb
+│           │   ├── cdf_2020_2050_wTd_nos_base_RCP26.ipynb
+│           │   ├── cdf_2020_2050_wTd_nos_base_RCP45.ipynb
+│           │   ├── cdf_2020_2050_wTd_nos_base_RCP60.ipynb
+│           │   ├── cdf_2020_2050_wTd_nos_base_RCP85.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_AISM_VUB.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_BISI_LBL.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_CISM_NCA.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_FETI_VUB.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_GRIS_LSC.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_IMAU_VUB.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_ISSM_JPL.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_ISSM_UCI.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_MALI_LAN.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_PISM_AWI.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_PISM_DMI.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_PISM_PIK.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_PISM_VUW.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_PS3D_PSU.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_SICO_UHO.ipynb
+│           │   ├── cdf_hindcast_wTd_nos_base_RCP85_UA_UNN.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP26_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP26.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP45_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP45.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP60_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP60.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP85_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_rate_RCP85.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_AISM_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_AISM_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_BISI_LBL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_BISI_LBL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_CISM_NCA_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_CISM_NCA.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_FETI_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_FETI_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_GRIS_LSC_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_GRIS_LSC.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_IMAU_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_IMAU_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_ISSM_JPL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_ISSM_JPL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_ISSM_UCI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_ISSM_UCI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_MALI_LAN_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_MALI_LAN.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_AWI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_AWI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_DMI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_DMI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_PIK_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_PIK.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_VUW_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PISM_VUW.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PS3D_PSU_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_PS3D_PSU.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_SICO_UHO_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_SICO_UHO.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_UA_UNN_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP26_UA_UNN.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_AISM_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_AISM_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_BISI_LBL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_BISI_LBL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_CISM_NCA_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_CISM_NCA.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_FETI_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_FETI_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_GRIS_LSC_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_GRIS_LSC.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_IMAU_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_IMAU_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_ISSM_JPL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_ISSM_JPL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_ISSM_UCI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_ISSM_UCI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_MALI_LAN_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_MALI_LAN.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_AWI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_AWI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_DMI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_DMI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_PIK_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_PIK.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_VUW_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PISM_VUW.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PS3D_PSU_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_PS3D_PSU.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_SICO_UHO_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_SICO_UHO.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_UA_UNN_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP45_UA_UNN.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_AISM_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_AISM_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_BISI_LBL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_BISI_LBL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_CISM_NCA_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_CISM_NCA.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_FETI_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_FETI_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_GRIS_LSC_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_GRIS_LSC.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_IMAU_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_IMAU_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_ISSM_JPL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_ISSM_JPL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_ISSM_UCI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_ISSM_UCI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_MALI_LAN_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_MALI_LAN.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_AWI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_AWI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_DMI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_DMI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_PIK_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_PIK.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_VUW_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PISM_VUW.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PS3D_PSU_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_PS3D_PSU.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_SICO_UHO_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_SICO_UHO.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_UA_UNN_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP60_UA_UNN.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_AISM_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_AISM_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_BISI_LBL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_BISI_LBL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_CISM_NCA_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_CISM_NCA.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_FETI_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_FETI_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_GRIS_LSC_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_GRIS_LSC.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_IMAU_VUB_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_IMAU_VUB.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_ISSM_JPL_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_ISSM_JPL.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_ISSM_UCI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_ISSM_UCI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_MALI_LAN_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_MALI_LAN.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_AWI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_AWI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_DMI_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_DMI.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_PIK_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_PIK.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_PIK_ISMIP6.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_VUW_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PISM_VUW.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PS3D_PSU_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_PS3D_PSU.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_SICO_UHO_2000_2100.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_SICO_UHO.ipynb
+│           │   ├── cdf_wTd_nos_base_RCP85_UA_UNN_2000_2100.ipynb
+│           │   └── cdf_wTd_nos_base_RCP85_UA_UNN.ipynb
+│           ├── ComputeProjection4OneIceModel
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_AISM_VUB_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_AISM_VUB_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_AISM_VUB_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_AISM_VUB_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_BISI_LBL_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_BISI_LBL_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_BISI_LBL_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_BISI_LBL_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_CISM_NCA_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_CISM_NCA_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_CISM_NCA_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_CISM_NCA_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_FETI_VUB_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_FETI_VUB_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_FETI_VUB_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_FETI_VUB_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_GRIS_LSC_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_GRIS_LSC_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_GRIS_LSC_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_GRIS_LSC_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_IMAU_VUB_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_IMAU_VUB_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_IMAU_VUB_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_IMAU_VUB_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_JPL_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_JPL_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_JPL_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_JPL_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_UCI_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_UCI_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_UCI_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_ISSM_UCI_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_MALI_LAN_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_MALI_LAN_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_MALI_LAN_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_MALI_LAN_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_AWI_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_AWI_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_AWI_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_AWI_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_DMI_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_DMI_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_DMI_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_DMI_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_PIK_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_PIK_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_PIK_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_PIK_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_VUW_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_VUW_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_VUW_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PISM_VUW_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PS3D_PSU_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PS3D_PSU_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PS3D_PSU_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_PS3D_PSU_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_SICO_UHO_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_SICO_UHO_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_SICO_UHO_RCP60.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_SICO_UHO_RCP85.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_UA_UNN_RCP26.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_UA_UNN_RCP45.ipynb
+│           │   ├── larmip18_project_sealevel_wTd_nos_base_UA_UNN_RCP60.ipynb
+│           │   └── larmip18_project_sealevel_wTd_nos_base_UA_UNN_RCP85.ipynb
+│           ├── CreateRFunctions
+│           │   ├── larmip18_create_rfunctions_AISM_VUB.ipynb
+│           │   ├── larmip18_create_rfunctions_BISI_LBL_1KM.ipynb
+│           │   ├── larmip18_create_rfunctions_BISI_LBL.ipynb
+│           │   ├── larmip18_create_rfunctions_CISM_NCA.ipynb
+│           │   ├── larmip18_create_rfunctions_FETI_VUB.ipynb
+│           │   ├── larmip18_create_rfunctions_GRIS_LSC.ipynb
+│           │   ├── larmip18_create_rfunctions_IMAU_VUB.ipynb
+│           │   ├── larmip18_create_rfunctions_ISSM_JPL.ipynb
+│           │   ├── larmip18_create_rfunctions_ISSM_UCI.ipynb
+│           │   ├── larmip18_create_rfunctions_MALI_LAN.ipynb
+│           │   ├── larmip18_create_rfunctions_PISM_AWI.ipynb
+│           │   ├── larmip18_create_rfunctions_PISM_DMI.ipynb
+│           │   ├── larmip18_create_rfunctions_PISM_PIK.ipynb
+│           │   ├── larmip18_create_rfunctions_PISM_VUW.ipynb
+│           │   ├── larmip18_create_rfunctions_PS3D_PSU.ipynb
+│           │   ├── larmip18_create_rfunctions_SICO_UHO.ipynb
+│           │   ├── larmip18_create_rfunctions_UA_UNN.ipynb
+│           │   └── larmip_data
+│           │       ├── AISM_VUB
+│           │       │   ├── 2m.nc
+│           │       │   ├── 4m.nc
+│           │       │   ├── 8m.nc
+│           │       │   ├── InitialSubmission
+│           │       │   │   ├── add1.nc
+│           │       │   │   ├── add2.nc
+│           │       │   │   ├── add3.nc
+│           │       │   │   ├── core.nc
+│           │       │   │   ├── VUB_larmip_add1.txt
+│           │       │   │   ├── VUB_larmip_add2.txt
+│           │       │   │   ├── VUB_larmip_add3.txt
+│           │       │   │   └── VUB_larmip_core.txt
+│           │       │   ├── SecondSubmission
+│           │       │   │   ├── 2m.nc
+│           │       │   │   ├── 4m.nc
+│           │       │   │   └── 8m.nc
+│           │       │   └── ThirdSubmission
+│           │       │       ├── 2m.nc
+│           │       │       ├── 4m.nc
+│           │       │       └── 8m.nc
+│           │       ├── BISI_LBL
+│           │       │   ├── VaFDiffControl-SLE-larmip.1-16.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.1-2.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.1-4.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.1-8.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.1-8.500m
+│           │       │   ├── VaFDiffControl-SLE-larmip.2-16.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.2-2.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.2-4.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.2-8.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.2-8.500m
+│           │       │   ├── VaFDiffControl-SLE-larmip.3-16.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.3-2.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.3-4.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.3-8.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.3-8.500m
+│           │       │   ├── VaFDiffControl-SLE-larmip.4-16.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.4-2.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.4-4.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.4-8.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.4-8.500m
+│           │       │   ├── VaFDiffControl-SLE-larmip.5-16.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.5-2.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.5-4.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.5-8.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.5-8.500m
+│           │       │   ├── VaFDiffControl-SLE-larmip.6-16.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.6-2.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.6-4.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.6-8.1km
+│           │       │   ├── VaFDiffControl-SLE-larmip.6-8.500m
+│           │       │   ├── VoFDiffControl-SLE-larmip.1-8.3-lev
+│           │       │   ├── VoFDiffControl-SLE-larmip.2-8.3-lev
+│           │       │   ├── VoFDiffControl-SLE-larmip.3-8.3-lev
+│           │       │   ├── VoFDiffControl-SLE-larmip.4-8.3-lev
+│           │       │   ├── VoFDiffControl-SLE-larmip.5-8.3-lev
+│           │       │   └── VoFDiffControl-SLE-larmip.all-8.3-lev
+│           │       ├── CISM
+│           │       │   ├── NCAR_CISM_4km_16my
+│           │       │   │   ├── LARMIP_x16m_4km.pdf
+│           │       │   │   ├── NCAR_CISM_4km_AllRegions_16m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Amundsen_16m.nc
+│           │       │   │   ├── NCAR_CISM_4km_EAIS_16m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Peninsula_16m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Ross_16m.nc
+│           │       │   │   └── NCAR_CISM_4km_Weddell_16m.nc
+│           │       │   ├── NCAR_CISM_4km_1my
+│           │       │   │   ├── LARMIP_x1m_4km.pdf
+│           │       │   │   ├── NCAR_CISM_4km_AllRegions_1m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Amundsen_1m.nc
+│           │       │   │   ├── NCAR_CISM_4km_EAIS_1m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Peninsula_1m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Ross_1m.nc
+│           │       │   │   └── NCAR_CISM_4km_Weddell_1m.nc
+│           │       │   ├── NCAR_CISM_4km_2my
+│           │       │   │   ├── LARMIP_x2m_4km.pdf
+│           │       │   │   ├── NCAR_CISM_4km_AllRegions_2m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Amundsen_2m.nc
+│           │       │   │   ├── NCAR_CISM_4km_EAIS_2m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Peninsula_2m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Ross_2m.nc
+│           │       │   │   └── NCAR_CISM_4km_Weddell_2m.nc
+│           │       │   ├── NCAR_CISM_4km_32my
+│           │       │   │   ├── LARMIP_x32m_4km.pdf
+│           │       │   │   ├── NCAR_CISM_4km_AllRegions_32m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Amundsen_32m.nc
+│           │       │   │   ├── NCAR_CISM_4km_EAIS_32m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Peninsula_32m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Ross_32m.nc
+│           │       │   │   └── NCAR_CISM_4km_Weddell_32m.nc
+│           │       │   ├── NCAR_CISM_4km_4my
+│           │       │   │   ├── LARMIP_x4m_4km.pdf
+│           │       │   │   ├── NCAR_CISM_4km_AllRegions_4m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Amundsen_4m.nc
+│           │       │   │   ├── NCAR_CISM_4km_EAIS_4m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Peninsula_4m.nc
+│           │       │   │   ├── NCAR_CISM_4km_Ross_4m.nc
+│           │       │   │   └── NCAR_CISM_4km_Weddell_4m.nc
+│           │       │   └── NCAR_CISM_4km_8my
+│           │       │       ├── LARMIP_x8m_4km.pdf
+│           │       │       ├── NCAR_CISM_4km_AllRegions_8m.nc
+│           │       │       ├── NCAR_CISM_4km_Amundsen_8m.nc
+│           │       │       ├── NCAR_CISM_4km_EAIS_8m.nc
+│           │       │       ├── NCAR_CISM_4km_Peninsula_8m.nc
+│           │       │       ├── NCAR_CISM_4km_Ross_8m.nc
+│           │       │       └── NCAR_CISM_4km_Weddell_8m.nc
+│           │       ├── fETISh
+│           │       │   ├── timeseries16.txt
+│           │       │   ├── timeseries1.txt
+│           │       │   ├── timeseries2.txt
+│           │       │   ├── timeseries32.txt
+│           │       │   ├── timeseries4.txt
+│           │       │   ├── timeseries8.txt
+│           │       │   ├── timeseriesA16.txt
+│           │       │   ├── timeseriesA1.txt
+│           │       │   ├── timeseriesA2.txt
+│           │       │   ├── timeseriesA32.txt
+│           │       │   ├── timeseriesA4.txt
+│           │       │   ├── timeseriesA8.txt
+│           │       │   └── timeseries_control.txt
+│           │       ├── GRISLI_LSCE
+│           │       │   ├── ADD1_Amundsen.txt
+│           │       │   ├── ADD1_EAIS.txt
+│           │       │   ├── ADD1_Peninsula.txt
+│           │       │   ├── ADD1_Ross.txt
+│           │       │   ├── ADD1_Weddell.txt
+│           │       │   ├── ADD2_Amundsen.txt
+│           │       │   ├── ADD2_EAIS.txt
+│           │       │   ├── ADD2_Peninsula.txt
+│           │       │   ├── ADD2_Ross.txt
+│           │       │   ├── ADD2_Weddell.txt
+│           │       │   ├── ADD3_all.txt
+│           │       │   ├── ADD4_Amundsen.txt
+│           │       │   ├── ADD4_EAIS.txt
+│           │       │   ├── ADD4_Peninsula.txt
+│           │       │   ├── ADD4_Ross.txt
+│           │       │   ├── ADD4_Weddell.txt
+│           │       │   ├── ADD5_Amundsen.txt
+│           │       │   ├── ADD5_EAIS.txt
+│           │       │   ├── ADD5_Peninsula.txt
+│           │       │   ├── ADD5_Ross.txt
+│           │       │   ├── ADD5_Weddell.txt
+│           │       │   ├── ADD6_Amundsen.txt
+│           │       │   ├── ADD6_EAIS.txt
+│           │       │   ├── ADD6_Peninsula.txt
+│           │       │   ├── ADD6_Ross.txt
+│           │       │   ├── ADD6_Weddell.txt
+│           │       │   ├── CORE_Amundsen.txt
+│           │       │   ├── CORE_EAIS.txt
+│           │       │   ├── CORE_Peninsula.txt
+│           │       │   ├── CORE_Ross.txt
+│           │       │   ├── CORE_Weddell.txt
+│           │       │   ├── LARMIP_ADD1.png
+│           │       │   ├── LARMIP_ADD2.png
+│           │       │   ├── LARMIP_ADD3_all.png
+│           │       │   ├── LARMIP_ADD4.png
+│           │       │   ├── LARMIP_ADD5.png
+│           │       │   ├── LARMIP_ADD6.png
+│           │       │   ├── LARMIP_CORE.png
+│           │       │   └── README.txt
+│           │       ├── IMAUICE
+│           │       │   ├── LARMIP_IMAUICE32_m16.dat
+│           │       │   ├── LARMIP_IMAUICE32_m1\ -\ Copy.dat
+│           │       │   ├── LARMIP_IMAUICE32_m1.dat
+│           │       │   ├── LARMIP_IMAUICE32_m2.dat
+│           │       │   ├── LARMIP_IMAUICE32_m32.dat
+│           │       │   ├── LARMIP_IMAUICE32_m4.dat
+│           │       │   ├── LARMIP_IMAUICE32_m8.dat
+│           │       │   └── README_LARMIP_IMAUICE.txt
+│           │       ├── ISSM_JPL
+│           │       │   └── volume.mat
+│           │       ├── ISSM_UCIJPL
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Control.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region1_16.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region1_1.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region1_2.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region1_32.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region1_4.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region1_8.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region2_16.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region2_1.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region2_2.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region2_32.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region2_4.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region2_8.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region3_16.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region3_1.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region3_2.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region3_32.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region3_4.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region3_8.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region4_16.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region4_1.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region4_2.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region4_32.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region4_4.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region4_8.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region5_16.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region5_1.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region5_2.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region5_32.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region5_4.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region5_8.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region6_16.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region6_1.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region6_2.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region6_32.nc
+│           │       │   ├── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region6_4.nc
+│           │       │   └── scalar_AIS_UCIJPL_ISSM_UCIJPL_LARMIP2_Region6_8.nc
+│           │       ├── MALI_LANL
+│           │       │   ├── fig_plot.py
+│           │       │   ├── InitialSubmission
+│           │       │   │   ├── bmb_AMUNDSEN.png
+│           │       │   │   ├── bmb_EAIS.png
+│           │       │   │   ├── bmb_PENINSULA.png
+│           │       │   │   ├── bmb_ROSS.png
+│           │       │   │   ├── bmb_WEDDELL.png
+│           │       │   │   ├── larmip_lanl_mali.png
+│           │       │   │   ├── Readme
+│           │       │   │   ├── SLR_Amundsen_8m_60yr.png
+│           │       │   │   ├── SLR_Amundsen_8m_60yr.txt
+│           │       │   │   ├── SLR_AMUNDSEN.txt
+│           │       │   │   ├── SLR_CTRL.txt
+│           │       │   │   ├── SLR_EAIS.txt
+│           │       │   │   ├── SLR_PENINSULA.txt
+│           │       │   │   ├── SLR_ROSS.txt
+│           │       │   │   └── SLR_WEDDELL.txt
+│           │       │   ├── LARMIP_SLR_MALI.png
+│           │       │   ├── Readme
+│           │       │   ├── SLR_AMUNDSEN.txt
+│           │       │   ├── SLR_CTRL.txt
+│           │       │   ├── SLR_EAIS.txt
+│           │       │   ├── SLR_PENINSULA.txt
+│           │       │   ├── SLR_ROSS.txt
+│           │       │   └── SLR_WEDDELL.txt
+│           │       ├── PennState3D
+│           │       │   ├── tab_REG1_ADD1
+│           │       │   ├── tab_REG1_ADD16
+│           │       │   ├── tab_REG1_ADD2
+│           │       │   ├── tab_REG1_ADD32
+│           │       │   ├── tab_REG1_ADD4
+│           │       │   ├── tab_REG1_ADD8
+│           │       │   ├── tab_REG2_ADD1
+│           │       │   ├── tab_REG2_ADD16
+│           │       │   ├── tab_REG2_ADD2
+│           │       │   ├── tab_REG2_ADD32
+│           │       │   ├── tab_REG2_ADD4
+│           │       │   ├── tab_REG2_ADD8
+│           │       │   ├── tab_REG3_ADD1
+│           │       │   ├── tab_REG3_ADD16
+│           │       │   ├── tab_REG3_ADD2
+│           │       │   ├── tab_REG3_ADD32
+│           │       │   ├── tab_REG3_ADD4
+│           │       │   ├── tab_REG3_ADD8
+│           │       │   ├── tab_REG4_ADD1
+│           │       │   ├── tab_REG4_ADD16
+│           │       │   ├── tab_REG4_ADD2
+│           │       │   ├── tab_REG4_ADD32
+│           │       │   ├── tab_REG4_ADD4
+│           │       │   ├── tab_REG4_ADD8
+│           │       │   ├── tab_REG5_ADD1
+│           │       │   ├── tab_REG5_ADD16
+│           │       │   ├── tab_REG5_ADD2
+│           │       │   ├── tab_REG5_ADD32
+│           │       │   ├── tab_REG5_ADD4
+│           │       │   ├── tab_REG5_ADD8
+│           │       │   ├── tab_REGall_ADD1
+│           │       │   ├── tab_REGall_ADD16
+│           │       │   ├── tab_REGall_ADD2
+│           │       │   ├── tab_REGall_ADD32
+│           │       │   ├── tab_REGall_ADD4
+│           │       │   └── tab_REGall_ADD8
+│           │       ├── PISM_AWI
+│           │       │   ├── AIS_AWI_PISM1Eq
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_All_abmb01.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_All_abmb02.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_All_abmb04.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_All_abmb08.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_All_abmb16.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_All_abmb32.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Amundsen_abmb01.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Amundsen_abmb02.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Amundsen_abmb04.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Amundsen_abmb08.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Amundsen_abmb16.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Amundsen_abmb32.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_ctrl.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_EAIS_abmb01.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_EAIS_abmb02.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_EAIS_abmb04.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_EAIS_abmb08.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_EAIS_abmb16.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_EAIS_abmb32.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_init.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Peninsula_abmb01.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Peninsula_abmb02.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Peninsula_abmb04.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Peninsula_abmb08.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Peninsula_abmb16.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Peninsula_abmb32.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Ross_abmb01.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Ross_abmb02.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Ross_abmb04.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Ross_abmb08.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Ross_abmb16.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Ross_abmb32.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Weddell_abmb01.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Weddell_abmb02.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Weddell_abmb04.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Weddell_abmb08.nc
+│           │       │   │   ├── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Weddell_abmb16.nc
+│           │       │   │   └── slvol_AIS_AWI_PISM1Eq_LARMIP_16km_Weddell_abmb32.nc
+│           │       │   └── AIS_AWI_PISM2Eq
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_All_abmb01.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_All_abmb02.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_All_abmb04.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_All_abmb08.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_All_abmb16.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_All_abmb32.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Amundsen_abmb01.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Amundsen_abmb02.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Amundsen_abmb04.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Amundsen_abmb08.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Amundsen_abmb16.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Amundsen_abmb32.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_ctrl.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_EAIS_abmb01.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_EAIS_abmb02.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_EAIS_abmb04.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_EAIS_abmb08.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_EAIS_abmb16.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_EAIS_abmb32.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_init.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Peninsula_abmb01.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Peninsula_abmb02.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Peninsula_abmb04.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Peninsula_abmb08.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Peninsula_abmb16.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Peninsula_abmb32.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Ross_abmb01.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Ross_abmb02.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Ross_abmb04.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Ross_abmb08.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Ross_abmb16.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Ross_abmb32.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Weddell_abmb01.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Weddell_abmb02.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Weddell_abmb04.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Weddell_abmb08.nc
+│           │       │       ├── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Weddell_abmb16.nc
+│           │       │       └── slvol_AIS_AWI_PISM2Eq_LARMIP_16km_Weddell_abmb32.nc
+│           │       ├── PISM_DMI
+│           │       │   ├── LARMIP_SeaLevelContribution_AllShelves_timeseries
+│           │       │   │   ├── LARMIP_region1.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   └── LARMIP_region5.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   ├── LARMIP_SeaLevelContribution_LARMIP_timeseries
+│           │       │   │   ├── LARMIP_region1.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region1.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region2.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region3.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region4.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate16.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate16.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate1.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate1.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate2.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate2.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate32.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate32.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate4.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate4.DMI.PISM1.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate8.DMI.PISM0.2000_2200.nc
+│           │       │   │   ├── LARMIP_region5.Rate8.DMI.PISM1.2000_2200.nc
+│           │       │   │   └── LARMIP.SeaLevelContribution.LARMIP.timeseries.tgz
+│           │       │   └── PISM_DMI_Readme.txt
+│           │       ├── PISM_PIK
+│           │       │   ├── ADD0.nc
+│           │       │   ├── ADD2.nc
+│           │       │   ├── ADD3.nc
+│           │       │   ├── ADD4.nc
+│           │       │   ├── ADD5.nc
+│           │       │   ├── ADD6.nc
+│           │       │   ├── PISMEQUI8
+│           │       │   │   ├── ADD0.nc
+│           │       │   │   ├── ADD1.nc
+│           │       │   │   ├── ADD2.nc
+│           │       │   │   ├── ADD3.nc
+│           │       │   │   ├── ADD4_initialsubmission.nc
+│           │       │   │   ├── ADD4.nc
+│           │       │   │   ├── ADD5.nc
+│           │       │   │   └── ADD6.nc
+│           │       │   ├── PISMEQUI8_sl_contribution_larmip.pdf
+│           │       │   ├── PISMPAL16
+│           │       │   │   ├── ADD0.nc
+│           │       │   │   ├── ADD1.nc
+│           │       │   │   ├── ADD2.nc
+│           │       │   │   ├── ADD3.nc
+│           │       │   │   ├── ADD4.nc
+│           │       │   │   ├── ADD5.nc
+│           │       │   │   └── ADD6.nc
+│           │       │   └── PISMPAL16_sl_contribution_larmip.pdf
+│           │       ├── PISM_PIK_ISMIP6
+│           │       │   ├── ADD0.nc
+│           │       │   ├── ADD1.nc
+│           │       │   ├── ADD2.nc
+│           │       │   ├── ADD3.nc
+│           │       │   ├── ADD4.nc
+│           │       │   ├── ADD5.nc
+│           │       │   └── ADD6.nc
+│           │       ├── PISM_VUW
+│           │       │   ├── LAR_sle_v5.jpg
+│           │       │   ├── LAR_sle_v6.jpg
+│           │       │   ├── realslvol_ALL-16_nsg.txt
+│           │       │   ├── realslvol_ALL-16_sgm.txt
+│           │       │   ├── realslvol_ALL-1_nsg.txt
+│           │       │   ├── realslvol_ALL-1_sgm.txt
+│           │       │   ├── realslvol_ALL-2_nsg.txt
+│           │       │   ├── realslvol_ALL-2_sgm.txt
+│           │       │   ├── realslvol_ALL-32_nsg.txt
+│           │       │   ├── realslvol_ALL-32_sgm.txt
+│           │       │   ├── realslvol_ALL-4_nsg.txt
+│           │       │   ├── realslvol_ALL-4_sgm.txt
+│           │       │   ├── realslvol_ALL-8_nsg.txt
+│           │       │   ├── realslvol_ALL-8_sgm.txt
+│           │       │   ├── realslvol_ALL-sgm.txt
+│           │       │   ├── realslvol_R1-16_nsg.txt
+│           │       │   ├── realslvol_R1-16_sgm.txt
+│           │       │   ├── realslvol_R1-1_nsg.txt
+│           │       │   ├── realslvol_R1-1_sgm.txt
+│           │       │   ├── realslvol_R1-2_nsg.txt
+│           │       │   ├── realslvol_R1-2_sgm.txt
+│           │       │   ├── realslvol_R1-32_nsg.txt
+│           │       │   ├── realslvol_R1-32_sgm.txt
+│           │       │   ├── realslvol_R1-4_nsg.txt
+│           │       │   ├── realslvol_R1-4_sgm.txt
+│           │       │   ├── realslvol_R1-8_nsg.txt
+│           │       │   ├── realslvol_R1-8_sgm.txt
+│           │       │   ├── realslvol_R1-sgm.txt
+│           │       │   ├── realslvol_R2-16_nsg.txt
+│           │       │   ├── realslvol_R2-16_sgm.txt
+│           │       │   ├── realslvol_R2-1_nsg.txt
+│           │       │   ├── realslvol_R2-1_sgm.txt
+│           │       │   ├── realslvol_R2-2_nsg.txt
+│           │       │   ├── realslvol_R2-2_sgm.txt
+│           │       │   ├── realslvol_R2-32_nsg.txt
+│           │       │   ├── realslvol_R2-32_sgm.txt
+│           │       │   ├── realslvol_R2-4_nsg.txt
+│           │       │   ├── realslvol_R2-4_sgm.txt
+│           │       │   ├── realslvol_R2-8_nsg.txt
+│           │       │   ├── realslvol_R2-8_sgm.txt
+│           │       │   ├── realslvol_R2-sgm.txt
+│           │       │   ├── realslvol_R3-16_nsg.txt
+│           │       │   ├── realslvol_R3-16_sgm.txt
+│           │       │   ├── realslvol_R3-1_nsg.txt
+│           │       │   ├── realslvol_R3-1_sgm.txt
+│           │       │   ├── realslvol_R3-2_nsg.txt
+│           │       │   ├── realslvol_R3-2_sgm.txt
+│           │       │   ├── realslvol_R3-32_nsg.txt
+│           │       │   ├── realslvol_R3-32_sgm.txt
+│           │       │   ├── realslvol_R3-4_nsg.txt
+│           │       │   ├── realslvol_R3-4_sgm.txt
+│           │       │   ├── realslvol_R3-8_nsg.txt
+│           │       │   ├── realslvol_R3-8_sgm.txt
+│           │       │   ├── realslvol_R3-sgm.txt
+│           │       │   ├── realslvol_R4-16_nsg.txt
+│           │       │   ├── realslvol_R4-16_sgm.txt
+│           │       │   ├── realslvol_R4-1_nsg.txt
+│           │       │   ├── realslvol_R4-1_sgm.txt
+│           │       │   ├── realslvol_R4-2_nsg.txt
+│           │       │   ├── realslvol_R4-2_sgm.txt
+│           │       │   ├── realslvol_R4-32_nsg.txt
+│           │       │   ├── realslvol_R4-32_sgm.txt
+│           │       │   ├── realslvol_R4-4_nsg.txt
+│           │       │   ├── realslvol_R4-4_sgm.txt
+│           │       │   ├── realslvol_R4-8_nsg.txt
+│           │       │   ├── realslvol_R4-8_sgm.txt
+│           │       │   ├── realslvol_R4-sgm.txt
+│           │       │   ├── realslvol_R5-16_nsg.txt
+│           │       │   ├── realslvol_R5-16_sgm.txt
+│           │       │   ├── realslvol_R5-1_nsg.txt
+│           │       │   ├── realslvol_R5-1_sgm.txt
+│           │       │   ├── realslvol_R5-2_nsg.txt
+│           │       │   ├── realslvol_R5-2_sgm.txt
+│           │       │   ├── realslvol_R5-32_nsg.txt
+│           │       │   ├── realslvol_R5-32_sgm.txt
+│           │       │   ├── realslvol_R5-4_nsg.txt
+│           │       │   ├── realslvol_R5-4_sgm.txt
+│           │       │   ├── realslvol_R5-8_nsg.txt
+│           │       │   ├── realslvol_R5-8_sgm.txt
+│           │       │   └── realslvol_R5-sgm.txt
+│           │       ├── SICOPOLIS
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00001.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00002.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00004.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00008.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp0000g.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp0000w.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00010.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00020.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00040.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00080.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp000g0.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp000w0.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00100.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00200.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00400.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00800.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00g00.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp00w00.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp01000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp02000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp04000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp08000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp0g000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp0w000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp10000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp11111.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp20000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp22222.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp40000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp44444.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp80000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp88888.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_exp_ctrl.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_expg0000.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_expggggg.nc
+│           │       │   ├── ILTS_PIK_SICOPOLIS1_expw0000.nc
+│           │       │   └── ILTS_PIK_SICOPOLIS1_expwwwww.nc
+│           │       └── UA_UNN
+│           │           ├── M16R1.txt
+│           │           ├── M16R2.txt
+│           │           ├── M16R3.txt
+│           │           ├── M16R4.txt
+│           │           ├── M16R5.txt
+│           │           ├── M1R1.txt
+│           │           ├── M1R2.txt
+│           │           ├── M1R3.txt
+│           │           ├── M1R4.txt
+│           │           ├── M1R5.txt
+│           │           ├── M2R1.txt
+│           │           ├── M2R2.txt
+│           │           ├── M2R3.txt
+│           │           ├── M2R4.txt
+│           │           ├── M2R5.txt
+│           │           ├── M2RALL.txt
+│           │           ├── M32R1.txt
+│           │           ├── M32R2.txt
+│           │           ├── M32R3.txt
+│           │           ├── M32R4.txt
+│           │           ├── M32R5.txt
+│           │           ├── M4R1.txt
+│           │           ├── M4R2.txt
+│           │           ├── M4R3.txt
+│           │           ├── M4R4.txt
+│           │           ├── M4R5.txt
+│           │           ├── M8R1.txt
+│           │           ├── M8R2.txt
+│           │           ├── M8R3.txt
+│           │           ├── M8R4.txt
+│           │           └── M8R5.txt
+│           ├── Experiments
+│           │   ├── AISM_VUB_BM02_R0.dat
+│           │   ├── AISM_VUB_BM02_R1.dat
+│           │   ├── AISM_VUB_BM02_R2.dat
+│           │   ├── AISM_VUB_BM02_R3.dat
+│           │   ├── AISM_VUB_BM02_R4.dat
+│           │   ├── AISM_VUB_BM02_R5.dat
+│           │   ├── AISM_VUB_BM02_SU.dat
+│           │   ├── AISM_VUB_BM04_R0.dat
+│           │   ├── AISM_VUB_BM04_R1.dat
+│           │   ├── AISM_VUB_BM04_R2.dat
+│           │   ├── AISM_VUB_BM04_R3.dat
+│           │   ├── AISM_VUB_BM04_R4.dat
+│           │   ├── AISM_VUB_BM04_R5.dat
+│           │   ├── AISM_VUB_BM04_SU.dat
+│           │   ├── AISM_VUB_BM08_R0.dat
+│           │   ├── AISM_VUB_BM08_R1.dat
+│           │   ├── AISM_VUB_BM08_R2.dat
+│           │   ├── AISM_VUB_BM08_R3.dat
+│           │   ├── AISM_VUB_BM08_R4.dat
+│           │   ├── AISM_VUB_BM08_R5.dat
+│           │   ├── AISM_VUB_BM08_SU.dat
+│           │   ├── BISI_LBL_1KM_BM02_R0.dat
+│           │   ├── BISI_LBL_1KM_BM02_R1.dat
+│           │   ├── BISI_LBL_1KM_BM02_R2.dat
+│           │   ├── BISI_LBL_1KM_BM02_R3.dat
+│           │   ├── BISI_LBL_1KM_BM02_R4.dat
+│           │   ├── BISI_LBL_1KM_BM02_R5.dat
+│           │   ├── BISI_LBL_1KM_BM02_SU.dat
+│           │   ├── BISI_LBL_1KM_BM04_R0.dat
+│           │   ├── BISI_LBL_1KM_BM04_R1.dat
+│           │   ├── BISI_LBL_1KM_BM04_R2.dat
+│           │   ├── BISI_LBL_1KM_BM04_R3.dat
+│           │   ├── BISI_LBL_1KM_BM04_R4.dat
+│           │   ├── BISI_LBL_1KM_BM04_R5.dat
+│           │   ├── BISI_LBL_1KM_BM04_SU.dat
+│           │   ├── BISI_LBL_1KM_BM08_R0.dat
+│           │   ├── BISI_LBL_1KM_BM08_R1.dat
+│           │   ├── BISI_LBL_1KM_BM08_R2.dat
+│           │   ├── BISI_LBL_1KM_BM08_R3.dat
+│           │   ├── BISI_LBL_1KM_BM08_R4.dat
+│           │   ├── BISI_LBL_1KM_BM08_R5.dat
+│           │   ├── BISI_LBL_1KM_BM08_SU.dat
+│           │   ├── BISI_LBL_1KM_BM16_R0.dat
+│           │   ├── BISI_LBL_1KM_BM16_R1.dat
+│           │   ├── BISI_LBL_1KM_BM16_R2.dat
+│           │   ├── BISI_LBL_1KM_BM16_R3.dat
+│           │   ├── BISI_LBL_1KM_BM16_R4.dat
+│           │   ├── BISI_LBL_1KM_BM16_R5.dat
+│           │   ├── BISI_LBL_1KM_BM16_SU.dat
+│           │   ├── BISI_LBL_BM08_R0.dat
+│           │   ├── BISI_LBL_BM08_R1.dat
+│           │   ├── BISI_LBL_BM08_R2.dat
+│           │   ├── BISI_LBL_BM08_R3.dat
+│           │   ├── BISI_LBL_BM08_R4.dat
+│           │   ├── BISI_LBL_BM08_R5.dat
+│           │   ├── BISI_LBL_BM08_SU.dat
+│           │   ├── CISM_NCA_BM01_R0.dat
+│           │   ├── CISM_NCA_BM01_R1.dat
+│           │   ├── CISM_NCA_BM01_R2.dat
+│           │   ├── CISM_NCA_BM01_R3.dat
+│           │   ├── CISM_NCA_BM01_R4.dat
+│           │   ├── CISM_NCA_BM01_R5.dat
+│           │   ├── CISM_NCA_BM01_SU.dat
+│           │   ├── CISM_NCA_BM02_R0.dat
+│           │   ├── CISM_NCA_BM02_R1.dat
+│           │   ├── CISM_NCA_BM02_R2.dat
+│           │   ├── CISM_NCA_BM02_R3.dat
+│           │   ├── CISM_NCA_BM02_R4.dat
+│           │   ├── CISM_NCA_BM02_R5.dat
+│           │   ├── CISM_NCA_BM02_SU.dat
+│           │   ├── CISM_NCA_BM04_R0.dat
+│           │   ├── CISM_NCA_BM04_R1.dat
+│           │   ├── CISM_NCA_BM04_R2.dat
+│           │   ├── CISM_NCA_BM04_R3.dat
+│           │   ├── CISM_NCA_BM04_R4.dat
+│           │   ├── CISM_NCA_BM04_R5.dat
+│           │   ├── CISM_NCA_BM04_SU.dat
+│           │   ├── CISM_NCA_BM08_R0.dat
+│           │   ├── CISM_NCA_BM08_R1.dat
+│           │   ├── CISM_NCA_BM08_R2.dat
+│           │   ├── CISM_NCA_BM08_R3.dat
+│           │   ├── CISM_NCA_BM08_R4.dat
+│           │   ├── CISM_NCA_BM08_R5.dat
+│           │   ├── CISM_NCA_BM08_SU.dat
+│           │   ├── CISM_NCA_BM16_R0.dat
+│           │   ├── CISM_NCA_BM16_R1.dat
+│           │   ├── CISM_NCA_BM16_R2.dat
+│           │   ├── CISM_NCA_BM16_R3.dat
+│           │   ├── CISM_NCA_BM16_R4.dat
+│           │   ├── CISM_NCA_BM16_R5.dat
+│           │   ├── CISM_NCA_BM16_SU.dat
+│           │   ├── CISM_NCA_BM32_R0.dat
+│           │   ├── CISM_NCA_BM32_R1.dat
+│           │   ├── CISM_NCA_BM32_R2.dat
+│           │   ├── CISM_NCA_BM32_R3.dat
+│           │   ├── CISM_NCA_BM32_R4.dat
+│           │   ├── CISM_NCA_BM32_R5.dat
+│           │   ├── CISM_NCA_BM32_SU.dat
+│           │   ├── FETI_VUB_BM01_R1.dat
+│           │   ├── FETI_VUB_BM01_R2.dat
+│           │   ├── FETI_VUB_BM01_R3.dat
+│           │   ├── FETI_VUB_BM01_R4.dat
+│           │   ├── FETI_VUB_BM01_R5.dat
+│           │   ├── FETI_VUB_BM01_SU.dat
+│           │   ├── FETI_VUB_BM02_R1.dat
+│           │   ├── FETI_VUB_BM02_R2.dat
+│           │   ├── FETI_VUB_BM02_R3.dat
+│           │   ├── FETI_VUB_BM02_R4.dat
+│           │   ├── FETI_VUB_BM02_R5.dat
+│           │   ├── FETI_VUB_BM02_SU.dat
+│           │   ├── FETI_VUB_BM04_R1.dat
+│           │   ├── FETI_VUB_BM04_R2.dat
+│           │   ├── FETI_VUB_BM04_R3.dat
+│           │   ├── FETI_VUB_BM04_R4.dat
+│           │   ├── FETI_VUB_BM04_R5.dat
+│           │   ├── FETI_VUB_BM04_SU.dat
+│           │   ├── FETI_VUB_BM08_R1.dat
+│           │   ├── FETI_VUB_BM08_R2.dat
+│           │   ├── FETI_VUB_BM08_R3.dat
+│           │   ├── FETI_VUB_BM08_R4.dat
+│           │   ├── FETI_VUB_BM08_R5.dat
+│           │   ├── FETI_VUB_BM08_SU.dat
+│           │   ├── FETI_VUB_BM16_R1.dat
+│           │   ├── FETI_VUB_BM16_R2.dat
+│           │   ├── FETI_VUB_BM16_R3.dat
+│           │   ├── FETI_VUB_BM16_R4.dat
+│           │   ├── FETI_VUB_BM16_R5.dat
+│           │   ├── FETI_VUB_BM16_SU.dat
+│           │   ├── FETI_VUB_BM32_R1.dat
+│           │   ├── FETI_VUB_BM32_R2.dat
+│           │   ├── FETI_VUB_BM32_R3.dat
+│           │   ├── FETI_VUB_BM32_R4.dat
+│           │   ├── FETI_VUB_BM32_R5.dat
+│           │   ├── FETI_VUB_BM32_SU.dat
+│           │   ├── GRIS_LSC_BM01_R1.dat
+│           │   ├── GRIS_LSC_BM01_R2.dat
+│           │   ├── GRIS_LSC_BM01_R3.dat
+│           │   ├── GRIS_LSC_BM01_R4.dat
+│           │   ├── GRIS_LSC_BM01_R5.dat
+│           │   ├── GRIS_LSC_BM01_SU.dat
+│           │   ├── GRIS_LSC_BM02_R0.dat
+│           │   ├── GRIS_LSC_BM02_R1.dat
+│           │   ├── GRIS_LSC_BM02_R2.dat
+│           │   ├── GRIS_LSC_BM02_R3.dat
+│           │   ├── GRIS_LSC_BM02_R4.dat
+│           │   ├── GRIS_LSC_BM02_R5.dat
+│           │   ├── GRIS_LSC_BM02_SU.dat
+│           │   ├── GRIS_LSC_BM04_R1.dat
+│           │   ├── GRIS_LSC_BM04_R2.dat
+│           │   ├── GRIS_LSC_BM04_R3.dat
+│           │   ├── GRIS_LSC_BM04_R4.dat
+│           │   ├── GRIS_LSC_BM04_R5.dat
+│           │   ├── GRIS_LSC_BM04_SU.dat
+│           │   ├── GRIS_LSC_BM08_R1.dat
+│           │   ├── GRIS_LSC_BM08_R2.dat
+│           │   ├── GRIS_LSC_BM08_R3.dat
+│           │   ├── GRIS_LSC_BM08_R4.dat
+│           │   ├── GRIS_LSC_BM08_R5.dat
+│           │   ├── GRIS_LSC_BM08_SU.dat
+│           │   ├── GRIS_LSC_BM16_R1.dat
+│           │   ├── GRIS_LSC_BM16_R2.dat
+│           │   ├── GRIS_LSC_BM16_R3.dat
+│           │   ├── GRIS_LSC_BM16_R4.dat
+│           │   ├── GRIS_LSC_BM16_R5.dat
+│           │   ├── GRIS_LSC_BM16_SU.dat
+│           │   ├── GRIS_LSC_BM32_R1.dat
+│           │   ├── GRIS_LSC_BM32_R2.dat
+│           │   ├── GRIS_LSC_BM32_R3.dat
+│           │   ├── GRIS_LSC_BM32_R4.dat
+│           │   ├── GRIS_LSC_BM32_R5.dat
+│           │   ├── GRIS_LSC_BM32_SU.dat
+│           │   ├── IMAU_VUB_BM01_R0.dat
+│           │   ├── IMAU_VUB_BM01_R1.dat
+│           │   ├── IMAU_VUB_BM01_R2.dat
+│           │   ├── IMAU_VUB_BM01_R3.dat
+│           │   ├── IMAU_VUB_BM01_R4.dat
+│           │   ├── IMAU_VUB_BM01_R5.dat
+│           │   ├── IMAU_VUB_BM01_SU.dat
+│           │   ├── IMAU_VUB_BM02_R0.dat
+│           │   ├── IMAU_VUB_BM02_R1.dat
+│           │   ├── IMAU_VUB_BM02_R2.dat
+│           │   ├── IMAU_VUB_BM02_R3.dat
+│           │   ├── IMAU_VUB_BM02_R4.dat
+│           │   ├── IMAU_VUB_BM02_R5.dat
+│           │   ├── IMAU_VUB_BM02_SU.dat
+│           │   ├── IMAU_VUB_BM04_R0.dat
+│           │   ├── IMAU_VUB_BM04_R1.dat
+│           │   ├── IMAU_VUB_BM04_R2.dat
+│           │   ├── IMAU_VUB_BM04_R3.dat
+│           │   ├── IMAU_VUB_BM04_R4.dat
+│           │   ├── IMAU_VUB_BM04_R5.dat
+│           │   ├── IMAU_VUB_BM04_SU.dat
+│           │   ├── IMAU_VUB_BM08_R0.dat
+│           │   ├── IMAU_VUB_BM08_R1.dat
+│           │   ├── IMAU_VUB_BM08_R2.dat
+│           │   ├── IMAU_VUB_BM08_R3.dat
+│           │   ├── IMAU_VUB_BM08_R4.dat
+│           │   ├── IMAU_VUB_BM08_R5.dat
+│           │   ├── IMAU_VUB_BM08_SU.dat
+│           │   ├── IMAU_VUB_BM16_R0.dat
+│           │   ├── IMAU_VUB_BM16_R1.dat
+│           │   ├── IMAU_VUB_BM16_R2.dat
+│           │   ├── IMAU_VUB_BM16_R3.dat
+│           │   ├── IMAU_VUB_BM16_R4.dat
+│           │   ├── IMAU_VUB_BM16_R5.dat
+│           │   ├── IMAU_VUB_BM16_SU.dat
+│           │   ├── IMAU_VUB_BM32_R0.dat
+│           │   ├── IMAU_VUB_BM32_R1.dat
+│           │   ├── IMAU_VUB_BM32_R2.dat
+│           │   ├── IMAU_VUB_BM32_R3.dat
+│           │   ├── IMAU_VUB_BM32_R4.dat
+│           │   ├── IMAU_VUB_BM32_R5.dat
+│           │   ├── IMAU_VUB_BM32_SU.dat
+│           │   ├── ISMIP6_Ronja_PISM_PIK_BM08_R1.dat
+│           │   ├── ISMIP6_Ronja_PISM_PIK_BM08_R2.dat
+│           │   ├── ISMIP6_Ronja_PISM_PIK_BM08_R3.dat
+│           │   ├── ISMIP6_Ronja_PISM_PIK_BM08_R4.dat
+│           │   ├── ISMIP6_Ronja_PISM_PIK_BM08_R5.dat
+│           │   ├── ISSM_JPL_BM01_R0.dat
+│           │   ├── ISSM_JPL_BM01_R1.dat
+│           │   ├── ISSM_JPL_BM01_R2.dat
+│           │   ├── ISSM_JPL_BM01_R3.dat
+│           │   ├── ISSM_JPL_BM01_R4.dat
+│           │   ├── ISSM_JPL_BM01_R5.dat
+│           │   ├── ISSM_JPL_BM01_SU.dat
+│           │   ├── ISSM_JPL_BM02_R0.dat
+│           │   ├── ISSM_JPL_BM02_R1.dat
+│           │   ├── ISSM_JPL_BM02_R2.dat
+│           │   ├── ISSM_JPL_BM02_R3.dat
+│           │   ├── ISSM_JPL_BM02_R4.dat
+│           │   ├── ISSM_JPL_BM02_R5.dat
+│           │   ├── ISSM_JPL_BM02_SU.dat
+│           │   ├── ISSM_JPL_BM04_R0.dat
+│           │   ├── ISSM_JPL_BM04_R1.dat
+│           │   ├── ISSM_JPL_BM04_R2.dat
+│           │   ├── ISSM_JPL_BM04_R3.dat
+│           │   ├── ISSM_JPL_BM04_R4.dat
+│           │   ├── ISSM_JPL_BM04_R5.dat
+│           │   ├── ISSM_JPL_BM04_SU.dat
+│           │   ├── ISSM_JPL_BM08_R0.dat
+│           │   ├── ISSM_JPL_BM08_R1.dat
+│           │   ├── ISSM_JPL_BM08_R2.dat
+│           │   ├── ISSM_JPL_BM08_R3.dat
+│           │   ├── ISSM_JPL_BM08_R4.dat
+│           │   ├── ISSM_JPL_BM08_R5.dat
+│           │   ├── ISSM_JPL_BM08_SU.dat
+│           │   ├── ISSM_JPL_BM16_R0.dat
+│           │   ├── ISSM_JPL_BM16_R1.dat
+│           │   ├── ISSM_JPL_BM16_R2.dat
+│           │   ├── ISSM_JPL_BM16_R3.dat
+│           │   ├── ISSM_JPL_BM16_R4.dat
+│           │   ├── ISSM_JPL_BM16_R5.dat
+│           │   ├── ISSM_JPL_BM16_SU.dat
+│           │   ├── ISSM_JPL_BM32_R0.dat
+│           │   ├── ISSM_JPL_BM32_R1.dat
+│           │   ├── ISSM_JPL_BM32_R2.dat
+│           │   ├── ISSM_JPL_BM32_R3.dat
+│           │   ├── ISSM_JPL_BM32_R4.dat
+│           │   ├── ISSM_JPL_BM32_R5.dat
+│           │   ├── ISSM_JPL_BM32_SU.dat
+│           │   ├── ISSM_UCI_BM01_R0.dat
+│           │   ├── ISSM_UCI_BM01_R1.dat
+│           │   ├── ISSM_UCI_BM01_R2.dat
+│           │   ├── ISSM_UCI_BM01_R3.dat
+│           │   ├── ISSM_UCI_BM01_R4.dat
+│           │   ├── ISSM_UCI_BM01_R5.dat
+│           │   ├── ISSM_UCI_BM01_SU.dat
+│           │   ├── ISSM_UCI_BM02_R0.dat
+│           │   ├── ISSM_UCI_BM02_R1.dat
+│           │   ├── ISSM_UCI_BM02_R2.dat
+│           │   ├── ISSM_UCI_BM02_R3.dat
+│           │   ├── ISSM_UCI_BM02_R4.dat
+│           │   ├── ISSM_UCI_BM02_R5.dat
+│           │   ├── ISSM_UCI_BM02_SU.dat
+│           │   ├── ISSM_UCI_BM04_R0.dat
+│           │   ├── ISSM_UCI_BM04_R1.dat
+│           │   ├── ISSM_UCI_BM04_R2.dat
+│           │   ├── ISSM_UCI_BM04_R3.dat
+│           │   ├── ISSM_UCI_BM04_R4.dat
+│           │   ├── ISSM_UCI_BM04_R5.dat
+│           │   ├── ISSM_UCI_BM04_SU.dat
+│           │   ├── ISSM_UCI_BM08_R0.dat
+│           │   ├── ISSM_UCI_BM08_R1.dat
+│           │   ├── ISSM_UCI_BM08_R2.dat
+│           │   ├── ISSM_UCI_BM08_R3.dat
+│           │   ├── ISSM_UCI_BM08_R4.dat
+│           │   ├── ISSM_UCI_BM08_R5.dat
+│           │   ├── ISSM_UCI_BM08_SU.dat
+│           │   ├── ISSM_UCI_BM16_R0.dat
+│           │   ├── ISSM_UCI_BM16_R1.dat
+│           │   ├── ISSM_UCI_BM16_R2.dat
+│           │   ├── ISSM_UCI_BM16_R3.dat
+│           │   ├── ISSM_UCI_BM16_R4.dat
+│           │   ├── ISSM_UCI_BM16_R5.dat
+│           │   ├── ISSM_UCI_BM16_SU.dat
+│           │   ├── ISSM_UCI_BM32_R0.dat
+│           │   ├── ISSM_UCI_BM32_R1.dat
+│           │   ├── ISSM_UCI_BM32_R2.dat
+│           │   ├── ISSM_UCI_BM32_R3.dat
+│           │   ├── ISSM_UCI_BM32_R4.dat
+│           │   ├── ISSM_UCI_BM32_R5.dat
+│           │   ├── ISSM_UCI_BM32_SU.dat
+│           │   ├── MALI_LAN_BM02_R1.dat
+│           │   ├── MALI_LAN_BM02_R2.dat
+│           │   ├── MALI_LAN_BM02_R3.dat
+│           │   ├── MALI_LAN_BM02_R4.dat
+│           │   ├── MALI_LAN_BM02_R5.dat
+│           │   ├── MALI_LAN_BM02_SU.dat
+│           │   ├── MALI_LAN_BM08_R1.dat
+│           │   ├── MALI_LAN_BM08_R2.dat
+│           │   ├── MALI_LAN_BM08_R3.dat
+│           │   ├── MALI_LAN_BM08_R4.dat
+│           │   ├── MALI_LAN_BM08_R5.dat
+│           │   ├── MALI_LAN_BM08_SU.dat
+│           │   ├── PISM_AWI_BM01_R0.dat
+│           │   ├── PISM_AWI_BM01_R1.dat
+│           │   ├── PISM_AWI_BM01_R2.dat
+│           │   ├── PISM_AWI_BM01_R3.dat
+│           │   ├── PISM_AWI_BM01_R4.dat
+│           │   ├── PISM_AWI_BM01_R5.dat
+│           │   ├── PISM_AWI_BM01_SU.dat
+│           │   ├── PISM_AWI_BM02_R0.dat
+│           │   ├── PISM_AWI_BM02_R1.dat
+│           │   ├── PISM_AWI_BM02_R2.dat
+│           │   ├── PISM_AWI_BM02_R3.dat
+│           │   ├── PISM_AWI_BM02_R4.dat
+│           │   ├── PISM_AWI_BM02_R5.dat
+│           │   ├── PISM_AWI_BM02_SU.dat
+│           │   ├── PISM_AWI_BM04_R0.dat
+│           │   ├── PISM_AWI_BM04_R1.dat
+│           │   ├── PISM_AWI_BM04_R2.dat
+│           │   ├── PISM_AWI_BM04_R3.dat
+│           │   ├── PISM_AWI_BM04_R4.dat
+│           │   ├── PISM_AWI_BM04_R5.dat
+│           │   ├── PISM_AWI_BM04_SU.dat
+│           │   ├── PISM_AWI_BM08_R0.dat
+│           │   ├── PISM_AWI_BM08_R1.dat
+│           │   ├── PISM_AWI_BM08_R2.dat
+│           │   ├── PISM_AWI_BM08_R3.dat
+│           │   ├── PISM_AWI_BM08_R4.dat
+│           │   ├── PISM_AWI_BM08_R5.dat
+│           │   ├── PISM_AWI_BM08_SU.dat
+│           │   ├── PISM_AWI_BM16_R0.dat
+│           │   ├── PISM_AWI_BM16_R1.dat
+│           │   ├── PISM_AWI_BM16_R2.dat
+│           │   ├── PISM_AWI_BM16_R3.dat
+│           │   ├── PISM_AWI_BM16_R4.dat
+│           │   ├── PISM_AWI_BM16_R5.dat
+│           │   ├── PISM_AWI_BM16_SU.dat
+│           │   ├── PISM_AWI_BM32_R0.dat
+│           │   ├── PISM_AWI_BM32_R1.dat
+│           │   ├── PISM_AWI_BM32_R2.dat
+│           │   ├── PISM_AWI_BM32_R3.dat
+│           │   ├── PISM_AWI_BM32_R4.dat
+│           │   ├── PISM_AWI_BM32_R5.dat
+│           │   ├── PISM_AWI_BM32_SU.dat
+│           │   ├── PISM_DMI_BM01_R1.dat
+│           │   ├── PISM_DMI_BM01_R2.dat
+│           │   ├── PISM_DMI_BM01_R3.dat
+│           │   ├── PISM_DMI_BM01_R4.dat
+│           │   ├── PISM_DMI_BM01_R5.dat
+│           │   ├── PISM_DMI_BM01_SU.dat
+│           │   ├── PISM_DMI_BM02_R1.dat
+│           │   ├── PISM_DMI_BM02_R2.dat
+│           │   ├── PISM_DMI_BM02_R3.dat
+│           │   ├── PISM_DMI_BM02_R4.dat
+│           │   ├── PISM_DMI_BM02_R5.dat
+│           │   ├── PISM_DMI_BM02_SU.dat
+│           │   ├── PISM_DMI_BM04_R1.dat
+│           │   ├── PISM_DMI_BM04_R2.dat
+│           │   ├── PISM_DMI_BM04_R3.dat
+│           │   ├── PISM_DMI_BM04_R4.dat
+│           │   ├── PISM_DMI_BM04_R5.dat
+│           │   ├── PISM_DMI_BM04_SU.dat
+│           │   ├── PISM_DMI_BM08_R1.dat
+│           │   ├── PISM_DMI_BM08_R2.dat
+│           │   ├── PISM_DMI_BM08_R3.dat
+│           │   ├── PISM_DMI_BM08_R4.dat
+│           │   ├── PISM_DMI_BM08_R5.dat
+│           │   ├── PISM_DMI_BM08_SU.dat
+│           │   ├── PISM_DMI_BM16_R1.dat
+│           │   ├── PISM_DMI_BM16_R2.dat
+│           │   ├── PISM_DMI_BM16_R3.dat
+│           │   ├── PISM_DMI_BM16_R4.dat
+│           │   ├── PISM_DMI_BM16_R5.dat
+│           │   ├── PISM_DMI_BM16_SU.dat
+│           │   ├── PISM_DMI_BM32_R1.dat
+│           │   ├── PISM_DMI_BM32_R2.dat
+│           │   ├── PISM_DMI_BM32_R3.dat
+│           │   ├── PISM_DMI_BM32_R4.dat
+│           │   ├── PISM_DMI_BM32_R5.dat
+│           │   ├── PISM_DMI_BM32_SU.dat
+│           │   ├── PISM_PIK_BM02_R1.dat
+│           │   ├── PISM_PIK_BM02_R2.dat
+│           │   ├── PISM_PIK_BM02_R3.dat
+│           │   ├── PISM_PIK_BM02_R4.dat
+│           │   ├── PISM_PIK_BM02_R5.dat
+│           │   ├── PISM_PIK_BM02_SU.dat
+│           │   ├── PISM_PIK_BM04_R1.dat
+│           │   ├── PISM_PIK_BM04_R2.dat
+│           │   ├── PISM_PIK_BM04_R3.dat
+│           │   ├── PISM_PIK_BM04_R4.dat
+│           │   ├── PISM_PIK_BM04_R5.dat
+│           │   ├── PISM_PIK_BM04_SU.dat
+│           │   ├── PISM_PIK_BM08_R1.dat
+│           │   ├── PISM_PIK_BM08_R2.dat
+│           │   ├── PISM_PIK_BM08_R3.dat
+│           │   ├── PISM_PIK_BM08_R4.dat
+│           │   ├── PISM_PIK_BM08_R5.dat
+│           │   ├── PISM_PIK_BM08_SU.dat
+│           │   ├── PISM_PIK_BM16_R1.dat
+│           │   ├── PISM_PIK_BM16_R2.dat
+│           │   ├── PISM_PIK_BM16_R3.dat
+│           │   ├── PISM_PIK_BM16_R4.dat
+│           │   ├── PISM_PIK_BM16_R5.dat
+│           │   ├── PISM_PIK_BM16_SU.dat
+│           │   ├── PISM_PIK_BM32_R1.dat
+│           │   ├── PISM_PIK_BM32_R2.dat
+│           │   ├── PISM_PIK_BM32_R3.dat
+│           │   ├── PISM_PIK_BM32_R4.dat
+│           │   ├── PISM_PIK_BM32_R5.dat
+│           │   ├── PISM_PIK_BM32_SU.dat
+│           │   ├── PISM_PIK_ISMIP6_BM02_R1.dat
+│           │   ├── PISM_PIK_ISMIP6_BM02_R2.dat
+│           │   ├── PISM_PIK_ISMIP6_BM02_R3.dat
+│           │   ├── PISM_PIK_ISMIP6_BM02_R4.dat
+│           │   ├── PISM_PIK_ISMIP6_BM02_R5.dat
+│           │   ├── PISM_PIK_ISMIP6_BM02_SU.dat
+│           │   ├── PISM_PIK_ISMIP6_BM04_R1.dat
+│           │   ├── PISM_PIK_ISMIP6_BM04_R2.dat
+│           │   ├── PISM_PIK_ISMIP6_BM04_R3.dat
+│           │   ├── PISM_PIK_ISMIP6_BM04_R4.dat
+│           │   ├── PISM_PIK_ISMIP6_BM04_R5.dat
+│           │   ├── PISM_PIK_ISMIP6_BM04_SU.dat
+│           │   ├── PISM_PIK_ISMIP6_BM08_R1.dat
+│           │   ├── PISM_PIK_ISMIP6_BM08_R2.dat
+│           │   ├── PISM_PIK_ISMIP6_BM08_R3.dat
+│           │   ├── PISM_PIK_ISMIP6_BM08_R4.dat
+│           │   ├── PISM_PIK_ISMIP6_BM08_R5.dat
+│           │   ├── PISM_PIK_ISMIP6_BM08_SU.dat
+│           │   ├── PISM_PIK_ISMIP6_BM16_R1.dat
+│           │   ├── PISM_PIK_ISMIP6_BM16_R2.dat
+│           │   ├── PISM_PIK_ISMIP6_BM16_R3.dat
+│           │   ├── PISM_PIK_ISMIP6_BM16_R4.dat
+│           │   ├── PISM_PIK_ISMIP6_BM16_R5.dat
+│           │   ├── PISM_PIK_ISMIP6_BM16_SU.dat
+│           │   ├── PISM_PIK_ISMIP6_BM32_R1.dat
+│           │   ├── PISM_PIK_ISMIP6_BM32_R2.dat
+│           │   ├── PISM_PIK_ISMIP6_BM32_R3.dat
+│           │   ├── PISM_PIK_ISMIP6_BM32_R4.dat
+│           │   ├── PISM_PIK_ISMIP6_BM32_R5.dat
+│           │   ├── PISM_PIK_ISMIP6_BM32_SU.dat
+│           │   ├── PISM_VUW_BM01_R0.dat
+│           │   ├── PISM_VUW_BM01_R1.dat
+│           │   ├── PISM_VUW_BM01_R2.dat
+│           │   ├── PISM_VUW_BM01_R3.dat
+│           │   ├── PISM_VUW_BM01_R4.dat
+│           │   ├── PISM_VUW_BM01_R5.dat
+│           │   ├── PISM_VUW_BM01_SU.dat
+│           │   ├── PISM_VUW_BM02_R0.dat
+│           │   ├── PISM_VUW_BM02_R1.dat
+│           │   ├── PISM_VUW_BM02_R2.dat
+│           │   ├── PISM_VUW_BM02_R3.dat
+│           │   ├── PISM_VUW_BM02_R4.dat
+│           │   ├── PISM_VUW_BM02_R5.dat
+│           │   ├── PISM_VUW_BM02_SU.dat
+│           │   ├── PISM_VUW_BM04_R0.dat
+│           │   ├── PISM_VUW_BM04_R1.dat
+│           │   ├── PISM_VUW_BM04_R2.dat
+│           │   ├── PISM_VUW_BM04_R3.dat
+│           │   ├── PISM_VUW_BM04_R4.dat
+│           │   ├── PISM_VUW_BM04_R5.dat
+│           │   ├── PISM_VUW_BM04_SU.dat
+│           │   ├── PISM_VUW_BM08_R0.dat
+│           │   ├── PISM_VUW_BM08_R1.dat
+│           │   ├── PISM_VUW_BM08_R2.dat
+│           │   ├── PISM_VUW_BM08_R3.dat
+│           │   ├── PISM_VUW_BM08_R4.dat
+│           │   ├── PISM_VUW_BM08_R5.dat
+│           │   ├── PISM_VUW_BM08_SU.dat
+│           │   ├── PISM_VUW_BM16_R0.dat
+│           │   ├── PISM_VUW_BM16_R1.dat
+│           │   ├── PISM_VUW_BM16_R2.dat
+│           │   ├── PISM_VUW_BM16_R3.dat
+│           │   ├── PISM_VUW_BM16_R4.dat
+│           │   ├── PISM_VUW_BM16_R5.dat
+│           │   ├── PISM_VUW_BM16_SU.dat
+│           │   ├── PISM_VUW_BM32_R0.dat
+│           │   ├── PISM_VUW_BM32_R1.dat
+│           │   ├── PISM_VUW_BM32_R2.dat
+│           │   ├── PISM_VUW_BM32_R3.dat
+│           │   ├── PISM_VUW_BM32_R4.dat
+│           │   ├── PISM_VUW_BM32_R5.dat
+│           │   ├── PISM_VUW_BM32_SU.dat
+│           │   ├── PS3D_PSU_BM01_R0.dat
+│           │   ├── PS3D_PSU_BM01_R1.dat
+│           │   ├── PS3D_PSU_BM01_R2.dat
+│           │   ├── PS3D_PSU_BM01_R3.dat
+│           │   ├── PS3D_PSU_BM01_R4.dat
+│           │   ├── PS3D_PSU_BM01_R5.dat
+│           │   ├── PS3D_PSU_BM01_SU.dat
+│           │   ├── PS3D_PSU_BM02_R0.dat
+│           │   ├── PS3D_PSU_BM02_R1.dat
+│           │   ├── PS3D_PSU_BM02_R2.dat
+│           │   ├── PS3D_PSU_BM02_R3.dat
+│           │   ├── PS3D_PSU_BM02_R4.dat
+│           │   ├── PS3D_PSU_BM02_R5.dat
+│           │   ├── PS3D_PSU_BM02_SU.dat
+│           │   ├── PS3D_PSU_BM04_R0.dat
+│           │   ├── PS3D_PSU_BM04_R1.dat
+│           │   ├── PS3D_PSU_BM04_R2.dat
+│           │   ├── PS3D_PSU_BM04_R3.dat
+│           │   ├── PS3D_PSU_BM04_R4.dat
+│           │   ├── PS3D_PSU_BM04_R5.dat
+│           │   ├── PS3D_PSU_BM04_SU.dat
+│           │   ├── PS3D_PSU_BM08_R0.dat
+│           │   ├── PS3D_PSU_BM08_R1.dat
+│           │   ├── PS3D_PSU_BM08_R2.dat
+│           │   ├── PS3D_PSU_BM08_R3.dat
+│           │   ├── PS3D_PSU_BM08_R4.dat
+│           │   ├── PS3D_PSU_BM08_R5.dat
+│           │   ├── PS3D_PSU_BM08_SU.dat
+│           │   ├── PS3D_PSU_BM16_R0.dat
+│           │   ├── PS3D_PSU_BM16_R1.dat
+│           │   ├── PS3D_PSU_BM16_R2.dat
+│           │   ├── PS3D_PSU_BM16_R3.dat
+│           │   ├── PS3D_PSU_BM16_R4.dat
+│           │   ├── PS3D_PSU_BM16_R5.dat
+│           │   ├── PS3D_PSU_BM16_SU.dat
+│           │   ├── PS3D_PSU_BM32_R0.dat
+│           │   ├── PS3D_PSU_BM32_R1.dat
+│           │   ├── PS3D_PSU_BM32_R2.dat
+│           │   ├── PS3D_PSU_BM32_R3.dat
+│           │   ├── PS3D_PSU_BM32_R4.dat
+│           │   ├── PS3D_PSU_BM32_R5.dat
+│           │   ├── PS3D_PSU_BM32_SU.dat
+│           │   ├── SICO_UHO_BM01_R0.dat
+│           │   ├── SICO_UHO_BM01_R1.dat
+│           │   ├── SICO_UHO_BM01_R2.dat
+│           │   ├── SICO_UHO_BM01_R3.dat
+│           │   ├── SICO_UHO_BM01_R4.dat
+│           │   ├── SICO_UHO_BM01_R5.dat
+│           │   ├── SICO_UHO_BM01_SU.dat
+│           │   ├── SICO_UHO_BM02_R0.dat
+│           │   ├── SICO_UHO_BM02_R1.dat
+│           │   ├── SICO_UHO_BM02_R2.dat
+│           │   ├── SICO_UHO_BM02_R3.dat
+│           │   ├── SICO_UHO_BM02_R4.dat
+│           │   ├── SICO_UHO_BM02_R5.dat
+│           │   ├── SICO_UHO_BM02_SU.dat
+│           │   ├── SICO_UHO_BM04_R0.dat
+│           │   ├── SICO_UHO_BM04_R1.dat
+│           │   ├── SICO_UHO_BM04_R2.dat
+│           │   ├── SICO_UHO_BM04_R3.dat
+│           │   ├── SICO_UHO_BM04_R4.dat
+│           │   ├── SICO_UHO_BM04_R5.dat
+│           │   ├── SICO_UHO_BM04_SU.dat
+│           │   ├── SICO_UHO_BM08_R0.dat
+│           │   ├── SICO_UHO_BM08_R1.dat
+│           │   ├── SICO_UHO_BM08_R2.dat
+│           │   ├── SICO_UHO_BM08_R3.dat
+│           │   ├── SICO_UHO_BM08_R4.dat
+│           │   ├── SICO_UHO_BM08_R5.dat
+│           │   ├── SICO_UHO_BM08_SU.dat
+│           │   ├── SICO_UHO_BM16_R0.dat
+│           │   ├── SICO_UHO_BM16_R1.dat
+│           │   ├── SICO_UHO_BM16_R2.dat
+│           │   ├── SICO_UHO_BM16_R3.dat
+│           │   ├── SICO_UHO_BM16_R4.dat
+│           │   ├── SICO_UHO_BM16_R5.dat
+│           │   ├── SICO_UHO_BM16_SU.dat
+│           │   ├── SICO_UHO_BM32_R0.dat
+│           │   ├── SICO_UHO_BM32_R1.dat
+│           │   ├── SICO_UHO_BM32_R2.dat
+│           │   ├── SICO_UHO_BM32_R3.dat
+│           │   ├── SICO_UHO_BM32_R4.dat
+│           │   ├── SICO_UHO_BM32_R5.dat
+│           │   ├── SICO_UHO_BM32_SU.dat
+│           │   ├── UA_UNN_BM01_R1.dat
+│           │   ├── UA_UNN_BM01_R2.dat
+│           │   ├── UA_UNN_BM01_R3.dat
+│           │   ├── UA_UNN_BM01_R4.dat
+│           │   ├── UA_UNN_BM01_R5.dat
+│           │   ├── UA_UNN_BM01_SU.dat
+│           │   ├── UA_UNN_BM02_R1.dat
+│           │   ├── UA_UNN_BM02_R2.dat
+│           │   ├── UA_UNN_BM02_R3.dat
+│           │   ├── UA_UNN_BM02_R4.dat
+│           │   ├── UA_UNN_BM02_R5.dat
+│           │   ├── UA_UNN_BM02_SU.dat
+│           │   ├── UA_UNN_BM04_R1.dat
+│           │   ├── UA_UNN_BM04_R2.dat
+│           │   ├── UA_UNN_BM04_R3.dat
+│           │   ├── UA_UNN_BM04_R4.dat
+│           │   ├── UA_UNN_BM04_R5.dat
+│           │   ├── UA_UNN_BM04_SU.dat
+│           │   ├── UA_UNN_BM08_R1.dat
+│           │   ├── UA_UNN_BM08_R2.dat
+│           │   ├── UA_UNN_BM08_R3.dat
+│           │   ├── UA_UNN_BM08_R4.dat
+│           │   ├── UA_UNN_BM08_R5.dat
+│           │   ├── UA_UNN_BM08_SU.dat
+│           │   ├── UA_UNN_BM16_R1.dat
+│           │   ├── UA_UNN_BM16_R2.dat
+│           │   ├── UA_UNN_BM16_R3.dat
+│           │   ├── UA_UNN_BM16_R4.dat
+│           │   ├── UA_UNN_BM16_R5.dat
+│           │   ├── UA_UNN_BM16_SU.dat
+│           │   ├── UA_UNN_BM32_R1.dat
+│           │   ├── UA_UNN_BM32_R2.dat
+│           │   ├── UA_UNN_BM32_R3.dat
+│           │   ├── UA_UNN_BM32_R4.dat
+│           │   ├── UA_UNN_BM32_R5.dat
+│           │   └── UA_UNN_BM32_SU.dat
+│           ├── LinearityCheck
+│           │   ├── Scaling_R1.ipynb
+│           │   ├── Scaling_R2.ipynb
+│           │   ├── Scaling_R3.ipynb
+│           │   ├── Scaling_R4.ipynb
+│           │   └── Scaling_R5.ipynb
+│           ├── MAGICC
+│           │   └── RCP2500
+│           │       ├── Temp_RCP26_HistConstraint.dat
+│           │       ├── Temp_RCP45_HistConstraint.dat
+│           │       ├── Temp_RCP60_HistConstraint.dat
+│           │       └── Temp_RCP85_HistConstraint.dat
+│           ├── PlotProjection4AllModels
+│           │   ├── Percentiles
+│           │   │   ├── SL_wTd_nos_base_Historic_RCP85_01pc.dat
+│           │   │   ├── SL_wTd_nos_base_Historic_RCP85_05pc.dat
+│           │   │   ├── SL_wTd_nos_base_Historic_RCP85_17pc.dat
+│           │   │   ├── SL_wTd_nos_base_Historic_RCP85_50pc.dat
+│           │   │   ├── SL_wTd_nos_base_Historic_RCP85_83pc.dat
+│           │   │   ├── SL_wTd_nos_base_Historic_RCP85_95pc.dat
+│           │   │   ├── SL_wTd_nos_base_Historic_RCP85_99pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP26_01pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP26_05pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP26_17pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP26_50pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP26_83pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP26_95pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP26_99pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP85_01pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP85_05pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP85_17pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP85_50pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP85_83pc.dat
+│           │   │   ├── SL_wTd_nos_base_RCP85_95pc.dat
+│           │   │   └── SL_wTd_nos_base_RCP85_99pc.dat
+│           │   ├── Plot_Perc_wTd_nos_base_Historic_1992_2017_FromRCP85.ipynb
+│           │   ├── Plot_Perc_wTd_rate_RCPall.ipynb
+│           │   ├── Plot_Perc_wTd_RCP2685_Allregions.ipynb
+│           │   ├── Plot_Perc_wTd_RCP26.ipynb
+│           │   ├── Plot_Perc_wTd_RCP85.ipynb
+│           │   ├── Plot_Perc_wTd_RCP85_R1.ipynb
+│           │   ├── Plot_Perc_wTd_RCP85_R2.ipynb
+│           │   ├── Plot_Perc_wTd_RCP85_R3.ipynb
+│           │   ├── Plot_Perc_wTd_RCP85_R4.ipynb
+│           │   ├── Plot_Perc_wTd_RCP85_R5.ipynb
+│           │   ├── Plot_Perc_wTd_RCPall.ipynb
+│           │   ├── Plot_Perc_wTd_RCPall_SSPs.ipynb
+│           │   ├── Print_Perc_wTd_Historic_1992_2017_FromRCP85_allModels.ipynb
+│           │   ├── Print_Perc_wTd_Historic_1992_2017_FromRCP85.ipynb
+│           │   ├── Print_Perc_wTd_rate_RCPall_2050.ipynb
+│           │   ├── Print_Perc_wTd_rate_RCPall.ipynb
+│           │   ├── Print_Perc_wTd_RCP26.ipynb
+│           │   ├── Print_Perc_wTd_RCP45.ipynb
+│           │   ├── Print_Perc_wTd_RCP60.ipynb
+│           │   ├── Print_Perc_wTd_RCP85.ipynb
+│           │   ├── Print_Perc_wTd_RCPall_2000_2100.ipynb
+│           │   ├── Print_Perc_wTd_RCPall_2020_2050.ipynb
+│           │   ├── Print_Perc_wTd_RCPall_2050.ipynb
+│           │   ├── Print_Perc_wTd_RCPall.ipynb
+│           │   └── Tables
+│           │       ├── Backup
+│           │       │   ├── Tab10_SL_RCP85_full.dat
+│           │       │   ├── Tab11_SL_RCPall_full.dat
+│           │       │   ├── Tab12_SL_rate_RCPall_full.dat
+│           │       │   ├── Tab13_SL_RCPall_2050_full.dat
+│           │       │   ├── Tab14_SL_rate_RCPall_2050_full.dat
+│           │       │   ├── Tab15_SL_RCPall_2000_2100_full.dat
+│           │       │   ├── Tab15_SL_RCPall_2020_2050_full.dat
+│           │       │   ├── Tab7_SL_RCP26_full.dat
+│           │       │   ├── Tab8_SL_RCP45_full.dat
+│           │       │   └── Tab9_SL_RCP60_full.dat
+│           │       ├── SL_hindcast_wTd_weighted_base_RCP85_allModels_table.dat
+│           │       ├── SL_hindcast_wTd_weighted_base_RCP85_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP26_2050_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP26_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP45_2050_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP45_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP60_2050_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP60_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP85_2050_table.dat
+│           │       ├── SL_wTd_nos_base_rate_RCP85_table.dat
+│           │       ├── SL_wTd_nos_base_RCP26_2000_2100_table.dat
+│           │       ├── SL_wTd_nos_base_RCP26_2020_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP26_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP26_table.dat
+│           │       ├── SL_wTd_nos_base_RCP45_2000_2100_table.dat
+│           │       ├── SL_wTd_nos_base_RCP45_2020_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP45_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP45_table.dat
+│           │       ├── SL_wTd_nos_base_RCP60_2000_2100_table.dat
+│           │       ├── SL_wTd_nos_base_RCP60_2020_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP60_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP60_table.dat
+│           │       ├── SL_wTd_nos_base_RCP85_2000_2100_table.dat
+│           │       ├── SL_wTd_nos_base_RCP85_2020_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP85_2050_table.dat
+│           │       ├── SL_wTd_nos_base_RCP85_table.dat
+│           │       ├── SL_wTd_nos_base_table.dat
+│           │       ├── SL_wTd_weighted_base_rate_RCP26_table.dat
+│           │       ├── SL_wTd_weighted_base_rate_RCP45_table.dat
+│           │       ├── SL_wTd_weighted_base_rate_RCP60_table.dat
+│           │       ├── SL_wTd_weighted_base_rate_RCP85_table.dat
+│           │       ├── SL_wTd_weighted_base_rate_table.dat
+│           │       ├── SL_wTd_weighted_base_RCP26_table.dat
+│           │       ├── SL_wTd_weighted_base_RCP45_table.dat
+│           │       ├── SL_wTd_weighted_base_RCP60_table.dat
+│           │       ├── SL_wTd_weighted_base_RCP85_table.dat
+│           │       ├── SL_wTd_weighted_base_table.dat
+│           │       ├── Tab10_SL_RCP85.dat
+│           │       ├── Tab11_SL_RCPall.dat
+│           │       ├── Tab12_SL_rate_RCPall.dat
+│           │       ├── Tab13_SL_RCPall_2050.dat
+│           │       ├── Tab14_SL_rate_RCPall_2050.dat
+│           │       ├── Tab15_SL_RCPall_2000_2100.dat
+│           │       ├── Tab15_SL_RCPall_2020_2050.dat
+│           │       ├── Tab6_SL_hindcast_allModels.dat
+│           │       ├── Tab6_SL_hindcast.dat
+│           │       ├── Tab7_SL_RCP26.dat
+│           │       ├── Tab8_SL_RCP45.dat
+│           │       └── Tab9_SL_RCP60.dat
+│           ├── README.md
+│           ├── RFunctions
+│           │   ├── RF_AISM_VUB_BM02_R0.dat
+│           │   ├── RF_AISM_VUB_BM02_R1.dat
+│           │   ├── RF_AISM_VUB_BM02_R2.dat
+│           │   ├── RF_AISM_VUB_BM02_R3.dat
+│           │   ├── RF_AISM_VUB_BM02_R4.dat
+│           │   ├── RF_AISM_VUB_BM02_R5.dat
+│           │   ├── RF_AISM_VUB_BM02_SU.dat
+│           │   ├── RF_AISM_VUB_BM04_R0.dat
+│           │   ├── RF_AISM_VUB_BM04_R1.dat
+│           │   ├── RF_AISM_VUB_BM04_R2.dat
+│           │   ├── RF_AISM_VUB_BM04_R3.dat
+│           │   ├── RF_AISM_VUB_BM04_R4.dat
+│           │   ├── RF_AISM_VUB_BM04_R5.dat
+│           │   ├── RF_AISM_VUB_BM04_SU.dat
+│           │   ├── RF_AISM_VUB_BM08_R0.dat
+│           │   ├── RF_AISM_VUB_BM08_R1.dat
+│           │   ├── RF_AISM_VUB_BM08_R2.dat
+│           │   ├── RF_AISM_VUB_BM08_R3.dat
+│           │   ├── RF_AISM_VUB_BM08_R4.dat
+│           │   ├── RF_AISM_VUB_BM08_R5.dat
+│           │   ├── RF_AISM_VUB_BM08_SU.dat
+│           │   ├── RF_BISI_LBL_1KM_BM02_R0.dat
+│           │   ├── RF_BISI_LBL_1KM_BM02_R1.dat
+│           │   ├── RF_BISI_LBL_1KM_BM02_R2.dat
+│           │   ├── RF_BISI_LBL_1KM_BM02_R3.dat
+│           │   ├── RF_BISI_LBL_1KM_BM02_R4.dat
+│           │   ├── RF_BISI_LBL_1KM_BM02_R5.dat
+│           │   ├── RF_BISI_LBL_1KM_BM02_SU.dat
+│           │   ├── RF_BISI_LBL_1KM_BM04_R0.dat
+│           │   ├── RF_BISI_LBL_1KM_BM04_R1.dat
+│           │   ├── RF_BISI_LBL_1KM_BM04_R2.dat
+│           │   ├── RF_BISI_LBL_1KM_BM04_R3.dat
+│           │   ├── RF_BISI_LBL_1KM_BM04_R4.dat
+│           │   ├── RF_BISI_LBL_1KM_BM04_R5.dat
+│           │   ├── RF_BISI_LBL_1KM_BM04_SU.dat
+│           │   ├── RF_BISI_LBL_1KM_BM08_R0.dat
+│           │   ├── RF_BISI_LBL_1KM_BM08_R1.dat
+│           │   ├── RF_BISI_LBL_1KM_BM08_R2.dat
+│           │   ├── RF_BISI_LBL_1KM_BM08_R3.dat
+│           │   ├── RF_BISI_LBL_1KM_BM08_R4.dat
+│           │   ├── RF_BISI_LBL_1KM_BM08_R5.dat
+│           │   ├── RF_BISI_LBL_1KM_BM08_SU.dat
+│           │   ├── RF_BISI_LBL_1KM_BM16_R0.dat
+│           │   ├── RF_BISI_LBL_1KM_BM16_R1.dat
+│           │   ├── RF_BISI_LBL_1KM_BM16_R2.dat
+│           │   ├── RF_BISI_LBL_1KM_BM16_R3.dat
+│           │   ├── RF_BISI_LBL_1KM_BM16_R4.dat
+│           │   ├── RF_BISI_LBL_1KM_BM16_R5.dat
+│           │   ├── RF_BISI_LBL_1KM_BM16_SU.dat
+│           │   ├── RF_BISI_LBL_BM08_R0.dat
+│           │   ├── RF_BISI_LBL_BM08_R1.dat
+│           │   ├── RF_BISI_LBL_BM08_R2.dat
+│           │   ├── RF_BISI_LBL_BM08_R3.dat
+│           │   ├── RF_BISI_LBL_BM08_R4.dat
+│           │   ├── RF_BISI_LBL_BM08_R5.dat
+│           │   ├── RF_BISI_LBL_BM08_SU.dat
+│           │   ├── RF_CISM_NCA_BM01_R0.dat
+│           │   ├── RF_CISM_NCA_BM01_R1.dat
+│           │   ├── RF_CISM_NCA_BM01_R2.dat
+│           │   ├── RF_CISM_NCA_BM01_R3.dat
+│           │   ├── RF_CISM_NCA_BM01_R4.dat
+│           │   ├── RF_CISM_NCA_BM01_R5.dat
+│           │   ├── RF_CISM_NCA_BM01_SU.dat
+│           │   ├── RF_CISM_NCA_BM02_R0.dat
+│           │   ├── RF_CISM_NCA_BM02_R1.dat
+│           │   ├── RF_CISM_NCA_BM02_R2.dat
+│           │   ├── RF_CISM_NCA_BM02_R3.dat
+│           │   ├── RF_CISM_NCA_BM02_R4.dat
+│           │   ├── RF_CISM_NCA_BM02_R5.dat
+│           │   ├── RF_CISM_NCA_BM02_SU.dat
+│           │   ├── RF_CISM_NCA_BM04_R0.dat
+│           │   ├── RF_CISM_NCA_BM04_R1.dat
+│           │   ├── RF_CISM_NCA_BM04_R2.dat
+│           │   ├── RF_CISM_NCA_BM04_R3.dat
+│           │   ├── RF_CISM_NCA_BM04_R4.dat
+│           │   ├── RF_CISM_NCA_BM04_R5.dat
+│           │   ├── RF_CISM_NCA_BM04_SU.dat
+│           │   ├── RF_CISM_NCA_BM08_R0.dat
+│           │   ├── RF_CISM_NCA_BM08_R1.dat
+│           │   ├── RF_CISM_NCA_BM08_R2.dat
+│           │   ├── RF_CISM_NCA_BM08_R3.dat
+│           │   ├── RF_CISM_NCA_BM08_R4.dat
+│           │   ├── RF_CISM_NCA_BM08_R5.dat
+│           │   ├── RF_CISM_NCA_BM08_SU.dat
+│           │   ├── RF_CISM_NCA_BM16_R0.dat
+│           │   ├── RF_CISM_NCA_BM16_R1.dat
+│           │   ├── RF_CISM_NCA_BM16_R2.dat
+│           │   ├── RF_CISM_NCA_BM16_R3.dat
+│           │   ├── RF_CISM_NCA_BM16_R4.dat
+│           │   ├── RF_CISM_NCA_BM16_R5.dat
+│           │   ├── RF_CISM_NCA_BM16_SU.dat
+│           │   ├── RF_CISM_NCA_BM32_R0.dat
+│           │   ├── RF_CISM_NCA_BM32_R1.dat
+│           │   ├── RF_CISM_NCA_BM32_R2.dat
+│           │   ├── RF_CISM_NCA_BM32_R3.dat
+│           │   ├── RF_CISM_NCA_BM32_R4.dat
+│           │   ├── RF_CISM_NCA_BM32_R5.dat
+│           │   ├── RF_CISM_NCA_BM32_SU.dat
+│           │   ├── RF_FETI_VUB_BM01_R1.dat
+│           │   ├── RF_FETI_VUB_BM01_R2.dat
+│           │   ├── RF_FETI_VUB_BM01_R3.dat
+│           │   ├── RF_FETI_VUB_BM01_R4.dat
+│           │   ├── RF_FETI_VUB_BM01_R5.dat
+│           │   ├── RF_FETI_VUB_BM01_SU.dat
+│           │   ├── RF_FETI_VUB_BM02_R1.dat
+│           │   ├── RF_FETI_VUB_BM02_R2.dat
+│           │   ├── RF_FETI_VUB_BM02_R3.dat
+│           │   ├── RF_FETI_VUB_BM02_R4.dat
+│           │   ├── RF_FETI_VUB_BM02_R5.dat
+│           │   ├── RF_FETI_VUB_BM02_SU.dat
+│           │   ├── RF_FETI_VUB_BM04_R1.dat
+│           │   ├── RF_FETI_VUB_BM04_R2.dat
+│           │   ├── RF_FETI_VUB_BM04_R3.dat
+│           │   ├── RF_FETI_VUB_BM04_R4.dat
+│           │   ├── RF_FETI_VUB_BM04_R5.dat
+│           │   ├── RF_FETI_VUB_BM04_SU.dat
+│           │   ├── RF_FETI_VUB_BM08_R1.dat
+│           │   ├── RF_FETI_VUB_BM08_R2.dat
+│           │   ├── RF_FETI_VUB_BM08_R3.dat
+│           │   ├── RF_FETI_VUB_BM08_R4.dat
+│           │   ├── RF_FETI_VUB_BM08_R5.dat
+│           │   ├── RF_FETI_VUB_BM08_SU.dat
+│           │   ├── RF_FETI_VUB_BM16_R1.dat
+│           │   ├── RF_FETI_VUB_BM16_R2.dat
+│           │   ├── RF_FETI_VUB_BM16_R3.dat
+│           │   ├── RF_FETI_VUB_BM16_R4.dat
+│           │   ├── RF_FETI_VUB_BM16_R5.dat
+│           │   ├── RF_FETI_VUB_BM16_SU.dat
+│           │   ├── RF_FETI_VUB_BM32_R1.dat
+│           │   ├── RF_FETI_VUB_BM32_R2.dat
+│           │   ├── RF_FETI_VUB_BM32_R3.dat
+│           │   ├── RF_FETI_VUB_BM32_R4.dat
+│           │   ├── RF_FETI_VUB_BM32_R5.dat
+│           │   ├── RF_FETI_VUB_BM32_SU.dat
+│           │   ├── RF_GRIS_LSC_BM01_R1.dat
+│           │   ├── RF_GRIS_LSC_BM01_R2.dat
+│           │   ├── RF_GRIS_LSC_BM01_R3.dat
+│           │   ├── RF_GRIS_LSC_BM01_R4.dat
+│           │   ├── RF_GRIS_LSC_BM01_R5.dat
+│           │   ├── RF_GRIS_LSC_BM01_SU.dat
+│           │   ├── RF_GRIS_LSC_BM02_R0.dat
+│           │   ├── RF_GRIS_LSC_BM02_R1.dat
+│           │   ├── RF_GRIS_LSC_BM02_R2.dat
+│           │   ├── RF_GRIS_LSC_BM02_R3.dat
+│           │   ├── RF_GRIS_LSC_BM02_R4.dat
+│           │   ├── RF_GRIS_LSC_BM02_R5.dat
+│           │   ├── RF_GRIS_LSC_BM02_SU.dat
+│           │   ├── RF_GRIS_LSC_BM04_R1.dat
+│           │   ├── RF_GRIS_LSC_BM04_R2.dat
+│           │   ├── RF_GRIS_LSC_BM04_R3.dat
+│           │   ├── RF_GRIS_LSC_BM04_R4.dat
+│           │   ├── RF_GRIS_LSC_BM04_R5.dat
+│           │   ├── RF_GRIS_LSC_BM04_SU.dat
+│           │   ├── RF_GRIS_LSC_BM08_R1.dat
+│           │   ├── RF_GRIS_LSC_BM08_R2.dat
+│           │   ├── RF_GRIS_LSC_BM08_R3.dat
+│           │   ├── RF_GRIS_LSC_BM08_R4.dat
+│           │   ├── RF_GRIS_LSC_BM08_R5.dat
+│           │   ├── RF_GRIS_LSC_BM08_SU.dat
+│           │   ├── RF_GRIS_LSC_BM16_R1.dat
+│           │   ├── RF_GRIS_LSC_BM16_R2.dat
+│           │   ├── RF_GRIS_LSC_BM16_R3.dat
+│           │   ├── RF_GRIS_LSC_BM16_R4.dat
+│           │   ├── RF_GRIS_LSC_BM16_R5.dat
+│           │   ├── RF_GRIS_LSC_BM16_SU.dat
+│           │   ├── RF_GRIS_LSC_BM32_R1.dat
+│           │   ├── RF_GRIS_LSC_BM32_R2.dat
+│           │   ├── RF_GRIS_LSC_BM32_R3.dat
+│           │   ├── RF_GRIS_LSC_BM32_R4.dat
+│           │   ├── RF_GRIS_LSC_BM32_R5.dat
+│           │   ├── RF_GRIS_LSC_BM32_SU.dat
+│           │   ├── RF_IMAU_VUB_BM01_R0.dat
+│           │   ├── RF_IMAU_VUB_BM01_R1.dat
+│           │   ├── RF_IMAU_VUB_BM01_R2.dat
+│           │   ├── RF_IMAU_VUB_BM01_R3.dat
+│           │   ├── RF_IMAU_VUB_BM01_R4.dat
+│           │   ├── RF_IMAU_VUB_BM01_R5.dat
+│           │   ├── RF_IMAU_VUB_BM01_SU.dat
+│           │   ├── RF_IMAU_VUB_BM02_R0.dat
+│           │   ├── RF_IMAU_VUB_BM02_R1.dat
+│           │   ├── RF_IMAU_VUB_BM02_R2.dat
+│           │   ├── RF_IMAU_VUB_BM02_R3.dat
+│           │   ├── RF_IMAU_VUB_BM02_R4.dat
+│           │   ├── RF_IMAU_VUB_BM02_R5.dat
+│           │   ├── RF_IMAU_VUB_BM02_SU.dat
+│           │   ├── RF_IMAU_VUB_BM04_R0.dat
+│           │   ├── RF_IMAU_VUB_BM04_R1.dat
+│           │   ├── RF_IMAU_VUB_BM04_R2.dat
+│           │   ├── RF_IMAU_VUB_BM04_R3.dat
+│           │   ├── RF_IMAU_VUB_BM04_R4.dat
+│           │   ├── RF_IMAU_VUB_BM04_R5.dat
+│           │   ├── RF_IMAU_VUB_BM04_SU.dat
+│           │   ├── RF_IMAU_VUB_BM08_R0.dat
+│           │   ├── RF_IMAU_VUB_BM08_R1.dat
+│           │   ├── RF_IMAU_VUB_BM08_R2.dat
+│           │   ├── RF_IMAU_VUB_BM08_R3.dat
+│           │   ├── RF_IMAU_VUB_BM08_R4.dat
+│           │   ├── RF_IMAU_VUB_BM08_R5.dat
+│           │   ├── RF_IMAU_VUB_BM08_SU.dat
+│           │   ├── RF_IMAU_VUB_BM16_R0.dat
+│           │   ├── RF_IMAU_VUB_BM16_R1.dat
+│           │   ├── RF_IMAU_VUB_BM16_R2.dat
+│           │   ├── RF_IMAU_VUB_BM16_R3.dat
+│           │   ├── RF_IMAU_VUB_BM16_R4.dat
+│           │   ├── RF_IMAU_VUB_BM16_R5.dat
+│           │   ├── RF_IMAU_VUB_BM16_SU.dat
+│           │   ├── RF_IMAU_VUB_BM32_R0.dat
+│           │   ├── RF_IMAU_VUB_BM32_R1.dat
+│           │   ├── RF_IMAU_VUB_BM32_R2.dat
+│           │   ├── RF_IMAU_VUB_BM32_R3.dat
+│           │   ├── RF_IMAU_VUB_BM32_R4.dat
+│           │   ├── RF_IMAU_VUB_BM32_R5.dat
+│           │   ├── RF_IMAU_VUB_BM32_SU.dat
+│           │   ├── RF_ISSM_JPL_BM01_R0.dat
+│           │   ├── RF_ISSM_JPL_BM01_R1.dat
+│           │   ├── RF_ISSM_JPL_BM01_R2.dat
+│           │   ├── RF_ISSM_JPL_BM01_R3.dat
+│           │   ├── RF_ISSM_JPL_BM01_R4.dat
+│           │   ├── RF_ISSM_JPL_BM01_R5.dat
+│           │   ├── RF_ISSM_JPL_BM01_SU.dat
+│           │   ├── RF_ISSM_JPL_BM02_R0.dat
+│           │   ├── RF_ISSM_JPL_BM02_R1.dat
+│           │   ├── RF_ISSM_JPL_BM02_R2.dat
+│           │   ├── RF_ISSM_JPL_BM02_R3.dat
+│           │   ├── RF_ISSM_JPL_BM02_R4.dat
+│           │   ├── RF_ISSM_JPL_BM02_R5.dat
+│           │   ├── RF_ISSM_JPL_BM02_SU.dat
+│           │   ├── RF_ISSM_JPL_BM04_R0.dat
+│           │   ├── RF_ISSM_JPL_BM04_R1.dat
+│           │   ├── RF_ISSM_JPL_BM04_R2.dat
+│           │   ├── RF_ISSM_JPL_BM04_R3.dat
+│           │   ├── RF_ISSM_JPL_BM04_R4.dat
+│           │   ├── RF_ISSM_JPL_BM04_R5.dat
+│           │   ├── RF_ISSM_JPL_BM04_SU.dat
+│           │   ├── RF_ISSM_JPL_BM08_R0.dat
+│           │   ├── RF_ISSM_JPL_BM08_R1.dat
+│           │   ├── RF_ISSM_JPL_BM08_R2.dat
+│           │   ├── RF_ISSM_JPL_BM08_R3.dat
+│           │   ├── RF_ISSM_JPL_BM08_R4.dat
+│           │   ├── RF_ISSM_JPL_BM08_R5.dat
+│           │   ├── RF_ISSM_JPL_BM08_SU.dat
+│           │   ├── RF_ISSM_JPL_BM16_R0.dat
+│           │   ├── RF_ISSM_JPL_BM16_R1.dat
+│           │   ├── RF_ISSM_JPL_BM16_R2.dat
+│           │   ├── RF_ISSM_JPL_BM16_R3.dat
+│           │   ├── RF_ISSM_JPL_BM16_R4.dat
+│           │   ├── RF_ISSM_JPL_BM16_R5.dat
+│           │   ├── RF_ISSM_JPL_BM16_SU.dat
+│           │   ├── RF_ISSM_JPL_BM32_R0.dat
+│           │   ├── RF_ISSM_JPL_BM32_R1.dat
+│           │   ├── RF_ISSM_JPL_BM32_R2.dat
+│           │   ├── RF_ISSM_JPL_BM32_R3.dat
+│           │   ├── RF_ISSM_JPL_BM32_R4.dat
+│           │   ├── RF_ISSM_JPL_BM32_R5.dat
+│           │   ├── RF_ISSM_JPL_BM32_SU.dat
+│           │   ├── RF_ISSM_UCI_BM01_R0.dat
+│           │   ├── RF_ISSM_UCI_BM01_R1.dat
+│           │   ├── RF_ISSM_UCI_BM01_R2.dat
+│           │   ├── RF_ISSM_UCI_BM01_R3.dat
+│           │   ├── RF_ISSM_UCI_BM01_R4.dat
+│           │   ├── RF_ISSM_UCI_BM01_R5.dat
+│           │   ├── RF_ISSM_UCI_BM01_SU.dat
+│           │   ├── RF_ISSM_UCI_BM02_R0.dat
+│           │   ├── RF_ISSM_UCI_BM02_R1.dat
+│           │   ├── RF_ISSM_UCI_BM02_R2.dat
+│           │   ├── RF_ISSM_UCI_BM02_R3.dat
+│           │   ├── RF_ISSM_UCI_BM02_R4.dat
+│           │   ├── RF_ISSM_UCI_BM02_R5.dat
+│           │   ├── RF_ISSM_UCI_BM02_SU.dat
+│           │   ├── RF_ISSM_UCI_BM04_R0.dat
+│           │   ├── RF_ISSM_UCI_BM04_R1.dat
+│           │   ├── RF_ISSM_UCI_BM04_R2.dat
+│           │   ├── RF_ISSM_UCI_BM04_R3.dat
+│           │   ├── RF_ISSM_UCI_BM04_R4.dat
+│           │   ├── RF_ISSM_UCI_BM04_R5.dat
+│           │   ├── RF_ISSM_UCI_BM04_SU.dat
+│           │   ├── RF_ISSM_UCI_BM08_R0.dat
+│           │   ├── RF_ISSM_UCI_BM08_R1.dat
+│           │   ├── RF_ISSM_UCI_BM08_R2.dat
+│           │   ├── RF_ISSM_UCI_BM08_R3.dat
+│           │   ├── RF_ISSM_UCI_BM08_R4.dat
+│           │   ├── RF_ISSM_UCI_BM08_R5.dat
+│           │   ├── RF_ISSM_UCI_BM08_SU.dat
+│           │   ├── RF_ISSM_UCI_BM16_R0.dat
+│           │   ├── RF_ISSM_UCI_BM16_R1.dat
+│           │   ├── RF_ISSM_UCI_BM16_R2.dat
+│           │   ├── RF_ISSM_UCI_BM16_R3.dat
+│           │   ├── RF_ISSM_UCI_BM16_R4.dat
+│           │   ├── RF_ISSM_UCI_BM16_R5.dat
+│           │   ├── RF_ISSM_UCI_BM16_SU.dat
+│           │   ├── RF_ISSM_UCI_BM32_R0.dat
+│           │   ├── RF_ISSM_UCI_BM32_R1.dat
+│           │   ├── RF_ISSM_UCI_BM32_R2.dat
+│           │   ├── RF_ISSM_UCI_BM32_R3.dat
+│           │   ├── RF_ISSM_UCI_BM32_R4.dat
+│           │   ├── RF_ISSM_UCI_BM32_R5.dat
+│           │   ├── RF_ISSM_UCI_BM32_SU.dat
+│           │   ├── RF_MALI_LAN_BM02_R1.dat
+│           │   ├── RF_MALI_LAN_BM02_R2.dat
+│           │   ├── RF_MALI_LAN_BM02_R3.dat
+│           │   ├── RF_MALI_LAN_BM02_R4.dat
+│           │   ├── RF_MALI_LAN_BM02_R5.dat
+│           │   ├── RF_MALI_LAN_BM02_SU.dat
+│           │   ├── RF_MALI_LAN_BM08_R1.dat
+│           │   ├── RF_MALI_LAN_BM08_R2.dat
+│           │   ├── RF_MALI_LAN_BM08_R3.dat
+│           │   ├── RF_MALI_LAN_BM08_R4.dat
+│           │   ├── RF_MALI_LAN_BM08_R5.dat
+│           │   ├── RF_MALI_LAN_BM08_SU.dat
+│           │   ├── RF_PISM_AWI_BM01_R0.dat
+│           │   ├── RF_PISM_AWI_BM01_R1.dat
+│           │   ├── RF_PISM_AWI_BM01_R2.dat
+│           │   ├── RF_PISM_AWI_BM01_R3.dat
+│           │   ├── RF_PISM_AWI_BM01_R4.dat
+│           │   ├── RF_PISM_AWI_BM01_R5.dat
+│           │   ├── RF_PISM_AWI_BM01_SU.dat
+│           │   ├── RF_PISM_AWI_BM02_R0.dat
+│           │   ├── RF_PISM_AWI_BM02_R1.dat
+│           │   ├── RF_PISM_AWI_BM02_R2.dat
+│           │   ├── RF_PISM_AWI_BM02_R3.dat
+│           │   ├── RF_PISM_AWI_BM02_R4.dat
+│           │   ├── RF_PISM_AWI_BM02_R5.dat
+│           │   ├── RF_PISM_AWI_BM02_SU.dat
+│           │   ├── RF_PISM_AWI_BM04_R0.dat
+│           │   ├── RF_PISM_AWI_BM04_R1.dat
+│           │   ├── RF_PISM_AWI_BM04_R2.dat
+│           │   ├── RF_PISM_AWI_BM04_R3.dat
+│           │   ├── RF_PISM_AWI_BM04_R4.dat
+│           │   ├── RF_PISM_AWI_BM04_R5.dat
+│           │   ├── RF_PISM_AWI_BM04_SU.dat
+│           │   ├── RF_PISM_AWI_BM08_R0.dat
+│           │   ├── RF_PISM_AWI_BM08_R1.dat
+│           │   ├── RF_PISM_AWI_BM08_R2.dat
+│           │   ├── RF_PISM_AWI_BM08_R3.dat
+│           │   ├── RF_PISM_AWI_BM08_R4.dat
+│           │   ├── RF_PISM_AWI_BM08_R5.dat
+│           │   ├── RF_PISM_AWI_BM08_SU.dat
+│           │   ├── RF_PISM_AWI_BM16_R0.dat
+│           │   ├── RF_PISM_AWI_BM16_R1.dat
+│           │   ├── RF_PISM_AWI_BM16_R2.dat
+│           │   ├── RF_PISM_AWI_BM16_R3.dat
+│           │   ├── RF_PISM_AWI_BM16_R4.dat
+│           │   ├── RF_PISM_AWI_BM16_R5.dat
+│           │   ├── RF_PISM_AWI_BM16_SU.dat
+│           │   ├── RF_PISM_AWI_BM32_R0.dat
+│           │   ├── RF_PISM_AWI_BM32_R1.dat
+│           │   ├── RF_PISM_AWI_BM32_R2.dat
+│           │   ├── RF_PISM_AWI_BM32_R3.dat
+│           │   ├── RF_PISM_AWI_BM32_R4.dat
+│           │   ├── RF_PISM_AWI_BM32_R5.dat
+│           │   ├── RF_PISM_AWI_BM32_SU.dat
+│           │   ├── RF_PISM_DMI_BM01_R1.dat
+│           │   ├── RF_PISM_DMI_BM01_R2.dat
+│           │   ├── RF_PISM_DMI_BM01_R3.dat
+│           │   ├── RF_PISM_DMI_BM01_R4.dat
+│           │   ├── RF_PISM_DMI_BM01_R5.dat
+│           │   ├── RF_PISM_DMI_BM01_SU.dat
+│           │   ├── RF_PISM_DMI_BM02_R1.dat
+│           │   ├── RF_PISM_DMI_BM02_R2.dat
+│           │   ├── RF_PISM_DMI_BM02_R3.dat
+│           │   ├── RF_PISM_DMI_BM02_R4.dat
+│           │   ├── RF_PISM_DMI_BM02_R5.dat
+│           │   ├── RF_PISM_DMI_BM02_SU.dat
+│           │   ├── RF_PISM_DMI_BM04_R1.dat
+│           │   ├── RF_PISM_DMI_BM04_R2.dat
+│           │   ├── RF_PISM_DMI_BM04_R3.dat
+│           │   ├── RF_PISM_DMI_BM04_R4.dat
+│           │   ├── RF_PISM_DMI_BM04_R5.dat
+│           │   ├── RF_PISM_DMI_BM04_SU.dat
+│           │   ├── RF_PISM_DMI_BM08_R1.dat
+│           │   ├── RF_PISM_DMI_BM08_R2.dat
+│           │   ├── RF_PISM_DMI_BM08_R3.dat
+│           │   ├── RF_PISM_DMI_BM08_R4.dat
+│           │   ├── RF_PISM_DMI_BM08_R5.dat
+│           │   ├── RF_PISM_DMI_BM08_SU.dat
+│           │   ├── RF_PISM_DMI_BM16_R1.dat
+│           │   ├── RF_PISM_DMI_BM16_R2.dat
+│           │   ├── RF_PISM_DMI_BM16_R3.dat
+│           │   ├── RF_PISM_DMI_BM16_R4.dat
+│           │   ├── RF_PISM_DMI_BM16_R5.dat
+│           │   ├── RF_PISM_DMI_BM16_SU.dat
+│           │   ├── RF_PISM_DMI_BM32_R1.dat
+│           │   ├── RF_PISM_DMI_BM32_R2.dat
+│           │   ├── RF_PISM_DMI_BM32_R3.dat
+│           │   ├── RF_PISM_DMI_BM32_R4.dat
+│           │   ├── RF_PISM_DMI_BM32_R5.dat
+│           │   ├── RF_PISM_DMI_BM32_SU.dat
+│           │   ├── RF_PISM_PIK_BM02_R1.dat
+│           │   ├── RF_PISM_PIK_BM02_R2.dat
+│           │   ├── RF_PISM_PIK_BM02_R3.dat
+│           │   ├── RF_PISM_PIK_BM02_R4.dat
+│           │   ├── RF_PISM_PIK_BM02_R5.dat
+│           │   ├── RF_PISM_PIK_BM02_SU.dat
+│           │   ├── RF_PISM_PIK_BM04_R1.dat
+│           │   ├── RF_PISM_PIK_BM04_R2.dat
+│           │   ├── RF_PISM_PIK_BM04_R3.dat
+│           │   ├── RF_PISM_PIK_BM04_R4.dat
+│           │   ├── RF_PISM_PIK_BM04_R5.dat
+│           │   ├── RF_PISM_PIK_BM04_SU.dat
+│           │   ├── RF_PISM_PIK_BM08_R1.dat
+│           │   ├── RF_PISM_PIK_BM08_R2.dat
+│           │   ├── RF_PISM_PIK_BM08_R3.dat
+│           │   ├── RF_PISM_PIK_BM08_R4.dat
+│           │   ├── RF_PISM_PIK_BM08_R5.dat
+│           │   ├── RF_PISM_PIK_BM08_SU.dat
+│           │   ├── RF_PISM_PIK_BM16_R1.dat
+│           │   ├── RF_PISM_PIK_BM16_R2.dat
+│           │   ├── RF_PISM_PIK_BM16_R3.dat
+│           │   ├── RF_PISM_PIK_BM16_R4.dat
+│           │   ├── RF_PISM_PIK_BM16_R5.dat
+│           │   ├── RF_PISM_PIK_BM16_SU.dat
+│           │   ├── RF_PISM_PIK_BM32_R1.dat
+│           │   ├── RF_PISM_PIK_BM32_R2.dat
+│           │   ├── RF_PISM_PIK_BM32_R3.dat
+│           │   ├── RF_PISM_PIK_BM32_R4.dat
+│           │   ├── RF_PISM_PIK_BM32_R5.dat
+│           │   ├── RF_PISM_PIK_BM32_SU.dat
+│           │   ├── RF_PISM_VUW_BM01_R0.dat
+│           │   ├── RF_PISM_VUW_BM01_R1.dat
+│           │   ├── RF_PISM_VUW_BM01_R2.dat
+│           │   ├── RF_PISM_VUW_BM01_R3.dat
+│           │   ├── RF_PISM_VUW_BM01_R4.dat
+│           │   ├── RF_PISM_VUW_BM01_R5.dat
+│           │   ├── RF_PISM_VUW_BM01_SU.dat
+│           │   ├── RF_PISM_VUW_BM02_R0.dat
+│           │   ├── RF_PISM_VUW_BM02_R1.dat
+│           │   ├── RF_PISM_VUW_BM02_R2.dat
+│           │   ├── RF_PISM_VUW_BM02_R3.dat
+│           │   ├── RF_PISM_VUW_BM02_R4.dat
+│           │   ├── RF_PISM_VUW_BM02_R5.dat
+│           │   ├── RF_PISM_VUW_BM02_SU.dat
+│           │   ├── RF_PISM_VUW_BM04_R0.dat
+│           │   ├── RF_PISM_VUW_BM04_R1.dat
+│           │   ├── RF_PISM_VUW_BM04_R2.dat
+│           │   ├── RF_PISM_VUW_BM04_R3.dat
+│           │   ├── RF_PISM_VUW_BM04_R4.dat
+│           │   ├── RF_PISM_VUW_BM04_R5.dat
+│           │   ├── RF_PISM_VUW_BM04_SU.dat
+│           │   ├── RF_PISM_VUW_BM08_R0.dat
+│           │   ├── RF_PISM_VUW_BM08_R1.dat
+│           │   ├── RF_PISM_VUW_BM08_R2.dat
+│           │   ├── RF_PISM_VUW_BM08_R3.dat
+│           │   ├── RF_PISM_VUW_BM08_R4.dat
+│           │   ├── RF_PISM_VUW_BM08_R5.dat
+│           │   ├── RF_PISM_VUW_BM08_SU.dat
+│           │   ├── RF_PISM_VUW_BM16_R0.dat
+│           │   ├── RF_PISM_VUW_BM16_R1.dat
+│           │   ├── RF_PISM_VUW_BM16_R2.dat
+│           │   ├── RF_PISM_VUW_BM16_R3.dat
+│           │   ├── RF_PISM_VUW_BM16_R4.dat
+│           │   ├── RF_PISM_VUW_BM16_R5.dat
+│           │   ├── RF_PISM_VUW_BM16_SU.dat
+│           │   ├── RF_PISM_VUW_BM32_R0.dat
+│           │   ├── RF_PISM_VUW_BM32_R1.dat
+│           │   ├── RF_PISM_VUW_BM32_R2.dat
+│           │   ├── RF_PISM_VUW_BM32_R3.dat
+│           │   ├── RF_PISM_VUW_BM32_R4.dat
+│           │   ├── RF_PISM_VUW_BM32_R5.dat
+│           │   ├── RF_PISM_VUW_BM32_SU.dat
+│           │   ├── RF_PS3D_PSU_BM01_R0.dat
+│           │   ├── RF_PS3D_PSU_BM01_R1.dat
+│           │   ├── RF_PS3D_PSU_BM01_R2.dat
+│           │   ├── RF_PS3D_PSU_BM01_R3.dat
+│           │   ├── RF_PS3D_PSU_BM01_R4.dat
+│           │   ├── RF_PS3D_PSU_BM01_R5.dat
+│           │   ├── RF_PS3D_PSU_BM01_SU.dat
+│           │   ├── RF_PS3D_PSU_BM02_R0.dat
+│           │   ├── RF_PS3D_PSU_BM02_R1.dat
+│           │   ├── RF_PS3D_PSU_BM02_R2.dat
+│           │   ├── RF_PS3D_PSU_BM02_R3.dat
+│           │   ├── RF_PS3D_PSU_BM02_R4.dat
+│           │   ├── RF_PS3D_PSU_BM02_R5.dat
+│           │   ├── RF_PS3D_PSU_BM02_SU.dat
+│           │   ├── RF_PS3D_PSU_BM04_R0.dat
+│           │   ├── RF_PS3D_PSU_BM04_R1.dat
+│           │   ├── RF_PS3D_PSU_BM04_R2.dat
+│           │   ├── RF_PS3D_PSU_BM04_R3.dat
+│           │   ├── RF_PS3D_PSU_BM04_R4.dat
+│           │   ├── RF_PS3D_PSU_BM04_R5.dat
+│           │   ├── RF_PS3D_PSU_BM04_SU.dat
+│           │   ├── RF_PS3D_PSU_BM08_R0.dat
+│           │   ├── RF_PS3D_PSU_BM08_R1.dat
+│           │   ├── RF_PS3D_PSU_BM08_R2.dat
+│           │   ├── RF_PS3D_PSU_BM08_R3.dat
+│           │   ├── RF_PS3D_PSU_BM08_R4.dat
+│           │   ├── RF_PS3D_PSU_BM08_R5.dat
+│           │   ├── RF_PS3D_PSU_BM08_SU.dat
+│           │   ├── RF_PS3D_PSU_BM16_R0.dat
+│           │   ├── RF_PS3D_PSU_BM16_R1.dat
+│           │   ├── RF_PS3D_PSU_BM16_R2.dat
+│           │   ├── RF_PS3D_PSU_BM16_R3.dat
+│           │   ├── RF_PS3D_PSU_BM16_R4.dat
+│           │   ├── RF_PS3D_PSU_BM16_R5.dat
+│           │   ├── RF_PS3D_PSU_BM16_SU.dat
+│           │   ├── RF_PS3D_PSU_BM32_R0.dat
+│           │   ├── RF_PS3D_PSU_BM32_R1.dat
+│           │   ├── RF_PS3D_PSU_BM32_R2.dat
+│           │   ├── RF_PS3D_PSU_BM32_R3.dat
+│           │   ├── RF_PS3D_PSU_BM32_R4.dat
+│           │   ├── RF_PS3D_PSU_BM32_R5.dat
+│           │   ├── RF_PS3D_PSU_BM32_SU.dat
+│           │   ├── RF_SICO_UHO_BM01_R0.dat
+│           │   ├── RF_SICO_UHO_BM01_R1.dat
+│           │   ├── RF_SICO_UHO_BM01_R2.dat
+│           │   ├── RF_SICO_UHO_BM01_R3.dat
+│           │   ├── RF_SICO_UHO_BM01_R4.dat
+│           │   ├── RF_SICO_UHO_BM01_R5.dat
+│           │   ├── RF_SICO_UHO_BM01_SU.dat
+│           │   ├── RF_SICO_UHO_BM02_R0.dat
+│           │   ├── RF_SICO_UHO_BM02_R1.dat
+│           │   ├── RF_SICO_UHO_BM02_R2.dat
+│           │   ├── RF_SICO_UHO_BM02_R3.dat
+│           │   ├── RF_SICO_UHO_BM02_R4.dat
+│           │   ├── RF_SICO_UHO_BM02_R5.dat
+│           │   ├── RF_SICO_UHO_BM02_SU.dat
+│           │   ├── RF_SICO_UHO_BM04_R0.dat
+│           │   ├── RF_SICO_UHO_BM04_R1.dat
+│           │   ├── RF_SICO_UHO_BM04_R2.dat
+│           │   ├── RF_SICO_UHO_BM04_R3.dat
+│           │   ├── RF_SICO_UHO_BM04_R4.dat
+│           │   ├── RF_SICO_UHO_BM04_R5.dat
+│           │   ├── RF_SICO_UHO_BM04_SU.dat
+│           │   ├── RF_SICO_UHO_BM08_R0.dat
+│           │   ├── RF_SICO_UHO_BM08_R1.dat
+│           │   ├── RF_SICO_UHO_BM08_R2.dat
+│           │   ├── RF_SICO_UHO_BM08_R3.dat
+│           │   ├── RF_SICO_UHO_BM08_R4.dat
+│           │   ├── RF_SICO_UHO_BM08_R5.dat
+│           │   ├── RF_SICO_UHO_BM08_SU.dat
+│           │   ├── RF_SICO_UHO_BM16_R0.dat
+│           │   ├── RF_SICO_UHO_BM16_R1.dat
+│           │   ├── RF_SICO_UHO_BM16_R2.dat
+│           │   ├── RF_SICO_UHO_BM16_R3.dat
+│           │   ├── RF_SICO_UHO_BM16_R4.dat
+│           │   ├── RF_SICO_UHO_BM16_R5.dat
+│           │   ├── RF_SICO_UHO_BM16_SU.dat
+│           │   ├── RF_SICO_UHO_BM32_R0.dat
+│           │   ├── RF_SICO_UHO_BM32_R1.dat
+│           │   ├── RF_SICO_UHO_BM32_R2.dat
+│           │   ├── RF_SICO_UHO_BM32_R3.dat
+│           │   ├── RF_SICO_UHO_BM32_R4.dat
+│           │   ├── RF_SICO_UHO_BM32_R5.dat
+│           │   ├── RF_SICO_UHO_BM32_SU.dat
+│           │   ├── RF_UA_UNN_BM01_R1.dat
+│           │   ├── RF_UA_UNN_BM01_R2.dat
+│           │   ├── RF_UA_UNN_BM01_R3.dat
+│           │   ├── RF_UA_UNN_BM01_R4.dat
+│           │   ├── RF_UA_UNN_BM01_R5.dat
+│           │   ├── RF_UA_UNN_BM01_SU.dat
+│           │   ├── RF_UA_UNN_BM02_R1.dat
+│           │   ├── RF_UA_UNN_BM02_R2.dat
+│           │   ├── RF_UA_UNN_BM02_R3.dat
+│           │   ├── RF_UA_UNN_BM02_R4.dat
+│           │   ├── RF_UA_UNN_BM02_R5.dat
+│           │   ├── RF_UA_UNN_BM02_SU.dat
+│           │   ├── RF_UA_UNN_BM04_R1.dat
+│           │   ├── RF_UA_UNN_BM04_R2.dat
+│           │   ├── RF_UA_UNN_BM04_R3.dat
+│           │   ├── RF_UA_UNN_BM04_R4.dat
+│           │   ├── RF_UA_UNN_BM04_R5.dat
+│           │   ├── RF_UA_UNN_BM04_SU.dat
+│           │   ├── RF_UA_UNN_BM08_R1.dat
+│           │   ├── RF_UA_UNN_BM08_R2.dat
+│           │   ├── RF_UA_UNN_BM08_R3.dat
+│           │   ├── RF_UA_UNN_BM08_R4.dat
+│           │   ├── RF_UA_UNN_BM08_R5.dat
+│           │   ├── RF_UA_UNN_BM08_SU.dat
+│           │   ├── RF_UA_UNN_BM16_R1.dat
+│           │   ├── RF_UA_UNN_BM16_R2.dat
+│           │   ├── RF_UA_UNN_BM16_R3.dat
+│           │   ├── RF_UA_UNN_BM16_R4.dat
+│           │   ├── RF_UA_UNN_BM16_R5.dat
+│           │   ├── RF_UA_UNN_BM16_SU.dat
+│           │   ├── RF_UA_UNN_BM32_R1.dat
+│           │   ├── RF_UA_UNN_BM32_R2.dat
+│           │   ├── RF_UA_UNN_BM32_R3.dat
+│           │   ├── RF_UA_UNN_BM32_R4.dat
+│           │   ├── RF_UA_UNN_BM32_R5.dat
+│           │   └── RF_UA_UNN_BM32_SU.dat
+│           └── ScalingCoefficients
+│               ├── MeltSensitivity
+│               │   └── MeltSensitivity.dat
+│               └── OceanScaling
+│                   ├── OS_R1.dat
+│                   ├── OS_R2.dat
+│                   ├── OS_R3.dat
+│                   └── OS_R4.dat
+├── NZInsarGPS
+│   └── verticallandmotion
+│       └── NZ_2km.txt
+├── ssp
+│   └── landwaterstorage
+│       ├── Chao2008\ groundwater\ impoundment.csv
+│       ├── data
+│       │   ├── ssp_landwaterstorage_postprocess_data.tgz
+│       │   ├── ssp_landwaterstorage_preprocess_data
+│       │   │   ├── Chao2008\ groundwater\ impoundment.csv
+│       │   │   ├── Konikow2011\ GWD.csv
+│       │   │   ├── Pokhrel2012\ GWD.csv
+│       │   │   ├── ssp_iam_baseline_popscenarios2100.csv
+│       │   │   ├── UNWPP2012\ population\ historical.csv
+│       │   │   └── Wada2012\ GWD.csv
+│       │   └── ssp_landwaterstorage_preprocess_data.tgz
+│       ├── Konikow2011\ GWD.csv
+│       ├── Pokhrel2012\ GWD.csv
+│       ├── ssp_iam_baseline_popscenarios2100.csv
+│       ├── UNWPP2012\ population\ historical.csv
+│       └── Wada2012\ GWD.csv
+├── tlm
+│   └── oceandynamics
+│       ├── data
+│       │   └── cmip6
+│       │       ├── tas
+│       │       │   ├── ACCESS-CM2
+│       │       │   │   ├── tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_ACCESS-CM2_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_ACCESS-CM2_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_ACCESS-CM2_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── ACCESS-ESM1-5
+│       │       │   │   ├── tas_Amon_ACCESS-ESM1-5_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_ACCESS-ESM1-5_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_ACCESS-ESM1-5_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_ACCESS-ESM1-5_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_ACCESS-ESM1-5_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── AWI-ESM-1-1-LR
+│       │       │   │   └── tas_Amon_AWI-ESM-1-1-LR_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   ├── CanESM5
+│       │       │   │   ├── tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_historical_r1i1p2f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp119_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp119_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp126_r1i1p1f1_gn_201501-230012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp126_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp245_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp370_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-230012_0mean.nc
+│       │       │   │   └── tas_Amon_CanESM5_ssp585_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   ├── CanESM5-CanOE
+│       │       │   │   ├── tas_Amon_CanESM5-CanOE_historical_r1i1p2f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5-CanOE_ssp126_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5-CanOE_ssp245_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CanESM5-CanOE_ssp370_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_CanESM5-CanOE_ssp585_r1i1p2f1_gn_201501-210012_0mean.nc
+│       │       │   ├── CESM2
+│       │       │   │   ├── tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CESM2_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CESM2_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CESM2_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_CESM2_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── CESM2-FV2
+│       │       │   │   └── tas_Amon_CESM2-FV2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   ├── CESM2-WACCM
+│       │       │   │   ├── tas_Amon_CESM2-WACCM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CESM2-WACCM_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CESM2-WACCM_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CESM2-WACCM_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_CESM2-WACCM_ssp585_r1i1p1f1_gn_201501-229912_0mean.nc
+│       │       │   ├── CESM2-WACCM-FV2
+│       │       │   │   └── tas_Amon_CESM2-WACCM-FV2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   ├── CMCC-CM2-SR5
+│       │       │   │   ├── tas_Amon_CMCC-CM2-SR5_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CMCC-CM2-SR5_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CMCC-CM2-SR5_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CMCC-CM2-SR5_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_CMCC-CM2-SR5_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── CNRM-CM6-1
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1_historical_r1i1p1f2_gr_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1_ssp126_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1_ssp245_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1_ssp370_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_CNRM-CM6-1_ssp585_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   ├── CNRM-CM6-1-HR
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1-HR_historical_r1i1p1f2_gr_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1-HR_ssp126_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1-HR_ssp245_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-CM6-1-HR_ssp370_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_CNRM-CM6-1-HR_ssp585_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   ├── CNRM-ESM2-1
+│       │       │   │   ├── tas_Amon_CNRM-ESM2-1_historical_r1i1p1f2_gr_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-ESM2-1_ssp119_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-ESM2-1_ssp126_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-ESM2-1_ssp245_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_CNRM-ESM2-1_ssp370_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_CNRM-ESM2-1_ssp585_r1i1p1f2_gr_201501-210012_0mean.nc
+│       │       │   ├── E3SM-1-0
+│       │       │   │   └── tas_Amon_E3SM-1-0_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+│       │       │   ├── E3SM-1-1
+│       │       │   │   └── tas_Amon_E3SM-1-1_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+│       │       │   ├── E3SM-1-1-ECA
+│       │       │   │   └── tas_Amon_E3SM-1-1-ECA_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+│       │       │   ├── EC-Earth3-Veg-LR
+│       │       │   │   └── tas_Amon_EC-Earth3-Veg-LR_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+│       │       │   ├── GISS-E2-1-G
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_historical_r1i1p1f3_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_historical_r1i1p3f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_historical_r1i1p5f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp119_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp119_r1i1p3f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp126_r1i1p3f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp126_r1i1p5f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp245_r1i1p3f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp245_r1i1p5f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp370_r1i1p3f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp370_r1i1p3f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp370_r1i1p5f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-G_ssp585_r1i1p3f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_GISS-E2-1-G_ssp585_r1i1p5f1_gn_201501-210012_0mean.nc
+│       │       │   ├── GISS-E2-1-G-CC
+│       │       │   │   └── tas_Amon_GISS-E2-1-G-CC_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   ├── GISS-E2-1-H
+│       │       │   │   ├── tas_Amon_GISS-E2-1-H_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-H_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_GISS-E2-1-H_historical_r1i1p3f1_gn_185001-201412_0mean.nc
+│       │       │   │   └── tas_Amon_GISS-E2-1-H_historical_r1i1p5f1_gn_185001-201412_0mean.nc
+│       │       │   ├── HadGEM3-GC31-LL
+│       │       │   │   ├── tas_Amon_HadGEM3-GC31-LL_historical_r1i1p1f3_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_HadGEM3-GC31-LL_ssp126_r1i1p1f3_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_HadGEM3-GC31-LL_ssp245_r1i1p1f3_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_201501-210012_0mean.nc
+│       │       │   ├── HadGEM3-GC31-MM
+│       │       │   │   ├── tas_Amon_HadGEM3-GC31-MM_historical_r1i1p1f3_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_HadGEM3-GC31-MM_ssp126_r1i1p1f3_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_HadGEM3-GC31-MM_ssp585_r1i1p1f3_gn_201501-210012_0mean.nc
+│       │       │   ├── INM-CM4-8
+│       │       │   │   ├── tas_Amon_INM-CM4-8_historical_r1i1p1f1_gr1_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_INM-CM4-8_ssp126_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_INM-CM4-8_ssp245_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_INM-CM4-8_ssp370_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_INM-CM4-8_ssp585_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   ├── INM-CM5-0
+│       │       │   │   ├── tas_Amon_INM-CM5-0_historical_r1i1p1f1_gr1_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_INM-CM5-0_ssp126_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_INM-CM5-0_ssp245_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_INM-CM5-0_ssp370_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_INM-CM5-0_ssp585_r1i1p1f1_gr1_201501-210012_0mean.nc
+│       │       │   ├── IPSL-CM6A-LR
+│       │       │   │   ├── tas_Amon_IPSL-CM6A-LR_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_IPSL-CM6A-LR_ssp119_r1i1p1f1_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_IPSL-CM6A-LR_ssp126_r1i1p1f1_gr_201501-230012_0mean.nc
+│       │       │   │   ├── tas_Amon_IPSL-CM6A-LR_ssp245_r1i1p1f1_gr_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_IPSL-CM6A-LR_ssp370_r1i1p1f1_gr_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_IPSL-CM6A-LR_ssp585_r1i1p1f1_gr_201501-230012_0mean.nc
+│       │       │   ├── MCM-UA-1-0
+│       │       │   │   ├── tas_Amon_MCM-UA-1-0_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MCM-UA-1-0_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MCM-UA-1-0_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MCM-UA-1-0_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MCM-UA-1-0_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_MCM-UA-1-0_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   ├── MIROC6
+│       │       │   │   ├── tas_Amon_MIROC6_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC6_ssp119_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC6_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC6_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC6_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_MIROC6_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── MIROC-ES2L
+│       │       │   │   ├── tas_Amon_MIROC-ES2L_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC-ES2L_ssp119_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC-ES2L_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC-ES2L_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MIROC-ES2L_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_MIROC-ES2L_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │   ├── MPI-ESM-1-2-HAM
+│       │       │   │   ├── tas_Amon_MPI-ESM-1-2-HAM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   └── tas_Amon_MPI-ESM-1-2-HAM_ssp370_r1i1p1f1_gn_201501-205512_0mean.nc
+│       │       │   ├── MPI-ESM1-2-HR
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-HR_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-HR_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-HR_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_MPI-ESM1-2-HR_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── MPI-ESM1-2-LR
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-LR_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-LR_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MPI-ESM1-2-LR_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_MPI-ESM1-2-LR_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── MRI-ESM2-0
+│       │       │   │   ├── tas_Amon_MRI-ESM2-0_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MRI-ESM2-0_historical_r1i2p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_MRI-ESM2-0_ssp119_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MRI-ESM2-0_ssp126_r1i1p1f1_gn_201501-230012_0mean.nc
+│       │       │   │   ├── tas_Amon_MRI-ESM2-0_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MRI-ESM2-0_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_MRI-ESM2-0_ssp585_r1i1p1f1_gn_201501-230012_0mean.nc
+│       │       │   │   └── tas_Amon_MRI-ESM2-0_ssp585_r1i2p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── NorCPM1
+│       │       │   │   └── tas_Amon_NorCPM1_historical_r1i1p1f1_gn_185001-202912_0mean.nc
+│       │       │   ├── NorESM2-LM
+│       │       │   │   ├── tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_NorESM2-LM_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_NorESM2-LM_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_NorESM2-LM_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_NorESM2-LM_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── NorESM2-MM
+│       │       │   │   ├── tas_Amon_NorESM2-MM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   ├── tas_Amon_NorESM2-MM_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_NorESM2-MM_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   ├── tas_Amon_NorESM2-MM_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   │   └── tas_Amon_NorESM2-MM_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   ├── SAM0-UNICON
+│       │       │   │   └── tas_Amon_SAM0-UNICON_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   ├── TaiESM1
+│       │       │   │   ├── tas_Amon_TaiESM1_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+│       │       │   │   └── tas_Amon_TaiESM1_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+│       │       │   └── UKESM1-0-LL
+│       │       │       ├── tas_Amon_UKESM1-0-LL_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+│       │       │       ├── tas_Amon_UKESM1-0-LL_ssp119_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │       ├── tas_Amon_UKESM1-0-LL_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │       ├── tas_Amon_UKESM1-0-LL_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │       ├── tas_Amon_UKESM1-0-LL_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       │       └── tas_Amon_UKESM1-0-LL_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+│       │       ├── zos
+│       │       │   ├── ACCESS-CM2 -> /projects/kopp/cmip6/ibe_corrected/zos/ACCESS-CM2
+│       │       │   ├── ACCESS-ESM1-5 -> /projects/kopp/cmip6/ibe_corrected/zos/ACCESS-ESM1-5
+│       │       │   ├── BCC-CSM2-MR -> /projects/kopp/cmip6/ibe_corrected/zos/BCC-CSM2-MR
+│       │       │   ├── BCC-ESM1 -> /projects/kopp/cmip6/ibe_corrected/zos/BCC-ESM1
+│       │       │   ├── CAMS-CSM1-0 -> /projects/kopp/cmip6/ibe_corrected/zos/CAMS-CSM1-0
+│       │       │   ├── CanESM5 -> /projects/kopp/cmip6/ibe_corrected/zos/CanESM5
+│       │       │   ├── CanESM5-CanOE -> /projects/kopp/cmip6/ibe_corrected/zos/CanESM5-CanOE
+│       │       │   ├── CAS-ESM2-0 -> /projects/kopp/cmip6/ibe_corrected/zos/CAS-ESM2-0
+│       │       │   ├── CESM2 -> /projects/kopp/cmip6/ibe_corrected/zos/CESM2
+│       │       │   ├── CESM2-FV2 -> /projects/kopp/cmip6/ibe_corrected/zos/CESM2-FV2
+│       │       │   ├── CESM2-WACCM -> /projects/kopp/cmip6/ibe_corrected/zos/CESM2-WACCM
+│       │       │   ├── CESM2-WACCM-FV2 -> /projects/kopp/cmip6/ibe_corrected/zos/CESM2-WACCM-FV2
+│       │       │   ├── CIESM -> /projects/kopp/cmip6/ibe_corrected/zos/CIESM
+│       │       │   ├── CMCC-CM2-SR5 -> /projects/kopp/cmip6/ibe_corrected/zos/CMCC-CM2-SR5
+│       │       │   ├── CNRM-CM6-1 -> /projects/kopp/cmip6/ibe_corrected/zos/CNRM-CM6-1
+│       │       │   ├── CNRM-CM6-1-HR -> /projects/kopp/cmip6/ibe_corrected/zos/CNRM-CM6-1-HR
+│       │       │   ├── CNRM-ESM2-1 -> /projects/kopp/cmip6/ibe_corrected/zos/CNRM-ESM2-1
+│       │       │   ├── EC-Earth3 -> /projects/kopp/cmip6/ibe_corrected/zos/EC-Earth3
+│       │       │   ├── EC-Earth3-Veg -> /projects/kopp/cmip6/ibe_corrected/zos/EC-Earth3-Veg
+│       │       │   ├── EC-Earth3-Veg-LR -> /projects/kopp/cmip6/ibe_corrected/zos/EC-Earth3-Veg-LR
+│       │       │   ├── FIO-ESM-2-0 -> /projects/kopp/cmip6/ibe_corrected/zos/FIO-ESM-2-0
+│       │       │   ├── GISS-E2-1-G -> /projects/kopp/cmip6/ibe_corrected/zos/GISS-E2-1-G
+│       │       │   ├── GISS-E2-1-G-CC -> /projects/kopp/cmip6/ibe_corrected/zos/GISS-E2-1-G-CC
+│       │       │   ├── HadGEM3-GC31-LL -> /projects/kopp/cmip6/ibe_corrected/zos/HadGEM3-GC31-LL
+│       │       │   ├── HadGEM3-GC31-MM -> /projects/kopp/cmip6/ibe_corrected/zos/HadGEM3-GC31-MM
+│       │       │   ├── INM-CM4-8 -> /projects/kopp/cmip6/ibe_corrected/zos/INM-CM4-8
+│       │       │   ├── INM-CM5-0 -> /projects/kopp/cmip6/ibe_corrected/zos/INM-CM5-0
+│       │       │   ├── IPSL-CM6A-LR -> /projects/kopp/cmip6/ibe_corrected/zos/IPSL-CM6A-LR
+│       │       │   ├── MIROC6 -> /projects/kopp/cmip6/ibe_corrected/zos/MIROC6
+│       │       │   ├── MIROC-ES2L -> /projects/kopp/cmip6/ibe_corrected/zos/MIROC-ES2L
+│       │       │   ├── MPI-ESM-1-2-HAM -> /projects/kopp/cmip6/ibe_corrected/zos/MPI-ESM-1-2-HAM
+│       │       │   ├── MPI-ESM1-2-HR -> /projects/kopp/cmip6/ibe_corrected/zos/MPI-ESM1-2-HR
+│       │       │   ├── MPI-ESM1-2-LR -> /projects/kopp/cmip6/ibe_corrected/zos/MPI-ESM1-2-LR
+│       │       │   ├── MRI-ESM2-0 -> /projects/kopp/cmip6/ibe_corrected/zos/MRI-ESM2-0
+│       │       │   ├── NorCPM1 -> /projects/kopp/cmip6/ibe_corrected/zos/NorCPM1
+│       │       │   ├── NorESM2-LM -> /projects/kopp/cmip6/ibe_corrected/zos/NorESM2-LM
+│       │       │   ├── NorESM2-MM -> /projects/kopp/cmip6/ibe_corrected/zos/NorESM2-MM
+│       │       │   └── UKESM1-0-LL -> /projects/kopp/cmip6/ibe_corrected/zos/UKESM1-0-LL
+│       │       └── zostoga
+│       │           ├── ACCESS-CM2
+│       │           │   ├── zostoga_Omon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_ACCESS-CM2_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_ACCESS-CM2_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_ACCESS-CM2_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           ├── ACCESS-ESM1-5
+│       │           │   ├── zostoga_Omon_ACCESS-ESM1-5_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_ACCESS-ESM1-5_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_ACCESS-ESM1-5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_ACCESS-ESM1-5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_ACCESS-ESM1-5_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           ├── BCC-CSM2-MR
+│       │           │   └── zostoga_Omon_BCC-CSM2-MR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           ├── BCC-ESM1
+│       │           │   └── zostoga_Omon_BCC-ESM1_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           ├── CanESM5
+│       │           │   ├── zostoga_Omon_CanESM5_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_historical_r1i1p2f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp119_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp119_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp126_r1i1p1f1_gn_201501-230012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp126_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp245_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp370_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5_ssp585_r1i1p1f1_gn_201501-218012_dedrifted.nc
+│       │           │   └── zostoga_Omon_CanESM5_ssp585_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           ├── CanESM5-CanOE
+│       │           │   ├── zostoga_Omon_CanESM5-CanOE_historical_r1i1p2f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5-CanOE_ssp126_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5-CanOE_ssp245_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CanESM5-CanOE_ssp370_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_CanESM5-CanOE_ssp585_r1i1p2f1_gn_201501-210012_dedrifted.nc
+│       │           ├── CMCC-CM2-SR5
+│       │           │   ├── zostoga_Omon_CMCC-CM2-SR5_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CMCC-CM2-SR5_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CMCC-CM2-SR5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CMCC-CM2-SR5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_CMCC-CM2-SR5_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           ├── CNRM-CM6-1
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_CNRM-CM6-1_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           ├── CNRM-CM6-1-HR
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1-HR_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1-HR_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1-HR_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-CM6-1-HR_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_CNRM-CM6-1-HR_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           ├── CNRM-ESM2-1
+│       │           │   ├── zostoga_Omon_CNRM-ESM2-1_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-ESM2-1_ssp119_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-ESM2-1_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-ESM2-1_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_CNRM-ESM2-1_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_CNRM-ESM2-1_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           ├── EC-Earth3
+│       │           │   ├── zostoga_Omon_EC-Earth3_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_EC-Earth3_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_EC-Earth3_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_EC-Earth3_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_EC-Earth3_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           ├── EC-Earth3-Veg
+│       │           │   ├── zostoga_Omon_EC-Earth3-Veg_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_EC-Earth3-Veg_ssp119_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_EC-Earth3-Veg_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_EC-Earth3-Veg_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_EC-Earth3-Veg_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_EC-Earth3-Veg_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           ├── EC-Earth3-Veg-LR
+│       │           │   └── zostoga_Omon_EC-Earth3-Veg-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           ├── GISS-E2-1-G
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f2_gn_185001-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f3_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f3_gn_185001-299912_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_historical_r1i1p3f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_historical_r1i1p5f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_historical_r1i1p5f1_gn_185001-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp119_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp119_r1i1p3f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp126_r1i1p3f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp126_r1i1p5f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp245_r1i1p3f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp245_r1i1p5f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p3f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p3f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p5f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_GISS-E2-1-G_ssp585_r1i1p3f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_GISS-E2-1-G_ssp585_r1i1p5f1_gn_201501-210012_dedrifted.nc
+│       │           ├── GISS-E2-1-G-CC
+│       │           │   └── zostoga_Omon_GISS-E2-1-G-CC_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           ├── GISS-E2-1-H
+│       │           │   ├── zostoga_Omon_GISS-E2-1-H_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   └── zostoga_Omon_GISS-E2-1-H_historical_r1i1p3f1_gn_185001-201412_dedrifted.nc
+│       │           ├── HadGEM3-GC31-LL
+│       │           │   ├── zostoga_Omon_HadGEM3-GC31-LL_historical_r1i1p1f3_gm_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_HadGEM3-GC31-LL_ssp126_r1i1p1f3_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_HadGEM3-GC31-LL_ssp245_r1i1p1f3_gm_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gm_201501-210012_dedrifted.nc
+│       │           ├── HadGEM3-GC31-MM
+│       │           │   └── zostoga_Omon_HadGEM3-GC31-MM_historical_r1i1p1f3_gm_185001-201412_dedrifted.nc
+│       │           ├── INM-CM5-0
+│       │           │   ├── zostoga_Omon_INM-CM5-0_historical_r1i1p1f1_gr1_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_INM-CM5-0_ssp126_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_INM-CM5-0_ssp245_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_INM-CM5-0_ssp370_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_INM-CM5-0_ssp585_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+│       │           ├── IPSL-CM6A-LR
+│       │           │   ├── zostoga_Omon_IPSL-CM6A-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_IPSL-CM6A-LR_ssp119_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_IPSL-CM6A-LR_ssp126_r1i1p1f1_gn_201501-230012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_IPSL-CM6A-LR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_IPSL-CM6A-LR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_IPSL-CM6A-LR_ssp585_r1i1p1f1_gn_201501-230012_dedrifted.nc
+│       │           ├── MIROC6
+│       │           │   ├── zostoga_Omon_MIROC6_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MIROC6_ssp126_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MIROC6_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MIROC6_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_MIROC6_ssp585_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           ├── MPI-ESM-1-2-HAM
+│       │           │   ├── zostoga_Omon_MPI-ESM-1-2-HAM_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   └── zostoga_Omon_MPI-ESM-1-2-HAM_ssp370_r1i1p1f1_gn_201501-205512_dedrifted.nc
+│       │           ├── MPI-ESM1-2-HR
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-HR_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-HR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-HR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_MPI-ESM1-2-HR_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           ├── MPI-ESM1-2-LR
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-LR_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-LR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MPI-ESM1-2-LR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_MPI-ESM1-2-LR_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+│       │           ├── MRI-ESM2-0
+│       │           │   ├── zostoga_Omon_MRI-ESM2-0_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MRI-ESM2-0_historical_r1i2p1f1_gm_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MRI-ESM2-0_ssp119_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MRI-ESM2-0_ssp126_r1i1p1f1_gm_201501-230012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MRI-ESM2-0_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MRI-ESM2-0_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_MRI-ESM2-0_ssp585_r1i1p1f1_gm_201501-230012_dedrifted.nc
+│       │           │   └── zostoga_Omon_MRI-ESM2-0_ssp585_r1i2p1f1_gm_201501-210012_dedrifted.nc
+│       │           ├── NorESM2-LM
+│       │           │   ├── zostoga_Omon_NorESM2-LM_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_NorESM2-LM_ssp126_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_NorESM2-LM_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_NorESM2-LM_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_NorESM2-LM_ssp585_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           ├── NorESM2-MM
+│       │           │   ├── zostoga_Omon_NorESM2-MM_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+│       │           │   ├── zostoga_Omon_NorESM2-MM_ssp126_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_NorESM2-MM_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   ├── zostoga_Omon_NorESM2-MM_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           │   └── zostoga_Omon_NorESM2-MM_ssp585_r1i1p1f1_gm_201501-210012_dedrifted.nc
+│       │           └── UKESM1-0-LL
+│       │               ├── zostoga_Omon_UKESM1-0-LL_historical_r1i1p1f2_gm_185001-201412_dedrifted.nc
+│       │               ├── zostoga_Omon_UKESM1-0-LL_ssp119_r1i1p1f2_gm_201501-210012_dedrifted.nc
+│       │               ├── zostoga_Omon_UKESM1-0-LL_ssp126_r1i1p1f2_gm_201501-210012_dedrifted.nc
+│       │               ├── zostoga_Omon_UKESM1-0-LL_ssp245_r1i1p1f2_gm_201501-210012_dedrifted.nc
+│       │               ├── zostoga_Omon_UKESM1-0-LL_ssp370_r1i1p1f2_gm_201501-210012_dedrifted.nc
+│       │               └── zostoga_Omon_UKESM1-0-LL_ssp585_r1i1p1f2_gm_201501-210012_dedrifted.nc
+│       └── twolayer_SSPs.h5
+└── total
+    ├── pipeline.yml
+    ├── total_workflow_dev.py
+    └── total_workflow.py
+
+234 directories, 3170 files
