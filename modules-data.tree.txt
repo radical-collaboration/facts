@@ -1,36 +1,17 @@
-modules-data/
+modules-data
 ├── ar5
 │   ├── glaciers
-│   │   ├── FPRINT
-│   │   │   ├── fprint_gis.nc
-│   │   │   ├── fprint_glac10.nc
-│   │   │   ├── fprint_glac11.nc
-│   │   │   ├── fprint_glac12.nc
-│   │   │   ├── fprint_glac13.nc
-│   │   │   ├── fprint_glac14.nc
-│   │   │   ├── fprint_glac15.nc
-│   │   │   ├── fprint_glac16.nc
-│   │   │   ├── fprint_glac17.nc
-│   │   │   ├── fprint_glac1.nc
-│   │   │   ├── fprint_glac2.nc
-│   │   │   ├── fprint_glac3.nc
-│   │   │   ├── fprint_glac4.nc
-│   │   │   ├── fprint_glac5.nc
-│   │   │   ├── fprint_glac6.nc
-│   │   │   ├── fprint_glac7.nc
-│   │   │   ├── fprint_glac8.nc
-│   │   │   └── fprint_glac9.nc
+│   │   ├── FPRINT -> ../../FPRINT/
 │   │   └── twolayer_SSPs.h5
 │   ├── glacierscmip6
+│   │   ├── FPRINT -> ../../FPRINT/
 │   │   └── tas -> ../../tlm/oceandynamics/data/cmip6/tas
 │   ├── glaciersfair
 │   │   ├── CLIMATE_FORCING_1850.csv
-│   │   └── FAIR_.nc-missing
+│   │   ├── FAIR_.nc-missing
+│   │   └── FPRINT -> ../../FPRINT/
 │   ├── icesheets
-│   │   ├── FPRINT
-│   │   │   ├── fprint_eais.nc
-│   │   │   ├── fprint_gis.nc
-│   │   │   └── fprint_wais.nc
+│   │   ├── FPRINT -> ../../FPRINT/
 │   │   ├── rcp26_expansion_mean.nc
 │   │   ├── rcp26_expansion_sd.nc
 │   │   ├── rcp26_temperature_mean.nc
@@ -124,9 +105,7 @@ modules-data/
 ├── dp16
 │   ├── dp16_eais_.nc-missing
 │   ├── dp16_wais_.nc-missing
-│   └── FPRINT
-│       ├── fprint_eais.nc
-│       └── fprint_wais.nc
+│   └── FPRINT -> ../FPRINT/
 ├── dp21
 │   ├── dp21_eais_rcp26.nc
 │   ├── dp21_eais_rcp45.nc
@@ -134,9 +113,7 @@ modules-data/
 │   ├── dp21_wais_rcp26.nc
 │   ├── dp21_wais_rcp45.nc
 │   ├── dp21_wais_rcp85.nc
-│   └── FPRINT
-│       ├── fprint_eais.nc
-│       └── fprint_wais.nc
+│   └── FPRINT -> ../FPRINT/
 ├── emulandice
 │   ├── emulandice-master
 │   │   ├── DESCRIPTION
@@ -175,27 +152,7 @@ modules-data/
 │   │       ├── FACTS_CLIMATE_FORCING.csv.example
 │   │       └── FACTS_CLIMATE_FORCING.csv.head
 │   ├── FACTS_CLIMATE_FORCING.csv
-│   └── FPRINT
-│       ├── fprint_eais.nc
-│       ├── fprint_gis.nc
-│       ├── fprint_glac10.nc
-│       ├── fprint_glac11.nc
-│       ├── fprint_glac12.nc
-│       ├── fprint_glac13.nc
-│       ├── fprint_glac14.nc
-│       ├── fprint_glac15.nc
-│       ├── fprint_glac16.nc
-│       ├── fprint_glac17.nc
-│       ├── fprint_glac1.nc
-│       ├── fprint_glac2.nc
-│       ├── fprint_glac3.nc
-│       ├── fprint_glac4.nc
-│       ├── fprint_glac5.nc
-│       ├── fprint_glac6.nc
-│       ├── fprint_glac7.nc
-│       ├── fprint_glac8.nc
-│       ├── fprint_glac9.nc
-│       └── fprint_wais.nc
+│   └── FPRINT -> ../FPRINT/
 ├── extremesealevel
 │   └── pointsoverthreshold
 │       └── data
@@ -217,11 +174,29 @@ modules-data/
 │       ├── FittedParms_AIS_WAIS.csv
 │       ├── FittedParms_GrIS_ALL.csv
 │       ├── FittedParms_GrIS_ALL.csv.old.csv
-│       ├── FPRINT
-│       │   ├── fprint_eais.nc
-│       │   ├── fprint_gis.nc
-│       │   └── fprint_wais.nc
+│       ├── FPRINT -> ../../FPRINT/
 │       └── twolayer_SSPs.h5
+├── FPRINT
+│   ├── fprint_eais.nc
+│   ├── fprint_gis.nc
+│   ├── fprint_glac10.nc
+│   ├── fprint_glac11.nc
+│   ├── fprint_glac12.nc
+│   ├── fprint_glac13.nc
+│   ├── fprint_glac14.nc
+│   ├── fprint_glac15.nc
+│   ├── fprint_glac16.nc
+│   ├── fprint_glac17.nc
+│   ├── fprint_glac1.nc
+│   ├── fprint_glac2.nc
+│   ├── fprint_glac3.nc
+│   ├── fprint_glac4.nc
+│   ├── fprint_glac5.nc
+│   ├── fprint_glac6.nc
+│   ├── fprint_glac7.nc
+│   ├── fprint_glac8.nc
+│   ├── fprint_glac9.nc
+│   └── fprint_wais.nc
 ├── genmod
 │   └── directsample
 │       ├── genmod_preprocess_directsample.py
@@ -229,10 +204,7 @@ modules-data/
 │       └── pipeline.yml
 ├── ipccar6
 │   ├── bambericesheet
-│   │   ├── FPRINT
-│   │   │   ├── fprint_eais.nc
-│   │   │   ├── fprint_gis.nc
-│   │   │   └── fprint_wais.nc
+│   │   ├── FPRINT -> ../../FPRINT/
 │   │   └── SLRProjections190726core_SEJ_full.mat
 │   ├── gmipemuglaciers
 │   │   ├── 191208_annual_CMIP6
@@ -260,26 +232,7 @@ modules-data/
 │   │   │   ├── projections_FAIR_SSP370.csv
 │   │   │   └── projections_FAIR_SSP585.csv
 │   │   ├── fingerprint_region_map.csv
-│   │   └── FPRINT
-│   │       ├── fprint_gis.nc
-│   │       ├── fprint_glac10.nc
-│   │       ├── fprint_glac11.nc
-│   │       ├── fprint_glac12.nc
-│   │       ├── fprint_glac13.nc
-│   │       ├── fprint_glac14.nc
-│   │       ├── fprint_glac15.nc
-│   │       ├── fprint_glac16.nc
-│   │       ├── fprint_glac17.nc
-│   │       ├── fprint_glac1.nc
-│   │       ├── fprint_glac2.nc
-│   │       ├── fprint_glac3.nc
-│   │       ├── fprint_glac4.nc
-│   │       ├── fprint_glac5.nc
-│   │       ├── fprint_glac6.nc
-│   │       ├── fprint_glac7.nc
-│   │       ├── fprint_glac8.nc
-│   │       ├── fprint_glac9.nc
-│   │       └── fprint_wais.nc
+│   │   └── FPRINT -> ../../FPRINT/
 │   ├── ismipemuicesheet
 │   │   ├── 191208_annual_CMIP6
 │   │   │   ├── projections_SSP126.csv
@@ -313,10 +266,6 @@ modules-data/
 │   │   │   ├── projections_FAIR_SSP370.csv
 │   │   │   └── projections_FAIR_SSP585.csv
 │   │   ├── CLIMATE_FORCING_1850.csv
-│   │   ├── FPRINT
-│   │   │   ├── fprint_eais.nc
-│   │   │   ├── fprint_gis.nc
-│   │   │   └── fprint_wais.nc
 │   │   └── SLE_SIMULATIONS.csv
 │   └── larmipicesheet
 │       ├── data
@@ -546,9 +495,7 @@ modules-data/
 │       │       ├── ssp585_temperature_mean.nc
 │       │       ├── ssp585_temperature_sd.nc
 │       │       └── twolayer_SSPs.h5
-│       └── FPRINT
-│           ├── fprint_eais.nc
-│           └── fprint_wais.nc
+│       └── FPRINT -> ../../FPRINT/
 ├── kopp14
 │   ├── glaciers
 │   ├── icesheets
@@ -564,9 +511,7 @@ modules-data/
 │   └── icesheet
 │       ├── data
 │       │   └── twolayer_SSPs.h5
-│       ├── FPRINT
-│       │   ├── fprint_eais.nc
-│       │   └── fprint_wais.nc
+│       ├── FPRINT -> ../../FPRINT/
 │       └── larmip2020
 │           ├── ComputeBasalMeltProjections
 │           │   ├── larmip18_project_basalmelt_wTd_nos_RCP26.ipynb
@@ -3404,4 +3349,4 @@ modules-data/
     ├── total_workflow_dev.py
     └── total_workflow.py
 
-234 directories, 3170 files
+236 directories, 3113 files
