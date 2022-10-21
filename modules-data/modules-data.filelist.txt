@@ -1,10 +1,10 @@
-21M	ar5_glacierscmip6_postprocess_data.tgz
+22M	ar5_glacierscmip6_postprocess_data.tgz
 928K	ar5_glacierscmip6_preprocess_data.tgz
 32K	ar5_glacierscmip6_project_data.tgz
-21M	ar5_glaciersfair_postprocess_data.tgz
+22M	ar5_glaciersfair_postprocess_data.tgz
 57M	ar5_glaciersfair_preprocess_data.tgz
 32K	ar5_glaciersfair_project_data.tgz
-21M	ar5_glaciers_postprocess_data.tgz
+22M	ar5_glaciers_postprocess_data.tgz
 542M	ar5_glaciers_preprocess_data.tgz
 32K	ar5_glaciers_project_data.tgz
 3.4M	ar5_icesheets_postprocess_data.tgz
@@ -31,7 +31,7 @@
 603M	FittedISMIP_icesheet_preprocess_data.tgz
 3.4M	ipccar6_bambericesheet_postprocess_data.tgz
 226M	ipccar6_bambericesheet_preprocess_data.tgz
-512	ipccar6_gmipemuglaciers_postprocess.tgz
+22M	ipccar6_gmipemuglaciers_postprocess.tgz
 233M	ipccar6_gmipemuglaciers_preprocess.tgz
 3.4M	ipccar6_ismipemuicesheet_postprocess.tgz
 269M	ipccar6_ismipemuicesheet_preprocess.tgz

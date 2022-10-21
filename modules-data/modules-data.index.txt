@@ -7,6 +7,7 @@ ar5_glacierscmip6_postprocess_data.tgz
 ./FPRINT/fprint_glac11.nc
 ./FPRINT/fprint_glac1.nc
 ./FPRINT/fprint_glac10.nc
+./FPRINT/fprint_wais.nc
 ./FPRINT/fprint_glac5.nc
 ./FPRINT/fprint_glac14.nc
 ./FPRINT/fprint_glac2.nc
@@ -20,6 +21,7 @@ ar5_glacierscmip6_postprocess_data.tgz
 ./FPRINT/fprint_glac8.nc
 ./FPRINT/fprint_gis.nc
 ./FPRINT/fprint_glac9.nc
+./fingerprint_region_map.csv
 
 ar5_glacierscmip6_preprocess_data.tgz
 -------------------------------
@@ -86,6 +88,7 @@ ar5_glaciersfair_postprocess_data.tgz
 ./FPRINT/fprint_glac11.nc
 ./FPRINT/fprint_glac1.nc
 ./FPRINT/fprint_glac10.nc
+./FPRINT/fprint_wais.nc
 ./FPRINT/fprint_glac5.nc
 ./FPRINT/fprint_glac14.nc
 ./FPRINT/fprint_glac2.nc
@@ -99,6 +102,7 @@ ar5_glaciersfair_postprocess_data.tgz
 ./FPRINT/fprint_glac8.nc
 ./FPRINT/fprint_gis.nc
 ./FPRINT/fprint_glac9.nc
+./fingerprint_region_map.csv
 
 ar5_glaciersfair_preprocess_data.tgz
 -------------------------------
@@ -122,6 +126,7 @@ ar5_glaciers_postprocess_data.tgz
 ./FPRINT/fprint_glac11.nc
 ./FPRINT/fprint_glac1.nc
 ./FPRINT/fprint_glac10.nc
+./FPRINT/fprint_wais.nc
 ./FPRINT/fprint_glac5.nc
 ./FPRINT/fprint_glac14.nc
 ./FPRINT/fprint_glac2.nc
@@ -135,6 +140,7 @@ ar5_glaciers_postprocess_data.tgz
 ./FPRINT/fprint_glac8.nc
 ./FPRINT/fprint_gis.nc
 ./FPRINT/fprint_glac9.nc
+./fingerprint_region_map.csv
 
 ar5_glaciers_preprocess_data.tgz
 -------------------------------
@@ -1965,7 +1971,26 @@ SLRProjections190726core_SEJ_full.mat
 
 ipccar6_gmipemuglaciers_postprocess.tgz
 -------------------------------
-./FPRINT
+./FPRINT/
+./FPRINT/fprint_glac4.nc
+./FPRINT/fprint_glac15.nc
+./FPRINT/fprint_glac11.nc
+./FPRINT/fprint_glac1.nc
+./FPRINT/fprint_glac10.nc
+./FPRINT/fprint_wais.nc
+./FPRINT/fprint_glac5.nc
+./FPRINT/fprint_glac14.nc
+./FPRINT/fprint_glac2.nc
+./FPRINT/fprint_glac13.nc
+./FPRINT/fprint_glac6.nc
+./FPRINT/fprint_glac17.nc
+./FPRINT/fprint_glac7.nc
+./FPRINT/fprint_glac16.nc
+./FPRINT/fprint_glac3.nc
+./FPRINT/fprint_glac12.nc
+./FPRINT/fprint_glac8.nc
+./FPRINT/fprint_gis.nc
+./FPRINT/fprint_glac9.nc
 ./fingerprint_region_map.csv
 
 ipccar6_gmipemuglaciers_preprocess.tgz
