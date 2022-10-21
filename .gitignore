@@ -5,7 +5,7 @@
 /experiments/ipcc*
 /experiments/FACTS_ms/
 /experiments/test*
-/modules-data/
+/modules-data/*.tgz
 
 # C extensions
 *.so
