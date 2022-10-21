@@ -3,9 +3,10 @@ rabbitmq:
   port: 5672
 
 resource-desc:
-  name: 'local.localhost'
-  walltime: 30
-  cpus: 2
+  name: 'rutgers.amarel'
+  walltime: 15
+  cpus: 1
   gpus: 0
-  queue: ''
+  queue: 'kopp_1'
   project: ''
+  schema: 'local'
