@@ -43,8 +43,8 @@ def ipccar6_preprocess_larmipicesheet(pipeline_id, pyear_start, pyear_end, pyear
 	ais_samps = []
 
 	# Get a list of files for this scenario
-	#datadir = os.path.join(os.path.dirname(__file__), "larmip_data")	# Directory for FACTS module
-	datadir = os.path.join(os.path.dirname(__file__),"data", "larmip_data_original")	# Directory for testing
+	datadir = os.path.join(os.path.dirname(__file__), "larmip_data")	# Directory for FACTS module
+	#datadir = os.path.join(os.path.dirname(__file__),"data", "larmip_data_original")	# Directory for testing
 	filenames = fnmatch.filter(os.listdir(datadir), "*{}.nc".format(scenario_search))
 
 	# Loop through the input files
@@ -148,8 +148,8 @@ def ipccar6_preprocess_larmipicesheet2lm(pipeline_id, pyear_start, pyear_end, py
 	make_data_structure = True
 
 	# Get a list of files for this scenario
-	#datadir = os.path.join(os.path.dirname(__file__), "larmip_data_2lm")	# Directory for FACTS module
-	datadir = os.path.join(os.path.dirname(__file__),"data", "larmip_data_2lm")	# Directory for testing
+	datadir = os.path.join(os.path.dirname(__file__), "larmip_data")	# Directory for FACTS module
+	#datadir = os.path.join(os.path.dirname(__file__),"data", "larmip_data_2lm")	# Directory for testing
 
 	# Get the projection indices for this run
 	(_, idx_dict) = Import2lmData(scenario=scenario, directory=os.path.join(datadir, "..", "smb_data"), tlim_scenarios=tlim_scenarios)
@@ -310,8 +310,8 @@ def ipccar6_preprocess_ar5aissmb(scenario, startyr, pipeline_id, pyear_start, py
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 
 	# Define the input data directory
-	#indir = os.path.join(os.path.dirname(__file__), "smb_data")	# Directory for FACTS module
-	indir = os.path.join(os.path.dirname(__file__), "data", "smb_data")		# Directory for testing
+	indir = os.path.join(os.path.dirname(__file__), "smb_data")	# Directory for FACTS module
+	#indir = os.path.join(os.path.dirname(__file__), "data", "smb_data")		# Directory for testing
 
 	# Load the two-layer model data
 	if tlm_flag:
