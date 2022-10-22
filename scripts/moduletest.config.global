@@ -1,0 +1,5 @@
+#WORKDIR=/scratch/`whoami`/test.`date +%s`
+WORKDIR=/tmp/test.`date +%s`
+LFILE=test/location_list.lst
+OUTPUTGLOBAL_DIR=$TESTSCRIPT_DIR/output_global
+OUTPUTLOCAL_DIR=$TESTSCRIPT_DIR/output_local
