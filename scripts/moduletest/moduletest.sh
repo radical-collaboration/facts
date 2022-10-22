@@ -9,25 +9,23 @@ echo "Initiating test in $WORKDIR..."
 mkdir $WORKDIR
 cd $WORKDIR
 
-pwd
-
 cp -L -r $TESTSCRIPT_DIR/../* .
 
 echo "Extracting data files..."
 for i in data/*
 do
-    tar xzvf $i  2>&1 | grep -v 'Ignoring'
+    tar xzf $i  2>&1 | grep -v 'Ignoring'
 done
 
 echo "Executing workflow..."
 
-STAGE_SCRIPTS=()
 j=0
-for i in $STAGES
+for i in "${STAGES[@]}"
 do
-    j=$(( j+1 ))
-    STAGE_SCRIPT=(`yq .\"$i\".task1.script ../pipeline.yml`)
-    python $STAGE_SCRIPT ${STAGEOPTIONS[j]}
+    j=$(( $j+1 ))
+    EXECCMD="python ${STAGE_SCRIPT[j]} ${STAGEOPTIONS[j]}"
+    echo $EXECCMD
+    $EXECCMD
 done
 
 
@@ -46,4 +44,7 @@ mv *globalsl* $OUTPUTGLOBAL_DIR
 mv *localsl* $OUTPUTLOCAL_DIR
 
 cd $TESTSCRIPT_DIR
-rm -fr $WORKDIR
+
+if [[ ! -v PRESERVE_WORKDIR ]]; then
+    rm -fr $WORKDIR
+fi
