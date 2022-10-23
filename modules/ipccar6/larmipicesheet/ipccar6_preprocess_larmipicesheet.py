@@ -148,7 +148,7 @@ def ipccar6_preprocess_larmipicesheet2lm(pipeline_id, pyear_start, pyear_end, py
 	make_data_structure = True
 
 	# Get a list of files for this scenario
-	datadir = os.path.join(os.path.dirname(__file__), "larmip_data")	# Directory for FACTS module
+	datadir = os.path.join(os.path.dirname(__file__), "larmip_data_2lm")	# Directory for FACTS module
 	#datadir = os.path.join(os.path.dirname(__file__),"data", "larmip_data_2lm")	# Directory for testing
 
 	# Get the projection indices for this run
