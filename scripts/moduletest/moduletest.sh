@@ -11,11 +11,13 @@ cd $WORKDIR
 
 cp -L -r $TESTSCRIPT_DIR/../* .
 
-echo "Extracting data files..."
-for i in data/*
-do
-    tar xzf $i  2>&1 | grep -v 'Ignoring'
-done
+if [[ ! -v SKIP_EXTRACTDATA ]]; then
+    echo "Extracting data files..."
+    for i in data/*
+    do
+	tar xzf $i  2>&1 | grep -v 'Ignoring'
+    done
+fi
 
 echo "Executing workflow..."
 

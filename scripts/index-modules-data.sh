@@ -1,5 +1,7 @@
 #!/bin/bash
 
+du -h *.tgz
+
 for i in *.tgz
 do
    echo
