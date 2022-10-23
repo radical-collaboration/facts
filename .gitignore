@@ -6,6 +6,8 @@
 /experiments/FACTS_ms/
 /experiments/test*
 /modules-data/*.tgz
+/modules/*/*/test/output_global/*.nc
+/modules/*/*/test/output_local/*.nc
 
 # C extensions
 *.so

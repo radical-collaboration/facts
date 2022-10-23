@@ -1,0 +1,8 @@
+usage: emulandice_preprocess_AIS.py [-h] --pipeline_id PIPELINE_ID
+                                    [--input_data_file INPUT_DATA_FILE]
+                                    [--baseyear BASEYEAR]
+emulandice_preprocess_AIS.py: error: unrecognized arguments: --scenario rcp85
+usage: emulandice_project_AIS.py [-h] --pipeline_id PIPELINE_ID
+emulandice_project_AIS.py: error: unrecognized arguments: --nsamps 20000 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --seed 4321
+mv: cannot stat ‘*globalsl*’: No such file or directory
+mv: cannot stat ‘*localsl*’: No such file or directory
