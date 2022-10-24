@@ -44,8 +44,8 @@ def GetSATData(fname, scenario, refyear_start=1850, refyear_end=1900, year_start
 def larmip_preprocess_icesheet(scenario, pipeline_id):
 
 	# Load the temperature data
-	#SAT,Time,NumTensemble = GetSATData("./IPCC_SSP_Projections/twolayer_SSPs.h5", scenario)
-	SAT,Time,NumTensemble = GetSATData("./data/IPCC_SSP_Projections/twolayer_SSPs.h5", scenario)
+	SAT,Time,NumTensemble = GetSATData("./IPCC_SSP_Projections/twolayer_SSPs.h5", scenario)
+	#SAT,Time,NumTensemble = GetSATData("./data/IPCC_SSP_Projections/twolayer_SSPs.h5", scenario)
 	Tlen = len(Time)
 
 	# Save the preprocessed data to a pickle

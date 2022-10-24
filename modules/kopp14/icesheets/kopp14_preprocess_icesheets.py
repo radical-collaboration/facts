@@ -92,7 +92,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 
 	# Run the preprocessing stage with the user defined RCP scenario
-	kopp14_preprocess_icesheets(args.scenario, args.pipeline_id)
+	kopp14_preprocess_icesheets(args.scenario, args.srocc, args.pipeline_id)
 
 	# Done
 	exit()
