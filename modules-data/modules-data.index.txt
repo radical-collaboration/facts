@@ -1,3 +1,58 @@
+512	ar5_glacierscmip6_postprocess_data.tgz
+512	ar5_glacierscmip6_preprocess_data.tgz
+512	ar5_glacierscmip6_project_data.tgz
+512	ar5_glaciersfair_postprocess_data.tgz
+512	ar5_glaciersfair_preprocess_data.tgz
+512	ar5_glaciersfair_project_data.tgz
+512	ar5_glaciers_postprocess_data.tgz
+512	ar5_glaciers_preprocess_data.tgz
+512	ar5_glaciers_project_data.tgz
+512	ar5_icesheets_postprocess_data.tgz
+512	ar5_icesheets_preprocess_data.tgz
+512	ar5_icesheets_project_data.tgz
+512	ar5_thermalexpansion_preprocess_data.tgz
+512	cmip6_oceandynamics_data.tgz
+512	dp16_icesheet_postprocess_data.tgz
+512	dp16_icesheet_preprocess_data.tgz
+512	dp21_icesheet_postprocess_data.tgz
+512	dp21_icesheet_preprocess_data.tgz
+512	emulandice_AIS_postprocess_data.tgz
+512	emulandice_AIS_project_data.tgz
+512	emulandice_glaciers_postprocess_data.tgz
+512	emulandice_glaciers_project_data.tgz
+512	emulandice_GrIS_postprocess_data.tgz
+512	emulandice_GrIS_project_data.tgz
+512	extremesealevel_pointsoverthreshold_data.tgz
+512	extremesealevel_pointsoverthreshold_fulldata.tgz
+512	fair_temperature_fit_data.tgz
+512	fair_temperature_preprocess_data.tgz
+512	FittedISMIP_icesheet_fit_data.tgz
+512	FittedISMIP_icesheet_postprocess_data.tgz
+512	FittedISMIP_icesheet_preprocess_data.tgz
+512	ipccar6_bambericesheet_postprocess_data.tgz
+512	ipccar6_bambericesheet_preprocess_data.tgz
+512	ipccar6_gmipemuglaciers_postprocess.tgz
+512	ipccar6_gmipemuglaciers_preprocess.tgz
+512	ipccar6_ismipemuicesheet_postprocess.tgz
+512	ipccar6_ismipemuicesheet_preprocess.tgz
+512	ipccar6_larmipicesheet_postprocess_data.tgz
+512	ipccar6_larmipicesheet_preprocess_data_2lm.tgz
+512	ipccar6_larmipicesheet_preprocess_data.tgz
+512	kopp14_glaciers_postprocess_data.tgz
+512	kopp14_glaciers_preprocess_data.tgz
+512	kopp14_icesheets_data.tgz
+512	kopp14_landwaterstorage_preprocess_data.tgz
+512	kopp14_oceandynamics_data.tgz
+512	kopp14_thermalexp_preprocess_data.tgz
+512	kopp14_verticallandmotion_preprocess.tgz
+512	larmip_icesheet_fit_data.tgz
+512	larmip_icesheet_postprocess_data.tgz
+512	larmip_icesheet_preprocess_data.tgz
+512	larmip_icesheet_project_data.tgz
+512	NZInsarGPS_verticallandmotion_preprocess.tgz
+512	ssp_landwaterstorage_postprocess_data.tgz
+512	ssp_landwaterstorage_preprocess_data.tgz
+512	tlm_oceandynamics_preprocess.tgz
 
 ar5_glacierscmip6_postprocess_data.tgz
 -------------------------------
@@ -2064,6 +2119,106 @@ ipccar6_larmipicesheet_postprocess_data.tgz
 ./FPRINT/.DS_Store
 ./FPRINT/fprint_wais.nc
 ./FPRINT/fprint_eais.nc
+
+ipccar6_larmipicesheet_preprocess_data_2lm.tgz
+-------------------------------
+larmip_data_2lm/
+larmip_data_2lm/SL_PISM_DMI_SSP460.nc
+larmip_data_2lm/SL_ISSM_JPL_SSP126.nc
+larmip_data_2lm/SL_PISM_PIK_SSP370.nc
+larmip_data_2lm/SL_SICO_ILTS_SSP585.nc
+larmip_data_2lm/SL_MALI_DOE_SSP460.nc
+larmip_data_2lm/SL_PS3D_PSU_SSP245.nc
+larmip_data_2lm/SL_ISSM_JPL_SSP585.nc
+larmip_data_2lm/SL_GRIS_LSC_SSP119.nc
+larmip_data_2lm/SL_PS3D_PSU_SSP585.nc
+larmip_data_2lm/SL_SICO_ILTS_SSP119.nc
+larmip_data_2lm/SL_ISSM_JPL_SSP245.nc
+larmip_data_2lm/SL_BISI_LBL_SSP585.nc
+larmip_data_2lm/SL_GRIS_LSC_SSP585.nc
+larmip_data_2lm/SL_PISM_PIK_SSP126.nc
+larmip_data_2lm/SL_CISM_NCA_SSP585.nc
+larmip_data_2lm/SL_PISM_VUW_SSP370.nc
+larmip_data_2lm/SL_MALI_DOE_SSP126.nc
+larmip_data_2lm/SL_PISM_VUW_SSP126.nc
+larmip_data_2lm/SL_PISM_PIK_SSP460.nc
+larmip_data_2lm/SL_UA_UNN_SSP126.nc
+larmip_data_2lm/SL_PS3D_PSU_SSP119.nc
+larmip_data_2lm/SL_MALI_DOE_SSP119.nc
+larmip_data_2lm/SL_FETI_ULB_SSP119.nc
+larmip_data_2lm/SL_UA_UNN_SSP585.nc
+larmip_data_2lm/SL_UA_UNN_SSP460.nc
+larmip_data_2lm/SL_IMAU_UU_SSP245.nc
+larmip_data_2lm/SL_FETI_ULB_SSP245.nc
+larmip_data_2lm/SL_FETI_ULB_SSP585.nc
+larmip_data_2lm/SL_FETI_ULB_SSP126.nc
+larmip_data_2lm/SL_AISM_VUB_SSP119.nc
+larmip_data_2lm/SL_GRIS_LSC_SSP245.nc
+larmip_data_2lm/SL_FETI_ULB_SSP370.nc
+larmip_data_2lm/SL_GRIS_LSC_SSP126.nc
+larmip_data_2lm/SL_PISM_AWI_SSP460.nc
+larmip_data_2lm/SL_ISSM_JPL_SSP119.nc
+larmip_data_2lm/SL_ISSM_JPL_SSP370.nc
+larmip_data_2lm/SL_BISI_LBL_SSP126.nc
+larmip_data_2lm/SL_BISI_LBL_SSP245.nc
+larmip_data_2lm/SL_SICO_ILTS_SSP126.nc
+larmip_data_2lm/SL_PISM_DMI_SSP585.nc
+larmip_data_2lm/SL_SICO_ILTS_SSP460.nc
+larmip_data_2lm/SL_ISSM_JPL_SSP460.nc
+larmip_data_2lm/SL_PISM_VUW_SSP245.nc
+larmip_data_2lm/SL_UA_UNN_SSP119.nc
+larmip_data_2lm/SL_AISM_VUB_SSP126.nc
+larmip_data_2lm/SL_IMAU_UU_SSP119.nc
+larmip_data_2lm/SL_ISSM_UCI_SSP126.nc
+larmip_data_2lm/SL_UA_UNN_SSP370.nc
+larmip_data_2lm/SL_AISM_VUB_SSP585.nc
+larmip_data_2lm/SL_PISM_DMI_SSP245.nc
+larmip_data_2lm/SL_PISM_VUW_SSP460.nc
+larmip_data_2lm/SL_PISM_AWI_SSP585.nc
+larmip_data_2lm/SL_AISM_VUB_SSP460.nc
+larmip_data_2lm/SL_PISM_VUW_SSP585.nc
+larmip_data_2lm/SL_PISM_VUW_SSP119.nc
+larmip_data_2lm/SL_BISI_LBL_SSP460.nc
+larmip_data_2lm/SL_PISM_PIK_SSP119.nc
+larmip_data_2lm/SL_PISM_DMI_SSP370.nc
+larmip_data_2lm/SL_PS3D_PSU_SSP460.nc
+larmip_data_2lm/SL_PISM_DMI_SSP119.nc
+larmip_data_2lm/SL_CISM_NCA_SSP245.nc
+larmip_data_2lm/SL_PISM_AWI_SSP370.nc
+larmip_data_2lm/SL_SICO_ILTS_SSP245.nc
+larmip_data_2lm/SL_BISI_LBL_SSP119.nc
+larmip_data_2lm/SL_CISM_NCA_SSP126.nc
+larmip_data_2lm/SL_AISM_VUB_SSP370.nc
+larmip_data_2lm/SL_CISM_NCA_SSP119.nc
+larmip_data_2lm/SL_BISI_LBL_SSP370.nc
+larmip_data_2lm/SL_ISSM_UCI_SSP460.nc
+larmip_data_2lm/SL_PISM_AWI_SSP245.nc
+larmip_data_2lm/SL_PISM_AWI_SSP119.nc
+larmip_data_2lm/SL_PISM_DMI_SSP126.nc
+larmip_data_2lm/SL_ISSM_UCI_SSP245.nc
+larmip_data_2lm/SL_IMAU_UU_SSP126.nc
+larmip_data_2lm/SL_MALI_DOE_SSP585.nc
+larmip_data_2lm/SL_SICO_ILTS_SSP370.nc
+larmip_data_2lm/SL_GRIS_LSC_SSP370.nc
+larmip_data_2lm/SL_IMAU_UU_SSP585.nc
+larmip_data_2lm/SL_CISM_NCA_SSP370.nc
+larmip_data_2lm/SL_AISM_VUB_SSP245.nc
+larmip_data_2lm/SL_PISM_PIK_SSP585.nc
+larmip_data_2lm/SL_PS3D_PSU_SSP370.nc
+larmip_data_2lm/SL_IMAU_UU_SSP460.nc
+larmip_data_2lm/SL_ISSM_UCI_SSP119.nc
+larmip_data_2lm/SL_CISM_NCA_SSP460.nc
+larmip_data_2lm/SL_GRIS_LSC_SSP460.nc
+larmip_data_2lm/SL_FETI_ULB_SSP460.nc
+larmip_data_2lm/SL_MALI_DOE_SSP370.nc
+larmip_data_2lm/SL_UA_UNN_SSP245.nc
+larmip_data_2lm/SL_PISM_AWI_SSP126.nc
+larmip_data_2lm/SL_MALI_DOE_SSP245.nc
+larmip_data_2lm/SL_ISSM_UCI_SSP370.nc
+larmip_data_2lm/SL_PS3D_PSU_SSP126.nc
+larmip_data_2lm/SL_ISSM_UCI_SSP585.nc
+larmip_data_2lm/SL_IMAU_UU_SSP370.nc
+larmip_data_2lm/SL_PISM_PIK_SSP245.nc
 
 ipccar6_larmipicesheet_preprocess_data.tgz
 -------------------------------

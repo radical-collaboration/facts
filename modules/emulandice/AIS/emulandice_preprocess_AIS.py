@@ -104,7 +104,7 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	# Run the preprocessing
-	emulandice_preprocess_AIS(args.infile, args.baseyear, args.pipeline_id)
+	emulandice_preprocess_AIS(args.input_data_file, args.baseyear, args.pipeline_id)
 
 	# Done
 	sys.exit()

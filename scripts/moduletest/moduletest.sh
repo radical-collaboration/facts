@@ -44,6 +44,7 @@ fi
 
 mv *globalsl* $OUTPUTGLOBAL_DIR
 mv *localsl* $OUTPUTLOCAL_DIR
+mv *.nc $OUTPUTGLOBAL_DIR
 
 cd $TESTSCRIPT_DIR
 
