@@ -114,7 +114,8 @@ def kopp14_preprocess_oceandynamics(rcp_scenario, zostoga_modeldir, zos_modeldir
 	def nanSmooth(x, w):
 		idx = np.flatnonzero(~np.isnan(x))
 		temp = x
-		temp[idx] = Smooth(x[idx], w)
+		if len(idx) > 1:
+			temp[idx] = Smooth(x[idx], w)
 		return(temp)
 
 	sZOS = np.apply_along_axis(nanSmooth, axis=0, arr=ZOS, w=smoothwin)

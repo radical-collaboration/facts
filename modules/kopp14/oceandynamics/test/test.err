@@ -1,31 +1,10 @@
-Traceback (most recent call last):
-  File "kopp14_preprocess_oceandynamics.py", line 184, in <module>
-    kopp14_preprocess_oceandynamics(args.scenario, args.zostoga_model_dir, args.zos_model_dir, not args.no_drift_corr, args.baseyear, args.pyear_start, args.pyear_end, args.pyear_step, args.locationfile, args.pipeline_id)
-  File "kopp14_preprocess_oceandynamics.py", line 120, in kopp14_preprocess_oceandynamics
-    sZOS = np.apply_along_axis(nanSmooth, axis=0, arr=ZOS, w=smoothwin)
-  File "<__array_function__ internals>", line 6, in apply_along_axis
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/numpy/lib/shape_base.py", line 402, in apply_along_axis
-    buff[ind] = asanyarray(func1d(inarr_view[ind], *args, **kwargs))
-  File "kopp14_preprocess_oceandynamics.py", line 117, in nanSmooth
-    temp[idx] = Smooth(x[idx], w)
-ValueError: shape mismatch: value array of shape (37,) could not be broadcast to indexing result of shape (1,)
-Traceback (most recent call last):
-  File "kopp14_fit_oceandynamics.py", line 282, in <module>
-    kopp14_fit_oceandynamics(args.pipeline_id)
-  File "kopp14_fit_oceandynamics.py", line 60, in kopp14_fit_oceandynamics
-    my_zos = pickle.load(f)
-ValueError: peek of closed file
-Traceback (most recent call last):
-  File "kopp14_project_oceandynamics.py", line 140, in <module>
-    kopp14_project_oceandynamics(args.nsamps, args.seed, args.pipeline_id)
-  File "kopp14_project_oceandynamics.py", line 52, in kopp14_project_oceandynamics
-    my_fit = pickle.load(f)
-ValueError: peek of closed file
-Traceback (most recent call last):
-  File "kopp14_postprocess_oceandynamics.py", line 230, in <module>
-    kopp14_postprocess_oceandynamics(args.nsamps, args.seed, args.pipeline_id)
-  File "kopp14_postprocess_oceandynamics.py", line 50, in kopp14_postprocess_oceandynamics
-    f = open(infile, 'rb')
-FileNotFoundError: [Errno 2] No such file or directory: 'oceandynamics-kopp14-oceandynamics_ZOS.pkl'
-ls: cannot access oceandynamics-kopp14-oceandynamics*.nc: No such file or directory
-mv: cannot stat ‘oceandynamics-kopp14-oceandynamics*.nc’: No such file or directory
+kopp14_fit_oceandynamics.py:183: RuntimeWarning: Mean of empty slice
+  ext_num = sZOS[year_2099_idx,:,:] - np.nanmean(sZOS[year_2099_idx,:,:], axis=0)
+kopp14_fit_oceandynamics.py:200: RuntimeWarning: Mean of empty slice
+  OceanDynMean = np.nanmean(sZOS, axis=1) * 1000
+/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/numpy/lib/nanfunctions.py:1671: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  keepdims=keepdims)
+kopp14_fit_oceandynamics.py:213: RuntimeWarning: Mean of empty slice
+  zos_demean = sZOS - np.nanmean(sZOS, axis=1)[:,np.newaxis,:]
+kopp14_fit_oceandynamics.py:217: RuntimeWarning: invalid value encountered in true_divide
+  OceanDynTECorr = corr_num / corr_denom
