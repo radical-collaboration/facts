@@ -1,12 +1,16 @@
-Initiating test in /scratch/rk509/test.1666668385...
+Initiating test in /scratch/rk509/test.1666722245...
+
 Extracting data files...
+
 Executing workflow...
-python tlm_preprocess_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585 --scenario ssp585 --baseyear 2005 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --model_dir ./cmip6 --locationfile test/location_list.lst --no_correlation 1
+python tlm_preprocess_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585 --scenario ssp585 --baseyear 2005 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --model_dir ./cmip6 --locationfile test/location_list.lst --no_correlation 0
 python tlm_fit_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585
 python tlm_project_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585 --nsamps 2000 --seed 4321 --tlm 1
-Cannot open data file
-
 python tlm_postprocess_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585 --chunksize 662 --nsamps 2000 --seed 4321
-Cannot open infile
 
 Collecting output files...
+oceandynamics-tlm-oceandynamics-ssp585_globalsl.nc
+oceandynamics-tlm-oceandynamics-ssp585_localsl.nc
+oceandynamics-tlm-oceandynamics-ssp585_OceanDyn.nc
+
+Skipping clean up...

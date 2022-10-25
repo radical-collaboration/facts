@@ -1,9 +1,19 @@
-Initiating test in /scratch/rk509/test.1666645182...
+Initiating test in /scratch/rk509/test.1666722419...
+
 Extracting data files...
+
 Executing workflow...
-pre-process
-python kopp14_preprocess_oceandynamics.py --pipeline_id oceandynamics-kopp14-oceandynamics --scenario rcp85 --zostoga_model_dir ./SLR_ALL/ --zos_model_dir ./SLR_ALL/ --baseyear --pyear_start 2020 --pyear_end 2100 --pyear_step 10 --locationfile test/location_list.lst
+python kopp14_preprocess_oceandynamics.py --pipeline_id oceandynamics-kopp14-oceandynamics --scenario rcp85 --zostoga_model_dir ./SLR_ALL/ --zos_model_dir ./zosfinal/ --baseyear 2005 --pyear_start 2020 --pyear_end 2100 --pyear_step 10 --locationfile test/location_list.lst
 python kopp14_fit_oceandynamics.py --pipeline_id oceandynamics-kopp14-oceandynamics
+Cannot open ZOS file
+
 python kopp14_project_oceandynamics.py --pipeline_id oceandynamics-kopp14-oceandynamics --nsamps 200 --seed 4321
+Cannot open fit file
+
 python kopp14_postprocess_oceandynamics.py --pipeline_id oceandynamics-kopp14-oceandynamics --nsamps 200 --seed 4321
+Cannot open infile
+
+
 Collecting output files...
+
+Skipping clean up...
