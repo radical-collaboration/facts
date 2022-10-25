@@ -11,12 +11,14 @@ cd $WORKDIR
 
 cp -L -r $TESTSCRIPT_DIR/../* .
 
+echo ""
 echo "Extracting data files..."
 for i in data/*
 do
     tar xzf $i  2>&1 | grep -v 'Ignoring'
 done
 
+echo ""
 echo "Executing workflow..."
 
 j=0
@@ -29,19 +31,15 @@ do
 done
 
 
+echo ""
 echo "Collecting output files..."
-if ! [[ -d $OUTPUTGLOBAL_DIR ]]
+if ! [[ -d $OUTPUT_DIR ]]
 then
-    mkdir $OUTPUTGLOBAL_DIR
+    mkdir $OUTPUT_DIR
 fi
 
-if ! [[ -d $OUTPUTLOCAL_DIR ]]
-then
-    mkdir $OUTPUTLOCAL_DIR
-fi
-
-mv *globalsl* $OUTPUTGLOBAL_DIR
-mv *localsl* $OUTPUTLOCAL_DIR
+ls ${PIPELINE_ID}*.nc
+mv ${PIPELINE_ID}*.nc $OUTPUT_DIR
 
 cd $TESTSCRIPT_DIR
 
