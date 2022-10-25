@@ -1,11 +1,20 @@
-tlm_fit_oceandynamics.py:209: RuntimeWarning: invalid value encountered in true_divide
-  OceanDynTECorr = corr_num / corr_denom
+Traceback (most recent call last):
+  File "tlm_fit_oceandynamics.py", line 328, in <module>
+    tlm_fit_oceandynamics(args.pipeline_id)
+  File "tlm_fit_oceandynamics.py", line 222, in tlm_fit_oceandynamics
+    OceanDynTECorr[np.isnan(OceanDynTECorr)] = 0.0
+TypeError: 'float' object does not support item assignment
+Traceback (most recent call last):
+  File "tlm_project_oceandynamics.py", line 309, in <module>
+    tlm_project_thermalexpansion(args.seed, args.nsamps, args.pipeline_id)
+  File "tlm_project_oceandynamics.py", line 206, in tlm_project_thermalexpansion
+    my_data = pickle.load(f)
+ValueError: peek of closed file
 Traceback (most recent call last):
   File "tlm_postprocess_oceandynamics.py", line 265, in <module>
     tlm_postprocess_oceandynamics(args.nsamps, args.seed, args.chunksize, args.keep_temp, args.pipeline_id)
-  File "tlm_postprocess_oceandynamics.py", line 186, in tlm_postprocess_oceandynamics
-    combined = xr.open_mfdataset("{0}_tempsamps_*.nc".format(pipeline_id), concat_dim="locations", chunks={"locations":chunksize})
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/xarray/backends/api.py", line 889, in open_mfdataset
-    "When combine='by_coords', passing a value for `concat_dim` has no "
-ValueError: When combine='by_coords', passing a value for `concat_dim` has no effect. To manually combine along a specific dimension you should instead specify combine='nested' along with a value for `concat_dim`.
+  File "tlm_postprocess_oceandynamics.py", line 91, in tlm_postprocess_oceandynamics
+    f = open(infile, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'oceandynamics-tlm-oceandynamics-ssp585_oceandynamics_fit.pkl'
+mv: cannot stat ‘*globalsl*’: No such file or directory
 mv: cannot stat ‘*localsl*’: No such file or directory
