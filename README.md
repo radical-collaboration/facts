@@ -19,4 +19,4 @@ conda install radical.entk -c conda-forge
 conda install numpy scipy netCDF4 pyyaml matplotlib h5py yq
 ```
 
-In addition, you will need to have all the associated module data tgz files in your [module-data](module-data) directory.
+In addition, you will need to have all the associated module data tgz files in your [modules-data](modules-data) directory.
