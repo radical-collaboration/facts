@@ -11,12 +11,18 @@ cd $WORKDIR
 
 cp -L -r $TESTSCRIPT_DIR/../* .
 
-echo ""
-echo "Extracting data files..."
-for i in data/*
-do
-    tar xzf $i  2>&1 | grep -v 'Ignoring'
-done
+if [ -z "$SKIP_EXTRACT" ]
+then
+    echo ""
+    echo "Extracting data files..."
+    for i in data/*
+    do
+	tar xzf $i  2>&1 | grep -v 'Ignoring'
+    done
+else
+    echo ""
+    echo "Skipping data extraction..."
+fi
 
 echo ""
 echo "Executing workflow..."
@@ -43,6 +49,12 @@ mv ${PIPELINE_ID}*.nc $OUTPUT_DIR
 
 cd $TESTSCRIPT_DIR
 
-if [[ ! -v PRESERVE_WORKDIR ]]; then
+if [ -z "$PRESERVE_WORKDIR" ]
+then
+    echo ""
+    echo "Cleaning up..."
     rm -fr $WORKDIR
+else
+    echo ""
+    echo "Skipping clean up..."
 fi

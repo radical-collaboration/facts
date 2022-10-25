@@ -20,7 +20,7 @@ downloaded 365 KB
 * DONE (devtools)
 
 The downloaded source packages are in
-	‘/tmp/RtmpTmLzIe/downloaded_packages’
+	‘/tmp/RtmpbyLxHd/downloaded_packages’
 Skipping 1 packages not available: dummies
 Installing 1 packages: stringi
 trying URL 'https://cloud.r-project.org/src/contrib/stringi_1.7.8.tar.gz'
@@ -36,11 +36,11 @@ ERROR: configuration failed for package ‘stringi’
 * restoring previous ‘/cache/home/rk509/.conda/envs/conda-entk/lib/R/library/stringi’
 
 The downloaded source packages are in
-	‘/tmp/RtmpdWQ1qP/downloaded_packages’
+	‘/tmp/RtmpjW8eZ2/downloaded_packages’
 Warning message:
 In i.p(...) : installation of package ‘stringi’ had non-zero exit status
 * installing to library ‘/cache/home/rk509/.conda/envs/conda-entk/lib/R/library’
-* installing *source* package ‘emulandice20221024160631’ ...
+* installing *source* package ‘emulandice20221025123456’ ...
 ** using staged installation
 ** R
 ** inst
@@ -51,7 +51,7 @@ In i.p(...) : installation of package ‘stringi’ had non-zero exit status
 ** testing if installed package can be loaded from temporary location
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
-* DONE (emulandice20221024160631)
+* DONE (emulandice20221025123456)
 Loading required package: tidyverse
 ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ✔ ggplot2 3.3.6      ✔ purrr   0.3.5 
@@ -65,8 +65,3 @@ Warning messages:
 1: package ‘tibble’ was built under R version 4.2.1 
 2: package ‘purrr’ was built under R version 4.2.1 
 3: package ‘stringr’ was built under R version 4.2.1 
-Warning message:
-In for (i in seq_len(n)) { :
-  closing unused connection 3 (/scratch/rk509/test.1666641988/emulandice-master/../results/output.txt)
-Removing from library ‘/cache/home/rk509/.conda/envs/conda-entk/lib/R/library’
-mv: cannot stat ‘*.nc’: No such file or directory
