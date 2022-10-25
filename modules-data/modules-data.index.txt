@@ -1,58 +1,58 @@
-512	ar5_glacierscmip6_postprocess_data.tgz
-512	ar5_glacierscmip6_preprocess_data.tgz
-512	ar5_glacierscmip6_project_data.tgz
-512	ar5_glaciersfair_postprocess_data.tgz
-512	ar5_glaciersfair_preprocess_data.tgz
-512	ar5_glaciersfair_project_data.tgz
-512	ar5_glaciers_postprocess_data.tgz
-512	ar5_glaciers_preprocess_data.tgz
-512	ar5_glaciers_project_data.tgz
-512	ar5_icesheets_postprocess_data.tgz
-512	ar5_icesheets_preprocess_data.tgz
+22M	ar5_glacierscmip6_postprocess_data.tgz
+928K	ar5_glacierscmip6_preprocess_data.tgz
+32K	ar5_glacierscmip6_project_data.tgz
+22M	ar5_glaciersfair_postprocess_data.tgz
+57M	ar5_glaciersfair_preprocess_data.tgz
+32K	ar5_glaciersfair_project_data.tgz
+22M	ar5_glaciers_postprocess_data.tgz
+542M	ar5_glaciers_preprocess_data.tgz
+32K	ar5_glaciers_project_data.tgz
+3.4M	ar5_icesheets_postprocess_data.tgz
+542M	ar5_icesheets_preprocess_data.tgz
 512	ar5_icesheets_project_data.tgz
-512	ar5_thermalexpansion_preprocess_data.tgz
-512	cmip6_oceandynamics_data.tgz
-512	dp16_icesheet_postprocess_data.tgz
-512	dp16_icesheet_preprocess_data.tgz
-512	dp21_icesheet_postprocess_data.tgz
-512	dp21_icesheet_preprocess_data.tgz
-512	emulandice_AIS_postprocess_data.tgz
-512	emulandice_AIS_project_data.tgz
-512	emulandice_glaciers_postprocess_data.tgz
-512	emulandice_glaciers_project_data.tgz
-512	emulandice_GrIS_postprocess_data.tgz
-512	emulandice_GrIS_project_data.tgz
-512	extremesealevel_pointsoverthreshold_data.tgz
-512	extremesealevel_pointsoverthreshold_fulldata.tgz
-512	fair_temperature_fit_data.tgz
-512	fair_temperature_preprocess_data.tgz
-512	FittedISMIP_icesheet_fit_data.tgz
-512	FittedISMIP_icesheet_postprocess_data.tgz
-512	FittedISMIP_icesheet_preprocess_data.tgz
-512	ipccar6_bambericesheet_postprocess_data.tgz
-512	ipccar6_bambericesheet_preprocess_data.tgz
-512	ipccar6_gmipemuglaciers_postprocess.tgz
-512	ipccar6_gmipemuglaciers_preprocess.tgz
-512	ipccar6_ismipemuicesheet_postprocess.tgz
-512	ipccar6_ismipemuicesheet_preprocess.tgz
-512	ipccar6_larmipicesheet_postprocess_data.tgz
-512	ipccar6_larmipicesheet_preprocess_data_2lm.tgz
-512	ipccar6_larmipicesheet_preprocess_data.tgz
-512	kopp14_glaciers_postprocess_data.tgz
-512	kopp14_glaciers_preprocess_data.tgz
-512	kopp14_icesheets_data.tgz
-512	kopp14_landwaterstorage_preprocess_data.tgz
-512	kopp14_oceandynamics_data.tgz
-512	kopp14_thermalexp_preprocess_data.tgz
-512	kopp14_verticallandmotion_preprocess.tgz
+32K	ar5_thermalexpansion_preprocess_data.tgz
+2.3M	dp16_icesheet_postprocess_data.tgz
+128K	dp16_icesheet_preprocess_data.tgz
+2.3M	dp21_icesheet_postprocess_data.tgz
+768K	dp21_icesheet_preprocess_data.tgz
+2.3M	emulandice_AIS_postprocess_data.tgz
+11M	emulandice_AIS_project_data.tgz
+22M	emulandice_glaciers_postprocess_data.tgz
+11M	emulandice_glaciers_project_data.tgz
+1.2M	emulandice_GrIS_postprocess_data.tgz
+11M	emulandice_GrIS_project_data.tgz
+8.0M	extremesealevel_pointsoverthreshold_data.tgz
+1.7G	extremesealevel_pointsoverthreshold_fulldata.tgz
+6.5M	fair_temperature_fit_data.tgz
+24M	fair_temperature_preprocess_data.tgz
+32K	FittedISMIP_icesheet_fit_data.tgz
+3.4M	FittedISMIP_icesheet_postprocess_data.tgz
+603M	FittedISMIP_icesheet_preprocess_data.tgz
+3.4M	ipccar6_bambericesheet_postprocess_data.tgz
+226M	ipccar6_bambericesheet_preprocess_data.tgz
+22M	ipccar6_gmipemuglaciers_postprocess.tgz
+233M	ipccar6_gmipemuglaciers_preprocess.tgz
+3.4M	ipccar6_ismipemuicesheet_postprocess.tgz
+269M	ipccar6_ismipemuicesheet_preprocess.tgz
+2.3M	ipccar6_larmipicesheet_postprocess_data.tgz
+999M	ipccar6_larmipicesheet_preprocess_data_2lm.tgz
+6.1G	ipccar6_larmipicesheet_preprocess_data.tgz
+21M	kopp14_glaciers_postprocess_data.tgz
+3.7M	kopp14_glaciers_preprocess_data.tgz
+3.4M	kopp14_icesheets_data.tgz
+32K	kopp14_landwaterstorage_preprocess_data.tgz
+17G	kopp14_oceandynamics_data.tgz
+63M	kopp14_thermalexp_preprocess_data.tgz
+640K	kopp14_verticallandmotion_preprocess.tgz
 512	larmip_icesheet_fit_data.tgz
-512	larmip_icesheet_postprocess_data.tgz
-512	larmip_icesheet_preprocess_data.tgz
-512	larmip_icesheet_project_data.tgz
-512	NZInsarGPS_verticallandmotion_preprocess.tgz
-512	ssp_landwaterstorage_postprocess_data.tgz
-512	ssp_landwaterstorage_preprocess_data.tgz
-512	tlm_oceandynamics_preprocess.tgz
+2.3M	larmip_icesheet_postprocess_data.tgz
+603M	larmip_icesheet_preprocess_data.tgz
+128K	larmip_icesheet_project_data.tgz
+160K	NZInsarGPS_verticallandmotion_preprocess.tgz
+224K	ssp_landwaterstorage_postprocess_data.tgz
+32K	ssp_landwaterstorage_preprocess_data.tgz
+29G	tlm_oceandynamics_cmip6.tgz
+603M	tlm_oceandynamics_preprocess.tgz
 
 ar5_glacierscmip6_postprocess_data.tgz
 -------------------------------
@@ -366,139 +366,6 @@ ar5_thermalexpansion_preprocess_data.tgz
 ./ssp585_expansion_sd.nc
 ./ssp585_temperature_mean.nc
 ./ssp585_temperature_sd.nc
-
-cmip6_oceandynamics_data.tgz
--------------------------------
-./cmip6/
-./cmip6/zos/
-./cmip6/zostoga/
-./cmip6/tas/
-./cmip6/tas/CAMS-CSM1-0/
-./cmip6/tas/CESM2/
-./cmip6/tas/CESM2-WACCM/
-./cmip6/tas/CNRM-CM6-1/
-./cmip6/tas/IPSL-CM6A-LR/
-./cmip6/tas/MIROC6/
-./cmip6/tas/CanESM5/
-./cmip6/tas/CNRM-ESM2-1/
-./cmip6/tas/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Amon_ssp126_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Amon_ssp585_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Amon_ssp245_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Amon_historical_r1i1p1f2_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Amon_ssp370_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CanESM5/CMIP6_CanESM5_Amon_ssp245_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CanESM5/CMIP6_CanESM5_Amon_ssp370_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CanESM5/CMIP6_CanESM5_Amon_ssp585_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CanESM5/CMIP6_CanESM5_Amon_historical_r1i1p1f1_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/CanESM5/CMIP6_CanESM5_Amon_ssp126_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/MIROC6/CMIP6_MIROC6_Amon_ssp585_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/MIROC6/CMIP6_MIROC6_Amon_historical_r1i1p1f1_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/MIROC6/CMIP6_MIROC6_Amon_ssp126_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/MIROC6/CMIP6_MIROC6_Amon_ssp370_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/MIROC6/CMIP6_MIROC6_Amon_ssp245_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Amon_historical_r1i1p1f1_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Amon_ssp126_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Amon_ssp585_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Amon_ssp245_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Amon_ssp370_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Amon_ssp585_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Amon_ssp126_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Amon_historical_r1i1p1f2_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Amon_ssp245_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Amon_ssp370_r1i1p1f2_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2-WACCM/CMIP6_CESM2-WACCM_Amon_ssp585_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2-WACCM/CMIP6_CESM2-WACCM_Amon_ssp126_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2-WACCM/CMIP6_CESM2-WACCM_Amon_historical_r1i1p1f1_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/CESM2-WACCM/CMIP6_CESM2-WACCM_Amon_ssp245_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2-WACCM/CMIP6_CESM2-WACCM_Amon_ssp370_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2/CMIP6_CESM2_Amon_historical_r1i1p1f1_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/CESM2/CMIP6_CESM2_Amon_ssp370_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2/CMIP6_CESM2_Amon_ssp245_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2/CMIP6_CESM2_Amon_ssp126_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CESM2/CMIP6_CESM2_Amon_ssp585_r1i1p1f1_TO2Ms_tas_2015-2100.nc
-./cmip6/tas/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Amon_ssp245_r1i1p1f1_TO2Ms_tas_2015-2099.nc
-./cmip6/tas/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Amon_ssp370_r1i1p1f1_TO2Ms_tas_2015-2099.nc
-./cmip6/tas/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Amon_ssp585_r1i1p1f1_TO2Ms_tas_2015-2099.nc
-./cmip6/tas/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Amon_historical_r1i1p1f1_TO2Ms_tas_1850-2014.nc
-./cmip6/tas/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Amon_ssp126_r1i1p1f1_TO2Ms_tas_2015-2099.nc
-./cmip6/zostoga/CNRM-CM6-1/
-./cmip6/zostoga/metadata.yml
-./cmip6/zostoga/CanESM5/
-./cmip6/zostoga/CNRM-ESM2-1/
-./cmip6/zostoga/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_historical_r1i1p1f2_TO2Ms_zostoga_1850-2014.nc
-./cmip6/zostoga/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp119_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp370_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp585_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_piControl_r1i1p1f2_TO2Ms_zostoga_1850-2349.nc
-./cmip6/zostoga/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp126_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp245_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CanESM5/CMIP6_CanESM5_Omon_ssp126_r1i1p1f1_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CanESM5/CMIP6_CanESM5_Omon_ssp245_r1i1p1f1_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CanESM5/CMIP6_CanESM5_Omon_ssp585_r1i1p1f1_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CanESM5/CMIP6_CanESM5_Omon_piControl_r1i1p1f1_TO2Ms_zostoga_5201-6200.nc
-./cmip6/zostoga/CanESM5/CMIP6_CanESM5_Omon_ssp370_r1i1p1f1_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CanESM5/CMIP6_CanESM5_Omon_historical_r1i1p1f1_TO2Ms_zostoga_1850-2014.nc
-./cmip6/zostoga/CanESM5/CMIP6_CanESM5_Omon_ssp119_r1i1p1f1_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp370_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_historical_r1i1p1f2_TO2Ms_zostoga_1850-2014.nc
-./cmip6/zostoga/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp126_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp245_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zostoga/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_piControl_r1i1p1f2_TO2Ms_zostoga_1850-2349.nc
-./cmip6/zostoga/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp585_r1i1p1f2_TO2Ms_zostoga_2015-2100.nc
-./cmip6/zos/CAMS-CSM1-0/
-./cmip6/zos/CESM2/
-./cmip6/zos/CESM2-WACCM/
-./cmip6/zos/CNRM-CM6-1/
-./cmip6/zos/IPSL-CM6A-LR/
-./cmip6/zos/MIROC6/
-./cmip6/zos/metadata.yml
-./cmip6/zos/CanESM5/
-./cmip6/zos/CNRM-ESM2-1/
-./cmip6/zos/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp126_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp585_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp245_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp370_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_ssp119_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-ESM2-1/CMIP6_CNRM-ESM2-1_Omon_historical_r1i1p1f2_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/CanESM5/CMIP6_CanESM5_Omon_ssp245_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CanESM5/CMIP6_CanESM5_Omon_ssp370_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CanESM5/CMIP6_CanESM5_Omon_ssp119_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CanESM5/CMIP6_CanESM5_Omon_ssp585_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CanESM5/CMIP6_CanESM5_Omon_historical_r1i1p1f1_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/CanESM5/CMIP6_CanESM5_Omon_ssp126_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/MIROC6/CMIP6_MIROC6_Omon_ssp585_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/MIROC6/CMIP6_MIROC6_Omon_historical_r1i1p1f1_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/MIROC6/CMIP6_MIROC6_Omon_ssp126_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/MIROC6/CMIP6_MIROC6_Omon_ssp119_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/MIROC6/CMIP6_MIROC6_Omon_ssp370_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/MIROC6/CMIP6_MIROC6_Omon_ssp245_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Omon_historical_r1i1p1f1_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Omon_ssp126_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Omon_ssp585_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Omon_ssp245_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Omon_ssp119_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/IPSL-CM6A-LR/CMIP6_IPSL-CM6A-LR_Omon_ssp370_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp585_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp126_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_historical_r1i1p1f2_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp245_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CNRM-CM6-1/CMIP6_CNRM-CM6-1_Omon_ssp370_r1i1p1f2_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2-WACCM/CMIP6_CESM2-WACCM_Omon_ssp585_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2-WACCM/CMIP6_CESM2-WACCM_Omon_ssp126_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2-WACCM/CMIP6_CESM2-WACCM_Omon_historical_r1i1p1f1_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/CESM2-WACCM/CMIP6_CESM2-WACCM_Omon_ssp245_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2-WACCM/CMIP6_CESM2-WACCM_Omon_ssp370_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2/CMIP6_CESM2_Omon_historical_r1i1p1f1_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/CESM2/CMIP6_CESM2_Omon_ssp370_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2/CMIP6_CESM2_Omon_ssp245_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2/CMIP6_CESM2_Omon_ssp126_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CESM2/CMIP6_CESM2_Omon_ssp585_r1i1p1f1_TO2Ms_zos_2015-2100.nc
-./cmip6/zos/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Omon_ssp245_r1i1p1f1_TO2Ms_zos_2015-2099.nc
-./cmip6/zos/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Omon_ssp370_r1i1p1f1_TO2Ms_zos_2015-2099.nc
-./cmip6/zos/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Omon_ssp119_r1i1p1f1_TO2Ms_zos_2015-2099.nc
-./cmip6/zos/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Omon_ssp585_r1i1p1f1_TO2Ms_zos_2015-2099.nc
-./cmip6/zos/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Omon_historical_r1i1p1f1_TO2Ms_zos_1850-2014.nc
-./cmip6/zos/CAMS-CSM1-0/CMIP6_CAMS-CSM1-0_Omon_ssp126_r1i1p1f1_TO2Ms_zos_2015-2099.nc
 
 dp16_icesheet_postprocess_data.tgz
 -------------------------------
@@ -4521,6 +4388,613 @@ ssp_landwaterstorage_preprocess_data.tgz
 ./UNWPP2012 population historical.csv
 ./Wada2012 GWD.csv
 ./ssp_iam_baseline_popscenarios2100.csv
+
+tlm_oceandynamics_cmip6.tgz
+-------------------------------
+cmip6/
+cmip6/tas/
+cmip6/tas/IPSL-CM6A-LR/
+cmip6/tas/IPSL-CM6A-LR/tas_Amon_IPSL-CM6A-LR_ssp585_r1i1p1f1_gr_201501-230012_0mean.nc
+cmip6/tas/IPSL-CM6A-LR/tas_Amon_IPSL-CM6A-LR_ssp126_r1i1p1f1_gr_201501-230012_0mean.nc
+cmip6/tas/IPSL-CM6A-LR/tas_Amon_IPSL-CM6A-LR_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+cmip6/tas/IPSL-CM6A-LR/tas_Amon_IPSL-CM6A-LR_ssp370_r1i1p1f1_gr_201501-210012_0mean.nc
+cmip6/tas/IPSL-CM6A-LR/tas_Amon_IPSL-CM6A-LR_ssp245_r1i1p1f1_gr_201501-210012_0mean.nc
+cmip6/tas/IPSL-CM6A-LR/tas_Amon_IPSL-CM6A-LR_ssp119_r1i1p1f1_gr_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G-CC/
+cmip6/tas/GISS-E2-1-G-CC/tas_Amon_GISS-E2-1-G-CC_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/SAM0-UNICON/
+cmip6/tas/SAM0-UNICON/tas_Amon_SAM0-UNICON_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/NorCPM1/
+cmip6/tas/NorCPM1/tas_Amon_NorCPM1_historical_r1i1p1f1_gn_185001-202912_0mean.nc
+cmip6/tas/ACCESS-CM2/
+cmip6/tas/ACCESS-CM2/tas_Amon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-CM2/tas_Amon_ACCESS-CM2_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-CM2/tas_Amon_ACCESS-CM2_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-CM2/tas_Amon_ACCESS-CM2_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-CM2/tas_Amon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/AWI-ESM-1-1-LR/
+cmip6/tas/AWI-ESM-1-1-LR/tas_Amon_AWI-ESM-1-1-LR_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/INM-CM5-0/
+cmip6/tas/INM-CM5-0/tas_Amon_INM-CM5-0_ssp245_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/INM-CM5-0/tas_Amon_INM-CM5-0_ssp126_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/INM-CM5-0/tas_Amon_INM-CM5-0_ssp585_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/INM-CM5-0/tas_Amon_INM-CM5-0_historical_r1i1p1f1_gr1_185001-201412_0mean.nc
+cmip6/tas/INM-CM5-0/tas_Amon_INM-CM5-0_ssp370_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/CESM2-WACCM/
+cmip6/tas/CESM2-WACCM/tas_Amon_CESM2-WACCM_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CESM2-WACCM/tas_Amon_CESM2-WACCM_ssp585_r1i1p1f1_gn_201501-229912_0mean.nc
+cmip6/tas/CESM2-WACCM/tas_Amon_CESM2-WACCM_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CESM2-WACCM/tas_Amon_CESM2-WACCM_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CESM2-WACCM/tas_Amon_CESM2-WACCM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/CESM2-WACCM-FV2/
+cmip6/tas/CESM2-WACCM-FV2/tas_Amon_CESM2-WACCM-FV2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/CESM2-FV2/
+cmip6/tas/CESM2-FV2/tas_Amon_CESM2-FV2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MCM-UA-1-0/
+cmip6/tas/MCM-UA-1-0/tas_Amon_MCM-UA-1-0_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+cmip6/tas/MCM-UA-1-0/tas_Amon_MCM-UA-1-0_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MCM-UA-1-0/tas_Amon_MCM-UA-1-0_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MCM-UA-1-0/tas_Amon_MCM-UA-1-0_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MCM-UA-1-0/tas_Amon_MCM-UA-1-0_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MCM-UA-1-0/tas_Amon_MCM-UA-1-0_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-LR/
+cmip6/tas/MPI-ESM1-2-LR/tas_Amon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MPI-ESM1-2-LR/tas_Amon_MPI-ESM1-2-LR_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-LR/tas_Amon_MPI-ESM1-2-LR_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-LR/tas_Amon_MPI-ESM1-2-LR_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-LR/tas_Amon_MPI-ESM1-2-LR_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/E3SM-1-1/
+cmip6/tas/E3SM-1-1/tas_Amon_E3SM-1-1_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+cmip6/tas/NorESM2-LM/
+cmip6/tas/NorESM2-LM/tas_Amon_NorESM2-LM_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/NorESM2-LM/tas_Amon_NorESM2-LM_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/NorESM2-LM/tas_Amon_NorESM2-LM_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/NorESM2-LM/tas_Amon_NorESM2-LM_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/NorESM2-LM/tas_Amon_NorESM2-LM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/E3SM-1-0/
+cmip6/tas/E3SM-1-0/tas_Amon_E3SM-1-0_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+cmip6/tas/CanESM5/
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp119_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp126_r1i1p1f1_gn_201501-230012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp126_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp585_r1i1p1f1_gn_201501-230012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp245_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_historical_r1i1p2f1_gn_185001-201412_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp585_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp119_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/CanESM5/tas_Amon_CanESM5_ssp370_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1-HR/
+cmip6/tas/CNRM-CM6-1-HR/tas_Amon_CNRM-CM6-1-HR_ssp126_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1-HR/tas_Amon_CNRM-CM6-1-HR_historical_r1i1p1f2_gr_185001-201412_0mean.nc
+cmip6/tas/CNRM-CM6-1-HR/tas_Amon_CNRM-CM6-1-HR_ssp585_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1-HR/tas_Amon_CNRM-CM6-1-HR_ssp370_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1-HR/tas_Amon_CNRM-CM6-1-HR_ssp245_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/UKESM1-0-LL/
+cmip6/tas/UKESM1-0-LL/tas_Amon_UKESM1-0-LL_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/UKESM1-0-LL/tas_Amon_UKESM1-0-LL_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/UKESM1-0-LL/tas_Amon_UKESM1-0-LL_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/UKESM1-0-LL/tas_Amon_UKESM1-0-LL_ssp119_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/UKESM1-0-LL/tas_Amon_UKESM1-0-LL_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+cmip6/tas/UKESM1-0-LL/tas_Amon_UKESM1-0-LL_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-H/
+cmip6/tas/GISS-E2-1-H/tas_Amon_GISS-E2-1-H_historical_r1i1p5f1_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-H/tas_Amon_GISS-E2-1-H_historical_r1i1p3f1_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-H/tas_Amon_GISS-E2-1-H_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-H/tas_Amon_GISS-E2-1-H_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+cmip6/tas/E3SM-1-1-ECA/
+cmip6/tas/E3SM-1-1-ECA/tas_Amon_E3SM-1-1-ECA_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+cmip6/tas/ACCESS-ESM1-5/
+cmip6/tas/ACCESS-ESM1-5/tas_Amon_ACCESS-ESM1-5_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-ESM1-5/tas_Amon_ACCESS-ESM1-5_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-ESM1-5/tas_Amon_ACCESS-ESM1-5_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-ESM1-5/tas_Amon_ACCESS-ESM1-5_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/ACCESS-ESM1-5/tas_Amon_ACCESS-ESM1-5_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MIROC-ES2L/
+cmip6/tas/MIROC-ES2L/tas_Amon_MIROC-ES2L_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC-ES2L/tas_Amon_MIROC-ES2L_ssp119_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC-ES2L/tas_Amon_MIROC-ES2L_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC-ES2L/tas_Amon_MIROC-ES2L_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC-ES2L/tas_Amon_MIROC-ES2L_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+cmip6/tas/MIROC-ES2L/tas_Amon_MIROC-ES2L_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp585_r1i1p3f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp119_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp126_r1i1p5f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp370_r1i1p3f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp585_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp126_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp119_r1i1p3f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp370_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_historical_r1i1p1f2_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp245_r1i1p1f2_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp245_r1i1p3f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_historical_r1i1p1f3_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp585_r1i1p5f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_historical_r1i1p3f1_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp370_r1i1p5f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_historical_r1i1p5f1_gn_185001-201412_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp126_r1i1p3f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp245_r1i1p5f1_gn_201501-210012_0mean.nc
+cmip6/tas/GISS-E2-1-G/tas_Amon_GISS-E2-1-G_ssp370_r1i1p3f1_gn_201501-210012_0mean.nc
+cmip6/tas/EC-Earth3-Veg-LR/
+cmip6/tas/EC-Earth3-Veg-LR/tas_Amon_EC-Earth3-Veg-LR_historical_r1i1p1f1_gr_185001-201412_0mean.nc
+cmip6/tas/INM-CM4-8/
+cmip6/tas/INM-CM4-8/tas_Amon_INM-CM4-8_ssp585_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/INM-CM4-8/tas_Amon_INM-CM4-8_ssp370_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/INM-CM4-8/tas_Amon_INM-CM4-8_historical_r1i1p1f1_gr1_185001-201412_0mean.nc
+cmip6/tas/INM-CM4-8/tas_Amon_INM-CM4-8_ssp126_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/INM-CM4-8/tas_Amon_INM-CM4-8_ssp245_r1i1p1f1_gr1_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM-1-2-HAM/
+cmip6/tas/MPI-ESM-1-2-HAM/tas_Amon_MPI-ESM-1-2-HAM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MPI-ESM-1-2-HAM/tas_Amon_MPI-ESM-1-2-HAM_ssp370_r1i1p1f1_gn_201501-205512_0mean.nc
+cmip6/tas/MPI-ESM1-2-HR/
+cmip6/tas/MPI-ESM1-2-HR/tas_Amon_MPI-ESM1-2-HR_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-HR/tas_Amon_MPI-ESM1-2-HR_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-HR/tas_Amon_MPI-ESM1-2-HR_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-HR/tas_Amon_MPI-ESM1-2-HR_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MPI-ESM1-2-HR/tas_Amon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/TaiESM1/
+cmip6/tas/TaiESM1/tas_Amon_TaiESM1_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/TaiESM1/tas_Amon_TaiESM1_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/HadGEM3-GC31-LL/
+cmip6/tas/HadGEM3-GC31-LL/tas_Amon_HadGEM3-GC31-LL_historical_r1i1p1f3_gn_185001-201412_0mean.nc
+cmip6/tas/HadGEM3-GC31-LL/tas_Amon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_201501-210012_0mean.nc
+cmip6/tas/HadGEM3-GC31-LL/tas_Amon_HadGEM3-GC31-LL_ssp126_r1i1p1f3_gn_201501-210012_0mean.nc
+cmip6/tas/HadGEM3-GC31-LL/tas_Amon_HadGEM3-GC31-LL_ssp245_r1i1p1f3_gn_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1/
+cmip6/tas/CNRM-CM6-1/tas_Amon_CNRM-CM6-1_ssp126_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1/tas_Amon_CNRM-CM6-1_ssp245_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1/tas_Amon_CNRM-CM6-1_ssp370_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1/tas_Amon_CNRM-CM6-1_ssp585_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-CM6-1/tas_Amon_CNRM-CM6-1_historical_r1i1p1f2_gr_185001-201412_0mean.nc
+cmip6/tas/CanESM5-CanOE/
+cmip6/tas/CanESM5-CanOE/tas_Amon_CanESM5-CanOE_historical_r1i1p2f1_gn_185001-201412_0mean.nc
+cmip6/tas/CanESM5-CanOE/tas_Amon_CanESM5-CanOE_ssp245_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5-CanOE/tas_Amon_CanESM5-CanOE_ssp370_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5-CanOE/tas_Amon_CanESM5-CanOE_ssp585_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/CanESM5-CanOE/tas_Amon_CanESM5-CanOE_ssp126_r1i1p2f1_gn_201501-210012_0mean.nc
+cmip6/tas/HadGEM3-GC31-MM/
+cmip6/tas/HadGEM3-GC31-MM/tas_Amon_HadGEM3-GC31-MM_ssp585_r1i1p1f3_gn_201501-210012_0mean.nc
+cmip6/tas/HadGEM3-GC31-MM/tas_Amon_HadGEM3-GC31-MM_historical_r1i1p1f3_gn_185001-201412_0mean.nc
+cmip6/tas/HadGEM3-GC31-MM/tas_Amon_HadGEM3-GC31-MM_ssp126_r1i1p1f3_gn_201501-210012_0mean.nc
+cmip6/tas/CMCC-CM2-SR5/
+cmip6/tas/CMCC-CM2-SR5/tas_Amon_CMCC-CM2-SR5_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CMCC-CM2-SR5/tas_Amon_CMCC-CM2-SR5_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/CMCC-CM2-SR5/tas_Amon_CMCC-CM2-SR5_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CMCC-CM2-SR5/tas_Amon_CMCC-CM2-SR5_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CMCC-CM2-SR5/tas_Amon_CMCC-CM2-SR5_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC6/
+cmip6/tas/MIROC6/tas_Amon_MIROC6_ssp119_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC6/tas_Amon_MIROC6_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MIROC6/tas_Amon_MIROC6_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC6/tas_Amon_MIROC6_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC6/tas_Amon_MIROC6_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MIROC6/tas_Amon_MIROC6_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CNRM-ESM2-1/
+cmip6/tas/CNRM-ESM2-1/tas_Amon_CNRM-ESM2-1_ssp126_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-ESM2-1/tas_Amon_CNRM-ESM2-1_ssp370_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-ESM2-1/tas_Amon_CNRM-ESM2-1_ssp245_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-ESM2-1/tas_Amon_CNRM-ESM2-1_ssp585_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-ESM2-1/tas_Amon_CNRM-ESM2-1_ssp119_r1i1p1f2_gr_201501-210012_0mean.nc
+cmip6/tas/CNRM-ESM2-1/tas_Amon_CNRM-ESM2-1_historical_r1i1p1f2_gr_185001-201412_0mean.nc
+cmip6/tas/NorESM2-MM/
+cmip6/tas/NorESM2-MM/tas_Amon_NorESM2-MM_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/NorESM2-MM/tas_Amon_NorESM2-MM_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/NorESM2-MM/tas_Amon_NorESM2-MM_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/NorESM2-MM/tas_Amon_NorESM2-MM_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/NorESM2-MM/tas_Amon_NorESM2-MM_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CESM2/
+cmip6/tas/CESM2/tas_Amon_CESM2_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/CESM2/tas_Amon_CESM2_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CESM2/tas_Amon_CESM2_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CESM2/tas_Amon_CESM2_ssp585_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/CESM2/tas_Amon_CESM2_ssp126_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MRI-ESM2-0/
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_historical_r1i2p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_ssp119_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_ssp245_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_ssp585_r1i1p1f1_gn_201501-230012_0mean.nc
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_ssp585_r1i2p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_ssp370_r1i1p1f1_gn_201501-210012_0mean.nc
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_historical_r1i1p1f1_gn_185001-201412_0mean.nc
+cmip6/tas/MRI-ESM2-0/tas_Amon_MRI-ESM2-0_ssp126_r1i1p1f1_gn_201501-230012_0mean.nc
+cmip6/zostoga/
+cmip6/zostoga/IPSL-CM6A-LR/
+cmip6/zostoga/IPSL-CM6A-LR/zostoga_Omon_IPSL-CM6A-LR_ssp126_r1i1p1f1_gn_201501-230012_dedrifted.nc
+cmip6/zostoga/IPSL-CM6A-LR/zostoga_Omon_IPSL-CM6A-LR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/IPSL-CM6A-LR/zostoga_Omon_IPSL-CM6A-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/IPSL-CM6A-LR/zostoga_Omon_IPSL-CM6A-LR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/IPSL-CM6A-LR/zostoga_Omon_IPSL-CM6A-LR_ssp585_r1i1p1f1_gn_201501-230012_dedrifted.nc
+cmip6/zostoga/IPSL-CM6A-LR/zostoga_Omon_IPSL-CM6A-LR_ssp119_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G-CC/
+cmip6/zostoga/GISS-E2-1-G-CC/zostoga_Omon_GISS-E2-1-G-CC_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/ACCESS-CM2/
+cmip6/zostoga/ACCESS-CM2/zostoga_Omon_ACCESS-CM2_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/ACCESS-CM2/zostoga_Omon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/ACCESS-CM2/zostoga_Omon_ACCESS-CM2_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/ACCESS-CM2/zostoga_Omon_ACCESS-CM2_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/ACCESS-CM2/zostoga_Omon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/INM-CM5-0/
+cmip6/zostoga/INM-CM5-0/zostoga_Omon_INM-CM5-0_historical_r1i1p1f1_gr1_185001-201412_dedrifted.nc
+cmip6/zostoga/INM-CM5-0/zostoga_Omon_INM-CM5-0_ssp370_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+cmip6/zostoga/INM-CM5-0/zostoga_Omon_INM-CM5-0_ssp245_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+cmip6/zostoga/INM-CM5-0/zostoga_Omon_INM-CM5-0_ssp126_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+cmip6/zostoga/INM-CM5-0/zostoga_Omon_INM-CM5-0_ssp585_r1i1p1f1_gr1_201501-210012_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-LR/
+cmip6/zostoga/MPI-ESM1-2-LR/zostoga_Omon_MPI-ESM1-2-LR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-LR/zostoga_Omon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-LR/zostoga_Omon_MPI-ESM1-2-LR_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-LR/zostoga_Omon_MPI-ESM1-2-LR_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-LR/zostoga_Omon_MPI-ESM1-2-LR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-LM/
+cmip6/zostoga/NorESM2-LM/zostoga_Omon_NorESM2-LM_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-LM/zostoga_Omon_NorESM2-LM_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/NorESM2-LM/zostoga_Omon_NorESM2-LM_ssp126_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-LM/zostoga_Omon_NorESM2-LM_ssp585_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-LM/zostoga_Omon_NorESM2-LM_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp585_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp119_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp126_r1i1p1f1_gn_201501-230012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp119_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp370_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp585_r1i1p1f1_gn_201501-218012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp126_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_historical_r1i1p2f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5/zostoga_Omon_CanESM5_ssp245_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1-HR/
+cmip6/zostoga/CNRM-CM6-1-HR/zostoga_Omon_CNRM-CM6-1-HR_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1-HR/zostoga_Omon_CNRM-CM6-1-HR_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1-HR/zostoga_Omon_CNRM-CM6-1-HR_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1-HR/zostoga_Omon_CNRM-CM6-1-HR_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1-HR/zostoga_Omon_CNRM-CM6-1-HR_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/UKESM1-0-LL/
+cmip6/zostoga/UKESM1-0-LL/zostoga_Omon_UKESM1-0-LL_ssp245_r1i1p1f2_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/UKESM1-0-LL/zostoga_Omon_UKESM1-0-LL_ssp119_r1i1p1f2_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/UKESM1-0-LL/zostoga_Omon_UKESM1-0-LL_historical_r1i1p1f2_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/UKESM1-0-LL/zostoga_Omon_UKESM1-0-LL_ssp585_r1i1p1f2_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/UKESM1-0-LL/zostoga_Omon_UKESM1-0-LL_ssp370_r1i1p1f2_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/UKESM1-0-LL/zostoga_Omon_UKESM1-0-LL_ssp126_r1i1p1f2_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-H/
+cmip6/zostoga/GISS-E2-1-H/zostoga_Omon_GISS-E2-1-H_historical_r1i1p3f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-H/zostoga_Omon_GISS-E2-1-H_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/ACCESS-ESM1-5/
+cmip6/zostoga/ACCESS-ESM1-5/zostoga_Omon_ACCESS-ESM1-5_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/ACCESS-ESM1-5/zostoga_Omon_ACCESS-ESM1-5_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/ACCESS-ESM1-5/zostoga_Omon_ACCESS-ESM1-5_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/ACCESS-ESM1-5/zostoga_Omon_ACCESS-ESM1-5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/ACCESS-ESM1-5/zostoga_Omon_ACCESS-ESM1-5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/BCC-ESM1/
+cmip6/zostoga/BCC-ESM1/zostoga_Omon_BCC-ESM1_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p5f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp119_r1i1p3f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp119_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_historical_r1i1p5f1_gn_185001-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp245_r1i1p3f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_historical_r1i1p5f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f2_gn_185001-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f3_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp126_r1i1p5f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p3f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp126_r1i1p3f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp585_r1i1p5f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp245_r1i1p5f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_historical_r1i1p3f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp585_r1i1p3f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_historical_r1i1p1f3_gn_185001-299912_dedrifted.nc
+cmip6/zostoga/GISS-E2-1-G/zostoga_Omon_GISS-E2-1-G_ssp370_r1i1p3f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3-Veg-LR/
+cmip6/zostoga/EC-Earth3-Veg-LR/zostoga_Omon_EC-Earth3-Veg-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/EC-Earth3/
+cmip6/zostoga/EC-Earth3/zostoga_Omon_EC-Earth3_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3/zostoga_Omon_EC-Earth3_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3/zostoga_Omon_EC-Earth3_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/EC-Earth3/zostoga_Omon_EC-Earth3_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3/zostoga_Omon_EC-Earth3_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/BCC-CSM2-MR/
+cmip6/zostoga/BCC-CSM2-MR/zostoga_Omon_BCC-CSM2-MR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/MPI-ESM-1-2-HAM/
+cmip6/zostoga/MPI-ESM-1-2-HAM/zostoga_Omon_MPI-ESM-1-2-HAM_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/MPI-ESM-1-2-HAM/zostoga_Omon_MPI-ESM-1-2-HAM_ssp370_r1i1p1f1_gn_201501-205512_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-HR/
+cmip6/zostoga/MPI-ESM1-2-HR/zostoga_Omon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-HR/zostoga_Omon_MPI-ESM1-2-HR_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-HR/zostoga_Omon_MPI-ESM1-2-HR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-HR/zostoga_Omon_MPI-ESM1-2-HR_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/MPI-ESM1-2-HR/zostoga_Omon_MPI-ESM1-2-HR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/HadGEM3-GC31-LL/
+cmip6/zostoga/HadGEM3-GC31-LL/zostoga_Omon_HadGEM3-GC31-LL_ssp245_r1i1p1f3_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/HadGEM3-GC31-LL/zostoga_Omon_HadGEM3-GC31-LL_ssp126_r1i1p1f3_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/HadGEM3-GC31-LL/zostoga_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/HadGEM3-GC31-LL/zostoga_Omon_HadGEM3-GC31-LL_historical_r1i1p1f3_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/EC-Earth3-Veg/
+cmip6/zostoga/EC-Earth3-Veg/zostoga_Omon_EC-Earth3-Veg_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3-Veg/zostoga_Omon_EC-Earth3-Veg_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3-Veg/zostoga_Omon_EC-Earth3-Veg_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3-Veg/zostoga_Omon_EC-Earth3-Veg_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/EC-Earth3-Veg/zostoga_Omon_EC-Earth3-Veg_ssp119_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/EC-Earth3-Veg/zostoga_Omon_EC-Earth3-Veg_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1/
+cmip6/zostoga/CNRM-CM6-1/zostoga_Omon_CNRM-CM6-1_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1/zostoga_Omon_CNRM-CM6-1_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1/zostoga_Omon_CNRM-CM6-1_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1/zostoga_Omon_CNRM-CM6-1_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-CM6-1/zostoga_Omon_CNRM-CM6-1_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/CanESM5-CanOE/
+cmip6/zostoga/CanESM5-CanOE/zostoga_Omon_CanESM5-CanOE_historical_r1i1p2f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/CanESM5-CanOE/zostoga_Omon_CanESM5-CanOE_ssp245_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5-CanOE/zostoga_Omon_CanESM5-CanOE_ssp370_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5-CanOE/zostoga_Omon_CanESM5-CanOE_ssp126_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CanESM5-CanOE/zostoga_Omon_CanESM5-CanOE_ssp585_r1i1p2f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/HadGEM3-GC31-MM/
+cmip6/zostoga/HadGEM3-GC31-MM/zostoga_Omon_HadGEM3-GC31-MM_historical_r1i1p1f3_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/CMCC-CM2-SR5/
+cmip6/zostoga/CMCC-CM2-SR5/zostoga_Omon_CMCC-CM2-SR5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CMCC-CM2-SR5/zostoga_Omon_CMCC-CM2-SR5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CMCC-CM2-SR5/zostoga_Omon_CMCC-CM2-SR5_ssp126_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CMCC-CM2-SR5/zostoga_Omon_CMCC-CM2-SR5_historical_r1i1p1f1_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/CMCC-CM2-SR5/zostoga_Omon_CMCC-CM2-SR5_ssp585_r1i1p1f1_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/MIROC6/
+cmip6/zostoga/MIROC6/zostoga_Omon_MIROC6_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/MIROC6/zostoga_Omon_MIROC6_ssp126_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/MIROC6/zostoga_Omon_MIROC6_ssp585_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/MIROC6/zostoga_Omon_MIROC6_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/MIROC6/zostoga_Omon_MIROC6_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-ESM2-1/
+cmip6/zostoga/CNRM-ESM2-1/zostoga_Omon_CNRM-ESM2-1_historical_r1i1p1f2_gn_185001-201412_dedrifted.nc
+cmip6/zostoga/CNRM-ESM2-1/zostoga_Omon_CNRM-ESM2-1_ssp119_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-ESM2-1/zostoga_Omon_CNRM-ESM2-1_ssp126_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-ESM2-1/zostoga_Omon_CNRM-ESM2-1_ssp370_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-ESM2-1/zostoga_Omon_CNRM-ESM2-1_ssp245_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/CNRM-ESM2-1/zostoga_Omon_CNRM-ESM2-1_ssp585_r1i1p1f2_gn_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-MM/
+cmip6/zostoga/NorESM2-MM/zostoga_Omon_NorESM2-MM_ssp126_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-MM/zostoga_Omon_NorESM2-MM_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/NorESM2-MM/zostoga_Omon_NorESM2-MM_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-MM/zostoga_Omon_NorESM2-MM_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/NorESM2-MM/zostoga_Omon_NorESM2-MM_ssp585_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_ssp126_r1i1p1f1_gm_201501-230012_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_ssp370_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_ssp585_r1i1p1f1_gm_201501-230012_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_ssp119_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_historical_r1i2p1f1_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_historical_r1i1p1f1_gm_185001-201412_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_ssp245_r1i1p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zostoga/MRI-ESM2-0/zostoga_Omon_MRI-ESM2-0_ssp585_r1i2p1f1_gm_201501-210012_dedrifted.nc
+cmip6/zos/
+cmip6/zos/IPSL-CM6A-LR/
+cmip6/zos/IPSL-CM6A-LR/zos_Omon_IPSL-CM6A-LR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/IPSL-CM6A-LR/zos_Omon_IPSL-CM6A-LR_ssp126_r1i1p1f1_gn_201501-230012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/IPSL-CM6A-LR/zos_Omon_IPSL-CM6A-LR_ssp119_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/IPSL-CM6A-LR/zos_Omon_IPSL-CM6A-LR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/IPSL-CM6A-LR/zos_Omon_IPSL-CM6A-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/IPSL-CM6A-LR/zos_Omon_IPSL-CM6A-LR_ssp585_r1i1p1f1_gn_201501-230012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G-CC/
+cmip6/zos/GISS-E2-1-G-CC/zos_Omon_GISS-E2-1-G-CC_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/FIO-ESM-2-0/
+cmip6/zos/FIO-ESM-2-0/zos_Omon_FIO-ESM-2-0_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorCPM1/
+cmip6/zos/NorCPM1/zos_Omon_NorCPM1_historical_r1i1p1f1_gn_185001-202912_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-CM2/
+cmip6/zos/ACCESS-CM2/zos_Omon_ACCESS-CM2_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-CM2/zos_Omon_ACCESS-CM2_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-CM2/zos_Omon_ACCESS-CM2_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-CM2/zos_Omon_ACCESS-CM2_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-CM2/zos_Omon_ACCESS-CM2_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM5-0/
+cmip6/zos/INM-CM5-0/zos_Omon_INM-CM5-0_ssp370_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM5-0/zos_Omon_INM-CM5-0_ssp245_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM5-0/zos_Omon_INM-CM5-0_historical_r1i1p1f1_gr1_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM5-0/zos_Omon_INM-CM5-0_ssp585_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM5-0/zos_Omon_INM-CM5-0_ssp126_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-WACCM/
+cmip6/zos/CESM2-WACCM/zos_Omon_CESM2-WACCM_ssp370_r1i1p1f1_gr_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-WACCM/zos_Omon_CESM2-WACCM_ssp126_r1i1p1f1_gr_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-WACCM/zos_Omon_CESM2-WACCM_ssp245_r1i1p1f1_gr_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-WACCM/zos_Omon_CESM2-WACCM_historical_r1i1p1f1_gr_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-WACCM-FV2/
+cmip6/zos/CESM2-WACCM-FV2/zos_Omon_CESM2-WACCM-FV2_historical_r1i1p1f1_gr_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-WACCM-FV2/zos_Omon_CESM2-WACCM-FV2_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-FV2/
+cmip6/zos/CESM2-FV2/zos_Omon_CESM2-FV2_historical_r1i1p1f1_gr_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2-FV2/zos_Omon_CESM2-FV2_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CIESM/
+cmip6/zos/CIESM/zos_Omon_CIESM_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CIESM/zos_Omon_CIESM_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CIESM/zos_Omon_CIESM_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-LR/
+cmip6/zos/MPI-ESM1-2-LR/zos_Omon_MPI-ESM1-2-LR_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-LR/zos_Omon_MPI-ESM1-2-LR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-LR/zos_Omon_MPI-ESM1-2-LR_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-LR/zos_Omon_MPI-ESM1-2-LR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-LR/zos_Omon_MPI-ESM1-2-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-LM/
+cmip6/zos/NorESM2-LM/zos_Omon_NorESM2-LM_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-LM/zos_Omon_NorESM2-LM_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-LM/zos_Omon_NorESM2-LM_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-LM/zos_Omon_NorESM2-LM_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-LM/zos_Omon_NorESM2-LM_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp119_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp245_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp119_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp585_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp126_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp370_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_historical_r1i1p2f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_ssp126_r1i1p1f1_gn_201501-230012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5/zos_Omon_CanESM5_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1-HR/
+cmip6/zos/CNRM-CM6-1-HR/zos_Omon_CNRM-CM6-1-HR_historical_r1i1p1f2_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1-HR/zos_Omon_CNRM-CM6-1-HR_ssp245_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1-HR/zos_Omon_CNRM-CM6-1-HR_ssp370_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1-HR/zos_Omon_CNRM-CM6-1-HR_ssp585_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1-HR/zos_Omon_CNRM-CM6-1-HR_ssp126_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/UKESM1-0-LL/
+cmip6/zos/UKESM1-0-LL/zos_Omon_UKESM1-0-LL_ssp370_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/UKESM1-0-LL/zos_Omon_UKESM1-0-LL_historical_r1i1p1f2_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/UKESM1-0-LL/zos_Omon_UKESM1-0-LL_ssp126_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/UKESM1-0-LL/zos_Omon_UKESM1-0-LL_ssp245_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/UKESM1-0-LL/zos_Omon_UKESM1-0-LL_ssp119_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/UKESM1-0-LL/zos_Omon_UKESM1-0-LL_ssp585_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAMS-CSM1-0/
+cmip6/zos/CAMS-CSM1-0/zos_Omon_CAMS-CSM1-0_ssp126_r1i1p1f1_gn_201501-209912_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAMS-CSM1-0/zos_Omon_CAMS-CSM1-0_ssp585_r1i1p1f1_gn_201501-209912_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAMS-CSM1-0/zos_Omon_CAMS-CSM1-0_ssp245_r1i1p1f1_gn_201501-209912_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAMS-CSM1-0/zos_Omon_CAMS-CSM1-0_historical_r1i1p1f2_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAMS-CSM1-0/zos_Omon_CAMS-CSM1-0_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAMS-CSM1-0/zos_Omon_CAMS-CSM1-0_ssp370_r1i1p1f1_gn_201501-209912_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAMS-CSM1-0/zos_Omon_CAMS-CSM1-0_ssp119_r1i1p1f1_gn_201501-209912_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-ESM1-5/
+cmip6/zos/ACCESS-ESM1-5/zos_Omon_ACCESS-ESM1-5_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-ESM1-5/zos_Omon_ACCESS-ESM1-5_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-ESM1-5/zos_Omon_ACCESS-ESM1-5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-ESM1-5/zos_Omon_ACCESS-ESM1-5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/ACCESS-ESM1-5/zos_Omon_ACCESS-ESM1-5_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/BCC-ESM1/
+cmip6/zos/BCC-ESM1/zos_Omon_BCC-ESM1_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/BCC-ESM1/zos_Omon_BCC-ESM1_ssp370_r1i1p1f1_gn_201501-205512_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC-ES2L/
+cmip6/zos/MIROC-ES2L/zos_Omon_MIROC-ES2L_ssp119_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC-ES2L/zos_Omon_MIROC-ES2L_ssp126_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC-ES2L/zos_Omon_MIROC-ES2L_ssp245_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC-ES2L/zos_Omon_MIROC-ES2L_ssp585_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC-ES2L/zos_Omon_MIROC-ES2L_historical_r1i1p1f2_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC-ES2L/zos_Omon_MIROC-ES2L_ssp370_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_historical_r1i1p3f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_historical_r1i1p1f2_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp126_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp585_r1i1p5f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp126_r1i1p3f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp370_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp370_r1i1p5f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp245_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp126_r1i1p5f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp119_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp585_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp245_r1i1p3f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_historical_r1i1p5f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp245_r1i1p5f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp370_r1i1p3f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp370_r1i1p3f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp585_r1i1p3f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_historical_r1i1p1f3_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/GISS-E2-1-G/zos_Omon_GISS-E2-1-G_ssp119_r1i1p3f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3-Veg-LR/
+cmip6/zos/EC-Earth3-Veg-LR/zos_Omon_EC-Earth3-Veg-LR_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CAS-ESM2-0/
+cmip6/zos/CAS-ESM2-0/zos_Omon_CAS-ESM2-0_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM4-8/
+cmip6/zos/INM-CM4-8/zos_Omon_INM-CM4-8_ssp245_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM4-8/zos_Omon_INM-CM4-8_ssp585_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM4-8/zos_Omon_INM-CM4-8_historical_r1i1p1f1_gr1_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM4-8/zos_Omon_INM-CM4-8_ssp126_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/INM-CM4-8/zos_Omon_INM-CM4-8_ssp370_r1i1p1f1_gr1_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3/
+cmip6/zos/EC-Earth3/zos_Omon_EC-Earth3_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3/zos_Omon_EC-Earth3_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3/zos_Omon_EC-Earth3_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3/zos_Omon_EC-Earth3_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3/zos_Omon_EC-Earth3_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/BCC-CSM2-MR/
+cmip6/zos/BCC-CSM2-MR/zos_Omon_BCC-CSM2-MR_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/BCC-CSM2-MR/zos_Omon_BCC-CSM2-MR_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/BCC-CSM2-MR/zos_Omon_BCC-CSM2-MR_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/BCC-CSM2-MR/zos_Omon_BCC-CSM2-MR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/BCC-CSM2-MR/zos_Omon_BCC-CSM2-MR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM-1-2-HAM/
+cmip6/zos/MPI-ESM-1-2-HAM/zos_Omon_MPI-ESM-1-2-HAM_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM-1-2-HAM/zos_Omon_MPI-ESM-1-2-HAM_ssp370_r1i1p1f1_gn_201501-205512_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-HR/
+cmip6/zos/MPI-ESM1-2-HR/zos_Omon_MPI-ESM1-2-HR_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-HR/zos_Omon_MPI-ESM1-2-HR_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-HR/zos_Omon_MPI-ESM1-2-HR_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-HR/zos_Omon_MPI-ESM1-2-HR_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MPI-ESM1-2-HR/zos_Omon_MPI-ESM1-2-HR_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/HadGEM3-GC31-LL/
+cmip6/zos/HadGEM3-GC31-LL/zos_Omon_HadGEM3-GC31-LL_ssp585_r1i1p1f3_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/HadGEM3-GC31-LL/zos_Omon_HadGEM3-GC31-LL_ssp126_r1i1p1f3_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/HadGEM3-GC31-LL/zos_Omon_HadGEM3-GC31-LL_ssp245_r1i1p1f3_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/HadGEM3-GC31-LL/zos_Omon_HadGEM3-GC31-LL_historical_r1i1p1f3_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3-Veg/
+cmip6/zos/EC-Earth3-Veg/zos_Omon_EC-Earth3-Veg_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3-Veg/zos_Omon_EC-Earth3-Veg_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3-Veg/zos_Omon_EC-Earth3-Veg_ssp119_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3-Veg/zos_Omon_EC-Earth3-Veg_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3-Veg/zos_Omon_EC-Earth3-Veg_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/EC-Earth3-Veg/zos_Omon_EC-Earth3-Veg_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1/
+cmip6/zos/CNRM-CM6-1/zos_Omon_CNRM-CM6-1_ssp585_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1/zos_Omon_CNRM-CM6-1_ssp126_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1/zos_Omon_CNRM-CM6-1_historical_r1i1p1f2_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1/zos_Omon_CNRM-CM6-1_ssp245_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-CM6-1/zos_Omon_CNRM-CM6-1_ssp370_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5-CanOE/
+cmip6/zos/CanESM5-CanOE/zos_Omon_CanESM5-CanOE_ssp370_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5-CanOE/zos_Omon_CanESM5-CanOE_ssp245_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5-CanOE/zos_Omon_CanESM5-CanOE_historical_r1i1p2f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5-CanOE/zos_Omon_CanESM5-CanOE_ssp126_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CanESM5-CanOE/zos_Omon_CanESM5-CanOE_ssp585_r1i1p2f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/HadGEM3-GC31-MM/
+cmip6/zos/HadGEM3-GC31-MM/zos_Omon_HadGEM3-GC31-MM_ssp126_r1i1p1f3_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/HadGEM3-GC31-MM/zos_Omon_HadGEM3-GC31-MM_historical_r1i1p1f3_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/HadGEM3-GC31-MM/zos_Omon_HadGEM3-GC31-MM_ssp585_r1i1p1f3_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CMCC-CM2-SR5/
+cmip6/zos/CMCC-CM2-SR5/zos_Omon_CMCC-CM2-SR5_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CMCC-CM2-SR5/zos_Omon_CMCC-CM2-SR5_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CMCC-CM2-SR5/zos_Omon_CMCC-CM2-SR5_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CMCC-CM2-SR5/zos_Omon_CMCC-CM2-SR5_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CMCC-CM2-SR5/zos_Omon_CMCC-CM2-SR5_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC6/
+cmip6/zos/MIROC6/zos_Omon_MIROC6_ssp119_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC6/zos_Omon_MIROC6_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC6/zos_Omon_MIROC6_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC6/zos_Omon_MIROC6_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC6/zos_Omon_MIROC6_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MIROC6/zos_Omon_MIROC6_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-ESM2-1/
+cmip6/zos/CNRM-ESM2-1/zos_Omon_CNRM-ESM2-1_historical_r1i1p1f2_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-ESM2-1/zos_Omon_CNRM-ESM2-1_ssp126_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-ESM2-1/zos_Omon_CNRM-ESM2-1_ssp370_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-ESM2-1/zos_Omon_CNRM-ESM2-1_ssp585_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-ESM2-1/zos_Omon_CNRM-ESM2-1_ssp119_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CNRM-ESM2-1/zos_Omon_CNRM-ESM2-1_ssp245_r1i1p1f2_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-MM/
+cmip6/zos/NorESM2-MM/zos_Omon_NorESM2-MM_ssp585_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-MM/zos_Omon_NorESM2-MM_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-MM/zos_Omon_NorESM2-MM_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-MM/zos_Omon_NorESM2-MM_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/NorESM2-MM/zos_Omon_NorESM2-MM_ssp126_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2/
+cmip6/zos/CESM2/zos_Omon_CESM2_historical_r1i1p1f1_gr_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/CESM2/zos_Omon_CESM2_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_ssp370_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_historical_r1i1p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_ssp245_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_historical_r1i2p1f1_gn_185001-201412_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_ssp585_r1i1p1f1_gn_201501-230012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_ssp119_r1i1p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_ssp126_r1i1p1f1_gn_201501-230012_dedrifted_0mean_1deg_ibe.nc
+cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_ssp585_r1i2p1f1_gn_201501-210012_dedrifted_0mean_1deg_ibe.nc
 
 tlm_oceandynamics_preprocess.tgz
 -------------------------------
