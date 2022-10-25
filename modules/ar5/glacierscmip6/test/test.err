@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "ar5_project_glacierscmip6.py", line 244, in <module>
-    ar5_project_glacierscmip6(args.seed, args.pyear_start, args.pyear_end, args.pyear_step, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
-  File "ar5_project_glacierscmip6.py", line 103, in ar5_project_glacierscmip6
-    raise ProjectionError('number of realisations '+\
-__main__.ProjectionError: number of realisations must be a multiple of number of glacier methods
-mv: cannot stat ‘*globalsl*’: No such file or directory
-mv: cannot stat ‘*localsl*’: No such file or directory
