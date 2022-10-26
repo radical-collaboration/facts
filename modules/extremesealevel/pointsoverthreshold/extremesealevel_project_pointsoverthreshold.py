@@ -15,8 +15,7 @@ long-term mean of daily maxima.
 
 Input parameters: 
 station_data		= dictionary with relevant preprocessed GESLA 2 data
-proj_slc_qnts		= gridded sea-level change for a range of quantiles (proj_qnts)
-proj_qnts			= slc projection quantiles from 0 to 1, steps of 0.01
+proj_slc	 		= gridded sea-level change samples
 allowance_freq		= query n-yr event frequency
 testz				= query heights
 num_mc				= number of samples to draw
@@ -43,7 +42,7 @@ import tarfile
 import fnmatch
 import numpy as np
 from netCDF4 import Dataset
-from sample_from_quantiles import sample_from_quantiles
+#from sample_from_quantiles import sample_from_quantiles
 #import pandas as pd
 #from datetime import datetime as dt
 
@@ -92,22 +91,18 @@ def getFreqFromZ_ESL(scale, shape, loc, avg_exceed, z, mhhw, mhhwFreq):
 
 
 
-def project_station(station_data, slproj_data, testz, allowance_freq, nsamps, seed, output_filename):
+def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq, nsamps, seed, output_filename):
 	
 	# Seed the RNG
 	np.random.seed(seed)
 	
 	# Extract the sea-level projection data
-	lcl_slc_qnts = slproj_data['proj_slc_qnts']
-	proj_qnts = slproj_data['proj_qnts']
+	lcl_msl_samples = slproj_data['proj_slc'] / 1000.0
 	proj_years = slproj_data['proj_years']
 	site_lat = slproj_data['site_lat']
 	site_lon = slproj_data['site_lon']
 	site_id = slproj_data['site_id']
-	
-	# Draw samples from the sea-level projections
-	lcl_msl_samples = sample_from_quantiles(qvals=lcl_slc_qnts, q=proj_qnts, nsamps=nsamps) / 1000.0
-	
+		
 	#add SLC samples to location parameter
 	loc = station_data['loc']
 	loc_fut_samples = lcl_msl_samples + loc
@@ -217,7 +212,7 @@ def project_station(station_data, slproj_data, testz, allowance_freq, nsamps, se
 	id_var[:] = site_id
 	year_var[:] = proj_years
 	q_var[:] = proj_qnts
-	localslq[:] = lcl_slc_qnts / 1000.0  # Convert to meters
+	localslq[:] = np.quantile(lcl_msl_samples,proj_qnts) / 1000.0  # Convert to meters
 	heights_var[:] = testz
 	loc_var[:] = loc
 	mhhw_var[:] = mhhw
@@ -236,7 +231,7 @@ def project_station(station_data, slproj_data, testz, allowance_freq, nsamps, se
 	return(0)
 
 
-def extremesl_project(esl_fit_file, slproj_file, min_z, max_z, z_step, allowance_freq, nsamps, seed, pipeline_id):
+def extremesl_project(esl_fit_file, slproj_file, min_z, max_z, z_step, allowance_freq, nsamps, seed, proj_qnts, pipeline_id):
 	
 	# Load the necessary information from the fitting stage
 	try:
@@ -276,16 +271,18 @@ def extremesl_project(esl_fit_file, slproj_file, min_z, max_z, z_step, allowance
 		# Loop through the target years
 		for i in np.arange(len(this_slproj['proj_years'])):
 			
+			proj_slc_qnts = np.quantile(this_slproj['proj_slc'], proj_qnts, axis=0)
+
 			# Build dictionary for this sea-level projection year
 			this_slproj_year = {'site_lat': this_slproj['site_lat'], 'site_lon': this_slproj['site_lon'],\
 				'site_id': this_slproj['site_id'], 'proj_years': this_slproj['proj_years'][i], \
-				'proj_qnts': this_slproj['proj_qnts'], 'proj_slc_qnts': this_slproj['proj_slc_qnts'][::,0,i]}
+				'proj_qnts': proj_qnts, 'proj_slc': this_slproj['proj_slc'][::,0,i]}
 			
 			# Output file name for this station id and target year combination
 			this_output_filename = os.path.join(os.path.dirname(__file__), "{}_id{}_year{}_extremesl.nc".format(pipeline_id, station_id, this_slproj['proj_years'][i]))
 		
 			# Run the projection for this station
-			project_station(this_station, this_slproj_year, testz, allowance_freq, nsamps, this_seed, this_output_filename)
+			project_station(this_station, this_slproj_year, proj_qnts, testz, allowance_freq, nsamps, this_seed, this_output_filename)
 	
 	# Collect all the extremesl.nc files into an archive that can be retrieved
 	curdir_files = os.listdir(".")
@@ -310,6 +307,9 @@ if __name__ == "__main__":
 	parser.add_argument('--slproj_file', help="Sea-level rise projections extracted from the preprocessing stage", default=None)
 	parser.add_argument('--min_z', help="Minimum height over which frequency is calculated (m) [default = -0.5]", type=float, default=-0.5)
 	parser.add_argument('--max_z', help="Minimum height over which frequency is calculated (m) [default = 8.0]", type=float, default=8.0)
+	parser.add_argument('--quantile_min', help="Minimum quantile to assess [default = 0.01]", type=float, default=0.01)
+	parser.add_argument('--quantile_max', help="Maximum quantile to assess [default = 0.99]", type=float, default=0.99)
+	parser.add_argument('--quantile_step', help="Quantile step [default = 0.01]", type=float, default=0.01)
 	parser.add_argument('--z_step', help="Stepping from min_z to max_z [default = 0.01]", type=float, default=0.01)
 	parser.add_argument('--allowance_freq', help="Frequency at which allowances are calculated [defalut = 0.01; 1/100]", type=float, default=0.01)
 	parser.add_argument('--nsamps', help="Number of samples to draw [default = 20000]", type=int, default=20000)
@@ -331,8 +331,11 @@ if __name__ == "__main__":
 	else:
 		slproj_file = args.slproj_file
 	
+
+	proj_qnts = np.arange(args.quantile_min,args.quantile_max,args.quantile_step)
+
 	# Run the fitting process on the 
-	extremesl_project(esl_fit_file, slproj_file, args.min_z, args.max_z, args.z_step, args.allowance_freq, args.nsamps, args.seed, args.pipeline_id)
+	extremesl_project(esl_fit_file, slproj_file, args.min_z, args.max_z, args.z_step, args.allowance_freq, args.nsamps, args.seed, proj_qnts, args.pipeline_id)
 	
 	# Done
 	exit()

@@ -331,10 +331,11 @@ if __name__ == "__main__":
 	#Extract data from NetCDF file
 	site_lats = nc.variables['lat'][:].data
 	site_lons = nc.variables['lon'][:].data
-	site_ids = nc.variables['id'][:].data
+	site_ids = nc.variables['locations'][:].data
 	proj_yrs = nc.variables['years'][:].data
-	proj_qnts = nc.variables['quantiles'][:].data
-	proj_slc_qnts = nc.variables['localSL_quantiles'][::,::,::].data
+	#proj_qnts = nc.variables['quantiles'][:].data
+	#proj_slc_qnts = nc.variables['localSL_quantiles'][::,::,::].data
+	proj_slc = nc.variables['sea_level_change'][::,::,::].data
 	nc.close()
 	
 	# Make sure lats and lons are equal in length
@@ -376,12 +377,12 @@ if __name__ == "__main__":
 		
 		# Extract just the projections that match the target years and matched site ids
 		# Note: Typecast the target year "idx" variable as a list in order to avoid singleton problems later.
-		proj_slc_qnts_subset = proj_slc_qnts[::,this_id_idx,[slproj_targ_year_idx]]
+		proj_slc_subset = proj_slc[::,[slproj_targ_year_idx],this_id_idx]
 	
 		# Generate the sea-level projection output dictionary
 		slproj_output[site_ids[this_id_idx]] = {'site_lat': site_lats[this_id_idx], 'site_lon': site_lons[this_id_idx],\
-			'site_id': site_ids[this_id_idx], 'proj_years': proj_yrs[slproj_targ_year_idx], 'proj_qnts': proj_qnts,\
-			'proj_slc_qnts': proj_slc_qnts_subset}
+			'site_id': site_ids[this_id_idx], 'proj_years': proj_yrs[slproj_targ_year_idx], \
+			'proj_slc': proj_slc_subset}
 	
 	# Generate the sea-level projection output file
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_slproj_data.pkl".format(args.pipeline_id)), 'wb')
