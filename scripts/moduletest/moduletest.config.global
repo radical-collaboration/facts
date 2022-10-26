@@ -4,4 +4,4 @@ fi
 OUTPUT_DIR=$TESTSCRIPT_DIR/output # path to output directory
 LFILE=$FACTSSCRIPT_DIR/moduletest/location_list.lst # default location file 
 SCENARIO=ssp585 # default scenario to run
-NSAMPS=1000 # default number of samples to produce
+NSAMPS=500 # default number of samples to produce

@@ -44,8 +44,11 @@ then
     mkdir $OUTPUT_DIR
 fi
 
-ls ${PIPELINE_ID}*.nc
-mv ${PIPELINE_ID}*.nc $OUTPUT_DIR
+if [ -z "$SKIP_COLLECTION" ]
+then
+    ls ${PIPELINE_ID}*.nc
+    mv ${PIPELINE_ID}*.nc $OUTPUT_DIR
+fi
 
 cd $TESTSCRIPT_DIR
 

@@ -61,10 +61,10 @@ def TotalSamples(directory, pyear_start, pyear_end, pyear_step, chunksize):
 	nc_missing_value = np.iinfo(np.int16).min
 
 	# Write the total to an output file
-	total_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), total_sl, {"units":"mm", "missing_value":nc_missing_value}),
-							"lat": (("locations"), site_lats),
-							"lon": (("locations"), site_lons)},
-		coords={"years": targyears, "locations": site_ids, "samples": sample_val}, attrs=nc_attrs)
+	total_out = xr.Dataset(data_vars={"sea_level_change": (("samples", "years", "locations"), total_sl.data, {"units":"mm", "missing_value":nc_missing_value}),
+							"lat": (("locations"), site_lats.data),
+							"lon": (("locations"), site_lons.data)},
+		coords={"years": targyears.data, "locations": site_ids.data, "samples": sample_val.data}, attrs=nc_attrs)
 
 	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
@@ -72,9 +72,6 @@ def TotalSamples(directory, pyear_start, pyear_end, pyear_step, chunksize):
 	shutil.copy2(outfile, directory)
 
 	return(None)
-
-
-
 
 
 if __name__ == "__main__":
