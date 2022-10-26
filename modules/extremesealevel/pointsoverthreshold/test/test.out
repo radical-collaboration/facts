@@ -1,0 +1,24 @@
+Initiating test in /scratch/rk509/test.1666808409...
+
+Skipping data extraction...
+
+Executing workflow...
+python extremesealevel_preprocess_pointsoverthreshold.py --pipeline_id extremesealevel-pointsoverthreshold-extremesealevel-SSP585 --minDays 250 --minYears 20 --match_lim 1 --center_year 2005 --pctPot 95 --gpd_pot_threshold 99.7 --cluster_lim 72 --total_localsl_file test/data/total-workflow-localsl.nc --target_years 2050,2100 --gesla_dir gesla_data
+Warning: No match for lat=48.38 lon=-4.49. Minimum distance to nearest tide gauge is 48.4222 (limit=1.0). Returning "None"
+Warning: No match for lat=53.92 lon=14.23. Minimum distance to nearest tide gauge is 57.2681 (limit=1.0). Returning "None"
+Warning: No match for lat=51.45 lon=0.74. Minimum distance to nearest tide gauge is 50.6372 (limit=1.0). Returning "None"
+Warning: No match for lat=53.31 lon=-4.62. Minimum distance to nearest tide gauge is 46.9742 (limit=1.0). Returning "None"
+Warning: No match for lat=53.87 lon=8.72. Minimum distance to nearest tide gauge is 54.3221 (limit=1.0). Returning "None"
+Warning: No match for lat=53.9 lon=11.46. Minimum distance to nearest tide gauge is 55.7959 (limit=1.0). Returning "None"
+Warning: No match for lat=51.92 lon=4.25. Minimum distance to nearest tide gauge is 52.5252 (limit=1.0). Returning "None"
+Warning: No match for lat=54.17 lon=12.1. Minimum distance to nearest tide gauge is 56.0289 (limit=1.0). Returning "None"
+python extremesealevel_fit_pointsoverthreshold.py --pipeline_id extremesealevel-pointsoverthreshold-extremesealevel-SSP585 --station_data_file extremesealevel-pointsoverthreshold-extremesealevel-SSP585_station_data.pkl
+python extremesealevel_project_pointsoverthreshold.py --pipeline_id extremesealevel-pointsoverthreshold-extremesealevel-SSP585 --esl_fit_file extremesealevel-pointsoverthreshold-extremesealevel-SSP585_fit.pkl --slproj_file extremesealevel-pointsoverthreshold-extremesealevel-SSP585_slproj_data.pkl --min_z -0.5 --max_z 8 --z_step 0.01 --allowance_freq 0.01 --nsamps 500 --seed 4321
+
+Collecting output files...
+extremesealevel-pointsoverthreshold-extremesealevel-SSP585_id10_year2050_extremesl.nc
+extremesealevel-pointsoverthreshold-extremesealevel-SSP585_id10_year2100_extremesl.nc
+extremesealevel-pointsoverthreshold-extremesealevel-SSP585_id12_year2050_extremesl.nc
+extremesealevel-pointsoverthreshold-extremesealevel-SSP585_id12_year2100_extremesl.nc
+
+Skipping clean up...
