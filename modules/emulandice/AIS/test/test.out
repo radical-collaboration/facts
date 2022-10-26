@@ -97,3 +97,15 @@ Warning: package ‘stringr’ was built under R version 4.2.1
 Warning: package ‘tibble’ was built under R version 4.2.1
 Warning: package ‘purrr’ was built under R version 4.2.1
 Warning: package ‘stringr’ was built under R version 4.2.1
+python emulandice_postprocess_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585 --locationfile test/location_list.lst --chunksize 600
+
+Collecting output files...
+AIS-emulandice-AIS-ssp585_EAIS_globalsl.nc
+AIS-emulandice-AIS-ssp585_EAIS_localsl.nc
+AIS-emulandice-AIS-ssp585_globalsl.nc
+AIS-emulandice-AIS-ssp585_localsl.nc
+AIS-emulandice-AIS-ssp585_PEN_globalsl.nc
+AIS-emulandice-AIS-ssp585_WAIS_globalsl.nc
+AIS-emulandice-AIS-ssp585_WAIS_localsl.nc
+
+Cleaning up...
