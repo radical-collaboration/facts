@@ -1,8 +1,21 @@
-Initiating test in /scratch/rk509/test.1666639408...
+Initiating test in /scratch/rk509/test.1666880230...
+
 Extracting data files...
+
 Executing workflow...
 python ipccar6_preprocess_bambericesheet.py --pipeline_id icesheets-ipccar6-bambericesheet-ssp585 --scenario rcp85 --baseyear 2005 --pyear_start 2020 --pyear_end 2300 --pyear_step 10
 python ipccar6_fit_bambericesheet.py --pipeline_id icesheets-ipccar6-bambericesheet-ssp585
-python ipccar6_project_bambericesheet_dev.py --pipeline_id icesheets-ipccar6-bambericesheet-ssp585 --nsamps 20000 --seed 4321
-python ipccar6_postprocess_bambericesheet_dev.py --pipeline_id icesheets-ipccar6-bambericesheet-ssp585 --chunksize 662 --locationfile test/location_list.lst
+python ipccar6_project_bambericesheet.py --pipeline_id icesheets-ipccar6-bambericesheet-ssp585 --nsamps 20000 --seed 4321
+python ipccar6_postprocess_bambericesheet.py --pipeline_id icesheets-ipccar6-bambericesheet-ssp585 --chunksize 662 --locationfile /home/rk509/facts/modules/ipccar6/bambericesheet/test/../../../../scripts/moduletest/location_list.lst
+
 Collecting output files...
+icesheets-ipccar6-bambericesheet-ssp585_AIS_globalsl.nc
+icesheets-ipccar6-bambericesheet-ssp585_AIS_localsl.nc
+icesheets-ipccar6-bambericesheet-ssp585_EAIS_globalsl.nc
+icesheets-ipccar6-bambericesheet-ssp585_EAIS_localsl.nc
+icesheets-ipccar6-bambericesheet-ssp585_GIS_globalsl.nc
+icesheets-ipccar6-bambericesheet-ssp585_GIS_localsl.nc
+icesheets-ipccar6-bambericesheet-ssp585_WAIS_globalsl.nc
+icesheets-ipccar6-bambericesheet-ssp585_WAIS_localsl.nc
+
+Cleaning up...

@@ -7,7 +7,9 @@ import argparse
 import re
 from scipy.stats import norm
 from read_locationfile import ReadLocationFile
-from netCDF4 import Dataset
+
+import xarray as xr
+import dask.array as da
 
 ''' kopp14_postprocess_verticallandmotion.py
 
@@ -23,24 +25,24 @@ pipeline_id = Unique identifier for the pipeline running this code
 '''
 
 def angd(lat0, lon0, qlat, qlon):
-	
+
 	# Convert the input from degrees to radians
 	(lat0, lon0) = np.radians((lat0, lon0))
 	(qlat, qlon) = np.radians((qlat, qlon))
-	
+
 	# Calculate the angle between the vectors
 	temp = np.arctan2(np.sqrt((np.cos(qlat)*np.sin(qlon-lon0))**2 + \
 	(np.cos(lat0)*np.sin(qlat) - np.sin(lat0)*np.cos(qlat) * np.cos(qlon-lon0))**2),\
 	(np.sin(lat0)*np.sin(qlat) + np.cos(lat0)*np.cos(qlat)*np.cos(qlon-lon0)))
-	
+
 	# Convert the results from radians to degrees and return
 	return(np.degrees(temp))
 
 def NearestPoint(qlat, qlon, lats, lons, tol = None):
-	
+
 	# Get the distance between the query point and all the possible points
 	dist = angd(lats, lons, qlat, qlon)
-	
+
 	# Which is the closest point
 	nearest_idx = np.argmin(dist)
 
@@ -48,21 +50,21 @@ def NearestPoint(qlat, qlon, lats, lons, tol = None):
 	if isinstance(tol, (int, float)):
 		if dist[nearest_idx] > tol:
 			return(None)
-	
+
 	return(nearest_idx)
 
 
 def NearestPoints(qlats, qlons, lats, lons, tol):
-	
+
 	if len(qlats) != len(qlons):
 		raise Exception("Query lats ({}) and lons ({}) differ in length".format(len(qlats), len(qlons)))
-	
-	idx = map(lambda qlat,qlon: NearestPoint(qlat, qlon, lats, lons, tol), qlats, qlons)
-	
-	return(list(idx))
-	
 
-def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, baseyear, pyear_start, pyear_end, pyear_step, locationfilename, pipeline_id):
+	idx = map(lambda qlat,qlon: NearestPoint(qlat, qlon, lats, lons, tol), qlats, qlons)
+
+	return(list(idx))
+
+
+def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, baseyear, pyear_start, pyear_end, pyear_step, locationfilename, chunksize, pipeline_id):
 
 	# Read in the data from the preprocessing stage
 	datafile = "{}_data.pkl".format(pipeline_id)
@@ -70,10 +72,10 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, baseyear, pyear_star
 		f = open(datafile, 'rb')
 	except:
 		print("Cannot open datafile\n")
-	
+
 	# Extract the data from the file
 	my_data = pickle.load(f)
-	
+
 	# Extract the relevant data
 	names = my_data['names']
 	ids = my_data['ids']
@@ -81,100 +83,74 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, baseyear, pyear_star
 	lons = my_data['lons']
 	rates = my_data['rates']
 	sds = my_data['sds']
-	
+
 	# Define the target years
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 	targyears = np.union1d(targyears, baseyear)
-	
+
+
 	# Load site locations
 	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
 	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
-	
+
+	# Dimension variables
+	nyears = len(targyears)
+	nsites = len(site_ids)
+
+
 	# Find the nearest points for the query lats/lons
-	site_ids_map = NearestPoints(site_lats, site_lons, lats, lons, tol=None)
-	
+	site_ids_map = np.array(NearestPoints(site_lats, site_lons, lats, lons, tol=None))
+
 	# Evenly sample an inverse normal distribution
 	np.random.seed(rng_seed)
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
 	norm_inv = norm.ppf(x)
 	norm_inv_perm = np.random.permutation(norm_inv)
-	
-	# Output quantiles of interest
-	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.50, 0.833, 0.95, 0.99, 0.995, 0.999)))
-	nq = len(out_q)
-	
-	# Initialize variable to hold the samples
-	local_sl_q = np.full((nq, len(site_ids), len(targyears)), np.nan)
-	
-	# Loop over the sites
-	nsites = len(site_ids)
-	for i in np.arange(0,nsites):
-		
-		# Skip this site if a match wasn't found
-		if site_ids_map[i] is None:
-			continue
-		
-		# This site index
-		this_site_ind = site_ids_map[i]
-		
-		# Loop over the target years
-		ntimes = len(targyears)
-		for j in np.arange(0,ntimes):
-			
-			# This target year
-			targyear = targyears[j]
-		
-			# Calculate the samples for this location and time
-			GIAproj = rates[this_site_ind] * (targyear - baseyear)
-			GIAprojsd = sds[this_site_ind] * (targyear - baseyear)
-			these_samps = GIAproj + norm_inv_perm*GIAprojsd
-			local_sl_q[:,i,j] = np.quantile(these_samps, out_q)
-	
-	# Write the localized projections to a netcdf file
-	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
 
-	# Define Dimensions
-	site_dim = rootgrp.createDimension("nsites", nsites)
-	year_dim = rootgrp.createDimension("years", ntimes)
-	q_dim = rootgrp.createDimension("quantiles", nq)
+	# Missing value for netcdf file
+	nc_missing_value = np.iinfo(np.int16).min
 
-	# Populate dimension variables
-	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
-	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
-	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
-	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
+	# Get the rates and sds for the locations of interest
+	site_rates = da.array([rates[x] for x in site_ids_map])
+	site_sds = da.array([sds[x] for x in site_ids_map])
 
-	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	#localslq.scale_factor = 0.1
-	
-	# Assign attributes
-	rootgrp.description = "Local SLR contributions from vertical land motion according to Kopp 14 workflow"
-	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: {0}, Baseyear: {1}".format(pipeline_id, baseyear)
-	lat_var.units = "Degrees North"
-	lon_var.units = "Degrees East"
-	localslq.units = "mm"
+	# Rechunk the rates and sds
+	site_rates = site_rates.rechunk(chunksize)
+	site_sds = site_sds.rechunk(chunksize)
 
-	# Put the data into the netcdf variables
-	lat_var[:] = site_lats
-	lon_var[:] = site_lons
-	id_var[:] = site_ids
-	year_var[:] = targyears
-	q_var[:] = out_q
-	localslq[:,:,:] = local_sl_q
+	# Generate the projected means and standard deviations
+	GIAproj = np.multiply.outer(targyears - baseyear, site_rates)
+	GIAprojsd = np.multiply.outer(targyears - baseyear, site_sds)
 
-	# Close the netcdf
-	rootgrp.close()
+	# Produce the samples from the means and standard deviations
+	local_sl = GIAproj + np.multiply.outer(norm_inv_perm, GIAprojsd)
 
-	
-if __name__ == '__main__':	
-	
+	# Create the xarray data structures for the localized projections
+	ncvar_attributes = {"description": "Local SLR contributions from vertical land motion according to Kopp 2014 workflow",
+			"history": "Created " + time.ctime(time.time()),
+			"source": "SLR Framework: Kopp 2014 workflow",
+			"scenario": "NA",
+			"baseyear": baseyear}
+
+	vlm_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), local_sl, {"units":"mm", "missing_value":nc_missing_value}),
+							"lat": (("locations"), site_lats),
+							"lon": (("locations"), site_lons)},
+		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
+
+	# Write the netcdf output file
+	vlm_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+
+
+	return(None)
+
+
+
+if __name__ == '__main__':
+
 	# Initialize the command-line argument parser
 	parser = argparse.ArgumentParser(description="Run the post-processing stage for the Kopp 14 vertical land motion workflow",\
 	epilog="Note: This is meant to be run as part of the Kopp 14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
-	
+
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
@@ -183,11 +159,12 @@ if __name__ == '__main__':
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
+	parser.add_argument('--chunksize', help="Number of locations to process at a time [default=50]", type=int, default=50)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	
+
 	# Parse the arguments
 	args = parser.parse_args()
-	
+
 	# Make sure the base year and target years are within data limits for this module
 	if(args.baseyear < 2000):
 		raise Exception("Base year cannot be less than year 2000: baseyear = {}".format(args.baseyear))
@@ -197,13 +174,13 @@ if __name__ == '__main__':
 		raise Exception("Projection year cannot be less than year 2000: pyear_start = {}".format(args.pyear_start))
 	if(args.pyear_end > 2300):
 		raise Exception("Projection year cannot be greater than year 2300: pyear_end = {}".format(args.pyear_end))
-	
+
 	# Make sure the target year stepping is positive
 	if(args.pyear_step < 1):
 		raise Exception("Projection year step must be greater than 0: pyear_step = {}".format(args.pyear_step))
-		
+
 	# Run the postprocessing stage
-	kopp14_postprocess_verticallandmotion(args.nsamps, args.seed, args.baseyear, args.pyear_start, args.pyear_end, args.pyear_step, args.locationfile, args.pipeline_id)
-	
+	kopp14_postprocess_verticallandmotion(args.nsamps, args.seed, args.baseyear, args.pyear_start, args.pyear_end, args.pyear_step, args.locationfile, args.chunksize, args.pipeline_id)
+
 	# Done
 	exit()

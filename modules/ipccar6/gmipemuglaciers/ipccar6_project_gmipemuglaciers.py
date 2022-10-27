@@ -55,12 +55,12 @@ def ipccar6_project_gmipemuglaciers(nsamps, pipeline_id, replace, rngseed):
 	outfile.close()
 
 	# Write the projections to the netCDF files
-	WriteNetCDF(pipeline_id, gic_samps, years, nsamps, scenario)
+	WriteNetCDF(pipeline_id, gic_samps, years, nsamps, scenario, baseyear)
 
 	return(0)
 
 
-def WriteNetCDF(pipeline_id, global_samps, years, nsamps, scenario):
+def WriteNetCDF(pipeline_id, global_samps, years, nsamps, scenario, baseyear):
 
 	# Write the total global projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{0}_globalsl.nc".format(pipeline_id))
@@ -69,26 +69,33 @@ def WriteNetCDF(pipeline_id, global_samps, years, nsamps, scenario):
 	# Define Dimensions
 	year_dim = rootgrp.createDimension("years", len(years))
 	samp_dim = rootgrp.createDimension("samples", nsamps)
+	loc_dim = rootgrp.createDimension("locations", 1)
 
 	# Populate dimension variables
-	year_var = rootgrp.createVariable("year", "i4", ("years",))
-	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+	year_var = rootgrp.createVariable("years", "i4", ("years",))
+	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
+	loc_var = rootgrp.createVariable("locations", "i8", ("locations",))
+	lat_var = rootgrp.createVariable("lat", "f4", ("locations",))
+	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	samps = rootgrp.createVariable("sea_level_change", "i2", ("samples", "years", "locations"), zlib=True, complevel=4)
 
 	# Assign attributes
-	rootgrp.description = "Global SLR contribution from GMIP emulated glaciers from the IPCC AR6 workflow"
+	rootgrp.description = "Global SLR contribution from glaciers from the GMIP2 emulated workflow"
 	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: {0} - {1}. ".format(pipeline_id, scenario)
-	year_var.units = "[-]"
-	samp_var.units = "[-]"
+	rootgrp.source = "FACTS: {0}. ".format(pipeline_id)
+	rootgrp.baseyear = baseyear
+	rootgrp.scenario = scenario
 	samps.units = "mm"
 
 	# Put the data into the netcdf variables
 	year_var[:] = years
 	samp_var[:] = np.arange(nsamps)
-	samps[:,:] = global_samps.T
+	samps[:,:,:] = global_samps[:,:,np.newaxis]
+	lat_var[:] = np.inf
+	lon_var[:] = np.inf
+	loc_var[:] = -1
 
 	# Close the netcdf
 	rootgrp.close()
@@ -96,8 +103,8 @@ def WriteNetCDF(pipeline_id, global_samps, years, nsamps, scenario):
 if __name__ == '__main__':
 
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the IPCC AR6 GMIP emulated glaciers projection stage.",\
-	epilog="Note: This is meant to be run as part of the ipccar6 module set within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+	parser = argparse.ArgumentParser(description="Run the GMIP2 emulated glaciers projection stage.",\
+	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to draw (default = 10)", default=10, type=int)
