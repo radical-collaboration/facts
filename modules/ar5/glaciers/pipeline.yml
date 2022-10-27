@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glaciers_preprocess_data.tgz; rm ar5_glaciers_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_glaciers_preprocess_data.tgz; tar -xzf ipccar6_climate_data.tgz; rm ipccar6_climate_data.tgz ar5_glaciers_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glaciers.py"
     options:
       - "scenario"
@@ -19,6 +19,7 @@ pre-process:
       - "./modules/ar5/glaciers/ar5_preprocess_glaciers.py"
       - "./modules/ar5/glaciers/Import2lmData.py"
       - "./modules/ar5/glaciers/data/ar5_glaciers_preprocess_data.tgz"
+      - "./modules/ar5/glaciers/data/ipccar6_climate_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

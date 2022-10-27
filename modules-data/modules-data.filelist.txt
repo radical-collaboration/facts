@@ -5,10 +5,10 @@
 57M	ar5_glaciersfair_preprocess_data.tgz
 32K	ar5_glaciersfair_project_data.tgz
 22M	ar5_glaciers_postprocess_data.tgz
-542M	ar5_glaciers_preprocess_data.tgz
+32K	ar5_glaciers_preprocess_data.tgz
 32K	ar5_glaciers_project_data.tgz
 3.4M	ar5_icesheets_postprocess_data.tgz
-542M	ar5_icesheets_preprocess_data.tgz
+32K	ar5_icesheets_preprocess_data.tgz
 512	ar5_icesheets_project_data.tgz
 32K	ar5_thermalexpansion_preprocess_data.tgz
 2.3M	dp16_icesheet_postprocess_data.tgz
@@ -27,9 +27,9 @@
 24M	fair_temperature_preprocess_data.tgz
 32K	FittedISMIP_icesheet_fit_data.tgz
 3.4M	FittedISMIP_icesheet_postprocess_data.tgz
-603M	FittedISMIP_icesheet_preprocess_data.tgz
 3.4M	ipccar6_bambericesheet_postprocess_data.tgz
 226M	ipccar6_bambericesheet_preprocess_data.tgz
+603M	ipccar6_climate_data.tgz
 22M	ipccar6_gmipemuglaciers_postprocess.tgz
 233M	ipccar6_gmipemuglaciers_preprocess.tgz
 3.4M	ipccar6_ismipemuicesheet_postprocess.tgz
@@ -46,10 +46,9 @@
 640K	kopp14_verticallandmotion_preprocess.tgz
 512	larmip_icesheet_fit_data.tgz
 2.3M	larmip_icesheet_postprocess_data.tgz
-603M	larmip_icesheet_preprocess_data.tgz
 128K	larmip_icesheet_project_data.tgz
 160K	NZInsarGPS_verticallandmotion_preprocess.tgz
 224K	ssp_landwaterstorage_postprocess_data.tgz
 32K	ssp_landwaterstorage_preprocess_data.tgz
 29G	tlm_oceandynamics_cmip6.tgz
-603M	tlm_oceandynamics_preprocess.tgz
+512	tlm_oceandynamics_preprocess.tgz

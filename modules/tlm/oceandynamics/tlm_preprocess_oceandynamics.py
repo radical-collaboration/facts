@@ -374,7 +374,7 @@ if __name__ == '__main__':
 	if os.path.isfile(tlmfile):
 		print("{} found, skipping TE preprocessing".format(tlmfile))
 	else:
-		tlm_preprocess_thermalexpansion(args.scenario, args.pipeline_id,fname)
+		tlm_preprocess_thermalexpansion(args.scenario, args.pipeline_id, args.climate_data_file)
 
 	# Done
 	sys.exit()
