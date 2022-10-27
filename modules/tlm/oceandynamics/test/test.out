@@ -1,3 +1,16 @@
 Initiating test in /scratch/rk509/test.1666902453...
 
 Extracting data files...
+
+Executing workflow...
+python tlm_preprocess_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585 --scenario ssp585 --baseyear 2005 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --model_dir ./cmip6 --locationfile /home/rk509/facts/modules/tlm/oceandynamics/test/../../../../scripts/moduletest/location_list.lst --no_correlation 0 --climate_data_file test/input/fair-temperature-fair-ssp585_climate.nc
+python tlm_fit_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585
+python tlm_project_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585 --nsamps 500 --seed 4321 --tlm 1
+python tlm_postprocess_oceandynamics.py --pipeline_id oceandynamics-tlm-oceandynamics-ssp585 --chunksize 662 --nsamps 500 --seed 4321
+
+Collecting output files...
+oceandynamics-tlm-oceandynamics-ssp585_globalsl.nc
+oceandynamics-tlm-oceandynamics-ssp585_localsl.nc
+oceandynamics-tlm-oceandynamics-ssp585_OceanDyn.nc
+
+Skipping clean up...

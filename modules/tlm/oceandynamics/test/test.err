@@ -1,0 +1,2 @@
+tlm_fit_oceandynamics.py:209: RuntimeWarning: invalid value encountered in true_divide
+  OceanDynTECorr = corr_num / corr_denom
