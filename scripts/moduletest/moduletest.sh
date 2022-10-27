@@ -8,6 +8,7 @@ echo "Initiating test in $WORKDIR..."
 
 if [ -z "$SKIP_WORKDIR_SETUP" ]; then  
     mkdir $WORKDIR
+    cd $WORKDIR
     cp -L -r $TESTSCRIPT_DIR/../* .
 else
     cd $WORKDIR
