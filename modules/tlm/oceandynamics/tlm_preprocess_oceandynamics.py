@@ -288,13 +288,13 @@ def tlm_preprocess_oceandynamics(scenario, modeldir, driftcorr, no_correlation, 
 
 
 
-def tlm_preprocess_thermalexpansion(scenario, pipeline_id):
+def tlm_preprocess_thermalexpansion(scenario, pipeline_id, fname):
 
 	# Working directory
 	path = os.path.dirname(__file__)
 
 	# Load the ocean heat content
-	ohc_dict = Import2lmData("ocean_heat_content", scenario, path)
+	ohc_dict = Import2lmData("ocean_heat_content", scenario, path, climate_fname=fname)
 
 	# Extract the ohc samples
 	ohc_samps = ohc_dict["samples"] * 1e-24
@@ -352,6 +352,7 @@ if __name__ == '__main__':
 	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2000)
 
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data (default=twolayer_SSPs.h5)", type=str, default='twolayer_SSPs.h5')
 
 	# Parse the arguments
 	args = parser.parse_args()
@@ -373,7 +374,7 @@ if __name__ == '__main__':
 	if os.path.isfile(tlmfile):
 		print("{} found, skipping TE preprocessing".format(tlmfile))
 	else:
-		tlm_preprocess_thermalexpansion(args.scenario, args.pipeline_id)
+		tlm_preprocess_thermalexpansion(args.scenario, args.pipeline_id,fname)
 
 	# Done
 	sys.exit()

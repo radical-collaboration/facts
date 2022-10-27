@@ -1,8 +1,15 @@
-Initiating test in /scratch/rk509/test.1666633853...
+Initiating test in /scratch/rk509/test.1666837518...
+
 Extracting data files...
+
 Executing workflow...
-python FittedISMIP_preprocess_icesheet.py --pipeline_id icesheets-FittedISMIP-icesheets-ssp585 --scenario ssp585 --tlm_data 1
+python FittedISMIP_preprocess_icesheet.py --pipeline_id icesheets-FittedISMIP-icesheets-ssp585 --scenario ssp585 --tlm_data 1 --climate_data_file test/input/fair-temperature-fair-ssp585_climate.nc
 python FittedISMIP_fit_icesheet.py --pipeline_id icesheets-FittedISMIP-icesheets-ssp585
-python FittedISMIP_project_icesheet.py --pipeline_id icesheets-FittedISMIP-icesheets-ssp585 --nsamps 20000 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --seed 4321 --crateyear_start 2080 --crateyear_end 2100
-python FittedISMIP_postprocess_icesheet.py --pipeline_id icesheets-FittedISMIP-icesheets-ssp585 --chunksize 6619 --locationfile test/location_list.lst
+python FittedISMIP_project_icesheet.py --pipeline_id icesheets-FittedISMIP-icesheets-ssp585 --nsamps 500 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --seed 4321 --crateyear_start 2080 --crateyear_end 2100
+python FittedISMIP_postprocess_icesheet.py --pipeline_id icesheets-FittedISMIP-icesheets-ssp585 --chunksize 6619 --locationfile /home/rk509/facts/modules/FittedISMIP/icesheet/test/../../../../scripts/moduletest/location_list.lst
+
 Collecting output files...
+icesheets-FittedISMIP-icesheets-ssp585_GIS_globalsl.nc
+icesheets-FittedISMIP-icesheets-ssp585_GIS_localsl.nc
+
+Skipping clean up...

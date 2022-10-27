@@ -1,9 +1,19 @@
-Initiating test in /scratch/rk509/test.1666634493...
+Initiating test in /scratch/rk509/test.1666837015...
+
 Extracting data files...
+
 Executing workflow...
-python ar5_preprocess_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --scenario ssp585 --baseyear 2005 --tlm_data 1
+python ar5_preprocess_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --scenario ssp585 --baseyear 2005 --tlm_data 1 --climate_data_file test/input/fair-temperature-fair-ssp585_climate.nc
 python ar5_fit_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --gmip 2
-python ar5_project_glaciers_dev.py --pipeline_id glaciers-ar5-glaciers-ssp585 --nsamps 20000 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --seed 4321
-(20000, 18, 29)
-python ar5_postprocess_glaciers_dev.py --pipeline_id glaciers-ar5-glaciers-ssp585 --chunksize 662 --locationfile test/location_list.lst
+Cannot open data file
+
+python ar5_project_glaciers_dev.py --pipeline_id glaciers-ar5-glaciers-ssp585 --nsamps 500 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --seed 4321
+Cannot open data file
+
+python ar5_postprocess_glaciers_dev.py --pipeline_id glaciers-ar5-glaciers-ssp585 --chunksize 662 --locationfile /home/rk509/facts/modules/ar5/glaciers/test/../../../../scripts/moduletest/location_list.lst
+Cannot open projfile
+
+
 Collecting output files...
+
+Skipping clean up...

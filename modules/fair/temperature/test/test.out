@@ -1,14 +1,17 @@
-Initiating test in /scratch/rk509/test.1666706260...
+Initiating test in /scratch/rk509/test.1666835925...
 
 Extracting data files...
 
 Executing workflow...
 python fair_preprocess_temperature.py --pipeline_id fair-temperature-fair-ssp585 --rcmip_file rcmip/rcmip-emissions-annual-means-v5-1-0.csv --scenario ssp585
 python fair_fit_temperature.py --pipeline_id fair-temperature-fair-ssp585 --param_file parameters/fair_ar6_climate_params_v4.0.nc
-python fair_project_temperature.py --pipeline_id fair-temperature-fair-ssp585 --nsamps 20000 --cyear_start 1850 --cyear_end 1900 --smooth_win 19 --seed 4321
+python fair_project_temperature.py --pipeline_id fair-temperature-fair-ssp585 --nsamps 500 --cyear_start 1850 --cyear_end 1900 --smooth_win 19 --seed 4321
 python fair_postprocess_temperature.py --pipeline_id fair-temperature-fair-ssp585
 
 Collecting output files...
+fair-temperature-fair-ssp585_climate.nc
 fair-temperature-fair-ssp585_gsat.nc
 fair-temperature-fair-ssp585_oceantemp.nc
 fair-temperature-fair-ssp585_ohc.nc
+
+Skipping clean up...

@@ -52,10 +52,10 @@ of interest.  Additional filtering according to years, reference year(s), etc. w
 handled in another script.
 
 '''
-def Import2lmData(variable="surface_temperature", scenario="ssp585", directory="./", refyear_start=1995, refyear_end=2014, twinyear_start=2020, twinyear_end=2100):
+def Import2lmData(variable="surface_temperature", scenario="ssp585", directory="./", refyear_start=1995, refyear_end=2014, twinyear_start=2020, twinyear_end=2100,climate_fname="twolayer_SSPs.h5"):
 
 	# Open the SSP hdf5 file
-	sspfile = os.path.join(directory, "twolayer_SSPs.h5")
+	sspfile = os.path.join(directory, climate_fname)
 	hf = h5py.File(sspfile, 'r')
 
 	# Do we have a temperature target scenario?
@@ -69,7 +69,7 @@ def Import2lmData(variable="surface_temperature", scenario="ssp585", directory="
 		# Loop through all available scenarios
 		for this_scenario in hf.keys():
 
-			# Skip "year" in scenario list scenario
+			# Skip "year" in this_scenario
 			if this_scenario == "year":
 				continue
 

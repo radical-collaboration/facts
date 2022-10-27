@@ -216,6 +216,17 @@ def fair_project_temperature(nsamps, seed, cyear_start, cyear_end, smooth_win, p
 	deeptempds.to_netcdf("{}_oceantemp.nc".format(pipeline_id), encoding={"deep_ocean_temperature": {"dtype": "float32", "zlib": True, "complevel":4}})
 	ohcds.to_netcdf("{}_ohc.nc".format(pipeline_id), encoding={"ocean_heat_content": {"dtype": "float32", "zlib": True, "complevel":4}})
 
+	# create a single netCDF file that is compatible with modules expecting parameters organized in a certain fashion
+	pooledds = xr.Dataset({"surface_temperature": (("years","samples"), temps[::,::,0].transpose(), {"units":"degC"}),
+							"deep_ocean_temperature": (("years","samples"), deeptemps[::,::,0].transpose(), {"units":"degC"}),
+							"ocean_heat_content": (("years","samples"), ohcs[::,::,0].transpose(), {"units":"J"})},
+		coords={"years": proj_years, "samples": np.arange(nsamps)}, attrs=attrs)
+	pooledds.to_netcdf("{}_climate.nc".format(pipeline_id), group=scenario,encoding={"ocean_heat_content": {"dtype": "float32", "zlib": True, "complevel":4},
+		"surface_temperature": {"dtype": "float32", "zlib": True, "complevel":4},
+		"deep_ocean_temperature": {"dtype": "float32", "zlib": True, "complevel":4}})
+	yearsds = xr.Dataset({"year": proj_years})
+	yearsds.to_netcdf("{}_climate.nc".format(pipeline_id), mode='a')
+
 	# Done
 	return(None)
 

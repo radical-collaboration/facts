@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "ar5_preprocess_glaciers.py", line 109, in <module>
+    ar5_preprocess_glaciers(args.scenario, args.baseyear, args.tlm_data, args.pipeline_id, args.climate_data_file)
+  File "ar5_preprocess_glaciers.py", line 27, in ar5_preprocess_glaciers
+    tlm_dict = Import2lmData("surface_temperature", scenario, indir, refyear_start=1986, refyear_end=2005, climate_fname=fname)
+NameError: name 'fname' is not defined
+Traceback (most recent call last):
+  File "ar5_fit_glaciers.py", line 87, in <module>
+    ar5_fit_glaciers(args.gmip, args.pipeline_id)
+  File "ar5_fit_glaciers.py", line 20, in ar5_fit_glaciers
+    my_config = pickle.load(f)
+UnboundLocalError: local variable 'f' referenced before assignment
+Traceback (most recent call last):
+  File "ar5_project_glaciers_dev.py", line 259, in <module>
+    ar5_project_glaciers(args.seed, args.pyear_start, args.pyear_end, args.pyear_step, args.nmsamps, args.ntsamps, args.nsamps, args.pipeline_id)
+  File "ar5_project_glaciers_dev.py", line 38, in ar5_project_glaciers
+    my_data = pickle.load(f)
+UnboundLocalError: local variable 'f' referenced before assignment
+ls: cannot access glaciers-ar5-glaciers-ssp585*.nc: No such file or directory
+mv: cannot stat ‘glaciers-ar5-glaciers-ssp585*.nc’: No such file or directory

@@ -19,12 +19,12 @@ of this module within the same workflow.
 
 '''
 
-def FittedISMIP_preprocess_icesheet(scenario, tlm_flag, pipeline_id):
+def FittedISMIP_preprocess_icesheet(scenario, tlm_flag, pipeline_id, climate_fname):
 
 	# Load the two-layer model data?
 	if tlm_flag != 0:
 		# Load the data
-		tlm_dict = Import2lmData(variable="surface_temperature", scenario=scenario)
+		tlm_dict = Import2lmData(variable="surface_temperature", scenario=scenario, climate_fname=climate_fname)
 
 		# Filter the data if necessary
 
@@ -70,11 +70,12 @@ if __name__ == '__main__':
 	parser.add_argument('--scenario', help="Emissions scenario of interest [default = ssp585]", default="ssp585")
 	parser.add_argument('--tlm_data', help="Use two-layer model temperature trajectories [default = 1, do not use]", choices=[0,1], default=1, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data (default=twolayer_SSPs.h5)", type=str, default='twolayer_SSPs.h5')
 
 	# Parse the arguments
 	args = parser.parse_args()
 
 	# Run the preprocessing stage with the provided arguments
-	FittedISMIP_preprocess_icesheet(args.scenario, args.tlm_data, args.pipeline_id)
+	FittedISMIP_preprocess_icesheet(args.scenario, args.tlm_data, args.pipeline_id, args.climate_data_file)
 
 	exit()
