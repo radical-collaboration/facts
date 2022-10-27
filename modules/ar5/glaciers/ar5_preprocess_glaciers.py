@@ -15,7 +15,7 @@ class ProjectionError(Exception):
 def endofhistory():
 	return 2006
 
-def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id):
+def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id, climate_fname):
 	
 	# Define the input data directory
 	indir = os.path.dirname(__file__)
@@ -24,7 +24,7 @@ def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id):
 	if tlm_flag:
 		
 		# Import the data
-		tlm_dict = Import2lmData("surface_temperature", scenario, indir, refyear_start=1986, refyear_end=2005)
+		tlm_dict = Import2lmData("surface_temperature", scenario, indir, refyear_start=1986, refyear_end=2005, climate_fname=climate_fname)
 		
 		# Filter the data for the appropriate years
 		filtered_data_dict = Filter2lmData(tlm_dict, filter_years=np.arange(startyr,2301))
@@ -100,11 +100,12 @@ if __name__ == '__main__':
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	parser.add_argument('--baseyear', help="Year from which to start integrating temperature [default=2006]", type=int, default=2006)
 	parser.add_argument('--tlm_data', help="Use the two-layer model data [default=0, do not use 2lm data]", default=0, type=int)
+	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data (default=twolayer_SSPs.h5)", type=str, default='twolayer_SSPs.h5')
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the provided arguments
-	ar5_preprocess_glaciers(args.scenario, args.baseyear, args.tlm_data, args.pipeline_id)
+	ar5_preprocess_glaciers(args.scenario, args.baseyear, args.tlm_data, args.pipeline_id, args.climate_data_file)
 	
 	exit()
