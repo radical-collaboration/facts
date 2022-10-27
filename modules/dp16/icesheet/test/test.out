@@ -1,8 +1,19 @@
-Initiating test in /scratch/rk509/test.1666635908...
+Initiating test in /scratch/rk509/test.1666879390...
+
 Extracting data files...
+
 Executing workflow...
 python dp16_preprocess_icesheet.py --pipeline_id icesheets-dp16-icesheet-ssp585 --scenario rcp85 --baseyear 2005
 python dp16_fit_icesheet.py --pipeline_id icesheets-dp16-icesheet-ssp585
 python dp16_project_icesheet.py --pipeline_id icesheets-dp16-icesheet-ssp585 --nsamps 20000 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --seed 4321
-python dp16_postprocess_icesheet.py --pipeline_id icesheets-dp16-icesheet-ssp585 --locationfile test/location_list.lst
+python dp16_postprocess_icesheet.py --pipeline_id icesheets-dp16-icesheet-ssp585 --locationfile /home/rk509/facts/modules/dp16/icesheet/test/../../../../scripts/moduletest/location_list.lst
+
 Collecting output files...
+icesheets-dp16-icesheet-ssp585_AIS_globalsl.nc
+icesheets-dp16-icesheet-ssp585_AIS_localsl.nc
+icesheets-dp16-icesheet-ssp585_EAIS_globalsl.nc
+icesheets-dp16-icesheet-ssp585_EAIS_localsl.nc
+icesheets-dp16-icesheet-ssp585_WAIS_globalsl.nc
+icesheets-dp16-icesheet-ssp585_WAIS_localsl.nc
+
+Cleaning up...

@@ -1,3 +1,2 @@
-ipccar6_postprocess_larmipicesheet_dev.py:56: RuntimeWarning: invalid value encountered in add
+ipccar6_postprocess_larmipicesheet.py:56: RuntimeWarning: invalid value encountered in add
   waissamps = waissamps + pensamps
-mv: cannot stat ‘*.nc’: No such file or directory

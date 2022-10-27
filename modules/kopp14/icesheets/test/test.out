@@ -1,8 +1,20 @@
-Initiating test in /scratch/rk509/test.1666642865...
+Initiating test in /scratch/rk509/test.1666881099...
+
 Extracting data files...
+
 Executing workflow...
 python kopp14_preprocess_icesheets.py --pipeline_id icesheets-kopp14-icesheets --scenario rcp85 --srocc 1
 python kopp14_fit_icesheets.py --pipeline_id icesheets-kopp14-icesheets
-python kopp14_project_icesheets_dev.py --pipeline_id icesheets-kopp14-icesheets --nsamps 200 --seed 1337
-python kopp14_postprocess_icesheets.py --pipeline_id icesheets-kopp14-icesheets --locationfile test/location_list.lst --samp_type hysamps
+python kopp14_project_icesheets.py --pipeline_id icesheets-kopp14-icesheets --nsamps 200 --seed 1337
+python kopp14_postprocess_icesheets.py --pipeline_id icesheets-kopp14-icesheets --locationfile /home/rk509/facts/modules/kopp14/icesheets/test/../../../../scripts/moduletest/location_list.lst --samp_type hysamps
+
 Collecting output files...
+icesheets-kopp14-icesheets_AIS_globalsl.nc
+icesheets-kopp14-icesheets_EAIS_globalsl.nc
+icesheets-kopp14-icesheets_EAIS_localsl.nc
+icesheets-kopp14-icesheets_GIS_globalsl.nc
+icesheets-kopp14-icesheets_GIS_localsl.nc
+icesheets-kopp14-icesheets_WAIS_globalsl.nc
+icesheets-kopp14-icesheets_WAIS_localsl.nc
+
+Cleaning up...

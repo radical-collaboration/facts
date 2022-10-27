@@ -5,10 +5,11 @@ import pickle
 import time
 import argparse
 import re
-from netCDF4 import Dataset
 from read_locationfile import ReadLocationFile
 from AssignFP import AssignFP
 
+import xarray as xr
+import dask.array as da
 
 ''' ar5_postprocess_icesheets.py
 
@@ -26,19 +27,15 @@ Output: NetCDF file containing local contributions from ice sheets
 
 '''
 
-def ar5_postprocess_icesheets(locationfilename, pipeline_id):
+def ar5_postprocess_icesheets(locationfilename, chunksize, pipeline_id):
 
-	# Read in the fitted parameters from parfile
+	# Read in the global projection data
 	projfile = "{}_projections.pkl".format(pipeline_id)
 	try:
 		f = open(projfile, 'rb')
 	except:
 		print("Cannot open projfile\n")
 		sys.exit(1)
-
-	# Load the site locations
-	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
-	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 
 	# Extract the data from the file
 	my_data = pickle.load(f)
@@ -48,76 +45,86 @@ def ar5_postprocess_icesheets(locationfilename, pipeline_id):
 	targyears = my_data['data_years']
 	f.close()
 
+	# Read in the configuration data
+	configfile = "{}_data.pkl".format(pipeline_id)
+	try:
+		f = open(configfile, 'rb')
+	except:
+		print("Cannot open configfile\n")
+		sys.exit(1)
+
+	# Extract the data from the file
+	my_data = pickle.load(f)
+	scenario = my_data['scenario']
+	baseyear = my_data['startyr']
+	f.close()
+
+	# Load the site locations
+	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
+	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
+
+	# Get some dimension data from the loaded data structures
+	nsamps = gissamps.shape[0]
+	nyears = len(targyears)
+	nsites = len(site_ids)
+
 	# Get the fingerprints for all sites from all ice sheets
 	fpdir = os.path.join(os.path.dirname(__file__), "FPRINT")
-	gisfp = AssignFP(os.path.join(fpdir,"fprint_gis.nc"), site_lats, site_lons)
-	waisfp = AssignFP(os.path.join(fpdir,"fprint_wais.nc"), site_lats, site_lons)
-	eaisfp = AssignFP(os.path.join(fpdir,"fprint_eais.nc"), site_lats, site_lons)
+	gisfp = da.array(AssignFP(os.path.join(fpdir,"fprint_gis.nc"), site_lats, site_lons))
+	waisfp = da.array(AssignFP(os.path.join(fpdir,"fprint_wais.nc"), site_lats, site_lons))
+	eaisfp = da.array(AssignFP(os.path.join(fpdir,"fprint_eais.nc"), site_lats, site_lons))
 
-	# Multiply the fingerprints and the projections
+	# Rechunk the fingerprints for memory
+	gisfp = gisfp.rechunk(chunksize)
+	waisfp = waisfp.rechunk(chunksize)
+	eaisfp = eaisfp.rechunk(chunksize)
+
+	# Apply the fingerprints to the projections
 	gissl = np.multiply.outer(gissamps, gisfp)
 	waissl = np.multiply.outer(waissamps, waisfp)
 	eaissl = np.multiply.outer(eaissamps, eaisfp)
 
-	# Write to netcdf
-	writeNetCDF(gissl, pipeline_id, "GIS", targyears, site_lats, site_lons, site_ids)
-	writeNetCDF(waissl, pipeline_id, "WAIS", targyears, site_lats, site_lons, site_ids)
-	writeNetCDF(eaissl, pipeline_id, "EAIS", targyears, site_lats, site_lons, site_ids)
-	writeNetCDF(waissl+eaissl, pipeline_id, "AIS", targyears, site_lats, site_lons, site_ids)
+	# Add up the east and west components for AIS total
+	aissl = waissl + eaissl
 
-	return(0)
+	# Define the missing value for the netCDF files
+	nc_missing_value = np.iinfo(np.int16).min
 
+	# Create the xarray data structures for the localized projections
+	ncvar_attributes = {"description": "Local SLR contributions from icesheets according to AR5 workflow",
+			"history": "Created " + time.ctime(time.time()),
+			"source": "SLR Framework: AR5 workflow",
+			"scenario": scenario,
+			"baseyear": baseyear}
 
-def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lons, site_ids):
+	gis_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), gissl, {"units":"mm", "missing_value":nc_missing_value}),
+							"lat": (("locations"), site_lats),
+							"lon": (("locations"), site_lons)},
+		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
-	# Calculate the quantiles
-	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
-	nq = len(out_q)
-	local_sl_q = np.nanquantile(data, out_q, axis=0)
-	local_sl_q = np.transpose(local_sl_q, (0,2,1))
+	wais_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), waissl, {"units":"mm", "missing_value":nc_missing_value}),
+							"lat": (("locations"), site_lats),
+							"lon": (("locations"), site_lons)},
+		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
-	# Write the localized projections to a netcdf file
-	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{0}_{1}_localsl.nc".format(pipeline_id, icesheet_name)), "w", format="NETCDF4")
+	eais_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), eaissl, {"units":"mm", "missing_value":nc_missing_value}),
+							"lat": (("locations"), site_lats),
+							"lon": (("locations"), site_lons)},
+		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
-	# Define Dimensions
-	nsites = len(site_ids)
-	nyears = len(targyears)
-	nq = len(out_q)
-	site_dim = rootgrp.createDimension("nsites", nsites)
-	year_dim = rootgrp.createDimension("years", nyears)
-	q_dim = rootgrp.createDimension("quantiles", nq)
+	ais_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), aissl, {"units":"mm", "missing_value":nc_missing_value}),
+							"lat": (("locations"), site_lats),
+							"lon": (("locations"), site_lons)},
+		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
-	# Populate dimension variables
-	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
-	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
-	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
-	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
+	# Write the netcdf output files
+	gis_out.to_netcdf("{0}_{1}_localsl.nc".format(pipeline_id, "GIS"), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	wais_out.to_netcdf("{0}_{1}_localsl.nc".format(pipeline_id, "WAIS"), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	eais_out.to_netcdf("{0}_{1}_localsl.nc".format(pipeline_id, "EAIS"), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	ais_out.to_netcdf("{0}_{1}_localsl.nc".format(pipeline_id, "AIS"), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
-	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	#localslq.scale_factor = 0.1
+	return(None)
 
-	# Assign attributes
-	rootgrp.description = "Local SLR contributions from icesheets according to Kopp 2014 workflow"
-	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "SLR Framework: Kopp 2014 workflow"
-	lat_var.units = "Degrees North"
-	lon_var.units = "Degrees East"
-	localslq.units = "mm"
-
-	# Put the data into the netcdf variables
-	lat_var[:] = site_lats
-	lon_var[:] = site_lons
-	id_var[:] = site_ids
-	year_var[:] = targyears
-	q_var[:] = out_q
-	localslq[:,:,:] = local_sl_q
-
-	# Close the netcdf
-	rootgrp.close()
-
-	return(0)
 
 if __name__ == '__main__':
 
@@ -127,13 +134,15 @@ if __name__ == '__main__':
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
+	parser.add_argument('--chunksize', help="Number of locations to process at a time [default=50]", type=int, default=50)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments
 	args = parser.parse_args()
 
 	# Run the postprocessing for the parameters specified from the command line argument
-	ar5_postprocess_icesheets(args.locationfile, args.pipeline_id)
+	ar5_postprocess_icesheets(args.locationfile, args.chunksize, args.pipeline_id)
 
 	# Done
 	exit()
+
