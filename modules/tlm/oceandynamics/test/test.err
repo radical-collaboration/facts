@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "tlm_preprocess_oceandynamics.py", line 377, in <module>
+    tlm_preprocess_thermalexpansion(args.scenario, args.pipeline_id,fname)
+NameError: name 'fname' is not defined
+tlm_fit_oceandynamics.py:209: RuntimeWarning: invalid value encountered in true_divide
+  OceanDynTECorr = corr_num / corr_denom
+Traceback (most recent call last):
+  File "tlm_fit_oceandynamics.py", line 334, in <module>
+    tlm_fit_thermalexpansion(args.pipeline_id)
+  File "tlm_fit_oceandynamics.py", line 265, in tlm_fit_thermalexpansion
+    my_data = pickle.load(f)
+UnboundLocalError: local variable 'f' referenced before assignment
+Traceback (most recent call last):
+  File "tlm_project_oceandynamics.py", line 309, in <module>
+    tlm_project_thermalexpansion(args.seed, args.nsamps, args.pipeline_id)
+  File "tlm_project_oceandynamics.py", line 191, in tlm_project_thermalexpansion
+    my_data = pickle.load(f)
+ValueError: peek of closed file
+Traceback (most recent call last):
+  File "tlm_postprocess_oceandynamics.py", line 266, in <module>
+    tlm_postprocess_oceandynamics(args.nsamps, args.seed, args.chunksize, args.keep_temp, args.pipeline_id)
+  File "tlm_postprocess_oceandynamics.py", line 110, in tlm_postprocess_oceandynamics
+    f = open(infile, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: 'oceandynamics-tlm-oceandynamics-ssp585_projections.pkl'
+ls: cannot access oceandynamics-tlm-oceandynamics-ssp585*.nc: No such file or directory
+mv: cannot stat ‘oceandynamics-tlm-oceandynamics-ssp585*.nc’: No such file or directory

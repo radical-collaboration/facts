@@ -5,10 +5,10 @@
 57M	ar5_glaciersfair_preprocess_data.tgz
 32K	ar5_glaciersfair_project_data.tgz
 22M	ar5_glaciers_postprocess_data.tgz
-542M	ar5_glaciers_preprocess_data.tgz
+32K	ar5_glaciers_preprocess_data.tgz
 32K	ar5_glaciers_project_data.tgz
 3.4M	ar5_icesheets_postprocess_data.tgz
-542M	ar5_icesheets_preprocess_data.tgz
+32K	ar5_icesheets_preprocess_data.tgz
 512	ar5_icesheets_project_data.tgz
 32K	ar5_thermalexpansion_preprocess_data.tgz
 2.3M	dp16_icesheet_postprocess_data.tgz
@@ -27,9 +27,9 @@
 24M	fair_temperature_preprocess_data.tgz
 32K	FittedISMIP_icesheet_fit_data.tgz
 3.4M	FittedISMIP_icesheet_postprocess_data.tgz
-603M	FittedISMIP_icesheet_preprocess_data.tgz
 3.4M	ipccar6_bambericesheet_postprocess_data.tgz
 226M	ipccar6_bambericesheet_preprocess_data.tgz
+603M	ipccar6_climate_data.tgz
 22M	ipccar6_gmipemuglaciers_postprocess.tgz
 233M	ipccar6_gmipemuglaciers_preprocess.tgz
 3.4M	ipccar6_ismipemuicesheet_postprocess.tgz
@@ -46,13 +46,12 @@
 640K	kopp14_verticallandmotion_preprocess.tgz
 512	larmip_icesheet_fit_data.tgz
 2.3M	larmip_icesheet_postprocess_data.tgz
-603M	larmip_icesheet_preprocess_data.tgz
 128K	larmip_icesheet_project_data.tgz
 160K	NZInsarGPS_verticallandmotion_preprocess.tgz
 224K	ssp_landwaterstorage_postprocess_data.tgz
 32K	ssp_landwaterstorage_preprocess_data.tgz
 29G	tlm_oceandynamics_cmip6.tgz
-603M	tlm_oceandynamics_preprocess.tgz
+512	tlm_oceandynamics_preprocess.tgz
 
 ar5_glacierscmip6_postprocess_data.tgz
 -------------------------------
@@ -199,55 +198,54 @@ ar5_glaciers_postprocess_data.tgz
 
 ar5_glaciers_preprocess_data.tgz
 -------------------------------
-./rcp26_expansion_mean.nc
-./rcp26_expansion_sd.nc
-./rcp26_temperature_mean.nc
-./rcp26_temperature_sd.nc
-./rcp45_expansion_mean.nc
-./rcp45_expansion_sd.nc
-./rcp45_temperature_mean.nc
-./rcp45_temperature_sd.nc
-./rcp60_expansion_mean.nc
-./rcp60_expansion_sd.nc
-./rcp60_temperature_mean.nc
-./rcp60_temperature_sd.nc
-./rcp85_expansion_mean.nc
-./rcp85_expansion_sd.nc
-./rcp85_temperature_mean.nc
-./rcp85_temperature_sd.nc
-./sresa1b_expansion_mean.nc
-./sresa1b_expansion_sd.nc
-./sresa1b_temperature_mean.nc
-./sresa1b_temperature_sd.nc
-./ssp119_expansion_mean.nc
-./ssp119_expansion_sd.nc
-./ssp119_temperature_mean.nc
-./ssp119_temperature_sd.nc
-./ssp126_expansion_mean.nc
-./ssp126_expansion_sd.nc
-./ssp126_temperature_mean.nc
-./ssp126_temperature_sd.nc
-./ssp245_expansion_mean.nc
-./ssp245_expansion_sd.nc
-./ssp245_temperature_mean.nc
-./ssp245_temperature_sd.nc
-./ssp370_expansion_mean.nc
-./ssp370_expansion_sd.nc
-./ssp370_temperature_mean.nc
-./ssp370_temperature_sd.nc
-./ssp434_expansion_mean.nc
-./ssp434_expansion_sd.nc
-./ssp434_temperature_mean.nc
-./ssp434_temperature_sd.nc
-./ssp460_expansion_mean.nc
-./ssp460_expansion_sd.nc
-./ssp460_temperature_mean.nc
-./ssp460_temperature_sd.nc
-./ssp585_expansion_mean.nc
-./ssp585_expansion_sd.nc
-./ssp585_temperature_mean.nc
-./ssp585_temperature_sd.nc
-twolayer_SSPs.h5
+rcp26_expansion_mean.nc
+rcp26_expansion_sd.nc
+rcp26_temperature_mean.nc
+rcp26_temperature_sd.nc
+rcp45_expansion_mean.nc
+rcp45_expansion_sd.nc
+rcp45_temperature_mean.nc
+rcp45_temperature_sd.nc
+rcp60_expansion_mean.nc
+rcp60_expansion_sd.nc
+rcp60_temperature_mean.nc
+rcp60_temperature_sd.nc
+rcp85_expansion_mean.nc
+rcp85_expansion_sd.nc
+rcp85_temperature_mean.nc
+rcp85_temperature_sd.nc
+sresa1b_expansion_mean.nc
+sresa1b_expansion_sd.nc
+sresa1b_temperature_mean.nc
+sresa1b_temperature_sd.nc
+ssp119_expansion_mean.nc
+ssp119_expansion_sd.nc
+ssp119_temperature_mean.nc
+ssp119_temperature_sd.nc
+ssp126_expansion_mean.nc
+ssp126_expansion_sd.nc
+ssp126_temperature_mean.nc
+ssp126_temperature_sd.nc
+ssp245_expansion_mean.nc
+ssp245_expansion_sd.nc
+ssp245_temperature_mean.nc
+ssp245_temperature_sd.nc
+ssp370_expansion_mean.nc
+ssp370_expansion_sd.nc
+ssp370_temperature_mean.nc
+ssp370_temperature_sd.nc
+ssp434_expansion_mean.nc
+ssp434_expansion_sd.nc
+ssp434_temperature_mean.nc
+ssp434_temperature_sd.nc
+ssp460_expansion_mean.nc
+ssp460_expansion_sd.nc
+ssp460_temperature_mean.nc
+ssp460_temperature_sd.nc
+ssp585_expansion_mean.nc
+ssp585_expansion_sd.nc
+ssp585_temperature_mean.nc
+ssp585_temperature_sd.nc
 
 ar5_glaciers_project_data.tgz
 -------------------------------
@@ -310,7 +308,6 @@ ssp585_expansion_mean.nc
 ssp585_expansion_sd.nc
 ssp585_temperature_mean.nc
 ssp585_temperature_sd.nc
-twolayer_SSPs.h5
 
 ar5_icesheets_project_data.tgz
 -------------------------------
@@ -1875,11 +1872,6 @@ FittedISMIP_icesheet_postprocess_data.tgz
 ./FPRINT/fprint_gis.nc
 ./FPRINT/fprint_eais.nc
 
-FittedISMIP_icesheet_preprocess_data.tgz
--------------------------------
-./20201009_CLIMATE_FORCING.csv
-./twolayer_SSPs.h5
-
 ipccar6_bambericesheet_postprocess_data.tgz
 -------------------------------
 ./FPRINT/
@@ -1890,6 +1882,11 @@ ipccar6_bambericesheet_postprocess_data.tgz
 ipccar6_bambericesheet_preprocess_data.tgz
 -------------------------------
 SLRProjections190726core_SEJ_full.mat
+
+ipccar6_climate_data.tgz
+-------------------------------
+./20201009_CLIMATE_FORCING.csv
+./twolayer_SSPs.h5
 
 ipccar6_gmipemuglaciers_postprocess.tgz
 -------------------------------
@@ -4278,11 +4275,6 @@ larmip_icesheet_postprocess_data.tgz
 ./FPRINT/fprint_wais.nc
 ./FPRINT/fprint_eais.nc
 
-larmip_icesheet_preprocess_data.tgz
--------------------------------
-./IPCC_SSP_Projections/
-./IPCC_SSP_Projections/twolayer_SSPs.h5
-
 larmip_icesheet_project_data.tgz
 -------------------------------
 ./RFunctions/
@@ -4998,7 +4990,5 @@ cmip6/zos/MRI-ESM2-0/zos_Omon_MRI-ESM2-0_ssp585_r1i2p1f1_gn_201501-210012_dedrif
 
 tlm_oceandynamics_preprocess.tgz
 -------------------------------
-./twolayer_SSPs.h5
-./scmpy2LM_RCMIP_CMIP6calpm_n17_gsat_rmse.nc
-./scmpy2LM_RCMIP_CMIP6calpm_n18_expcoefs.nc
-./README_missing_cmip6_data
+scmpy2LM_RCMIP_CMIP6calpm_n17_gsat_rmse.nc
+scmpy2LM_RCMIP_CMIP6calpm_n18_expcoefs.nc

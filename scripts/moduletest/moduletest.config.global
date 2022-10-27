@@ -5,3 +5,5 @@ OUTPUT_DIR=$TESTSCRIPT_DIR/output # path to output directory
 LFILE=$FACTSSCRIPT_DIR/moduletest/location_list.lst # default location file 
 SCENARIO=ssp585 # default scenario to run
 NSAMPS=500 # default number of samples to produce
+RCPATHWAY=rcp85 # rcp to use when needed
+SEPATHWAY=ssp5 # ssp to use when needed

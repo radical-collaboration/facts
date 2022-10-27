@@ -9,7 +9,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf tlm_oceandynamics_preprocess.tgz; tar -xzf cmip6_oceandynamics_data.tgz; rm tlm_oceandynamics_preprocess.tgz cmip6_oceandynamics_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
+    pre_exec: "tar -xzf ipccar6_climate_data.tgz ; tar -xzf tlm_oceandynamics_preprocess.tgz; tar -xzf tlm_oceandynamics_cmip6.tgz; rm ipccar6_climate_data.tgz tlm_oceandynamics_preprocess.tgz tlm_oceandynamics_cmip6.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
     script: "tlm_preprocess_oceandynamics.py"
     options:
       - "scenario"
@@ -33,7 +33,8 @@ pre-process:
       - "./modules/tlm/oceandynamics/read_CSIRO.py"
       - "./modules/tlm/oceandynamics/readMarzeion.py"
       - "./modules/tlm/oceandynamics/data/tlm_oceandynamics_preprocess.tgz"
-      - "./modules/tlm/oceandynamics/data/cmip6_oceandynamics_data.tgz"
+      - "./modules/tlm/oceandynamics/data/tlm_oceandynamics_cmip6.tgz"
+      - "./modules/tlm/oceandynamics/data/ipccar6_climate_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
 #    download_output_data:

@@ -8,7 +8,7 @@ pre-process:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; rm ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; tar -xzf ipccar6_climate_data.tgz ; rm ipccar6_climate_data.tgz ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_icesheets.py"
     options:
       - "scenario"
@@ -19,6 +19,8 @@ pre-process:
       - "./modules/ar5/icesheets/ar5_preprocess_icesheets.py"
       - "./modules/ar5/icesheets/Import2lmData.py"
       - "./modules/ar5/icesheets/data/ar5_icesheets_preprocess_data.tgz"
+      - "./modules/ar5/icesheets/data/ipccar6_climate_data.tgz"
+
 
 
 fit:
