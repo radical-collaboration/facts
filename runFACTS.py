@@ -15,28 +15,6 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
     experimentsteps = expconfig['experimentsteps']
     ecfg = expconfig['ecfg']
 
-    # the extreme sea level and totaling workflows are hard coded in right now, 
-    # predating implementation of functionality to allow nesting of modules in experiment steps;
-    # they should be converted over at some point
-
-    # If the user want to run extremesealevel module, must perform a total and flag
-    do_extremesl_flag = False
-    if "extremesealevel-options" in ecfg.keys():
-        no_total_flag = False
-        do_extremesl_flag = True
-
-    # Set up the totaling workflow
-    if not no_total_flag:
-        ecfg['total-options']["options"].update(ecfg['global-options'])
-        total_pipeline = facts.GenerateTotalPipeline(ecfg['total-options'], exp_dir)
-        experimentsteps.append([total_pipeline])
-
-    # Setup the extreme sea-level workflow if needed
-    if do_extremesl_flag:
-        this_mod = "extremesealevel-options"
-        parsed = facts.ParsePipelineConfig(this_mod, ecfg[this_mod], global_options=ecfg['global-options'], relabel='extremesealevel')
-        experimentsteps.append([(facts.GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))])
-
     # Print out PST info if in debug mode
     if debug_mode:
         print_experimentsteps(experimentsteps)

@@ -19,22 +19,22 @@ sealevel_step:
     #        site_ids: 12
     #        seed: 1234
     #
-    glaciers:
-        module_set: "kopp14"
-        module: "glaciers"
-        options:
-            scenario: "rcp85"
-            nsamps: 20000
-            seed: 1234
+    # glaciers:
+    #     module_set: "kopp14"
+    #     module: "glaciers"
+    #     options:
+    #         scenario: "rcp85"
+    #         nsamps: 20000
+    #         seed: 1234
 
-    icesheets:
-        module_set: "kopp14"
-        module: "icesheets"
-        options:
-            scenario: "rcp85"
-            nsamps: 10000
-            seed: 5678
-            samptype: "hysamps"
+    # icesheets:
+    #     module_set: "kopp14"
+    #     module: "icesheets"
+    #     options:
+    #         scenario: "rcp85"
+    #         nsamps: 10000
+    #         seed: 5678
+    #         samptype: "hysamps"
     #
     #thermalexpansion:
     #    module_set: "kopp14"
@@ -96,15 +96,23 @@ sealevel_step:
     #        nsamps: 20000
     #        seed: 151617
 
-total-options:
-    options:
-        nsamps: 20000
-        seed: 1122
+totaling_step:
+    multistep: true
+    total:
+        module: "total"
+        options:
+            nsamps: 20000
+            seed: 1122
+        stages:
+            - global
+            - local
 
-extremesealevel-options:
-    module_set: "extremesealevel"
-    module: "pointsoverthreshold"
-    options:
-        target_years: 2050,2100
-        nsamps: 20000
-        seed: 3344
+esl_step:
+    multistep: true
+    extremesealevel:
+        module_set: "extremesealevel"
+        module: "pointsoverthreshold"
+        options:
+            target_years: 2050,2100
+            nsamps: 20000
+            seed: 3344
