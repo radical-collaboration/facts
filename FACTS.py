@@ -43,7 +43,9 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names = ["preprocess"
     p.name = pipe_name
 
     # Loop through the necessary stages for this module
-    
+    if 'stages' in ecfg.keys():
+        stage_names=ecfg['stages']
+        
     for this_stage in stage_names:
         if this_stage in pcfg.keys():
 
@@ -95,7 +97,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
         tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
 
     # List of arguments for the executable
-    t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
+    # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
+    t.arguments = [tcfg['script']]
+    if "arguments" in tcfg.keys():
+        t.arguments += [x for x in tcfg['arguments']]
+    t.arguments += match_options(tcfg['options'], ecfg['options'])
 
     # CPU requirements for this task
     t.cpu_reqs = {
@@ -132,8 +138,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     if "local_total_files" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
 
-    # Append the "total" lists to the copy output list
-    t.copy_output_data = copy_output_list
+    if "totaled_files" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['totaled_files']])
 
     # Set the download data for the task
     download_list = []
@@ -141,17 +147,16 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     if "download_output_data" in tcfg.keys():
         download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict,x),outdir) for x in tcfg['download_output_data']])
 
+    # Append the "total" lists to the copy output list
+    t.copy_output_data = copy_output_list
     # Append the download list to this task
     t.download_output_data = download_list
 
     # Return the task object
     return(t)
 
+def GenerateTotalPipeline(ecfg, exp_dir, stage_names = ["global","local"]):
 
-
-def GenerateTotalPipeline(ecfg, exp_dir):
-
-    # Load the pipeline configuration file for this module
     pcfg_file = os.path.join(os.path.dirname(__file__), "modules", "total", "pipeline.yml")
     if not os.path.isfile(pcfg_file):
         print('{} does not exist'.format(pcfg_file))
@@ -159,89 +164,7 @@ def GenerateTotalPipeline(ecfg, exp_dir):
     with open(pcfg_file, 'r') as fp:
         pcfg = yaml.safe_load(fp)
 
-    # Initialize the pipeline object
-    p = Pipeline()
-
-    # Give the pipeline a name
-    p.name = "TotalPipe"
-
-    # Initialize a stage object
-    s = Stage()
-
-    # Provide a name for this stage
-    s.name = "TotalStage"
-
-    # Append the experiment directory to the configuration dictionary
-    ecfg['exp_dir'] = exp_dir
-
-    # Define function to generate a totaling task
-    def GenTotalTask(tcfg, ecfg, pipe_name, stage_name, task_name):
-
-        # Initialize the global totaling task
-        t = Task()
-
-        # Define magic variable dictionary
-        mvar_dict = {"PIPELINE_ID": pipe_name}
-
-        # Give this task object a name
-        t.name = task_name
-
-        # Pre exec let you load modules, set environment before executing the workload
-        if tcfg['pre_exec'] != "":
-            t.pre_exec = [tcfg['pre_exec']]
-
-        # Executable to use for the task
-        t.executable = tcfg['executable']
-
-        # List of arguments for the executable
-        t.arguments = [tcfg['script']] + [x for x in tcfg['arguments']] + match_options(tcfg['options'], ecfg['options'])
-
-        # CPU requirements for this task
-        t.cpu_reqs = {
-                            'cpu_processes': tcfg['cpu']['processes'],
-                            'cpu_process_type': tcfg['cpu']['process-type'],
-                            'cpu_threads': tcfg['cpu']['threads-per-process'],
-                            'cpu_thread_type': tcfg['cpu']['thread-type'],
-                        }
-
-        # Upload data from your local machine to the remote machine
-        t.upload_input_data = tcfg['upload_input_data']
-
-        # Copy data from other stages/tasks for use in this task
-        copy_list = []
-        if "copy_input_data" in tcfg.keys():
-            for copy_stage in tcfg['copy_input_data'].keys():
-                for copy_task in tcfg['copy_input_data'][copy_stage].keys():
-                    loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
-                    copy_list.extend(['{0}/{1}'.format(loc, mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
-
-        # Append the copy list (if any) to the task object
-        t.copy_input_data = copy_list
-
-        # Set the download data for the task
-        download_list = []
-        copy_output_list = []
-        outdir = os.path.join(ecfg['exp_dir'], "output")
-        if "download_output_data" in tcfg.keys():
-            copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['download_output_data']])
-            download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict,x),outdir) for x in tcfg['download_output_data']])
-
-        # Append the "total" lists to the copy output list
-        t.copy_output_data = copy_output_list
-
-        # Append the download list to this task
-        t.download_output_data = download_list
-
-        # GenTotalTask done
-        return(t)
-
-    # Generate the totaling tasks
-    for this_task in pcfg.keys():
-        t = GenTotalTask(pcfg[this_task], ecfg, p.name, s.name, this_task)
-        s.add_tasks(t)
-
-    # Add the stage to the pipeline
-    p.add_stages(s)
+    p = GeneratePipeline(pcfg, ecfg, "TotalPipe", exp_dir, stage_names)
 
     return(p)
 
@@ -267,7 +190,11 @@ def match_options(wopts, eopts):
 
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Load the pipeline configuration file for this module
-    pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
+    if 'module_set' in modcfg.keys():
+        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
+    else:
+        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module'], "pipeline.yml")
+        
     if not os.path.isfile(pcfg_file):
         print('{} does not exist'.format(pcfg_file))
         sys.exit(1)
@@ -280,11 +207,15 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Append the global options to this module
     modcfg["options"].update(global_options)
 
-    if len(relabel) == 0:
+    if len(relabel_mod) == 0:
         relabel_mod = this_mod
 
     # Generate a pipeline for this module
-    pipe_name = ".".join((relabel_mod, modcfg['module_set'], modcfg['module']))
+    if 'module_set' in modcfg.keys():
+        pipe_name = ".".join((relabel_mod, modcfg['module_set'], modcfg['module']))
+    else:
+        pipe_name = ".".join((relabel_mod, modcfg['module']))
+
     p = {
         "modlabel": this_mod,
         "pcfg": pcfg,
