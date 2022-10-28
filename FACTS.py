@@ -24,7 +24,7 @@ def mvar_replace_list(dict, list):
 
 # =====================================================================
 
-def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir):
+def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names = ["preprocess", "fit", "project", "postprocess"]):
 
     # Append the exp_dir to the ecfg dictionary to simplify things a bit
     ecfg['exp_dir'] = exp_dir
@@ -43,7 +43,7 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir):
     p.name = pipe_name
 
     # Loop through the necessary stages for this module
-    stage_names = ["preprocess", "fit", "project", "postprocess"]
+    
     for this_stage in stage_names:
         if this_stage in pcfg.keys():
 
