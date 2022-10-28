@@ -11,42 +11,9 @@ from radical.entk import Pipeline, Stage, Task, AppManager
 
 def run_experiment(exp_dir, debug_mode, no_total_flag):
  
-    experimentsteps = facts.ParseExperimentConfig(exp_dir)
-    
-    # Does the output directory exist? If not, make it
-    try:
-        os.makedirs(os.path.join(exp_dir, "output"))
-    except OSError as e:
-        if e.errno != errno.EEXIST:
-            raise
-
-    # Print out PST info if in debug mode
-    if debug_mode:
-        print_experimentsteps(experimentsteps)
-        # Exit
-        sys.exit(0)
-
-    # Initialize the EnTK App Manager
-    amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'], autoterminate=False)
-
-    # Apply the resource configuration provided by the user
-    amgr.resource_desc = facts.LoadResourceConfig(exp_dir)
-
-    # Load the localization list
-    if(not os.path.isfile(os.path.join(exp_dir, "location.lst"))):
-        with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:
-            templocationfile.write("New_York\t12\t40.70\t-74.01")
-    amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
-
-    for pipelines in experimentsteps:
-        print('EXPERIMENT STEP: ', experimentsteps.index(this_step))
- 
-        # Assign the list of pipelines to the workflow
-        amgr.workflow = pipelines
-
-        # Run the SLR projection workflow
-        amgr.run()
-
+    expconfig = facts.ParseExperimentConfig(exp_dir)
+    experimentsteps = expconfig['experimentsteps']
+    ecfg = expconfig['ecfg']
 
     # the extreme sea level and totaling workflows are hard coded in right now, 
     # predating implementation of functionality to allow nesting of modules
@@ -62,26 +29,44 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
     if not no_total_flag:
         ecfg['total-options']["options"].update(ecfg['global-options'])
         total_pipeline = facts.GenerateTotalPipeline(ecfg['total-options'], exp_dir)
-        amgr.workflow = [total_pipeline]
-        amgr.run()
+        experimentsteps.append([total_pipeline])
 
     # Setup the extreme sea-level workflow if needed
     if do_extremesl_flag:
         this_mod = "extremesealevel-options"
-        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", ecfg[this_mod]['module_set'], ecfg[this_mod]['module'], "pipeline.yml")
-        if not os.path.isfile(pcfg_file):
-            print('{} does not exist'.format(pcfg_file))
-            sys.exit(1)
-        with open(pcfg_file, 'r') as fp:
-            pcfg = yaml.safe_load(fp)
+        parsed = facts.ParsePipelineConfig(this_mod, ecfg[this_mod], global_options=ecfg['global-options'], relabel='extremesealevel')
+        experimentsteps.append([(facts.GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))])
 
-        # Append the global options to this module
-        ecfg[this_mod]["options"].update(global_options)
+    # Print out PST info if in debug mode
+    if debug_mode:
+        print_experimentsteps(experimentsteps)
+        # Exit
+        sys.exit(0)
 
-        # Generate a pipeline for this module
-        pipe_name = ".".join((ecfg[this_mod]['module_set'], ecfg[this_mod]['module']))
-        esl_pipeline = facts.GeneratePipeline(pcfg, ecfg[this_mod], pipe_name, exp_dir)
-        amgr.workflow = [esl_pipeline]
+    # Does the output directory exist? If not, make it
+    try:
+        os.makedirs(os.path.join(exp_dir, "output"))
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
+    # Initialize the EnTK App Manager
+    amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'], autoterminate=False)
+
+    # Apply the resource configuration provided by the user
+    amgr.resource_desc = facts.LoadResourceConfig(exp_dir)
+
+    # Load the localization list
+    if(not os.path.isfile(os.path.join(exp_dir, "location.lst"))):
+        with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:
+            templocationfile.write("New_York\t12\t40.70\t-74.01")
+    amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
+
+    for pipelines in experimentsteps:
+        # Assign the list of pipelines to the workflow
+        amgr.workflow = pipelines
+
+        # Run the SLR projection workflow
         amgr.run()
 
     # Close the application manager

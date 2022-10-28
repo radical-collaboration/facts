@@ -265,7 +265,7 @@ def match_options(wopts, eopts):
     return(opt_list)
 
 
-def ParsePipelineConfig(this_mod, modcfg, global_options={}):
+def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Load the pipeline configuration file for this module
     pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
     if not os.path.isfile(pcfg_file):
@@ -280,8 +280,11 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}):
     # Append the global options to this module
     modcfg["options"].update(global_options)
 
+    if len(relabel) == 0:
+        relabel_mod = this_mod
+
     # Generate a pipeline for this module
-    pipe_name = ".".join((this_mod, modcfg['module_set'], modcfg['module']))
+    pipe_name = ".".join((relabel_mod, modcfg['module_set'], modcfg['module']))
     p = {
         "modlabel": this_mod,
         "pcfg": pcfg,
@@ -314,7 +317,7 @@ def ParseExperimentConfig(exp_dir):
         global_options = ecfg["global-options"]
     else:
         global_options = {}
-
+        ecfg["global-options"] = global_options
 
     # Initialize a list for pipelines
     pipelines = []
@@ -346,7 +349,7 @@ def ParseExperimentConfig(exp_dir):
             pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
 
     experimentsteps.append(pipelines)
-    return experimentsteps
+    return {'experimentsteps': experimentsteps, 'ecfg': ecfg}
 
 def LoadResourceConfig(exp_dir):
     # Define the configuration and resource file names
