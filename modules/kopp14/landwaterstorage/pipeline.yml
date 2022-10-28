@@ -1,6 +1,6 @@
 # Kopp14 Land water storage pipeline
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -40,7 +40,7 @@ fit:
     upload_input_data:
       - './modules/kopp14/landwaterstorage/kopp14_fit_landwaterstorage.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
           - "%PIPELINE_ID%_config.pkl"
@@ -64,7 +64,7 @@ project:
     upload_input_data:
       - './modules/kopp14/landwaterstorage/kopp14_project_landwaterstorage.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_config.pkl"
       fit:
@@ -77,7 +77,7 @@ project:
 #      - "%PIPELINE_ID%_projections.pkl"
 
 
-post-process:
+postprocess:
   task1:
     executable: "python3"
     cpu:

@@ -1,6 +1,6 @@
 # IPCC AR6 Bamber Ice Sheets Pipeline
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -51,7 +51,7 @@ project:
     upload_input_data:
       - './modules/ipccar6/bambericesheet/ipccar6_project_bambericesheet.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
     global_total_files:
@@ -66,7 +66,7 @@ project:
       - "%PIPELINE_ID%_AIS_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
-post-process:
+postprocess:
   task1:
     executable: "python3"
     cpu:

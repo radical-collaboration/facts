@@ -1,6 +1,6 @@
 # AR5 Ice Sheets Pipeline
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -38,7 +38,7 @@ fit:
     upload_input_data:
       - './modules/ar5/icesheets/ar5_fit_icesheets.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
 
@@ -66,7 +66,7 @@ project:
       - './modules/ar5/icesheets/ar5_project_icesheets.py'
       - './modules/ar5/icesheets/data/ar5_icesheets_project_data.tgz'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
       fit:
@@ -82,7 +82,7 @@ project:
       - "%PIPELINE_ID%_TIS_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
-post-process:
+postprocess:
   task1:
     executable: "python3"
     cpu:

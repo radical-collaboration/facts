@@ -44,7 +44,7 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir):
     p.name = pipe_name
 
     # Loop through the necessary stages for this module
-    stage_names = ["pre.process", "fit", "project", "post.process"]
+    stage_names = ["preprocess", "fit", "project", "postprocess"]
     for this_stage in stage_names:
         if this_stage in pcfg.keys():
 

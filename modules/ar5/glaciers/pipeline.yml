@@ -1,6 +1,6 @@
 # AR5 Glaciers Pipeline
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -39,7 +39,7 @@ fit:
     upload_input_data:
       - './modules/ar5/glaciers/ar5_fit_glaciers.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
 #    download_output_data:
@@ -68,7 +68,7 @@ project:
       - './modules/ar5/glaciers/ar5_project_glaciers.py'
       - './modules/ar5/glaciers/data/ar5_glaciers_project_data.tgz'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
       fit:
@@ -81,7 +81,7 @@ project:
 #      - "%PIPELINE_ID%_projections.pkl"
 
 
-post-process:
+postprocess:
   task1:
     executable: "python3"
     cpu:
@@ -103,7 +103,7 @@ post-process:
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
       project:

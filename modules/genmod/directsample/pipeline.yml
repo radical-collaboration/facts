@@ -1,6 +1,6 @@
 # Generic Module 'Direct Sample' pipeline
 
-pre-process:
+preprocess:
   task1:
     executable: "python"
     cpu:
@@ -37,7 +37,7 @@ project:
     upload_input_data:
       - './modules/genmod/directsample/genmod_project_directsample.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
     download_output_data:

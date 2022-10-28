@@ -1,6 +1,6 @@
 # Extremesealevel Points-Over-Threshold pipeline configuration
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -48,7 +48,7 @@ fit:
       - './modules/extremesealevel/pointsoverthreshold/extremesealevel_fit_pointsoverthreshold.py'
       - './modules/extremesealevel/pointsoverthreshold/gplike.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_station_data.pkl"
 
@@ -77,7 +77,7 @@ project:
       - './modules/extremesealevel/pointsoverthreshold/extremesealevel_project_pointsoverthreshold.py'
       - './modules/extremesealevel/pointsoverthreshold/sample_from_quantiles.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_slproj_data.pkl"
       fit:

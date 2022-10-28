@@ -1,6 +1,6 @@
 # FittedISMIP Ice Sheet Pipeline
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -62,7 +62,7 @@ project:
     upload_input_data:
       - './modules/FittedISMIP/icesheet/FittedISMIP_project_icesheet.py'
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
       fit:
@@ -80,7 +80,7 @@ project:
       #- "%PIPELINE_ID%_PEN_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
-post-process:
+postprocess:
   task1:
     executable: "python3"
     cpu:

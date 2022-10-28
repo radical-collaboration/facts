@@ -1,6 +1,6 @@
 # emulandice GrIS Pipeline
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -51,7 +51,7 @@ project:
       - "./modules/emulandice/GrIS/emulandice_project_GrIS.py"
       - "./modules/emulandice/GrIS/data/emulandice_GrIS_project_data.tgz"
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_preprocess.pkl"
           - "FACTS_CLIMATE_FORCING_DATA.csv"
@@ -64,7 +64,7 @@ project:
       - "%PIPELINE_ID%_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
-post-process:
+postprocess:
   task1:
     executable: "python3"
     cpu:

@@ -1,6 +1,6 @@
 # FAIR temperature pipeline configuration
 
-pre-process:
+preprocess:
   task1:
     executable: "python3"
     cpu:
@@ -59,7 +59,7 @@ project:
       - "./modules/fair/temperature/fair_project_temperature.py"
       - "./modules/fair/temperature/my_FAIR_forward.py"
     copy_input_data:
-      pre-process:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_preprocess.pkl"
       fit:
@@ -71,7 +71,7 @@ project:
       - "%PIPELINE_ID%_gsat.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
-post-process:
+postprocess:
   task1:
     executable: "python3"
     cpu:
