@@ -340,15 +340,15 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
         for p in pipelines:
             print("Pipeline {}:".format(p.name))
             print("################################")
-            pprint(p.to_dict())
+            pprint(p.as_dict())
             for s in p.stages:
                 print("Stage {}:".format(s.name))
                 print("============================")
-                pprint(s.to_dict())
+                pprint(s.as_dict())
                 for t in s.tasks:
                     print("Task {}:".format(t.name))
                     print("----------------------------")
-                    pprint(t.to_dict())
+                    pprint(t.as_dict())
 
 
         # Exit
