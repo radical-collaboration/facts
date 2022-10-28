@@ -16,7 +16,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
     ecfg = expconfig['ecfg']
 
     # the extreme sea level and totaling workflows are hard coded in right now, 
-    # predating implementation of functionality to allow nesting of modules
+    # predating implementation of functionality to allow nesting of modules in experiment steps;
     # they should be converted over at some point
 
     # If the user want to run extremesealevel module, must perform a total and flag
@@ -25,7 +25,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
         no_total_flag = False
         do_extremesl_flag = True
 
-    # Setup and run the totaling workflow
+    # Set up the totaling workflow
     if not no_total_flag:
         ecfg['total-options']["options"].update(ecfg['global-options'])
         total_pipeline = facts.GenerateTotalPipeline(ecfg['total-options'], exp_dir)
