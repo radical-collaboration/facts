@@ -416,6 +416,104 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
 
     return(None)
 
+def ParsePipelineConfig(this_mod, modcfg, global_options={}):
+    # Load the pipeline configuration file for this module
+    pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
+    if not os.path.isfile(pcfg_file):
+        print('{} does not exist'.format(pcfg_file))
+        sys.exit(1)
+    with open(pcfg_file, 'r') as fp:
+        pcfg = yaml.safe_load(fp)
+
+    # Append the global options to this module
+    modcfg["options"].update(global_options)
+
+    # Generate a pipeline for this module
+    pipe_name = ".".join((this_mod, modcfg['module_set'], modcfg['module']))
+    p = {
+        "modlabel": this_mod,
+        "pcfg": pcfg,
+        "modcfg": modcfg,
+        "pipe_name": pipe_name
+    }
+    return p
+
+def ParseExperimentConfig(exp_dir):
+    # Initialize a list for experiment steps (each step being a set of pipelines)
+    experimentsteps = []
+
+    # Define the configuration file names
+    cfile = os.path.join(exp_dir, "config.yml")
+
+    # Does the experiment configuration file exist?
+    if not os.path.isfile(cfile):
+        print('{} does not exist'.format(cfile))
+        sys.exit(1)
+
+    # Load the resource and experiment configuration files
+    with open(cfile, 'r') as fp:
+        ecfg = yaml.safe_load(fp)
+
+    # Reserved configuration entries
+    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options"]
+
+    # Are there global options?
+    if "global-options" in ecfg.keys():
+        global_options = ecfg["global-options"]
+    else:
+        global_options = {}
+
+
+    # Initialize a list for pipelines
+    pipelines = []
+
+    # Loop through the user-requested modules
+    for this_mod in ecfg.keys():
+
+        # Skip this entry if it's not associated with SLR projection workflow
+        if this_mod in reserved_econfig_entries:
+            continue
+
+        # if this request is a collection of modules
+        if "multistep" in ecfg[this_mod].keys():
+
+            # if already have accumulated pipelines, load them as step and reset
+            if len(pipelines) > 0:
+                experimentsteps.append(pipelines)
+                currentstep += 1
+                pipelines = []
+
+            for this_mod_sub in ecfg[this_mod].keys():
+                parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
+                pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
+               
+        else:
+            parsed = ParsePipelineConfig(this_mod, ecfg[this_mod], global_options=global_options)
+            pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
+
+    experimentsteps.append(pipelines)
+    return experimentsteps
+
+def LoadResourceConfig(exp_dir):
+    # Define the configuration and resource file names
+    rfile = os.path.join(exp_dir, "resource.yml")
+  
+    # Does the resource file exist?
+    if not os.path.isfile(rfile):
+        print('{} does not exist'.format(rfile))
+        sys.exit(1)
+
+    # Load the resource and experiment configuration files
+    with open(rfile, 'r') as fp:
+        rcfg = yaml.safe_load(fp)
+
+    res_desc = {'resource': rcfg['resource-desc']['name'],
+        'walltime': rcfg['resource-desc']['walltime'],
+        'cpus': rcfg['resource-desc']['cpus'],
+        'queue': rcfg['resource-desc']['queue'],
+        'project': rcfg['resource-desc']['project']}
+
+    return res_desc
 
 if __name__ == "__main__":
 

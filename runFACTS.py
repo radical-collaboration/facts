@@ -10,31 +10,9 @@ import FACTS as facts
 from radical.entk import Pipeline, Stage, Task, AppManager
 
 def run_experiment(exp_dir, debug_mode, no_total_flag):
-
-    # Initialize a list for experiment steps (each step being a set of pipelines)
-    experimentsteps = []
-    currentstep = 0
-
-    # Define the configuration and resource file names
-    rfile = os.path.join(exp_dir, "resource.yml")
-    cfile = os.path.join(exp_dir, "config.yml")
-
-    # Does the experiment configuration file exist?
-    if not os.path.isfile(cfile):
-        print('{} does not exist'.format(cfile))
-        sys.exit(1)
-
-    # Does the resource file exist?
-    if not os.path.isfile(rfile):
-        print('{} does not exist'.format(rfile))
-        sys.exit(1)
-
-    # Load the resource and experiment configuration files
-    with open(rfile, 'r') as fp:
-        rcfg = yaml.safe_load(fp)
-    with open(cfile, 'r') as fp:
-        ecfg = yaml.safe_load(fp)
-
+ 
+    experimentsteps = facts.ParseExperimentConfig(exp_dir)
+    
     # Does the output directory exist? If not, make it
     try:
         os.makedirs(os.path.join(exp_dir, "output"))
@@ -42,53 +20,9 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
         if e.errno != errno.EEXIST:
             raise
 
-    # Reserved configuration entries
-    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options"]
-
-    # Are there global options?
-    if "global-options" in ecfg.keys():
-        global_options = ecfg["global-options"]
-    else:
-        global_options = {}
-
-
-    # Initialize a list for pipelines
-    pipelines = []
-
-    # Loop through the user-requested modules
-    for this_mod in ecfg.keys():
-
-        # Skip this entry if it's not associated with SLR projection workflow
-        if this_mod in reserved_econfig_entries:
-            continue
-
-        # if this request is a collection of modules
-        if "multistep" in ecfg[this_mod].keys():
-
-            # if already have accumulated pipelines, load them as step and reset
-            if len(pipelines) > 0:
-                experimentsteps.append(pipelines)
-                currentstep += 1
-                pipelines = []
-
-            for this_mod_sub in ecfg[this_mod].keys():
-                parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
-                pipelines.append(facts.GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
-               
-        else:
-            parsed = ParsePipelineConfig(this_mod, ecfg[this_mod], global_options=global_options)
-            pipelines.append(facts.GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
-
-    experimentsteps.append(pipelines)
-
     # Print out PST info if in debug mode
     if debug_mode:
-        for this_step in experimentsteps:
-            print('EXPERIMENT STEP: ', experimentsteps.index(this_step))
-            print('-----------------')
-            print_pipeline(this_step)
-            print('')
-
+        print_experimentsteps(experimentsteps)
         # Exit
         sys.exit(0)
 
@@ -96,12 +30,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
     amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'], autoterminate=False)
 
     # Apply the resource configuration provided by the user
-    res_desc = {'resource': rcfg['resource-desc']['name'],
-        'walltime': rcfg['resource-desc']['walltime'],
-        'cpus': rcfg['resource-desc']['cpus'],
-        'queue': rcfg['resource-desc']['queue'],
-        'project': rcfg['resource-desc']['project']}
-    amgr.resource_desc = res_desc
+    amgr.resource_desc = facts.LoadResourceConfig(exp_dir)
 
     # Load the localization list
     if(not os.path.isfile(os.path.join(exp_dir, "location.lst"))):
@@ -109,8 +38,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
             templocationfile.write("New_York\t12\t40.70\t-74.01")
     amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
 
-
-    for this_step in experimentsteps:
+    for pipelines in experimentsteps:
         print('EXPERIMENT STEP: ', experimentsteps.index(this_step))
  
         # Assign the list of pipelines to the workflow
@@ -159,30 +87,7 @@ def run_experiment(exp_dir, debug_mode, no_total_flag):
     # Close the application manager
     amgr.terminate()
 
-
     return(None)
-
-def ParsePipelineConfig(this_mod, modcfg, global_options={}):
-    # Load the pipeline configuration file for this module
-    pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
-    if not os.path.isfile(pcfg_file):
-        print('{} does not exist'.format(pcfg_file))
-        sys.exit(1)
-    with open(pcfg_file, 'r') as fp:
-        pcfg = yaml.safe_load(fp)
-
-    # Append the global options to this module
-    modcfg["options"].update(global_options)
-
-    # Generate a pipeline for this module
-    pipe_name = ".".join((this_mod, modcfg['module_set'], modcfg['module']))
-    p = {
-        "modlabel": this_mod,
-        "pcfg": pcfg,
-        "modcfg": modcfg,
-        "pipe_name": pipe_name
-    }
-    return p
 
 
 def print_pipeline(pipelines):
@@ -200,6 +105,13 @@ def print_pipeline(pipelines):
                 print("----------------------------")
                 pprint(t.as_dict())
 
+def print_experimentsteps(experimentsteps):
+
+        for this_step in experimentsteps:
+            print('EXPERIMENT STEP: ', experimentsteps.index(this_step))
+            print('-----------------')
+            print_pipeline(this_step)
+            print('')
 
 
 if __name__ == "__main__":
