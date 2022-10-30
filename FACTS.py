@@ -85,8 +85,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     t.name=task_name
 
     # Pre exec let you load modules, set environment before executing the workload
-    if tcfg['pre_exec'] != "":
+    t.pre_exec = []
+    if "pre_exec" in tcfg.keys():
         t.pre_exec = [tcfg['pre_exec']]
+
+    # if their are python dependencies, add pip call to pre_exec
+    if "python_dependencies" in tcfg.keys():
+        t.pre_exec.append('pip install --upgrade pip; pip install ' + tcfg['python_dependencies'])
 
     # Executable to use for the task
     t.executable = tcfg['executable']
@@ -95,6 +100,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     # options list and upload file list if needed
     if "input_data_file" in tcfg['options']:
         tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
+
+    # If there's a data file to upload and extract, add it to upload and
+    # add the extraction command to pre-exec
+    if "upload_and_extract_input_data" in tcfg.keys():
+        for this_file in tcfg['upload_and_extract_input_data']:
+            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + '; rm ' + os.path.basename(this_file))
+            tcfg['upload_input_data'].append(this_file)
 
     # List of arguments for the executable
     # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
@@ -154,22 +166,6 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 
     # Return the task object
     return(t)
-
-def GenerateTotalPipeline(ecfg, exp_dir, stage_names = ["global","local"]):
-
-    pcfg_file = os.path.join(os.path.dirname(__file__), "modules", "total", "pipeline.yml")
-    if not os.path.isfile(pcfg_file):
-        print('{} does not exist'.format(pcfg_file))
-        sys.exit(1)
-    with open(pcfg_file, 'r') as fp:
-        pcfg = yaml.safe_load(fp)
-
-    p = GeneratePipeline(pcfg, ecfg, "TotalPipe", exp_dir, stage_names)
-
-    return(p)
-
-
-
 
 def match_options(wopts, eopts):
 

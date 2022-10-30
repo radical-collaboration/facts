@@ -9,7 +9,7 @@ from pprint import pprint
 import FACTS as facts
 from radical.entk import Pipeline, Stage, Task, AppManager
 
-def run_experiment(exp_dir, debug_mode, no_total_flag):
+def run_experiment(exp_dir, debug_mode):
  
     expconfig = facts.ParseExperimentConfig(exp_dir)
     experimentsteps = expconfig['experimentsteps']
@@ -84,7 +84,6 @@ if __name__ == "__main__":
 
     # Add arguments for the resource and experiment configuration files
     parser.add_argument('edir', help="Experiment Directory")
-    parser.add_argument('--no-total', help="Disable totaling of global and local sea-level projection wokflow", action="store_true")
     parser.add_argument('--debug', help="Enable debug mode", action="store_true")
 
     # Parse the arguments
@@ -96,7 +95,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Go ahead and try to run the experiment
-    run_experiment(args.edir, args.debug, args.no_total)
+    run_experiment(args.edir, args.debug)
 
 
     #sys.exit(0)
