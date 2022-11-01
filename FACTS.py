@@ -183,13 +183,9 @@ def match_options(wopts, eopts):
     # Return the matched options list
     return(opt_list)
 
-
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Load the pipeline configuration file for this module
-    if 'module_set' in modcfg.keys():
-        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
-    else:
-        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module'], "pipeline.yml")
+    pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
         
     if not os.path.isfile(pcfg_file):
         print('{} does not exist'.format(pcfg_file))
@@ -220,9 +216,24 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     }
     return p
 
+def IdentifyOutputFiles(pcfg,pipe_name):
+    p={'global': [], 'local': []}
+
+    # Define magic variable dictionary
+    mvar_dict = {"PIPELINE_ID": pipe_name}
+    
+    for this_stage in pcfg:
+        for this_task in pcfg[this_stage]:
+            tcfg = pcfg[this_stage][this_task]
+            if "global_total_files" in tcfg.keys():
+                p['global'].extend(['$SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['global_total_files']])
+            if "local_total_files" in tcfg.keys():
+                p['local'].extend(['$SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
+    return p
+
 def ParseExperimentConfig(exp_dir):
     # Initialize a list for experiment steps (each step being a set of pipelines)
-    experimentsteps = []
+    experimentsteps = {}
 
     # Define the configuration file names
     cfile = os.path.join(exp_dir, "config.yml")
@@ -237,7 +248,7 @@ def ParseExperimentConfig(exp_dir):
         ecfg = yaml.safe_load(fp)
 
     # Reserved configuration entries
-    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options"]
+    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options", "multistep", "include_in_workflow"]
 
     # Are there global options?
     if "global-options" in ecfg.keys():
@@ -248,6 +259,7 @@ def ParseExperimentConfig(exp_dir):
 
     # Initialize a list for pipelines
     pipelines = []
+    workflows_to_include= {}
 
     # Loop through the user-requested modules
     for this_mod in ecfg.keys():
@@ -256,27 +268,25 @@ def ParseExperimentConfig(exp_dir):
         if this_mod in reserved_econfig_entries:
             continue
 
-        # if this request is a collection of modules
-        if "multistep" in ecfg[this_mod].keys():
+        for this_mod_sub in ecfg[this_mod].keys():
+            if (this_mod_sub in reserved_econfig_entries):
+                continue
 
-            # if already have accumulated pipelines, load them as step and reset
-            if len(pipelines) > 0:
-                experimentsteps.append(pipelines)
-                pipelines = []
-
-            for this_mod_sub in ecfg[this_mod].keys():
-                if (this_mod_sub in reserved_econfig_entries) or (this_mod_sub=="multistep"):
-                    continue
-
-                parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
-                pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
-               
-        else:
-            parsed = ParsePipelineConfig(this_mod, ecfg[this_mod], global_options=global_options)
+            parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
             pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
 
-    experimentsteps.append(pipelines)
-    return {'experimentsteps': experimentsteps, 'ecfg': ecfg}
+            if "include_in_workflow" in ecfg[this_mod][this_mod_sub].keys():
+                outfiles = IdentifyOutputFiles(parsed['pcfg'],parsed['pipe_name'])
+                for this_wf in ecfg[this_mod][this_mod_sub]['include_in_workflow']:
+                    if not this_wf in workflows_to_include.keys():
+                        workflows_to_include[this_wf]={'global':[],'local':[]}
+                    for this_scale in outfiles:
+                        workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
+    
+        experimentsteps[this_mod]=pipelines
+        pipelines=[]
+
+    return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include}
 
 def LoadResourceConfig(exp_dir):
     # Define the configuration and resource file names

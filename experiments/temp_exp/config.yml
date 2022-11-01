@@ -84,6 +84,9 @@ sealevel_step:
     verticallandmotion:
         module_set: "kopp14"
         module: "verticallandmotion"
+        include_in_workflow:
+            - "wf1"
+            - "wf2"
         options:
             nsamps: 20000
             seed: 121314
@@ -99,6 +102,7 @@ sealevel_step:
 totaling_step:
     multistep: true
     total:
+        module_set: "facts"
         module: "total"
         options:
             nsamps: 20000
