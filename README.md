@@ -19,4 +19,9 @@ conda install radical.entk -c conda-forge
 conda install numpy scipy netCDF4 pyyaml matplotlib h5py yq
 ```
 
-In addition, you will need to have all the associated module data tgz files in your [modules-data](modules-data) directory.
+In addition, you will need to have all the associated module data tgz files in your [modules-data](modules-data) directory. Note that some of these files are quite large (the total exceeds 50 GB), so if you have multiple users on a system employing FACTS, best practice would be to have a shared directory in which all these large files live and then use sym-links to link them to each user's modules-data directory, e.g.:
+
+```
+cd ~/facts/modules-data
+ln -s /projects/shared/facts/modules-data/*.tgz .
+```
