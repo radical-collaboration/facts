@@ -10,7 +10,7 @@ climate_step:
 sealevel_step:
     multistep: true
     #glaciers:
-    #    module_set: "ar5"
+    #    module_set: "ipccar5"
     #    module: "glaciers"
     #    options:
     #        scenario: "rcp85"
