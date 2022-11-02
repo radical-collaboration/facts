@@ -84,9 +84,11 @@ sealevel_step:
     verticallandmotion:
         module_set: "kopp14"
         module: "verticallandmotion"
+        include_in_workflow:
+            - "wf1"
+            - "wf2"
         options:
-            nsamps: 20000
-            seed: 121314
+            seed: 1234
 
     #oceandynamics:
     #    module_set: "kopp14"
@@ -99,20 +101,21 @@ sealevel_step:
 totaling_step:
     multistep: true
     total:
+        module_set: "facts"
         module: "total"
+        loop_over_workflows: true
+        loop_over_scales: true
         options:
-            nsamps: 20000
             seed: 1122
         stages:
-            - global
-            - local
+            - workflow
 
 esl_step:
     multistep: true
     extremesealevel:
+        loop_over_workflows: true
         module_set: "extremesealevel"
         module: "pointsoverthreshold"
         options:
             target_years: 2050,2100
-            nsamps: 20000
             seed: 3344
