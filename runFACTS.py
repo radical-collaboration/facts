@@ -4,7 +4,7 @@ import argparse
 import errno
 from pprint import pprint
 import FACTS as facts
-from radical.entk import Pipeline, Stage, Task
+from radical.entk import AppManager
 
 
 def run_experiment(exp_dir, debug_mode):
