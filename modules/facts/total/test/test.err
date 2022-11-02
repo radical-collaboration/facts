@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "total_workflow.py", line 132, in <module>
+    TotalSamplesInWorkflows(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.chunksize)
+NameError: name 'TotalSamplesInWorkflows' is not defined

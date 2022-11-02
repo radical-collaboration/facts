@@ -226,9 +226,9 @@ def IdentifyOutputFiles(pcfg,pipe_name):
         for this_task in pcfg[this_stage]:
             tcfg = pcfg[this_stage][this_task]
             if "global_total_files" in tcfg.keys():
-                p['global'].extend(['$SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['global_total_files']])
+                p['global'].extend(['global/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['global_total_files']])
             if "local_total_files" in tcfg.keys():
-                p['local'].extend(['$SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
+                p['local'].extend(['local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
     return p
 
 def ParseExperimentConfig(exp_dir):
