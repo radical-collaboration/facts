@@ -1,5 +1,38 @@
 # Totaling pipeline configuration
 
+workflow:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    pre_exec: "pip install --upgrade pip; pip install numpy netCDF4 pyyaml"
+    script: "total_workflow.py"
+    arguments: 
+      - "--directory"
+      - "$RP_PILOT_STAGING/to_total"
+      - "--workflows"
+      - "--workflow"
+      - '%WORKFLOW_NAME%'
+      - "--scale"
+      - '%SCALE_NAME%'
+    options:
+      - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+      - "workflow"
+      - "scale"
+    upload_input_data:
+      - './modules/total/total_workflow.py'
+    totaled_files:
+      - "total.workflow.%WORKFLOW_NAME%.%SCALE_NAME%.nc"
+    download_output_data:
+      - "total.workflow.%WORKFLOW_NAME%.%SCALE_NAME%.nc"
+
 global:
   task1:
     executable: "python3"

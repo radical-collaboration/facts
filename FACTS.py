@@ -23,7 +23,7 @@ def mvar_replace_list(dict, list):
 
 
 # =====================================================================
-def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None):
+def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None, workflow_name="", scale_name=""):
 
     if not stage_names:
         stage_names = ["preprocess", "fit", "project", "postprocess"]
@@ -52,12 +52,12 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None):
         if this_stage in pcfg.keys():
 
             # Populate the pipeline with the stages
-            p.add_stages(GenerateStage(pcfg[this_stage], ecfg, p.name, this_stage))
+            p.add_stages(GenerateStage(pcfg[this_stage], ecfg, p.name, this_stage, workflow_name=workflow_name, scale_name=scale_name))
 
     return(p)
 
 
-def GenerateStage(scfg, ecfg, pipe_name, stage_name):
+def GenerateStage(scfg, ecfg, pipe_name, stage_name, workflow_name="", scale_name=""):
 
     # Initialize a stage object
     s = Stage()
@@ -69,19 +69,19 @@ def GenerateStage(scfg, ecfg, pipe_name, stage_name):
     for this_task in scfg.keys():
 
         # Populate the stage object with the tasks
-        s.add_tasks(GenerateTask(scfg[this_task], ecfg, pipe_name, stage_name, this_task))
+        s.add_tasks(GenerateTask(scfg[this_task], ecfg, pipe_name, stage_name, this_task, workflow_name=workflow_name, scale_name=scale_name))
 
     # Return the stage object
     return(s)
 
 
-def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
+def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="", scale_name=""):
 
     # Initialize a task object
     t = Task()
 
     # Define magic variable dictionary
-    mvar_dict = {"PIPELINE_ID": pipe_name}
+    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name}
 
     # Give this task object a name
     t.name = task_name
@@ -114,7 +114,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
     t.arguments = [tcfg['script']]
     if "arguments" in tcfg.keys():
-        t.arguments += [x for x in tcfg['arguments']]
+        t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
     t.arguments += match_options(tcfg['options'], ecfg['options'])
 
     # CPU requirements for this task
@@ -193,7 +193,6 @@ def match_options(wopts, eopts):
     # Return the matched options list
     return(opt_list)
 
-
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Load the pipeline configuration file for this module
 
@@ -233,9 +232,27 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     return p
 
 
+def IdentifyOutputFiles(pcfg,pipe_name):
+    p={'global': [], 'local': []}
+
+    # Define magic variable dictionary
+    mvar_dict = {"PIPELINE_ID": pipe_name}
+
+    for this_stage in pcfg:
+        for this_task in pcfg[this_stage]:
+            tcfg = pcfg[this_stage][this_task]
+            if "global_total_files" in tcfg.keys():
+                p['global'].extend(['global/{0}'.format(mvar_replace_dict(mvar_dict,x))
+                                   for x in tcfg['global_total_files']])
+            if "local_total_files" in tcfg.keys():
+                p['local'].extend(['local/{0}'.format(mvar_replace_dict(mvar_dict,x))
+                                  for x in tcfg['local_total_files']])
+    return p
+
+
 def ParseExperimentConfig(exp_dir):
     # Initialize a list for experiment steps (each step being a set of pipelines)
-    experimentsteps = []
+    experimentsteps = {}
 
     # Define the configuration file names
     cfile = os.path.join(exp_dir, "config.yml")
@@ -250,7 +267,7 @@ def ParseExperimentConfig(exp_dir):
         ecfg = yaml.safe_load(fp)
 
     # Reserved configuration entries
-    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options"]
+    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options", "multistep", "include_in_workflow"]
 
     # Are there global options?
     if "global-options" in ecfg.keys():
@@ -261,6 +278,7 @@ def ParseExperimentConfig(exp_dir):
 
     # Initialize a list for pipelines
     pipelines = []
+    workflows_to_include = {}
 
     # Loop through the user-requested modules
     for this_mod in ecfg.keys():
@@ -269,27 +287,44 @@ def ParseExperimentConfig(exp_dir):
         if this_mod in reserved_econfig_entries:
             continue
 
-        # if this request is a collection of modules
-        if "multistep" in ecfg[this_mod].keys():
+        for this_mod_sub in ecfg[this_mod].keys():
+            if (this_mod_sub in reserved_econfig_entries):
+                continue
 
-            # if already have accumulated pipelines, load them as step and reset
-            if len(pipelines) > 0:
-                experimentsteps.append(pipelines)
-                pipelines = []
+            parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
 
-            for this_mod_sub in ecfg[this_mod].keys():
-                if (this_mod_sub in reserved_econfig_entries) or (this_mod_sub == "multistep"):
-                    continue
-
-                parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
+            # loop over workflows/scales if requested
+            if "loop_over_workflows" in ecfg[this_mod][this_mod_sub].keys():
+                for this_workflow in workflows_to_include:
+                    if "loop_over_scales" in ecfg[this_mod][this_mod_sub].keys():
+                        for this_scale in workflows_to_include[this_workflow]:
+                            if len(workflows_to_include[this_workflow][this_scale]) > 0:
+                                pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow + "." + this_scale, exp_dir, workflow_name=this_workflow, scale_name=this_scale))
+                    else:
+                        pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow , exp_dir, workflow_name=this_workflow))
+            # specify workflow/scale if requested
+            elif "workflow" in ecfg[this_mod][this_mod_sub].keys():
+                this_workflow = ecfg[this_mod][this_mod_sub]['workflow']
+                if "scale" in ecfg[this_mod][this_mod_sub].keys():
+                    this_scale = ecfg[this_mod][this_mod_sub]['scale']
+                    pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow + "." + this_scale, exp_dir, workflow_name=this_workflow, scale_name=this_scale))
+                else:
+                    pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow, exp_dir, workflow_name=this_workflow))
+            else:
                 pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
 
-        else:
-            parsed = ParsePipelineConfig(this_mod, ecfg[this_mod], global_options=global_options)
-            pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
+            if "include_in_workflow" in ecfg[this_mod][this_mod_sub].keys():
+                outfiles = IdentifyOutputFiles(parsed['pcfg'], parsed['pipe_name'])
+                for this_wf in ecfg[this_mod][this_mod_sub]['include_in_workflow']:
+                    if not this_wf in workflows_to_include.keys():
+                        workflows_to_include[this_wf] = {'global': [], 'local': []}
+                    for this_scale in outfiles:
+                        workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
 
-    experimentsteps.append(pipelines)
-    return {'experimentsteps': experimentsteps, 'ecfg': ecfg}
+        experimentsteps[this_mod] = pipelines
+        pipelines = []
+
+    return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include}
 
 
 def LoadResourceConfig(exp_dir, rcfg_name):

@@ -1,128 +1,97 @@
 import numpy as np
 import os
-import fnmatch
 import re
 import time
 import argparse
 import shutil
-from netCDF4 import Dataset
+import yaml
+import xarray as xr
+import dask.array as da
 
 
-def sample_from_quantiles(qvals, q, nsamps, seed, missing_value=np.iinfo(np.int16).min):
-
-	if np.all(qvals==missing_value):
-		pool = np.full((nsamps), np.nan)
-	else:
-		np.random.seed(seed)
-		pool = np.interp(np.linspace(0,1,nsamps), q, qvals)
-		np.random.shuffle(pool)
-	return(pool)
-
-
-def total_global(directory, pyear_start, pyear_end, pyear_step, nsamps):
-
-	# Years of interest
-	years = np.arange(pyear_start, pyear_end+1, pyear_step)
+def TotalSamplesInDirectory(directory, pyear_start, pyear_end, pyear_step, chunksize):
 
 	# Output directory
 	outdir = os.path.dirname(__file__)
 
-	# Define a running total
-	totalsl = np.full((len(years), nsamps), 0.0)
-
 	# Define the output file
-	outfilename = "total-workflow_globalsl.nc"
+	outfilename = "total.workflow.nc"
 	outfile = os.path.join(outdir, outfilename)
 
 	# Get the list of input files
-	infiles = [file for file in os.listdir(directory) if file.endswith(".nc")]
+	infiles0 = [file for file in os.listdir(directory) if file.endswith(".nc")]
+	
+	# Append the input directory to the input file name
+	infiles = []
+	for infile in infiles0:
+		infiles.append(os.path.join(directory, infile))
 
-	# Loop through these files
-	for infile in infiles:
+	# Define the years of interest
+	targyears = xr.DataArray(np.arange(pyear_start, pyear_end+1, pyear_step), dims="years")
 
-		# Skip this file if it appears to be a total file already
-		if(re.search(r"^total", infile)):
-			print("Skipped a total file - {}".format(infile))
-			continue
-
-		# Append directory to input file name
-		infile = os.path.join(directory, infile)
-
-		# Open the netCDF file
-		nc = Dataset(infile, 'r')
-
-		# Get the global projection data
-		globalsl = nc.variables['samps'][:]
-		ncyears = nc.variables['year'][:]
-
-		# Find where the nc years match the requested years
-		(overlap_years, year_idx, ncyears_idx) = np.intersect1d(years, ncyears, return_indices=True)
-
-		# Add this to the running total
-		totalsl[year_idx,:] = totalsl[year_idx,:] + globalsl[ncyears_idx,:]
-
-		# Close the netCDF file
-		nc.close()
-
-	# Write the combined projections to a netcdf file
-	rootgrp = Dataset(outfile, "w", format="NETCDF4")
-
-	# Define Dimensions
-	year_dim = rootgrp.createDimension("years", len(years))
-	samp_dim = rootgrp.createDimension("samples", nsamps)
-
-	# Populate dimension variables
-	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
-
-	# Create a data variable
-	samps = rootgrp.createVariable("samps", "i2", ("years", "samples"), zlib=True, complevel=4)
-	#samps.scale_factor = 0.1
-
-	# Assign attributes
-	rootgrp.description = "Total SLR for workflow"
-	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: Post-processed total among available contributors: {}".format(", ".join(infiles))
-	samps.units = "mm"
-
-	# Put the data into the netcdf variables
-	year_var[:] = years
-	samp_var[:] = np.arange(0,nsamps)
-	samps[:,:] = totalsl
-
-	# Close the netcdf
-	rootgrp.close()
+	r=TotalSamples(infiles, outfile, targyears, chunksize)
 
 	# Put a copy of the total file back into the shared directory
 	shutil.copy2(outfile, directory)
 
-	return(0)
+	return(r)
 
 
+def TotalSampleInWorkflow(wfcfg, directory, targyears, workflow, scale, chunksize=50):
+		# Define the output file
+		outdir = os.path.dirname(__file__)
+		outfilename = "total.workflow." + workflow + "." + scale + ".nc"
+		outfile = os.path.join(outdir, outfilename)
 
-def total_local(directory, pyear_start, pyear_end, pyear_step, nsamps, seed):
+		# Get the list of input files
+		infiles = []
+		r=[]
+		for this_file in wfcfg[workflow][scale]:
+			infiles.append(os.path.join(directory,this_file))
+
+		if len(infiles)>0:
+			rout=TotalSamples(infiles, outfile, targyears, chunksize)
+			r.append(rout)
+
+			# Put a copy of the total file back into the shared directory
+			shutil.copy2(outfile, directory)
+		return(r)
+
+
+def TotalSamplesInWorkflows(directory, pyear_start, pyear_end, pyear_step, chunksize, workflow=[""], scale=[""]):
 
 	# Define the years of interest
-	years = np.arange(pyear_start, pyear_end+1, pyear_step)
+	targyears = xr.DataArray(np.arange(pyear_start, pyear_end+1, pyear_step), dims="years")
 
-	# Output directory
-	outdir = os.path.dirname(__file__)
+	# read yaml file
+	wfcfg_file = os.path.join(directory, "workflows.yml")
+	with open(wfcfg_file, 'r') as fp:
+		wfcfg = yaml.safe_load(fp)
 
-	# Define the output file
-	outfilename = "total-workflow_localsl.nc"
-	outfile = os.path.join(outdir, outfilename)
+	# loop through workflows and scopes
+	r=[]
+	for this_workflow in wfcfg:
+		for this_scale in wfcfg[this_workflow]:
+			if len(workflow[0])>0:
+				if this_workflow in workflow:
+					if len(scale[0])>0:
+						if this_scale in scale:
+							r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
+						else:
+							r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
+					else:
+						r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
+			else:
+				r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
 
-	# Get the list of input files
-	infiles = [file for file in os.listdir(directory) if file.endswith(".nc")]
+	return(r)
+
+def TotalSamples(infiles, outfile, targyears, chunksize):
 
 	# Is this the first file being parsed?
 	first_file = True
 
-	# Seed offset for each component to avoid spurious correlation
-	seed_offset = 1000
-
 	# Loop through these files
-	file_counter = 0
 	for infile in infiles:
 
 		# Skip this file if it appears to be a total file already
@@ -130,102 +99,38 @@ def total_local(directory, pyear_start, pyear_end, pyear_step, nsamps, seed):
 			print("Skipped a total file - {}".format(infile))
 			continue
 
-		# Increment the file counter
-		file_counter += 1
+		# Open this component file
+		with xr.open_dataset(infile, chunks={"locations":chunksize}) as nc:
 
-		# Full file path
-		infile = os.path.join(directory, infile)
+			# If this is the first successfully loaded file, initialize the total,
+			# otherwise, add to the total
+			if first_file:
+				total_sl = nc["sea_level_change"].sel(years=targyears)
+				site_lats = nc["lat"]
+				site_lons = nc["lon"]
+				site_ids = nc["locations"]
+				sample_val = nc["samples"]
+				first_file = False
+			else:
+				total_sl += nc["sea_level_change"].sel(years=targyears)
 
-		# Open the netCDF file
-		nc = Dataset(infile, 'r')
+	# Attributes for the total file
+	nc_attrs = {"description": "Total sea-level change for workflow",
+			"history": "Created " + time.ctime(time.time()),
+			"source": "FACTS: Post-processed total among available contributors: {}".format(",".join(infiles))}
 
-		# Get the years available from this file
-		ncyears = nc.variables['years'][:]
-
-		# Find where the nc years match the requested years
-		(overlap_years, year_idx, ncyears_idx) = np.intersect1d(years, ncyears, return_indices=True)
-
-		# Get the local projection data
-		localsl_quantiles = nc.variables['localSL_quantiles'][:,:,ncyears_idx]
-		localsl_quantiles = np.array(localsl_quantiles.filled(np.iinfo(np.int16).min))	# Added to handle components with masked values
-
-		if(first_file):
-			ids = nc.variables['id'][:]
-			lats = nc.variables['lat'][:]
-			lons = nc.variables['lon'][:]
-			quantiles = nc.variables['quantiles'][:]
-			years = years[year_idx]
-
-		# Close the netCDF file
-		nc.close()
-
-		# Produce the summed quantiles
-		this_seed = seed + (seed_offset * file_counter)
-		localsl_samples = np.apply_along_axis(sample_from_quantiles, axis=0, arr=localsl_quantiles, q=quantiles, nsamps=nsamps, seed=this_seed)
-		if(first_file):
-			total_samples = localsl_samples
-			first_file = False
-		else:
-			total_samples += localsl_samples
-		
-
-	# Calculate the quantiles of the summed up samples
-	total_quantiles = np.quantile(total_samples, quantiles, axis=0)
-
-	# Write the total to a netcdf file -------------------------------------
-	# Write the localized projections to a netcdf file
-	rootgrp = Dataset(outfile, "w", format="NETCDF4")
-
-	# Missing values
+	# Define the missing value for the netCDF files
 	nc_missing_value = np.iinfo(np.int16).min
 
-	# Define Dimensions
-	nsites = len(ids)
-	nyears = len(years)
-	nq = len(quantiles)
-	site_dim = rootgrp.createDimension("nsites", nsites)
-	year_dim = rootgrp.createDimension("years", nyears)
-	q_dim = rootgrp.createDimension("quantiles", nq)
+	# Write the total to an output file
+	total_out = xr.Dataset(data_vars={"sea_level_change": (("samples", "years", "locations"), total_sl.data, {"units":"mm", "missing_value":nc_missing_value}),
+							"lat": (("locations"), site_lats.data),
+							"lon": (("locations"), site_lons.data)},
+		coords={"years": targyears.data, "locations": site_ids.data, "samples": sample_val.data}, attrs=nc_attrs)
 
-	# Populate dimension variables
-	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
-	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
-	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
-	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
+	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
-	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	localslq.missing_value = nc_missing_value
-	#localslq.scale_factor = 0.1
-
-	# Assign attributes
-	rootgrp.description = "Total SLR for workflow"
-	rootgrp.history = "Created " + time.ctime(time.time()) + "; Seed Value {}".format(seed)
-	rootgrp.source = "FACTS: Post-processed total among available contributors: {}".format(",".join(infiles))
-	lat_var.units = "Degrees North"
-	lon_var.units = "Degrees East"
-	localslq.units = "mm"
-
-	# Apply the missing value mask to the totals
-	total_quantiles[np.isnan(total_quantiles)] = nc_missing_value
-
-	# Put the data into the netcdf variables
-	lat_var[:] = lats
-	lon_var[:] = lons
-	id_var[:] = ids
-	year_var[:] = years
-	q_var[:] = quantiles
-	localslq[:,:,:] = total_quantiles
-
-	# Close the netcdf
-	rootgrp.close()
-
-	# Put a copy of the total file back into the shared directory
-	shutil.copy2(outfile, directory)
-
-	return(0)
-
+	return(outfile)
 
 
 if __name__ == "__main__":
@@ -236,21 +141,22 @@ if __name__ == "__main__":
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--directory', help="Directory containing files to aggregate", required=True)
-	parser.add_argument('--local', help="Are the listed files local or global files?", action='store_true')
-	parser.add_argument('--nsamps', help="Number of samples produced in the individual contributors", default=20000, type=int)
-	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
+	parser.add_argument('--workflows', help="Use a workflows.yml file listing files to aggregate", action="store_true")
+	parser.add_argument('--workflow', help="Workflow to run", type=str, default="")
+	parser.add_argument('--scale', help="Scale to run", type=str, default="")
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
-	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
+	parser.add_argument('--chunksize', help="Number of locations per chunk", default=50, type=int)
 
 	# Parse the arguments
 	args = parser.parse_args()
 
-	# Are these global or local files
-	if(args.local):
-		total_local(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.nsamps, args.seed)
+	if args.workflows or (len(args.workflow)>0) or (len(args.scale)>0):
+		# Total up by workflow
+		TotalSamplesInWorkflows(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.chunksize, workflow=[args.workflow], scale=[args.scale])
 	else:
-		total_global(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.nsamps)
-
+		# Total up the workflow in the provided directory
+		TotalSamplesInDirectory(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.chunksize)
 
 	exit()

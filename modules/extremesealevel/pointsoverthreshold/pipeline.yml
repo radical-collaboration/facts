@@ -26,7 +26,7 @@ preprocess:
       - "./modules/extremesealevel/pointsoverthreshold/extremesealevel_preprocess_pointsoverthreshold.py"
       - "./modules/extremesealevel/pointsoverthreshold/data/extremesealevel_pointsoverthreshold_data.tgz"
     copy_shared_data:
-      - "$SHARED/totaled/total-workflow_localsl.nc"
+      - "$SHARED/totaled/total.workflow.%WORKFLOW_NAME%.localsl.nc"
 #    download_output_data:
 #      - "%PIPELINE_ID%_config_data.pkl"
 

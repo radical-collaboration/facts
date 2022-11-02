@@ -1,1 +1,0 @@
-../../../ssp/landwaterstorage/test/output/landwaterstorage-ssp-landwaterstorage-ssp585_globalsl.nc
