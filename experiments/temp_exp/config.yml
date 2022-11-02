@@ -116,7 +116,6 @@ esl_step:
         loop_over_workflows: true
         module_set: "extremesealevel"
         module: "pointsoverthreshold"
-        loop_over_workflows: true
         options:
             target_years: 2050,2100
             seed: 3344
