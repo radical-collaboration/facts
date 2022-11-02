@@ -10,8 +10,8 @@ from setuptools import setup, find_packages
 
 # ------------------------------------------------------------------------------
 # check python version. we need >= 2.7, <3.x
-if  sys.hexversion < 0x02070000 or sys.hexversion >= 0x03000000:
-    raise RuntimeError('%s requires Python 2.x (2.7 or higher)' % 'facts')
+if  sys.hexversion < 0x03060000:
+    raise RuntimeError('%s requires Python 3.x (3.6 or higher)' % 'facts')
 
 
 # ------------------------------------------------------------------------------
@@ -19,19 +19,19 @@ if  sys.hexversion < 0x02070000 or sys.hexversion >= 0x03000000:
 # This copies the contents like examples/ dir under sys.prefix/share/$name
 # It needs the MANIFEST.in entries to work.
 base = 'share/%s' % 'facts'
-df = [('%s/'                      		% base, ['FACTS.py']),
-     ('%s/modules/genmod/directsample'  	% base, glob.glob('modules/genmod/directsample/*')),
-     ('%s/modules/gilford/icesheets'     	% base, glob.glob('modules/gilford/icesheets/*')),
-     ('%s/modules/kopp14/glaciers'              % base, glob.glob('modules/kopp14/glaciers/*')),
-     ('%s/modules/kopp14/icesheets'             % base, glob.glob('modules/kopp14/icesheets/*')),
-     ('%s/modules/kopp14/landwaterstorage'      % base, glob.glob('modules/kopp14/landwaterstorage/*')),
+df = [('%s/'                                    % base, ['FACTS.py']),
+     ('%s/modules/genmod/directsample'          % base, glob.glob('modules/genmod/directsample/*')),
+     ('%s/modules/gilford/icesheets'            % base, glob.glob('modules/gilford/icesheets/*')),
+   # ('%s/modules/kopp14/glaciers'              % base, glob.glob('modules/kopp14/glaciers/*')),
+   # ('%s/modules/kopp14/icesheets'             % base, glob.glob('modules/kopp14/icesheets/*')),
+   # ('%s/modules/kopp14/landwaterstorage'      % base, glob.glob('modules/kopp14/landwaterstorage/*')),
      ('%s/modules/kopp14/lib'                   % base, glob.glob('modules/kopp14/lib/*')),
-     ('%s/modules/kopp14/oceandynamics'         % base, glob.glob('modules/kopp14/oceandynamics/*')),
-     ('%s/modules/kopp14/thermalexpansion'      % base, glob.glob('modules/kopp14/thermalexpansion/*')),
-     ('%s/modules/kopp14/verticallandmotion'    % base, glob.glob('modules/kopp14/verticallandmotion/*')),
+   # ('%s/modules/kopp14/oceandynamics'         % base, glob.glob('modules/kopp14/oceandynamics/*')),
+   # ('%s/modules/kopp14/thermalexpansion'      % base, glob.glob('modules/kopp14/thermalexpansion/*')),
+   # ('%s/modules/kopp14/verticallandmotion'    % base, glob.glob('modules/kopp14/verticallandmotion/*')),
      ('%s/modules/kopp14SROCC/icesheets'        % base, glob.glob('modules/kopp14SROCC/icesheets/*')),
-     ('%s/modules/ssp/landwaterstorage'         % base, glob.glob('modules/ssp/landwaterstorage/*')),
-     ('%s/other'                  		% base, glob.glob('other/*')),
+   # ('%s/modules/ssp/landwaterstorage'         % base, glob.glob('modules/ssp/landwaterstorage/*')),
+   # ('%s/other'                                % base, glob.glob('other/*')),
 ]
 
 
