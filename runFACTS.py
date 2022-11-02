@@ -1,19 +1,17 @@
 import sys
 import os
 import argparse
-import yaml
-import re
 import errno
-import time
 from pprint import pprint
 import FACTS as facts
-from radical.entk import Pipeline, Stage, Task, AppManager
+from radical.entk import Pipeline, Stage, Task
+
 
 def run_experiment(exp_dir, debug_mode):
- 
+
     expconfig = facts.ParseExperimentConfig(exp_dir)
     experimentsteps = expconfig['experimentsteps']
-    ecfg = expconfig['ecfg']
+    # ecfg = expconfig['ecfg']
 
     # Print out PST info if in debug mode
     if debug_mode:
@@ -35,7 +33,7 @@ def run_experiment(exp_dir, debug_mode):
     amgr.resource_desc = facts.LoadResourceConfig(exp_dir)
 
     # Load the localization list
-    if(not os.path.isfile(os.path.join(exp_dir, "location.lst"))):
+    if not os.path.isfile(os.path.join(exp_dir, "location.lst")):
         with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:
             templocationfile.write("New_York\t12\t40.70\t-74.01")
     amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
@@ -50,11 +48,9 @@ def run_experiment(exp_dir, debug_mode):
     # Close the application manager
     amgr.terminate()
 
-    return(None)
-
 
 def print_pipeline(pipelines):
-    
+
     for p in pipelines:
         print("Pipeline {}:".format(p.name))
         print("################################")
@@ -68,13 +64,14 @@ def print_pipeline(pipelines):
                 print("----------------------------")
                 pprint(t.as_dict())
 
+
 def print_experimentsteps(experimentsteps):
 
-        for this_step in experimentsteps:
-            print('EXPERIMENT STEP: ', experimentsteps.index(this_step))
-            print('-----------------')
-            print_pipeline(this_step)
-            print('')
+    for this_step in experimentsteps:
+        print('EXPERIMENT STEP: ', experimentsteps.index(this_step))
+        print('-----------------')
+        print_pipeline(this_step)
+        print('')
 
 
 if __name__ == "__main__":
@@ -96,6 +93,5 @@ if __name__ == "__main__":
 
     # Go ahead and try to run the experiment
     run_experiment(args.edir, args.debug)
-
 
     #sys.exit(0)

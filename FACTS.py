@@ -1,30 +1,32 @@
-import numpy as np
+
 import os
-import argparse
 import yaml
 import sys
 import re
-import errno
-import time
-from pprint import pprint
-from radical.entk import Pipeline, Stage, Task, AppManager
+from radical.entk import Pipeline, Stage, Task
+
 
 # Magic variable replacement functions ================================
 def mvar_replace_var(mvar, sub, string):
     mvar = "%{}%".format(mvar)
     return(re.sub(mvar, str(sub), string))
 
+
 def mvar_replace_dict(dict, string):
     for var in dict.keys():
         string = mvar_replace_var(var, dict[var], string)
     return(string)
 
+
 def mvar_replace_list(dict, list):
     return([mvar_replace_dict(dict, x) for x in list])
 
-# =====================================================================
 
-def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names = ["preprocess", "fit", "project", "postprocess"]):
+# =====================================================================
+def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None):
+
+    if not stage_names:
+        stage_names = ["preprocess", "fit", "project", "postprocess"]
 
     # Append the exp_dir to the ecfg dictionary to simplify things a bit
     ecfg['exp_dir'] = exp_dir
@@ -44,8 +46,8 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names = ["preprocess"
 
     # Loop through the necessary stages for this module
     if 'stages' in ecfg.keys():
-        stage_names=ecfg['stages']
-        
+        stage_names = ecfg['stages']
+
     for this_stage in stage_names:
         if this_stage in pcfg.keys():
 
@@ -61,7 +63,7 @@ def GenerateStage(scfg, ecfg, pipe_name, stage_name):
     s = Stage()
 
     # Provide a name for this stage
-    s.name=stage_name
+    s.name = stage_name
 
     # Loop through the tasks for this stage
     for this_task in scfg.keys():
@@ -82,7 +84,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     mvar_dict = {"PIPELINE_ID": pipe_name}
 
     # Give this task object a name
-    t.name=task_name
+    t.name = task_name
 
     # Pre exec let you load modules, set environment before executing the workload
     t.pre_exec = []
@@ -117,11 +119,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
 
     # CPU requirements for this task
     t.cpu_reqs = {
-                        'cpu_processes': tcfg['cpu']['processes'],
-                        'cpu_process_type': tcfg['cpu']['process-type'],
-                        'cpu_threads': tcfg['cpu']['threads-per-process'],
-                        'cpu_thread_type': tcfg['cpu']['thread-type'],
-                    }
+                     'cpu_processes': tcfg['cpu']['processes'],
+                     'cpu_process_type': tcfg['cpu']['process-type'],
+                     'cpu_threads': tcfg['cpu']['threads-per-process'],
+                     'cpu_thread_type': tcfg['cpu']['thread-type'],
+                 }
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
@@ -133,11 +135,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
         for copy_stage in tcfg['copy_input_data'].keys():
             for copy_task in tcfg['copy_input_data'][copy_stage].keys():
                 loc = "$Pipeline_{0}_Stage_{1}_Task_{2}".format(pipe_name, copy_stage, copy_task)
-                copy_list.extend(['{0}/{1}'.format(loc, mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_input_data'][copy_stage][copy_task]])
+                copy_list.extend(['{0}/{1}'.format(loc, mvar_replace_dict(mvar_dict, x))
+                                 for x in tcfg['copy_input_data'][copy_stage][copy_task]])
 
     # Copy data from the shared directory
     if "copy_shared_data" in tcfg.keys():
-        copy_list.extend(['{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['copy_shared_data']])
+        copy_list.extend(['{0}'.format(mvar_replace_dict(mvar_dict, x))
+                         for x in tcfg['copy_shared_data']])
 
     # Append the copy list (if any) to the task object
     t.copy_input_data = copy_list
@@ -145,27 +149,33 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     # Send the global and local files to the shared directory for totaling
     copy_output_list = []
     if "global_total_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['global_total_files']])
+        copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['global_total_files']])
 
     if "local_total_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['local_total_files']])
+        copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['local_total_files']])
 
     if "totaled_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict,x)) for x in tcfg['totaled_files']])
+        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['totaled_files']])
 
     # Set the download data for the task
     download_list = []
     outdir = os.path.join(ecfg['exp_dir'], "output")
     if "download_output_data" in tcfg.keys():
-        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict,x),outdir) for x in tcfg['download_output_data']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['download_output_data']])
 
     # Append the "total" lists to the copy output list
     t.copy_output_data = copy_output_list
+
     # Append the download list to this task
     t.download_output_data = download_list
 
     # Return the task object
     return(t)
+
 
 def match_options(wopts, eopts):
 
@@ -187,17 +197,19 @@ def match_options(wopts, eopts):
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Load the pipeline configuration file for this module
     if 'module_set' in modcfg.keys():
-        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module_set'], modcfg['module'], "pipeline.yml")
+        pcfg_file = os.path.join(os.path.dirname(__file__), "modules",
+                       modcfg['module_set'], modcfg['module'], "pipeline.yml")
     else:
-        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module'], "pipeline.yml")
-        
+        pcfg_file = os.path.join(os.path.dirname(__file__), "modules",
+                       modcfg['module'], "pipeline.yml")
+
     if not os.path.isfile(pcfg_file):
         print('{} does not exist'.format(pcfg_file))
         sys.exit(1)
     with open(pcfg_file, 'r') as fp:
         pcfg = yaml.safe_load(fp)
 
-    if not "options" in modcfg.keys():
+    if "options" not in modcfg.keys():
         modcfg["options"] = {}
 
     # Append the global options to this module
@@ -219,6 +231,7 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
         "pipe_name": pipe_name
     }
     return p
+
 
 def ParseExperimentConfig(exp_dir):
     # Initialize a list for experiment steps (each step being a set of pipelines)
@@ -265,12 +278,12 @@ def ParseExperimentConfig(exp_dir):
                 pipelines = []
 
             for this_mod_sub in ecfg[this_mod].keys():
-                if (this_mod_sub in reserved_econfig_entries) or (this_mod_sub=="multistep"):
+                if (this_mod_sub in reserved_econfig_entries) or (this_mod_sub == "multistep"):
                     continue
 
                 parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
                 pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
-               
+
         else:
             parsed = ParsePipelineConfig(this_mod, ecfg[this_mod], global_options=global_options)
             pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
@@ -278,10 +291,11 @@ def ParseExperimentConfig(exp_dir):
     experimentsteps.append(pipelines)
     return {'experimentsteps': experimentsteps, 'ecfg': ecfg}
 
+
 def LoadResourceConfig(exp_dir):
     # Define the configuration and resource file names
     rfile = os.path.join(exp_dir, "resource.yml")
-  
+
     # Does the resource file exist?
     if not os.path.isfile(rfile):
         print('{} does not exist'.format(rfile))
@@ -292,16 +306,16 @@ def LoadResourceConfig(exp_dir):
         rcfg = yaml.safe_load(fp)
 
     res_desc = {'resource': rcfg['resource-desc']['name'],
-        'walltime': rcfg['resource-desc']['walltime'],
-        'cpus': rcfg['resource-desc']['cpus'],
-        'queue': rcfg['resource-desc']['queue'],
-        'project': rcfg['resource-desc']['project']}
+                'walltime': rcfg['resource-desc']['walltime'],
+                'cpus': rcfg['resource-desc']['cpus'],
+                'queue': rcfg['resource-desc']['queue'],
+                'project': rcfg['resource-desc']['project']}
 
     return res_desc
 
+
 if __name__ == "__main__":
 
-    
     print("")
     print("FACTS.py is intended to be called as a library, not from the command line.")
     print("See runFACTS.py for an example.")
@@ -325,6 +339,5 @@ if __name__ == "__main__":
 
     # Go ahead and try to run the experiment
     # run_experiment(args.edir, args.debug, args.no_total)
-
 
     #sys.exit(0)
