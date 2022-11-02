@@ -1,9 +1,12 @@
+
 rabbitmq:
-  hostname: 'localhost'
-  port: 5672
+    hostname: "localhost"
+
+mongodb:
+    hostname: "localhost"
 
 resource-desc:
-  name: 'local.localhost'
+  resource: 'local.localhost'
   walltime: 30
   cpus: 2
   gpus: 0

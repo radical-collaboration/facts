@@ -1,12 +1,13 @@
 global-options:
     nsamps: 20000
+    rcfg-name: "localhost"
 
 climate_step:
     multistep: true
     temperature:
         module_set: "fair"
         module: "temperature"
-        
+
 sealevel_step:
     multistep: true
     #glaciers:
@@ -118,4 +119,6 @@ esl_step:
         module: "pointsoverthreshold"
         options:
             target_years: 2050,2100
+            nsamps: 20000
+            seed: 3344
             seed: 3344
