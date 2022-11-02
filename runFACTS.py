@@ -56,7 +56,8 @@ def run_experiment(exp_dir, debug_mode):
             templocationfile.write("New_York\t12\t40.70\t-74.01")
     amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
 
-    for pipelines in experimentsteps:
+    for step, pipelines in experimentsteps.items():
+
         # Assign the list of pipelines to the workflow
         amgr.workflow = pipelines
 
@@ -69,11 +70,11 @@ def run_experiment(exp_dir, debug_mode):
 
 def print_workflows(workflows):
 
-        for this_workflow in workflows:
-            print('WORKFLOW: ', this_workflow)
-            print('-----------------')
-            pprint(workflows[this_workflow])
-            print('')
+    for this_workflow in workflows:
+        print('WORKFLOW: ', this_workflow)
+        print('-----------------')
+        pprint(workflows[this_workflow])
+        print('')
 
 
 def print_pipeline(pipelines):
