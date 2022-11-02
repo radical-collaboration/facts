@@ -196,12 +196,12 @@ def match_options(wopts, eopts):
 
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Load the pipeline configuration file for this module
+
     if 'module_set' in modcfg.keys():
         pcfg_file = os.path.join(os.path.dirname(__file__), "modules",
                        modcfg['module_set'], modcfg['module'], "pipeline.yml")
     else:
-        pcfg_file = os.path.join(os.path.dirname(__file__), "modules",
-                       modcfg['module'], "pipeline.yml")
+        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module'], "pipeline.yml")
 
     if not os.path.isfile(pcfg_file):
         print('{} does not exist'.format(pcfg_file))
@@ -292,9 +292,15 @@ def ParseExperimentConfig(exp_dir):
     return {'experimentsteps': experimentsteps, 'ecfg': ecfg}
 
 
-def LoadResourceConfig(exp_dir):
+def LoadResourceConfig(exp_dir, rcfg_name):
+
+    if rcfg_name:
+        rcfg_fname = 'resource_%s.yml' % rcfg_name
+    else:
+        rcfg_fname = 'resource.yml'
+
     # Define the configuration and resource file names
-    rfile = os.path.join(exp_dir, "resource.yml")
+    rfile = os.path.join(exp_dir, rcfg_fname)
 
     # Does the resource file exist?
     if not os.path.isfile(rfile):
@@ -305,13 +311,7 @@ def LoadResourceConfig(exp_dir):
     with open(rfile, 'r') as fp:
         rcfg = yaml.safe_load(fp)
 
-    res_desc = {'resource': rcfg['resource-desc']['name'],
-                'walltime': rcfg['resource-desc']['walltime'],
-                'cpus': rcfg['resource-desc']['cpus'],
-                'queue': rcfg['resource-desc']['queue'],
-                'project': rcfg['resource-desc']['project']}
-
-    return res_desc
+    return rcfg
 
 
 if __name__ == "__main__":

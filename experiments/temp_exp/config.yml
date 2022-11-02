@@ -1,12 +1,13 @@
 global-options:
     nsamps: 20000
+    rcfg-name: "localhost"
 
 climate_step:
     multistep: true
     temperature:
         module_set: "fair"
         module: "temperature"
-        
+
 sealevel_step:
     multistep: true
     #glaciers:
@@ -99,6 +100,7 @@ sealevel_step:
 totaling_step:
     multistep: true
     total:
+        module_set: "facts"
         module: "total"
         options:
             nsamps: 20000

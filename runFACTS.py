@@ -4,7 +4,7 @@ import argparse
 import errno
 from pprint import pprint
 import FACTS as facts
-from radical.entk import Pipeline, Stage, Task
+from radical.entk import AppManager
 
 
 def run_experiment(exp_dir, debug_mode):
@@ -26,11 +26,18 @@ def run_experiment(exp_dir, debug_mode):
         if e.errno != errno.EEXIST:
             raise
 
-    # Initialize the EnTK App Manager
-    amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'], port=rcfg['rabbitmq']['port'], autoterminate=False)
-
     # Apply the resource configuration provided by the user
-    amgr.resource_desc = facts.LoadResourceConfig(exp_dir)
+    rcfg_name = expconfig['ecfg']['global-options'].get('rcfg-name')
+    rcfg = facts.LoadResourceConfig(exp_dir, rcfg_name)
+
+    # Initialize the EnTK App Manager
+    amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'],
+                      port=rcfg['rabbitmq'].get('port'),
+                      username=rcfg['rabbitmq'].get('username'),
+                      password=rcfg['rabbitmq'].get('password'),
+                      autoterminate=False)
+
+    amgr.resource_desc = rcfg['resource-desc']
 
     # Load the localization list
     if not os.path.isfile(os.path.join(exp_dir, "location.lst")):
