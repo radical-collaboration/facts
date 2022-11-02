@@ -24,7 +24,7 @@ def mvar_replace_list(dict, list):
 
 # =====================================================================
 
-def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names = ["preprocess", "fit", "project", "postprocess"]):
+def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names = ["preprocess", "fit", "project", "postprocess"], workflow_name="", scale_name=""):
 
     # Append the exp_dir to the ecfg dictionary to simplify things a bit
     ecfg['exp_dir'] = exp_dir
@@ -50,12 +50,12 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names = ["preprocess"
         if this_stage in pcfg.keys():
 
             # Populate the pipeline with the stages
-            p.add_stages(GenerateStage(pcfg[this_stage], ecfg, p.name, this_stage))
+            p.add_stages(GenerateStage(pcfg[this_stage], ecfg, p.name, this_stage, workflow_name=workflow_name, scale_name=scale_name))
 
     return(p)
 
 
-def GenerateStage(scfg, ecfg, pipe_name, stage_name):
+def GenerateStage(scfg, ecfg, pipe_name, stage_name, workflow_name="", scale_name=""):
 
     # Initialize a stage object
     s = Stage()
@@ -67,19 +67,19 @@ def GenerateStage(scfg, ecfg, pipe_name, stage_name):
     for this_task in scfg.keys():
 
         # Populate the stage object with the tasks
-        s.add_tasks(GenerateTask(scfg[this_task], ecfg, pipe_name, stage_name, this_task))
+        s.add_tasks(GenerateTask(scfg[this_task], ecfg, pipe_name, stage_name, this_task, workflow_name=workflow_name, scale_name=scale_name))
 
     # Return the stage object
     return(s)
 
 
-def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
+def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="", scale_name=""):
 
     # Initialize a task object
     t = Task()
 
     # Define magic variable dictionary
-    mvar_dict = {"PIPELINE_ID": pipe_name}
+    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name}
 
     # Give this task object a name
     t.name=task_name
@@ -112,7 +112,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name):
     # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
     t.arguments = [tcfg['script']]
     if "arguments" in tcfg.keys():
-        t.arguments += [x for x in tcfg['arguments']]
+        t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
     t.arguments += match_options(tcfg['options'], ecfg['options'])
 
     # CPU requirements for this task
@@ -273,7 +273,26 @@ def ParseExperimentConfig(exp_dir):
                 continue
 
             parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
-            pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
+
+            # loop over workflows/scales if requested
+            if "loop_over_workflows" in ecfg[this_mod][this_mod_sub].keys():
+                for this_workflow in workflows_to_include:
+                    if "loop_over_scales" in ecfg[this_mod][this_mod_sub].keys():
+                        for this_scale in workflows_to_include[this_workflow]:
+                            if len(workflows_to_include[this_workflow][this_scale]) > 0:
+                                pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow + "." + this_scale, exp_dir, workflow_name=this_workflow, scale_name=this_scale))
+                    else:
+                        pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow , exp_dir, workflow_name=this_workflow))
+            # specify workflow/scale if requested
+            elif "workflow" in ecfg[this_mod][this_mod_sub].keys():
+                this_workflow = ecfg[this_mod][this_mod_sub]['workflow']
+                if "scale" in ecfg[this_mod][this_mod_sub].keys():
+                    this_scale = ecfg[this_mod][this_mod_sub]['scale']
+                    pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow + "." + this_scale, exp_dir, workflow_name=this_workflow, scale_name=this_scale))
+                else:
+                    pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow, exp_dir, workflow_name=this_workflow))
+            else:
+                pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
 
             if "include_in_workflow" in ecfg[this_mod][this_mod_sub].keys():
                 outfiles = IdentifyOutputFiles(parsed['pcfg'],parsed['pipe_name'])
