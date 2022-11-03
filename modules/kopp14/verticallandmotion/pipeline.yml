@@ -14,7 +14,8 @@ preprocess:
       - "pipeline_id"
     upload_input_data:
       - "./modules/kopp14/verticallandmotion/kopp14_preprocess_verticallandmotion.py"
-      - "./modules/kopp14/verticallandmotion/data/bkgdrate.tsv"
+    upload_and_extract_input_data:
+      - "./modules/kopp14/verticallandmotion/data/kopp14_verticallandmotion_preprocess.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

@@ -194,7 +194,7 @@ def match_options(wopts, eopts):
     # Return the matched options list
     return(opt_list)
 
-def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
+def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod='', experiment_name =None):
     # Load the pipeline configuration file for this module
 
     if 'module_set' in modcfg.keys():
@@ -223,6 +223,9 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
         pipe_name = ".".join((relabel_mod, modcfg['module_set'], modcfg['module']))
     else:
         pipe_name = ".".join((relabel_mod, modcfg['module']))
+    
+    if experiment_name:
+        pipe_name = ".".join((experiment_name,pipe_name))
 
     p = {
         "modlabel": this_mod,
@@ -292,7 +295,8 @@ def ParseExperimentConfig(exp_dir):
             if (this_mod_sub in reserved_econfig_entries):
                 continue
 
-            parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
+            parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options, experiment_name=os.path.basename(os.path.dirname(exp_dir)))
+            print(parsed['pipe_name'])
 
             # loop over workflows/scales if requested
             if "loop_over_workflows" in ecfg[this_mod][this_mod_sub].keys():
