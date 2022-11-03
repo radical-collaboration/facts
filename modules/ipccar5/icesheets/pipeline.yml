@@ -16,10 +16,10 @@ preprocess:
       - "baseyear"
       - "tlm_data"
     upload_input_data:
-      - "./modules/ar5/icesheets/ar5_preprocess_icesheets.py"
-      - "./modules/ar5/icesheets/Import2lmData.py"
-      - "./modules/ar5/icesheets/data/ar5_icesheets_preprocess_data.tgz"
-      - "./modules/ar5/icesheets/data/ipccar6_climate_data.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_preprocess_icesheets.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/Import2lmData.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ar5_icesheets_preprocess_data.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_climate_data.tgz"
 
 
 
@@ -36,7 +36,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/icesheets/ar5_fit_icesheets.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_fit_icesheets.py'
     copy_input_data:
       preprocess:
         task1:
@@ -63,8 +63,8 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/icesheets/ar5_project_icesheets.py'
-      - './modules/ar5/icesheets/data/ar5_icesheets_project_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_project_icesheets.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ar5_icesheets_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -96,11 +96,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/icesheets/ar5_postprocess_icesheets.py'
-      - './modules/ar5/icesheets/read_locationfile.py'
-      - './modules/ar5/icesheets/AssignFP.py'
-      - './modules/ar5/icesheets/ReadFingerprint.py'
-      - './modules/ar5/icesheets/data/ar5_icesheets_postprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_postprocess_icesheets.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ar5_icesheets_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

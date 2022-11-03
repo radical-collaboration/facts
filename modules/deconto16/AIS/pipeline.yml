@@ -15,8 +15,8 @@ preprocess:
       - "pipeline_id"
       - "baseyear"
     upload_input_data:
-      - "./modules/dp16/icesheet/dp16_preprocess_icesheet.py"
-      - "./modules/dp16/icesheet/data/dp16_icesheet_preprocess_data.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/dp16_preprocess_icesheet.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/dp16_icesheet_preprocess_data.tgz"
 
 
 fit:
@@ -32,7 +32,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/dp16/icesheet/dp16_fit_icesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/dp16_fit_icesheet.py'
 
 
 project:
@@ -54,7 +54,7 @@ project:
       - "replace"
       - "pipeline_id"
     upload_input_data:
-      - './modules/dp16/icesheet/dp16_project_icesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/dp16_project_icesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -81,11 +81,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/dp16/icesheet/dp16_postprocess_icesheet.py'
-      - './modules/dp16/icesheet/read_locationfile.py'
-      - './modules/dp16/icesheet/AssignFP.py'
-      - './modules/dp16/icesheet/ReadFingerprint.py'
-      - './modules/dp16/icesheet/data/dp16_icesheet_postprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/dp16_postprocess_icesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/dp16_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

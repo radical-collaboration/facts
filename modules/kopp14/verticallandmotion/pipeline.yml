@@ -13,9 +13,9 @@ preprocess:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/kopp14/verticallandmotion/kopp14_preprocess_verticallandmotion.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_preprocess_verticallandmotion.py"
     upload_and_extract_input_data:
-      - "./modules/kopp14/verticallandmotion/data/kopp14_verticallandmotion_preprocess.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/kopp14_verticallandmotion_preprocess.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
@@ -33,7 +33,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/verticallandmotion/kopp14_fit_verticallandmotion.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_fit_verticallandmotion.py'
 
 
 project:
@@ -49,7 +49,7 @@ project:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/verticallandmotion/kopp14_project_verticallandmotion.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_project_verticallandmotion.py'
 
 postprocess:
   task1:
@@ -71,8 +71,8 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/verticallandmotion/kopp14_postprocess_verticallandmotion.py'
-      - './modules/kopp14/verticallandmotion/read_locationfile.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_postprocess_verticallandmotion.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

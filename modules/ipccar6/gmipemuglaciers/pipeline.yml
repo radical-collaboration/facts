@@ -16,14 +16,14 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/gmipemuglaciers/ipccar6_preprocess_gmipemuglaciers.py"
-      - "./modules/ipccar6/gmipemuglaciers/import_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/filter_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/FindFAIRInputSamples.py"
-      - "./modules/ipccar6/gmipemuglaciers/import_temp_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/filter_temp_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/Smooth.py"
-      - "./modules/ipccar6/gmipemuglaciers/data/ipccar6_gmipemuglaciers_preprocess_data.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_preprocess_gmipemuglaciers.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/import_data.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/filter_data.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/FindFAIRInputSamples.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/import_temp_data.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/filter_temp_data.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/Smooth.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_gmipemuglaciers_preprocess_data.tgz"
 
 
 fit:
@@ -39,7 +39,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/gmipemuglaciers/ipccar6_fit_gmipemuglaciers.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_fit_gmipemuglaciers.py"
 
 
 project:
@@ -58,7 +58,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/gmipemuglaciers/ipccar6_project_gmipemuglaciers.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_project_gmipemuglaciers.py"
     copy_input_data:
       preprocess:
         task1:
@@ -88,11 +88,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/gmipemuglaciers/ipccar6_postprocess_gmipemuglaciers.py'
-      - './modules/ipccar6/gmipemuglaciers/read_locationfile.py'
-      - './modules/ipccar6/gmipemuglaciers/AssignFP.py'
-      - './modules/ipccar6/gmipemuglaciers/ReadFingerprint.py'
-      - './modules/ipccar6/gmipemuglaciers/data/ipccar6_gmipemuglaciers_postprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_postprocess_gmipemuglaciers.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_gmipemuglaciers_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

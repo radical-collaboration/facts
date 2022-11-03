@@ -14,7 +14,7 @@ preprocess:
       - "input_data_file"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/genmod/directsample/genmod_preprocess_directsample.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/genmod_preprocess_directsample.py"
 #    download_output_data:
 #      - 
 #      - "%PIPELINE_ID%_data.pkl"
@@ -35,7 +35,7 @@ project:
       - "replace"
       - "seed"
     upload_input_data:
-      - './modules/genmod/directsample/genmod_project_directsample.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/genmod_project_directsample.py'
     copy_input_data:
       preprocess:
         task1:

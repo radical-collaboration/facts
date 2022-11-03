@@ -19,9 +19,9 @@ preprocess:
       - "pipeline_id"
       - "tlm_data"
     upload_input_data:
-      - "./modules/ipccar6/larmipicesheet/ipccar6_preprocess_larmipicesheet.py"
-      - "./modules/ipccar6/larmipicesheet/Import2lmData.py"
-      - "./modules/ipccar6/larmipicesheet/data/ipccar6_larmipicesheet_preprocess_data.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_preprocess_larmipicesheet.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/Import2lmData.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_larmipicesheet_preprocess_data.tgz"
 
 
 fit:
@@ -37,7 +37,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/larmipicesheet/ipccar6_fit_larmipicesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_fit_larmipicesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -60,7 +60,7 @@ project:
       - "replace"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/larmipicesheet/ipccar6_project_larmipicesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_project_larmipicesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -94,11 +94,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/larmipicesheet/ipccar6_postprocess_larmipicesheet.py'
-      - './modules/ipccar6/larmipicesheet/read_locationfile.py'
-      - './modules/ipccar6/larmipicesheet/AssignFP.py'
-      - './modules/ipccar6/larmipicesheet/ReadFingerprint.py'
-      - './modules/ipccar6/larmipicesheet/data/ipccar6_larmipicesheet_postprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_postprocess_larmipicesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_larmipicesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

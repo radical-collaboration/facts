@@ -81,7 +81,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t = Task()
 
     # Define magic variable dictionary
-    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name}
+    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name, "MODULE_SET_NAME": ecfg['module_set'], "MODULE_NAME": ecfg['module']}
 
     # Give this task object a name
     t.name = task_name
@@ -107,7 +107,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     # If there's a data file to upload and extract, add it to upload and
     # add the extraction command to pre-exec
     if "upload_and_extract_input_data" in tcfg.keys():
-        for this_file in tcfg['upload_and_extract_input_data']:
+        for this_file0 in tcfg['upload_and_extract_input_data']:
+            this_file = mvar_replace_dict(mvar_dict,this_file0)
             t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + '; rm ' + os.path.basename(this_file))
             tcfg['upload_input_data'].append(this_file)
 
@@ -128,7 +129,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
-    t.upload_input_data = tcfg['upload_input_data']
+    t.upload_input_data = []
+    t.upload_input_data.extend([mvar_replace_dict(mvar_dict, x) for x in tcfg['upload_input_data']])
 
     # Copy data from other stages/tasks for use in this task
     copy_list = []
@@ -231,7 +233,9 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod='', exp
         "modlabel": this_mod,
         "pcfg": pcfg,
         "modcfg": modcfg,
-        "pipe_name": pipe_name
+        "pipe_name": pipe_name,
+        "module_set": modcfg['module_set'],
+        "module": modcfg['module']
     }
     return p
 

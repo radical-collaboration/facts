@@ -13,8 +13,8 @@ preprocess:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/bambericesheet/ipccar6_preprocess_bambericesheet.py"
-      - "./modules/ipccar6/bambericesheet/data/ipccar6_bambericesheet_preprocess_data.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_preprocess_bambericesheet.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_bambericesheet_preprocess_data.tgz"
 
 
 fit:
@@ -30,7 +30,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/bambericesheet/ipccar6_fit_bambericesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_fit_bambericesheet.py'
 
 
 project:
@@ -49,7 +49,7 @@ project:
       - "replace"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/bambericesheet/ipccar6_project_bambericesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_project_bambericesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -80,11 +80,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/bambericesheet/ipccar6_postprocess_bambericesheet.py'
-      - './modules/ipccar6/bambericesheet/read_locationfile.py'
-      - './modules/ipccar6/bambericesheet/AssignFP.py'
-      - './modules/ipccar6/bambericesheet/ReadFingerprint.py'
-      - './modules/ipccar6/bambericesheet/data/ipccar6_bambericesheet_postprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ipccar6_postprocess_bambericesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_bambericesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

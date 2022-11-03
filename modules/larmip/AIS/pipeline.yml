@@ -14,9 +14,9 @@ preprocess:
       - "scenario"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/larmip/icesheet/icesheet_preprocess_icesheet.py"
-      - "./modules/larmip/icesheet/Import2lmData.py"
-      - "./modules/larmip/icesheet/data/ipccar6_climate_data.tgz"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/icesheet_preprocess_icesheet.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/Import2lmData.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_climate_data.tgz"
 
 
 fit:
@@ -32,8 +32,8 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/larmip/icesheet/icesheet_fit_icesheet.py'
-      - './modules/larmip/icesheet/data/icesheet_icesheet_preprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/icesheet_fit_icesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/icesheet_icesheet_preprocess_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -60,7 +60,7 @@ project:
       - "models"
       - "pipeline_id"
     upload_input_data:
-      - './modules/larmip/icesheet/larmip_project_icesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_project_icesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -94,11 +94,11 @@ postprocess:
       - "chunksize"
       - "pipeline_id"
     upload_input_data:
-      - './modules/larmip/icesheet/larmip_postprocess_icesheet.py'
-      - './modules/larmip/icesheet/read_locationfile.py'
-      - './modules/larmip/icesheet/AssignFP.py'
-      - './modules/larmip/icesheet/ReadFingerprint.py'
-      - './modules/larmip/icesheet/data/icesheet_icesheet_postprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_postprocess_icesheet.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/icesheet_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
