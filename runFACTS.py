@@ -41,7 +41,12 @@ def run_experiment(exp_dir, debug_mode):
     rcfg_name = expconfig['ecfg']['global-options'].get('rcfg-name')
     rcfg = facts.LoadResourceConfig(exp_dir, rcfg_name)
 
-    # Initialize the EnTK App Manager
+    # Initialize RCT and the EnTK App Manager
+    dburl = 'mongodb://%s:%s@%s:%d/facts' % (rcfg['mongodb']['username'], 
+                                             rcfg['mongodb']['password'], 
+                                             rcfg['mongodb']['hostname'], 
+                                             rcfg['mongodb']['port'])
+    os.environ['RADICAL_PILOT_DBURL'] = dburl
     amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'],
                       port=rcfg['rabbitmq'].get('port'),
                       username=rcfg['rabbitmq'].get('username'),
