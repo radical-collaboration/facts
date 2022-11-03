@@ -34,7 +34,7 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "ipccar6_fit_ismipemuicesheet.py"
     options:
       - "pipeline_id"
@@ -50,7 +50,7 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "ipccar6_project_ismipemuicesheet.py"
     options:
       - "nsamps"

@@ -39,7 +39,7 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "extremesealevel_fit_pointsoverthreshold.py"
     options:
       - "station_data_file"
@@ -61,7 +61,7 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "extremesealevel_project_pointsoverthreshold.py"
     options:
       - "esl_fit_file"

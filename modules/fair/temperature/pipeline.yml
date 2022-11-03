@@ -79,7 +79,7 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "fair_postprocess_temperature.py"
     options:
       - "pipeline_id"

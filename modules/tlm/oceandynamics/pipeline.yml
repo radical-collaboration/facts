@@ -49,7 +49,7 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "tlm_fit_oceandynamics.py"
     options:
       - "pipeline_id"
@@ -70,7 +70,7 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "tlm_project_oceandynamics.py"
     options:
       - "pipeline_id"
@@ -99,7 +99,7 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "tlm_postprocess_oceandynamics.py"
     options:
       - "nsamps"

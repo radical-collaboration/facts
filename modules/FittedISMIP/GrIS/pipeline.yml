@@ -47,7 +47,7 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: ""
+    pre_exec: []
     script: "FittedISMIP_project_icesheet.py"
     options:
       - "nsamps"

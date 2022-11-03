@@ -89,7 +89,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     # Pre exec let you load modules, set environment before executing the workload
     t.pre_exec = []
     if "pre_exec" in tcfg.keys():
-        t.pre_exec = [tcfg['pre_exec']]
+        if len(tcfg['pre_exec']) > 0:
+            t.pre_exec = [tcfg['pre_exec']]
 
     # if their are python dependencies, add pip call to pre_exec
     if "python_dependencies" in tcfg.keys():
