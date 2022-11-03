@@ -14,6 +14,7 @@ def run_experiment(exp_dir, debug_mode):
     experimentsteps = expconfig['experimentsteps']
     # ecfg = expconfig['ecfg']
     workflows = expconfig['workflows']
+    climate_data_files = expconfig['climate_data_files']
 
     # write workflows to yml file
     f = open(os.path.join(exp_dir, 'workflows.yml'), 'w')
@@ -26,6 +27,10 @@ def run_experiment(exp_dir, debug_mode):
     if debug_mode:
         print_experimentsteps(experimentsteps)
         print('')
+        print('CLIMATE DATA')
+        print('------------')
+        pprint(climate_data_files)
+        print('')   
         print_workflows(workflows)
         # Exit
         sys.exit(0)

@@ -8,8 +8,11 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ipccar6_climate_data.tgz; rm ipccar6_climate_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask"
     script: "FittedISMIP_preprocess_icesheet.py"
+    arguments: 
+      - "--climate_data_file"
+      - "%CLIMATE_DATA_FILE%"
     options:
       - "scenario"
       - "pipeline_id"
@@ -19,6 +22,7 @@ preprocess:
       - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/Import2lmData.py"
       - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/import_temp_data.py"
       - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/filter_temp_data.py"
+    upload_and_extract_input_data:
       - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_climate_data.tgz"
 
 

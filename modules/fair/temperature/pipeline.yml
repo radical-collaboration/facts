@@ -65,10 +65,16 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
+    climate_output_data:
+      - "%PIPELINE_ID%_oceantemp.nc"
+      - "%PIPELINE_ID%_ohc.nc"
+      - "%PIPELINE_ID%_gsat.nc"
+      - "%PIPELINE_ID%_climate.nc"
     download_output_data:
       - "%PIPELINE_ID%_oceantemp.nc"
       - "%PIPELINE_ID%_ohc.nc"
       - "%PIPELINE_ID%_gsat.nc"
+      - "%PIPELINE_ID%_climate.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:

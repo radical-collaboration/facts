@@ -151,6 +151,14 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # Send the global and local files to the shared directory for totaling
     copy_output_list = []
+    if "copy_output_data" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['copy_output_data']])
+
+    if "climate_output_data" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['climate_output_data']])
+
     if "global_total_files" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['global_total_files']])
@@ -257,6 +265,25 @@ def IdentifyOutputFiles(pcfg,pipe_name):
                                   for x in tcfg['local_total_files']])
     return p
 
+def IdentifyClimateOutputFiles(pcfg,pipe_name):
+    p={'climate': [], 'gsat': [], 'ohc': []}
+
+    # Define magic variable dictionary
+    mvar_dict = {"PIPELINE_ID": pipe_name}
+
+    for this_stage in pcfg:
+        for this_task in pcfg[this_stage]:
+            tcfg = pcfg[this_stage][this_task]
+            if "climate_output_data" in tcfg.keys():
+                for this_file in tcfg['climate_output_data']:
+                    if this_file.__contains__('climate.nc'):
+                        p['climate'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+                    elif this_file.__contains__('gsat.nc'):
+                        p['gsat'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+                    elif this_file.__contains__('ohc.nc'):
+                        p['ohc'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+
+    return p
 
 def ParseExperimentConfig(exp_dir):
     # Initialize a list for experiment steps (each step being a set of pipelines)
@@ -330,10 +357,14 @@ def ParseExperimentConfig(exp_dir):
                     for this_scale in outfiles:
                         workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
 
+            if "generates_climate_output" in ecfg[this_mod][this_mod_sub].keys():
+                climate_data_files = IdentifyClimateOutputFiles(parsed['pcfg'], parsed['pipe_name'])
+
+
         experimentsteps[this_mod] = pipelines
         pipelines = []
 
-    return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include}
+    return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include, 'climate_data_files': climate_data_files}
 
 
 def LoadResourceConfig(exp_dir, rcfg_name):

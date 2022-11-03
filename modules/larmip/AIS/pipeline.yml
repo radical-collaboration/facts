@@ -8,14 +8,14 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ipccar6_climate_data.tgz; rm ipccar6_climate_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib h5py"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
     script: "larmip_preprocess_icesheet.py"
     options:
       - "scenario"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/icesheet_preprocess_icesheet.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/Import2lmData.py"
+      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_preprocess_icesheet.py"
+    upload_and_extract_input_data:
       - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_climate_data.tgz"
 
 
@@ -27,13 +27,13 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf larmip_icesheet_fit_data.tgz; rm larmip_icesheet_fit_data.tgz"
     script: "larmip_fit_icesheet.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/icesheet_fit_icesheet.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/icesheet_icesheet_preprocess_data.tgz'
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_fit_icesheet.py'
+    upload_and_extract_input_data:
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/larmip_icesheet_fit_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -48,7 +48,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf larmip_icesheet_project_data.tgz; rm larmip_icesheet_project_data.tgz"
     script: "larmip_project_icesheet.py"
     options:
       - "nsamps"
@@ -61,6 +60,8 @@ project:
       - "pipeline_id"
     upload_input_data:
       - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_project_icesheet.py'
+    upload_and_extract_input_data:
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/larmip_icesheet_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -87,7 +88,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf larmip_icesheet_postprocess_data.tgz; rm larmip_icesheet_postprocess_data.tgz"
     script: "larmip_postprocess_icesheet.py"
     options:
       - "locationfile"
@@ -98,7 +98,8 @@ postprocess:
       - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
       - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
       - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/icesheet_icesheet_postprocess_data.tgz'
+    upload_and_extract_input_data:
+      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/larmip_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
