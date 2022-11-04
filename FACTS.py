@@ -239,8 +239,8 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
         pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module'], "pipeline.yml")
 
     if not os.path.isfile(pcfg_file):
-        print('{} does not exist'.format(pcfg_file))
-        sys.exit(1)
+        raise(FileNotFoundError(pcfg_file + " does not exist"))
+
     with open(pcfg_file, 'r') as fp:
         pcfg = yaml.safe_load(fp)
 
@@ -418,8 +418,7 @@ def LoadResourceConfig(exp_dir, rcfg_name):
 
     # Does the resource file exist?
     if not os.path.isfile(rfile):
-        print('{} does not exist'.format(rfile))
-        sys.exit(1)
+        raise(FileNotFoundError(rfile + '{} does not exist'))
 
     # Load the resource and experiment configuration files
     with open(rfile, 'r') as fp:
