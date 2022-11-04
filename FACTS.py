@@ -81,9 +81,10 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t = Task()
 
     # Define magic variable dictionary
+    module_path = os.path.join('.', 'modules', ecfg['module_set'],ecfg['module'] )
     mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name,
         "MODULE_SET_NAME": ecfg['module_set'], "MODULE_NAME": ecfg['module'],
-        "MODULE_PATH": os.path.join('.', 'modules', ecfg['module_set'],ecfg['module'] ),
+        "MODULE_PATH": module_path,
         "CLIMATE_DATA_FILE": ecfg['options']['climate_data_file'], "CLIMATE_GSAT_FILE": ecfg['options']['climate_gsat_data_file'],
         "CLIMATE_OHC_FILE": ecfg['options']['climate_ohc_data_file'],
         "EXP_DIR": ecfg['exp_dir'], "EXPERIMENT_NAME": ecfg['options']['experiment_name']}
@@ -111,7 +112,10 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     if "input_data_file" in ecfg.keys():
         for x in ecfg['input_data_file']:
-            tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", x))
+            fp = os.path.join(ecfg['exp_dir'], "input", x)
+            if not os.path.exists(fp):
+                raise(FileNotFoundError("input_data_file: " + fp + " not found!"))
+            tcfg['upload_input_data'].append(fp)
 
 
     # If there's a data file to upload and extract, add it to upload and
@@ -119,7 +123,9 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     if "upload_and_extract_input_data" in tcfg.keys():
         for this_file0 in tcfg['upload_and_extract_input_data']:
             this_file = mvar_replace_dict(mvar_dict,this_file0)
-            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + '; rm ' + os.path.basename(this_file))
+            if not os.path.exists(this_file):
+                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
+            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
             tcfg['upload_input_data'].append(this_file)
 
     # List of arguments for the executable
@@ -144,7 +150,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
     t.upload_input_data = []
-    t.upload_input_data.extend([mvar_replace_dict(mvar_dict, x) for x in tcfg['upload_input_data']])
+    for this_file0 in tcfg['upload_input_data']:
+        this_file = mvar_replace_dict(mvar_dict,this_file0)
+        if not os.path.exists(this_file):
+            raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
+        t.upload_input_data.append(this_file)
 
     # Copy data from other stages/tasks for use in this task
     copy_list = []
