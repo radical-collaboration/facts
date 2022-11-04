@@ -90,6 +90,7 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_thermalexp_fit.pkl"
+          - "%PIPELINE_ID%_tlmfit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
     download_output_data:
