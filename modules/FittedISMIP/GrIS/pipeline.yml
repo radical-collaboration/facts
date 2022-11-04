@@ -10,10 +10,8 @@ preprocess:
       thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array]"
     script: "FittedISMIP_preprocess_icesheet.py"
-    arguments: 
-      - "--climate_data_file"
-      - "%CLIMATE_DATA_FILE%"
     options:
+      - "climate_data_file"
       - "scenario"
       - "pipeline_id"
       - "tlm_data"

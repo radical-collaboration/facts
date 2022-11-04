@@ -21,6 +21,8 @@ sealevel_step:
     GrIS1f:
         module_set: "FittedISMIP"
         module: "GrIS"
+        options:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:
             - "wf1f"
     verticallandmotion:

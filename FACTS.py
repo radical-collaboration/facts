@@ -127,7 +127,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t.arguments = [tcfg['script']]
     if "arguments" in tcfg.keys():
         t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
-    t.arguments += match_options(tcfg['options'], ecfg['options'])
+    for x in match_options(tcfg['options'], ecfg['options']):
+        if type(x)==str:
+            t.arguments.append(mvar_replace_dict(mvar_dict,x))
+        else:
+            t.arguments.append(x)
 
     # CPU requirements for this task
     t.cpu_reqs = {
