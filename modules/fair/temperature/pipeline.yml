@@ -15,9 +15,9 @@ preprocess:
       - "rcmip_file"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/fair/temperature/fair_preprocess_temperature.py"
+      - "%MODULE_PATH%/fair_preprocess_temperature.py"
     upload_and_extract_input_data:
-      - "./modules/fair/temperature/data/fair_temperature_preprocess_data.tgz"
+      - "%MODULE_PATH%/data/fair_temperature_preprocess_data.tgz"
 
 
 fit:
@@ -33,9 +33,9 @@ fit:
       - "param_file"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/fair/temperature/fair_fit_temperature.py"
+      - "%MODULE_PATH%/fair_fit_temperature.py"
     upload_and_extract_input_data:
-      - "./modules/fair/temperature/data/fair_temperature_fit_data.tgz"
+      - "%MODULE_PATH%/data/fair_temperature_fit_data.tgz"
 
 
 
@@ -56,8 +56,8 @@ project:
       - "cyear_end"
       - "smooth_win"
     upload_input_data:
-      - "./modules/fair/temperature/fair_project_temperature.py"
-      - "./modules/fair/temperature/my_FAIR_forward.py"
+      - "%MODULE_PATH%/fair_project_temperature.py"
+      - "%MODULE_PATH%/my_FAIR_forward.py"
     copy_input_data:
       preprocess:
         task1:
@@ -65,10 +65,16 @@ project:
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
+    climate_output_data:
+      - "%PIPELINE_ID%_oceantemp.nc"
+      - "%PIPELINE_ID%_ohc.nc"
+      - "%PIPELINE_ID%_gsat.nc"
+      - "%PIPELINE_ID%_climate.nc"
     download_output_data:
       - "%PIPELINE_ID%_oceantemp.nc"
       - "%PIPELINE_ID%_ohc.nc"
       - "%PIPELINE_ID%_gsat.nc"
+      - "%PIPELINE_ID%_climate.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
@@ -84,4 +90,4 @@ postprocess:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/fair/temperature/fair_postprocess_temperature.py'
+      - '%MODULE_PATH%/fair_postprocess_temperature.py'

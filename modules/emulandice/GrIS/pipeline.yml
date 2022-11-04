@@ -15,7 +15,7 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/emulandice/GrIS/emulandice_preprocess_GrIS.py"
+      - "%MODULE_PATH%/emulandice_preprocess_GrIS.py"
 
 
 fit:
@@ -31,7 +31,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/emulandice/GrIS/emulandice_fit_GrIS.py"
+      - "%MODULE_PATH%/emulandice_fit_GrIS.py"
 
 
 
@@ -48,8 +48,8 @@ project:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/emulandice/GrIS/emulandice_project_GrIS.py"
-      - "./modules/emulandice/GrIS/data/emulandice_GrIS_project_data.tgz"
+      - "%MODULE_PATH%/emulandice_project_GrIS.py"
+      - "%MODULE_PATH%/data/emulandice_GrIS_project_data.tgz"
     copy_input_data:
       preprocess:
         task1:
@@ -79,11 +79,11 @@ postprocess:
       - "chunksize"
       - "pipeline_id"
     upload_input_data:
-      - './modules/emulandice/GrIS/emulandice_postprocess_GrIS.py'
-      - './modules/emulandice/GrIS/read_locationfile.py'
-      - './modules/emulandice/GrIS/AssignFP.py'
-      - './modules/emulandice/GrIS/ReadFingerprint.py'
-      - './modules/emulandice/GrIS/data/emulandice_GrIS_postprocess_data.tgz'
+      - '%MODULE_PATH%/emulandice_postprocess_GrIS.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/emulandice_GrIS_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

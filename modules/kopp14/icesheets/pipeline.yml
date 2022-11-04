@@ -15,7 +15,7 @@ preprocess:
       - "srocc"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/kopp14/icesheets/kopp14_preprocess_icesheets.py"
+      - "%MODULE_PATH%/kopp14_preprocess_icesheets.py"
 
 
 fit:
@@ -31,9 +31,9 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/icesheets/kopp14_fit_icesheets.py'
-      - './modules/kopp14/icesheets/CalcISDists.py'
-      - './modules/kopp14/icesheets/FitLNDistQuants.py'
+      - '%MODULE_PATH%/kopp14_fit_icesheets.py'
+      - '%MODULE_PATH%/CalcISDists.py'
+      - '%MODULE_PATH%/FitLNDistQuants.py'
     copy_input_data:
       preprocess:
         task1:
@@ -59,10 +59,10 @@ project:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/icesheets/kopp14_project_icesheets.py'
-      - './modules/kopp14/icesheets/SampleISDists.py'
-      - './modules/kopp14/icesheets/cholcov.py'
-      - './modules/kopp14/icesheets/ProjectGSL.py'
+      - '%MODULE_PATH%/kopp14_project_icesheets.py'
+      - '%MODULE_PATH%/SampleISDists.py'
+      - '%MODULE_PATH%/cholcov.py'
+      - '%MODULE_PATH%/ProjectGSL.py'
     copy_input_data:
       preprocess:
         task1:
@@ -95,12 +95,12 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/icesheets/kopp14_postprocess_icesheets.py'
-      - './modules/kopp14/icesheets/SampleISDists.py'
-      - './modules/kopp14/icesheets/read_locationfile.py'
-      - './modules/kopp14/icesheets/AssignFP.py'
-      - './modules/kopp14/icesheets/ReadFingerprint.py'
-      - './modules/kopp14/icesheets/data/kopp14_icesheets_data.tgz'
+      - '%MODULE_PATH%/kopp14_postprocess_icesheets.py'
+      - '%MODULE_PATH%/SampleISDists.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/kopp14_icesheets_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

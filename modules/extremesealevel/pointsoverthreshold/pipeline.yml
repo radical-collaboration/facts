@@ -23,8 +23,8 @@ preprocess:
       - "gesla_dir"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/extremesealevel/pointsoverthreshold/extremesealevel_preprocess_pointsoverthreshold.py"
-      - "./modules/extremesealevel/pointsoverthreshold/data/extremesealevel_pointsoverthreshold_data.tgz"
+      - "%MODULE_PATH%/extremesealevel_preprocess_pointsoverthreshold.py"
+      - "%MODULE_PATH%/data/extremesealevel_pointsoverthreshold_data.tgz"
     copy_shared_data:
       - "$SHARED/totaled/total.workflow.%WORKFLOW_NAME%.localsl.nc"
 #    download_output_data:
@@ -45,8 +45,8 @@ fit:
       - "station_data_file"
       - "pipeline_id"
     upload_input_data:
-      - './modules/extremesealevel/pointsoverthreshold/extremesealevel_fit_pointsoverthreshold.py'
-      - './modules/extremesealevel/pointsoverthreshold/gplike.py'
+      - '%MODULE_PATH%/extremesealevel_fit_pointsoverthreshold.py'
+      - '%MODULE_PATH%/gplike.py'
     copy_input_data:
       preprocess:
         task1:
@@ -74,8 +74,8 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/extremesealevel/pointsoverthreshold/extremesealevel_project_pointsoverthreshold.py'
-      - './modules/extremesealevel/pointsoverthreshold/sample_from_quantiles.py'
+      - '%MODULE_PATH%/extremesealevel_project_pointsoverthreshold.py'
+      - '%MODULE_PATH%/sample_from_quantiles.py'
     copy_input_data:
       preprocess:
         task1:

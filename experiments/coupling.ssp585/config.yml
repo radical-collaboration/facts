@@ -1,0 +1,42 @@
+global-options:
+    nsamps: 50
+    rcfg-name: "amarel"
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2100
+    pyear_step: 10
+    baseyear: 2005
+
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        generates_climate_output: true
+        input_data_file:
+              - "emissions.csv"
+        options:
+              rcmip_file: emissions.csv
+
+sealevel_step:
+    GrIS1f:
+        module_set: "FittedISMIP"
+        module: "GrIS"
+        options:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+    verticallandmotion:
+        module_set: "kopp14"
+        module: "verticallandmotion"
+        include_in_workflow:
+            - "wf1"
+
+totaling_step:
+    multistep: true
+    total:
+        module_set: "facts"
+        module: "total"
+        loop_over_workflows: true
+        loop_over_scales: true
+        stages:
+            - workflow

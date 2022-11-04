@@ -1,42 +1,4 @@
-Traceback (most recent call last):
-  File "total_workflow.py", line 8, in <module>
-    import xarray as xr
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/xarray/__init__.py", line 1, in <module>
-    from . import testing, tutorial, ufuncs
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/xarray/testing.py", line 8, in <module>
-    from xarray.core import duck_array_ops, formatting, utils
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/xarray/core/duck_array_ops.py", line 24, in <module>
-    from . import dask_array_compat, dask_array_ops, dtypes, npcompat, nputils
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/xarray/core/dask_array_compat.py", line 5, in <module>
-    from .pycompat import dask_version
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/xarray/core/pycompat.py", line 55, in <module>
-    dsk = DuckArrayModule("dask")
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/xarray/core/pycompat.py", line 21, in __init__
-    duck_array_module = import_module(mod)
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/dask/__init__.py", line 3, in <module>
-    from .base import annotate, compute, is_dask_collection, optimize, persist, visualize
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/dask/base.py", line 18, in <module>
-    from tlz import curry, groupby, identity, merge
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/tlz/__init__.py", line 9, in <module>
-    from . import _build_tlz
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/tlz/_build_tlz.py", line 103, in <module>
-    tlz_loader.exec_module(sys.modules['tlz'])
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/tlz/_build_tlz.py", line 54, in exec_module
-    toolz_mods = self._load_toolz(module.__name__)
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/site-packages/tlz/_build_tlz.py", line 19, in _load_toolz
-    rv['cytoolz'] = import_module(module_name)
-  File "/home/rk509/.conda/envs/conda-entk/lib/python3.7/importlib/__init__.py", line 127, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
-  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
-  File "<frozen importlib._bootstrap>", line 963, in _find_and_load_unlocked
-  File "<frozen importlib._bootstrap>", line 906, in _find_spec
-  File "<frozen importlib._bootstrap_external>", line 1280, in find_spec
-  File "<frozen importlib._bootstrap_external>", line 1252, in _get_spec
-  File "<frozen importlib._bootstrap_external>", line 1383, in find_spec
-  File "<frozen importlib._bootstrap_external>", line 95, in _path_isfile
-  File "<frozen importlib._bootstrap_external>", line 87, in _path_is_mode_type
-  File "<frozen importlib._bootstrap_external>", line 81, in _path_stat
-KeyboardInterrupt
+  File "/scratch/rk509/test.1667525579/total_workflow.py", line 61
+    def TotalSamplesInWorkflows(directory, wfcfg_file="workflows.yml", pyear_start, pyear_end, pyear_step, chunksize, workflow=[""], scale=[""]):
+                                                                                    ^
+SyntaxError: non-default argument follows default argument

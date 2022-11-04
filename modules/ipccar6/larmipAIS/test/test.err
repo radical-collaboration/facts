@@ -1,2 +1,4 @@
-ipccar6_postprocess_larmipicesheet.py:56: RuntimeWarning: invalid value encountered in add
-  waissamps = waissamps + pensamps
+Traceback (most recent call last):
+  File "/scratch/rk509/test.1667492489/ipccar6_postprocess_larmipicesheet.py", line 11, in <module>
+    import xarray as xr
+ModuleNotFoundError: No module named 'xarray'

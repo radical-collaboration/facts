@@ -23,18 +23,18 @@ preprocess:
       - "no_drift_corr"
       - "no_correlation"
     upload_input_data:
-      - "./modules/tlm/oceandynamics/tlm_preprocess_oceandynamics.py"
-      - "./modules/tlm/oceandynamics/Import2lmData.py"
-      - "./modules/tlm/oceandynamics/IncludeCMIP6Models.py"
-      - "./modules/tlm/oceandynamics/IncludeCMIP6ZOSModels.py"
-      - "./modules/tlm/oceandynamics/SmoothZOSTOGA.py"
-      - "./modules/tlm/oceandynamics/Smooth.py"
-      - "./modules/tlm/oceandynamics/read_locationfile.py"
-      - "./modules/tlm/oceandynamics/read_CSIRO.py"
-      - "./modules/tlm/oceandynamics/readMarzeion.py"
-      - "./modules/tlm/oceandynamics/data/tlm_oceandynamics_preprocess.tgz"
-      - "./modules/tlm/oceandynamics/data/tlm_oceandynamics_cmip6.tgz"
-      - "./modules/tlm/oceandynamics/data/ipccar6_climate_data.tgz"
+      - "%MODULE_PATH%/tlm_preprocess_oceandynamics.py"
+      - "%MODULE_PATH%/Import2lmData.py"
+      - "%MODULE_PATH%/IncludeCMIP6Models.py"
+      - "%MODULE_PATH%/IncludeCMIP6ZOSModels.py"
+      - "%MODULE_PATH%/SmoothZOSTOGA.py"
+      - "%MODULE_PATH%/Smooth.py"
+      - "%MODULE_PATH%/read_locationfile.py"
+      - "%MODULE_PATH%/read_CSIRO.py"
+      - "%MODULE_PATH%/readMarzeion.py"
+      - "%MODULE_PATH%/data/tlm_oceandynamics_preprocess.tgz"
+      - "%MODULE_PATH%/data/tlm_oceandynamics_cmip6.tgz"
+      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
 #    download_output_data:
@@ -54,7 +54,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/tlm/oceandynamics/tlm_fit_oceandynamics.py'
+      - '%MODULE_PATH%/tlm_fit_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:
@@ -78,7 +78,7 @@ project:
       - "seed"
       - "tlm"
     upload_input_data:
-      - './modules/tlm/oceandynamics/tlm_project_oceandynamics.py'
+      - '%MODULE_PATH%/tlm_project_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:
@@ -108,7 +108,7 @@ postprocess:
       - "chunksize"
       - "keep_temp"
     upload_input_data:
-      - './modules/tlm/oceandynamics/tlm_postprocess_oceandynamics.py'
+      - '%MODULE_PATH%/tlm_postprocess_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:

@@ -81,7 +81,12 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t = Task()
 
     # Define magic variable dictionary
-    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name}
+    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name,
+        "MODULE_SET_NAME": ecfg['module_set'], "MODULE_NAME": ecfg['module'],
+        "MODULE_PATH": os.path.join('.', 'modules', ecfg['module_set'],ecfg['module'] ),
+        "CLIMATE_DATA_FILE": ecfg['options']['climate_data_file'], "CLIMATE_GSAT_FILE": ecfg['options']['climate_gsat_data_file'],
+        "CLIMATE_OHC_FILE": ecfg['options']['climate_ohc_data_file'],
+        "EXP_DIR": ecfg['exp_dir'], "EXPERIMENT_NAME": ecfg['options']['experiment_name']}
 
     # Give this task object a name
     t.name = task_name
@@ -101,13 +106,19 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # If there's a user-defined input file (likely for genmod modules), add it to the
     # options list and upload file list if needed
-    if "input_data_file" in tcfg['options']:
-        tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
+    # if "input_data_file" in tcfg['options']:
+    #     tcfg['upload_input_data'].extend(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
+
+    if "input_data_file" in ecfg.keys():
+        for x in ecfg['input_data_file']:
+            tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", x))
+
 
     # If there's a data file to upload and extract, add it to upload and
     # add the extraction command to pre-exec
     if "upload_and_extract_input_data" in tcfg.keys():
-        for this_file in tcfg['upload_and_extract_input_data']:
+        for this_file0 in tcfg['upload_and_extract_input_data']:
+            this_file = mvar_replace_dict(mvar_dict,this_file0)
             t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + '; rm ' + os.path.basename(this_file))
             tcfg['upload_input_data'].append(this_file)
 
@@ -116,7 +127,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t.arguments = [tcfg['script']]
     if "arguments" in tcfg.keys():
         t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
-    t.arguments += match_options(tcfg['options'], ecfg['options'])
+    for x in match_options(tcfg['options'], ecfg['options']):
+        if type(x)==str:
+            t.arguments.append(mvar_replace_dict(mvar_dict,x))
+        else:
+            t.arguments.append(x)
 
     # CPU requirements for this task
     t.cpu_reqs = {
@@ -128,7 +143,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
-    t.upload_input_data = tcfg['upload_input_data']
+    t.upload_input_data = []
+    t.upload_input_data.extend([mvar_replace_dict(mvar_dict, x) for x in tcfg['upload_input_data']])
 
     # Copy data from other stages/tasks for use in this task
     copy_list = []
@@ -149,6 +165,14 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # Send the global and local files to the shared directory for totaling
     copy_output_list = []
+    if "copy_output_data" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['copy_output_data']])
+
+    if "climate_output_data" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['climate_output_data']])
+
     if "global_total_files" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['global_total_files']])
@@ -195,6 +219,7 @@ def match_options(wopts, eopts):
     return(opt_list)
 
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
+
     # Load the pipeline configuration file for this module
 
     if 'module_set' in modcfg.keys():
@@ -223,12 +248,17 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
         pipe_name = ".".join((relabel_mod, modcfg['module_set'], modcfg['module']))
     else:
         pipe_name = ".".join((relabel_mod, modcfg['module']))
+    
+    if "experiment_name" in global_options.keys():
+        pipe_name = ".".join((global_options['experiment_name'],pipe_name))
 
     p = {
         "modlabel": this_mod,
         "pcfg": pcfg,
         "modcfg": modcfg,
-        "pipe_name": pipe_name
+        "pipe_name": pipe_name,
+        "module_set": modcfg['module_set'],
+        "module": modcfg['module']
     }
     return p
 
@@ -250,6 +280,25 @@ def IdentifyOutputFiles(pcfg,pipe_name):
                                   for x in tcfg['local_total_files']])
     return p
 
+def IdentifyClimateOutputFiles(pcfg,pipe_name):
+    p={'climate': [], 'gsat': [], 'ohc': []}
+
+    # Define magic variable dictionary
+    mvar_dict = {"PIPELINE_ID": pipe_name}
+
+    for this_stage in pcfg:
+        for this_task in pcfg[this_stage]:
+            tcfg = pcfg[this_stage][this_task]
+            if "climate_output_data" in tcfg.keys():
+                for this_file in tcfg['climate_output_data']:
+                    if this_file.__contains__('climate.nc'):
+                        p['climate'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+                    elif this_file.__contains__('gsat.nc'):
+                        p['gsat'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+                    elif this_file.__contains__('ohc.nc'):
+                        p['ohc'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+
+    return p
 
 def ParseExperimentConfig(exp_dir):
     # Initialize a list for experiment steps (each step being a set of pipelines)
@@ -277,6 +326,15 @@ def ParseExperimentConfig(exp_dir):
         global_options = {}
         ecfg["global-options"] = global_options
 
+    # set up global options for climate data files
+    climate_data_files = []
+    global_options['climate_data_file'] = None
+    global_options['climate_gsat_data_file'] = None
+    global_options['climate_ohc_data_file'] = None
+    
+    # add experiment name to global options
+    global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+
     # Initialize a list for pipelines
     pipelines = []
     workflows_to_include = {}
@@ -293,6 +351,7 @@ def ParseExperimentConfig(exp_dir):
                 continue
 
             parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
+            print(parsed['pipe_name'])
 
             # loop over workflows/scales if requested
             if "loop_over_workflows" in ecfg[this_mod][this_mod_sub].keys():
@@ -322,10 +381,17 @@ def ParseExperimentConfig(exp_dir):
                     for this_scale in outfiles:
                         workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
 
+            if "generates_climate_output" in ecfg[this_mod][this_mod_sub].keys():
+                climate_data_files = IdentifyClimateOutputFiles(parsed['pcfg'], parsed['pipe_name'])
+                global_options['climate_data_file'] = climate_data_files['climate']
+                global_options['climate_gsat_data_file'] = climate_data_files['gsat']
+                global_options['climate_ohc_data_file'] = climate_data_files['ohc']
+
+
         experimentsteps[this_mod] = pipelines
         pipelines = []
 
-    return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include}
+    return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include, 'climate_data_files': climate_data_files}
 
 
 def LoadResourceConfig(exp_dir, rcfg_name):
