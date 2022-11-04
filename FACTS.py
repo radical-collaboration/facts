@@ -113,7 +113,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     if "input_data_file" in ecfg.keys():
         for x in ecfg['input_data_file']:
             fp = os.path.join(ecfg['exp_dir'], "input", x)
-            if not os.path.exists(fp):
+            if not os.path.isfile(fp):
                 raise(FileNotFoundError("input_data_file: " + fp + " not found!"))
             tcfg['upload_input_data'].append(fp)
 
@@ -123,7 +123,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     if "upload_and_extract_input_data" in tcfg.keys():
         for this_file0 in tcfg['upload_and_extract_input_data']:
             this_file = mvar_replace_dict(mvar_dict,this_file0)
-            if not os.path.exists(this_file):
+            if not os.path.isfile(this_file):
                 raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
             t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
             tcfg['upload_input_data'].append(this_file)
@@ -152,7 +152,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t.upload_input_data = []
     for this_file0 in tcfg['upload_input_data']:
         this_file = mvar_replace_dict(mvar_dict,this_file0)
-        if not os.path.exists(this_file):
+        if not os.path.isfile(this_file):
             raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
         t.upload_input_data.append(this_file)
 
@@ -321,8 +321,7 @@ def ParseExperimentConfig(exp_dir):
 
     # Does the experiment configuration file exist?
     if not os.path.isfile(cfile):
-        print('{} does not exist'.format(cfile))
-        sys.exit(1)
+        raise(FileNotFoundError(cfile + ' does not exist'))
 
     # Load the resource and experiment configuration files
     with open(cfile, 'r') as fp:
@@ -363,7 +362,7 @@ def ParseExperimentConfig(exp_dir):
                 continue
 
             parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
-            print(parsed['pipe_name'])
+            #print(parsed['pipe_name'])
 
             # loop over workflows/scales if requested
             if "loop_over_workflows" in ecfg[this_mod][this_mod_sub].keys():
