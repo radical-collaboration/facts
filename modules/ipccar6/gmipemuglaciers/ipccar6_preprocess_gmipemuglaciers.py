@@ -186,7 +186,7 @@ if __name__ == '__main__':
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--model_driver', help="The temperature model that drives the projections", default='CMIP6', choices=['CMIP6', 'FAIR'])
+	parser.add_argument('--model_driver', help="The temperature model that drives the projections", default='FAIR', choices=['CMIP6', 'FAIR'])
 	parser.add_argument('--scenario', help="SSP scenario of interest", default='ssp585')
 	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)

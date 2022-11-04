@@ -1,4 +1,4 @@
-# DP16 Ice Sheets Pipeline
+# DeConto and Pollard 2016 Ice Sheets Pipeline
 
 preprocess:
   task1:
@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf dp16_icesheet_preprocess_data.tgz; rm dp16_icesheet_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "dp16_preprocess_icesheet.py"
     options:
       - "scenario"
@@ -16,6 +16,7 @@ preprocess:
       - "baseyear"
     upload_input_data:
       - "%MODULE_PATH%/dp16_preprocess_icesheet.py"
+    upload_and_extract_input_data:
       - "%MODULE_PATH%/data/dp16_icesheet_preprocess_data.tgz"
 
 
@@ -27,7 +28,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "dp16_fit_icesheet.py"
     options:
       - "pipeline_id"
@@ -43,7 +43,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "dp16_project_icesheet.py"
     options:
       - "nsamps"
@@ -75,7 +74,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf dp16_icesheet_postprocess_data.tgz; rm dp16_icesheet_postprocess_data.tgz"
     script: "dp16_postprocess_icesheet.py"
     options:
       - "locationfile"
@@ -85,6 +83,7 @@ postprocess:
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
       - '%MODULE_PATH%/data/dp16_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
@@ -93,8 +92,8 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_WAIS_localsl.nc"
-      - "%PIPELINE_ID%_EAIS_localsl.nc"
+      - "%PIPELINE_ID%_AIS_localsl.nc"
     download_output_data:
+      - "%PIPELINE_ID%_AIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"

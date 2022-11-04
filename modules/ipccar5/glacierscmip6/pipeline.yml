@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_preprocess_data.tgz; rm ar5_glacierscmip6_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glacierscmip6.py"
     options:
       - "scenario"
@@ -16,6 +16,7 @@ preprocess:
       - "baseyear"
     upload_input_data:
       - "%MODULE_PATH%/ar5_preprocess_glacierscmip6.py"
+    upload_and_extract_input_data:
       - "%MODULE_PATH%/data/ar5_glacierscmip6_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
@@ -28,7 +29,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ar5_fit_glacierscmip6.py"
     options:
       - "pipeline_id"
@@ -49,7 +49,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_project_data.tgz; rm ar5_glacierscmip6_project_data.tgz"
     script: "ar5_project_glacierscmip6.py"
     options:
       - "nmsamps"
@@ -62,6 +61,7 @@ project:
       - "pipeline_id"
     upload_input_data:
       - '%MODULE_PATH%/ar5_project_glacierscmip6.py'
+    upload_and_extract_input_data:
       - '%MODULE_PATH%/data/ar5_glacierscmip6_project_data.tgz'
     copy_input_data:
       preprocess:
@@ -85,7 +85,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glacierscmip6_postprocess_data.tgz; rm ar5_glacierscmip6_postprocess_data.tgz"
     script: "ar5_postprocess_glacierscmip6.py"
     options:
       - "locationfile"
@@ -95,6 +94,7 @@ postprocess:
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
       - '%MODULE_PATH%/data/ar5_glacierscmip6_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
