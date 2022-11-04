@@ -8,14 +8,16 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "emulandice_preprocess_AIS.py"
+    arguments:
+      - "--input_data_file"
+      - "%CLIMATE_GSAT_FILE%"
     options:
-      - "input_data_file"
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/emulandice_preprocess_AIS.py"
+      - "%MODULE_PATH%/emulandice_preprocess_AIS.py"
 
 
 fit:
@@ -31,7 +33,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/emulandice_fit_AIS.py"
+      - "%MODULE_PATH%/emulandice_fit_AIS.py"
 
 
 
@@ -48,8 +50,8 @@ project:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/emulandice_project_AIS.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/emulandice_AIS_project_data.tgz"
+      - "%MODULE_PATH%/emulandice_project_AIS.py"
+      - "%MODULE_PATH%/data/emulandice_AIS_project_data.tgz"
     copy_input_data:
       preprocess:
         task1:
@@ -82,11 +84,11 @@ postprocess:
       - "chunksize"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/emulandice_postprocess_AIS.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/emulandice_AIS_postprocess_data.tgz'
+      - '%MODULE_PATH%/emulandice_postprocess_AIS.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/emulandice_AIS_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

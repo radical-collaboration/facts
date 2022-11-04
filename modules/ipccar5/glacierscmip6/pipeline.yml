@@ -15,8 +15,8 @@ preprocess:
       - "pipeline_id"
       - "baseyear"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_preprocess_glacierscmip6.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ar5_glacierscmip6_preprocess_data.tgz"
+      - "%MODULE_PATH%/ar5_preprocess_glacierscmip6.py"
+      - "%MODULE_PATH%/data/ar5_glacierscmip6_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
@@ -33,7 +33,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_fit_glacierscmip6.py'
+      - '%MODULE_PATH%/ar5_fit_glacierscmip6.py'
     copy_input_data:
       preprocess:
         task1:
@@ -61,8 +61,8 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_project_glacierscmip6.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ar5_glacierscmip6_project_data.tgz'
+      - '%MODULE_PATH%/ar5_project_glacierscmip6.py'
+      - '%MODULE_PATH%/data/ar5_glacierscmip6_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -91,11 +91,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ar5_postprocess_glacierscmip6.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ar5_glacierscmip6_postprocess_data.tgz'
+      - '%MODULE_PATH%/ar5_postprocess_glacierscmip6.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/ar5_glacierscmip6_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

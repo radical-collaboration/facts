@@ -16,14 +16,14 @@ preprocess:
       - "no_drift_corr"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_preprocess_thermalexp.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/IncludeModels.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/SmoothZOSTOGA.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/DriftCorr.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/Smooth.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_CSIRO.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/readMarzeion.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/kopp14_thermalexp_preprocess_data.tgz"
+      - "%MODULE_PATH%/kopp14_preprocess_thermalexp.py"
+      - "%MODULE_PATH%/IncludeModels.py"
+      - "%MODULE_PATH%/SmoothZOSTOGA.py"
+      - "%MODULE_PATH%/DriftCorr.py"
+      - "%MODULE_PATH%/Smooth.py"
+      - "%MODULE_PATH%/read_CSIRO.py"
+      - "%MODULE_PATH%/readMarzeion.py"
+      - "%MODULE_PATH%/data/kopp14_thermalexp_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_config.pkl"
 #      - "%PIPELINE_ID%_ZOSTOGA.pkl"
@@ -42,7 +42,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_fit_thermalexp.py'
+      - '%MODULE_PATH%/kopp14_fit_thermalexp.py'
     copy_input_data:
       preprocess:
         task1:
@@ -67,7 +67,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_project_thermalexp.py'
+      - '%MODULE_PATH%/kopp14_project_thermalexp.py'
     copy_input_data:
       preprocess:
         task1:
@@ -95,9 +95,9 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_postprocess_thermalexp.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/kopp14_thermalexp_postprocess_data.tgz'
+      - '%MODULE_PATH%/kopp14_postprocess_thermalexp.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/data/kopp14_thermalexp_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

@@ -14,9 +14,9 @@ preprocess:
       - "scenario"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_preprocess_icesheet.py"
+      - "%MODULE_PATH%/larmip_preprocess_icesheet.py"
     upload_and_extract_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ipccar6_climate_data.tgz"
+      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
 
 
 fit:
@@ -31,9 +31,9 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_fit_icesheet.py'
+      - '%MODULE_PATH%/larmip_fit_icesheet.py'
     upload_and_extract_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/larmip_icesheet_fit_data.tgz'
+      - '%MODULE_PATH%/data/larmip_icesheet_fit_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -59,9 +59,9 @@ project:
       - "models"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_project_icesheet.py'
+      - '%MODULE_PATH%/larmip_project_icesheet.py'
     upload_and_extract_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/larmip_icesheet_project_data.tgz'
+      - '%MODULE_PATH%/data/larmip_icesheet_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -94,12 +94,12 @@ postprocess:
       - "chunksize"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/larmip_postprocess_icesheet.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
+      - '%MODULE_PATH%/larmip_postprocess_icesheet.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/larmip_icesheet_postprocess_data.tgz'
+      - '%MODULE_PATH%/data/larmip_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

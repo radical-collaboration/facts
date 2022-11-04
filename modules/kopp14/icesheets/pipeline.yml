@@ -15,7 +15,7 @@ preprocess:
       - "srocc"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_preprocess_icesheets.py"
+      - "%MODULE_PATH%/kopp14_preprocess_icesheets.py"
 
 
 fit:
@@ -31,9 +31,9 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_fit_icesheets.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/CalcISDists.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/FitLNDistQuants.py'
+      - '%MODULE_PATH%/kopp14_fit_icesheets.py'
+      - '%MODULE_PATH%/CalcISDists.py'
+      - '%MODULE_PATH%/FitLNDistQuants.py'
     copy_input_data:
       preprocess:
         task1:
@@ -59,10 +59,10 @@ project:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_project_icesheets.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/SampleISDists.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/cholcov.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ProjectGSL.py'
+      - '%MODULE_PATH%/kopp14_project_icesheets.py'
+      - '%MODULE_PATH%/SampleISDists.py'
+      - '%MODULE_PATH%/cholcov.py'
+      - '%MODULE_PATH%/ProjectGSL.py'
     copy_input_data:
       preprocess:
         task1:
@@ -95,12 +95,12 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_postprocess_icesheets.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/SampleISDists.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ReadFingerprint.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/kopp14_icesheets_data.tgz'
+      - '%MODULE_PATH%/kopp14_postprocess_icesheets.py'
+      - '%MODULE_PATH%/SampleISDists.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/kopp14_icesheets_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

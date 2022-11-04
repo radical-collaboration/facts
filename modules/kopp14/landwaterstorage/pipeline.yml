@@ -19,8 +19,8 @@ preprocess:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_preprocess_landwaterstorage.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/kopp14_landwaterstorage_preprocess_data.tgz"
+      - "%MODULE_PATH%/kopp14_preprocess_landwaterstorage.py"
+      - "%MODULE_PATH%/data/kopp14_landwaterstorage_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_config.pkl"
@@ -38,7 +38,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_fit_landwaterstorage.py'
+      - '%MODULE_PATH%/kopp14_fit_landwaterstorage.py'
     copy_input_data:
       preprocess:
         task1:
@@ -62,7 +62,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_project_landwaterstorage.py'
+      - '%MODULE_PATH%/kopp14_project_landwaterstorage.py'
     copy_input_data:
       preprocess:
         task1:
@@ -91,9 +91,9 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/kopp14_postprocess_landwaterstorage.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
-#      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/kopp14_landwaterstorage_postprocess_data.tgz'
+      - '%MODULE_PATH%/kopp14_postprocess_landwaterstorage.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+#      - '%MODULE_PATH%/data/kopp14_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

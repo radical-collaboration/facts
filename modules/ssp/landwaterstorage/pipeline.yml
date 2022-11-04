@@ -20,8 +20,8 @@ preprocess:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/ssp_preprocess_landwaterstorage.py"
-      - "./modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ssp_landwaterstorage_preprocess_data.tgz"
+      - "%MODULE_PATH%/ssp_preprocess_landwaterstorage.py"
+      - "%MODULE_PATH%/data/ssp_landwaterstorage_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_config.pkl"
@@ -39,7 +39,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ssp_fit_landwaterstorage.py'
+      - '%MODULE_PATH%/ssp_fit_landwaterstorage.py'
     copy_input_data:
       preprocess:
         task1:
@@ -67,7 +67,7 @@ project:
       - "dcrate_hi"
       - "seed"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ssp_project_landwaterstorage.py'
+      - '%MODULE_PATH%/ssp_project_landwaterstorage.py'
     copy_input_data:
       preprocess:
         task1:
@@ -95,10 +95,10 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/ssp_postprocess_landwaterstorage.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/read_locationfile.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/AssignFP.py'
-      - './modules/%MODULE_SET_NAME%/%MODULE_NAME%/data/ssp_landwaterstorage_postprocess_data.tgz'
+      - '%MODULE_PATH%/ssp_postprocess_landwaterstorage.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/data/ssp_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

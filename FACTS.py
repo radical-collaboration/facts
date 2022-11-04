@@ -81,7 +81,12 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t = Task()
 
     # Define magic variable dictionary
-    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name, "MODULE_SET_NAME": ecfg['module_set'], "MODULE_NAME": ecfg['module']}
+    mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name,
+        "MODULE_SET_NAME": ecfg['module_set'], "MODULE_NAME": ecfg['module'],
+        "MODULE_PATH": os.path.join('.', 'modules', ecfg['module_set'],ecfg['module'] ),
+        "CLIMATE_DATA_FILE": ecfg['options']['climate_data_file'], "CLIMATE_GSAT_FILE": ecfg['options']['climate_gsat_data_file'],
+        "CLIMATE_OHC_FILE": ecfg['options']['climate_ohc_data_file'],
+        "EXP_DIR": ecfg['exp_dir'], "EXPERIMENT_NAME": ecfg['options']['experiment_name']}
 
     # Give this task object a name
     t.name = task_name
@@ -101,8 +106,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # If there's a user-defined input file (likely for genmod modules), add it to the
     # options list and upload file list if needed
-    if "input_data_file" in tcfg['options']:
-        tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
+    # if "input_data_file" in tcfg['options']:
+    #     tcfg['upload_input_data'].extend(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
+
+    if "input_data_file" in ecfg.keys():
+        for x in ecfg['input_data_file']:
+            tcfg['upload_input_data'].append(os.path.join(ecfg['exp_dir'], "input", x))
+
 
     # If there's a data file to upload and extract, add it to upload and
     # add the extraction command to pre-exec
@@ -204,7 +214,8 @@ def match_options(wopts, eopts):
     # Return the matched options list
     return(opt_list)
 
-def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod='', experiment_name =None):
+def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
+
     # Load the pipeline configuration file for this module
 
     if 'module_set' in modcfg.keys():
@@ -234,8 +245,8 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod='', exp
     else:
         pipe_name = ".".join((relabel_mod, modcfg['module']))
     
-    if experiment_name:
-        pipe_name = ".".join((experiment_name,pipe_name))
+    if "experiment_name" in global_options.keys():
+        pipe_name = ".".join((global_options['experiment_name'],pipe_name))
 
     p = {
         "modlabel": this_mod,
@@ -311,6 +322,15 @@ def ParseExperimentConfig(exp_dir):
         global_options = {}
         ecfg["global-options"] = global_options
 
+    # set up global options for climate data files
+    climate_data_files = []
+    global_options['climate_data_file'] = None
+    global_options['climate_gsat_data_file'] = None
+    global_options['climate_ohc_data_file'] = None
+    
+    # add experiment name to global options
+    global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+
     # Initialize a list for pipelines
     pipelines = []
     workflows_to_include = {}
@@ -326,7 +346,7 @@ def ParseExperimentConfig(exp_dir):
             if (this_mod_sub in reserved_econfig_entries):
                 continue
 
-            parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options, experiment_name=os.path.basename(os.path.dirname(exp_dir)))
+            parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
             print(parsed['pipe_name'])
 
             # loop over workflows/scales if requested
@@ -359,6 +379,9 @@ def ParseExperimentConfig(exp_dir):
 
             if "generates_climate_output" in ecfg[this_mod][this_mod_sub].keys():
                 climate_data_files = IdentifyClimateOutputFiles(parsed['pcfg'], parsed['pipe_name'])
+                global_options['climate_data_file'] = climate_data_files['climate']
+                global_options['climate_gsat_data_file'] = climate_data_files['gsat']
+                global_options['climate_ohc_data_file'] = climate_data_files['ohc']
 
 
         experimentsteps[this_mod] = pipelines
