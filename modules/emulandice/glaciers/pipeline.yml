@@ -10,6 +10,9 @@ preprocess:
       thread-type: None
     pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "emulandice_preprocess_glaciers.py"
+    arguments:
+      - "--input_data_file"
+      - "%CLIMATE_GSAT_FILE%"
     options:
       - "input_data_file"
       - "baseyear"

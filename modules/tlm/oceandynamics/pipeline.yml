@@ -22,6 +22,7 @@ preprocess:
       - "model_dir"
       - "no_drift_corr"
       - "no_correlation"
+      - "climate_data_file"
     upload_input_data:
       - "%MODULE_PATH%/tlm_preprocess_oceandynamics.py"
       - "%MODULE_PATH%/Import2lmData.py"
@@ -61,6 +62,7 @@ fit:
           - "%PIPELINE_ID%_config.pkl"
           - "%PIPELINE_ID%_ZOSTOGA.pkl"
           - "%PIPELINE_ID%_ZOS.pkl"
+          - "%PIPELINE_ID%_tlmdata.pkl"
 
 project:
   task1:
@@ -83,6 +85,8 @@ project:
       preprocess:
         task1:
           - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_ZOSTOGA.pkl"
+          - "%PIPELINE_ID%_tlmdata.pkl"
       fit:
         task1:
           - "%PIPELINE_ID%_thermalexp_fit.pkl"

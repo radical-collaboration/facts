@@ -8,14 +8,15 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf NZInsarGPS_verticallandmotion_data.tgz; rm NZInsarGPS_verticallandmotion_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml"
+    python_dependencies: "numpy scipy netCDF4 pyyaml"
     script: "NZInsarGPS_preprocess_verticallandmotion.py"
     options:
       - "pipeline_id"
       - "inputtype"
     upload_input_data:
       - "%MODULE_PATH%/NZInsarGPS_preprocess_verticallandmotion.py"
-      - "%MODULE_PATH%/data/NZInsarGPS_verticallandmotion_data.tgz"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/NZInsarGPS_verticallandmotion_preprocess.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
@@ -28,7 +29,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "NZInsarGPS_fit_verticallandmotion.py"
     options:
       - "pipeline_id"
@@ -44,7 +44,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "NZInsarGPS_project_verticallandmotion.py"
     options:
       - "pipeline_id"
@@ -59,7 +58,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "NZInsarGPS_postprocess_verticallandmotion.py"
     options:
       - "nsamps"

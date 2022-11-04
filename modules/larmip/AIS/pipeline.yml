@@ -13,6 +13,7 @@ preprocess:
     options:
       - "scenario"
       - "pipeline_id"
+      - "climate_data_file"
     upload_input_data:
       - "%MODULE_PATH%/larmip_preprocess_icesheet.py"
     upload_and_extract_input_data:

@@ -67,7 +67,8 @@ def run_experiment(exp_dir, debug_mode):
     amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
 
     for step, pipelines in experimentsteps.items():
-
+        
+        print ("****** STEP: " + step + " ******")
         # Assign the list of pipelines to the workflow
         amgr.workflow = pipelines
 

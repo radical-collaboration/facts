@@ -88,7 +88,6 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         "CLIMATE_DATA_FILE": ecfg['options']['climate_data_file'], "CLIMATE_GSAT_FILE": ecfg['options']['climate_gsat_data_file'],
         "CLIMATE_OHC_FILE": ecfg['options']['climate_ohc_data_file'],
         "EXP_DIR": ecfg['exp_dir'], "EXPERIMENT_NAME": ecfg['options']['experiment_name']}
-
     # Give this task object a name
     t.name = task_name
 
@@ -153,7 +152,10 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     for this_file0 in tcfg['upload_input_data']:
         this_file = mvar_replace_dict(mvar_dict,this_file0)
         if not os.path.isfile(this_file):
-            raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
+            # inelegant, but don't raise an exception if we are uploading workflows.yml, which will be
+            # created later
+            if not os.path.basename(this_file) == "workflows.yml":
+                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_input_data: " + this_file + " not found!"))
         t.upload_input_data.append(this_file)
 
     # Copy data from other stages/tasks for use in this task
@@ -246,9 +248,12 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
 
     if "options" not in modcfg.keys():
         modcfg["options"] = {}
+    if "options_allowoverwrite" not in modcfg.keys():
+        modcfg["options_allowoverwrite"] = {}
+    modcfg["options_allowoverwrite"].update(global_options)
 
     # Append the global options to this module
-    for this_opt in global_options:
+    for this_opt in modcfg["options_allowoverwrite"]:
         if not this_opt in modcfg["options"].keys():
             modcfg["options"][this_opt] = global_options[this_opt]
 
@@ -293,7 +298,7 @@ def IdentifyOutputFiles(pcfg,pipe_name):
     return p
 
 def IdentifyClimateOutputFiles(pcfg,pipe_name):
-    p={'climate': [], 'gsat': [], 'ohc': []}
+    pd={'climate': [], 'gsat': [], 'ohc': []}
 
     # Define magic variable dictionary
     mvar_dict = {"PIPELINE_ID": pipe_name}
@@ -304,13 +309,13 @@ def IdentifyClimateOutputFiles(pcfg,pipe_name):
             if "climate_output_data" in tcfg.keys():
                 for this_file in tcfg['climate_output_data']:
                     if this_file.__contains__('climate.nc'):
-                        p['climate'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+                        pd['climate'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
                     elif this_file.__contains__('gsat.nc'):
-                        p['gsat'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+                        pd['gsat'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
                     elif this_file.__contains__('ohc.nc'):
-                        p['ohc'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
-
-    return p
+                        pd['ohc'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+ 
+    return pd
 
 def ParseExperimentConfig(exp_dir):
     # Initialize a list for experiment steps (each step being a set of pipelines)

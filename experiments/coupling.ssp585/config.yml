@@ -21,22 +21,94 @@ sealevel_step:
     GrIS1f:
         module_set: "FittedISMIP"
         module: "GrIS"
-        options:
+        options_allowoverwrite:
             climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:
             - "wf1f"
-    verticallandmotion:
+            - "wf2f"
+
+    # emuAIS:
+    #     module_set: "emulandice"
+    #     module: "AIS"
+    #     include_in_workflow:
+    #         - "wf1e"      
+    #         - "wf2e"
+
+    # emuGrIS:
+    #     module_set: "emulandice"
+    #     module: "GrIS"
+    #     include_in_workflow:
+    #         - "wf1e"  
+    #         - "wf2e"    
+
+    # emuglaciers:
+    #     module_set: "emulandice"
+    #     module: "glaciers"
+    #     include_in_workflow:
+    #         - "wf1e"   
+    #         - "wf2e"   
+
+    larmip:
+        module_set: "larmip"
+        module: "AIS"
+        options_allowoverwrite:
+           climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf2e"
+            - "wf2f"
+
+    ar5glaciers:
+        module_set: "ipccar5"
+        module: "glaciers"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+            - "wf2f"
+    ocean:
+        module_set: "tlm"
+        module: "oceandynamics"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+
+    k14vlm:
         module_set: "kopp14"
         module: "verticallandmotion"
         include_in_workflow:
-            - "wf1"
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+
+    lws:
+        module_set: "ssp"
+        module: "landwaterstorage"
+        options:
+            scenario: "ssp5"
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
 
 totaling_step:
-    multistep: true
     total:
         module_set: "facts"
         module: "total"
-        loop_over_workflows: true
+        loop_over_workflow: true
         loop_over_scales: true
         stages:
             - workflow
+
+esl_step:
+    extremesealevel:
+        loop_over_workflow: true
+        module_set: "extremesealevel"
+        module: "pointsoverthreshold"
+        options:
+            target_years: 2050,2100

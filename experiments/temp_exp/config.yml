@@ -112,13 +112,9 @@ totaling_step:
             - workflow
 
 esl_step:
-    multistep: true
     extremesealevel:
         loop_over_workflows: true
         module_set: "extremesealevel"
         module: "pointsoverthreshold"
         options:
             target_years: 2050,2100
-            nsamps: 20000
-            seed: 3344
-            seed: 3344
