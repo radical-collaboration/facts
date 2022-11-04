@@ -238,7 +238,9 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
         modcfg["options"] = {}
 
     # Append the global options to this module
-    modcfg["options"].update(global_options)
+    for this_opt in global_options:
+        if not this_opt in modcfg["options"].keys():
+            modcfg["options"][this_opt] = global_options[this_opt]
 
     if len(relabel_mod) == 0:
         relabel_mod = this_mod
