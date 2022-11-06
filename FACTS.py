@@ -172,6 +172,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         copy_list.extend(['{0}'.format(mvar_replace_dict(mvar_dict, x))
                          for x in tcfg['copy_shared_data']])
 
+
     # Append the copy list (if any) to the task object
     t.copy_input_data = copy_list
 

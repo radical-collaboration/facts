@@ -26,8 +26,8 @@ preprocess:
       - "%MODULE_PATH%/extremesealevel_preprocess_pointsoverthreshold.py"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/data/extremesealevel_pointsoverthreshold_data.tgz"
-    copy_shared_data:
-      - "$SHARED/totaled/%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.local.nc"
+#    copy_shared_data:
+#      - "$SHARED/totaled/%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.local.nc"
 #    download_output_data:
 #      - "%PIPELINE_ID%_config_data.pkl"
 

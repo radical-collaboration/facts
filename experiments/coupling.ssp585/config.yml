@@ -1,5 +1,5 @@
 global-options:
-    nsamps: 50
+    nsamps: 20
     rcfg-name: "amarel"
     scenario: ssp585
     pyear_start: 2020
@@ -112,5 +112,4 @@ esl_step:
         module: "pointsoverthreshold"
         options:
             target_years: 2050,2100
-        options_allowoverwrite:
-            total_localsl_file:  
+            total_localsl_file: "$SHARED/totaled/%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.local.nc" 
