@@ -100,15 +100,17 @@ totaling_step:
     total:
         module_set: "facts"
         module: "total"
-        loop_over_workflow: true
+        loop_over_workflows: true
         loop_over_scales: true
         stages:
             - workflow
 
 esl_step:
     extremesealevel:
-        loop_over_workflow: true
+        loop_over_workflows: true
         module_set: "extremesealevel"
         module: "pointsoverthreshold"
         options:
             target_years: 2050,2100
+        options_allowoverwrite:
+            total_localsl_file:  

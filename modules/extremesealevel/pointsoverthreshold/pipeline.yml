@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf extremesealevel_pointsoverthreshold_data.tgz; rm extremesealevel_pointsoverthreshold_data.tgz; pip install --upgrade pip; pip install numpy pandas netCDF4 pyyaml matplotlib"
+    python_dependencies]: "numpy pandas netCDF4 pyyaml matplotlib"
     script: "extremesealevel_preprocess_pointsoverthreshold.py"
     options:
       - "minDays"
@@ -24,9 +24,10 @@ preprocess:
       - "pipeline_id"
     upload_input_data:
       - "%MODULE_PATH%/extremesealevel_preprocess_pointsoverthreshold.py"
+    upload_and_extract_input_data:
       - "%MODULE_PATH%/data/extremesealevel_pointsoverthreshold_data.tgz"
     copy_shared_data:
-      - "$SHARED/totaled/total.workflow.%WORKFLOW_NAME%.localsl.nc"
+      - "$SHARED/totaled/%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.local.nc"
 #    download_output_data:
 #      - "%PIPELINE_ID%_config_data.pkl"
 
@@ -39,7 +40,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "extremesealevel_fit_pointsoverthreshold.py"
     options:
       - "station_data_file"
@@ -61,7 +61,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "extremesealevel_project_pointsoverthreshold.py"
     options:
       - "esl_fit_file"

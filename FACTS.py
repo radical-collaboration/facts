@@ -255,7 +255,8 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
     # Append the global options to this module
     for this_opt in modcfg["options_allowoverwrite"]:
         if not this_opt in modcfg["options"].keys():
-            modcfg["options"][this_opt] = global_options[this_opt]
+            if this_opt in global_options.keys():
+                modcfg["options"][this_opt] = global_options[this_opt]
 
     if len(relabel_mod) == 0:
         relabel_mod = this_mod
