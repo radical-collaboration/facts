@@ -77,7 +77,7 @@ def emulandice_preprocess_AIS(infile, baseyear, pipeline_id):
 	# Append these samples to the output file
 	headfile =  os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING.csv.head")
 	outfile = os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING.csv")
-	shutil.copy(headfile,outfile)
+	shutil.copyfile(headfile,outfile)
 	WriteToCSV(outfile, samps, mode="a")
 
 	# Save the preprocessed data to a pickle
