@@ -1,8 +1,8 @@
 Installing package from './emulandice_1.1.0.tar.gz'
 Installing emulandice
 '/projects/community/R/3.6.3/gc563/lib64/R/bin/R' --vanilla CMD INSTALL  \
-  --preclean '/tmp/Rtmp7BZYF5/packrat-install-a4847927bca3/emulandice'  \
-  --library='/scratch/rk509/test.1667941137/packrat/lib/x86_64-pc-linux-gnu/3.6.3'  \
+  --preclean '/tmp/RtmpErRKeC/packrat-install-c3b237b44e33/emulandice'  \
+  --library='/scratch/rk509/test.1667943048/packrat/lib/x86_64-pc-linux-gnu/3.6.3'  \
   --install-tests 
 
 * installing *source* package ‘emulandice’ ...
@@ -17,9 +17,21 @@ Installing emulandice
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
 * DONE (emulandice)
-  File "/scratch/rk509/test.1667941137/emulandice_project_AIS.py", line 124
-    subprocess.run(["bash emulandice_steer.sh \'" + emulandice_dataset + "\' " + nsamps)
-                                                                                       ^
-SyntaxError: closing parenthesis ')' does not match opening parenthesis '['
+Traceback (most recent call last):
+  File "/scratch/rk509/test.1667943048/emulandice_preprocess_AIS.py", line 110, in <module>
+    emulandice_preprocess_AIS(args.input_data_file, args.baseyear, args.pipeline_id)
+  File "/scratch/rk509/test.1667943048/emulandice_preprocess_AIS.py", line 80, in emulandice_preprocess_AIS
+    shutil.copy(headfile,outfile)
+  File "/home/rk509/anaconda3/envs/facts/lib/python3.9/shutil.py", line 427, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/home/rk509/anaconda3/envs/facts/lib/python3.9/shutil.py", line 264, in copyfile
+    with open(src, 'rb') as fsrc:
+FileNotFoundError: [Errno 2] No such file or directory: '/scratch/rk509/test.1667943048/FACTS_CLIMATE_FORCING_DATA.csv.head'
+Traceback (most recent call last):
+  File "/scratch/rk509/test.1667943048/emulandice_project_AIS.py", line 225, in <module>
+    emulandice_project_AIS(args.pipeline_id, args.nsamps)
+  File "/scratch/rk509/test.1667943048/emulandice_project_AIS.py", line 90, in emulandice_project_AIS
+    with open(preprocess_file, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'AIS-emulandice-AIS-ssp585_preprocess.pkl'
 ls: cannot access AIS-emulandice-AIS-ssp585*.nc: No such file or directory
 mv: cannot stat ‘AIS-emulandice-AIS-ssp585*.nc’: No such file or directory

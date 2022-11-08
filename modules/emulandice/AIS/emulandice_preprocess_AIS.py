@@ -5,6 +5,7 @@ import fnmatch
 import argparse
 import re
 import pickle
+import shutil
 from netCDF4 import Dataset
 
 
@@ -33,10 +34,10 @@ def GetSamples(ncfile, years, baseyear):
 	return(samples, scenario)
 
 
-def WriteToCSV(outfile, samples):
+def WriteToCSV(outfile, samples, mode="w"):
 
 	# Open the csv file
-	with open(outfile, "w") as f:
+	with open(outfile, mode) as f:
 
 		# Loop through the samples
 		for i in np.arange(samples.shape[0]):
@@ -74,8 +75,10 @@ def emulandice_preprocess_AIS(infile, baseyear, pipeline_id):
 	nsamps = samps.shape[0]
 
 	# Append these samples to the output file
-	outfile = os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING_DATA.csv")
-	WriteToCSV(outfile, samps)
+	headfile =  os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING.csv.head")
+	outfile = os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING.csv")
+	shutil.copy(headfile,outfile)
+	WriteToCSV(outfile, samps, mode="a")
 
 	# Save the preprocessed data to a pickle
 	output = {"scenario": scenario, "baseyear": baseyear, "infile": infile, \

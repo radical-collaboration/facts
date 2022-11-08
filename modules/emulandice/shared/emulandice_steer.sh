@@ -5,4 +5,6 @@ fi
 
 # run emulandice
 emulandice_dataset=$1
-Rscript -e "emulandice::main('decades',dataset=\'$emulandice_dataset\')"
+nsamps=$2
+ice_sources=$3
+Rscript -e "source('packrat/init.R')" -e "library(emulandice)" -e "emulandice::main('decades',dataset='$emulandice_dataset',N_FACTS=$nsamps)"
