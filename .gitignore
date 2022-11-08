@@ -1,13 +1,12 @@
 .DS_Store
 *.pkl
 /re.session*
-/experiments/kopp14*
-/experiments/ipcc*
-/experiments/FACTS_ms/
 /experiments/test*
 /modules-data/*.tgz
 /modules/*/*/test/output*
 /modules/*/test/output*
+/modules/emulandice/shared/packrat
+/modules/emulandice/shared/*gz
 \#*
 test.fortamsin
 
