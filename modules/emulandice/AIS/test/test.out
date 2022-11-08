@@ -1,4 +1,4 @@
-Initiating test in /scratch/rk509/test.1667943048...
+Initiating test in /scratch/rk509/test.1667944880...
 
 Extracting data files...
 
@@ -12,10 +12,4 @@ source emulandice_environment.sh --Rscript
 python emulandice_preprocess_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585 --baseyear 2005 --input_data_file test/input/fair-temperature-fair-ssp585_gsat.nc
 python emulandice_fit_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585
 python emulandice_project_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585
-python emulandice_postprocess_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585 --locationfile /home/rk509/facts/modules/emulandice/AIS/test/../../../../scripts/moduletest/location_list.lst --chunksize 600
-Cannot open projfile
-
-
-Collecting output files...
-
-Skipping clean up...
+Rscript -e source('packrat/init.R') -e library(emulandice) -e emulandice::main('decades',dataset='FACTS_CLIMATE_FORCING.csv',N_FACTS=500,ice_sources=c('AIS'))
