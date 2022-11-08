@@ -1,2 +1,0 @@
-ipccar6_postprocess_larmipicesheet.py:56: RuntimeWarning: invalid value encountered in add
-  waissamps = waissamps + pensamps

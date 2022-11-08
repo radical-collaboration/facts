@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib; tar -xzf ipccar6_ismipemuicesheet_preprocess_data.tgz; rm ipccar6_ismipemuicesheet_preprocess_data.tgz"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ipccar6_preprocess_ismipemuicesheet.py"
     options:
       - "scenario"
@@ -16,14 +16,15 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/ismipemuicesheet/ipccar6_preprocess_ismipemuicesheet.py"
-      - "./modules/ipccar6/ismipemuicesheet/import_data.py"
-      - "./modules/ipccar6/ismipemuicesheet/filter_data.py"
-      - "./modules/ipccar6/ismipemuicesheet/FindFAIRInputSamples.py"
-      - "./modules/ipccar6/ismipemuicesheet/import_temp_data.py"
-      - "./modules/ipccar6/ismipemuicesheet/filter_temp_data.py"
-      - "./modules/ipccar6/ismipemuicesheet/Smooth.py"
-      - "./modules/ipccar6/ismipemuicesheet/data/ipccar6_ismipemuicesheet_preprocess_data.tgz"
+      - "%MODULE_PATH%/ipccar6_preprocess_ismipemuicesheet.py"
+      - "%MODULE_PATH%/import_data.py"
+      - "%MODULE_PATH%/filter_data.py"
+      - "%MODULE_PATH%/FindFAIRInputSamples.py"
+      - "%MODULE_PATH%/import_temp_data.py"
+      - "%MODULE_PATH%/filter_temp_data.py"
+      - "%MODULE_PATH%/Smooth.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/ipccar6_ismipemuicesheet_preprocess.tgz"
 
 
 fit:
@@ -34,12 +35,11 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ipccar6_fit_ismipemuicesheet.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/ismipemuicesheet/ipccar6_fit_ismipemuicesheet.py"
+      - "%MODULE_PATH%/ipccar6_fit_ismipemuicesheet.py"
 
 
 project:
@@ -50,7 +50,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ipccar6_project_ismipemuicesheet.py"
     options:
       - "nsamps"
@@ -58,7 +57,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/ismipemuicesheet/ipccar6_project_ismipemuicesheet.py"
+      - "%MODULE_PATH%/ipccar6_project_ismipemuicesheet.py"
     copy_input_data:
       preprocess:
         task1:
@@ -82,17 +81,17 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ipccar6_ismipemuicesheet_postprocess_data.tgz; rm ipccar6_ismipemuicesheet_postprocess_data.tgz"
     script: "ipccar6_postprocess_ismipemuicesheet.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/ismipemuicesheet/ipccar6_postprocess_ismipemuicesheet.py'
-      - './modules/ipccar6/ismipemuicesheet/read_locationfile.py'
-      - './modules/ipccar6/ismipemuicesheet/AssignFP.py'
-      - './modules/ipccar6/ismipemuicesheet/ReadFingerprint.py'
-      - './modules/ipccar6/ismipemuicesheet/data/ipccar6_ismipemuicesheet_postprocess_data.tgz'
+      - '%MODULE_PATH%/ipccar6_postprocess_ismipemuicesheet.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/ipccar6_ismipemuicesheet_postprocess.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

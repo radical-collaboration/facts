@@ -18,9 +18,9 @@ preprocess:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/kopp14/glaciers/kopp14_preprocess_glaciers.py"
-      - "./modules/kopp14/glaciers/readMarzeion.py"
-      - "./modules/kopp14/glaciers/data/kopp14_glaciers_preprocess_data.tgz"
+      - "%MODULE_PATH%/kopp14_preprocess_glaciers.py"
+      - "%MODULE_PATH%/readMarzeion.py"
+      - "%MODULE_PATH%/data/kopp14_glaciers_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_fp.pkl"
@@ -39,8 +39,8 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/glaciers/kopp14_fit_glaciers.py'
-      - './modules/kopp14/glaciers/cholcov.py'
+      - '%MODULE_PATH%/kopp14_fit_glaciers.py'
+      - '%MODULE_PATH%/cholcov.py'
     copy_input_data:
       preprocess:
         task1:
@@ -64,7 +64,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/glaciers/kopp14_project_glaciers.py'
+      - '%MODULE_PATH%/kopp14_project_glaciers.py'
     copy_input_data:
       preprocess:
         task1:
@@ -93,11 +93,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/glaciers/kopp14_postprocess_glaciers.py'
-      - './modules/kopp14/glaciers/read_locationfile.py'
-      - './modules/kopp14/glaciers/AssignFP.py'
-      - './modules/kopp14/glaciers/ReadFingerprint.py'
-      - './modules/kopp14/glaciers/data/kopp14_glaciers_postprocess_data.tgz'
+      - '%MODULE_PATH%/kopp14_postprocess_glaciers.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/kopp14_glaciers_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

@@ -1,22 +1,3 @@
-Initiating test in /scratch/rk509/test.1666880768...
+Initiating test in /scratch/rk509/test.1667581577...
 
 Extracting data files...
-
-Executing workflow...
-python ipccar6_preprocess_larmipicesheet.py --pipeline_id icesheets-ipccar6-larmipicesheet-ssp585 --scenario ssp585 --baseyear 2005 --pyear_start 2020 --pyear_end 2100 --pyear_step 10 --tlm_data 1
-python ipccar6_fit_larmipicesheet.py --pipeline_id icesheets-ipccar6-larmipicesheet-ssp585
-python ipccar6_project_larmipicesheet.py --pipeline_id icesheets-ipccar6-larmipicesheet-ssp585 --nsamps 20000 --seed 4321 --crateyear_start 2080 --crateyear_end 2100
-python ipccar6_postprocess_larmipicesheet.py --pipeline_id icesheets-ipccar6-larmipicesheet-ssp585 --chunksize 662 --locationfile /home/rk509/facts/modules/ipccar6/larmipicesheet/test/../../../../scripts/moduletest/location_list.lst
-
-Collecting output files...
-icesheets-ipccar6-larmipicesheet-ssp585_AIS_globalsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_AIS_localsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_EAIS_globalsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_EAIS_localsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_PEN_globalsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_SMB_globalsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_TOT_globalsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_WAIS_globalsl.nc
-icesheets-ipccar6-larmipicesheet-ssp585_WAIS_localsl.nc
-
-Cleaning up...

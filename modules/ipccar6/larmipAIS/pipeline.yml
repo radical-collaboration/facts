@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ipccar6_larmipicesheet_preprocess_data.tgz; rm ipccar6_larmipicesheet_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib h5py"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
     script: "ipccar6_preprocess_larmipicesheet.py"
     options:
       - "scenario"
@@ -19,9 +19,11 @@ preprocess:
       - "pipeline_id"
       - "tlm_data"
     upload_input_data:
-      - "./modules/ipccar6/larmipicesheet/ipccar6_preprocess_larmipicesheet.py"
-      - "./modules/ipccar6/larmipicesheet/Import2lmData.py"
-      - "./modules/ipccar6/larmipicesheet/data/ipccar6_larmipicesheet_preprocess_data.tgz"
+      - "%MODULE_PATH%/ipccar6_preprocess_larmipicesheet.py"
+      - "%MODULE_PATH%/Import2lmData.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/ipccar6_larmipicesheet_preprocess_data.tgz"
+      - "%MODULE_PATH%/data/ipccar6_larmipicesheet_preprocess_data_2lm.tgz"
 
 
 fit:
@@ -32,12 +34,11 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ipccar6_fit_larmipicesheet.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/larmipicesheet/ipccar6_fit_larmipicesheet.py'
+      - '%MODULE_PATH%/ipccar6_fit_larmipicesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -52,7 +53,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ipccar6_project_larmipicesheet.py"
     options:
       - "nsamps"
@@ -60,7 +60,7 @@ project:
       - "replace"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/larmipicesheet/ipccar6_project_larmipicesheet.py'
+      - '%MODULE_PATH%/ipccar6_project_larmipicesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -88,17 +88,17 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ipccar6_larmipicesheet_postprocess_data.tgz; rm ipccar6_larmipicesheet_postprocess_data.tgz"
     script: "ipccar6_postprocess_larmipicesheet.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/larmipicesheet/ipccar6_postprocess_larmipicesheet.py'
-      - './modules/ipccar6/larmipicesheet/read_locationfile.py'
-      - './modules/ipccar6/larmipicesheet/AssignFP.py'
-      - './modules/ipccar6/larmipicesheet/ReadFingerprint.py'
-      - './modules/ipccar6/larmipicesheet/data/ipccar6_larmipicesheet_postprocess_data.tgz'
+      - '%MODULE_PATH%/ipccar6_postprocess_larmipicesheet.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/ipccar6_larmipicesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

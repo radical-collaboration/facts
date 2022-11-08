@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glaciersfair_preprocess_data.tgz; rm ar5_glaciersfair_preprocess_data.tgz; pip3 install --upgrade pip3; pip3 install numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glaciersfair.py"
     options:
       - "scenario"
@@ -16,11 +16,12 @@ preprocess:
       - "fullFAIR"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ar5/glaciersfair/ar5_preprocess_glaciersfair.py"
-      - "./modules/ar5/glaciersfair/Smooth.py"
-      - "./modules/ar5/glaciersfair/import_data.py"
-      - "./modules/ar5/glaciersfair/filter_data.py"
-      - "./modules/ar5/glaciersfair/data/ar5_glaciersfair_preprocess_data.tgz"
+      - "%MODULE_PATH%/ar5_preprocess_glaciersfair.py"
+      - "%MODULE_PATH%/Smooth.py"
+      - "%MODULE_PATH%/import_data.py"
+      - "%MODULE_PATH%/filter_data.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/ar5_glaciersfair_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
@@ -32,12 +33,11 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ar5_fit_glaciersfair.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/glaciersfair/ar5_fit_glaciersfair.py'
+      - '%MODULE_PATH%/ar5_fit_glaciersfair.py'
     copy_input_data:
       preprocess:
         task1:
@@ -53,7 +53,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glaciersfair_project_data.tgz; rm ar5_glaciersfair_project_data.tgz"
     script: "ar5_project_glaciersfair.py"
     options:
       - "nmsamps"
@@ -65,8 +64,9 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/glaciersfair/ar5_project_glaciersfair.py'
-      - './modules/ar5/glaciersfair/data/ar5_glaciersfair_project_data.tgz'
+      - '%MODULE_PATH%/ar5_project_glaciersfair.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/ar5_glaciersfair_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -89,17 +89,17 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_glaciersfair_postprocess_data.tgz; rm ar5_glaciersfair_postprocess_data.tgz"
     script: "ar5_postprocess_glaciersfair.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/glaciersfair/ar5_postprocess_glaciersfair.py'
-      - './modules/ar5/glaciersfair/read_locationfile.py'
-      - './modules/ar5/glaciersfair/AssignFP.py'
-      - './modules/ar5/glaciersfair/ReadFingerprint.py'
-      - './modules/ar5/glaciersfair/data/ar5_glaciersfair_postprocess_data.tgz'
+      - '%MODULE_PATH%/ar5_postprocess_glaciersfair.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/ar5_glaciersfair_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

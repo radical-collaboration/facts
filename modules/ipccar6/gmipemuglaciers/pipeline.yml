@@ -1,4 +1,4 @@
-# ISMIP Emulated Ice Sheets Pipeline
+# GMIP Emulated Glaciers Pipeline
 
 preprocess:
   task1:
@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib; tar -xzf ipccar6_gmipemuglaciers_preprocess_data.tgz; rm ipccar6_gmipemuglaciers_preprocess_data.tgz"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ipccar6_preprocess_gmipemuglaciers.py"
     options:
       - "scenario"
@@ -16,14 +16,15 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/gmipemuglaciers/ipccar6_preprocess_gmipemuglaciers.py"
-      - "./modules/ipccar6/gmipemuglaciers/import_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/filter_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/FindFAIRInputSamples.py"
-      - "./modules/ipccar6/gmipemuglaciers/import_temp_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/filter_temp_data.py"
-      - "./modules/ipccar6/gmipemuglaciers/Smooth.py"
-      - "./modules/ipccar6/gmipemuglaciers/data/ipccar6_gmipemuglaciers_preprocess_data.tgz"
+      - "%MODULE_PATH%/ipccar6_preprocess_gmipemuglaciers.py"
+      - "%MODULE_PATH%/import_data.py"
+      - "%MODULE_PATH%/filter_data.py"
+      - "%MODULE_PATH%/FindFAIRInputSamples.py"
+      - "%MODULE_PATH%/import_temp_data.py"
+      - "%MODULE_PATH%/filter_temp_data.py"
+      - "%MODULE_PATH%/Smooth.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/ipccar6_gmipemuglaciers_preprocess.tgz"
 
 
 fit:
@@ -34,12 +35,11 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ipccar6_fit_gmipemuglaciers.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/gmipemuglaciers/ipccar6_fit_gmipemuglaciers.py"
+      - "%MODULE_PATH%/ipccar6_fit_gmipemuglaciers.py"
 
 
 project:
@@ -50,7 +50,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ipccar6_project_gmipemuglaciers.py"
     options:
       - "nsamps"
@@ -58,20 +57,15 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/ipccar6/gmipemuglaciers/ipccar6_project_gmipemuglaciers.py"
+      - "%MODULE_PATH%/ipccar6_project_gmipemuglaciers.py"
     copy_input_data:
       preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
     global_total_files:
-      - "%PIPELINE_ID%_GIS_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
+      - "%PIPELINE_ID%_globalsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_globalsl.nc"
-      - "%PIPELINE_ID%_EAIS_globalsl.nc"
-      - "%PIPELINE_ID%_WAIS_globalsl.nc"
-      - "%PIPELINE_ID%_PEN_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
+      - "%PIPELINE_ID%_globalsl.nc"
 #      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
@@ -82,17 +76,17 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ipccar6_gmipemuglaciers_postprocess_data.tgz; rm ipccar6_gmipemuglaciers_postprocess_data.tgz"
     script: "ipccar6_postprocess_gmipemuglaciers.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ipccar6/gmipemuglaciers/ipccar6_postprocess_gmipemuglaciers.py'
-      - './modules/ipccar6/gmipemuglaciers/read_locationfile.py'
-      - './modules/ipccar6/gmipemuglaciers/AssignFP.py'
-      - './modules/ipccar6/gmipemuglaciers/ReadFingerprint.py'
-      - './modules/ipccar6/gmipemuglaciers/data/ipccar6_gmipemuglaciers_postprocess_data.tgz'
+      - '%MODULE_PATH%/ipccar6_postprocess_gmipemuglaciers.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/ipccar6_gmipemuglaciers_postprocess.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -100,10 +94,6 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_GIS_localsl.nc"
-      - "%PIPELINE_ID%_AIS_localsl.nc"
+      - "%PIPELINE_ID%_localsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_localsl.nc"
-      - "%PIPELINE_ID%_WAIS_localsl.nc"
-      - "%PIPELINE_ID%_EAIS_localsl.nc"
-      - "%PIPELINE_ID%_AIS_localsl.nc"
+      - "%PIPELINE_ID%_localsl.nc"

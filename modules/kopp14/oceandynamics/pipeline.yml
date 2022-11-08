@@ -19,16 +19,16 @@ preprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/kopp14/oceandynamics/kopp14_preprocess_oceandynamics.py"
-      - "./modules/kopp14/oceandynamics/IncludeModels.py"
-      - "./modules/kopp14/oceandynamics/IncludeDABZOSModels.py"
-      - "./modules/kopp14/oceandynamics/SmoothZOSTOGA.py"
-      - "./modules/kopp14/oceandynamics/DriftCorr.py"
-      - "./modules/kopp14/oceandynamics/Smooth.py"
-      - "./modules/kopp14/oceandynamics/read_locationfile.py"
-      - "./modules/kopp14/oceandynamics/read_CSIRO.py"
-      - "./modules/kopp14/oceandynamics/readMarzeion.py"
-      - "./modules/kopp14/oceandynamics/data/kopp14_oceandynamics_data.tgz"
+      - "%MODULE_PATH%/kopp14_preprocess_oceandynamics.py"
+      - "%MODULE_PATH%/IncludeModels.py"
+      - "%MODULE_PATH%/IncludeDABZOSModels.py"
+      - "%MODULE_PATH%/SmoothZOSTOGA.py"
+      - "%MODULE_PATH%/DriftCorr.py"
+      - "%MODULE_PATH%/Smooth.py"
+      - "%MODULE_PATH%/read_locationfile.py"
+      - "%MODULE_PATH%/read_CSIRO.py"
+      - "%MODULE_PATH%/readMarzeion.py"
+      - "%MODULE_PATH%/data/kopp14_oceandynamics_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
 #    download_output_data:
@@ -48,7 +48,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/oceandynamics/kopp14_fit_oceandynamics.py'
+      - '%MODULE_PATH%/kopp14_fit_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:
@@ -71,7 +71,7 @@ project:
       - "nsamps"
       - "seed"
     upload_input_data:
-      - './modules/kopp14/oceandynamics/kopp14_project_oceandynamics.py'
+      - '%MODULE_PATH%/kopp14_project_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:
@@ -99,7 +99,7 @@ postprocess:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/oceandynamics/kopp14_postprocess_oceandynamics.py'
+      - '%MODULE_PATH%/kopp14_postprocess_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:

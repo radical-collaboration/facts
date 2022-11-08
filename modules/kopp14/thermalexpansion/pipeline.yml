@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_thermalexp_preprocess_data.tgz; rm kopp14_thermalexp_preprocess_data.tgz; pip install numpy"
+    python_dependencies: "numpy"
     script: "kopp14_preprocess_thermalexp.py"
     options:
       - "scenario"
@@ -16,14 +16,15 @@ preprocess:
       - "no_drift_corr"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/kopp14/thermalexpansion/kopp14_preprocess_thermalexp.py"
-      - "./modules/kopp14/thermalexpansion/IncludeModels.py"
-      - "./modules/kopp14/thermalexpansion/SmoothZOSTOGA.py"
-      - "./modules/kopp14/thermalexpansion/DriftCorr.py"
-      - "./modules/kopp14/thermalexpansion/Smooth.py"
-      - "./modules/kopp14/thermalexpansion/read_CSIRO.py"
-      - "./modules/kopp14/thermalexpansion/readMarzeion.py"
-      - "./modules/kopp14/thermalexpansion/data/kopp14_thermalexp_preprocess_data.tgz"
+      - "%MODULE_PATH%/kopp14_preprocess_thermalexp.py"
+      - "%MODULE_PATH%/IncludeModels.py"
+      - "%MODULE_PATH%/SmoothZOSTOGA.py"
+      - "%MODULE_PATH%/DriftCorr.py"
+      - "%MODULE_PATH%/Smooth.py"
+      - "%MODULE_PATH%/read_CSIRO.py"
+      - "%MODULE_PATH%/readMarzeion.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/kopp14_thermalexp_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_config.pkl"
 #      - "%PIPELINE_ID%_ZOSTOGA.pkl"
@@ -37,12 +38,11 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_fit_thermalexp.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/thermalexpansion/kopp14_fit_thermalexp.py'
+      - '%MODULE_PATH%/kopp14_fit_thermalexp.py'
     copy_input_data:
       preprocess:
         task1:
@@ -60,14 +60,13 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_project_thermalexp.py"
     options:
       - "nsamps"
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/thermalexpansion/kopp14_project_thermalexp.py'
+      - '%MODULE_PATH%/kopp14_project_thermalexp.py'
     copy_input_data:
       preprocess:
         task1:
@@ -89,15 +88,13 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_postprocess_thermalexp.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/kopp14/thermalexpansion/kopp14_postprocess_thermalexp.py'
-      - './modules/kopp14/thermalexpansion/read_locationfile.py'
-      - './modules/kopp14/thermalexpansion/data/kopp14_thermalexp_postprocess_data.tgz'
+      - '%MODULE_PATH%/kopp14_postprocess_thermalexp.py'
+      - '%MODULE_PATH%/read_locationfile.py'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

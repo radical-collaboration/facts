@@ -398,7 +398,7 @@ if __name__ == '__main__':
 	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
-	parser.add_argument('--tlm_data', help="Use the two-layer model data [default=0, do not use 2lm data]", default=0, type=int)
+	parser.add_argument('--tlm_data', help="Use the two-layer model data [default=1,  use 2lm data]", default=1, type=int)
 
 	# Parse the arguments
 	args = parser.parse_args()

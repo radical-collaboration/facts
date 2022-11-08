@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_preprocess_data.tgz; tar -xzf ipccar6_climate_data.tgz ; rm ipccar6_climate_data.tgz ar5_icesheets_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_icesheets.py"
     options:
       - "scenario"
@@ -16,10 +16,11 @@ preprocess:
       - "baseyear"
       - "tlm_data"
     upload_input_data:
-      - "./modules/ar5/icesheets/ar5_preprocess_icesheets.py"
-      - "./modules/ar5/icesheets/Import2lmData.py"
-      - "./modules/ar5/icesheets/data/ar5_icesheets_preprocess_data.tgz"
-      - "./modules/ar5/icesheets/data/ipccar6_climate_data.tgz"
+      - "%MODULE_PATH%/ar5_preprocess_icesheets.py"
+      - "%MODULE_PATH%/Import2lmData.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/ar5_icesheets_preprocess_data.tgz"
+      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
 
 
 
@@ -31,12 +32,11 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ar5_fit_icesheets.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/icesheets/ar5_fit_icesheets.py'
+      - '%MODULE_PATH%/ar5_fit_icesheets.py'
     copy_input_data:
       preprocess:
         task1:
@@ -51,7 +51,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_project_data.tgz; rm ar5_icesheets_project_data.tgz"
     script: "ar5_project_icesheets.py"
     options:
       - "nmsamps"
@@ -63,8 +62,9 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/icesheets/ar5_project_icesheets.py'
-      - './modules/ar5/icesheets/data/ar5_icesheets_project_data.tgz'
+      - '%MODULE_PATH%/ar5_project_icesheets.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/ar5_icesheets_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -90,17 +90,17 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ar5_icesheets_postprocess_data.tgz; rm ar5_icesheets_postprocess_data.tgz"
     script: "ar5_postprocess_icesheets.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/ar5/icesheets/ar5_postprocess_icesheets.py'
-      - './modules/ar5/icesheets/read_locationfile.py'
-      - './modules/ar5/icesheets/AssignFP.py'
-      - './modules/ar5/icesheets/ReadFingerprint.py'
-      - './modules/ar5/icesheets/data/ar5_icesheets_postprocess_data.tgz'
+      - '%MODULE_PATH%/ar5_postprocess_icesheets.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/ar5_icesheets_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

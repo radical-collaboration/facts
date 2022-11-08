@@ -10,11 +10,12 @@ preprocess:
       thread-type: None
     pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "genmod_preprocess_directsample.py"
+    experiment_input_data_file
     options:
       - "input_data_file"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/genmod/directsample/genmod_preprocess_directsample.py"
+      - "%MODULE_PATH%/genmod_preprocess_directsample.py"
 #    download_output_data:
 #      - 
 #      - "%PIPELINE_ID%_data.pkl"
@@ -35,7 +36,7 @@ project:
       - "replace"
       - "seed"
     upload_input_data:
-      - './modules/genmod/directsample/genmod_project_directsample.py'
+      - '%MODULE_PATH%/genmod_project_directsample.py'
     copy_input_data:
       preprocess:
         task1:

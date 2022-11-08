@@ -37,10 +37,12 @@ def TotalSamplesInDirectory(directory, pyear_start, pyear_end, pyear_step, chunk
 	return(r)
 
 
-def TotalSampleInWorkflow(wfcfg, directory, targyears, workflow, scale, chunksize=50):
+def TotalSampleInWorkflow(wfcfg, directory, targyears, workflow, scale, chunksize=50, experiment_name=None):
 		# Define the output file
 		outdir = os.path.dirname(__file__)
 		outfilename = "total.workflow." + workflow + "." + scale + ".nc"
+		if len(experiment_name)>0:
+			outfilename = experiment_name + "." + outfilename
 		outfile = os.path.join(outdir, outfilename)
 
 		# Get the list of input files
@@ -58,13 +60,12 @@ def TotalSampleInWorkflow(wfcfg, directory, targyears, workflow, scale, chunksiz
 		return(r)
 
 
-def TotalSamplesInWorkflows(directory, pyear_start, pyear_end, pyear_step, chunksize, workflow=[""], scale=[""]):
+def TotalSamplesInWorkflows(directory, pyear_start, pyear_end, pyear_step, chunksize, wfcfg_file="workflows.yml", workflow=[""], scale=[""], experiment_name=None):
 
 	# Define the years of interest
 	targyears = xr.DataArray(np.arange(pyear_start, pyear_end+1, pyear_step), dims="years")
 
 	# read yaml file
-	wfcfg_file = os.path.join(directory, "workflows.yml")
 	with open(wfcfg_file, 'r') as fp:
 		wfcfg = yaml.safe_load(fp)
 
@@ -76,13 +77,13 @@ def TotalSamplesInWorkflows(directory, pyear_start, pyear_end, pyear_step, chunk
 				if this_workflow in workflow:
 					if len(scale[0])>0:
 						if this_scale in scale:
-							r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
+							r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize, experiment_name=experiment_name))
 						else:
-							r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
+							r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize, experiment_name=experiment_name))
 					else:
-						r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
+						r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize, experiment_name=experiment_name))
 			else:
-				r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize))
+				r.append(TotalSampleInWorkflow(wfcfg, directory, targyears, this_workflow, this_scale, chunksize, experiment_name=experiment_name))
 
 	return(r)
 
@@ -141,9 +142,10 @@ if __name__ == "__main__":
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--directory', help="Directory containing files to aggregate", required=True)
-	parser.add_argument('--workflows', help="Use a workflows.yml file listing files to aggregate", action="store_true")
+	parser.add_argument('--workflows', help="Use a workflows.yml file listing files to aggregate", type=str, default=None)
 	parser.add_argument('--workflow', help="Workflow to run", type=str, default="")
 	parser.add_argument('--scale', help="Scale to run", type=str, default="")
+	parser.add_argument('--experiment_name', help="Experiment Name", type=str, default="")
 	parser.add_argument('--pyear_start', help="Year for which projections start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
@@ -154,7 +156,7 @@ if __name__ == "__main__":
 
 	if args.workflows or (len(args.workflow)>0) or (len(args.scale)>0):
 		# Total up by workflow
-		TotalSamplesInWorkflows(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.chunksize, workflow=[args.workflow], scale=[args.scale])
+		TotalSamplesInWorkflows(args.directory,  args.pyear_start, args.pyear_end, args.pyear_step, args.chunksize, wfcfg_file= args.workflows, workflow=[args.workflow], scale=[args.scale], experiment_name = args.experiment_name)
 	else:
 		# Total up the workflow in the provided directory
 		TotalSamplesInDirectory(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.chunksize)

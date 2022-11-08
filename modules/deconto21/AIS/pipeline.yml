@@ -1,4 +1,4 @@
-# dp21 Ice Sheets Pipeline
+# DeConto et al 2021 Ice Sheets Pipeline
 
 preprocess:
   task1:
@@ -8,15 +8,16 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf dp21_icesheet_preprocess_data.tgz; rm dp21_icesheet_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib xarray dask"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib xarray dask"
     script: "dp21_preprocess_icesheet.py"
     options:
       - "scenario"
       - "pipeline_id"
       - "baseyear"
     upload_input_data:
-      - "./modules/dp21/icesheet/dp21_preprocess_icesheet.py"
-      - "./modules/dp21/icesheet/data/dp21_icesheet_preprocess_data.tgz"
+      - "%MODULE_PATH%/dp21_preprocess_icesheet.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/dp21_icesheet_preprocess_data.tgz"
 
 
 fit:
@@ -32,7 +33,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/dp21/icesheet/dp21_fit_icesheet.py'
+      - '%MODULE_PATH%/dp21_fit_icesheet.py'
 
 
 project:
@@ -43,7 +44,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "dp21_project_icesheet.py"
     options:
       - "nsamps"
@@ -54,7 +54,7 @@ project:
       - "replace"
       - "pipeline_id"
     upload_input_data:
-      - './modules/dp21/icesheet/dp21_project_icesheet.py'
+      - '%MODULE_PATH%/dp21_project_icesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -75,18 +75,18 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf dp21_icesheet_postprocess_data.tgz; rm dp21_icesheet_postprocess_data.tgz"
     script: "dp21_postprocess_icesheet.py"
     options:
       - "chunksize"
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/dp21/icesheet/dp21_postprocess_icesheet.py'
-      - './modules/dp21/icesheet/read_locationfile.py'
-      - './modules/dp21/icesheet/AssignFP.py'
-      - './modules/dp21/icesheet/ReadFingerprint.py'
-      - './modules/dp21/icesheet/data/dp21_icesheet_postprocess_data.tgz'
+      - '%MODULE_PATH%/dp21_postprocess_icesheet.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/dp21_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -94,8 +94,8 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_WAIS_localsl.nc"
-      - "%PIPELINE_ID%_EAIS_localsl.nc"
+      - "%PIPELINE_ID%_AIS_localsl.nc"
     download_output_data:
+      - "%PIPELINE_ID%_AIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"

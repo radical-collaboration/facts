@@ -8,18 +8,20 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ipccar6_climate_data.tgz; rm ipccar6_climate_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array]"
     script: "FittedISMIP_preprocess_icesheet.py"
     options:
+      - "climate_data_file"
       - "scenario"
       - "pipeline_id"
       - "tlm_data"
     upload_input_data:
-      - "./modules/FittedISMIP/icesheet/FittedISMIP_preprocess_icesheet.py"
-      - "./modules/FittedISMIP/icesheet/Import2lmData.py"
-      - "./modules/FittedISMIP/icesheet/import_temp_data.py"
-      - "./modules/FittedISMIP/icesheet/filter_temp_data.py"
-      - "./modules/FittedISMIP/icesheet/data/ipccar6_climate_data.tgz"
+      - "%MODULE_PATH%/FittedISMIP_preprocess_icesheet.py"
+      - "%MODULE_PATH%/Import2lmData.py"
+      - "%MODULE_PATH%/import_temp_data.py"
+      - "%MODULE_PATH%/filter_temp_data.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
 
 
 fit:
@@ -35,8 +37,8 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - './modules/FittedISMIP/icesheet/FittedISMIP_fit_icesheet.py'
-      - "./modules/FittedISMIP/icesheet/data/FittedISMIP_icesheet_fit_data.tgz"
+      - '%MODULE_PATH%/FittedISMIP_fit_icesheet.py'
+      - "%MODULE_PATH%/data/FittedISMIP_icesheet_fit_data.tgz"
 
 
 project:
@@ -60,7 +62,7 @@ project:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - './modules/FittedISMIP/icesheet/FittedISMIP_project_icesheet.py'
+      - '%MODULE_PATH%/FittedISMIP_project_icesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -95,11 +97,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - './modules/FittedISMIP/icesheet/FittedISMIP_postprocess_icesheet.py'
-      - './modules/FittedISMIP/icesheet/read_locationfile.py'
-      - './modules/FittedISMIP/icesheet/AssignFP.py'
-      - './modules/FittedISMIP/icesheet/ReadFingerprint.py'
-      - './modules/FittedISMIP/icesheet/data/FittedISMIP_icesheet_postprocess_data.tgz'
+      - '%MODULE_PATH%/FittedISMIP_postprocess_icesheet.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/FittedISMIP_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

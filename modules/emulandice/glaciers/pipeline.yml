@@ -10,12 +10,15 @@ preprocess:
       thread-type: None
     pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
     script: "emulandice_preprocess_glaciers.py"
+    arguments:
+      - "--input_data_file"
+      - "%CLIMATE_GSAT_FILE%"
     options:
       - "input_data_file"
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "./modules/emulandice/glaciers/emulandice_preprocess_glaciers.py"
+      - "%MODULE_PATH%/emulandice_preprocess_glaciers.py"
 
 
 fit:
@@ -31,7 +34,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/emulandice/glaciers/emulandice_fit_glaciers.py"
+      - "%MODULE_PATH%/emulandice_fit_glaciers.py"
 
 
 
@@ -48,8 +51,8 @@ project:
     options:
       - "pipeline_id"
     upload_input_data:
-      - "./modules/emulandice/glaciers/emulandice_project_glaciers.py"
-      - "./modules/emulandice/glaciers/data/emulandice_glaciers_project_data.tgz"
+      - "%MODULE_PATH%/emulandice_project_glaciers.py"
+      - "%MODULE_PATH%/data/emulandice_glaciers_project_data.tgz"
     copy_input_data:
       preprocess:
         task1:
@@ -79,11 +82,11 @@ postprocess:
       - "chunksize"
       - "pipeline_id"
     upload_input_data:
-      - './modules/emulandice/glaciers/emulandice_postprocess_glaciers.py'
-      - './modules/emulandice/glaciers/read_locationfile.py'
-      - './modules/emulandice/glaciers/AssignFP.py'
-      - './modules/emulandice/glaciers/ReadFingerprint.py'
-      - './modules/emulandice/glaciers/data/emulandice_glaciers_postprocess_data.tgz'
+      - '%MODULE_PATH%/emulandice_postprocess_glaciers.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+      - '%MODULE_PATH%/data/emulandice_glaciers_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
