@@ -1,5 +1,7 @@
 # Framework for Assessing Changes To Sea-level (FACTS)
 
+The Framework for Assessing Changes To Sea-level (FACTS) is an open-source modular, scalable, and extensive framework for global mean, regional, and extreme sea level projection that is designed to support the characterization of ambiguity in sea-level projections. It is designed so users can easily explore deep uncertainty by investigating the implications on GMSL, RSL, and ESL of different choices for different processes. Its modularity allows components to be represented by either simple or complex model. Because it is built upon the Radical-PILOT computing stack, different modules can be dispatched for execution on resources appropriate to their computational complexity.
+
 ## Resources
 
 See [Zenodo](https://doi.org/10.5281/zenodo.6419954) for the FACTS modules, data sets, and scripts used to produce the AR6 sea level projections.
