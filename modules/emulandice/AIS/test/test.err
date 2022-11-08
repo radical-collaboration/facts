@@ -1,5 +1,23 @@
-/home/rk509/facts/modules/emulandice/AIS/test/../../../../scripts/moduletest/moduletest.sh: line 43: run_moduletest.sh: No such file or directory
-  File "/scratch/rk509/test.1667939760/emulandice_project_AIS.py", line 124
+Installing package from './emulandice_1.1.0.tar.gz'
+Installing emulandice
+'/projects/community/R/3.6.3/gc563/lib64/R/bin/R' --vanilla CMD INSTALL  \
+  --preclean '/tmp/Rtmp7BZYF5/packrat-install-a4847927bca3/emulandice'  \
+  --library='/scratch/rk509/test.1667941137/packrat/lib/x86_64-pc-linux-gnu/3.6.3'  \
+  --install-tests 
+
+* installing *source* package ‘emulandice’ ...
+** using staged installation
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (emulandice)
+  File "/scratch/rk509/test.1667941137/emulandice_project_AIS.py", line 124
     subprocess.run(["bash emulandice_steer.sh \'" + emulandice_dataset + "\' " + nsamps)
                                                                                        ^
 SyntaxError: closing parenthesis ')' does not match opening parenthesis '['

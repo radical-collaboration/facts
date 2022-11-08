@@ -119,9 +119,8 @@ def emulandice_project_AIS(pipeline_id, nsamps):
 	# os.chdir(py_working_dir)
 
 	py_working_dir = os.getcwd()
-	os.chdir(os.path.join(py_working_dir, "emulandice"))
 	emulandice_dataset = 'FACTS_CLIMATE_FORCING_DATA.csv'
-	subprocess.run(["bash emulandice_steer.sh \'" + emulandice_dataset + "\' " + nsamps)
+	subprocess.run(["bash", "emulandice_steer.sh " + emulandice_dataset + " " + str(nsamps)])
 
 	# Get the output from the emulandice run
 	emulandice_file = os.path.join(os.path.dirname(__file__),"results", "projections_FAIR_FACTS.csv")

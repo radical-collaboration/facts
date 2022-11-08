@@ -11,5 +11,5 @@ module load R/3.6.3-gc563
 module load gcc/5.4
 
 if [ "$1" == "--Rscript" ]; then
-    Rscript -e "source('packratc/init.R')" -e "packrat::install_local('emulandice_1.1.0.tar.gz')"
+    Rscript -e "source('packrat/init.R')" -e "packrat::install_local('emulandice_1.1.0.tar.gz')"
 fi

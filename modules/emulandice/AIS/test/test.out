@@ -1,9 +1,14 @@
-Initiating test in /scratch/rk509/test.1667939760...
+Initiating test in /scratch/rk509/test.1667941137...
 
 Extracting data files...
 
 Executing workflow...
-source run_moduletest.sh
+source emulandice_environment.sh --Rscript
+[1] "____________________________________________________"
+[1] "Welcome to emulandice"
+[1]  
+[1] "Can ignore the warnings from optimize"
+[1] "____________________________________________________"
 python emulandice_preprocess_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585 --baseyear 2005 --input_data_file test/input/fair-temperature-fair-ssp585_gsat.nc
 python emulandice_fit_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585
 python emulandice_project_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585
