@@ -14,12 +14,14 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
   git clone git@github.com:radical-collaboration/facts.git
   ```
 
-2. Installing MongoDB and RabbitMQ servers. Follow the official documentation:
+2. Download modules-data from https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put these >50 GB of file in a common location and soft-link to each user's directory.) 
+
+3. Installing MongoDB and RabbitMQ servers. Follow the official documentation:
 
   - [Install MongoDB Community Edition on Linux](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
   - [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)
 
-3. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
+4. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
 
   - Using `venv`:
 
@@ -40,7 +42,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
     conda install numpy scipy netCDF4 pyyaml matplotlib h5py yq
     ```
 
-4. executing FACTS.
+5. executing FACTS.
 
   ```
   mkdir test
@@ -58,7 +60,14 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
   git clone git@github.com:radical-collaboration/facts.git
   ```
 
-2. Configuring MongoDB, RabbitMQ and Amarel resource parameters:
+3. Download modules-data from https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. If you have multiple users of FACTS, you might want to put these >50 GB of file in a common location and soft-link to each user's directory, for example:
+
+```
+cd ~/facts/modules-data
+ln -s /projects/kopp/facts-dev/modules-data/*.tgz . 
+```
+
+4. Configuring MongoDB, RabbitMQ and Amarel resource parameters:
 
   - Ask for MongoDB and RabbitMQ parameters to the FACTS team via email or by opening an issue in this repository.
   - Edit FACTS configuration file:
@@ -69,7 +78,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
     -> enter the parameters for RabbitMQ/MongoDB
     ```
 
-3. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
+5. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
 
   - Using `venv`:
 
@@ -90,7 +99,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
     conda install numpy scipy netCDF4 pyyaml matplotlib h5py yq
     ```
 
-4. executing FACTS.
+6. executing FACTS.
 
   ```
   mkdir test
@@ -99,7 +108,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
   ```
 
 
-<!-- ### Module Tests
+### Module Tests
 
 Almost all modules have test scripts that allow them to be run outside the FACTS/EnTK framework. These should be invoked via the test/run_moduletest.sh script. The configuration of the module test scripts are specified in a moduletest.config file. See, for example, [modules/ar5/icesheets/test/moduletest.config](modules/ar5/icesheets/test/moduletest.config). There may also be global settings (e.g., the scratch directory you want used) that need to be set in [scripts/moduletest/moduletest.config.global](scripts/moduletest/moduletest.config.global).
 
@@ -117,4 +126,4 @@ In addition, you will need to have all the associated module data tgz files in y
 ```
 cd ~/facts/modules-data
 ln -s /projects/shared/facts/modules-data/*.tgz .
-``` -->
+```
