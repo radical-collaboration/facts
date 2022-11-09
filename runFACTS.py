@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
     # Add arguments for the resource and experiment configuration files
     parser.add_argument('edir', help="Experiment Directory")
-    parser.add_argument('--debug', help="Enable debug mode", action="store_true")
+    parser.add_argument('--debug', help="Enable debug mode (check that configuration files parse, do not execute)", action="store_true")
 
     # Parse the arguments
     args = parser.parse_args()
