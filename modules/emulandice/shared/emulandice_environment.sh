@@ -6,6 +6,8 @@
 # You will have to modify it for your system.
 
 module use /projects/community/modulefiles
+
+module purge
 module load intel/19.0.3
 module load R/3.6.3-gc563
 module load gcc/7.3.0-gc563

@@ -60,7 +60,7 @@ project:
       preprocess:
         task1:
           - "%PIPELINE_ID%_preprocess.pkl"
-          - "FACTS_CLIMATE_FORCING_DATA.csv"
+          - "FACTS_CLIMATE_FORCING.csv"
       fit:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
