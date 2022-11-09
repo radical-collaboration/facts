@@ -91,19 +91,6 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     # Give this task object a name
     t.name = task_name
 
-    # Pre exec let you load modules, set environment before executing the workload
-    t.pre_exec = []
-    if "pre_exec" in tcfg.keys():
-        if len(tcfg['pre_exec']) > 0:
-            t.pre_exec = [tcfg['pre_exec']]
-
-    # if their are python dependencies, add pip call to pre_exec
-    if "python_dependencies" in tcfg.keys():
-        t.pre_exec.append('pip install --upgrade pip; pip install ' + tcfg['python_dependencies'])
-
-    # Executable to use for the task
-    t.executable = tcfg['executable']
-
     # If there's a user-defined input file (likely for genmod modules), add it to the
     # options list and upload file list if needed
     # if "input_data_file" in tcfg['options']:
@@ -115,36 +102,6 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
             if not os.path.isfile(fp):
                 raise(FileNotFoundError("input_data_file: " + fp + " not found!"))
             tcfg['upload_input_data'].append(fp)
-
-
-    # If there's a data file to upload and extract, add it to upload and
-    # add the extraction command to pre-exec
-    if "upload_and_extract_input_data" in tcfg.keys():
-        for this_file0 in tcfg['upload_and_extract_input_data']:
-            this_file = mvar_replace_dict(mvar_dict,this_file0)
-            if not os.path.isfile(this_file):
-                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
-            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
-            tcfg['upload_input_data'].append(this_file)
-
-    # List of arguments for the executable
-    # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
-    t.arguments = [tcfg['script']]
-    if "arguments" in tcfg.keys():
-        t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
-    for x in match_options(tcfg['options'], ecfg['options']):
-        if type(x)==str:
-            t.arguments.append(mvar_replace_dict(mvar_dict,x))
-        else:
-            t.arguments.append(x)
-
-    # CPU requirements for this task
-    t.cpu_reqs = {
-                     'cpu_processes': tcfg['cpu']['processes'],
-                     'cpu_process_type': tcfg['cpu']['process-type'],
-                     'cpu_threads': tcfg['cpu']['threads-per-process'],
-                     'cpu_thread_type': tcfg['cpu']['thread-type'],
-                 }
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
@@ -175,6 +132,53 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # Append the copy list (if any) to the task object
     t.copy_input_data = copy_list
+
+    # Pre exec let you load modules, set environment before executing the workload
+    t.pre_exec = []
+
+    # If there's a data file to upload and extract, add it to upload and
+    # add the extraction command to pre-exec
+    if "upload_and_extract_input_data" in tcfg.keys():
+        for this_file0 in tcfg['upload_and_extract_input_data']:
+            this_file = mvar_replace_dict(mvar_dict,this_file0)
+            if not os.path.isfile(this_file):
+                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
+            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
+            t.upload_input_data.append(this_file)
+
+   # if their are python dependencies, add pip call to pre_exec
+    if "python_dependencies" in tcfg.keys():
+        t.pre_exec.append('pip install --upgrade pip; pip install ' + tcfg['python_dependencies'])
+
+    if "pre_exec" in tcfg.keys():
+        if len(tcfg['pre_exec']) > 0:
+            t.pre_exec.append(tcfg['pre_exec'])
+
+    # Executable to use for the task
+    t.executable = tcfg['executable']
+
+
+
+
+    # List of arguments for the executable
+    # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
+    t.arguments = [tcfg['script']]
+    if "arguments" in tcfg.keys():
+        t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
+    for x in match_options(tcfg['options'], ecfg['options']):
+        if type(x)==str:
+            t.arguments.append(mvar_replace_dict(mvar_dict,x))
+        else:
+            t.arguments.append(x)
+
+    # CPU requirements for this task
+    t.cpu_reqs = {
+                     'cpu_processes': tcfg['cpu']['processes'],
+                     'cpu_process_type': tcfg['cpu']['process-type'],
+                     'cpu_threads': tcfg['cpu']['threads-per-process'],
+                     'cpu_thread_type': tcfg['cpu']['thread-type'],
+                 }
+
 
     # Send the global and local files to the shared directory for totaling
     copy_output_list = []

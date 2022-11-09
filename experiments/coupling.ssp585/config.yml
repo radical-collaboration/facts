@@ -27,12 +27,12 @@ sealevel_step:
             - "wf1f"
             - "wf2f"
 
-    # emuAIS:
-    #     module_set: "emulandice"
-    #     module: "AIS"
-    #     include_in_workflow:
-    #         - "wf1e"      
-    #         - "wf2e"
+    emuAIS:
+        module_set: "emulandice"
+        module: "AIS"
+        include_in_workflow:
+            - "wf1e"      
+            - "wf2e"
 
     # emuGrIS:
     #     module_set: "emulandice"

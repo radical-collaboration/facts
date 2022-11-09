@@ -1,8 +1,8 @@
 Installing package from './emulandice_1.1.0.tar.gz'
 Installing emulandice
 '/projects/community/R/3.6.3/gc563/lib64/R/bin/R' --vanilla CMD INSTALL  \
-  --preclean '/tmp/RtmptQSMOQ/packrat-install-98a22832f38a/emulandice'  \
-  --library='/scratch/rk509/test.1667944880/packrat/lib/x86_64-pc-linux-gnu/3.6.3'  \
+  --preclean '/tmp/RtmpJZgP9r/packrat-install-fdf97d721df6/emulandice'  \
+  --library='/scratch/rk509/test.1667945824/packrat/lib/x86_64-pc-linux-gnu/3.6.3'  \
   --install-tests 
 
 * installing *source* package ‘emulandice’ ...
@@ -36,3 +36,8 @@ Loading required package: purrr
 Loading required package: tibble
 Loading required package: stringr
 Loading required package: forcats
+Warning message:
+In .identC(class2, "ANY") :
+  closing unused connection 3 (results/output.txt)
+emulandice_steer.sh: line 17: syntax error near unexpected token `'$3''
+emulandice_steer.sh: line 17: `=c('$3'))"'

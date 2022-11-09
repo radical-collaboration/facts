@@ -29,7 +29,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "emulandice_fit_AIS.py"
     options:
       - "pipeline_id"
@@ -46,7 +45,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "source emulandice_environment.sh --Rscript"
     script: "emulandice_project_AIS.py"
     options:
       - "pipeline_id"
@@ -57,6 +55,7 @@ project:
       - "%MODULE_PATH%/../shared/emulandice_steer.sh"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
+    pre_exec: "source emulandice_environment.sh --Rscript"
     copy_input_data:
       preprocess:
         task1:

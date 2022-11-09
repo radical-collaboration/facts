@@ -1,4 +1,4 @@
-Initiating test in /scratch/rk509/test.1667944880...
+Initiating test in /scratch/rk509/test.1667945824...
 
 Extracting data files...
 
@@ -13,3 +13,15 @@ python emulandice_preprocess_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585 --ba
 python emulandice_fit_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585
 python emulandice_project_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585
 Rscript -e source('packrat/init.R') -e library(emulandice) -e emulandice::main('decades',dataset='FACTS_CLIMATE_FORCING.csv',N_FACTS=500,ice_sources=c('AIS'))
+python emulandice_postprocess_AIS.py --pipeline_id AIS-emulandice-AIS-ssp585 --locationfile /home/rk509/facts/modules/emulandice/AIS/test/../../../../scripts/moduletest/location_list.lst --chunksize 600
+
+Collecting output files...
+AIS-emulandice-AIS-ssp585_EAIS_globalsl.nc
+AIS-emulandice-AIS-ssp585_EAIS_localsl.nc
+AIS-emulandice-AIS-ssp585_globalsl.nc
+AIS-emulandice-AIS-ssp585_localsl.nc
+AIS-emulandice-AIS-ssp585_PEN_globalsl.nc
+AIS-emulandice-AIS-ssp585_WAIS_globalsl.nc
+AIS-emulandice-AIS-ssp585_WAIS_localsl.nc
+
+Skipping clean up...
