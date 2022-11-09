@@ -1,7 +1,12 @@
 #!/bin/bash
+
+# check for results directory
 if [[ ! -d results ]]; then
     mkdir results
 fi
+
+# set up environment
+source emulandice_environment.sh --Rscript
 
 # run emulandice
 emulandice_dataset=$1

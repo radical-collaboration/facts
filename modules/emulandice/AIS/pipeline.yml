@@ -55,7 +55,7 @@ project:
       - "%MODULE_PATH%/../shared/emulandice_steer.sh"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
-    pre_exec: "source ${RP_TASK_SANDBOX}/emulandice_environment.sh --Rscript"
+#    pre_exec: "source ${RP_TASK_SANDBOX}/emulandice_environment.sh --Rscript"
     copy_input_data:
       preprocess:
         task1:
