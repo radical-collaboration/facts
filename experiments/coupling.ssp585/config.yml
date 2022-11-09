@@ -12,8 +12,8 @@ climate_step:
         module_set: "fair"
         module: "temperature"
         generates_climate_output: true
-        input_data_file:
-              - "emissions.csv"
+#        input_data_file:
+#              - "emissions.csv"
         options:
               rcmip_file: emissions.csv
 
