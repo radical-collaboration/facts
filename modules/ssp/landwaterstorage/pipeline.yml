@@ -56,7 +56,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ssp_project_landwaterstorage.py"
     options:
       - "pipeline_id"
