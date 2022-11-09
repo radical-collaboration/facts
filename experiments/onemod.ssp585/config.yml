@@ -1,0 +1,100 @@
+global-options:
+    nsamps: 50
+    rcfg-name: "amarel"
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2100
+    pyear_step: 10
+    baseyear: 2005
+
+
+sealevel_step:
+    NZVLM:
+        module_set: "NZInsarGPS"
+        module: "verticallandmotion"
+    DSL:
+        module_set: "tlm"
+        module: "oceandynamics"
+
+    # emuAIS:
+    #     module_set: "emulandice"
+    #     module: "AIS"
+    # emuGrIS:
+    #     module_set: "emulandice"
+    #     module: "GrIS"
+    # emuglaciers:
+    #     module_set: "emulandice"
+    #     module: "glaciers"
+    # larmip:
+    #     module_set: "larmip"
+    #     module: "AIS"
+    # lws:
+    #     module_set: "ssp"
+    #     module: "landwaterstorage"
+    #     options:
+    #         scenario: "ssp5"
+    # k14glaciers:
+    #     module_set: "kopp14"
+    #     module: "glaciers"
+    #     options:
+    #         scenario: "rcp85"
+    # k14icesheets:
+    #     module_set: "kopp14"
+    #     module: "icesheets"
+    #     options:
+    #         scenario: "rcp85"
+    # k14lws:
+    #     module_set: "kopp14"
+    #     module: "landwaterstorage"
+    # k14te:
+    #     module_set: "kopp14"
+    #     module: "thermalexpansion"
+    #     options:
+    #         scenario: "rcp85"
+    # k14vlm:
+    #     module_set: "kopp14"
+    #     module: "verticallandmotion"
+    # ar5glaciers:
+    #     module_set: "ipccar5"
+    #     module: "glaciers"
+    # ar5glacierscmip6:
+    #     module_set: "ipccar5"
+    #     module: "glacierscmip6"
+    #     options:
+    #         scenario: "ssp585"
+    # ar5glaciersfair:
+    #     module_set: "ipccar5"
+    #     module: "glaciersfair"
+    #     options:
+    #         scenario: "ssp585"
+    # ar5icesheets:
+    #     module_set: "ipccar5"
+    #     module: "icesheets"        
+    # ar5te:
+    #     module_set: "ipccar5"
+    #     module: "thermalexpansion"       
+    
+    # deconto16:
+    #     module_set: "deconto16"
+    #     module: "AIS"
+    #     options:
+    #         scenario: "rcp85"
+    # deconto21:
+    #     module_set: "deconto21"
+    #     module: "AIS"
+    #     options:
+    #         scenario: "rcp85"
+    # bamber19:
+    #     module_set: "ipccar6"
+    #     module: "bambericesheets"
+    #     options:
+    #         scenario: "rcp85"
+    # gmipemu:
+    #     module_set: "ipccar6"
+    #     module: "gmipemuglaciers"
+    # ismipemu:
+    #     module_set: "ipccar6"
+    #     module: "ismipemuicesheets"
+    # larmip:
+    #     module_set: "ipccar6"
+    #     module: "larmipAIS"
