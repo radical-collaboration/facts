@@ -1,46 +1,11 @@
-trying URL 'https://cloud.r-project.org/src/contrib/devtools_2.4.5.tar.gz'
-Content type 'application/x-gzip' length 374718 bytes (365 KB)
-==================================================
-downloaded 365 KB
+Installing package from './emulandice_1.1.0.tar.gz'
+Installing emulandice
+'/projects/community/R/3.6.3/gc563/lib64/R/bin/R' --vanilla CMD INSTALL  \
+  --preclean '/tmp/Rtmpjnn85q/packrat-install-37be50b7e274/emulandice'  \
+  --library='/scratch/rk509/test.1668004635/packrat/lib/x86_64-pc-linux-gnu/3.6.3'  \
+  --install-tests 
 
-* installing *source* package ‘devtools’ ...
-** package ‘devtools’ successfully unpacked and MD5 sums checked
-** using staged installation
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-*** copying figures
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (devtools)
-
-The downloaded source packages are in
-	‘/tmp/RtmpLcwaOo/downloaded_packages’
-Skipping 1 packages not available: dummies
-Installing 1 packages: stringi
-trying URL 'https://cloud.r-project.org/src/contrib/stringi_1.7.8.tar.gz'
-Content type 'application/x-gzip' length 8032287 bytes (7.7 MB)
-==================================================
-downloaded 7.7 MB
-
-* installing *source* package ‘stringi’ ...
-** package ‘stringi’ successfully unpacked and MD5 sums checked
-** using staged installation
-ERROR: configuration failed for package ‘stringi’
-* removing ‘/cache/home/rk509/.conda/envs/conda-entk/lib/R/library/stringi’
-* restoring previous ‘/cache/home/rk509/.conda/envs/conda-entk/lib/R/library/stringi’
-
-The downloaded source packages are in
-	‘/tmp/RtmpiExfGa/downloaded_packages’
-Warning message:
-In i.p(...) : installation of package ‘stringi’ had non-zero exit status
-* installing to library ‘/cache/home/rk509/.conda/envs/conda-entk/lib/R/library’
-* installing *source* package ‘emulandice20221024172523’ ...
+* installing *source* package ‘emulandice’ ...
 ** using staged installation
 ** R
 ** inst
@@ -51,21 +16,24 @@ In i.p(...) : installation of package ‘stringi’ had non-zero exit status
 ** testing if installed package can be loaded from temporary location
 ** testing if installed package can be loaded from final location
 ** testing if installed package keeps a record of temporary installation path
-* DONE (emulandice20221024172523)
-Loading required package: tidyverse
-── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.3.6      ✔ purrr   0.3.5 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-✔ readr   2.1.3      ✔ forcats 0.5.2 
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-Warning messages:
-1: package ‘tibble’ was built under R version 4.2.1 
-2: package ‘purrr’ was built under R version 4.2.1 
-3: package ‘stringr’ was built under R version 4.2.1 
-Warning message:
-In for (i in seq_len(n)) { :
-  closing unused connection 3 (/scratch/rk509/test.1666646721/emulandice-master/../results/output.txt)
-Removing from library ‘/cache/home/rk509/.conda/envs/conda-entk/lib/R/library’
+* DONE (emulandice)
+Loading required package: ggplot2
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: tidyr
+Loading required package: readr
+Loading required package: purrr
+Loading required package: tibble
+Loading required package: stringr
+Loading required package: forcats
+emulandice_steer.sh: line 16: 14463 Terminated              Rscript -e "source('packrat/init.R')" -e "library(emulandice)" -e "emulandice::main('decades',dataset='$emulandice_dataset',N_FACTS=$nsamps,ice_sources=c('$3'))"

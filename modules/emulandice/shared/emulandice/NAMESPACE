@@ -1,0 +1,13 @@
+exportPattern("^[[:alpha:]]+")
+
+importFrom("grDevices", "dev.off", "grey", "pdf", "rgb")
+importFrom("graphics", "abline", "boxplot", "hist", "lines", "par",
+               "plot", "points", "polygon", "rect", "text")
+importFrom("methods", "show")
+importFrom("stats", "approx", "as.formula", "cor", "density", "dnorm",
+               "lm", "predict", "quantile", "rnorm", "sd", "var")
+importFrom("utils", "read.csv", "read.table")
+importFrom("graphics", "arrows", "axis")
+importFrom("stats", "median", "runif")
+importFrom("utils", "write.table")
+

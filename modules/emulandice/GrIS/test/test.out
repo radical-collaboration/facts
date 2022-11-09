@@ -1,99 +1,22 @@
-Initiating test in /scratch/rk509/test.1666646721...
+Initiating test in /scratch/rk509/test.1668004635...
+
 Extracting data files...
+
 Executing workflow...
-python emulandice_preprocess_GrIS.py --pipeline_id GrIS-emulandice-GrIS-ssp585 --baseyear 2005 --input_data_file test/input/fair-temperature-fair-ssp585_gsat.nc
-python emulandice_fit_GrIS.py --pipeline_id GrIS-emulandice-GrIS-ssp585
-python emulandice_project_GrIS.py --pipeline_id GrIS-emulandice-GrIS-ssp585
-Warning message:
-package ‘usethis’ was built under R version 4.2.1 
-Warning: package ‘usethis’ was built under R version 4.2.1
-Warning: package ‘usethis’ was built under R version 4.2.1
-stringi (1.7.6 -> 1.7.8) [CRAN]
-checking for R_HOME... /home/rk509/.conda/envs/conda-entk/lib/R
-checking for R... /home/rk509/.conda/envs/conda-entk/lib/R/bin/R
-checking for endianness... little
-checking for R >= 3.1.0 for C++11 use... yes
-checking for R < 3.4.0 for CXX1X flag use... no
-checking for cat... /usr/bin/cat
-checking for local ICUDT_DIR... icu69/data
-checking for x86_64-conda-linux-gnu-gcc... x86_64-conda-linux-gnu-cc
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether x86_64-conda-linux-gnu-cc accepts -g... yes
-checking for x86_64-conda-linux-gnu-cc option to accept ISO C89... none needed
-checking how to run the C preprocessor... /home/rk509/.conda/envs/conda-entk/bin/x86_64-conda-linux-gnu-cpp
-checking for grep that handles long lines and -e... /usr/bin/grep
-checking for egrep... /usr/bin/grep -E
-checking for ANSI C header files... yes
-checking for sys/types.h... yes
-checking for sys/stat.h... yes
-checking for stdlib.h... yes
-checking for string.h... yes
-checking for memory.h... yes
-checking for strings.h... yes
-checking for inttypes.h... yes
-checking for stdint.h... yes
-checking for unistd.h... yes
-checking elf.h usability... yes
-checking elf.h presence... yes
-checking for elf.h... yes
-checking whether we are using the GNU C++ compiler... yes
-checking whether x86_64-conda-linux-gnu-c++ -std=gnu++11 accepts -g... yes
-checking whether the C++ compiler supports the long long type... no
-*** Trying with C++11 compiler disabled.
-checking for local ICUDT_DIR... icu55/data
-checking for x86_64-conda-linux-gnu-gcc... x86_64-conda-linux-gnu-cc
-checking whether the C compiler works... yes
-checking for C compiler default output file name... a.out
-checking for suffix of executables... 
-checking whether we are cross compiling... no
-checking for suffix of object files... o
-checking whether we are using the GNU C compiler... yes
-checking whether x86_64-conda-linux-gnu-cc accepts -g... yes
-checking for x86_64-conda-linux-gnu-cc option to accept ISO C89... none needed
-checking how to run the C preprocessor... /home/rk509/.conda/envs/conda-entk/bin/x86_64-conda-linux-gnu-cpp
-checking for grep that handles long lines and -e... (cached) /usr/bin/grep
-checking for egrep... (cached) /usr/bin/grep -E
-checking for ANSI C header files... yes
-checking for sys/types.h... (cached) yes
-checking for sys/stat.h... (cached) yes
-checking for stdlib.h... (cached) yes
-checking for string.h... (cached) yes
-checking for memory.h... (cached) yes
-checking for strings.h... (cached) yes
-checking for inttypes.h... (cached) yes
-checking for stdint.h... (cached) yes
-checking for unistd.h... (cached) yes
-checking for elf.h... (cached) yes
-checking whether we are using the GNU C++ compiler... yes
-checking whether x86_64-conda-linux-gnu-c++ -std=gnu++14 accepts -g... yes
-checking whether the C++ compiler supports the long long type... no
-
-*** *********************************************************************
-*** stringi cannot be built with these settings in place.
-*** See the INSTALL file for the solutions to the most common problems.
-*** Moreover, explore the list of open and closed issues at
-*** https://github.com/gagolews/stringi/issues/
-*** *********************************************************************
-
-Warning messages:
-1: package ‘tibble’ was built under R version 4.2.1 
-2: package ‘purrr’ was built under R version 4.2.1 
-3: package ‘stringr’ was built under R version 4.2.1 
+source emulandice_environment.sh --Rscript
 [1] "____________________________________________________"
 [1] "Welcome to emulandice"
 [1]  
 [1] "Can ignore the warnings from optimize"
 [1] "____________________________________________________"
-Warning: package ‘tibble’ was built under R version 4.2.1
-Warning: package ‘purrr’ was built under R version 4.2.1
-Warning: package ‘stringr’ was built under R version 4.2.1
-Warning: package ‘tibble’ was built under R version 4.2.1
-Warning: package ‘purrr’ was built under R version 4.2.1
-Warning: package ‘stringr’ was built under R version 4.2.1
-python emulandice_postprocess_GrIS.py --pipeline_id GrIS-emulandice-GrIS-ssp585 --locationfile test/location_list.lst --chunksize 600
+python emulandice_preprocess.py --pipeline_id GrIS-emulandice-GrIS-ssp585 --baseyear 2005 --input_data_file test/input/fair-temperature-fair-ssp585_gsat.nc
+python emulandice_fit_GrIS.py --pipeline_id GrIS-emulandice-GrIS-ssp585
+python emulandice_project_GrIS.py --pipeline_id GrIS-emulandice-GrIS-ssp585
+Rscript -e source('packrat/init.R') -e library(emulandice) -e emulandice::main('decades',dataset='FACTS_CLIMATE_FORCING.csv',N_FACTS=50,ice_sources=c('GrIS'))
+python emulandice_postprocess_GrIS.py --pipeline_id GrIS-emulandice-GrIS-ssp585 --locationfile /home/rk509/facts/modules/emulandice/GrIS/test/../../../../scripts/moduletest/location_list.lst --chunksize 600
+
 Collecting output files...
+GrIS-emulandice-GrIS-ssp585_globalsl.nc
+GrIS-emulandice-GrIS-ssp585_localsl.nc
+
+Cleaning up...

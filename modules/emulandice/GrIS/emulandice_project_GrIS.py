@@ -69,7 +69,7 @@ def ExtractProjections(emulandice_file):
 	return(ret_data, targyears)
 
 
-def emulandice_project_GrIS(pipeline_id):
+def emulandice_project_GrIS(pipeline_id, icesource="GrIS"):
 
 	# Load the preprocessed data
 	preprocess_file = "{}_preprocess.pkl".format(pipeline_id)
@@ -89,20 +89,12 @@ def emulandice_project_GrIS(pipeline_id):
 	trend_mean = fit_data["trend_mean"]
 	trend_sd = fit_data["trend_sd"]
 
-	# Copy over the input file to the emulandice template directory
-	shutil.copyfile("FACTS_CLIMATE_FORCING_DATA.csv", os.path.join(os.path.dirname(__file__), "emulandice-master", "template", "FACTS_CLIMATE_FORCING.csv"))
-
-	# Make a new instance of the emulandice R module with the FACTS input file
-	py_working_dir = os.getcwd()
-	os.chdir(os.path.join(py_working_dir, "emulandice-master"))
-	emulandice_newinstance = "makeNewInstance.sh"
-	emulandice_dirname = subprocess.run(["bash", emulandice_newinstance, str(nsamps)+"L"], capture_output=True, text=True).stdout.rstrip()
-	os.chdir(py_working_dir)
-
 	# Run the module using the FACTS forcing data
-	os.chdir(os.path.join(py_working_dir, emulandice_dirname))
-	subprocess.run(["bash", "run.sh"])
-	os.chdir(py_working_dir)
+
+	py_working_dir = os.getcwd()
+	emulandice_dataset = 'FACTS_CLIMATE_FORCING.csv'
+	subprocess.run(["bash", "emulandice_steer.sh", emulandice_dataset, str(nsamps), icesource])
+
 
 	# Get the output from the emulandice run
 	emulandice_file = os.path.join(os.path.dirname(__file__),"results", "projections_FAIR_FACTS.csv")
@@ -130,8 +122,22 @@ def emulandice_project_GrIS(pipeline_id):
 	pickle.dump(output, outfile)
 	outfile.close()
 
+	# Write the global projections to netcdf files
+	WriteNetCDF(samples, None, targyears, baseyear, scenario, nsamps, pipeline_id)
+
+
+	# Done
+	return(None)
+
+def WriteNetCDF(slr, region, targyears, baseyear, scenario, nsamps, pipeline_id):
+
 	# Write the total global projections to a netcdf file
-	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
+	if region is None:
+		nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
+		nc_description = "Global SLR contribution from Greenland using the emulandice module"
+	else:
+		nc_filename = os.path.join(os.path.dirname(__file__), "{}_{}_globalsl.nc".format(pipeline_id, region))
+		nc_description = "Global SLR contribution from Greenland ({}) using the emulandice module".format(region)
 	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
 
 	# Define Dimensions
@@ -150,26 +156,22 @@ def emulandice_project_GrIS(pipeline_id):
 	samps = rootgrp.createVariable("sea_level_change", "i2", ("samples", "years", "locations"), zlib=True, complevel=4)
 
 	# Assign attributes
-	rootgrp.description = "Global SLR contribution from Greenland Ice Sheet according to emulandice GrIS workflow"
+	rootgrp.description = nc_description
 	rootgrp.history = "Created " + time.ctime(time.time())
 	rootgrp.source = "FACTS: {0}. ".format(pipeline_id)
 	rootgrp.baseyear = baseyear
 	rootgrp.scenario = scenario
-	rootgrp.preprocess_infile = preprocess_infile
 	samps.units = "mm"
 
 	# Put the data into the netcdf variables
 	year_var[:] = targyears
 	samp_var[:] = np.arange(nsamps)
-	samps[:,:,:] = samples[:,:,np.newaxis]
+	samps[:,:,:] = slr[:,:,np.newaxis]
 	lat_var[:] = np.inf
 	lon_var[:] = np.inf
 	loc_var[:] = -1
 
-	# Done
 	return(None)
-
-
 if __name__ == "__main__":
 
 	# Initialize the argument parser

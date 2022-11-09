@@ -1,5 +1,5 @@
 global-options:
-    nsamps: 20
+    nsamps: 100
     rcfg-name: "amarel"
     scenario: ssp585
     pyear_start: 2020
@@ -27,26 +27,26 @@ sealevel_step:
             - "wf1f"
             - "wf2f"
 
-    # emuAIS:
-    #     module_set: "emulandice"
-    #     module: "AIS"
-    #     include_in_workflow:
-    #         - "wf1e"      
-    #         - "wf2e"
+    emuAIS:
+        module_set: "emulandice"
+        module: "AIS"
+        include_in_workflow:
+            - "wf1e"      
+            - "wf2e"
 
-    # emuGrIS:
-    #     module_set: "emulandice"
-    #     module: "GrIS"
-    #     include_in_workflow:
-    #         - "wf1e"  
-    #         - "wf2e"    
+    emuGrIS:
+        module_set: "emulandice"
+        module: "GrIS"
+        include_in_workflow:
+            - "wf1e"  
+            - "wf2e"    
 
-    # emuglaciers:
-    #     module_set: "emulandice"
-    #     module: "glaciers"
-    #     include_in_workflow:
-    #         - "wf1e"   
-    #         - "wf2e"   
+    emuglaciers:
+        module_set: "emulandice"
+        module: "glaciers"
+        include_in_workflow:
+            - "wf1e"   
+            - "wf2e"   
 
     larmip:
         module_set: "larmip"

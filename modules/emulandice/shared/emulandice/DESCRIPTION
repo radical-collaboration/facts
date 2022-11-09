@@ -1,0 +1,30 @@
+Package: emulandice
+Type: Package
+Title: Analysis code for Edwards et al. (2021), "Projected land ice contributions to twenty-first-century sea level rise", Nature. Updated for compatiblity with the Framework for Assessing Changes To Sea-level (FACTS).
+Version: 1.1.0
+Authors@R: c(person("Tamsin", "Edwards", email = "tamsin.edwards@kcl.ac.uk",
+  role = c("aut", "cre")), person("Robert", "Kopp", email="robert.kopp@rutgers.edu", role="ctb"))
+Maintainer: Tamsin L. Edwards <tamsin.edwards@kcl.ac.uk>
+Description: This code is used to emulate projections of the ice sheet and glacier contributions to sea level rise from 2015-2100. 
+URL: https://github.com/bobkopp/emulandice
+BugReports: https://github.com/tamsinedwards/emulandice/issues
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Depends:
+    ggplot2,
+    dplyr,
+    tidyr,
+    readr,
+    purrr,
+    tibble,
+    stringr,
+    forcats
+Imports: 
+    DiceKriging,
+    RobustGaSP,
+    MASS,
+    DiceEval,
+    dummies,
+    methods
+RoxygenNote: 7.1.2

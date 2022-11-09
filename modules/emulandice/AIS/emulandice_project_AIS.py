@@ -83,7 +83,7 @@ def ExtractProjections(emulandice_file):
 	return(wais_data, eais_data, pen_data, targyears)
 
 
-def emulandice_project_AIS(pipeline_id):
+def emulandice_project_AIS(pipeline_id, icesource="AIS"):
 
 	# Load the preprocessed data
 	preprocess_file = "{}_preprocess.pkl".format(pipeline_id)
@@ -103,20 +103,11 @@ def emulandice_project_AIS(pipeline_id):
 	trend_mean = fit_data["trend_mean"]
 	trend_sd = fit_data["trend_sd"]
 
-	# Copy over the input file to the emulandice template directory
-	shutil.copyfile("FACTS_CLIMATE_FORCING_DATA.csv", os.path.join(os.path.dirname(__file__), "emulandice-master", "template", "FACTS_CLIMATE_FORCING.csv"))
-
-	# Make a new instance of the emulandice R module with the FACTS input file
-	py_working_dir = os.getcwd()
-	os.chdir(os.path.join(py_working_dir, "emulandice-master"))
-	emulandice_newinstance = "makeNewInstance.sh"
-	emulandice_dirname = subprocess.run(["bash", emulandice_newinstance, str(nsamps)+"L"], capture_output=True, text=True).stdout.rstrip()
-	os.chdir(py_working_dir)
-
 	# Run the module using the FACTS forcing data
-	os.chdir(os.path.join(py_working_dir, emulandice_dirname))
-	subprocess.run(["bash", "run.sh"])
-	os.chdir(py_working_dir)
+
+	py_working_dir = os.getcwd()
+	emulandice_dataset = 'FACTS_CLIMATE_FORCING.csv'
+	subprocess.run(["bash", "emulandice_steer.sh", emulandice_dataset, str(nsamps), icesource])
 
 	# Get the output from the emulandice run
 	emulandice_file = os.path.join(os.path.dirname(__file__),"results", "projections_FAIR_FACTS.csv")

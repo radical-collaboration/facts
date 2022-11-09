@@ -20,6 +20,10 @@ then
     echo "Extracting data files..."
     for i in data/*
     do
+        ln -s $i .
+    done
+    for i in data/*.tgz
+    do
 	tar xzf $i  2>&1 | grep -v 'Ignoring'
     done
 else
@@ -29,6 +33,15 @@ fi
 
 echo ""
 echo "Executing workflow..."
+
+j=0
+for i in "${PREEXEC[@]}"
+do
+    j=$(( $j+1 ))
+    EXECCMD="${PREEXEC[j]}"
+    echo $EXECCMD
+    $EXECCMD
+done
 
 j=0
 for i in "${STAGES[@]}"
