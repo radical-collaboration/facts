@@ -83,7 +83,7 @@ def ExtractProjections(emulandice_file):
 	return(wais_data, eais_data, pen_data, targyears)
 
 
-def emulandice_project_AIS(pipeline_id, nsamps, icesource="AIS"):
+def emulandice_project_AIS(pipeline_id, icesource="AIS"):
 
 	# Load the preprocessed data
 	preprocess_file = "{}_preprocess.pkl".format(pipeline_id)
@@ -103,20 +103,7 @@ def emulandice_project_AIS(pipeline_id, nsamps, icesource="AIS"):
 	trend_mean = fit_data["trend_mean"]
 	trend_sd = fit_data["trend_sd"]
 
-	# # Copy over the input file to the emulandice template directory
-	# shutil.copyfile("FACTS_CLIMATE_FORCING_DATA.csv", os.path.join(os.path.dirname(__file__), "emulandice-master", "template", "FACTS_CLIMATE_FORCING.csv"))
-
-	# # Make a new instance of the emulandice R module with the FACTS input file
-	# py_working_dir = os.getcwd()
-	# os.chdir(os.path.join(py_working_dir, "emulandice-master"))
-	# emulandice_newinstance = "makeNewInstance.sh"
-	# emulandice_dirname = subprocess.run(["bash", emulandice_newinstance, str(nsamps)+"L"], capture_output=True, text=True).stdout.rstrip()
-	# os.chdir(py_working_dir)
-
-	# # Run the module using the FACTS forcing data
-	# os.chdir(os.path.join(py_working_dir, emulandice_dirname))
-	# subprocess.run(["bash", "run.sh"])
-	# os.chdir(py_working_dir)
+	# Run the module using the FACTS forcing data
 
 	py_working_dir = os.getcwd()
 	emulandice_dataset = 'FACTS_CLIMATE_FORCING.csv'
@@ -216,14 +203,12 @@ if __name__ == "__main__":
 
 	# Add arguments for the resource and experiment configuration files
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
-	parser.add_argument('--nsamps', help="Number of samples to draw (default = 10000)", default=10000, type=int)
-	parser.add_argument('--icesource', help="Ice source to run (AIS, GrIS, glaciers)", choices=['AIS','GrIS','Glaciers'],default='AIS')
 
 	# Parse the arguments
 	args = parser.parse_args()
 
 	# Run the preprocessing
-	emulandice_project_AIS(args.pipeline_id, args.nsamps, args.icesource)
+	emulandice_project_AIS(args.pipeline_id)
 
 	# Done
 	sys.exit()

@@ -5,6 +5,7 @@ import fnmatch
 import argparse
 import re
 import pickle
+import shutil
 from netCDF4 import Dataset
 
 
@@ -26,17 +27,17 @@ def GetSamples(ncfile, years, baseyear):
 	# Indices of years to extract and return
 	year_idx = np.flatnonzero(np.isin(ncyears, years))
 
-	# Set the samples to the baseyear by subtracting the reference value
+	# Squeeze out the location dimension (should be global temperature trajectories)
 	samples = samples[:,year_idx] - ref_val
 
 	# Return the samples
 	return(samples, scenario)
 
 
-def WriteToCSV(outfile, samples):
+def WriteToCSV(outfile, samples, mode="w"):
 
 	# Open the csv file
-	with open(outfile, "w") as f:
+	with open(outfile, mode) as f:
 
 		# Loop through the samples
 		for i in np.arange(samples.shape[0]):
@@ -52,7 +53,7 @@ def WriteToCSV(outfile, samples):
 	return(None)
 
 
-def emulandice_preprocess_glaciers(infile, baseyear, pipeline_id):
+def emulandice_preprocess(infile, baseyear, pipeline_id):
 
 	# If no input file was passed, look for one produced by a pre-projection workflow
 	if infile is None:
@@ -74,8 +75,10 @@ def emulandice_preprocess_glaciers(infile, baseyear, pipeline_id):
 	nsamps = samps.shape[0]
 
 	# Append these samples to the output file
-	outfile = os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING_DATA.csv")
-	WriteToCSV(outfile, samps)
+	headfile =  os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING.csv.head")
+	outfile = os.path.join(os.path.dirname(__file__), "FACTS_CLIMATE_FORCING.csv")
+	shutil.copyfile(headfile,outfile)
+	WriteToCSV(outfile, samps, mode="a")
 
 	# Save the preprocessed data to a pickle
 	output = {"scenario": scenario, "baseyear": baseyear, "infile": infile, \
@@ -92,7 +95,7 @@ def emulandice_preprocess_glaciers(infile, baseyear, pipeline_id):
 if __name__ == "__main__":
 
 	# Initialize the argument parser
-	parser = argparse.ArgumentParser(description="Run the preprocess stage for the emulandice glaciers module.",\
+	parser = argparse.ArgumentParser(description="Run the preprocess stage for the emulandice module.",\
 	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 
 	# Add arguments for the resource and experiment configuration files
@@ -104,7 +107,7 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	# Run the preprocessing
-	emulandice_preprocess_glaciers(args.input_data_file, args.baseyear, args.pipeline_id)
+	emulandice_preprocess(args.input_data_file, args.baseyear, args.pipeline_id)
 
 	# Done
 	sys.exit()

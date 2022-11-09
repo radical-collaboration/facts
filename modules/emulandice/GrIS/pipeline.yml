@@ -8,17 +8,17 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
-    script: "emulandice_preprocess_GrIS.py"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
+    script: "emulandice_preprocess.py"
     arguments:
       - "--input_data_file"
       - "%CLIMATE_GSAT_FILE%"
     options:
-      - "input_data_file"
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/emulandice_preprocess_GrIS.py"
+      - "%MODULE_PATH%/../shared/emulandice_preprocess.py"
+      - "%MODULE_PATH%/../shared/FACTS_CLIMATE_FORCING.csv.head"
 
 
 fit:
@@ -29,7 +29,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "emulandice_fit_GrIS.py"
     options:
       - "pipeline_id"
@@ -46,13 +45,17 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf emulandice_GrIS_project_data.tgz; rm emulandice_GrIS_project_data.tgz"
     script: "emulandice_project_GrIS.py"
     options:
       - "pipeline_id"
     upload_input_data:
       - "%MODULE_PATH%/emulandice_project_GrIS.py"
-      - "%MODULE_PATH%/data/emulandice_GrIS_project_data.tgz"
+      - "%MODULE_PATH%/../shared/emulandice_environment.sh"
+      - "%MODULE_PATH%/../shared/emulandice_1.1.0.tar.gz"
+      - "%MODULE_PATH%/../shared/emulandice_steer.sh"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
+    pre_exec: "source ${RP_TASK_SANDBOX}/emulandice_environment.sh --Rscript"
     copy_input_data:
       preprocess:
         task1:
@@ -75,7 +78,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf emulandice_GrIS_postprocess_data.tgz; rm emulandice_GrIS_postprocess_data.tgz"
     script: "emulandice_postprocess_GrIS.py"
     options:
       - "locationfile"
@@ -86,6 +88,7 @@ postprocess:
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
       - '%MODULE_PATH%/data/emulandice_GrIS_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'

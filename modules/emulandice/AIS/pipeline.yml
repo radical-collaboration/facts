@@ -9,7 +9,7 @@ preprocess:
       threads-per-process: 1
       thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "emulandice_preprocess_AIS.py"
+    script: "emulandice_preprocess.py"
     arguments:
       - "--input_data_file"
       - "%CLIMATE_GSAT_FILE%"
@@ -17,7 +17,7 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/emulandice_preprocess_AIS.py"
+      - "%MODULE_PATH%/../shared/emulandice_preprocess.py"
       - "%MODULE_PATH%/../shared/FACTS_CLIMATE_FORCING.csv.head"
 
 

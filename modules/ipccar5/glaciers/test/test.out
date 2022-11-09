@@ -1,4 +1,4 @@
-Initiating test in /scratch/rk509/test.1666879051...
+Initiating test in /scratch/rk509/test.1668002734...
 
 Extracting data files...
 
@@ -7,7 +7,7 @@ python ar5_preprocess_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --s
 python ar5_fit_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --gmip 2
 python ar5_project_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --nsamps 500 --pyear_start 2020 --pyear_end 2300 --pyear_step 10 --seed 4321
 (500, 18, 29)
-python ar5_postprocess_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --chunksize 662 --locationfile /home/rk509/facts/modules/ar5/glaciers/test/../../../../scripts/moduletest/location_list.lst
+python ar5_postprocess_glaciers.py --pipeline_id glaciers-ar5-glaciers-ssp585 --chunksize 662 --locationfile /home/rk509/facts/modules/ipccar5/glaciers/test/../../../../scripts/moduletest/location_list.lst
 
 Collecting output files...
 glaciers-ar5-glaciers-ssp585_globalsl.nc
