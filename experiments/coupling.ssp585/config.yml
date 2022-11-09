@@ -14,8 +14,8 @@ climate_step:
         generates_climate_output: true
 #        input_data_file:
 #              - "emissions.csv"
-        options:
-              rcmip_file: emissions.csv
+#        options:
+#              rcmip_file: emissions.csv
 
 sealevel_step:
     GrIS1f:
