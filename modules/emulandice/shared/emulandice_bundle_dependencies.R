@@ -1,4 +1,11 @@
 # this script sets up the R environment from scratch 
+#
+# You will probabaly need to modify it for your local
+# environment. IF you want to install everything from CRAN,
+# you can replace packrat::install_local with install.packages
+# for everything except dummies, which should be installed
+# from the local archive because it's been removed from
+# CRAN.
 
 r = getOption("repos") 
 r["CRAN"] = "https://cloud.r-project.org"
