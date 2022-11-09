@@ -48,7 +48,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
 
   ```
   mkdir test
-  cp -r experiments/temp_exp/* test
+  cp -r experiments/coupling.ssp585/* test
   python3 runFACTS.py test
   ```
 
@@ -105,7 +105,7 @@ ln -s /projects/kopp/facts-dev/modules-data/*.tgz .
 
   ```
   mkdir test
-  cp -r experiments/temp_exp/* test
+  cp -r experiments/coupling.ssp585/* test
   python3 runFACTS.py test
   ```
 
