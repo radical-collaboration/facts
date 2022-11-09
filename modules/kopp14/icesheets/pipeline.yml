@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_icesheets.py"
     options:
       - "scenario"
@@ -26,7 +26,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_fit_icesheets.py"
     options:
       - "pipeline_id"
@@ -48,7 +47,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_project_icesheets.py"
     options:
       - "nsamps"
@@ -88,7 +86,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_icesheets_data.tgz; rm kopp14_icesheets_data.tgz"
     script: "kopp14_postprocess_icesheets.py"
     options:
       - "samp_type"
@@ -100,6 +97,7 @@ postprocess:
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
       - '%MODULE_PATH%/data/kopp14_icesheets_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'

@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf kopp14_oceandynamics_data.tgz; rm kopp14_oceandynamics_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml h5py"
+    python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
     script: "kopp14_preprocess_oceandynamics.py"
     options:
       - "scenario"
@@ -28,6 +28,7 @@ preprocess:
       - "%MODULE_PATH%/read_locationfile.py"
       - "%MODULE_PATH%/read_CSIRO.py"
       - "%MODULE_PATH%/readMarzeion.py"
+    upload_and_extract_input_data:
       - "%MODULE_PATH%/data/kopp14_oceandynamics_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
@@ -43,7 +44,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_fit_oceandynamics.py"
     options:
       - "pipeline_id"
@@ -64,7 +64,6 @@ project:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_project_oceandynamics.py"
     options:
       - "pipeline_id"
@@ -92,7 +91,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "kopp14_postprocess_oceandynamics.py"
     options:
       - "nsamps"

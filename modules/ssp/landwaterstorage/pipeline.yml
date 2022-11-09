@@ -8,7 +8,7 @@ preprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ssp_landwaterstorage_preprocess_data.tgz; rm ssp_landwaterstorage_preprocess_data.tgz; pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ssp_preprocess_landwaterstorage.py"
     options:
       - "scenario"
@@ -21,6 +21,7 @@ preprocess:
       - "pipeline_id"
     upload_input_data:
       - "%MODULE_PATH%/ssp_preprocess_landwaterstorage.py"
+    upload_and_extract_input_data:
       - "%MODULE_PATH%/data/ssp_landwaterstorage_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
@@ -34,7 +35,6 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: []
     script: "ssp_fit_landwaterstorage.py"
     options:
       - "pipeline_id"
@@ -88,7 +88,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf ssp_landwaterstorage_postprocess_data.tgz; rm ssp_landwaterstorage_postprocess_data.tgz"
     script: "ssp_postprocess_landwaterstorage.py"
     options:
       - "locationfile"
@@ -97,6 +96,7 @@ postprocess:
       - '%MODULE_PATH%/ssp_postprocess_landwaterstorage.py'
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
+    upload_and_extract_input_data:
       - '%MODULE_PATH%/data/ssp_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'

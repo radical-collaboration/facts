@@ -32,12 +32,12 @@ fit:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf FittedISMIP_icesheet_fit_data.tgz; rm FittedISMIP_icesheet_fit_data.tgz"
     script: "FittedISMIP_fit_icesheet.py"
     options:
       - "pipeline_id"
     upload_input_data:
       - '%MODULE_PATH%/FittedISMIP_fit_icesheet.py'
+    upload_and_extract_input_data:
       - "%MODULE_PATH%/data/FittedISMIP_icesheet_fit_data.tgz"
 
 
@@ -90,7 +90,6 @@ postprocess:
       process-type: None
       threads-per-process: 1
       thread-type: None
-    pre_exec: "tar -xzf FittedISMIP_icesheet_postprocess_data.tgz; rm FittedISMIP_icesheet_postprocess_data.tgz"
     script: "FittedISMIP_postprocess_icesheet.py"
     options:
       - "chunksize"
@@ -101,6 +100,7 @@ postprocess:
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
       - '%MODULE_PATH%/data/FittedISMIP_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
