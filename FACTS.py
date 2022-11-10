@@ -239,11 +239,14 @@ def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
 
     # Load the pipeline configuration file for this module
 
+    if not "pipeline_file" in modcfg.keys():
+        modcfg['pipeline_file'] = "pipeline.yml" 
+
     if 'module_set' in modcfg.keys():
         pcfg_file = os.path.join(os.path.dirname(__file__), "modules",
-                       modcfg['module_set'], modcfg['module'], "pipeline.yml")
+                       modcfg['module_set'], modcfg['module'], modcfg['pipeline_file'])
     else:
-        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module'], "pipeline.yml")
+        pcfg_file = os.path.join(os.path.dirname(__file__), "modules", modcfg['module'], modcfg['pipeline_file'])
 
     if not os.path.isfile(pcfg_file):
         raise(FileNotFoundError(pcfg_file + " does not exist"))

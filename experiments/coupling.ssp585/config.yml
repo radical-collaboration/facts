@@ -65,6 +65,16 @@ sealevel_step:
         include_in_workflow:
             - "wf1f"
             - "wf2f"
+
+    ar5AIS:
+        module_set: "ipccar5"
+        module: "icesheets"
+        pipeline_file: "pipeline.AIS.yml"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+
     ocean:
         module_set: "tlm"
         module: "oceandynamics"

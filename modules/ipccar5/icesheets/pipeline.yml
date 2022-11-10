@@ -15,6 +15,7 @@ preprocess:
       - "pipeline_id"
       - "baseyear"
       - "tlm_data"
+      - "climate_data_file"
     upload_input_data:
       - "%MODULE_PATH%/ar5_preprocess_icesheets.py"
       - "%MODULE_PATH%/Import2lmData.py"
