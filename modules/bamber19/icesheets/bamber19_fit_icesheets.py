@@ -1,6 +1,6 @@
 import argparse
 
-''' ipccar6_fit_bambericesheet.py
+''' bamber19_fit_icesheets.py
 
 This runs the fitting stage for the Bamber et al 2019 ice sheet component of the IPCC AR6
 workflow.
@@ -12,7 +12,7 @@ Note: This is currently a NULL process.
 
 '''
 
-def ipccar6_fit_bambericesheet(pipeline_id):
+def bamber19_fit_icesheets(pipeline_id):
 
 	return(0)
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	ipccar6_fit_bambericesheet(args.pipeline_id)
+	bamber19_fit_icesheets(args.pipeline_id)
 	
 	# Done
 	exit()

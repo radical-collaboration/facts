@@ -12,10 +12,10 @@ import xarray as xr
 import dask.array as da
 
 
-''' ipccar6_postprocess_bambericesheet.py
+''' bamber19_postprocess_icesheets.py
 
 This script runs the ice sheet post-processing task for the IPCC AR6 Bamber icesheet workflow. This task
-uses the global projections from the 'ipccar6_project_bambericesheet' script and applies
+uses the global projections from the 'bamber19_project_icesheets' script and applies
 spatially resolved fingerprints to the ice sheet contribution. The result is a netCDF4
 file that contains spatially and temporally resolved samples of ice sheet contributions
 to local sea-level rise
@@ -28,7 +28,7 @@ Output: NetCDF file containing local contributions from ice sheets
 
 '''
 
-def ipccar6_postprocess_bambericesheet(locationfilename, chunksize, pipeline_id):
+def bamber19_postprocess_icesheets(locationfilename, chunksize, pipeline_id):
 
 	# Read in the fitted parameters from parfile
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -130,7 +130,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 
 	# Run the postprocessing for the parameters specified from the command line argument
-	ipccar6_postprocess_bambericesheet(args.locationfile, args.chunksize, args.pipeline_id)
+	bamber19_postprocess_icesheets(args.locationfile, args.chunksize, args.pipeline_id)
 
 	# Done
 	exit()

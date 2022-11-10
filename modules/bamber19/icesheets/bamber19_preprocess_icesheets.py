@@ -5,7 +5,7 @@ import pickle as p
 import numpy as np
 import scipy.io
 
-''' ipccar6_preprocess_bambericesheet.py
+''' bamber19_preprocess_icesheets.py
 
 This runs the preprocessing stage for the Bamber et al. 2019 ice sheet component of the IPCC AR6
 workflow.
@@ -15,7 +15,7 @@ pipeline_id = Unique identifier for the pipeline running this code
 
 '''
 
-def ipccar6_preprocess_bambericesheet(pyear_start, pyear_end, pyear_step, baseyear, scenario, pipeline_id):
+def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, scenario, pipeline_id):
 	
 	# There's only one scenario available, RCP85
 	scenario_map = {"rcp85": 'corefileH', "rcp26": 'corefileL', "rcp45": 'corefileL', \
@@ -105,7 +105,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the preprocessing stage with the user defined RCP scenario
-	ipccar6_preprocess_bambericesheet(args.pyear_start, args.pyear_end, args.pyear_step, args.baseyear, args.scenario, args.pipeline_id)
+	bamber19_preprocess_icesheets(args.pyear_start, args.pyear_end, args.pyear_step, args.baseyear, args.scenario, args.pipeline_id)
 	
 	# Done
 	sys.exit()

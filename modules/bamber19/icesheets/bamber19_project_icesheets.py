@@ -6,7 +6,7 @@ import re
 import time
 from netCDF4 import Dataset
 
-''' ipccar6_project_bambericesheet.py
+''' bamber19_project_icesheets.py
 
 This is the projection stage for the Bamber et al. 2019 ice sheet component of the IPCC AR6 module set.
 
@@ -23,7 +23,7 @@ Output:
 
 '''
 
-def ipccar6_project_bambericesheet(nsamps, pipeline_id, replace, rngseed):
+def bamber19_project_icesheets(nsamps, pipeline_id, replace, rngseed):
 
 	# Load the data file
 	datafilename = "{}_data.pkl".format(pipeline_id)
@@ -124,6 +124,6 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 
 	# Run the projection stage with the provided arguments
-	ipccar6_project_bambericesheet(args.nsamps, args.pipeline_id, args.replace, args.seed)
+	bamber19_project_icesheets(args.nsamps, args.pipeline_id, args.replace, args.seed)
 
 	exit()
