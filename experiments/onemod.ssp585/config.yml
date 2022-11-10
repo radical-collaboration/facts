@@ -85,8 +85,8 @@ sealevel_step:
     #     options:
     #         scenario: "rcp85"
     # bamber19:
-    #     module_set: "ipccar6"
-    #     module: "bambericesheets"
+    #     module_set: "bamber19"
+    #     module: "icesheets"
     #     options:
     #         scenario: "rcp85"
     # gmipemu:
