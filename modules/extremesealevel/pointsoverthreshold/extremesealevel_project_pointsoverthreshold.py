@@ -98,6 +98,8 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	
 	# Extract the sea-level projection data
 	lcl_msl_samples = slproj_data['proj_slc'] / 1000.0
+	# should we clip the tails of the samples?
+
 	proj_years = slproj_data['proj_years']
 	site_lat = slproj_data['site_lat']
 	site_lon = slproj_data['site_lon']
@@ -112,17 +114,21 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	scale = station_data['gp_scale']
 	gp_cov = station_data['gp_cov'] #covariance matrix
 	avg_exceed = station_data['avg_exceed'] #average number of exceedences of threshold per year (lambda)
-	mhhw = station_data['mhhw'] #mean higher-high water
-	mhhwFreq = station_data['mhhwFreq'] #mean higher-high water frequency
 	
 	gp_samples = np.random.multivariate_normal([shape,scale], gp_cov,size=nsamps)
 	shape_samples = gp_samples[:,0]
 	scale_samples = gp_samples[:,1]
-	scale_samples[scale_samples<0] = 0 #no negative scales
-	
+	scale_samples[scale_samples<0.001] = 0.001 #no negative scales
+
+
+	#get MHHW for Gumbel distribution below Pareto
+	mhhw = station_data['mhhw']
+	mhhwFreq = station_data['mhhwFreq'];
+
+
 	#historical; use best estimate scale and shape factors
-	hist_freqs = getFreqFromZ_ESL(scale,shape,loc,avg_exceed,testz-loc,mhhw,mhhwFreq) #get frequencies for test heights
-	idx_alw_hist = np.nanargmin(abs(hist_freqs-allowance_freq)) #find the historical height with 'allowance_freq' frequency
+	#hist_freqs = getFreqFromZ_ESL(scale,shape,loc,avg_exceed,testz-loc,mhhw,mhhwFreq) #get frequencies for test heights
+	#idx_alw_hist = np.nanargmin(abs(hist_freqs-allowance_freq)) #find the historical height with 'allowance_freq' frequency
 	
 	###### QUERY FUTURE RETURN FREQUENCIES FOR TEST HEIGHTS
 	#generate matrices for faster multiplication and division
@@ -131,31 +137,26 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	scale_mat	 = np.matlib.repmat(scale_samples,len(testz),1) #scale & shape samples 
 	shape_mat	 = np.matlib.repmat(shape_samples,len(testz),1)
 
-	fut_freqs_mat = getFreqFromZ_ESL(scale_mat,shape_mat,loc,avg_exceed,testz_mat-loc_fut_mat,mhhw,mhhwFreq) #get frequencies for test heights
-	fut_freqs_qnts = np.nanquantile(fut_freqs_mat,proj_qnts,axis=1) #calculate percentile return frequencies for all test heights
+	hist_freqs_mat = getFreqFromZ_ESL(scale_mat,shape_mat,loc,avg_exceed,testz_mat-loc,mhhw,mhhwFreq) #get frequencies for test heights
+	fut_freqs_mat = getFreqFromZ_ESL(scale_mat,shape_mat,loc,avg_exceed,testz_mat-loc_fut_mat,mhhw,mhhwFreq)
+
 	
 	###### CALCULATE ALLOWANCES AND AMPLIFICATION FACTORS
-	# loop over return frequency percentiles
-	amp_factor_qnts = []
-	allowance_qnts = []
-	for fut_freqs in fut_freqs_qnts:
- 		
- 		#if extremes freqs are too low to provide return curve: 
-		if np.count_nonzero(~np.isnan(fut_freqs))==0: 
-			amp_factor = np.nan
-			allowance = np.nan
-		else:
-			idx_alw_fut = np.nanargmin(abs(fut_freqs-allowance_freq)) #find heights with 'allowance_freq' frequency
-			allowance	= testz[idx_alw_fut] - testz[idx_alw_hist] #allowance is difference between these heights
-			amp_factor = fut_freqs[idx_alw_hist]/(allowance_freq) #amplification factor is how more frequent the historical 1/100yr event will be
+	idx_alwfreq_hist = np.nanargmin(abs(hist_freqs_mat-allowance_freq),axis=0) #for each sample historical return curve, get index of event with user defined frequency (default 1/100yr)
+	idx_alwfreq_fut = np.nanargmin(abs(fut_freqs_mat-allowance_freq),axis=0) #similar for sample future return curves
 
-		# store output for each return curve
-		amp_factor_qnts.append(amp_factor)
-		allowance_qnts.append(allowance)
-	
-	# Typecast the amplification factors and allowances into numpy arrays
-	amp_factor_qnts = np.asarray(amp_factor_qnts)
-	allowance_qnts = np.asarray(allowance_qnts)
+	#get amplification factors (how more often will the historical allowance frequency event with testz x occur in the future)
+	ampfactors = fut_freqs_mat[idx_alwfreq_hist,np.arange(0,len(idx_alwfreq_hist))]/allowance_freq
+
+	#get allowances (how much should a structure be raised to maintain the same allowance frequency in the future)
+	allowances = testz_mat[idx_alwfreq_fut,np.arange(0,len(idx_alwfreq_fut))] - testz_mat[idx_alwfreq_hist,np.arange(0,len(idx_alwfreq_hist))]
+
+	#get quantiles from these
+	hist_freqs_qnts = np.nanpercentile(hist_freqs_mat,proj_qnts,axis=1)
+	fut_freqs_qnts = np.nanpercentile(fut_freqs_mat,proj_qnts,axis=1)
+	allowances_qnts = np.nanpercentile(allowances,proj_qnts)
+	ampfactors_qnts = np.nanpercentile(ampfactors,proj_qnts)
+
 	
 	#-------------------------------------------------------------------------------------
 	# Write this station information out to a netCDF file --------------------------------
@@ -183,7 +184,7 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	# Create a data variable
 	localslq = rootgrp.createVariable("localSL_quantiles", "f4", ("quantiles",), zlib=True, least_significant_digit=6)
 	futfreqsq = rootgrp.createVariable("projected_frequencies", "f4", ("quantiles","heights"), zlib=True, least_significant_digit=6)
-	histfreqs = rootgrp.createVariable("historical_frequencies", "f4", ("heights",), zlib=True, least_significant_digit=6)
+	histfreqsq = rootgrp.createVariable("historical_frequencies", "f4", ("quantiles","heights",), zlib=True, least_significant_digit=6)
 	ampfactorq = rootgrp.createVariable("amplification_factors_quantiles", "f4", ("quantiles",), zlib=True, least_significant_digit=6)
 	allowanceq = rootgrp.createVariable("allowance_quantiles", "f4", ("quantiles",), zlib=True, least_significant_digit=6)
 	shapesamps = rootgrp.createVariable("gpd_shape", "f4", ("samples",), zlib=True, least_significant_digit=6)
@@ -203,7 +204,7 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	mhhw_var.units = "m"
 	mhhwFreq_var.units = "per annum"
 	futfreqsq.units = "per annum"
-	histfreqs.units = "per annum"
+	histfreqsq.units = "per annum"
 	allowanceq.units = "m"
 
 	# Put the data into the netcdf variables
@@ -218,9 +219,9 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	mhhw_var[:] = mhhw
 	mhhwFreq_var[:] = mhhwFreq
 	futfreqsq[:,:] = fut_freqs_qnts
-	histfreqs[:] = hist_freqs
-	ampfactorq[:] = amp_factor_qnts
-	allowanceq[:] = allowance_qnts
+	histfreqsq[:,:] = hist_freqs_qnts
+	ampfactorq[:] = ampfactors_qnts
+	allowanceq[:] = allowances_qnts
 	shapesamps[:] = shape_samples
 	scalesamps[:] = scale_samples
 	
