@@ -119,7 +119,7 @@ def extremesl_fit(station_data_file, pipeline_id):
 		##### STORE DATA IN DICTIONARY
 		fitted_data[station_id] = {'loc': loc, 'gp_shape': gp_params[0], 'gp_scale': gp_params[2], \
 			'gp_cov': gp_cov, 'extremes_loc': extremes_loc, 'avg_exceed': avg_exceed, 'decl_esls_pyear': decl_esls_pyear, \
-			'esl_years': esl_years, 'mhhw': mhhw, 'mhhwFreq': mhhwFreq}
+			'esl_years': esl_years, 'mhhw': mhhw, 'mhhwFreq': mhhwFreq, 'obs': obs}
 			
 		#fitted_data[station_id]['gp_shape'] = gp_params[0]
 		#fitted_data[station_id]['gp_scale'] = gp_params[2]
