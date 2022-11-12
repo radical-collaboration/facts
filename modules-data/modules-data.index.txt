@@ -11,24 +11,21 @@
 32K	ar5_icesheets_preprocess_data.tgz
 512	ar5_icesheets_project_data.tgz
 32K	ar5_thermalexpansion_preprocess_data.tgz
+3.4M	bamber19_icesheets_postprocess_data.tgz
+226M	bamber19_icesheets_preprocess_data.tgz
 2.3M	dp16_icesheet_postprocess_data.tgz
 128K	dp16_icesheet_preprocess_data.tgz
 2.3M	dp21_icesheet_postprocess_data.tgz
 768K	dp21_icesheet_preprocess_data.tgz
 2.3M	emulandice_AIS_postprocess_data.tgz
-11M	emulandice_AIS_project_data.tgz
 22M	emulandice_glaciers_postprocess_data.tgz
-11M	emulandice_glaciers_project_data.tgz
 1.2M	emulandice_GrIS_postprocess_data.tgz
-11M	emulandice_GrIS_project_data.tgz
 8.0M	extremesealevel_pointsoverthreshold_data.tgz
 1.7G	extremesealevel_pointsoverthreshold_fulldata.tgz
 6.5M	fair_temperature_fit_data.tgz
 24M	fair_temperature_preprocess_data.tgz
 32K	FittedISMIP_icesheet_fit_data.tgz
 3.4M	FittedISMIP_icesheet_postprocess_data.tgz
-3.4M	ipccar6_bambericesheet_postprocess_data.tgz
-226M	ipccar6_bambericesheet_preprocess_data.tgz
 603M	ipccar6_climate_data.tgz
 22M	ipccar6_gmipemuglaciers_postprocess.tgz
 233M	ipccar6_gmipemuglaciers_preprocess.tgz
@@ -364,6 +361,17 @@ ar5_thermalexpansion_preprocess_data.tgz
 ./ssp585_temperature_mean.nc
 ./ssp585_temperature_sd.nc
 
+bamber19_icesheets_postprocess_data.tgz
+-------------------------------
+./FPRINT/
+./FPRINT/fprint_wais.nc
+./FPRINT/fprint_gis.nc
+./FPRINT/fprint_eais.nc
+
+bamber19_icesheets_preprocess_data.tgz
+-------------------------------
+SLRProjections190726core_SEJ_full.mat
+
 dp16_icesheet_postprocess_data.tgz
 -------------------------------
 ./FPRINT/
@@ -400,50 +408,6 @@ emulandice_AIS_postprocess_data.tgz
 ./FPRINT/fprint_wais.nc
 ./FPRINT/fprint_eais.nc
 
-emulandice_AIS_project_data.tgz
--------------------------------
-./emulandice-master/
-./emulandice-master/emulandice.Rproj
-./emulandice-master/man/
-./emulandice-master/man/read_melt.Rd
-./emulandice-master/man/read_sealevel.Rd
-./emulandice-master/man/main.Rd
-./emulandice-master/man/plot_mme.Rd
-./emulandice-master/man/sensitivity_analysis.Rd
-./emulandice-master/man/e.Rd
-./emulandice-master/man/read_forcing.Rd
-./emulandice-master/.Rbuildignore
-./emulandice-master/makeNewInstance.sh
-./emulandice-master/template/
-./emulandice-master/template/DESCRIPTION.foot
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv.example
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv.head
-./emulandice-master/R/
-./emulandice-master/R/.Rhistory
-./emulandice-master/R/main.R
-./emulandice-master/R/sensitivity_analysis.R
-./emulandice-master/R/plot_mme.R
-./emulandice-master/R/read_data.R
-./emulandice-master/NAMESPACE
-./emulandice-master/run.sh
-./emulandice-master/README.md
-./emulandice-master/DESCRIPTION
-./emulandice-master/.gitignore
-./emulandice-master/steer/
-./emulandice-master/steer/.Rhistory
-./emulandice-master/steer/steer.R
-./emulandice-master/inst/
-./emulandice-master/inst/extdata/
-./emulandice-master/inst/extdata/20201105_CLIMATE_FORCING.csv
-./emulandice-master/inst/extdata/20210215_CLIMATE_FORCING_IPCC.csv
-./emulandice-master/inst/extdata/FACTS_CLIMATE_FORCING.csv
-./emulandice-master/inst/extdata/output_gamma0_NonLocal_MeanAnt.dat
-./emulandice-master/inst/extdata/20201106_SLE_SIMULATIONS.csv
-./emulandice-master/inst/extdata/regionnames.txt
-./emulandice-master/inst/extdata/data_for_tamsin.txt
-./emulandice-master/inst/extdata/output_gamma0_NonLocal_PIGL.dat
-
 emulandice_glaciers_postprocess_data.tgz
 -------------------------------
 ./FPRINT/
@@ -468,98 +432,10 @@ emulandice_glaciers_postprocess_data.tgz
 ./FPRINT/fprint_glac9.nc
 ./fingerprint_region_map.csv
 
-emulandice_glaciers_project_data.tgz
--------------------------------
-./emulandice-master/
-./emulandice-master/emulandice.Rproj
-./emulandice-master/man/
-./emulandice-master/man/read_melt.Rd
-./emulandice-master/man/read_sealevel.Rd
-./emulandice-master/man/main.Rd
-./emulandice-master/man/plot_mme.Rd
-./emulandice-master/man/sensitivity_analysis.Rd
-./emulandice-master/man/e.Rd
-./emulandice-master/man/read_forcing.Rd
-./emulandice-master/.Rbuildignore
-./emulandice-master/makeNewInstance.sh
-./emulandice-master/template/
-./emulandice-master/template/DESCRIPTION.foot
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv.example
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv.head
-./emulandice-master/R/
-./emulandice-master/R/.Rhistory
-./emulandice-master/R/main.R
-./emulandice-master/R/sensitivity_analysis.R
-./emulandice-master/R/plot_mme.R
-./emulandice-master/R/read_data.R
-./emulandice-master/NAMESPACE
-./emulandice-master/run.sh
-./emulandice-master/README.md
-./emulandice-master/DESCRIPTION
-./emulandice-master/.gitignore
-./emulandice-master/steer/
-./emulandice-master/steer/.Rhistory
-./emulandice-master/steer/steer.R
-./emulandice-master/inst/
-./emulandice-master/inst/extdata/
-./emulandice-master/inst/extdata/20201105_CLIMATE_FORCING.csv
-./emulandice-master/inst/extdata/20210215_CLIMATE_FORCING_IPCC.csv
-./emulandice-master/inst/extdata/FACTS_CLIMATE_FORCING.csv
-./emulandice-master/inst/extdata/output_gamma0_NonLocal_MeanAnt.dat
-./emulandice-master/inst/extdata/20201106_SLE_SIMULATIONS.csv
-./emulandice-master/inst/extdata/regionnames.txt
-./emulandice-master/inst/extdata/data_for_tamsin.txt
-./emulandice-master/inst/extdata/output_gamma0_NonLocal_PIGL.dat
-
 emulandice_GrIS_postprocess_data.tgz
 -------------------------------
 ./FPRINT/
 ./FPRINT/fprint_gis.nc
-
-emulandice_GrIS_project_data.tgz
--------------------------------
-./emulandice-master/
-./emulandice-master/emulandice.Rproj
-./emulandice-master/man/
-./emulandice-master/man/read_melt.Rd
-./emulandice-master/man/read_sealevel.Rd
-./emulandice-master/man/main.Rd
-./emulandice-master/man/plot_mme.Rd
-./emulandice-master/man/sensitivity_analysis.Rd
-./emulandice-master/man/e.Rd
-./emulandice-master/man/read_forcing.Rd
-./emulandice-master/.Rbuildignore
-./emulandice-master/makeNewInstance.sh
-./emulandice-master/template/
-./emulandice-master/template/DESCRIPTION.foot
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv.example
-./emulandice-master/template/FACTS_CLIMATE_FORCING.csv.head
-./emulandice-master/R/
-./emulandice-master/R/.Rhistory
-./emulandice-master/R/main.R
-./emulandice-master/R/sensitivity_analysis.R
-./emulandice-master/R/plot_mme.R
-./emulandice-master/R/read_data.R
-./emulandice-master/NAMESPACE
-./emulandice-master/run.sh
-./emulandice-master/README.md
-./emulandice-master/DESCRIPTION
-./emulandice-master/.gitignore
-./emulandice-master/steer/
-./emulandice-master/steer/.Rhistory
-./emulandice-master/steer/steer.R
-./emulandice-master/inst/
-./emulandice-master/inst/extdata/
-./emulandice-master/inst/extdata/20201105_CLIMATE_FORCING.csv
-./emulandice-master/inst/extdata/20210215_CLIMATE_FORCING_IPCC.csv
-./emulandice-master/inst/extdata/FACTS_CLIMATE_FORCING.csv
-./emulandice-master/inst/extdata/output_gamma0_NonLocal_MeanAnt.dat
-./emulandice-master/inst/extdata/20201106_SLE_SIMULATIONS.csv
-./emulandice-master/inst/extdata/regionnames.txt
-./emulandice-master/inst/extdata/data_for_tamsin.txt
-./emulandice-master/inst/extdata/output_gamma0_NonLocal_PIGL.dat
 
 extremesealevel_pointsoverthreshold_data.tgz
 -------------------------------
@@ -1871,17 +1747,6 @@ FittedISMIP_icesheet_postprocess_data.tgz
 ./FPRINT/fprint_wais.nc
 ./FPRINT/fprint_gis.nc
 ./FPRINT/fprint_eais.nc
-
-ipccar6_bambericesheet_postprocess_data.tgz
--------------------------------
-./FPRINT/
-./FPRINT/fprint_wais.nc
-./FPRINT/fprint_gis.nc
-./FPRINT/fprint_eais.nc
-
-ipccar6_bambericesheet_preprocess_data.tgz
--------------------------------
-SLRProjections190726core_SEJ_full.mat
 
 ipccar6_climate_data.tgz
 -------------------------------
