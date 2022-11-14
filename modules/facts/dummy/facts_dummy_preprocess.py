@@ -1,8 +1,5 @@
-import numpy as np
-import csv
 import argparse
-import pickle
-import os
+
 
 ''' facts_dummy_preprocess.py
 
