@@ -4,7 +4,7 @@ import argparse
 import pickle
 import os
 
-''' facts_dummy_stage.py
+''' facts_dummy_preprocess.py
 
 This module does nothing, but provides a convenient module to use for
 moving files around on the server as specified in a custom pipeline.yml
