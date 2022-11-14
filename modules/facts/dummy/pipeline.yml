@@ -1,6 +1,6 @@
-# Generic Module 'Direct Sample' pipeline
+# FACTS dummy pipeline
 
-stage:
+preprocess:
   task1:
     executable: "python"
     cpu:
