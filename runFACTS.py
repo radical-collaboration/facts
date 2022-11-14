@@ -8,7 +8,10 @@ import FACTS as facts
 from radical.entk import AppManager
 
 
-def run_experiment(exp_dir, debug_mode):
+def run_experiment(exp_dir, debug_mode, resourcedir = None):
+
+    if not resourcedir:
+        resourcedir = exp_dir
 
     expconfig = facts.ParseExperimentConfig(exp_dir)
     experimentsteps = expconfig['experimentsteps']
@@ -44,7 +47,7 @@ def run_experiment(exp_dir, debug_mode):
 
     # Apply the resource configuration provided by the user
     rcfg_name = expconfig['ecfg']['global-options'].get('rcfg-name')
-    rcfg = facts.LoadResourceConfig(exp_dir, rcfg_name)
+    rcfg = facts.LoadResourceConfig(resourcedir, rcfg_name)
 
     # Initialize RCT and the EnTK App Manager
     dburl = 'mongodb://%s:%s@%s:%d/facts' % (rcfg['mongodb']['username'], 
@@ -121,6 +124,8 @@ if __name__ == "__main__":
     # Add arguments for the resource and experiment configuration files
     parser.add_argument('edir', help="Experiment Directory")
     parser.add_argument('--debug', help="Enable debug mode (check that configuration files parse, do not execute)", action="store_true")
+    parser.add_argument('--resourcedir', help="Directory containing resource files (default=./resources/)", type=str, default='./resources')
+
 
     # Parse the arguments
     args = parser.parse_args()
@@ -131,6 +136,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Go ahead and try to run the experiment
-    run_experiment(args.edir, args.debug)
+    run_experiment(args.edir, args.debug, resourcedir=args.resourcedir)
 
     #sys.exit(0)
