@@ -1,0 +1,18 @@
+# Generic Module 'Direct Sample' pipeline
+
+stage:
+  task1:
+    executable: "python"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    script: "facts_dummy_stage.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "%MODULE_PATH%/facts_dummy_stage.py"
+    #climate_output_data:
+    #global_total_files:
+    #local_total_files:
