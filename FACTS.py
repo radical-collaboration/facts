@@ -35,6 +35,10 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None, workflow_
     if "input_data_file" in ecfg.keys():
         ecfg['options']['input_data_file'] = ecfg['input_data_file']
 
+    if "input_compressed_data_file" in ecfg.keys():
+        ecfg['options']['input_compressed_data_file'] = ecfg['input_compressed_data_file']
+
+
     # Append the pipeline id to the list of options
     ecfg['options']['pipeline_id'] = pipe_name
 
@@ -102,6 +106,15 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
             if not os.path.isfile(fp):
                 raise(FileNotFoundError("input_data_file: " + fp + " not found!"))
             tcfg['upload_input_data'].append(fp)
+
+    if "input_compressed_data_file" in ecfg.keys():
+        if not "upload_and_extract_input_data" in tcfg.keys():
+            tcfg['upload_and_extract_input_dats'] = []
+        for x in ecfg['input_compressed_data_file']:
+            fp = os.path.join(ecfg['exp_dir'], "input", x)
+            if not os.path.isfile(fp):
+                raise(FileNotFoundError("input_compressed_data_file: " + fp + " not found!"))
+            tcfg['upload_and_extract_input_data'].append(fp)
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
