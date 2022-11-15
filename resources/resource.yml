@@ -1,0 +1,14 @@
+# this is the default resource, if none specified
+rabbitmq:
+    hostname: "localhost"
+
+mongodb:
+    hostname: "localhost"
+
+resource-desc:
+  resource: 'local.localhost'
+  walltime: 30
+  cpus: 2
+  gpus: 0
+  queue: ''
+  project: ''
