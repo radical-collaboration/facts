@@ -432,7 +432,7 @@ def ParseExperimentConfig(exp_dir):
     return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include, 'climate_data_files': climate_data_files}
 
 
-def LoadResourceConfig(exp_dir, rcfg_name):
+def LoadResourceConfig(resourcedir, rcfg_name):
 
     if rcfg_name:
         rcfg_fname = 'resource_%s.yml' % rcfg_name
@@ -440,7 +440,7 @@ def LoadResourceConfig(exp_dir, rcfg_name):
         rcfg_fname = 'resource.yml'
 
     # Define the configuration and resource file names
-    rfile = os.path.join(exp_dir, rcfg_fname)
+    rfile = os.path.join(resourcedir, rcfg_fname)
 
     # Does the resource file exist?
     if not os.path.isfile(rfile):
