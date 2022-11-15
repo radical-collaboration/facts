@@ -30,7 +30,7 @@ def run_experiment(exp_dir, debug_mode):
         print('CLIMATE DATA')
         print('------------')
         pprint(climate_data_files)
-        print('')   
+        print('')
         print_workflows(workflows)
         # Exit
         sys.exit(0)
@@ -47,15 +47,17 @@ def run_experiment(exp_dir, debug_mode):
     rcfg = facts.LoadResourceConfig(exp_dir, rcfg_name)
 
     # Initialize RCT and the EnTK App Manager
-    dburl = 'mongodb://%s:%s@%s:%d/facts' % (rcfg['mongodb']['username'], 
-                                             rcfg['mongodb']['password'], 
-                                             rcfg['mongodb']['hostname'], 
-                                             rcfg['mongodb']['port'])
+    dburl = 'mongodb://%s:%s@%s:%d/facts' \
+            % (rcfg['mongodb'].get('username', ''),
+               rcfg['mongodb'].get('password', ''),
+               rcfg['mongodb'].get('hostname', 'localhost'),
+               rcfg['mongodb'].get('port',     27017))
     os.environ['RADICAL_PILOT_DBURL'] = dburl
-    amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'],
-                      port=rcfg['rabbitmq'].get('port'),
-                      username=rcfg['rabbitmq'].get('username'),
-                      password=rcfg['rabbitmq'].get('password'),
+
+    amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
+                      username=rcfg['rabbitmq'].get('username', ''),
+                      password=rcfg['rabbitmq'].get('password', ''),
+                      port=rcfg['rabbitmq'].get('port', 5672),
                       autoterminate=False)
 
     amgr.resource_desc = rcfg['resource-desc']
@@ -67,7 +69,7 @@ def run_experiment(exp_dir, debug_mode):
     amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
 
     for step, pipelines in experimentsteps.items():
-        
+
         print ("****** STEP: " + step + " ******")
         # Assign the list of pipelines to the workflow
         amgr.workflow = pipelines
