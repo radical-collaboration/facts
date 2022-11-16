@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array]"
     script: "FittedISMIP_preprocess_icesheet.py"
     options:
@@ -27,11 +22,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "FittedISMIP_fit_icesheet.py"
     options:
       - "pipeline_id"
@@ -44,11 +34,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     pre_exec: []
     script: "FittedISMIP_project_icesheet.py"
     options:
@@ -85,11 +70,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "FittedISMIP_postprocess_icesheet.py"
     options:
       - "chunksize"

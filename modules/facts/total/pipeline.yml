@@ -3,11 +3,6 @@
 workflow:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy netCDF4 pyyaml dask[array]"
     script: "total_workflow.py"
     arguments: 
@@ -36,11 +31,6 @@ workflow:
 global:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy netCDF4 pyyaml dask"
     script: "total_workflow.py"
     arguments: 
@@ -61,11 +51,6 @@ global:
 local:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy netCDF4 pyyaml dask"
     script: "total_workflow.py"
     arguments: 

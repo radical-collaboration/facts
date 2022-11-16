@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "emulandice_preprocess.py"
     arguments:
@@ -24,11 +19,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "emulandice_fit_glaciers.py"
     options:
       - "pipeline_id"
@@ -40,11 +30,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "emulandice_project_glaciers.py"
     options:
       - "pipeline_id"
@@ -73,11 +58,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "emulandice_postprocess_glaciers.py"
     options:
       - "locationfile"

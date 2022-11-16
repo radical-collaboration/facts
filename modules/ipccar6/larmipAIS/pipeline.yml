@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
     script: "ipccar6_preprocess_larmipicesheet.py"
     options:
@@ -29,11 +24,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_fit_larmipicesheet.py"
     options:
       - "pipeline_id"
@@ -48,11 +38,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_project_larmipicesheet.py"
     options:
       - "nsamps"
@@ -83,11 +68,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_postprocess_larmipicesheet.py"
     options:
       - "locationfile"

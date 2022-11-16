@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "facts_dummy_preprocess.py"
     options:
       - "pipeline_id"

@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glacierscmip6.py"
     options:
@@ -24,11 +19,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_fit_glacierscmip6.py"
     options:
       - "pipeline_id"
@@ -44,11 +34,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_project_glacierscmip6.py"
     options:
       - "nmsamps"
@@ -80,11 +65,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_postprocess_glacierscmip6.py"
     options:
       - "locationfile"

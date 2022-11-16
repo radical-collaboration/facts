@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_landwaterstorage.py"
     options:
@@ -29,11 +24,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_fit_landwaterstorage.py"
     options:
       - "pipeline_id"
@@ -50,11 +40,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_project_landwaterstorage.py"
     options:
       - "nsamps"
@@ -79,11 +64,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_postprocess_landwaterstorage.py"
     options:
       - "locationfile"

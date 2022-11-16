@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies]: "numpy pandas netCDF4 pyyaml matplotlib"
     script: "extremesealevel_preprocess_pointsoverthreshold.py"
     options:
@@ -35,11 +30,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "extremesealevel_fit_pointsoverthreshold.py"
     options:
       - "station_data_file"
@@ -56,11 +46,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "extremesealevel_project_pointsoverthreshold.py"
     options:
       - "esl_fit_file"

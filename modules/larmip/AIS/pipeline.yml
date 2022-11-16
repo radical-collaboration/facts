@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
     script: "larmip_preprocess_icesheet.py"
     options:
@@ -23,11 +18,6 @@ preprocess:
 fit:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "larmip_fit_icesheet.py"
     options:
       - "pipeline_id"
@@ -44,11 +34,6 @@ fit:
 project:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "larmip_project_icesheet.py"
     options:
       - "nsamps"
@@ -84,11 +69,6 @@ project:
 postprocess:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "larmip_postprocess_icesheet.py"
     options:
       - "locationfile"

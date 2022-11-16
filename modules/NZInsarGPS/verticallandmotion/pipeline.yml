@@ -19,11 +19,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "NZInsarGPS_fit_verticallandmotion.py"
     options:
       - "pipeline_id"
@@ -34,11 +29,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "NZInsarGPS_project_verticallandmotion.py"
     options:
       - "pipeline_id"
@@ -48,11 +38,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "NZInsarGPS_postprocess_verticallandmotion.py"
     options:
       - "nsamps"
