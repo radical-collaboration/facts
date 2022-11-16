@@ -31,7 +31,7 @@ The following third-level entries are used under the module label:
 
 * **options**: Entries under this header are passed as options to the modules if they match options defined in the module pipeline.yml. These overwrite global options.
 
-* **options_allowoverwrite**: Entries under this header are passed as options to the modules if they match options defined in the module pipeline.yml. These can be overwriten by global options.
+* **options_allowoverwrite**: Entries under this header are passed as options to the modules if they match options defined in the module pipeline.yml. These can be overwriten by global options. Options that make use of magic variables should be specified here. A particularly useful example is the specification ```climate_data_file: "%CLIMATE_DATA_FILE%"```, which allows the identified of the climate data file generate in the climate stage to be passed onto sea level modules that use it as input.
 
 * **input_data_file**: Identifies a data file to be uploaded into the sandbox from the input/ subdirectory of the experiment directory.
 
@@ -40,6 +40,142 @@ The following third-level entries are used under the module label:
 * **stages**: Specifies stages from the pipeline.yml file to be run. Defaults to 'preprocess', 'fit', 'project', 'postprocess'.
 
 * **pipeline_file**: Pipeline file name. Defaults to 'pipeline.yml'. Alternatives can be useful for special cases (e.g., using only Antarctic ice sheet output from a module that produces both Greenland and Antarctic ice sheet output.)
+
+* **include_in_workflow**: A list of all workflows the module output should be included in at the totaling steps.
+
+* **loop_over_workflows**: If defined, replicate the module for all workflows defined to date.
+
+* **loop_over_scales**: If defined, replicate the module for both global and local scale (e.g., for a totaling module).
+
+### Example experiment file
+
+```
+global-options:
+    nsamps: 100
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2100
+    pyear_step: 10
+    baseyear: 2005
+
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        generates_climate_output: true
+        input_data_file:
+            - "emissions.csv"
+        options:
+            rcmip_file: emissions.csv
+
+sealevel_step:
+    GrIS1f:
+        module_set: "FittedISMIP"
+        module: "GrIS"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+            - "wf2f"
+
+    emuAIS:
+        module_set: "emulandice"
+        module: "AIS"
+        include_in_workflow:
+            - "wf1e"      
+            - "wf2e"
+
+    emuGrIS:
+        module_set: "emulandice"
+        module: "GrIS"
+        include_in_workflow:
+            - "wf1e"  
+            - "wf2e"    
+
+    emuglaciers:
+        module_set: "emulandice"
+        module: "glaciers"
+        include_in_workflow:
+            - "wf1e"   
+            - "wf2e"   
+
+    larmip:
+        module_set: "larmip"
+        module: "AIS"
+        options_allowoverwrite:
+           climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf2e"
+            - "wf2f"
+
+    ar5glaciers:
+        module_set: "ipccar5"
+        module: "glaciers"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+            - "wf2f"
+
+    ar5AIS:
+        module_set: "ipccar5"
+        module: "icesheets"
+        pipeline_file: "pipeline.AIS.yml"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+
+    ocean:
+        module_set: "tlm"
+        module: "oceandynamics"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+
+    k14vlm:
+        module_set: "kopp14"
+        module: "verticallandmotion"
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+
+    lws:
+        module_set: "ssp"
+        module: "landwaterstorage"
+        options:
+            scenario: "ssp5"
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+
+totaling_step:
+    total:
+        module_set: "facts"
+        module: "total"
+        loop_over_workflows: true
+        loop_over_scales: true
+        stages:
+            - workflow
+
+esl_step:
+    extremesealevel:
+        loop_over_workflows: true
+        module_set: "extremesealevel"
+        module: "pointsoverthreshold"
+        options:
+            target_years: 2050,2100
+            total_localsl_file: "$SHARED/totaled/%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.local.nc" 
+
+```
 
 # Pipeline configuration
 
@@ -71,6 +207,107 @@ The third level entry defines the task, including the executable to be run, para
 * **copy_output_data**: A listing of output files, not otherwise specified, to be copied to a shared (cross-module) directory for subsequent use.
 * **download_output_data**: A listing of output files to be dow
 nloaded.
+
+## Example pipeline.yml file
+
+```
+preprocess:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
+    script: "bamber19_preprocess_icesheets.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - "%MODULE_PATH%/bamber19_preprocess_icesheets.py"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/data/bamber19_icesheets_preprocess_data.tgz"
+
+
+fit:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    script: "bamber19_fit_icesheets.py"
+    options:
+      - "pipeline_id"
+    upload_input_data:
+      - '%MODULE_PATH%/bamber19_fit_icesheets.py'
+
+
+project:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    script: "bamber19_project_icesheets.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "replace"
+      - "pipeline_id"
+    upload_input_data:
+      - '%MODULE_PATH%/bamber19_project_icesheets.py'
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_GIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_GIS_globalsl.nc"
+      - "%PIPELINE_ID%_EAIS_globalsl.nc"
+      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
+
+postprocess:
+  task1:
+    executable: "python3"
+    cpu:
+      processes: 1
+      process-type: None
+      threads-per-process: 1
+      thread-type: None
+    script: "bamber19_postprocess_icesheets.py"
+    options:
+      - "locationfile"
+      - "pipeline_id"
+    upload_input_data:
+      - '%MODULE_PATH%/bamber19_postprocess_icesheets.py'
+      - '%MODULE_PATH%/read_locationfile.py'
+      - '%MODULE_PATH%/AssignFP.py'
+      - '%MODULE_PATH%/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - '%MODULE_PATH%/data/bamber19_icesheets_postprocess_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_GIS_localsl.nc"
+      - "%PIPELINE_ID%_AIS_localsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_GIS_localsl.nc"
+      - "%PIPELINE_ID%_WAIS_localsl.nc"
+      - "%PIPELINE_ID%_EAIS_localsl.nc"
+      - "%PIPELINE_ID%_AIS_localsl.nc"
+
+```
 
 # Magic variables
 
