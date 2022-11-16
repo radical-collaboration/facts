@@ -24,7 +24,7 @@ preprocess:
       - "%MODULE_PATH%/read_CSIRO.py"
       - "%MODULE_PATH%/readMarzeion.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/kopp14_oceandynamics_data.tgz"
+      - "./modules-data/kopp14_oceandynamics_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
 #    download_output_data:

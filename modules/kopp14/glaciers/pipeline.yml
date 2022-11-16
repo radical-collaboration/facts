@@ -16,7 +16,7 @@ preprocess:
       - "%MODULE_PATH%/kopp14_preprocess_glaciers.py"
       - "%MODULE_PATH%/readMarzeion.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/kopp14_glaciers_preprocess_data.tgz"
+      - "./modules-data/kopp14_glaciers_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_fp.pkl"
@@ -76,7 +76,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/kopp14_glaciers_postprocess_data.tgz'
+      - './modules-data/kopp14_glaciers_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

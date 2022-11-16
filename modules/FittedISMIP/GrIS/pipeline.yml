@@ -16,7 +16,7 @@ preprocess:
       - "%MODULE_PATH%/import_temp_data.py"
       - "%MODULE_PATH%/filter_temp_data.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
+      - "./modules-data/ipccar6_climate_data.tgz"
 
 
 fit:
@@ -28,7 +28,7 @@ fit:
     upload_input_data:
       - '%MODULE_PATH%/FittedISMIP_fit_icesheet.py'
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/FittedISMIP_icesheet_fit_data.tgz"
+      - "./modules-data/FittedISMIP_icesheet_fit_data.tgz"
 
 
 project:
@@ -81,7 +81,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/FittedISMIP_icesheet_postprocess_data.tgz'
+      - './modules-data/FittedISMIP_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

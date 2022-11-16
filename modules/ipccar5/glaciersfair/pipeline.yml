@@ -16,7 +16,7 @@ preprocess:
       - "%MODULE_PATH%/import_data.py"
       - "%MODULE_PATH%/filter_data.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ar5_glaciersfair_preprocess_data.tgz"
+      - "./modules-data/ar5_glaciersfair_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
@@ -51,7 +51,7 @@ project:
     upload_input_data:
       - '%MODULE_PATH%/ar5_project_glaciersfair.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ar5_glaciersfair_project_data.tgz'
+      - './modules-data/ar5_glaciersfair_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -79,7 +79,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ar5_glaciersfair_postprocess_data.tgz'
+      - './modules-data/ar5_glaciersfair_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

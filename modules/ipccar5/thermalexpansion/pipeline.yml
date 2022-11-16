@@ -12,7 +12,7 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/ar5_preprocess_thermalexpansion.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ar5_thermalexpansion_preprocess_data.tgz"
+      - "./modules-data/ar5_thermalexpansion_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

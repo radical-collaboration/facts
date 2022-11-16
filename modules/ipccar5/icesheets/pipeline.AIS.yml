@@ -15,8 +15,8 @@ preprocess:
       - "%MODULE_PATH%/ar5_preprocess_icesheets.py"
       - "%MODULE_PATH%/Import2lmData.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ar5_icesheets_preprocess_data.tgz"
-      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
+      - "./modules-data/ar5_icesheets_preprocess_data.tgz"
+      - "./modules-data/ipccar6_climate_data.tgz"
 
 
 
@@ -50,7 +50,7 @@ project:
     upload_input_data:
       - '%MODULE_PATH%/ar5_project_icesheets.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ar5_icesheets_project_data.tgz'
+      - './modules-data/ar5_icesheets_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -78,7 +78,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ar5_icesheets_postprocess_data.tgz'
+      - './modules-data/ar5_icesheets_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

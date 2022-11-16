@@ -10,7 +10,7 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/kopp14_preprocess_verticallandmotion.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/kopp14_verticallandmotion_preprocess.tgz"
+      - "./modules-data/kopp14_verticallandmotion_preprocess.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

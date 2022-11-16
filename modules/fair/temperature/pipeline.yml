@@ -12,7 +12,7 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/fair_preprocess_temperature.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/fair_temperature_preprocess_data.tgz"
+      - "./modules-data/fair_temperature_preprocess_data.tgz"
 
 
 fit:
@@ -25,7 +25,7 @@ fit:
     upload_input_data:
       - "%MODULE_PATH%/fair_fit_temperature.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/fair_temperature_fit_data.tgz"
+      - "./modules-data/fair_temperature_fit_data.tgz"
 
 
 

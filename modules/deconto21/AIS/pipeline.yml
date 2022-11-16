@@ -12,7 +12,7 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/dp21_preprocess_icesheet.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/dp21_icesheet_preprocess_data.tgz"
+      - "./modules-data/dp21_icesheet_preprocess_data.tgz"
 
 
 fit:
@@ -66,7 +66,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/dp21_icesheet_postprocess_data.tgz'
+      - './modules-data/dp21_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

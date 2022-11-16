@@ -10,7 +10,7 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/bamber19_preprocess_icesheets.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/bamber19_icesheets_preprocess_data.tgz"
+      - "./modules-data/bamber19_icesheets_preprocess_data.tgz"
 
 
 fit:
@@ -61,7 +61,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/bamber19_icesheets_postprocess_data.tgz'
+      - './modules-data/bamber19_icesheets_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

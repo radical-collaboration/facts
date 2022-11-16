@@ -17,7 +17,7 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/ssp_preprocess_landwaterstorage.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ssp_landwaterstorage_preprocess_data.tgz"
+      - "./modules-data/ssp_landwaterstorage_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_config.pkl"
@@ -77,7 +77,7 @@ postprocess:
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ssp_landwaterstorage_postprocess_data.tgz'
+      - './modules-data/ssp_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

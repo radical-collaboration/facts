@@ -11,7 +11,7 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/NZInsarGPS_preprocess_verticallandmotion.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/NZInsarGPS_verticallandmotion_preprocess.tgz"
+      - "./modules-data/NZInsarGPS_verticallandmotion_preprocess.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

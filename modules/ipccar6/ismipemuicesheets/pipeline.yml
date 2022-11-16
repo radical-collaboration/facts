@@ -19,7 +19,7 @@ preprocess:
       - "%MODULE_PATH%/filter_temp_data.py"
       - "%MODULE_PATH%/Smooth.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ipccar6_ismipemuicesheet_preprocess.tgz"
+      - "./modules-data/ipccar6_ismipemuicesheet_preprocess.tgz"
 
 
 fit:
@@ -71,7 +71,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ipccar6_ismipemuicesheet_postprocess.tgz'
+      - './modules-data/ipccar6_ismipemuicesheet_postprocess.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
