@@ -1,6 +1,5 @@
 global-options:
     nsamps: 20000
-    rcfg-name: "localhost"
 
 climate_step:
     multistep: true

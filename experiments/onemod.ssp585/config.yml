@@ -1,6 +1,5 @@
 global-options:
     nsamps: 50
-    rcfg-name: "amarel"
     scenario: ssp585
     pyear_start: 2020
     pyear_end: 2100
