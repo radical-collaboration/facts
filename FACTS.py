@@ -35,6 +35,10 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None, workflow_
     if "input_data_file" in ecfg.keys():
         ecfg['options']['input_data_file'] = ecfg['input_data_file']
 
+    if "input_compressed_data_file" in ecfg.keys():
+        ecfg['options']['input_compressed_data_file'] = ecfg['input_compressed_data_file']
+
+
     # Append the pipeline id to the list of options
     ecfg['options']['pipeline_id'] = pipe_name
 
@@ -102,6 +106,15 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
             if not os.path.isfile(fp):
                 raise(FileNotFoundError("input_data_file: " + fp + " not found!"))
             tcfg['upload_input_data'].append(fp)
+
+    if "input_compressed_data_file" in ecfg.keys():
+        if not "upload_and_extract_input_data" in tcfg.keys():
+            tcfg['upload_and_extract_input_dats'] = []
+        for x in ecfg['input_compressed_data_file']:
+            fp = os.path.join(ecfg['exp_dir'], "input", x)
+            if not os.path.isfile(fp):
+                raise(FileNotFoundError("input_compressed_data_file: " + fp + " not found!"))
+            tcfg['upload_and_extract_input_data'].append(fp)
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
@@ -358,7 +371,10 @@ def ParseExperimentConfig(exp_dir):
     global_options['climate_ohc_data_file'] = None
     
     # add experiment name to global options
-    global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+    if os.path.basename(exp_dir) == '':
+        global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+    else:
+        global_options['experiment_name'] = os.path.basename(exp_dir)
 
     # Initialize a list for pipelines
     pipelines = []
@@ -419,7 +435,7 @@ def ParseExperimentConfig(exp_dir):
     return {'experimentsteps': experimentsteps, 'ecfg': ecfg, 'workflows': workflows_to_include, 'climate_data_files': climate_data_files}
 
 
-def LoadResourceConfig(exp_dir, rcfg_name):
+def LoadResourceConfig(resourcedir, rcfg_name):
 
     if rcfg_name:
         rcfg_fname = 'resource_%s.yml' % rcfg_name
@@ -427,7 +443,7 @@ def LoadResourceConfig(exp_dir, rcfg_name):
         rcfg_fname = 'resource.yml'
 
     # Define the configuration and resource file names
-    rfile = os.path.join(exp_dir, rcfg_fname)
+    rfile = os.path.join(resourcedir, rcfg_fname)
 
     # Does the resource file exist?
     if not os.path.isfile(rfile):

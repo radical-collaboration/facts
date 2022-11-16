@@ -8,7 +8,10 @@ import FACTS as facts
 from radical.entk import AppManager
 
 
-def run_experiment(exp_dir, debug_mode):
+def run_experiment(exp_dir, debug_mode, resourcedir = None):
+
+    if not resourcedir:
+        resourcedir = exp_dir
 
     expconfig = facts.ParseExperimentConfig(exp_dir)
     experimentsteps = expconfig['experimentsteps']
@@ -30,7 +33,7 @@ def run_experiment(exp_dir, debug_mode):
         print('CLIMATE DATA')
         print('------------')
         pprint(climate_data_files)
-        print('')   
+        print('')
         print_workflows(workflows)
         # Exit
         sys.exit(0)
@@ -44,19 +47,29 @@ def run_experiment(exp_dir, debug_mode):
 
     # Apply the resource configuration provided by the user
     rcfg_name = expconfig['ecfg']['global-options'].get('rcfg-name')
-    rcfg = facts.LoadResourceConfig(exp_dir, rcfg_name)
+    rcfg = facts.LoadResourceConfig(resourcedir, rcfg_name)
 
     # Initialize RCT and the EnTK App Manager
-    dburl = 'mongodb://%s:%s@%s:%d/facts' % (rcfg['mongodb']['username'], 
-                                             rcfg['mongodb']['password'], 
-                                             rcfg['mongodb']['hostname'], 
-                                             rcfg['mongodb']['port'])
+    if not "password" in rcfg['mongodb'].keys():
+        dburl = 'mongodb://%s:%d/facts' % (rcfg['mongodb'].get('hostname', 'localhost'), rcfg['mongodb'].get('port', 27017))
+    else:
+        dburl = 'mongodb://%s:%s@%s:%d/facts' \
+                % (rcfg['mongodb'].get('username', ''),
+                rcfg['mongodb'].get('password', ''),
+                rcfg['mongodb'].get('hostname', 'localhost'),
+                rcfg['mongodb'].get('port', 27017))
     os.environ['RADICAL_PILOT_DBURL'] = dburl
-    amgr = AppManager(hostname=rcfg['rabbitmq']['hostname'],
-                      port=rcfg['rabbitmq'].get('port'),
-                      username=rcfg['rabbitmq'].get('username'),
-                      password=rcfg['rabbitmq'].get('password'),
-                      autoterminate=False)
+
+    if not "password" in rcfg['rabbitmq'].keys():
+        amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
+                        port=rcfg['rabbitmq'].get('port', 5672),
+                        autoterminate=False)
+    else:
+        amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
+                        username=rcfg['rabbitmq'].get('username', ''),
+                        password=rcfg['rabbitmq'].get('password', ''),
+                        port=rcfg['rabbitmq'].get('port', 5672),
+                        autoterminate=False)
 
     amgr.resource_desc = rcfg['resource-desc']
 
@@ -67,7 +80,7 @@ def run_experiment(exp_dir, debug_mode):
     amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
 
     for step, pipelines in experimentsteps.items():
-        
+
         print ("****** STEP: " + step + " ******")
         # Assign the list of pipelines to the workflow
         amgr.workflow = pipelines
@@ -121,6 +134,8 @@ if __name__ == "__main__":
     # Add arguments for the resource and experiment configuration files
     parser.add_argument('edir', help="Experiment Directory")
     parser.add_argument('--debug', help="Enable debug mode (check that configuration files parse, do not execute)", action="store_true")
+    parser.add_argument('--resourcedir', help="Directory containing resource files (default=./resources/)", type=str, default='./resources')
+
 
     # Parse the arguments
     args = parser.parse_args()
@@ -131,6 +146,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Go ahead and try to run the experiment
-    run_experiment(args.edir, args.debug)
+    run_experiment(args.edir, args.debug, resourcedir=args.resourcedir)
 
     #sys.exit(0)
