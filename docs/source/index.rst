@@ -16,6 +16,7 @@ The Framework for Assessing Changes To Sea-level (FACTS) is an open-source modul
 
    quickstart.md
    resources.md
+   configurationfiles.md
 
 
 Indices and tables
