@@ -371,7 +371,10 @@ def ParseExperimentConfig(exp_dir):
     global_options['climate_ohc_data_file'] = None
     
     # add experiment name to global options
-    global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+    if os.path.basename(exp_dir) == '':
+        global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+    else:
+        global_options['experiment_name'] = os.path.basename(exp_dir)
 
     # Initialize a list for pipelines
     pipelines = []
