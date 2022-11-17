@@ -218,6 +218,11 @@ preprocess:
     script: "bamber19_preprocess_icesheets.py"
     options:
       - "pipeline_id"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "scenario"
+      - "baseyear"
     upload_and_extract_input_data:
       - "bamber19_icesheets_preprocess_data.tgz"
 
