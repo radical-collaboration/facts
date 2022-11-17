@@ -92,13 +92,23 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         "CLIMATE_DATA_FILE": ecfg['options']['climate_data_file'], "CLIMATE_GSAT_FILE": ecfg['options']['climate_gsat_data_file'],
         "CLIMATE_OHC_FILE": ecfg['options']['climate_ohc_data_file'],
         "EXP_DIR": ecfg['exp_dir'], "EXPERIMENT_NAME": ecfg['options']['experiment_name']}
+
     # Give this task object a name
     t.name = task_name
 
-    # If there's a user-defined input file (likely for genmod modules), add it to the
-    # options list and upload file list if needed
-    # if "input_data_file" in tcfg['options']:
-    #     tcfg['upload_input_data'].extend(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
+    # initialize some keys
+    t.upload_input_data = []
+    copy_list = []
+
+    t.pre_exec = []     # Pre exec let you load modules, set environment before executing the workload
+
+    if not "upload_input_data" in tcfg.keys():
+        tcfg['upload_input_data'] = []
+
+    if not "upload_and_extract_input_data" in tcfg.keys():
+        tcfg['upload_and_extract_input_data'] = []
+
+    # If there's a user-defined input file, add it to the upload list
 
     if "input_data_file" in ecfg.keys():
         for x in ecfg['input_data_file']:
@@ -108,8 +118,6 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
             tcfg['upload_input_data'].append(fp)
 
     if "input_compressed_data_file" in ecfg.keys():
-        if not "upload_and_extract_input_data" in tcfg.keys():
-            tcfg['upload_and_extract_input_dats'] = []
         for x in ecfg['input_compressed_data_file']:
             fp = os.path.join(ecfg['exp_dir'], "input", x)
             if not os.path.isfile(fp):
@@ -118,7 +126,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
-    t.upload_input_data = []
+
+    if "script" in tcfg.keys():
+        this_file = os.path.join(module_path, mvar_replace_dict(mvar_dict,tcfg['script']))
+        if not os.path.isfile(this_file):
+                raise(FileNotFoundError(pipe_name + "." + stage_name + ": script: " + this_file + " not found!"))
+        t.upload_input_data.append(this_file) 
+
     for this_file0 in tcfg['upload_input_data']:
         this_file = mvar_replace_dict(mvar_dict,this_file0)
         if not os.path.isfile(this_file):
@@ -128,8 +142,22 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
                 raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_input_data: " + this_file + " not found!"))
         t.upload_input_data.append(this_file)
 
+    # If there's a data file to upload and extract, add it to upload and
+    # add the extraction command to pre-exec
+
+    if "upload_and_extract_input_data" in tcfg.keys():
+        for this_file0 in tcfg['upload_and_extract_input_data']:
+            this_file = mvar_replace_dict(mvar_dict,this_file0)
+            if this_file == os.path.basename(this_file):
+                this_file = os.path.join('.','modules-data', this_file)
+            if not os.path.isfile(this_file):
+                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
+            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
+            t.upload_input_data.append(this_file)
+
+    t.upload_input_data=list(set(t.upload_input_data))
+
     # Copy data from other stages/tasks for use in this task
-    copy_list = []
     if "copy_input_data" in tcfg.keys():
         for copy_stage in tcfg['copy_input_data'].keys():
             for copy_task in tcfg['copy_input_data'][copy_stage].keys():
@@ -142,22 +170,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         copy_list.extend(['{0}'.format(mvar_replace_dict(mvar_dict, x))
                          for x in tcfg['copy_shared_data']])
 
-
     # Append the copy list (if any) to the task object
-    t.copy_input_data = copy_list
-
-    # Pre exec let you load modules, set environment before executing the workload
-    t.pre_exec = []
-
-    # If there's a data file to upload and extract, add it to upload and
-    # add the extraction command to pre-exec
-    if "upload_and_extract_input_data" in tcfg.keys():
-        for this_file0 in tcfg['upload_and_extract_input_data']:
-            this_file = mvar_replace_dict(mvar_dict,this_file0)
-            if not os.path.isfile(this_file):
-                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
-            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
-            t.upload_input_data.append(this_file)
+    t.copy_input_data = list(set(copy_list))
 
    # if their are python dependencies, add pip call to pre_exec
     if "python_dependencies" in tcfg.keys():
@@ -170,12 +184,9 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     # Executable to use for the task
     t.executable = tcfg['executable']
 
-
-
-
     # List of arguments for the executable
-    # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
-    t.arguments = tcfg.get('script','')
+    t.arguments = tcfg.get('script',tcfg.get('script_noupload',''))
+
     if "arguments" in tcfg.keys():
         t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
     for x in match_options(tcfg['options'], ecfg['options']):
@@ -195,40 +206,47 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
                  }
 
 
-    # Send the global and local files to the shared directory for totaling
+    # Send the global and local files to the shared directory for totaling, and download
+    download_list=[]
     copy_output_list = []
+    outdir = os.path.join(ecfg['exp_dir'], "output")
+
     if "copy_output_data" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['copy_output_data']])
 
-    if "climate_output_data" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['climate_output_data']])
-
-    if "global_total_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['global_total_files']])
-
-    if "local_total_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['local_total_files']])
-
-    if "totaled_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['totaled_files']])
-
-    # Set the download data for the task
-    download_list = []
-    outdir = os.path.join(ecfg['exp_dir'], "output")
     if "download_output_data" in tcfg.keys():
         download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['download_output_data']])
 
+    if "climate_output_data" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['climate_output_data']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['climate_output_data']])
+
+    if "global_total_files" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['global_total_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['global_total_files']])
+
+    if "local_total_files" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['local_total_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['local_total_files']])
+    if "totaled_files" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['totaled_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['totaled_files']])                                
+
     # Append the "total" lists to the copy output list
-    t.copy_output_data = copy_output_list
+    t.copy_output_data = list(set(copy_output_list))
 
     # Append the download list to this task
-    t.download_output_data = download_list
+    t.download_output_data = list(set(download_list))
 
     # Return the task object
     return(t)

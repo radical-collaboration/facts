@@ -11,14 +11,11 @@ preprocess:
       - "fullFAIR"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/ar5_preprocess_glaciersfair.py"
       - "%MODULE_PATH%/Smooth.py"
       - "%MODULE_PATH%/import_data.py"
       - "%MODULE_PATH%/filter_data.py"
     upload_and_extract_input_data:
-      - "./modules-data/ar5_glaciersfair_preprocess_data.tgz"
-#    download_output_data:
-#      - "%PIPELINE_ID%_data.pkl"
+      - "ar5_glaciersfair_preprocess_data.tgz"
 
 fit:
   task1:
@@ -26,14 +23,10 @@ fit:
     script: "ar5_fit_glaciersfair.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/ar5_fit_glaciersfair.py'
     copy_input_data:
       preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
-#    download_output_data:
-#      - "%PIPELINE_ID%_fit.pkl"
 
 project:
   task1:
@@ -48,10 +41,8 @@ project:
       - "pyear_step"
       - "seed"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/ar5_project_glaciersfair.py'
     upload_and_extract_input_data:
-      - './modules-data/ar5_glaciersfair_project_data.tgz'
+      - 'ar5_glaciersfair_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -61,9 +52,6 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 
 postprocess:
@@ -74,12 +62,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/ar5_postprocess_glaciersfair.py'
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - './modules-data/ar5_glaciersfair_postprocess_data.tgz'
+      - 'ar5_glaciersfair_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -90,6 +77,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

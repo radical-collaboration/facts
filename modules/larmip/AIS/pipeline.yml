@@ -9,10 +9,8 @@ preprocess:
       - "scenario"
       - "pipeline_id"
       - "climate_data_file"
-    upload_input_data:
-      - "%MODULE_PATH%/larmip_preprocess_icesheet.py"
     upload_and_extract_input_data:
-      - "./modules-data/ipccar6_climate_data.tgz"
+      - "ipccar6_climate_data.tgz"
 
 
 fit:
@@ -21,10 +19,8 @@ fit:
     script: "larmip_fit_icesheet.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/larmip_fit_icesheet.py'
     upload_and_extract_input_data:
-      - './modules-data/larmip_icesheet_fit_data.tgz'
+      - 'larmip_icesheet_fit_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -44,10 +40,8 @@ project:
       - "seed"
       - "models"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/larmip_project_icesheet.py'
     upload_and_extract_input_data:
-      - './modules-data/larmip_icesheet_project_data.tgz'
+      - 'larmip_icesheet_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -63,8 +57,6 @@ project:
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
       - "%PIPELINE_ID%_PEN_globalsl.nc"
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
@@ -75,12 +67,11 @@ postprocess:
       - "chunksize"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/larmip_postprocess_icesheet.py'
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - './modules-data/larmip_icesheet_postprocess_data.tgz'
+      - 'larmip_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -92,4 +83,3 @@ postprocess:
     download_output_data:
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"
-      - "%PIPELINE_ID%_localsl.nc"

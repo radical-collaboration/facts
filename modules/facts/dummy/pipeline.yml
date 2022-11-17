@@ -6,8 +6,6 @@ preprocess:
     script: "facts_dummy_preprocess.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/facts_dummy_preprocess.py"
     #climate_output_data:
     #global_total_files:
     #local_total_files:

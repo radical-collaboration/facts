@@ -8,12 +8,8 @@ preprocess:
     options:
       - "pipeline_id"
       - "inputtype"
-    upload_input_data:
-      - "%MODULE_PATH%/NZInsarGPS_preprocess_verticallandmotion.py"
     upload_and_extract_input_data:
-      - "./modules-data/NZInsarGPS_verticallandmotion_preprocess.tgz"
-#    download_output_data:
-#      - "%PIPELINE_ID%_data.pkl"
+      - "NZInsarGPS_verticallandmotion_preprocess.tgz"
 
 
 fit:
@@ -22,9 +18,6 @@ fit:
     script: "NZInsarGPS_fit_verticallandmotion.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/NZInsarGPS_fit_verticallandmotion.py'
-
 
 project:
   task1:
@@ -32,8 +25,6 @@ project:
     script: "NZInsarGPS_project_verticallandmotion.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/NZInsarGPS_project_verticallandmotion.py'
 
 postprocess:
   task1:
@@ -49,7 +40,6 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/NZInsarGPS_postprocess_verticallandmotion.py'
       - '%MODULE_PATH%/read_locationfile.py'
     copy_shared_data:
       - '$SHARED/location.lst'
@@ -58,6 +48,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

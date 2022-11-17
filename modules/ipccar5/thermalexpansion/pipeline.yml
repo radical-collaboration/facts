@@ -9,12 +9,8 @@ preprocess:
       - "scenario"
       - "baseyear"
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/ar5_preprocess_thermalexpansion.py"
     upload_and_extract_input_data:
-      - "./modules-data/ar5_thermalexpansion_preprocess_data.tgz"
-#    download_output_data:
-#      - "%PIPELINE_ID%_data.pkl"
+      - "ar5_thermalexpansion_preprocess_data.tgz"
 
 fit:
   task1:
@@ -22,14 +18,6 @@ fit:
     script: "ar5_fit_thermalexpansion.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/ar5_fit_thermalexpansion.py'
-#    copy_input_data:
-#      preprocess:
-#        task1:
-#          - "%PIPELINE_ID%_data.pkl"
-#    download_output_data:
-#      - "%PIPELINE_ID%_fit.pkl"
 
 project:
   task1:
@@ -42,17 +30,12 @@ project:
       - "pyear_end"
       - "pyear_step"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/ar5_project_thermalexpansion.py'
     copy_input_data:
       preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 
 postprocess:
@@ -63,7 +46,6 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/ar5_postprocess_thermalexpansion.py'
       - '%MODULE_PATH%/read_locationfile.py'
     copy_shared_data:
       - '$SHARED/location.lst'
@@ -72,6 +54,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

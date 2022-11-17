@@ -19,7 +19,6 @@ preprocess:
       - "no_correlation"
       - "climate_data_file"
     upload_input_data:
-      - "%MODULE_PATH%/tlm_preprocess_oceandynamics.py"
       - "%MODULE_PATH%/Import2lmData.py"
       - "%MODULE_PATH%/IncludeCMIP6Models.py"
       - "%MODULE_PATH%/IncludeCMIP6ZOSModels.py"
@@ -29,9 +28,9 @@ preprocess:
       - "%MODULE_PATH%/read_CSIRO.py"
       - "%MODULE_PATH%/readMarzeion.py"
     upload_and_extract_input_data:
-      - "./modules-data/tlm_oceandynamics_preprocess.tgz"
-      - "./modules-data/tlm_oceandynamics_cmip6.tgz"
-      - "./modules-data/ipccar6_climate_data.tgz"
+      - "tlm_oceandynamics_preprocess.tgz"
+      - "tlm_oceandynamics_cmip6.tgz"
+      - "ipccar6_climate_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
 #    download_output_data:
@@ -44,8 +43,6 @@ fit:
     script: "tlm_fit_oceandynamics.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/tlm_fit_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:
@@ -63,8 +60,6 @@ project:
       - "nsamps"
       - "seed"
       - "tlm"
-    upload_input_data:
-      - '%MODULE_PATH%/tlm_project_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:
@@ -77,8 +72,6 @@ project:
           - "%PIPELINE_ID%_tlmfit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_globalsl.nc"
 
 postprocess:
   task1:
@@ -90,8 +83,6 @@ postprocess:
       - "pipeline_id"
       - "chunksize"
       - "keep_temp"
-    upload_input_data:
-      - '%MODULE_PATH%/tlm_postprocess_oceandynamics.py'
     copy_input_data:
       preprocess:
         task1:
@@ -105,6 +96,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

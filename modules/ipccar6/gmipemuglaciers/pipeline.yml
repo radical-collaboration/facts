@@ -11,7 +11,6 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/ipccar6_preprocess_gmipemuglaciers.py"
       - "%MODULE_PATH%/import_data.py"
       - "%MODULE_PATH%/filter_data.py"
       - "%MODULE_PATH%/FindFAIRInputSamples.py"
@@ -19,7 +18,7 @@ preprocess:
       - "%MODULE_PATH%/filter_temp_data.py"
       - "%MODULE_PATH%/Smooth.py"
     upload_and_extract_input_data:
-      - "./modules-data/ipccar6_gmipemuglaciers_preprocess.tgz"
+      - "ipccar6_gmipemuglaciers_preprocess.tgz"
 
 
 fit:
@@ -28,8 +27,6 @@ fit:
     script: "ipccar6_fit_gmipemuglaciers.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/ipccar6_fit_gmipemuglaciers.py"
 
 
 project:
@@ -41,17 +38,12 @@ project:
       - "replace"
       - "seed"
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/ipccar6_project_gmipemuglaciers.py"
     copy_input_data:
       preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
@@ -61,12 +53,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/ipccar6_postprocess_gmipemuglaciers.py'
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - './modules-data/ipccar6_gmipemuglaciers_postprocess.tgz'
+      - 'ipccar6_gmipemuglaciers_postprocess.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -74,6 +65,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

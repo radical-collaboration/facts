@@ -9,10 +9,8 @@ preprocess:
       - "scenario"
       - "pipeline_id"
       - "baseyear"
-    upload_input_data:
-      - "%MODULE_PATH%/dp21_preprocess_icesheet.py"
     upload_and_extract_input_data:
-      - "./modules-data/dp21_icesheet_preprocess_data.tgz"
+      - "dp21_icesheet_preprocess_data.tgz"
 
 
 fit:
@@ -22,9 +20,6 @@ fit:
     script: "dp21_fit_icesheet.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/dp21_fit_icesheet.py'
-
 
 project:
   task1:
@@ -38,8 +33,6 @@ project:
       - "seed"
       - "replace"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/dp21_project_icesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -49,8 +42,6 @@ project:
     download_output_data:
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
@@ -61,12 +52,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/dp21_postprocess_icesheet.py'
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - './modules-data/dp21_icesheet_postprocess_data.tgz'
+      - 'dp21_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -76,6 +66,5 @@ postprocess:
     local_total_files:
       - "%PIPELINE_ID%_AIS_localsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_AIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"

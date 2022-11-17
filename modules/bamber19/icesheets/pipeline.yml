@@ -7,10 +7,8 @@ preprocess:
     script: "bamber19_preprocess_icesheets.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/bamber19_preprocess_icesheets.py"
     upload_and_extract_input_data:
-      - "./modules-data/bamber19_icesheets_preprocess_data.tgz"
+      - "bamber19_icesheets_preprocess_data.tgz"
 
 
 fit:
@@ -19,9 +17,6 @@ fit:
     script: "bamber19_fit_icesheets.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/bamber19_fit_icesheets.py'
-
 
 project:
   task1:
@@ -32,8 +27,6 @@ project:
       - "seed"
       - "replace"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/bamber19_project_icesheets.py'
     copy_input_data:
       preprocess:
         task1:
@@ -42,11 +35,8 @@ project:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_AIS_globalsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
@@ -56,12 +46,11 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/bamber19_postprocess_icesheets.py'
       - '%MODULE_PATH%/read_locationfile.py'
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - './modules-data/bamber19_icesheets_postprocess_data.tgz'
+      - 'bamber19_icesheets_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -72,7 +61,5 @@ postprocess:
       - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_AIS_localsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"
-      - "%PIPELINE_ID%_AIS_localsl.nc"
