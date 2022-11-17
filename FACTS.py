@@ -222,24 +222,24 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     if "climate_output_data" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['climate_output_data']])
-        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), os.path.join(outdir,'climate'))
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['climate_output_data']])
 
     if "global_total_files" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['global_total_files']])
-        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), os.path.join(outdir,'components','global'))
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['global_total_files']])
 
     if "local_total_files" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['local_total_files']])
-        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), os.path.join(outdir,'components','local'))
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['local_total_files']])
     if "totaled_files" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['totaled_files']])
-        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), os.path.join(outdir,'total'))
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['totaled_files']])                                
 
     # Append the "total" lists to the copy output list
