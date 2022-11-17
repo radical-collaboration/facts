@@ -65,7 +65,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
 
 ## Using FACTS on Rutgers' Amarel
 
-1. Login into Amarel, see [Amarel User Guide](https://oarc.rutgers.edu/resources/amarel/).
+1. Login into Amarel, see [Amarel User Guide](https://sites.google.com/view/cluster-user-guide/#h.6bb8ylmm9bzz).
 
 2. Cloning FACTS repository on the local Linux machine:
 
