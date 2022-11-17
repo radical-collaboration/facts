@@ -13,7 +13,7 @@ preprocess:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/readMarzeion.py"
+      - "readMarzeion.py"
     upload_and_extract_input_data:
       - "kopp14_glaciers_preprocess_data.tgz"
 #    download_output_data:
@@ -28,7 +28,7 @@ fit:
     options:
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/cholcov.py'
+      - 'cholcov.py'
     copy_input_data:
       preprocess:
         task1:
@@ -64,9 +64,9 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
       - 'kopp14_glaciers_postprocess_data.tgz'
     copy_shared_data:

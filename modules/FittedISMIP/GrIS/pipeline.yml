@@ -11,9 +11,9 @@ preprocess:
       - "pipeline_id"
       - "tlm_data"
     upload_input_data:
-      - "%MODULE_PATH%/Import2lmData.py"
-      - "%MODULE_PATH%/import_temp_data.py"
-      - "%MODULE_PATH%/filter_temp_data.py"
+      - "Import2lmData.py"
+      - "import_temp_data.py"
+      - "filter_temp_data.py"
     upload_and_extract_input_data:
       - "ipccar6_climate_data.tgz"
 
@@ -61,9 +61,9 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
       - 'FittedISMIP_icesheet_postprocess_data.tgz'
     copy_shared_data:

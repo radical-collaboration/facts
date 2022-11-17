@@ -28,7 +28,7 @@ fit:
       - "station_data_file"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/gplike.py'
+      - 'gplike.py'
     copy_input_data:
       preprocess:
         task1:
@@ -50,7 +50,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/sample_from_quantiles.py'
+      - 'sample_from_quantiles.py'
     copy_input_data:
       preprocess:
         task1:

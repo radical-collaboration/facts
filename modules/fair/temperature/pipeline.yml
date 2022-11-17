@@ -37,7 +37,7 @@ project:
       - "cyear_end"
       - "smooth_win"
     upload_input_data:
-      - "%MODULE_PATH%/my_FAIR_forward.py"
+      - "my_FAIR_forward.py"
     copy_input_data:
       preprocess:
         task1:

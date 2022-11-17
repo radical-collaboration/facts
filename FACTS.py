@@ -135,6 +135,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     for this_file0 in tcfg['upload_input_data']:
         this_file = mvar_replace_dict(mvar_dict,this_file0)
+        if this_file == os.path.basename(this_file):
+                this_file = os.path.join(module_path, this_file)
         if not os.path.isfile(this_file):
             # inelegant, but don't raise an exception if we are uploading workflows.yml, which will be
             # created later

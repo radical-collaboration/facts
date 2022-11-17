@@ -14,14 +14,14 @@ preprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/IncludeModels.py"
-      - "%MODULE_PATH%/IncludeDABZOSModels.py"
-      - "%MODULE_PATH%/SmoothZOSTOGA.py"
-      - "%MODULE_PATH%/DriftCorr.py"
-      - "%MODULE_PATH%/Smooth.py"
-      - "%MODULE_PATH%/read_locationfile.py"
-      - "%MODULE_PATH%/read_CSIRO.py"
-      - "%MODULE_PATH%/readMarzeion.py"
+      - "IncludeModels.py"
+      - "IncludeDABZOSModels.py"
+      - "SmoothZOSTOGA.py"
+      - "DriftCorr.py"
+      - "Smooth.py"
+      - "read_locationfile.py"
+      - "read_CSIRO.py"
+      - "readMarzeion.py"
     upload_and_extract_input_data:
       - "kopp14_oceandynamics_data.tgz"
     copy_shared_data:

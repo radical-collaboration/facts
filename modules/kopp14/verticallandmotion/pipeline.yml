@@ -43,7 +43,7 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
+      - 'read_locationfile.py'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

@@ -11,9 +11,9 @@ preprocess:
       - "fullFAIR"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/Smooth.py"
-      - "%MODULE_PATH%/import_data.py"
-      - "%MODULE_PATH%/filter_data.py"
+      - "Smooth.py"
+      - "import_data.py"
+      - "filter_data.py"
     upload_and_extract_input_data:
       - "ar5_glaciersfair_preprocess_data.tgz"
 
@@ -62,9 +62,9 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
       - 'ar5_glaciersfair_postprocess_data.tgz'
     copy_shared_data:

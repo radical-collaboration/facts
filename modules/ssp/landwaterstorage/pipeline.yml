@@ -64,8 +64,8 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
     upload_and_extract_input_data:
       - 'ssp_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:

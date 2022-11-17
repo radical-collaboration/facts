@@ -60,7 +60,7 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
+      - 'read_locationfile.py'
 #      - 'kopp14_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'

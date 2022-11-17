@@ -51,9 +51,9 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
       - 'dp16_icesheet_postprocess_data.tgz'
     copy_shared_data:

@@ -11,12 +11,12 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/import_data.py"
-      - "%MODULE_PATH%/filter_data.py"
-      - "%MODULE_PATH%/FindFAIRInputSamples.py"
-      - "%MODULE_PATH%/import_temp_data.py"
-      - "%MODULE_PATH%/filter_temp_data.py"
-      - "%MODULE_PATH%/Smooth.py"
+      - "import_data.py"
+      - "filter_data.py"
+      - "FindFAIRInputSamples.py"
+      - "import_temp_data.py"
+      - "filter_temp_data.py"
+      - "Smooth.py"
     upload_and_extract_input_data:
       - "ipccar6_ismipemuicesheet_preprocess.tgz"
 
@@ -57,9 +57,9 @@ postprocess:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
       - 'ipccar6_ismipemuicesheet_postprocess.tgz'
     copy_shared_data:
