@@ -186,27 +186,27 @@ The next level entry should be "task1:"
 The third level entry defines the task, including the executable to be run, parameters to be passed to it, and associated files. Entries include:
 
 * **executable** (required): The name of the executable to run (e.g., 'python3').
-* **upload_input_data** (required): Files to be uploaded to run (must include the script file(s))
-* **upload_and_extract_input_data**: .tgz files to be uploaded and extracted prior to run.
+* **upload_input_data**: Files to be uploaded prior to run. If path is not specified, looks in the module directory.
+* **upload_and_extract_input_data**: .tgz files to be uploaded and extracted prior to run. If path is not specified, looks in the modules-data directory.
 * **cpu**: The start of an entry defining computational requirements. Fields are:
     * **cpu_processes**
     * **cpu_process_type**
     * **cpu_threads**
     * **cpu_thread_type**
-* **python_dependencies**: Python modules to be installed via pip prior to execution, contained as a single string separated by spaces.
-* **script**: The name of the script file to run with executable.
+* **python_dependencies**: Python modules to be installed via pip prior to execution, contained as a single string separated by spaces. (Only needs to be included for the first stage in a module, as these will persist to subsequent changes.)
+* **script**: The name of the script file to run with executable. Will be uploaded from the module directory.
+* **script_noupload**: The name of the script file to run with executable, but do not look in the module directory for the file to upload. (Useful if script is in a different location.)
 * **arguments**: Arguments to be passed to the script file. 
 * **options**: A list of option names to be passed to the script file if their value is specified in config.yml.
 * **pre_exec**: Any commands, not otherwise specified, to be run before execution.
 * **copy_input_data**: A hierarchy (next level being stage name, subsequent level being 'task1', third level being file names) of files to copy from previous stages.
 * **copy_shared_data**: A list of data to be copied from a shared storage area for this experiment. 
-* **climate_output_data**: A list of climate output data to be coped to a shared (cross-module) directory for use in subsequent stages.
-* **global_total_files**: A list of global output files to be copied to a shared (cross-module) directory for use in the totaling stage. 
-* **local_total_files**: A list of local output files to be copied to a shared (cross-module) directory for use in the totaling stage. 
-* **totaled_files**: A list of total sea level files to be copied to a shared (cross-module) directory for use in post-totaling stage. 
+* **climate_output_data**: A list of climate output data to be coped to a shared (cross-module) directory for use in subsequent stages and downloaded.
+* **global_total_files**: A list of global output files to be copied to a shared (cross-module) directory for use in the totaling stage and downloaded. 
+* **local_total_files**: A list of local output files to be copied to a shared (cross-module) directory for use in the totaling stage and downloaded. 
+* **totaled_files**: A list of total sea level files to be copied to a shared (cross-module) directory for use in post-totaling stage and downloaded. 
 * **copy_output_data**: A listing of output files, not otherwise specified, to be copied to a shared (cross-module) directory for subsequent use.
-* **download_output_data**: A listing of output files to be dow
-nloaded.
+* **download_output_data**: A listing of additional output files to be downloaded.
 
 ## Example pipeline.yml file
 
@@ -214,52 +214,30 @@ nloaded.
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "bamber19_preprocess_icesheets.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/bamber19_preprocess_icesheets.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/bamber19_icesheets_preprocess_data.tgz"
+      - "bamber19_icesheets_preprocess_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "bamber19_fit_icesheets.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/bamber19_fit_icesheets.py'
-
 
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "bamber19_project_icesheets.py"
     options:
       - "nsamps"
       - "seed"
       - "replace"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/bamber19_project_icesheets.py'
     copy_input_data:
       preprocess:
         task1:
@@ -268,30 +246,22 @@ project:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_AIS_globalsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "bamber19_postprocess_icesheets.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/bamber19_postprocess_icesheets.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/bamber19_icesheets_postprocess_data.tgz'
+      - 'bamber19_icesheets_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -302,10 +272,8 @@ postprocess:
       - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_AIS_localsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"
-      - "%PIPELINE_ID%_AIS_localsl.nc"
 
 ```
 
@@ -326,3 +294,5 @@ Variable | Definition
 %CLIMATE_OHC_FILE% | OHC data file produced by climate step
 %EXP_DIR% | Experiment path
 %EXPERIMENT_NAME% | Experiment name
+
+In addition, the variable $SHARED, used in a file path, directs scripts to a shared storage area in the sandbox.
