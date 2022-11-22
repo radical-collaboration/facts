@@ -24,6 +24,7 @@ From: ubuntu:22.04
 %runscript
     . /tmp/rp_services.env
     mongod --config /tmp/mongodb.conf
+    . /tmp/rabbitmq.conf
     env | grep RABBITMQ
     rabbitmq-server
 

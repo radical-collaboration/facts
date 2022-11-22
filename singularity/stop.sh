@@ -1,9 +1,13 @@
 #!/bin/sh
 
-tmp=`pwd`/my_tmp/
+tmp=`pwd`/rp_tmp/
 scratch=`pwd`/scratch/
 cont='rp_services'
 
-singularity instance stop rps
-rm -f $tmp/mongodb.pid
+singularity instance list | grep rps \
+    && singularity instance stop rps
+echo
+
+rm -rvf $tmp/mongodb* $tmp/rabbitmq* rp_services.env
+echo
 
