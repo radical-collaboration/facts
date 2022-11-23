@@ -21,9 +21,9 @@ sed -i -e "s/###MONGODB_PORT###/$mongodb_port/g"      $tmp/$mongodb_conf
 # only build new container if it doesn't exist yet
 if ! test -d "$scratch/rct_mongodb"
 then
-    singularity build \
+    singularity --bind $tmp:/tmp/ build \
         --fakeroot \
-        --force \
+	--force \
         --bind $tmp:/tmp/ \
         --sandbox $scratch/rct_mongodb \
         rct_mongodb.spec
