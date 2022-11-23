@@ -7,9 +7,8 @@ From: ubuntu:22.04
 
 %post
     chmod 1777 /tmp
-    mkdir -p   /tmp/mongodb /tmp/rabbitmq
-    chmod 0755 /tmp/mongodb /tmp/rabbitmq
-    . /tmp/rp_services.env
+    mkdir -p   /tmp/mongodb
+    chmod 0755 /tmp/mongodb
     apt update
     apt install -y gpg wget
     wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc \
@@ -22,10 +21,6 @@ From: ubuntu:22.04
     apt install -y mongodb-org rabbitmq-server
 
 %runscript
-    . /tmp/rp_services.env
-    mongod --config /tmp/mongodb.conf
-    . /tmp/rabbitmq.conf
-    env | grep RABBITMQ
-    rabbitmq-server
-
+    mongod --config /tmp/mongodb.conf &
+    echo "$!" > /tmp/mongodb.pid
 

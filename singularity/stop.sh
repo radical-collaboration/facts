@@ -1,13 +1,29 @@
 #!/bin/sh
 
-tmp=`pwd`/rp_tmp/
-scratch=`pwd`/scratch/
-cont='rp_services'
+tmp="$(pwd)/rct_tmp/"
+uid="$(id -un)"
 
-singularity instance list | grep rps \
-    && singularity instance stop rps
-echo
+singularity instance list \
+    | grep -v INSTANCE \
+    | grep rct_ \
+    | cut -f 1 -d ' ' \
+    | xargs -r -n 1 singularity instance stop
 
-rm -rvf $tmp/mongodb* $tmp/rabbitmq* rp_services.env
-echo
+test -s "$tmp/rct_mongodb.pid"  && kill -9 $(cat "$tmp/rct_mongodb.pid")
+test -s "$tmp/rct_rabbitmq.pid" && kill -9 $(cat "$tmp/rct_rabbitmq.pid")
+
+ps -f -u $uid \
+    | grep -v grep \
+    | grep -e '/erlang/' \
+    | awk '{print $2}' \
+    | xargs -r kill -9
+
+ps -f -u $uid \
+    | grep -v grep \
+    | grep -e '\<mongod\>' \
+    | awk '{print $2}' \
+    | xargs -r kill -9
+
+rm -f "$tmp/rct_mongodb.pid"
+rm -f "$tmp/rct_rabbitmq.pid"
 
