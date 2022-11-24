@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "emulandice_preprocess.py"
     arguments:
@@ -24,11 +19,6 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "emulandice_fit_AIS.py"
     options:
       - "pipeline_id"
@@ -40,11 +30,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "emulandice_project_AIS.py"
     options:
       - "pipeline_id"
@@ -76,11 +61,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "emulandice_postprocess_AIS.py"
     options:
       - "locationfile"
@@ -92,7 +72,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/emulandice_AIS_postprocess_data.tgz'
+      - './modules-data/emulandice_AIS_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

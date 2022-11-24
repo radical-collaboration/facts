@@ -175,7 +175,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # List of arguments for the executable
     # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
-    t.arguments = [tcfg['script']]
+    t.arguments = tcfg.get('script','')
     if "arguments" in tcfg.keys():
         t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
     for x in match_options(tcfg['options'], ecfg['options']):
@@ -185,11 +185,13 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
             t.arguments.append(x)
 
     # CPU requirements for this task
+    if not "cpu" in tcfg.keys():
+        tcfg['cpu'] = {}
     t.cpu_reqs = {
-                     'cpu_processes': tcfg['cpu']['processes'],
-                     'cpu_process_type': tcfg['cpu']['process-type'],
-                     'cpu_threads': tcfg['cpu']['threads-per-process'],
-                     'cpu_thread_type': tcfg['cpu']['thread-type'],
+                     'cpu_processes': tcfg['cpu'].get('processes', 1),
+                     'cpu_process_type': tcfg['cpu'].get('process-type', 'None'),
+                     'cpu_threads': tcfg['cpu'].get('threads-per-process', 1),
+                     'cpu_thread_type': tcfg['cpu'].get('thread-type', 'None'),
                  }
 
 
@@ -371,7 +373,10 @@ def ParseExperimentConfig(exp_dir):
     global_options['climate_ohc_data_file'] = None
     
     # add experiment name to global options
-    global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+    if os.path.basename(exp_dir) == '':
+        global_options['experiment_name'] = os.path.basename(os.path.dirname(exp_dir))
+    else:
+        global_options['experiment_name'] = os.path.basename(exp_dir)
 
     # Initialize a list for pipelines
     pipelines = []

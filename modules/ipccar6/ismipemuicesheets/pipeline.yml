@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ipccar6_preprocess_ismipemuicesheet.py"
     options:
@@ -24,17 +19,12 @@ preprocess:
       - "%MODULE_PATH%/filter_temp_data.py"
       - "%MODULE_PATH%/Smooth.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ipccar6_ismipemuicesheet_preprocess.tgz"
+      - "./modules-data/ipccar6_ismipemuicesheet_preprocess.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_fit_ismipemuicesheet.py"
     options:
       - "pipeline_id"
@@ -45,11 +35,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_project_ismipemuicesheet.py"
     options:
       - "nsamps"
@@ -76,11 +61,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_postprocess_ismipemuicesheet.py"
     options:
       - "locationfile"
@@ -91,7 +71,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ipccar6_ismipemuicesheet_postprocess.tgz'
+      - './modules-data/ipccar6_ismipemuicesheet_postprocess.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

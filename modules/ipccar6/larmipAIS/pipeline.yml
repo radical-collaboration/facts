@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
     script: "ipccar6_preprocess_larmipicesheet.py"
     options:
@@ -22,18 +17,13 @@ preprocess:
       - "%MODULE_PATH%/ipccar6_preprocess_larmipicesheet.py"
       - "%MODULE_PATH%/Import2lmData.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ipccar6_larmipicesheet_preprocess_data.tgz"
-      - "%MODULE_PATH%/data/ipccar6_larmipicesheet_preprocess_data_2lm.tgz"
+      - "./modules-data/ipccar6_larmipicesheet_preprocess_data.tgz"
+      - "./modules-data/ipccar6_larmipicesheet_preprocess_data_2lm.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_fit_larmipicesheet.py"
     options:
       - "pipeline_id"
@@ -48,11 +38,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_project_larmipicesheet.py"
     options:
       - "nsamps"
@@ -83,11 +68,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_postprocess_larmipicesheet.py"
     options:
       - "locationfile"
@@ -98,7 +78,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ipccar6_larmipicesheet_postprocess_data.tgz'
+      - './modules-data/ipccar6_larmipicesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

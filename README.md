@@ -22,6 +22,17 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
 
   - [Install MongoDB Community Edition on Linux](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
   - [Downloading and Installing RabbitMQ](https://www.rabbitmq.com/download.html)
+  
+  Alternatively, you can run MonogoDB and RabbitMQ from containers. On a system with Singularity installed, this looks something like:
+ 
+  ```
+  mkdir rabbitmq
+  singularity build --sandbox rabbitmq/ docker://rabbitmq
+  mkdir mongo
+  singularity build --sandbox mongo/ docker://mongo
+  singularity run -w mongo &
+  singularity run -w rabbitmq &
+  ```
 
 4. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
 
@@ -54,7 +65,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
 
 ## Using FACTS on Rutgers' Amarel
 
-1. Login into Amarel, see [Amarel User Guide](https://oarc.rutgers.edu/resources/amarel/).
+1. Login into Amarel, see [Amarel User Guide](https://sites.google.com/view/cluster-user-guide/#h.6bb8ylmm9bzz).
 
 2. Cloning FACTS repository on the local Linux machine:
 
@@ -109,10 +120,22 @@ ln -s /projects/kopp/facts-dev/modules-data/*.tgz .
   python3 runFACTS.py test
   ```
 
+## Using FACTS on a Mac
 
-### Module Tests
+The RADICAL stack does not support MacOS. Therefore, to run on a Mac, you need to run within a Linux environment. One way to do this is with a Docker container. Note this is not an officially supported solution, and you must do so on your own recognizance.
 
-Almost all modules have test scripts that allow them to be run outside the FACTS/EnTK framework. These should be invoked via the test/run_moduletest.sh script. The configuration of the module test scripts are specified in a moduletest.config file. See, for example, [modules/ar5/icesheets/test/moduletest.config](modules/ar5/icesheets/test/moduletest.config). There may also be global settings (e.g., the scratch directory you want used) that need to be set in [scripts/moduletest/moduletest.config.global](scripts/moduletest/moduletest.config.global).
+With Docker installed, you can launch an Ubuntu environment:
+
+  ```
+  docker run --hostname=localhost --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
+  ```
+Within this Ubuntu environment, the script mac_docker_factsenvsetup.sh will install RabbitMQ, Mongo, and a suitable Python environment.
+
+This solution may also work on Windows, but has not been tested.
+
+## Module Tests
+
+Almost all modules have test scripts that allow them to be run outside the FACTS/EnTK framework. These should be invoked via the test/run_moduletest.sh script. The configuration of the module test scripts are specified in a moduletest.config file. See, for example, [modules/ipccar5/icesheets/test/moduletest.config](https://github.com/radical-collaboration/facts/blob/main/modules/ipccar5/icesheets/test/moduletest.config). There may also be global settings (e.g., the scratch directory you want used) that need to be set in [scripts/moduletest/moduletest.config.global](https://github.com/radical-collaboration/facts/blob/main/scripts/moduletest/moduletest.config.global).
 
 Since, in running modules outside the FACTS/EnTK framework, you will not have the benefits of EnTK's environment management, you will need to make sure all the packages needed to support the modules are installed in their environment. This will differ between packages (e.g., [emulandice](modules/emulandice) is a FACTS wrapper around independently developed R code, and running it requires all the R packages required by that code), but a good working environment for most purposes can be set up with conda as follows:
 

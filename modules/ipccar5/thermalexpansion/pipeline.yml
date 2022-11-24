@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_thermalexpansion.py"
     options:
@@ -17,18 +12,13 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/ar5_preprocess_thermalexpansion.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ar5_thermalexpansion_preprocess_data.tgz"
+      - "./modules-data/ar5_thermalexpansion_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_fit_thermalexpansion.py"
     options:
       - "pipeline_id"
@@ -44,11 +34,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_project_thermalexpansion.py"
     options:
       - "nsamps"
@@ -73,11 +58,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_postprocess_thermalexpansion.py"
     options:
       - "locationfile"

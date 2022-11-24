@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair"
     script: "fair_preprocess_temperature.py"
     options:
@@ -17,17 +12,12 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/fair_preprocess_temperature.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/fair_temperature_preprocess_data.tgz"
+      - "./modules-data/fair_temperature_preprocess_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "fair_fit_temperature.py"
     options:
       - "param_file"
@@ -35,18 +25,13 @@ fit:
     upload_input_data:
       - "%MODULE_PATH%/fair_fit_temperature.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/fair_temperature_fit_data.tgz"
+      - "./modules-data/fair_temperature_fit_data.tgz"
 
 
 
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "fair_project_temperature.py"
     options:
       - "pipeline_id"
@@ -80,11 +65,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     pre_exec: []
     script: "fair_postprocess_temperature.py"
     options:

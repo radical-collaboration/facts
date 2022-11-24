@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
     script: "larmip_preprocess_icesheet.py"
     options:
@@ -17,24 +12,19 @@ preprocess:
     upload_input_data:
       - "%MODULE_PATH%/larmip_preprocess_icesheet.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
+      - "./modules-data/ipccar6_climate_data.tgz"
 
 
 fit:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "larmip_fit_icesheet.py"
     options:
       - "pipeline_id"
     upload_input_data:
       - '%MODULE_PATH%/larmip_fit_icesheet.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/larmip_icesheet_fit_data.tgz'
+      - './modules-data/larmip_icesheet_fit_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -44,11 +34,6 @@ fit:
 project:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "larmip_project_icesheet.py"
     options:
       - "nsamps"
@@ -62,7 +47,7 @@ project:
     upload_input_data:
       - '%MODULE_PATH%/larmip_project_icesheet.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/larmip_icesheet_project_data.tgz'
+      - './modules-data/larmip_icesheet_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -84,11 +69,6 @@ project:
 postprocess:
   task1:
     executable: "python"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "larmip_postprocess_icesheet.py"
     options:
       - "locationfile"
@@ -100,7 +80,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/larmip_icesheet_postprocess_data.tgz'
+      - './modules-data/larmip_icesheet_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

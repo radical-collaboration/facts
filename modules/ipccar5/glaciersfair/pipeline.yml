@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ar5_preprocess_glaciersfair.py"
     options:
@@ -21,18 +16,13 @@ preprocess:
       - "%MODULE_PATH%/import_data.py"
       - "%MODULE_PATH%/filter_data.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ar5_glaciersfair_preprocess_data.tgz"
+      - "./modules-data/ar5_glaciersfair_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_fit_glaciersfair.py"
     options:
       - "pipeline_id"
@@ -48,11 +38,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_project_glaciersfair.py"
     options:
       - "nmsamps"
@@ -66,7 +51,7 @@ project:
     upload_input_data:
       - '%MODULE_PATH%/ar5_project_glaciersfair.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ar5_glaciersfair_project_data.tgz'
+      - './modules-data/ar5_glaciersfair_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -84,11 +69,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ar5_postprocess_glaciersfair.py"
     options:
       - "locationfile"
@@ -99,7 +79,7 @@ postprocess:
       - '%MODULE_PATH%/AssignFP.py'
       - '%MODULE_PATH%/ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ar5_glaciersfair_postprocess_data.tgz'
+      - './modules-data/ar5_glaciersfair_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
