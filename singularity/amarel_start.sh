@@ -2,36 +2,19 @@
 
 module load singularity
 
+node=$(hostname | cut -f 1 -d .)
 scratch="/scratch/$(id -un)/singularity"
-tmp="$scratch/tmp"
+tmp="$scratch/tmp_$node"
 
 mkdir -p   $tmp/db
 chmod 1777 $tmp
 
 # only build new container if they don't exist yet
-if ! test -d "$scratch/rct_mongodb"
-then
-    singularity build --sandbox $scratch/rct_mongodb docker://mongo
-fi
+test -d "$scratch/rct_mongodb" \
+  || singularity build --sandbox $scratch/rct_mongodb docker://mongo
 
-if ! test -d "$scratch/rct_rabbitmq"
-then
-    singularity build --sandbox $scratch/rct_rabbitmq docker://rabbitmq
-fi
-
-# make sure no old containers are running
-singularity instance list | grep rct_mongodb \
-    && singularity instance stop rct_mongodb
-
-singularity instance list | grep rct_rabbitmq \
-    && singularity instance stop rct_rabbitmq
-
-# start the container
-singularity instance start \
-    $scratch/rct_mongodb rct_mongodb
-
-singularity instance start \
-    $scratch/rct_rabbitmq rct_rabbitmq
+test -d "$scratch/rct_rabbitmq" \
+ || singularity build --sandbox $scratch/rct_rabbitmq docker://rabbitmq
 
 # run services
 singularity run \
