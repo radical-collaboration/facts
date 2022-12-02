@@ -1,5 +1,5 @@
 global-options:
-    nsamps: 1000
+    nsamps: 100
     scenario: ssp585
     pyear_start: 2020
     pyear_end: 2100
@@ -30,7 +30,8 @@ sealevel_step:
         module_set: "emulandice"
         module: "AIS"
         include_in_workflow:
-            - "wf1e"
+            - "wf1e"      
+            - "wf2e"
 
     emuGrIS:
         module_set: "emulandice"
@@ -98,6 +99,7 @@ sealevel_step:
         module: "landwaterstorage"
         options:
             scenario: "ssp5"
+            dcrate_lo: -0.4
         include_in_workflow:
             - "wf1f"
             - "wf1e"
