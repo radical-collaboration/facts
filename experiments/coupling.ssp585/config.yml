@@ -30,8 +30,7 @@ sealevel_step:
         module_set: "emulandice"
         module: "AIS"
         include_in_workflow:
-            - "wf1e"      
-            - "wf2e"
+            - "wf1e"
 
     emuGrIS:
         module_set: "emulandice"
