@@ -419,8 +419,12 @@ def ParseExperimentConfig(exp_dir):
             # loop over workflows/scales if requested
             if "loop_over_workflows" in ecfg[this_mod][this_mod_sub].keys():
                 for this_workflow in workflows_to_include:
+                    if workflows_to_include[this_workflow]['pyear_end'] < 9999999:
+                        parsed['modcfg']['options']['pyear_end'] = workflows_to_include[this_workflow]['pyear_end']
                     if "loop_over_scales" in ecfg[this_mod][this_mod_sub].keys():
                         for this_scale in workflows_to_include[this_workflow]:
+                            if this_scale in {'pyear_end'}:
+                                continue
                             if len(workflows_to_include[this_workflow][this_scale]) > 0:
                                 pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow + "." + this_scale, exp_dir, workflow_name=this_workflow, scale_name=this_scale))
                     else:
@@ -440,7 +444,10 @@ def ParseExperimentConfig(exp_dir):
                 outfiles = IdentifyOutputFiles(parsed['pcfg'], parsed['pipe_name'])
                 for this_wf in ecfg[this_mod][this_mod_sub]['include_in_workflow']:
                     if not this_wf in workflows_to_include.keys():
-                        workflows_to_include[this_wf] = {'global': [], 'local': []}
+                        workflows_to_include[this_wf] = {'global': [], 'local': [], 'pyear_end': 9999999}
+                    else:
+                        if 'pyear_end' in parsed['modcfg']['options'].keys():
+                            workflows_to_include[this_wf]['pyear_end'] = min([parsed['modcfg']['options']['pyear_end'],workflows_to_include[this_wf]['pyear_end']])
                     for this_scale in outfiles:
                         workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
 

@@ -2,7 +2,7 @@ global-options:
     nsamps: 200
     scenario: ssp585
     pyear_start: 2020
-    pyear_end: 2100
+    pyear_end: 2150
     pyear_step: 10
     baseyear: 2005
 
@@ -32,6 +32,8 @@ sealevel_step:
         include_in_workflow:
             - "wf1e"      
             - "wf2e"
+        options:
+            pyear_end: 2100
 
     emuGrIS:
         module_set: "emulandice"
@@ -39,6 +41,8 @@ sealevel_step:
         include_in_workflow:
             - "wf1e"  
             - "wf2e"    
+        options:
+            pyear_end: 2100
 
     emuglaciers:
         module_set: "emulandice"
@@ -46,6 +50,8 @@ sealevel_step:
         include_in_workflow:
             - "wf1e"   
             - "wf2e"   
+        options:
+            pyear_end: 2100
 
     larmip:
         module_set: "larmip"
