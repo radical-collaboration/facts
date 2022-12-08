@@ -54,12 +54,11 @@ project:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
-      - "%PIPELINE_ID%_TIS_globalsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
+    download_output_data:
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
 
 postprocess:
   task1:

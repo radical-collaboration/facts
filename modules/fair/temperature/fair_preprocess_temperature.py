@@ -92,7 +92,7 @@ if __name__ == "__main__":
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
 	parser.add_argument('--rcmip_file', help="Full path to RCMIP emissions file", default="./rcmip/rcmip-emissions-annual-means-v5-1-0.csv")
-	parser.add_argument('--scenario', help="SSP Emissions scenario", choices=["ssp119", "ssp126", "ssp245", "ssp370", "ssp460", "ssp585"], default="ssp585")
+	parser.add_argument('--scenario', help="SSP Emissions scenario",  default="ssp585")
 
 	# Parse the arguments
 	args = parser.parse_args()
