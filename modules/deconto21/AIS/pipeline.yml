@@ -4,27 +4,27 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib xarray dask"
-    script: "dp21_preprocess_icesheet.py"
+    script: "deconto21_AIS_preprocess.py"
     options:
       - "scenario"
       - "pipeline_id"
       - "baseyear"
     upload_and_extract_input_data:
-      - "dp21_icesheet_preprocess_data.tgz"
+      - "deconto21_AIS_preprocess_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
     pre_exec: []
-    script: "dp21_fit_icesheet.py"
+    script: "deconto21_AIS_fit.py"
     options:
       - "pipeline_id"
 
 project:
   task1:
     executable: "python3"
-    script: "dp21_project_icesheet.py"
+    script: "deconto21_AIS_project.py"
     options:
       - "nsamps"
       - "pyear_start"
@@ -46,7 +46,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "dp21_postprocess_icesheet.py"
+    script: "deconto21_AIS_postprocess.py"
     options:
       - "chunksize"
       - "locationfile"
@@ -56,7 +56,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'dp21_icesheet_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

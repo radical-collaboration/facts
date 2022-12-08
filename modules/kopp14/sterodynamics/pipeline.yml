@@ -1,4 +1,4 @@
-# Kopp14 Ocean Dynamics Pipeline
+# Kopp14 Sterodynamics Pipeline
 
 preprocess:
   task1:
@@ -23,7 +23,7 @@ preprocess:
       - "read_CSIRO.py"
       - "readMarzeion.py"
     upload_and_extract_input_data:
-      - "kopp14_oceandynamics_data.tgz"
+      - "kopp14_sterodynamics_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
 #    download_output_data:

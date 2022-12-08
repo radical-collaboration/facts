@@ -4,19 +4,19 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "dp16_preprocess_icesheet.py"
+    script: "deconto16_AIS_preprocess.py"
     options:
       - "scenario"
       - "pipeline_id"
       - "baseyear"
     upload_and_extract_input_data:
-      - "dp16_icesheet_preprocess_data.tgz"
+      - "deconto16_AIS_preprocess_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    script: "dp16_fit_icesheet.py"
+    script: "deconto16_AIS_fit.py"
     options:
       - "pipeline_id"
 
@@ -24,7 +24,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "dp16_project_icesheet.py"
+    script: "deconto16_AIS_project.py"
     options:
       - "nsamps"
       - "pyear_start"
@@ -46,7 +46,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "dp16_postprocess_icesheet.py"
+    script: "deconto16_AIS_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"
@@ -55,7 +55,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'dp16_icesheet_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair"
-    script: "fair_preprocess_temperature.py"
+    script: "fair_temperature_preprocess.py"
     options:
       - "scenario"
       - "rcmip_file"
@@ -16,7 +16,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "fair_fit_temperature.py"
+    script: "fair_temperature_fit.py"
     options:
       - "param_file"
       - "pipeline_id"
@@ -28,7 +28,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "fair_project_temperature.py"
+    script: "fair_temperature_project.py"
     options:
       - "pipeline_id"
       - "nsamps"
@@ -54,6 +54,6 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "fair_postprocess_temperature.py"
+    script: "fair_temperature_postprocess.py"
     options:
       - "pipeline_id"

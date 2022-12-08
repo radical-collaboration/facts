@@ -8,7 +8,7 @@ preprocess:
     options:
       - "pipeline_id"
     upload_and_extract_input_data:
-      - "kopp14_verticallandmotion_preprocess.tgz"
+      - "kopp14_verticallandmotion_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 

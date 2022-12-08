@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array]"
-    script: "FittedISMIP_preprocess_icesheet.py"
+    script: "FittedISMIP_GrIS_preprocess.py"
     options:
       - "climate_data_file"
       - "scenario"
@@ -21,7 +21,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "FittedISMIP_fit_icesheet.py"
+    script: "FittedISMIP_GrIS_fit.py"
     options:
       - "pipeline_id"
     upload_and_extract_input_data:
@@ -31,7 +31,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "FittedISMIP_project_icesheet.py"
+    script: "FittedISMIP_GrIS_project.py"
     options:
       - "nsamps"
       - "pyear_start"
@@ -55,7 +55,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "FittedISMIP_postprocess_icesheet.py"
+    script: "FittedISMIP_GrIS_postprocess.py"
     options:
       - "chunksize"
       - "locationfile"
@@ -65,7 +65,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'FittedISMIP_icesheet_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

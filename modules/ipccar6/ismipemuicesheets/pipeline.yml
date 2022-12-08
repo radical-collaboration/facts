@@ -18,7 +18,7 @@ preprocess:
       - "filter_temp_data.py"
       - "Smooth.py"
     upload_and_extract_input_data:
-      - "ipccar6_ismipemuicesheet_preprocess.tgz"
+      - "ipccar6_ismipemuicesheet_preprocess_data.tgz"
 
 
 fit:
@@ -61,7 +61,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'ipccar6_ismipemuicesheet_postprocess.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

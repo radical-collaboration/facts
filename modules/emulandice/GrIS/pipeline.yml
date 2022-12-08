@@ -19,7 +19,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "emulandice_fit_GrIS.py"
+    script: "emulandice_GrIS_fit.py"
     options:
       - "pipeline_id"
 
@@ -27,7 +27,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "emulandice_project_GrIS.py"
+    script: "emulandice_GrIS_project.py"
     options:
       - "pipeline_id"
     upload_input_data:
@@ -50,7 +50,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "emulandice_postprocess_GrIS.py"
+    script: "emulandice_GrIS_postprocess.py"
     options:
       - "locationfile"
       - "chunksize"
@@ -60,7 +60,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'emulandice_GrIS_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
