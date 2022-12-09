@@ -90,9 +90,9 @@ sealevel_step:
         options:
             seed: 1234
 
-    #sterodynamics:
+    #oceandynamics:
     #    module_set: "kopp14"
-    #    module: "sterodynamics"
+    #    module: "oceandynamics"
     #    options:
     #        scenario: "rcp85"
     #        nsamps: 20000
