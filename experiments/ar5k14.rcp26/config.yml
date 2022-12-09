@@ -1,6 +1,6 @@
 global-options:
     nsamps: 200
-    scenario: rcp26
+    scenario: ssp126
     pyear_start: 2020
     pyear_end: 2150
     pyear_step: 10
@@ -11,8 +11,6 @@ climate_step:
         module_set: "fair"
         module: "temperature"
         generates_climate_output: true
-        options:
-            scenario: ssp126
 #        input_data_file:
 #              - "emissions.csv"
 #        options:
@@ -44,18 +42,24 @@ sealevel_step:
     k14glaciers:
         module_set: "kopp14"
         module: "glaciers"
+        options:
+            scenario: rcp26
         include_in_workflow:
             - "k14"
 
     k14icesheets:
         module_set: "kopp14"
         module: "icesheets"
+        options:
+            scenario: rcp26
         include_in_workflow:
             - "k14"
 
     k14sterodynamics:
         module_set: "kopp14"
         module: "sterodynamics"
+        options:
+            scenario: rcp26
         include_in_workflow:
             - "k14"
 
@@ -74,7 +78,9 @@ sealevel_step:
     deconto16:
         module_set: "deconto16"
         module: "AIS"
-
+        options:
+            scenario: rcp26
+            
 totaling_step:
     total:
         module_set: "facts"
