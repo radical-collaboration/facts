@@ -32,13 +32,17 @@ sealevel_step:
         module: "AIS"
         include_in_workflow:
             - "wf3e"   
-            - "wf3f"  
+            - "wf3f" 
+        options:
+            scenario: "rcp45"   
 
     bamber19:
         module_set: "bamber19"
         module: "icesheets"
         include_in_workflow:
-            - "wf4"      
+            - "wf4"  
+        options:
+            scenario: "rcp45"      
 
     emuAIS:
         module_set: "emulandice"
