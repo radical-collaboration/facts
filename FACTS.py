@@ -89,9 +89,12 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name,
         "MODULE_SET_NAME": ecfg['module_set'], "MODULE_NAME": ecfg['module'],
         "MODULE_PATH": module_path,
-        "CLIMATE_DATA_FILE": ecfg['options']['climate_data_file'], "CLIMATE_GSAT_FILE": ecfg['options']['climate_gsat_data_file'],
-        "CLIMATE_OHC_FILE": ecfg['options']['climate_ohc_data_file'],
         "EXP_DIR": ecfg['exp_dir'], "EXPERIMENT_NAME": ecfg['options']['experiment_name']}
+
+    if 'climate_data_file' in ecfg['options'].keys():
+        mvar_dict["CLIMATE_DATA_FILE"]=ecfg['options']['climate_data_file']
+        mvar_dict["CLIMATE_GSAT_FILE"]=ecfg['options']['climate_gsat_data_file']
+        mvar_dict["CLIMATE_OHC_FILE"]=ecfg['options']['climate_ohc_data_file']
 
     # Give this task object a name
     t.name = task_name
@@ -388,9 +391,6 @@ def ParseExperimentConfig(exp_dir):
 
     # set up global options for climate data files
     climate_data_files = []
-    global_options['climate_data_file'] = None
-    global_options['climate_gsat_data_file'] = None
-    global_options['climate_ohc_data_file'] = None
     
     # add experiment name to global options
     if os.path.basename(exp_dir) == '':

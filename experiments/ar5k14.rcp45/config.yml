@@ -1,35 +1,25 @@
 global-options:
     nsamps: 200
-    scenario: ssp245
+    scenario: rcp45
     pyear_start: 2020
-    pyear_end: 2150
+    pyear_end: 2100
     pyear_step: 10
     baseyear: 2005
-
-climate_step:
-    temperature:
-        module_set: "fair"
-        module: "temperature"
-        generates_climate_output: true
-#        input_data_file:
-#              - "emissions.csv"
-#        options:
-#              rcmip_file: emissions.csv
 
 sealevel_step:
     ar5glaciers:
         module_set: "ipccar5"
         module: "glaciers"
-        options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
+        options:
+            tlm_data: 0 
         include_in_workflow:
             - "ar5"
 
     ar5icesheets:
         module_set: "ipccar5"
         module: "icesheets"
-        options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
+        options:
+            tlm_data: 0 
         include_in_workflow:
             - "ar5"
 
@@ -42,24 +32,18 @@ sealevel_step:
     k14glaciers:
         module_set: "kopp14"
         module: "glaciers"
-        options:
-            scenario: rcp45
         include_in_workflow:
             - "k14"
 
     k14icesheets:
         module_set: "kopp14"
         module: "icesheets"
-        options:
-            scenario: rcp45
         include_in_workflow:
             - "k14"
 
     k14sterodynamics:
         module_set: "kopp14"
         module: "sterodynamics"
-        options:
-            scenario: rcp45
         include_in_workflow:
             - "k14"
 
@@ -79,7 +63,7 @@ sealevel_step:
         module_set: "deconto16"
         module: "AIS"
         options:
-            scenario: rcp45
+            scenario: rcp85
             
 totaling_step:
     total:
