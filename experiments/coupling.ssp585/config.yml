@@ -1,5 +1,5 @@
 global-options:
-    nsamps: 200
+    nsamps: 100
     scenario: ssp585
     pyear_start: 2020
     pyear_end: 2150
@@ -82,7 +82,7 @@ sealevel_step:
 
     ocean:
         module_set: "tlm"
-        module: "oceandynamics"
+        module: "sterodynamics"
         options_allowoverwrite:
             climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:

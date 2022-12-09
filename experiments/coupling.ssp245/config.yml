@@ -81,7 +81,7 @@ sealevel_step:
 
     ocean:
         module_set: "tlm"
-        module: "oceandynamics"
+        module: "sterodynamics"
         options_allowoverwrite:
             climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:
