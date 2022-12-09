@@ -9,7 +9,7 @@ preprocess:
       - "pipeline_id"
       - "inputtype"
     upload_and_extract_input_data:
-      - "NZInsarGPS_verticallandmotion_preprocess.tgz"
+      - "NZInsarGPS_verticallandmotion_preprocess_data.tgz"
 
 
 fit:

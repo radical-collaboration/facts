@@ -4,25 +4,25 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "ar5_preprocess_thermalexpansion.py"
+    script: "ipccar5_thermalexpansion_preprocess.py"
     options:
       - "scenario"
       - "baseyear"
       - "pipeline_id"
     upload_and_extract_input_data:
-      - "ar5_thermalexpansion_preprocess_data.tgz"
+      - "ipccar5_climate_data.tgz"
 
 fit:
   task1:
     executable: "python3"
-    script: "ar5_fit_thermalexpansion.py"
+    script: "ipccar5_thermalexpansion_fit.py"
     options:
       - "pipeline_id"
 
 project:
   task1:
     executable: "python3"
-    script: "ar5_project_thermalexpansion.py"
+    script: "ipccar5_thermalexpansion_project.py"
     options:
       - "nsamps"
       - "seed"
@@ -41,7 +41,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "ar5_postprocess_thermalexpansion.py"
+    script: "ipccar5_thermalexpansion_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"

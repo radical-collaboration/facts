@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "bamber19_preprocess_icesheets.py"
+    script: "bamber19_icesheets_preprocess.py"
     options:
       - "pipeline_id"
       - "pyear_start"
@@ -19,14 +19,14 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "bamber19_fit_icesheets.py"
+    script: "bamber19_icesheets_fit.py"
     options:
       - "pipeline_id"
 
 project:
   task1:
     executable: "python3"
-    script: "bamber19_project_icesheets.py"
+    script: "bamber19_icesheets_project.py"
     options:
       - "nsamps"
       - "seed"
@@ -46,7 +46,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "bamber19_postprocess_icesheets.py"
+    script: "bamber19_icesheets_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"
@@ -55,7 +55,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'bamber19_icesheets_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

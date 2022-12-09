@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "ar5_preprocess_icesheets.py"
+    script: "ipccar5_icesheets_preprocess.py"
     options:
       - "scenario"
       - "pipeline_id"
@@ -14,7 +14,7 @@ preprocess:
     upload_input_data:
       - "Import2lmData.py"
     upload_and_extract_input_data:
-      - "ar5_icesheets_preprocess_data.tgz"
+      - "ipccar5_climate_data.tgz"
       - "ipccar6_climate_data.tgz"
 
 
@@ -22,7 +22,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "ar5_fit_icesheets.py"
+    script: "ipccar5_icesheets_fit.py"
     options:
       - "pipeline_id"
     copy_input_data:
@@ -34,7 +34,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "ar5_project_icesheets.py"
+    script: "ipccar5_icesheets_project.py"
     options:
       - "nmsamps"
       - "ntsamps"
@@ -45,7 +45,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_and_extract_input_data:
-      - 'ar5_icesheets_project_data.tgz'
+      - 'ipccar5_icesheets_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -63,7 +63,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "ar5_postprocess_icesheets.py"
+    script: "ipccar5_icesheets_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"
@@ -72,7 +72,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'ar5_icesheets_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

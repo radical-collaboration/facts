@@ -16,8 +16,8 @@ preprocess:
     upload_input_data:
       - "Import2lmData.py"
     upload_and_extract_input_data:
-      - "ipccar6_larmipicesheet_preprocess_data.tgz"
-      - "ipccar6_larmipicesheet_preprocess_data_2lm.tgz"
+      - "ipccar6_larmipAIS_preprocess_data.tgz"
+      - "ipccar6_larmipAIS_preprocess_data_2lm.tgz"
 
 
 fit:
@@ -69,7 +69,7 @@ postprocess:
       - 'AssignFP.py'
       - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - 'ipccar6_larmipicesheet_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:

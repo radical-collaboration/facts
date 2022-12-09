@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies]: "numpy pandas netCDF4 pyyaml matplotlib"
-    script: "extremesealevel_preprocess_pointsoverthreshold.py"
+    script: "extremesealevel_pointsoverthreshold_preprocess.py"
     options:
       - "minDays"
       - "minYears"
@@ -23,7 +23,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "extremesealevel_fit_pointsoverthreshold.py"
+    script: "extremesealevel_pointsoverthreshold_fit.py"
     options:
       - "station_data_file"
       - "pipeline_id"
@@ -38,7 +38,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "extremesealevel_project_pointsoverthreshold.py"
+    script: "extremesealevel_pointsoverthreshold_project.py"
     options:
       - "esl_fit_file"
       - "slproj_file"
