@@ -2,7 +2,7 @@ global-options:
     nsamps: 200
     scenario: ssp126
     pyear_start: 2020
-    pyear_end: 2100
+    pyear_end: 2150
     pyear_step: 10
     baseyear: 2005
 
