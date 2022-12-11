@@ -62,8 +62,6 @@ sealevel_step:
     deconto16:
         module_set: "deconto16"
         module: "AIS"
-        options:
-            scenario: rcp85
             
 totaling_step:
     total:
