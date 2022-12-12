@@ -3,47 +3,28 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "dp16_preprocess_icesheet.py"
+    script: "deconto16_AIS_preprocess.py"
     options:
       - "scenario"
       - "pipeline_id"
       - "baseyear"
-    upload_input_data:
-      - "%MODULE_PATH%/dp16_preprocess_icesheet.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/dp16_icesheet_preprocess_data.tgz"
+      - "deconto16_AIS_preprocess_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "dp16_fit_icesheet.py"
+    script: "deconto16_AIS_fit.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/dp16_fit_icesheet.py'
 
 
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "dp16_project_icesheet.py"
+    script: "deconto16_AIS_project.py"
     options:
       - "nsamps"
       - "pyear_start"
@@ -52,8 +33,6 @@ project:
       - "seed"
       - "replace"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/dp16_project_icesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -63,28 +42,20 @@ project:
     download_output_data:
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "dp16_postprocess_icesheet.py"
+    script: "deconto16_AIS_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/dp16_postprocess_icesheet.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/dp16_icesheet_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -94,6 +65,5 @@ postprocess:
     local_total_files:
       - "%PIPELINE_ID%_AIS_localsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_AIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"

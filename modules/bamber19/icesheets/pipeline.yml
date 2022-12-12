@@ -3,52 +3,35 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "bamber19_preprocess_icesheets.py"
+    script: "bamber19_icesheets_preprocess.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/bamber19_preprocess_icesheets.py"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "scenario"
+      - "baseyear"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/bamber19_icesheets_preprocess_data.tgz"
+      - "bamber19_icesheets_preprocess_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "bamber19_fit_icesheets.py"
+    script: "bamber19_icesheets_fit.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/bamber19_fit_icesheets.py'
-
 
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "bamber19_project_icesheets.py"
+    script: "bamber19_icesheets_project.py"
     options:
       - "nsamps"
       - "seed"
       - "replace"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/bamber19_project_icesheets.py'
     copy_input_data:
       preprocess:
         task1:
@@ -57,31 +40,22 @@ project:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_AIS_globalsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "bamber19_postprocess_icesheets.py"
+    script: "bamber19_icesheets_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/bamber19_postprocess_icesheets.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/bamber19_icesheets_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -92,7 +66,5 @@ postprocess:
       - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_AIS_localsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"
-      - "%PIPELINE_ID%_AIS_localsl.nc"

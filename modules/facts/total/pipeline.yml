@@ -3,11 +3,6 @@
 workflow:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy netCDF4 pyyaml dask[array]"
     script: "total_workflow.py"
     arguments: 
@@ -26,21 +21,13 @@ workflow:
       - "pyear_end"
       - "pyear_step"
     upload_input_data:
-      - '%MODULE_PATH%/total_workflow.py'
       - '%EXP_DIR%/workflows.yml'
     totaled_files:
       - "%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.%SCALE_NAME%.nc"
-    download_output_data:
-      - "%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.%SCALE_NAME%.nc"
-  
+
 global:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy netCDF4 pyyaml dask"
     script: "total_workflow.py"
     arguments: 
@@ -50,22 +37,13 @@ global:
       - "pyear_start"
       - "pyear_end"
       - "pyear_step"
-    upload_input_data:
-      - '%MODULE_PATH%/total_workflow.py'
     totaled_files:
-      - "total-workflow_globalsl.nc"
-    download_output_data:
       - "total-workflow_globalsl.nc"
 
 
 local:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy netCDF4 pyyaml dask"
     script: "total_workflow.py"
     arguments: 
@@ -76,9 +54,5 @@ local:
       - "pyear_start"
       - "pyear_end"
       - "pyear_step"
-    upload_input_data:
-      - '%MODULE_PATH%/total_workflow.py'
     totaled_files:
-      - "total-workflow_localsl.nc"
-    download_output_data:
       - "total-workflow_localsl.nc"

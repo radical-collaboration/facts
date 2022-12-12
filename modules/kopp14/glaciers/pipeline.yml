@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: " numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_glaciers.py"
     options:
@@ -18,10 +13,9 @@ preprocess:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/kopp14_preprocess_glaciers.py"
-      - "%MODULE_PATH%/readMarzeion.py"
+      - "readMarzeion.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/kopp14_glaciers_preprocess_data.tgz"
+      - "kopp14_glaciers_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_fp.pkl"
@@ -30,17 +24,11 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_fit_glaciers.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/kopp14_fit_glaciers.py'
-      - '%MODULE_PATH%/cholcov.py'
+      - 'cholcov.py'
     copy_input_data:
       preprocess:
         task1:
@@ -52,18 +40,11 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_project_glaciers.py"
     options:
       - "nsamps"
       - "seed"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/kopp14_project_glaciers.py'
     copy_input_data:
       preprocess:
         task1:
@@ -73,30 +54,21 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_postprocess_glaciers.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/kopp14_postprocess_glaciers.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/kopp14_glaciers_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -108,6 +80,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

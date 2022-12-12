@@ -1,0 +1,74 @@
+global-options:
+    nsamps: 200
+    scenario: rcp26
+    pyear_start: 2020
+    pyear_end: 2100
+    pyear_step: 10
+    baseyear: 2005
+
+sealevel_step:
+    ar5glaciers:
+        module_set: "ipccar5"
+        module: "glaciers"
+        options:
+            tlm_data: 0 
+        include_in_workflow:
+            - "ar5"
+
+    ar5icesheets:
+        module_set: "ipccar5"
+        module: "icesheets"
+        options:
+            tlm_data: 0 
+        include_in_workflow:
+            - "ar5"
+
+    ar5TE:
+        module_set: "ipccar5"
+        module: "thermalexpansion"
+        include_in_workflow:
+            - "ar5"
+
+    k14glaciers:
+        module_set: "kopp14"
+        module: "glaciers"
+        include_in_workflow:
+            - "k14"
+
+    k14icesheets:
+        module_set: "kopp14"
+        module: "icesheets"
+        include_in_workflow:
+            - "k14"
+
+    k14sterodynamics:
+        module_set: "kopp14"
+        module: "sterodynamics"
+        include_in_workflow:
+            - "k14"
+
+    k14lws:
+        module_set: "kopp14"
+        module: "landwaterstorage"
+        include_in_workflow:
+            - "k14"
+
+    k14vlm:
+        module_set: "kopp14"
+        module: "verticallandmotion"
+        include_in_workflow:
+            - "k14"
+
+    deconto16:
+        module_set: "deconto16"
+        module: "AIS"
+            
+totaling_step:
+    total:
+        module_set: "facts"
+        module: "total"
+        loop_over_workflows: true
+        loop_over_scales: true
+        stages:
+            - workflow
+

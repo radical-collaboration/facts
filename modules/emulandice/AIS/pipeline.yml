@@ -3,13 +3,8 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "emulandice_preprocess.py"
+    script_noupload: "emulandice_preprocess.py"
     arguments:
       - "--input_data_file"
       - "%CLIMATE_GSAT_FILE%"
@@ -24,38 +19,23 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "emulandice_fit_AIS.py"
+    script: "emulandice_AIS_fit.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/emulandice_fit_AIS.py"
-
 
 
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "emulandice_project_AIS.py"
+    script: "emulandice_AIS_project.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/emulandice_project_AIS.py"
       - "%MODULE_PATH%/../shared/emulandice_environment.sh"
       - "%MODULE_PATH%/../shared/emulandice_1.1.0.tar.gz"
       - "%MODULE_PATH%/../shared/emulandice_steer.sh"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
-#    pre_exec: "source ${RP_TASK_SANDBOX}/emulandice_environment.sh --Rscript"
     copy_input_data:
       preprocess:
         task1:
@@ -70,29 +50,21 @@ project:
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
       - "%PIPELINE_ID%_PEN_globalsl.nc"
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "emulandice_postprocess_AIS.py"
+    script: "emulandice_AIS_postprocess.py"
     options:
       - "locationfile"
       - "chunksize"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/emulandice_postprocess_AIS.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/emulandice_AIS_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -104,4 +76,3 @@ postprocess:
     download_output_data:
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"
-      - "%PIPELINE_ID%_localsl.nc"

@@ -3,36 +3,23 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "kopp14_preprocess_icesheets.py"
     options:
       - "scenario"
       - "srocc"
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/kopp14_preprocess_icesheets.py"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_fit_icesheets.py"
     options:
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/kopp14_fit_icesheets.py'
-      - '%MODULE_PATH%/CalcISDists.py'
-      - '%MODULE_PATH%/FitLNDistQuants.py'
+      - 'CalcISDists.py'
+      - 'FitLNDistQuants.py'
     copy_input_data:
       preprocess:
         task1:
@@ -42,11 +29,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_project_icesheets.py"
     options:
       - "nsamps"
@@ -57,10 +39,9 @@ project:
       - "pyear_step"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/kopp14_project_icesheets.py'
-      - '%MODULE_PATH%/SampleISDists.py'
-      - '%MODULE_PATH%/cholcov.py'
-      - '%MODULE_PATH%/ProjectGSL.py'
+      - 'SampleISDists.py'
+      - 'cholcov.py'
+      - 'ProjectGSL.py'
     copy_input_data:
       preprocess:
         task1:
@@ -70,35 +51,27 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
-      - "%PIPELINE_ID%_EAIS_globalsl.nc"
-      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_EAIS_globalsl.nc"
       - "%PIPELINE_ID%_WAIS_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
+
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "kopp14_postprocess_icesheets.py"
     options:
       - "samp_type"
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/kopp14_postprocess_icesheets.py'
-      - '%MODULE_PATH%/SampleISDists.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'SampleISDists.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/kopp14_icesheets_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -106,10 +79,6 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_GIS_localsl.nc"
-      - "%PIPELINE_ID%_WAIS_localsl.nc"
-      - "%PIPELINE_ID%_EAIS_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_GIS_localsl.nc"
       - "%PIPELINE_ID%_WAIS_localsl.nc"
       - "%PIPELINE_ID%_EAIS_localsl.nc"

@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ssp_preprocess_landwaterstorage.py"
     options:
@@ -19,10 +14,8 @@ preprocess:
       - "pyear_end"
       - "pyear_step"
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/ssp_preprocess_landwaterstorage.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ssp_landwaterstorage_preprocess_data.tgz"
+      - "ssp_landwaterstorage_preprocess_data.tgz"
 #    download_output_data:
 #      - "%PIPELINE_ID%_data.pkl"
 #      - "%PIPELINE_ID%_config.pkl"
@@ -30,16 +23,9 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ssp_fit_landwaterstorage.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/ssp_fit_landwaterstorage.py'
     copy_input_data:
       preprocess:
         task1:
@@ -51,11 +37,6 @@ fit:
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ssp_project_landwaterstorage.py"
     options:
       - "pipeline_id"
@@ -65,8 +46,6 @@ project:
       - "dcrate_lo"
       - "dcrate_hi"
       - "seed"
-    upload_input_data:
-      - '%MODULE_PATH%/ssp_project_landwaterstorage.py'
     copy_input_data:
       preprocess:
         task1:
@@ -76,28 +55,19 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ssp_postprocess_landwaterstorage.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/ssp_postprocess_landwaterstorage.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ssp_landwaterstorage_postprocess_data.tgz'
+      - 'ssp_landwaterstorage_postprocess_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -105,6 +75,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

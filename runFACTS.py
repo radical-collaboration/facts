@@ -119,10 +119,10 @@ def print_pipeline(pipelines):
 
 def print_experimentsteps(experimentsteps):
 
-    for this_step in experimentsteps.keys():
-        print('EXPERIMENT STEP: ', experimentsteps[this_step])
+    for this_step, pipelines in experimentsteps.items():
+        print('EXPERIMENT STEP: ', this_step)
         print('-----------------')
-        print_pipeline(experimentsteps[this_step])
+        print_pipeline(pipelines)
         print('')
 
 

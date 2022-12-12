@@ -89,16 +89,29 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     mvar_dict = {"PIPELINE_ID": pipe_name, "WORKFLOW_NAME": workflow_name, "SCALE_NAME": scale_name,
         "MODULE_SET_NAME": ecfg['module_set'], "MODULE_NAME": ecfg['module'],
         "MODULE_PATH": module_path,
-        "CLIMATE_DATA_FILE": ecfg['options']['climate_data_file'], "CLIMATE_GSAT_FILE": ecfg['options']['climate_gsat_data_file'],
-        "CLIMATE_OHC_FILE": ecfg['options']['climate_ohc_data_file'],
         "EXP_DIR": ecfg['exp_dir'], "EXPERIMENT_NAME": ecfg['options']['experiment_name']}
+
+    if 'climate_data_file' in ecfg['options'].keys():
+        mvar_dict["CLIMATE_DATA_FILE"]=ecfg['options']['climate_data_file']
+        mvar_dict["CLIMATE_GSAT_FILE"]=ecfg['options']['climate_gsat_data_file']
+        mvar_dict["CLIMATE_OHC_FILE"]=ecfg['options']['climate_ohc_data_file']
+
     # Give this task object a name
     t.name = task_name
 
-    # If there's a user-defined input file (likely for genmod modules), add it to the
-    # options list and upload file list if needed
-    # if "input_data_file" in tcfg['options']:
-    #     tcfg['upload_input_data'].extend(os.path.join(ecfg['exp_dir'], "input", ecfg['input_data_file']))
+    # initialize some keys
+    t.upload_input_data = []
+    copy_list = []
+
+    t.pre_exec = []     # Pre exec let you load modules, set environment before executing the workload
+
+    if not "upload_input_data" in tcfg.keys():
+        tcfg['upload_input_data'] = []
+
+    if not "upload_and_extract_input_data" in tcfg.keys():
+        tcfg['upload_and_extract_input_data'] = []
+
+    # If there's a user-defined input file, add it to the upload list
 
     if "input_data_file" in ecfg.keys():
         for x in ecfg['input_data_file']:
@@ -108,8 +121,6 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
             tcfg['upload_input_data'].append(fp)
 
     if "input_compressed_data_file" in ecfg.keys():
-        if not "upload_and_extract_input_data" in tcfg.keys():
-            tcfg['upload_and_extract_input_dats'] = []
         for x in ecfg['input_compressed_data_file']:
             fp = os.path.join(ecfg['exp_dir'], "input", x)
             if not os.path.isfile(fp):
@@ -118,9 +129,17 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # Upload data from your local machine to the remote machine
     # Note: Remote machine can be the local machine
-    t.upload_input_data = []
+
+    if "script" in tcfg.keys():
+        this_file = os.path.join(module_path, mvar_replace_dict(mvar_dict,tcfg['script']))
+        if not os.path.isfile(this_file):
+                raise(FileNotFoundError(pipe_name + "." + stage_name + ": script: " + this_file + " not found!"))
+        t.upload_input_data.append(this_file) 
+
     for this_file0 in tcfg['upload_input_data']:
         this_file = mvar_replace_dict(mvar_dict,this_file0)
+        if this_file == os.path.basename(this_file):
+                this_file = os.path.join(module_path, this_file)
         if not os.path.isfile(this_file):
             # inelegant, but don't raise an exception if we are uploading workflows.yml, which will be
             # created later
@@ -128,8 +147,22 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
                 raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_input_data: " + this_file + " not found!"))
         t.upload_input_data.append(this_file)
 
+    # If there's a data file to upload and extract, add it to upload and
+    # add the extraction command to pre-exec
+
+    if "upload_and_extract_input_data" in tcfg.keys():
+        for this_file0 in tcfg['upload_and_extract_input_data']:
+            this_file = mvar_replace_dict(mvar_dict,this_file0)
+            if this_file == os.path.basename(this_file):
+                this_file = os.path.join('.','modules-data', this_file)
+            if not os.path.isfile(this_file):
+                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
+            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
+            t.upload_input_data.append(this_file)
+
+    t.upload_input_data=list(set(t.upload_input_data))
+
     # Copy data from other stages/tasks for use in this task
-    copy_list = []
     if "copy_input_data" in tcfg.keys():
         for copy_stage in tcfg['copy_input_data'].keys():
             for copy_task in tcfg['copy_input_data'][copy_stage].keys():
@@ -142,22 +175,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         copy_list.extend(['{0}'.format(mvar_replace_dict(mvar_dict, x))
                          for x in tcfg['copy_shared_data']])
 
-
     # Append the copy list (if any) to the task object
-    t.copy_input_data = copy_list
-
-    # Pre exec let you load modules, set environment before executing the workload
-    t.pre_exec = []
-
-    # If there's a data file to upload and extract, add it to upload and
-    # add the extraction command to pre-exec
-    if "upload_and_extract_input_data" in tcfg.keys():
-        for this_file0 in tcfg['upload_and_extract_input_data']:
-            this_file = mvar_replace_dict(mvar_dict,this_file0)
-            if not os.path.isfile(this_file):
-                raise(FileNotFoundError(pipe_name + "." + stage_name + ": upload_and_extract_input_data: " + this_file + " not found!"))
-            t.pre_exec.append('tar -xvf ' + os.path.basename(this_file) + ' 2> /dev/null; rm ' + os.path.basename(this_file))
-            t.upload_input_data.append(this_file)
+    t.copy_input_data = list(set(copy_list))
 
    # if their are python dependencies, add pip call to pre_exec
     if "python_dependencies" in tcfg.keys():
@@ -170,12 +189,9 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     # Executable to use for the task
     t.executable = tcfg['executable']
 
-
-
-
     # List of arguments for the executable
-    # t.arguments = [tcfg['script']] + match_options(tcfg['options'], ecfg['options'])
-    t.arguments = [tcfg['script']]
+    t.arguments = tcfg.get('script',tcfg.get('script_noupload',''))
+
     if "arguments" in tcfg.keys():
         t.arguments += [mvar_replace_dict(mvar_dict,x)  for x in tcfg['arguments']]
     for x in match_options(tcfg['options'], ecfg['options']):
@@ -185,48 +201,57 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
             t.arguments.append(x)
 
     # CPU requirements for this task
+    if not "cpu" in tcfg.keys():
+        tcfg['cpu'] = {}
     t.cpu_reqs = {
-                     'cpu_processes': tcfg['cpu']['processes'],
-                     'cpu_process_type': tcfg['cpu']['process-type'],
-                     'cpu_threads': tcfg['cpu']['threads-per-process'],
-                     'cpu_thread_type': tcfg['cpu']['thread-type'],
+                     'cpu_processes': tcfg['cpu'].get('processes', 1),
+                     'cpu_process_type': tcfg['cpu'].get('process-type', 'None'),
+                     'cpu_threads': tcfg['cpu'].get('threads-per-process', 1),
+                     'cpu_thread_type': tcfg['cpu'].get('thread-type', 'None'),
                  }
 
 
-    # Send the global and local files to the shared directory for totaling
+    # Send the global and local files to the shared directory for totaling, and download
+    download_list=[]
     copy_output_list = []
+    outdir = os.path.join(ecfg['exp_dir'], "output")
+
     if "copy_output_data" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['copy_output_data']])
 
-    if "climate_output_data" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['climate_output_data']])
-
-    if "global_total_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['global_total_files']])
-
-    if "local_total_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['local_total_files']])
-
-    if "totaled_files" in tcfg.keys():
-        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
-                                for x in tcfg['totaled_files']])
-
-    # Set the download data for the task
-    download_list = []
-    outdir = os.path.join(ecfg['exp_dir'], "output")
     if "download_output_data" in tcfg.keys():
         download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['download_output_data']])
 
+    if "climate_output_data" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['climate_output_data']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['climate_output_data']])
+
+    if "global_total_files" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['global_total_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['global_total_files']])
+
+    if "local_total_files" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['local_total_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['local_total_files']])
+    if "totaled_files" in tcfg.keys():
+        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in tcfg['totaled_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in tcfg['totaled_files']])                                
+
     # Append the "total" lists to the copy output list
-    t.copy_output_data = copy_output_list
+    t.copy_output_data = list(set(copy_output_list))
 
     # Append the download list to this task
-    t.download_output_data = download_list
+    t.download_output_data = list(set(download_list))
 
     # Return the task object
     return(t)
@@ -366,9 +391,6 @@ def ParseExperimentConfig(exp_dir):
 
     # set up global options for climate data files
     climate_data_files = []
-    global_options['climate_data_file'] = None
-    global_options['climate_gsat_data_file'] = None
-    global_options['climate_ohc_data_file'] = None
     
     # add experiment name to global options
     if os.path.basename(exp_dir) == '':
@@ -397,9 +419,13 @@ def ParseExperimentConfig(exp_dir):
             # loop over workflows/scales if requested
             if "loop_over_workflows" in ecfg[this_mod][this_mod_sub].keys():
                 for this_workflow in workflows_to_include:
+                    if workflows_to_include[this_workflow]['options']['pyear_end'] < 9999999:
+                        parsed['modcfg']['options']['pyear_end'] = workflows_to_include[this_workflow]['options']['pyear_end']
                     if "loop_over_scales" in ecfg[this_mod][this_mod_sub].keys():
                         for this_scale in workflows_to_include[this_workflow]:
-                            if len(workflows_to_include[this_workflow][this_scale]) > 0:
+                            if this_scale in {'options'}:
+                                continue
+                            elif len(workflows_to_include[this_workflow][this_scale]) > 0:
                                 pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow + "." + this_scale, exp_dir, workflow_name=this_workflow, scale_name=this_scale))
                     else:
                         pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'] + "." + this_workflow , exp_dir, workflow_name=this_workflow))
@@ -418,7 +444,9 @@ def ParseExperimentConfig(exp_dir):
                 outfiles = IdentifyOutputFiles(parsed['pcfg'], parsed['pipe_name'])
                 for this_wf in ecfg[this_mod][this_mod_sub]['include_in_workflow']:
                     if not this_wf in workflows_to_include.keys():
-                        workflows_to_include[this_wf] = {'global': [], 'local': []}
+                        workflows_to_include[this_wf] = {'global': [], 'local': [],'options':{'pyear_end': min([parsed['modcfg']['options']['pyear_end'],9999999])}}
+                    else:
+                        workflows_to_include[this_wf]['options']['pyear_end'] = min([parsed['modcfg']['options']['pyear_end'],workflows_to_include[this_wf]['options']['pyear_end']])
                     for this_scale in outfiles:
                         workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
 

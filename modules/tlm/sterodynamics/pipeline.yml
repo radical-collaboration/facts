@@ -1,0 +1,99 @@
+# Two-layer Model Ocean Dynamics Pipeline
+# modified from the Kopp14 pipeline.yml, needs  to be examined
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
+    script: "tlm_preprocess_oceandynamics.py"
+    options:
+      - "scenario"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "locationfile"
+      - "pipeline_id"
+      - "model_dir"
+      - "no_drift_corr"
+      - "no_correlation"
+      - "climate_data_file"
+    upload_input_data:
+      - "Import2lmData.py"
+      - "IncludeCMIP6Models.py"
+      - "IncludeCMIP6ZOSModels.py"
+      - "SmoothZOSTOGA.py"
+      - "Smooth.py"
+      - "read_locationfile.py"
+      - "read_CSIRO.py"
+      - "readMarzeion.py"
+    upload_and_extract_input_data:
+      - "tlm_sterodynamics_preprocess_data.tgz"
+      - "tlm_sterodynamics_cmip6_data.tgz"
+      - "ipccar6_climate_data.tgz"
+    copy_shared_data:
+      - '$SHARED/location.lst'
+#    download_output_data:
+#      - "%PIPELINE_ID%_data.pkl"
+
+
+fit:
+  task1:
+    executable: "python3"
+    script: "tlm_fit_oceandynamics.py"
+    options:
+      - "pipeline_id"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_ZOSTOGA.pkl"
+          - "%PIPELINE_ID%_ZOS.pkl"
+          - "%PIPELINE_ID%_tlmdata.pkl"
+
+project:
+  task1:
+    executable: "python3"
+    script: "tlm_project_oceandynamics.py"
+    options:
+      - "pipeline_id"
+      - "nsamps"
+      - "seed"
+      - "tlm"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_ZOSTOGA.pkl"
+          - "%PIPELINE_ID%_tlmdata.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_thermalexp_fit.pkl"
+          - "%PIPELINE_ID%_tlmfit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
+
+postprocess:
+  task1:
+    executable: "python3"
+    script: "tlm_postprocess_oceandynamics.py"
+    options:
+      - "nsamps"
+      - "seed"
+      - "pipeline_id"
+      - "chunksize"
+      - "keep_temp"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_config.pkl"
+          - "%PIPELINE_ID%_ZOS.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_thermalexp_fit.pkl"
+          - "%PIPELINE_ID%_oceandynamics_fit.pkl"
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"

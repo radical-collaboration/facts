@@ -3,11 +3,6 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
     script: "ipccar6_preprocess_gmipemuglaciers.py"
     options:
@@ -16,77 +11,53 @@ preprocess:
       - "baseyear"
       - "pipeline_id"
     upload_input_data:
-      - "%MODULE_PATH%/ipccar6_preprocess_gmipemuglaciers.py"
-      - "%MODULE_PATH%/import_data.py"
-      - "%MODULE_PATH%/filter_data.py"
-      - "%MODULE_PATH%/FindFAIRInputSamples.py"
-      - "%MODULE_PATH%/import_temp_data.py"
-      - "%MODULE_PATH%/filter_temp_data.py"
-      - "%MODULE_PATH%/Smooth.py"
+      - "import_data.py"
+      - "filter_data.py"
+      - "FindFAIRInputSamples.py"
+      - "import_temp_data.py"
+      - "filter_temp_data.py"
+      - "Smooth.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ipccar6_gmipemuglaciers_preprocess.tgz"
+      - "ipccar6_gmipemuglaciers_preprocess_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_fit_gmipemuglaciers.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/ipccar6_fit_gmipemuglaciers.py"
 
 
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_project_gmipemuglaciers.py"
     options:
       - "nsamps"
       - "replace"
       - "seed"
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/ipccar6_project_gmipemuglaciers.py"
     copy_input_data:
       preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     script: "ipccar6_postprocess_gmipemuglaciers.py"
     options:
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/ipccar6_postprocess_gmipemuglaciers.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/ipccar6_gmipemuglaciers_postprocess.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -94,6 +65,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      - "%PIPELINE_ID%_localsl.nc"
-    download_output_data:
       - "%PIPELINE_ID%_localsl.nc"

@@ -63,7 +63,7 @@ def TotalSampleInWorkflow(wfcfg, directory, targyears, workflow, scale, chunksiz
 def TotalSamplesInWorkflows(directory, pyear_start, pyear_end, pyear_step, chunksize, wfcfg_file="workflows.yml", workflow=[""], scale=[""], experiment_name=None):
 
 	# Define the years of interest
-	targyears = xr.DataArray(np.arange(pyear_start, pyear_end+1, pyear_step), dims="years")
+	targyears0 = xr.DataArray(np.arange(pyear_start, pyear_end+1, pyear_step), dims="years")
 
 	# read yaml file
 	with open(wfcfg_file, 'r') as fp:
@@ -72,7 +72,17 @@ def TotalSamplesInWorkflows(directory, pyear_start, pyear_end, pyear_step, chunk
 	# loop through workflows and scopes
 	r=[]
 	for this_workflow in wfcfg:
+
+		targyears = targyears0
+
+		if 'options' in wfcfg[this_workflow].keys():
+			if 'pyear_end' in wfcfg[this_workflow]['options'].keys():
+				targyears = xr.DataArray(np.arange(pyear_start, min([pyear_end,wfcfg[this_workflow]['options']['pyear_end']])+1, pyear_step), dims="years")
+
 		for this_scale in wfcfg[this_workflow]:
+			if this_scale in {'options'}:
+				continue
+			
 			if len(workflow[0])>0:
 				if this_workflow in workflow:
 					if len(scale[0])>0:

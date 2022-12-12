@@ -13,7 +13,7 @@ sealevel_step:
         module: "verticallandmotion"
     DSL:
         module_set: "tlm"
-        module: "oceandynamics"
+        module: "sterodynamics"
 
     # emuAIS:
     #     module_set: "emulandice"

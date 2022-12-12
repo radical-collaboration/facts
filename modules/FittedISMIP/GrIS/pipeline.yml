@@ -3,54 +3,35 @@
 preprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array]"
-    script: "FittedISMIP_preprocess_icesheet.py"
+    script: "FittedISMIP_GrIS_preprocess.py"
     options:
       - "climate_data_file"
       - "scenario"
       - "pipeline_id"
       - "tlm_data"
     upload_input_data:
-      - "%MODULE_PATH%/FittedISMIP_preprocess_icesheet.py"
-      - "%MODULE_PATH%/Import2lmData.py"
-      - "%MODULE_PATH%/import_temp_data.py"
-      - "%MODULE_PATH%/filter_temp_data.py"
+      - "Import2lmData.py"
+      - "import_temp_data.py"
+      - "filter_temp_data.py"
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/ipccar6_climate_data.tgz"
+      - "ipccar6_climate_data.tgz"
 
 
 fit:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "FittedISMIP_fit_icesheet.py"
+    script: "FittedISMIP_GrIS_fit.py"
     options:
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/FittedISMIP_fit_icesheet.py'
     upload_and_extract_input_data:
-      - "%MODULE_PATH%/data/FittedISMIP_icesheet_fit_data.tgz"
+      - "FittedISMIP_icesheet_fit_data.tgz"
 
 
 project:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    pre_exec: []
-    script: "FittedISMIP_project_icesheet.py"
+    script: "FittedISMIP_GrIS_project.py"
     options:
       - "nsamps"
       - "pyear_start"
@@ -61,8 +42,6 @@ project:
       - "seed"
       - "baseyear"
       - "pipeline_id"
-    upload_input_data:
-      - '%MODULE_PATH%/FittedISMIP_project_icesheet.py'
     copy_input_data:
       preprocess:
         task1:
@@ -72,36 +51,21 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
-      #- "%PIPELINE_ID%_EAIS_globalsl.nc"
-      #- "%PIPELINE_ID%_WAIS_globalsl.nc"
-      #- "%PIPELINE_ID%_PEN_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_GIS_globalsl.nc"
-      #- "%PIPELINE_ID%_EAIS_globalsl.nc"
-      #- "%PIPELINE_ID%_WAIS_globalsl.nc"
-      #- "%PIPELINE_ID%_PEN_globalsl.nc"
-#      - "%PIPELINE_ID%_projections.pkl"
 
 postprocess:
   task1:
     executable: "python3"
-    cpu:
-      processes: 1
-      process-type: None
-      threads-per-process: 1
-      thread-type: None
-    script: "FittedISMIP_postprocess_icesheet.py"
+    script: "FittedISMIP_GrIS_postprocess.py"
     options:
       - "chunksize"
       - "locationfile"
       - "pipeline_id"
     upload_input_data:
-      - '%MODULE_PATH%/FittedISMIP_postprocess_icesheet.py'
-      - '%MODULE_PATH%/read_locationfile.py'
-      - '%MODULE_PATH%/AssignFP.py'
-      - '%MODULE_PATH%/ReadFingerprint.py'
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
     upload_and_extract_input_data:
-      - '%MODULE_PATH%/data/FittedISMIP_icesheet_postprocess_data.tgz'
+      - 'grd_fingerprints_data.tgz'
     copy_shared_data:
       - '$SHARED/location.lst'
     copy_input_data:
@@ -109,10 +73,4 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
-      #- "%PIPELINE_ID%_AIS_localsl.nc"
-      - "%PIPELINE_ID%_GIS_localsl.nc"
-    download_output_data:
-      #- "%PIPELINE_ID%_WAIS_localsl.nc"
-      #- "%PIPELINE_ID%_EAIS_localsl.nc"
-      #- "%PIPELINE_ID%_AIS_localsl.nc"
       - "%PIPELINE_ID%_GIS_localsl.nc"
