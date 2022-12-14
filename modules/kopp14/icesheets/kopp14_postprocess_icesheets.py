@@ -27,7 +27,7 @@ Output: NetCDF file containing local contributions from ice sheets
 
 '''
 
-def kopp14_postprocess_icesheets(nsamps, samptype, locationfilename, pipeline_id):
+def kopp14_postprocess_icesheets(samptype, locationfilename, pipeline_id):
 	
 	# Read in the fitted parameters from parfile
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -59,12 +59,12 @@ def kopp14_postprocess_icesheets(nsamps, samptype, locationfilename, pipeline_id
 	eaissl = np.multiply.outer(projdata[:,:,2], eaisfp)
 	
 	# Write to netcdf
-	writeNetCDF(gissl, pipeline_id, "GIS", targyears, site_lats, site_lons, site_ids, nsamps)
-	writeNetCDF(waissl, pipeline_id, "WAIS", targyears, site_lats, site_lons, site_ids, nsamps)
-	writeNetCDF(eaissl, pipeline_id, "EAIS", targyears, site_lats, site_lons, site_ids, nsamps)
+	writeNetCDF(gissl, pipeline_id, "GIS", targyears, site_lats, site_lons, site_ids)
+	writeNetCDF(waissl, pipeline_id, "WAIS", targyears, site_lats, site_lons, site_ids)
+	writeNetCDF(eaissl, pipeline_id, "EAIS", targyears, site_lats, site_lons, site_ids)
 
 
-def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lons, site_ids, nsamps):
+def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lons, site_ids):
 	
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{0}_{1}_localsl.nc".format(pipeline_id, icesheet_name)), "w", format="NETCDF4")
@@ -72,6 +72,7 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	# Define Dimensions
 	nsites = len(site_ids)
 	ntimes = len(targyears)
+	nsamps = data.shape[0]
 	year_dim = rootgrp.createDimension("years", ntimes)
 	samp_dim = rootgrp.createDimension("samples", nsamps)
 	loc_dim  = rootgrp.createDimension("locations", nsites)
@@ -114,7 +115,6 @@ if __name__ == '__main__':
 	epilog="Note: This is meant to be run as part of the Kopp14 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected	
-	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
 	parser.add_argument('--samp_type', help="Type of samples to post-process", choices=['hysamps', 'arsamps', 'basamps'], default="hysamps")
 	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
@@ -123,7 +123,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	# Run the postprocessing for the parameters specified from the command line argument
-	kopp14_postprocess_icesheets(args.nsamps,args.samp_type, args.locationfile, args.pipeline_id)
+	kopp14_postprocess_icesheets(args.samp_type, args.locationfile, args.pipeline_id)
 	
 	# Done
 	exit()
