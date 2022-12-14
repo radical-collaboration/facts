@@ -110,7 +110,7 @@ def kopp14_postprocess_oceandynamics(nsamps, rng_seed, pipeline_id):
 	norm_inv = norm.ppf(x)
 
 	# Initialize variable to hold the samples
-	samps = np.empty((nsamps, len(targyears), len(focus_site_ids)))
+	local_sl = np.empty((nsamps, len(targyears), len(focus_site_ids)))
 
 	# Determine the thermal expansion scale coefficient
 	ThermExpScale = norm.ppf(0.95)/norm.ppf(GCMprobscale)
@@ -144,45 +144,26 @@ def kopp14_postprocess_oceandynamics(nsamps, rng_seed, pipeline_id):
 			condstd = (ThermExpScale * OceanDynStd[od_year_ind,this_site_ind]) * np.sqrt(1 - OceanDynTECorr[od_year_ind,this_site_ind]**2)
 
 			# Make the projection
-			samps[:,j,i] = t.ppf(norm.cdf(norm_inv_perm),OceanDynDOF[od_year_ind,this_site_ind]) * condstd + condmean
+			local_sl[:,j,i] = t.ppf(norm.cdf(norm_inv_perm),OceanDynDOF[od_year_ind,this_site_ind]) * condstd + condmean
 
-	# Calculate the quantiles
-	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
-	nq = len(out_q)
-	#local_sl_q = np.transpose(np.nanquantile(samps, out_q, axis=0), (0,2,1))
-	local_sl_q = np.transpose(np.quantile(samps, out_q, axis=0), (0,2,1))
-
-	# Set the missing value
-	nc_missing_value = np.iinfo(np.int16).min
-	local_sl_q[np.isnan(local_sl_q)] = nc_missing_value
 
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
 
 	# Define Dimensions
-	site_dim = rootgrp.createDimension("nsites", nsites)
 	year_dim = rootgrp.createDimension("years", ntimes)
-	q_dim = rootgrp.createDimension("quantiles", nq)
-	odyear_dim = rootgrp.createDimension("OceanDynYears", len(OceanDynYears))
+	samp_dim = rootgrp.createDimension("samples", nsamps)
+	loc_dim  = rootgrp.createDimension("locations", nsites)
 
 	# Populate dimension variables
-	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
-	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
-	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
 	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	odyear_var = rootgrp.createVariable("OceanDynYears", "i4", ("OceanDynYears",))
-	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
+	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
+	loc_var  = rootgrp.createVariable("locations", "i8", ("locations",))
+	lat_var  = rootgrp.createVariable("lat", "f4", ("locations",))
+	lon_var  = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	localslq.missing_value = nc_missing_value
-	#localslq.scale_factor = 0.1
-
-	oceandynmean = rootgrp.createVariable("OceanDynMean", "f4", ("nsites", "OceanDynYears"))
-	oceandynstd = rootgrp.createVariable("OceanDynStd", "f4", ("nsites", "OceanDynYears"))
-	oceandynn = rootgrp.createVariable("OceanDynN", "i4", ("nsites", "OceanDynYears"))
-	oceandyntecorr = rootgrp.createVariable("OceanDynTECorr", "f4", ("nsites", "OceanDynYears"))
-	oceandyndof = rootgrp.createVariable("OceanDynDOF", "i4", ("nsites", "OceanDynYears"))
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from ocean dynamics according to K14 workflow"
@@ -190,21 +171,15 @@ def kopp14_postprocess_oceandynamics(nsamps, rng_seed, pipeline_id):
 	rootgrp.source = "FACTS: {0} - {1}. ".format(pipeline_id, rcp_scenario)
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees East"
-	localslq.units = "mm"
+	samps.units = "mm"
 
 	# Put the data into the netcdf variables
-	lat_var[:] = focus_site_lats
-	lon_var[:] = focus_site_lons
-	id_var[:] = focus_site_ids
-	year_var[:] = targyears
-	odyear_var[:] = OceanDynYears
-	q_var[:] = out_q
-	localslq[:,:,:] = local_sl_q
-	oceandynmean[:,:] = OceanDynMean.T
-	oceandynstd[:,:] = OceanDynStd.T
-	oceandynn[:,:] = OceanDynN.T
-	oceandyntecorr[:,:] = OceanDynTECorr.T
-	oceandyndof[:,:] = OceanDynDOF.T
+	lat_var[:]  = focus_site_lats
+	lon_var[:]  = focus_site_lons
+	loc_var[:]  = focus_site_ids
+	year_var[:]  = targyears
+	samp_var[:]  = np.arange(nsamps)
+	samps[:,:,:] = local_sl
 
 	# Close the netcdf
 	rootgrp.close()
