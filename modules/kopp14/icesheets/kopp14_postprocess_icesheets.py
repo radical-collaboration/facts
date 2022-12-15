@@ -66,33 +66,26 @@ def kopp14_postprocess_icesheets(samptype, locationfilename, pipeline_id):
 
 def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lons, site_ids):
 	
-	# Calculate the quantiles
-	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
-	nq = len(out_q)
-	local_sl_q = np.nanquantile(data, out_q, axis=0)
-	local_sl_q = np.transpose(local_sl_q, (0,2,1))
-	
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{0}_{1}_localsl.nc".format(pipeline_id, icesheet_name)), "w", format="NETCDF4")
 
 	# Define Dimensions
 	nsites = len(site_ids)
-	nyears = len(targyears)
-	nq = len(out_q)
-	site_dim = rootgrp.createDimension("nsites", nsites)
-	year_dim = rootgrp.createDimension("years", nyears)
-	q_dim = rootgrp.createDimension("quantiles", nq)
-
+	ntimes = len(targyears)
+	nsamps = data.shape[0]
+	year_dim = rootgrp.createDimension("years", ntimes)
+	samp_dim = rootgrp.createDimension("samples", nsamps)
+	loc_dim  = rootgrp.createDimension("locations", nsites)
+	
 	# Populate dimension variables
-	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
-	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
-	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
 	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
+	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
+	loc_var  = rootgrp.createVariable("locations", "i8", ("locations",))
+	lat_var  = rootgrp.createVariable("lat", "f4", ("locations",))
+	lon_var  = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	#localslq.scale_factor = 0.1
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, least_significant_digit=2)
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from icesheets according to Kopp 2014 workflow"
@@ -100,15 +93,15 @@ def writeNetCDF(data, pipeline_id, icesheet_name, targyears, site_lats, site_lon
 	rootgrp.source = "SLR Framework: Kopp 2014 workflow"
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees East"
-	localslq.units = "mm"
+	samps.units = "mm"
 
 	# Put the data into the netcdf variables
-	lat_var[:] = site_lats
-	lon_var[:] = site_lons
-	id_var[:] = site_ids
-	year_var[:] = targyears
-	q_var[:] = out_q
-	localslq[:,:,:] = local_sl_q
+	lat_var[:]   = site_lats
+	lon_var[:]   = site_lons
+	loc_var[:]   = site_ids
+	year_var[:]  = targyears
+	samp_var[:]  = np.arange(nsamps)
+	samps[:,:,:] = data
 
 	# Close the netcdf
 	rootgrp.close()

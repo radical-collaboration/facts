@@ -78,7 +78,7 @@ def kopp14_postprocess_glaciers(locationfilename, pipeline_id):
 	# Initialize variable to hold the localized projections
 	(nsamps, nregions, ntimes) = gicsamps.shape
 	nsites = len(site_ids)
-	local_sl = np.full((nsites, nsamps, ntimes), 0.0)
+	local_sl = np.full((nsamps, ntimes, nsites), 0.0)
 
 	# Loop through the GIC regions
 	for i in np.arange(0,nregions):
@@ -92,31 +92,26 @@ def kopp14_postprocess_glaciers(locationfilename, pipeline_id):
 
 		# Multiply the fingerprints and the projections and add them to the running total
 		# over the regions
-		local_sl += np.transpose(np.multiply.outer(gicsamps[:,i,:], regionfp), (2,0,1))
-
-	# Calculate the quantiles
-	out_q = np.unique(np.append(np.linspace(0,1,101), (0.001, 0.005, 0.01, 0.05, 0.167, 0.5, 0.833, 0.95, 0.99, 0.995, 0.999)))
-	nq = len(out_q)
-	local_sl_q = np.nanquantile(local_sl, out_q, axis=1)
+		local_sl += np.multiply.outer(gicsamps[:,i,:], regionfp)
 
 	# Write the localized projections to a netcdf file
 	rootgrp = Dataset(os.path.join(os.path.dirname(__file__), "{}_localsl.nc".format(pipeline_id)), "w", format="NETCDF4")
 
 	# Define Dimensions
-	site_dim = rootgrp.createDimension("nsites", nsites)
 	year_dim = rootgrp.createDimension("years", ntimes)
-	q_dim = rootgrp.createDimension("quantiles", nq)
+	samp_dim = rootgrp.createDimension("samples", nsamps)
+	loc_dim  = rootgrp.createDimension("locations", nsites)	
 
 	# Populate dimension variables
-	lat_var = rootgrp.createVariable("lat", "f4", ("nsites",))
-	lon_var = rootgrp.createVariable("lon", "f4", ("nsites",))
-	id_var = rootgrp.createVariable("id", "i4", ("nsites",))
 	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	q_var = rootgrp.createVariable("quantiles", "f4", ("quantiles",))
+	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
+	loc_var  = rootgrp.createVariable("locations", "i8", ("locations",))
+	lat_var  = rootgrp.createVariable("lat", "f4", ("locations",))
+	lon_var  = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	localslq = rootgrp.createVariable("localSL_quantiles", "i2", ("quantiles", "nsites", "years"), zlib=True, complevel=4)
-	#localslq.scale_factor = 0.1
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, least_significant_digit=2)
+
 
 	# Assign attributes
 	rootgrp.description = "Local SLR contributions from glaciers and ice caps according to Kopp 2014 workflow"
@@ -124,15 +119,15 @@ def kopp14_postprocess_glaciers(locationfilename, pipeline_id):
 	rootgrp.source = "FACTS: Kopp 2014 GIC workflow - {0}; Base year {1}".format(rcp_scenario, baseyear)
 	lat_var.units = "Degrees North"
 	lon_var.units = "Degrees West"
-	localslq.units = "mm"
+	samps.units = "mm"
 
 	# Put the data into the netcdf variables
-	lat_var[:] = site_lats
-	lon_var[:] = site_lons
-	id_var[:] = site_ids
-	year_var[:] = targyears
-	q_var[:] = out_q
-	localslq[:,:,:] = local_sl_q
+	year_var[:]  = targyears
+	samp_var[:]  = np.arange(nsamps)
+	samps[:,:,:] = local_sl
+	lat_var[:]   = site_lats
+	lon_var[:]   = site_lons
+	loc_var[:] 	 = site_ids
 
 	# Close the netcdf
 	rootgrp.close()

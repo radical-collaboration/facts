@@ -59,8 +59,8 @@ def ar5_project_thermalexpansion(rng_seed, pyear_start, pyear_end, pyear_step, n
 	pickle.dump(output, outfile)
 	outfile.close()
 	
-	# Transpose the samples and convert to mm
-	zx = zx.T * 1000  # Convert to mm
+	# Convert to mm
+	zx = zx * 1000  # Convert to mm
 
 	# Write the total global projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
@@ -69,13 +69,17 @@ def ar5_project_thermalexpansion(rng_seed, pyear_start, pyear_end, pyear_step, n
 	# Define Dimensions
 	year_dim = rootgrp.createDimension("years", len(data_years))
 	samp_dim = rootgrp.createDimension("samples", nsamps)
-
+	loc_dim  = rootgrp.createDimension("locations", 1)
+	
 	# Populate dimension variables
 	year_var = rootgrp.createVariable("year", "i4", ("years",))
 	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+	loc_var  = rootgrp.createVariable("locations", "i8", ("locations",))
+	lat_var  = rootgrp.createVariable("lat", "f4", ("locations",))
+	lon_var  = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, least_significant_digit=2)
 	
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from thermal expansion according to AR5 workflow"
@@ -86,9 +90,13 @@ def ar5_project_thermalexpansion(rng_seed, pyear_start, pyear_end, pyear_step, n
 	samps.units = "mm"
 
 	# Put the data into the netcdf variables
-	year_var[:] = targyears
-	samp_var[:] = np.arange(nsamps)
-	samps[:,:] = zx
+	year_var[:]  = targyears
+	samp_var[:]  = np.arange(nsamps)
+	samps[:,:,:] = zx[:,:,np.newaxis]
+	lat_var[:] 	 = np.inf
+	lon_var[:] 	 = np.inf
+	loc_var[:] 	 = -1
+
 
 	# Close the netcdf
 	rootgrp.close()	

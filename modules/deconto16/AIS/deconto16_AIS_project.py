@@ -78,15 +78,19 @@ def WriteNetCDF(icesamps, icetype, data_years, scenario, pipeline_id):
 	# Define Dimensions
 	nyr = len(data_years)
 	nsamps = icesamps.shape[1]
-	year_dim = rootgrp.createDimension("years", nyr)
+	year_dim = rootgrp.createDimension("years", len(nyr))
 	samp_dim = rootgrp.createDimension("samples", nsamps)
+	loc_dim = rootgrp.createDimension("locations", 1)
 
 	# Populate dimension variables
-	year_var = rootgrp.createVariable("year", "i4", ("years",))
-	samp_var = rootgrp.createVariable("sample", "i8", ("samples",))
+	year_var = rootgrp.createVariable("years", "i4", ("years",))
+	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
+	loc_var = rootgrp.createVariable("locations", "i8", ("locations",))
+	lat_var = rootgrp.createVariable("lat", "f4", ("locations",))
+	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("samps", "f4", ("years", "samples"), zlib=True, least_significant_digit=2)
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, least_significant_digit=2)
 	
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from {} according to DP16 workflow".format(icetype)
@@ -97,9 +101,12 @@ def WriteNetCDF(icesamps, icetype, data_years, scenario, pipeline_id):
 	samps.units = "mm"
 
 	# Put the data into the netcdf variables
-	year_var[:] = data_years
-	samp_var[:] = np.arange(nsamps)
-	samps[:,:] = icesamps
+	year_var[:]  = data_years
+	samp_var[:]  = np.arange(nsamps)
+	samps[:,:,:] = np.transpose(icesamps[:,:,np.newaxis],(1,0,2))
+	lat_var[:] 	 = np.inf
+	lon_var[:] 	 = np.inf
+	loc_var[:] 	 = -1
 
 	# Close the netcdf
 	rootgrp.close()	
