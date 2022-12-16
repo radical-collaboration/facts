@@ -60,12 +60,16 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None):
                 rcfg['mongodb'].get('port', 27017))
     os.environ['RADICAL_PILOT_DBURL'] = dburl
 
-    if not "password" in rcfg['rabbitmq'].keys():
-        amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
+    if not "rabbitmq" in rcfg.keys():
+        # we may be running the development version of radical.entk that doesn't require RabbitMQ
+        amgr = AppManager(autoterminate=False)
+    else:
+        if not "password" in rcfg['rabbitmq'].keys():
+            amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
                         port=rcfg['rabbitmq'].get('port', 5672),
                         autoterminate=False)
-    else:
-        amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
+        else:
+            amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
                         username=rcfg['rabbitmq'].get('username', ''),
                         password=rcfg['rabbitmq'].get('password', ''),
                         port=rcfg['rabbitmq'].get('port', 5672),
