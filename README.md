@@ -112,10 +112,7 @@ Within this Ubuntu environment, the script mac_docker_factsenvsetup.sh will inst
 
 This solution may also work on Windows, but has not been tested.
 
-Note that the data files for a FACTS experiment and transfered to the compute resource with each experiment run.
-Thus, while it might in principle be possible to run FACTS on your desktop and use a remote HPC resource, you probably don't
-want to do this. At a minimum, you will want to have a fast, high-capacity
-network connection to the resource.
+Note that the data files for a FACTS experiment and transfered to the compute resource with each experiment run. Thus, while it might in principle be possible to run FACTS on your desktop and use a remote HPC resource, you probably don't want to do this. At a minimum, you will want to have a fast, high-capacity network connection to the resource.
 
 ## Module Tests
 
