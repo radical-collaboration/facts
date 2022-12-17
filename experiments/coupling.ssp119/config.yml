@@ -1,5 +1,5 @@
 global-options:
-    nsamps: 200
+    nsamps: 2000
     scenario: ssp119
     pyear_start: 2020
     pyear_end: 2150

@@ -1,13 +1,9 @@
-
-rabbitmq:
-    hostname: "localhost"
-
 mongodb:
     hostname: "localhost"
 
 resource-desc:
   resource: 'local.localhost'
-  walltime: 30
+  walltime: 600
   cpus: 2
   gpus: 0
   queue: ''

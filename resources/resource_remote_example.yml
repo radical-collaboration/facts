@@ -1,10 +1,4 @@
 
-rabbitmq:
-    hostname: "rabbitmq.host"
-    port:     5672
-    username: "facts"
-    password: "password"
-
 mongodb:
     hostname: "mongodb.host"
     port:     27017
@@ -13,8 +7,8 @@ mongodb:
 
 resource-desc:
   resource: 'rutgers.amarel'
-  walltime: 15
-  cpus: 1
+  walltime: 600
+  cpus: 16
   gpus: 0
   queue: 'main'
   project: ''
