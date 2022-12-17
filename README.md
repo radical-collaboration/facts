@@ -27,7 +27,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
   ```
   mkdir mongo
   singularity build --sandbox mongo/ docker://mongo
-  singularity run -w rabbitmq &
+  singularity run -w mongo &
   ```
 
 4. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
