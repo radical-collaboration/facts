@@ -1,6 +1,6 @@
 # Framework for Assessing Changes To Sea-level (FACTS)
 
-The Framework for Assessing Changes To Sea-level (FACTS) is an open-source modular, scalable, and extensive framework for global mean, regional, and extreme sea level projection that is designed to support the characterization of ambiguity in sea-level projections. It is designed so users can easily explore deep uncertainty by investigating the implications on GMSL, RSL, and ESL of different choices for different processes. Its modularity allows components to be represented by either simple or complex model. Because it is built upon the Radical-PILOT computing stack, different modules can be dispatched for execution on resources appropriate to their computational complexity.
+The Framework for Assessing Changes To Sea-level (FACTS) is an open-source modular, scalable framework for global mean, regional, and extreme sea level projection that is designed to support the characterization of ambiguity in sea-level projections. It is designed so users can easily explore deep uncertainty by investigating the implications on GMSL, RSL, and ESL of different choices for different processes. Its modularity allows components to be represented by either simple or complex model. 
 
 ## Resources
 
@@ -8,9 +8,9 @@ See [Zenodo](https://doi.org/10.5281/zenodo.6419954) for the FACTS modules, data
 
 See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IPCC-AR6-Sea-Level-Projections) for a guide for accessing the IPCC AR6 sea level projections data.
 
-## Using FACTS on a local Linux machine
+## Installing and Using FACTS
 
-1. Cloning FACTS repository on the local Linux machine:
+1. Clone the FACTS repository:
 
   ```
   git clone git@github.com:radical-collaboration/facts.git
@@ -18,67 +18,20 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
 
 2. Download modules-data from https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put these ~30 GB of files in a common location and soft-link to each user's directory.) 
 
-3. Installing MongoDB server. Follow the official documentation:
+3. Install MongoDB server. Follow the official documentation:
 
   - [Install MongoDB Community Edition on Linux](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
 
-  Alternatively, you can run MonogoDB and RabbitMQ from containers. On a system with Singularity installed, this looks something like:
+  Alternatively, you can run MonogoDB and from a container. On a system with Singularity installed, this looks something like:
  
   ```
   mkdir mongo
   singularity build --sandbox mongo/ docker://mongo
   singularity run -w mongo &
   ```
+  If these options do not work for you, RADICAL runs a MongoDB server that can be used by FACTS users. Ask for MongoDB parameters by writing to the FACTS team via email or by opening an issue in this repository.
 
-4. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
-
-  - Using `venv`:
-
-    ```
-    python3 -m venv ve3
-    . ve3/bin/activate
-    pip install --upgrade setuptools pip wheel
-    pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts
-    pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq
-    ```
-
-5. executing FACTS.
-
-  ```
-  mkdir test
-  cp -r experiments/coupling.ssp585/* test
-  python3 runFACTS.py test
-  ```
-
-## Using FACTS on Rutgers' Amarel
-
-1. Login into Amarel, see [Amarel User Guide](https://sites.google.com/view/cluster-user-guide/#h.6bb8ylmm9bzz).
-
-2. Cloning FACTS repository on the local Linux machine:
-
-  ```
-  git clone git@github.com:radical-collaboration/facts.git
-  ```
-
-3. Download modules-data from https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. If you have multiple users of FACTS, you might want to put these >50 GB of file in a common location and soft-link to each user's directory, for example:
-
-```
-cd ~/facts/modules-data
-ln -s /projects/kopp/facts-dev/modules-data/*.tgz . 
-```
-
-4. Configuring MongoDB and Amarel resource parameters:
-
-  - Ask for MongoDB parameters to the FACTS team via email or by opening an issue in this repository.
-  - Edit FACTS configuration file:
-
-    ```
-    vim experiments/temp_exp/config.yml
-    -> replace 'localhost' with 'amarel'
-    -> enter the parameters for MongoDB
-    ```
-
-5. Creating and activating a Python virtual environment, and installing FACTS's Python dependences in it:
+4. Create and activate a Python virtual environment, and install FACTS's Python dependences in it:
 
   - Using `venv`:
 
@@ -90,12 +43,11 @@ ln -s /projects/kopp/facts-dev/modules-data/*.tgz .
     pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq
     ```
 
-
-6. executing FACTS.
+5. Execute FACTS.
 
   ```
   mkdir test
-  cp -r experiments/coupling.ssp585/* test
+  cp -r experiments/coupling.ssp585/config.yml experiments/coupling.ssp585/locations.lst test
   python3 runFACTS.py test
   ```
 
@@ -106,23 +58,10 @@ The RADICAL stack does not support MacOS. Therefore, to run on a Mac, you need t
 With Docker installed, you can launch an Ubuntu environment:
 
   ```
-  docker run --hostname=localhost --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
+  docker run --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
   ```
 Within this Ubuntu environment, the script mac_docker_factsenvsetup.sh will install Mongo and a suitable Python environment.
 
 This solution may also work on Windows, but has not been tested.
 
-Note that the data files for a FACTS experiment and transfered to the compute resource with each experiment run. Thus, while it might in principle be possible to run FACTS on your desktop and use a remote HPC resource, you probably don't want to do this. At a minimum, you will want to have a fast, high-capacity network connection to the resource.
-
-## Module Tests
-
-Almost all modules have test scripts that allow them to be run outside the FACTS/EnTK framework. These should be invoked via the test/run_moduletest.sh script. The configuration of the module test scripts are specified in a moduletest.config file. See, for example, [modules/ipccar5/icesheets/test/moduletest.config](https://github.com/radical-collaboration/facts/blob/main/modules/ipccar5/icesheets/test/moduletest.config). There may also be global settings (e.g., the scratch directory you want used) that need to be set in [scripts/moduletest/moduletest.config.global](https://github.com/radical-collaboration/facts/blob/main/scripts/moduletest/moduletest.config.global).
-
-Since, in running modules outside the FACTS/EnTK framework, you will not have the benefits of EnTK's environment management, you will need to make sure all the packages needed to support the modules are installed in their environment. This will differ between packages (e.g., [emulandice](modules/emulandice) is a FACTS wrapper around independently developed R code, and running it requires all the R packages required by that code).
-
-In addition, you will need to have all the associated module data tgz files in your [modules-data](modules-data) directory. Note that some of these files are quite large (the total exceeds 30 GB), so if you have multiple users on a system employing FACTS, best practice would be to have a shared directory in which all these large files live and then use sym-links to link them to each user's modules-data directory, e.g.:
-
-```
-cd ~/facts/modules-data
-ln -s /projects/shared/facts/modules-data/*.tgz .
-```
+Note that the data files for a FACTS experiment and transfered to the compute resource with each experiment run. Thus, while it might in principle be possible to run FACTS on your desktop and use a remote HPC resource, you probably don't want to do this. At a minimum, you will want to have a fast, high-capacity network connection to the resource
