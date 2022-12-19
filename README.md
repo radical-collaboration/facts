@@ -60,10 +60,12 @@ The RADICAL stack does not support MacOS. Therefore, to run on a Mac, you need t
 With Docker installed, you can launch an Ubuntu environment:
 
   ```
-  docker run --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
+  docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
   ```
-Within this Ubuntu environment, the script mac_docker_factsenvsetup.sh will install Mongo and a suitable Python environment.
+(This command assumes you have facts installed in ```$HOME/facts``` and a writable scratch directory in ```$HOME/tmp```.)
+
+Within this Ubuntu environment, the script mac_docker_factsenvsetup.sh will install Mongo and a suitable Python environment, and run the dummy experiment.
 
 This solution may also work on Windows, but has not been tested.
 
-Note that the data files for a FACTS experiment and transfered to the compute resource with each experiment run. Thus, while it might in principle be possible to run FACTS on your desktop and use a remote HPC resource, you probably don't want to do this. At a minimum, you will want to have a fast, high-capacity network connection to the resource
+Note that the data files for a FACTS experiment and transfered to the compute resource with each experiment run. Thus, while it might in principle be possible to run FACTS on your desktop and use a remote HPC resource, you probably don't want to do this. At a minimum, you will want to have a fast, high-capacity network connection to the resource.
