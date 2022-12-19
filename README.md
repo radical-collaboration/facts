@@ -51,6 +51,8 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
   python3 runFACTS.py test
   ```
 
+Note that if you are running FACTS using localhost as a resource, all the input files for the experiment (which can be tens of GB) will get copied to ```~/radical.pilot.sandbox```. If you have space limits on your home directory, you may therefore want to make this a symlink to a directory with fewer space limits prior to running.
+
 ## Using FACTS on a Mac
 
 The RADICAL stack does not support MacOS. Therefore, to run on a Mac, you need to run within a Linux environment. One way to do this is with a Docker container. Note this is not an officially supported solution, and you must do so on your own recognizance.
