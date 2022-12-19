@@ -2,8 +2,7 @@
 
 # This script will create a Docker environment that can run FACTS, starting with the command
 #
-# docker run --hostname=localhost --env=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
-#            --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
+# docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
 
 apt-get update -y
 apt-get install -y sudo systemctl gnupg wget curl apt-transport-https
@@ -12,18 +11,14 @@ echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb
 apt-get update -y
 apt-get install -y mongodb-org
 
-
-## Update package indices
-sudo apt-get update -y
-
 ## Install python
-apt install -y python3-pip python3.8-venv
+apt install -y python3-pip python3.8-venv git libnetcdf-dev python3-netcdf4
 
 python3 -m venv ve3
 . ve3/bin/activate
 pip install --upgrade setuptools pip wheel
 pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts
-pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq
+pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq pyyaml
 
 systemctl start mongod
 
