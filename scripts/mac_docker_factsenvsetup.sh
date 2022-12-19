@@ -12,7 +12,8 @@ apt-get update -y
 apt-get install -y mongodb-org
 
 ## Install python
-apt install -y python3-pip python3.8-venv git libnetcdf-dev python3-netcdf4
+apt-get install -y python3-pip python3.8-venv git libnetcdf-dev python3-netcdf4
+apt-get install -y ssh iputils-ping slurm
 
 python3 -m venv ve3
 . ve3/bin/activate
