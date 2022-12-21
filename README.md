@@ -18,9 +18,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
 
 2. Download modules-data from https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put these ~30 GB of files in a common location and soft-link to each user's directory.) 
 
-3. Install MongoDB server. Follow the official documentation:
-
-  - [Install MongoDB Community Edition on Linux](https://www.mongodb.com/docs/manual/administration/install-on-linux/)
+3. Install MongoDB server. Follow the [official documentation](https://www.mongodb.com/docs/manual/administration/install-on-linux/).
 
   Alternatively, you can run MonogoDB and from a container. On a system with Singularity installed, this looks something like:
  
