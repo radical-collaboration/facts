@@ -18,7 +18,7 @@ pipeline_id = Unique identifier for the pipeline running this code
 def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, scenario, pipeline_id):
 	
 	# There's only one scenario available, RCP85
-	scenario_map = {"rcp85": 'corefileH', "rcp26": 'corefileL', "rcp45": 'corefileL', \
+	scenario_map = {"rcp85": 'corefileH', "rcp26": 'corefileL',  \
 					"tlim2.0win0.25": 'corefileL', "tlim5.0win0.25": 'corefileH'}
 	this_corefile = scenario_map[scenario]
 	
@@ -98,7 +98,7 @@ if __name__ == '__main__':
 	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
-	parser.add_argument('--scenario', help="Emissions scenario of interest [default=rcp85]", choices=["rcp85", "rcp26", "rcp45", "tlim2.0win0.25", "tlim5.0win0.25"], default="rcp85")
+	parser.add_argument('--scenario', help="Emissions scenario of interest [default=rcp85]", choices=["rcp85", "rcp26", "tlim2.0win0.25", "tlim5.0win0.25"], default="rcp85")
 	parser.add_argument('--baseyear', help="Year to which projections are referenced [default = 2000]", default=2000, type=int)
 	
 	# Parse the arguments
