@@ -15,7 +15,7 @@ The **global-options** section of config.yml specifies options that should, by d
 
 In addition, this section can specify:
 
-* **rcfg-name**: the name of the resource configuration file to be used. FACTS will look in the resources/ directory for file with name *resource_(rcfg_name).yml*.
+* **rcfg-name**: the name of the resource configuration file to be used. FACTS will look in the resources/ directory for file with name *resource_(rcfg_name).yml*. (If not specified, *resource.yml* will be used.)
 
 ## Experiment step and module configuration
 
@@ -51,7 +51,7 @@ The following third-level entries are used under the module label:
 
 ```
 global-options:
-    nsamps: 100
+    nsamps: 2000
     scenario: ssp585
     pyear_start: 2020
     pyear_end: 2100
