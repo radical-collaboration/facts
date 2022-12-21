@@ -50,7 +50,9 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None):
     rcfg = facts.LoadResourceConfig(resourcedir, rcfg_name)
 
     # Initialize RCT and the EnTK App Manager
-    if not "password" in rcfg['mongodb'].keys():
+    if not "mongodb" in rcfg.keys():
+        dburl = 'mongodb://localhost:27017/facts'
+    elif not "password" in rcfg['mongodb'].keys():
         dburl = 'mongodb://%s:%d/facts' % (rcfg['mongodb'].get('hostname', 'localhost'), rcfg['mongodb'].get('port', 27017))
     else:
         dburl = 'mongodb://%s:%s@%s:%d/facts' \
