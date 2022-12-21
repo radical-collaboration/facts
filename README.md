@@ -20,7 +20,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
 
 3. Install MongoDB server. Follow the [official documentation](https://www.mongodb.com/docs/manual/administration/install-on-linux/).
 
-  Alternatively, you can run MonogoDB and from a container. On a system with Singularity installed, this looks something like:
+  Alternatively, you can run MonogoDB from a container. On a system with Singularity installed, this looks something like:
  
   ```
   mkdir mongo
