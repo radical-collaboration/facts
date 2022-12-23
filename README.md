@@ -16,7 +16,7 @@ See the [IPCC-AR6-Sea-Level-Projections repo](https://github.com/rutgers-ESSP/IP
   git clone git@github.com:radical-collaboration/facts.git
   ```
 
-2. Download modules-data. Archived versions are available on Zenodo at [doi:10.5281/zenodo.7478192](https://doi.org/10.5281/zenodo.7478192), while a development version is currently synced at https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put these ~30 GB of files in a common location and soft-link to each user's directory.) 
+2. Download modules-data. Archived versions are available on Zenodo at [doi:10.5281/zenodo.7478191](https://doi.org/10.5281/zenodo.7478191) and [doi:10.5281/zenodo.7478447](https://doi.org/10.5281/zenodo.7478447) (note, split between two Zenodo entries because of size limitations), while a development version is currently synced at https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put these ~60 GB of files in a common location and soft-link to each user's directory.) 
 
 3. Install MongoDB server. Follow the [official documentation](https://www.mongodb.com/docs/manual/administration/install-on-linux/).
 
