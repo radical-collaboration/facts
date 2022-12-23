@@ -1,4 +1,3 @@
-3.4M	bamber19_icesheets_postprocess_data.tgz
 226M	bamber19_icesheets_preprocess_data.tgz
 128K	deconto16_AIS_preprocess_data.tgz
 768K	deconto21_AIS_preprocess_data.tgz
@@ -27,13 +26,6 @@
 32K	ssp_landwaterstorage_preprocess_data.tgz
 29G	tlm_sterodynamics_cmip6_data.tgz
 512	tlm_sterodynamics_preprocess_data.tgz
-
-bamber19_icesheets_postprocess_data.tgz
--------------------------------
-./FPRINT/
-./FPRINT/fprint_wais.nc
-./FPRINT/fprint_gis.nc
-./FPRINT/fprint_eais.nc
 
 bamber19_icesheets_preprocess_data.tgz
 -------------------------------
