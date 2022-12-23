@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the meta-data from 'preferred-citation'."
 license: MIT
-title: "Framework for Assessing Changes To Sealevel (FACTS)"
+title: "Framework for Assessing Changes To Sea-Level (FACTS)"
 version: 1.0rc
 url: "https://github.com/radical-collaboration/facts"
 authors:
@@ -24,7 +24,7 @@ authors:
 - family-names: "Koubbe"
   given-names: "George"
 preferred-citation:
-  title: "The Framework for Assessing Changes To Sea-Level (FACTS) v1.0rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea level change"
+  title: "The Framework for Assessing Changes To Sea-Level (FACTS) v1.0rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change"
   type: article
   journal: "Geoscientific Model Development"
   authors:
