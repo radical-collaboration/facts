@@ -1,6 +1,3 @@
-mongodb:
-    hostname: "localhost"
-
 resource-desc:
   resource: 'local.localhost'
   walltime: 600
