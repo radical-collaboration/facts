@@ -7,10 +7,7 @@ if [ ! -d $LOGDIR ]; then
     mkdir $LOGDIR
 fi
 
-#singularity instance start -w $HOME/singularity/rabbitmq rabbitmq
 singularity instance start -w $HOME/singularity/mongo mongo
-
-#singularity run -w instance://rabbitmq > $LOGDIR/rabbitmq.`hostname`.out 2> $LOGDIR/rabbitmq.`hostname`.err &
 singularity run -w instance://mongo > $LOGDIR/mongo.`hostname`.out 2> $LOGDIR/mongo.`hostname`.err &
 
 sleep 30
