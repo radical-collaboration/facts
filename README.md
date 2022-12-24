@@ -40,12 +40,23 @@ The Framework for Assessing Changes To Sea-level (FACTS) is an open-source modul
      pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq
      ```
 
-5. Execute FACTS.
+5. Test your install by running the dummy experiment:
 
    ```
-   mkdir test
-   cp -r experiments/coupling.ssp585/config.yml experiments/coupling.ssp585/locations.lst test
-   python3 runFACTS.py test
+   python3 runFACTS.py experiments/dummy
+   ```
+
+6. Create a new experiment. For example:
+
+   ```
+   mkdir my-experiment
+   cp -r experiments/coupling.ssp585/config.yml experiments/coupling.ssp585/locations.lst my-experiment
+   ```
+
+7. Run your new experiment:
+
+   ```
+   python3 runFACTS.py my-experiment
    ```
 
 Note that if you are running FACTS using localhost as a resource, all the input files for the experiment (which can be tens of GB) will get copied to ```~/radical.pilot.sandbox```. If you have space limits on your home directory, you may therefore want to make this a symlink to a directory with fewer space limits prior to running.
