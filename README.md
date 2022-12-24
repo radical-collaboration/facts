@@ -18,7 +18,7 @@ The Framework for Assessing Changes To Sea-level (FACTS) is an open-source modul
  
     * Install MongoDB server. Follow the [official documentation](https://www.mongodb.com/docs/manual/administration/install-on-linux/).
 
-    * Run MonogoDB from a container. On a system with Singularity installed, this looks something like:
+    * Run MongoDB from a container. On a system with Singularity installed, this looks something like:
  
       ```
       mkdir mongo
