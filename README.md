@@ -6,9 +6,9 @@ The Framework for Assessing Changes To Sea-level (FACTS) is an open-source modul
 
 1. Clone the FACTS repository:
 
-  ```
-  git clone git@github.com:radical-collaboration/facts.git
-  ```
+   ```
+   git clone git@github.com:radical-collaboration/facts.git
+   ```
 
 2. Download modules-data. 
  
