@@ -1,6 +1,3 @@
-global-options:
-    rcfg-name: "localhost"
-
 sealevel_step:
     dummy:
         module_set: "facts"
