@@ -24,7 +24,7 @@ authors:
 - family-names: "Koubbe"
   given-names: "George"
 preferred-citation:
-  title: "The Framework for Assessing Changes To Sea-Level (FACTS) v1.0rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change"
+  title: "The Framework for Assessing Changes To Sea-Level (FACTS) v1.0-rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change"
   type: article
   journal: "Geoscientific Model Development"
   authors:
