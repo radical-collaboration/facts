@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it using the meta-data from 'preferred-citation'."
 license: MIT
 title: "Framework for Assessing Changes To Sea-Level (FACTS)"
-version: 1.0.0-rc
+version: 1.0.0-rc.1
 url: "https://github.com/radical-collaboration/facts"
 authors:
 - family-names: "Kopp"
