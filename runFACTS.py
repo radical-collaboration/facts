@@ -8,14 +8,13 @@ import FACTS as facts
 from radical.entk import AppManager
 
 
-def run_experiment(exp_dir, debug_mode, resourcedir = None):
+def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = False):
 
     if not resourcedir:
         resourcedir = exp_dir
 
     expconfig = facts.ParseExperimentConfig(exp_dir)
     experimentsteps = expconfig['experimentsteps']
-    # ecfg = expconfig['ecfg']
     workflows = expconfig['workflows']
     climate_data_files = expconfig['climate_data_files']
 
@@ -36,6 +35,11 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None):
         print('')
         print_workflows(workflows)
         # Exit
+        sys.exit(0)
+
+    # Print out shell script if in shell script mode
+    if makeshellscript:
+        print_experimentsteps_script(experimentsteps)
         sys.exit(0)
 
     # Does the output directory exist? If not, make it
@@ -131,6 +135,47 @@ def print_experimentsteps(experimentsteps):
         print_pipeline(pipelines)
         print('')
 
+def print_experimentsteps_script(experimentsteps):
+
+    print('#!/bin/bash\n')
+
+    print('if [ -z "$WORKDIR" ]; then  ')
+    print('   WORKDIR=/scratch/`whoami`/test.`date +%s`')
+    print('fi')
+    print('mkdir -p $WORKDIR\n')
+    print('if [ -z "$OUTPUTDIR" ]; then  ')
+    print('   OUTPUTDIR=/scratch/`whoami`/test.`date +%s`/output')
+    print('fi')
+    print('mkdir -p $OUTPUTDIR')
+    print('BASEDIR=`pwd`')
+
+    for this_step, pipelines in experimentsteps.items():
+        print('\n#EXPERIMENT STEP: ', this_step, '\n')
+        for p in pipelines:
+            print("\n# - Pipeline {}:\n\n".format(p.name))
+            for s in p.stages:
+                print("\n# ---- Stage {}:\n".format(s.name))
+                for t in s.tasks:
+                    tdict = t.as_dict()
+                    print('cd $BASEDIR')
+                    if 'upload_input_data' in tdict.keys():
+                        if len(tdict['upload_input_data']) > 0:
+                            print('cp ' + ' '.join(map(str,t['upload_input_data'])) + ' $WORKDIR')
+                    #if 'copy_input_data' in tdict.keys():
+
+                    print('cd $WORKDIR')
+
+                    if 'pre_exec' in tdict.keys():
+                        print('\n'.join(map(str,t['pre_exec'])))
+                    if 'arguments' in tdict.keys():
+                        print(tdict['executable'] + ' ' + ' '.join(map(str, t['arguments'])))
+                    if 'post_exec' in tdict.keys():
+                        print('\n'.join(map(str,t['post_exec'])))
+                    #if 'copy_output_data' in tdict.keys():
+                    if 'download_output_data' in tdict.keys():
+                        for df in tdict['download_output_data']:
+                            ddf = df.split(' ')
+                            print('cp ' + ddf[0] + ' $OUTPUTDIR' )
 
 if __name__ == "__main__":
 
@@ -139,6 +184,7 @@ if __name__ == "__main__":
 
     # Add arguments for the resource and experiment configuration files
     parser.add_argument('edir', help="Experiment Directory")
+    parser.add_argument('--shellscript', help="Output shell scripts (do not execute)", action="store_true")
     parser.add_argument('--debug', help="Enable debug mode (check that configuration files parse, do not execute)", action="store_true")
     parser.add_argument('--resourcedir', help="Directory containing resource files (default=./resources/)", type=str, default='./resources')
 
@@ -152,6 +198,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Go ahead and try to run the experiment
-    run_experiment(args.edir, args.debug, resourcedir=args.resourcedir)
+    run_experiment(args.edir, args.debug, resourcedir=args.resourcedir, makeshellscript = args.shellscript)
 
     #sys.exit(0)
