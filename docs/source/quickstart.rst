@@ -83,3 +83,15 @@ resource with each experiment run. Thus, while it might in principle be possible
 to run FACTS on your desktop and use a remote HPC resource, you probably don't
 want to do this. At a minimum, you will want to have a fast, high-capacity
 network connection to the resource.
+
+Testing a module with a shell script
+------------------------------------
+
+In some cases, it may be desirable to call a FACTS module outside the EnTK framework.
+This can be done using an experimental shell-script writing feature in runFACTS.
+Performance is not guaranteed, and multi-module experiments are very likely not to
+work without customization. 
+
+1. Create an experiment (e.g., ```experiments/onemodule```) that invokes only the module of interest.
+2. ```python3 runFACTS.py --shellscript experiments/onemodule > test.sh```
+3. ```source test.sh```

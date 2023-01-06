@@ -1,0 +1,12 @@
+global-options:
+    nsamps: 2000
+    scenario: rcp26
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+
+sealevel_step:
+    deconto16:
+        module_set: "deconto16"
+        module: "AIS"

@@ -1,6 +1,0 @@
-ar5_project_icesheets.py:137: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
-Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
-  startrate = (startratemean + startratepm * np.array([-1,1], dtype=np.float)) * momm
-ar5_project_icesheets.py:141: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
-Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
-  acceleration = (np.array(finalrange, dtype=np.float) - startrate * finalyr.mean()) / (finalyr**2).mean()

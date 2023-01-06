@@ -1,4 +1,0 @@
-  File "/scratch/rk509/test.1667525579/total_workflow.py", line 61
-    def TotalSamplesInWorkflows(directory, wfcfg_file="workflows.yml", pyear_start, pyear_end, pyear_step, chunksize, workflow=[""], scale=[""]):
-                                                                                    ^
-SyntaxError: non-default argument follows default argument
