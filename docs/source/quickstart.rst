@@ -50,7 +50,7 @@ Installing and Using FACTS
 
 7. Run your experiment::
 
-    python3 runFACTS.py test.
+    python3 runFACTS.py test
 
 Note that if you are running FACTS using localhost as a resource, all the input
 files for the experiment (which can be tens of GB) will get copied to
