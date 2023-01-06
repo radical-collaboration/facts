@@ -23,9 +23,9 @@ Installing and Using FACTS
 
   - Run MongoDB from a container. On a system with Singularity installed, this looks something like::
 
-    mkdir mongo
-    singularity build --sandbox mongo/ docker://mongo
-    singularity run -w mongo &.
+      mkdir mongo
+      singularity build --sandbox mongo/ docker://mongo
+      singularity run -w mongo &.
 
   - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
     team via email or by opening an issue in this repository.
