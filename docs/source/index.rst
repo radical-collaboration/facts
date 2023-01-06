@@ -13,7 +13,7 @@ built upon the Radical-PILOT computing stack, different modules can be
 dispatched for execution on resources appropriate to their computational
 complexity.
 
-FACTS is being developed by the `Earth System Science & Policy Lab <http://www.earthscipol.net/>`_
+FACTS is being developed by the `Earth System Science & Policy Lab <http://www.earthscipol.net/>`_ and the
 `RADICAL Research Group <http://radical.rutgers.edu/>`_ at Rutgers University. 
 FACTS is released under the 
 `MIT License <http://opensource.org/licenses/MIT>`_. 
