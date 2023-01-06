@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Framework for Assessing Changes To Sea-level (FACTS)'
-copyright = '2022, RADICAL and Rutgers University Earth System Science & Policy Lab'
+copyright = '2023, RADICAL and Rutgers University Earth System Science & Policy Lab'
 author = 'RADICAL and Rutgers University Earth System Science & Policy Lab'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,6 +34,7 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.doctest',
     'sphinx.ext.autodoc',
+    'myst_parser'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
