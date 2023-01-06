@@ -78,7 +78,7 @@ def WriteNetCDF(icesamps, icetype, data_years, scenario, pipeline_id):
 	# Define Dimensions
 	nyr = len(data_years)
 	nsamps = icesamps.shape[1]
-	year_dim = rootgrp.createDimension("years", len(nyr))
+	year_dim = rootgrp.createDimension("years", nyr)
 	samp_dim = rootgrp.createDimension("samples", nsamps)
 	loc_dim = rootgrp.createDimension("locations", 1)
 
