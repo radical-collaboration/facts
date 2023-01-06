@@ -92,6 +92,12 @@ This can be done using an experimental shell-script writing feature in runFACTS.
 Performance is not guaranteed, and multi-module experiments are very likely not to
 work without customization. 
 
-1. Create an experiment (e.g., ```experiments/onemodule```) that invokes only the module of interest.
-2. ```python3 runFACTS.py --shellscript experiments/onemodule > test.sh```
-3. ```source test.sh```
+1. Create an experiment (e.g., ``experiments/onemodule``) that invokes only the module of interest.
+
+2. Create a shell scripts that executes the experiment by calling ``runFACTS`` with the ``--shellscript`` argument. For example::
+
+    python3 runFACTS.py --shellscript experiments/onemodule > test.sh
+    
+3. Execute the shell script. For example::
+
+    source test.sh
