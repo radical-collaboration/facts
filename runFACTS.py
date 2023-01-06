@@ -25,6 +25,11 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
     yaml.dump(workflows, f)
     f.close()
 
+    # write location file if none exists
+    if not os.path.isfile(os.path.join(exp_dir, "location.lst")):
+        with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:
+            templocationfile.write("New_York\t12\t40.70\t-74.01")
+
     # Print out PST info if in debug mode
     if debug_mode:
         print_experimentsteps(experimentsteps)
@@ -39,7 +44,7 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
 
     # Print out shell script if in shell script mode
     if makeshellscript:
-        print_experimentsteps_script(experimentsteps)
+        print_experimentsteps_script(experimentsteps, exp_dir=exp_dir)
         sys.exit(0)
 
     # Does the output directory exist? If not, make it
@@ -84,9 +89,6 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
     amgr.resource_desc = rcfg['resource-desc']
 
     # Load the localization list
-    if not os.path.isfile(os.path.join(exp_dir, "location.lst")):
-        with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:
-            templocationfile.write("New_York\t12\t40.70\t-74.01")
     amgr.shared_data = [os.path.join(exp_dir, "location.lst")]
 
     for step, pipelines in experimentsteps.items():
@@ -100,7 +102,6 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
 
     # Close the application manager
     amgr.terminate()
-
 
 def print_workflows(workflows):
 
@@ -135,7 +136,7 @@ def print_experimentsteps(experimentsteps):
         print_pipeline(pipelines)
         print('')
 
-def print_experimentsteps_script(experimentsteps):
+def print_experimentsteps_script(experimentsteps, exp_dir = None):
 
     print('#!/bin/bash\n')
 
@@ -153,6 +154,11 @@ def print_experimentsteps_script(experimentsteps):
         print('\n#EXPERIMENT STEP: ', this_step, '\n')
         for p in pipelines:
             print("\n# - Pipeline {}:\n\n".format(p.name))
+            print("PIPELINEDIR=$WORKDIR/{}".format(p.name))
+            print('mkdir -p $PIPELINEDIR\n')
+            print('cd $BASEDIR')
+            if len(exp_dir)>0:
+                print("cp {}/location.lst $PIPELINEDIR".format(exp_dir))
             for s in p.stages:
                 print("\n# ---- Stage {}:\n".format(s.name))
                 for t in s.tasks:
@@ -160,10 +166,10 @@ def print_experimentsteps_script(experimentsteps):
                     print('cd $BASEDIR')
                     if 'upload_input_data' in tdict.keys():
                         if len(tdict['upload_input_data']) > 0:
-                            print('cp ' + ' '.join(map(str,t['upload_input_data'])) + ' $WORKDIR')
+                            print('cp ' + ' '.join(map(str,t['upload_input_data'])) + ' $PIPELINEDIR')
                     #if 'copy_input_data' in tdict.keys():
 
-                    print('cd $WORKDIR')
+                    print('cd $PIPELINEDIR')
 
                     if 'pre_exec' in tdict.keys():
                         print('\n'.join(map(str,t['pre_exec'])))
