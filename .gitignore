@@ -1,14 +1,10 @@
 .DS_Store
 *.pkl
 /re.session*
-/experiments/test*
 /modules-data/*.tgz
-/modules/*/*/test/output*
-/modules/*/test/output*
 /modules/emulandice/shared/packrat
 /modules/emulandice/shared/*gz
 \#*
-test.fortamsin
 
 # C extensions
 *.so
@@ -49,7 +45,6 @@ nosetests.xml
 .idea/
 
 makefile
-
 
 # File for running runFACTS.py
 /resources/resource_amarel.yml
