@@ -2,10 +2,6 @@
 Framework for Assessing Changes To Sea-level (FACTS)
 ****************************************************
 
-.. image:: https://readthedocs.org/projects//badge/fact-sealevel?version=latest
-   :target: http://fact-sealevel.readthedocs.io/en/latest/?badge=latest
-   :alt: Documentation Status
-
 `The Framework for Assessing Changes To Sea-level (FACTS) <https://github.com/radical-collaboration/facts>`_
 is an open-source modular, scalable, and extensive framework for global mean,
 regional, and extreme sea level projection that is designed to support the
