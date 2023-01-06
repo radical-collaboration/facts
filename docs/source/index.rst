@@ -37,6 +37,4 @@ FACTS is released under the
 Indices and tables
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
