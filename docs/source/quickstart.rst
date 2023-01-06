@@ -23,9 +23,9 @@ Installing and Using FACTS
 
   - Run MongoDB from a container. On a system with Singularity installed, this looks something like::
 
-    mkdir mongo
-    singularity build --sandbox mongo/ docker://mongo
-    singularity run -w mongo &.
+      mkdir mongo
+      singularity build --sandbox mongo/ docker://mongo
+      singularity run -w mongo &.
 
   - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
     team via email or by opening an issue in this repository.
@@ -37,7 +37,7 @@ Installing and Using FACTS
     . ve3/bin/activate
     pip install --upgrade setuptools pip wheel
     pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts
-    pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq.
+    pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq
 
 5. Test your install by running the dummy experiment::
 
@@ -46,7 +46,7 @@ Installing and Using FACTS
 6. Create a new experiment. For example::
 
     mkdir test
-    cp -r experiments/coupling.ssp585/config.yml experiments/coupling.ssp585/locations.lst test
+    cp -r experiments/coupling.ssp585/config.yml test
 
 7. Run your experiment::
 
@@ -92,6 +92,12 @@ This can be done using an experimental shell-script writing feature in runFACTS.
 Performance is not guaranteed, and multi-module experiments are very likely not to
 work without customization. 
 
-1. Create an experiment (e.g., ```experiments/onemodule```) that invokes only the module of interest.
-2. ```python3 runFACTS.py --shellscript experiments/onemodule > test.sh```
-3. ```source test.sh```
+1. Create an experiment (e.g., ``experiments/onemodule``) that invokes only the module of interest.
+
+2. Create a shell scripts that executes the experiment by calling ``runFACTS`` with the ``--shellscript`` argument. For example::
+
+    python3 runFACTS.py --shellscript experiments/onemodule > test.sh
+    
+3. Execute the shell script. For example::
+
+    source test.sh
