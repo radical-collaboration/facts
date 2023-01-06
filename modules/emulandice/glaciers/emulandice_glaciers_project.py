@@ -154,6 +154,10 @@ def emulandice_project_glaciers(pipeline_id, icesource="Glaciers"):
 	gic_global_slr = np.sum(samples, axis=0)
 	WriteNetCDF(gic_global_slr, None, targyears, baseyear, scenario, nsamps, pipeline_id)
 
+	# output projections for each region as netcdf
+	for i in np.arange(len(samples)):
+		WriteNetCDF(samples[i],"glac{0}".format(i+1),targyears,baseyear,scenario,nsamps,pipeline_id)
+
 	# Done
 	return(None)
 
