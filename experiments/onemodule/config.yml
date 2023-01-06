@@ -1,14 +1,12 @@
 global-options:
     nsamps: 2000
-    scenario: ssp126
+    scenario: rcp26
     pyear_start: 2020
     pyear_end: 2150
     pyear_step: 10
     baseyear: 2005
 
-climate_step:
-    temperature:
-        module_set: "fair"
-        module: "temperature"
-        generates_climate_output: true
-
+sealevel_step:
+    deconto16:
+        module_set: "deconto16"
+        module: "AIS"
