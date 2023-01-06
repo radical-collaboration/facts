@@ -46,7 +46,26 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
-
+    download_output_data:
+      - "%PIPELINE_ID%_glac1_globalsl.nc"
+      - "%PIPELINE_ID%_glac2_globalsl.nc"
+      - "%PIPELINE_ID%_glac3_globalsl.nc"
+      - "%PIPELINE_ID%_glac4_globalsl.nc"
+      - "%PIPELINE_ID%_glac5_globalsl.nc"
+      - "%PIPELINE_ID%_glac6_globalsl.nc"
+      - "%PIPELINE_ID%_glac7_globalsl.nc"
+      - "%PIPELINE_ID%_glac8_globalsl.nc"
+      - "%PIPELINE_ID%_glac9_globalsl.nc"
+      - "%PIPELINE_ID%_glac10_globalsl.nc"
+      - "%PIPELINE_ID%_glac11_globalsl.nc"
+      - "%PIPELINE_ID%_glac12_globalsl.nc"
+      - "%PIPELINE_ID%_glac13_globalsl.nc"
+      - "%PIPELINE_ID%_glac14_globalsl.nc"
+      - "%PIPELINE_ID%_glac15_globalsl.nc"
+      - "%PIPELINE_ID%_glac16_globalsl.nc"
+      - "%PIPELINE_ID%_glac17_globalsl.nc"
+      - "%PIPELINE_ID%_glac18_globalsl.nc"
+      - "%PIPELINE_ID%_glac19_globalsl.nc"
 
 postprocess:
   task1:
