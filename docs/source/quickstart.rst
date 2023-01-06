@@ -8,26 +8,26 @@ Installing and Using FACTS
 
 1. Clone the FACTS repository::
 
-    git clone git@github.com:radical-collaboration/facts.git.
+    git clone https://github.com/radical-collaboration/facts.git
 
-2. Download modules-data from
-   https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have
-   multiple users of FACTS, you might want to put these ~30 GB of files in a
-   common location and soft-link to each user's directory.)
+2. Download modules-data.
 
-3. Install MongoDB server. Follow the official documentation:
+   Archived versions are available on Zenodo at doi:10.5281/zenodo.7478191 and doi:10.5281/zenodo.7478447 (note, split between
+   two Zenodo entries because of size limitations), while a development version is currently synced at 
+   https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put
+   these ~60 GB of files in a common location and soft-link to each user's directory.)
+
+3. Set up and launch MongoDB server. Options include:
 
   - `Install MongoDB Community Edition on Linux <https://www.mongodb.com/docs/manual/administration/install-on-linux/>`_
 
-  Alternatively, you can run MonogoDB and from a container. On a system with
-  Singularity installed, this looks something like::
+  - Run MongoDB from a container. On a system with Singularity installed, this looks something like::
 
     mkdir mongo
     singularity build --sandbox mongo/ docker://mongo
     singularity run -w mongo &.
 
-  If these options do not work for you, RADICAL runs a MongoDB server that can
-  be used by FACTS users. Ask for MongoDB parameters by writing to the FACTS
+  - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
   team via email or by opening an issue in this repository.
 
 4. Create and activate a Python virtual environment, and install FACTS's Python
@@ -39,10 +39,17 @@ Installing and Using FACTS
     pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts
     pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq.
 
-5. Execute FACTS::
+5. Test your install by running the dummy experiment::
+
+    python3 runFACTS.py experiments/dummy
+
+6. Create a new experiment. For example::
 
     mkdir test
     cp -r experiments/coupling.ssp585/config.yml experiments/coupling.ssp585/locations.lst test
+
+7. Run your experiment::
+
     python3 runFACTS.py test.
 
 Note that if you are running FACTS using localhost as a resource, all the input
