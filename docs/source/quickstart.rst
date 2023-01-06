@@ -37,7 +37,7 @@ Installing and Using FACTS
     . ve3/bin/activate
     pip install --upgrade setuptools pip wheel
     pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts
-    pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq.
+    pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq
 
 5. Test your install by running the dummy experiment::
 
@@ -46,7 +46,7 @@ Installing and Using FACTS
 6. Create a new experiment. For example::
 
     mkdir test
-    cp -r experiments/coupling.ssp585/config.yml experiments/coupling.ssp585/locations.lst test
+    cp -r experiments/coupling.ssp585/config.yml test
 
 7. Run your experiment::
 
