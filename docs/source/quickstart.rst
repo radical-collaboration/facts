@@ -28,7 +28,7 @@ Installing and Using FACTS
     singularity run -w mongo &.
 
   - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
-  team via email or by opening an issue in this repository.
+    team via email or by opening an issue in this repository.
 
 4. Create and activate a Python virtual environment, and install FACTS's Python
    dependences in it. Using `venv`::
