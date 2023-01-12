@@ -213,7 +213,7 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	id_var[:] = site_id
 	year_var[:] = proj_years
 	q_var[:] = proj_qnts
-	localslq[:] = np.quantile(lcl_msl_samples,proj_qnts) / 1000.0  # Convert to meters
+	localslq[:] = np.quantile(lcl_msl_samples,proj_qnts) 
 	heights_var[:] = testz
 	loc_var[:] = loc
 	mhhw_var[:] = mhhw
