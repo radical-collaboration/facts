@@ -1,0 +1,17 @@
+Component            Module                subModule               DataFile
+WAIS                 ipccar5               icesheets                ar5AIS.ipccar5.icesheets_WAIS_localsl.nc
+EAIS                 ipccar5               icesheets                ar5AIS.ipccar5.icesheets_EAIS_localsl.nc
+AIS                  larmip                AIS                      larmip.larmip.AIS_localsl.nc
+AIS                  deconto21             AIS                      deconto21.deconto21.AIS_AIS_localsl.nc
+AIS                  bamber19              icesheets                bamber19.bamber19.icesheets_AIS_localsl.nc
+#
+GrIS                 FittedISMIP           GrIS                     GrIS1f.FittedISMIP.GrIS_GIS_localsl.nc
+GrIS                 bamber19              icesheets                bamber19.bamber19.icesheets_GIS_localsl.nc
+#
+Glaciers             ipccar5               glaciers                 ar5glaciers.ipccar5.glaciers_localsl.nc
+#
+LWS                  ssp                   landwaterstorage         lws.ssp.landwaterstorage_localsl.nc
+#
+TE                   tlm                   sterodynamics            ocean.tlm.sterodynamics_localsl.nc
+#
+VLM                  kopp14                verticallandmotion       k14vlm.kopp14.verticallandmotion_localsl.nc

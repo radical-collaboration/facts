@@ -1,0 +1,41 @@
+dataID        Component      Module              sub_Module              DataFile
+cplng         GSAT           fair                temperature             temperature.fair.temperature_gsat.nc
+#
+cplng         Glaciers       emulandice          glaciers                emuglaciers.emulandice.glaciers_globalsl.nc
+cplng         Glaciers       ipccar5             glaciers                ar5glaciers.ipccar5.glaciers_globalsl.nc
+ar5k14        Glaciers       kopp14              glaciers                k14glaciers.kopp14.glaciers_globalsl.nc
+#ar5k14        Glaciers       ipccar5             glaciers                ar5glaciers.ipccar5.glaciers_globalsl.nc
+#ar5k14        Glaciers       ipccar6             gmipemuglaciers         XXX             
+#
+cplng         AIS            bamber19            icesheets                bamber19.bamber19.icesheets_AIS_globalsl.nc
+cplng         AIS            deconto21           AIS                     deconto21.deconto21.AIS_AIS_globalsl.nc
+cplng         AIS            emulandice          AIS                     emuAIS.emulandice.AIS_globalsl.nc
+cplng         AIS            ipccar5             icesheets               ar5AIS.ipccar5.icesheets_AIS_globalsl.nc
+ar5k14        AIS            kopp14              icesheets               k14icesheets.kopp14.icesheets_AIS_globalsl.nc
+cplng         AIS            larmip              AIS                     larmip.larmip.AIS_globalsl.nc
+#ar5k14        AIS            ipccar5             icesheets               ar5icesheets.ipccar5.icesheets_AIS_globalsl.nc
+#ar5k14        AIS            ipccar6             ismipemuicesheets       XXX
+#ar5k14        AIS            deconto16           AIS                     XXX
+#ar5k14        AIS            ipccar6             larmipAIS               XXX
+#
+cplng         GrIS           bamber19              icesheets             bamber19.bamber19.icesheets_GIS_globalsl.nc
+cplng         GrIS           emulandice          GrIS                    emuGrIS.emulandice.GrIS_globalsl.nc 
+cplng         GrIS           FittedISMIP         GrIS                    GrIS1f.FittedISMIP.GrIS_GIS_globalsl.nc
+ar5k14        GrIS           ipccar5             icesheets               ar5icesheets.ipccar5.icesheets_GIS_globalsl.nc
+ar5k14        GrIS           kopp14              icesheets               k14icesheets.kopp14.icesheets_GIS_globalsl.nc
+#ar5k14        GrIS           ipccar6             ismipemuicesheets       XXX
+#
+ar5k14        LWS            kopp14              landwaterstorage        k14lws.kopp14.landwaterstorage_globalsl.nc
+cplng         LWS            ssp                 landwaterstorage        lws.ssp.landwaterstorage_globalsl.nc
+#
+ar5k14        TE             ipccar5             thermalexpansion        ar5TE.ipccar5.thermalexpansion_globalsl.nc
+cplng         TE             tlm                 sterodynamics           ocean.tlm.sterodynamics_globalsl.nc
+
+
+
+
+
+
+
+
+

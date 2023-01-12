@@ -1,0 +1,8 @@
+Component           Workflow               DataFile
+total               wf1e                   total.workflow.wf1e.local.nc
+total               wf1f                   total.workflow.wf1f.local.nc
+total               wf2e                   total.workflow.wf2e.local.nc
+total               wf2f                   total.workflow.wf2f.local.nc
+total               wf3e                   total.workflow.wf3e.local.nc
+total               wf3f                   total.workflow.wf3f.local.nc
+total               wf4                    total.workflow.wf4.local.nc
