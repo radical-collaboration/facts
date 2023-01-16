@@ -1,0 +1,33 @@
+global-options:
+    nsamps: 2000
+    scenario: ssp126
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+
+sealevel_step:
+    dummy:
+        module_set: "facts"
+        module: "dummy"
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+            - "wf3e"
+            - "wf3f"
+            - "wf4"
+
+esl_step:
+    extremesealevel:
+        loop_over_workflows: true
+        module_set: "extremesealevel"
+        module: "pointsoverthreshold"
+        options:
+            target_years: 2050,2100
+            total_localsl_file: "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc" 
+            input_data_file:
+              - "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc"
+
+

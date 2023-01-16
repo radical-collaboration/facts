@@ -113,16 +113,16 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     # If there's a user-defined input file, add it to the upload list
 
-    if "input_data_file" in ecfg.keys():
-        for x in ecfg['input_data_file']:
-            fp = os.path.join(ecfg['exp_dir'], "input", x)
+    if "input_data_file" in ecfg['options'].keys():
+         for x in ecfg['options']['input_data_file']:
+            fp = os.path.join(ecfg['exp_dir'], "input", mvar_replace_dict(mvar_dict,x))
             if not os.path.isfile(fp):
                 raise(FileNotFoundError("input_data_file: " + fp + " not found!"))
             tcfg['upload_input_data'].append(fp)
 
-    if "input_compressed_data_file" in ecfg.keys():
-        for x in ecfg['input_compressed_data_file']:
-            fp = os.path.join(ecfg['exp_dir'], "input", x)
+    if "input_compressed_data_file" in ecfg['options'].keys():
+        for x in ecfg['options']['input_compressed_data_file']:
+            fp = os.path.join(ecfg['exp_dir'], "input", mvar_replace_dict(mvar_dict,x))
             if not os.path.isfile(fp):
                 raise(FileNotFoundError("input_compressed_data_file: " + fp + " not found!"))
             tcfg['upload_and_extract_input_data'].append(fp)
@@ -380,7 +380,8 @@ def ParseExperimentConfig(exp_dir):
         ecfg = yaml.safe_load(fp)
 
     # Reserved configuration entries
-    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options", "multistep", "include_in_workflow"]
+    reserved_econfig_entries = ["global-options", "total-options", "extremesealevel-options", "multistep",
+        "include_in_workflow","options","input_data_file","input_compressed_data_file"]
 
     # Are there global options?
     if "global-options" in ecfg.keys():
