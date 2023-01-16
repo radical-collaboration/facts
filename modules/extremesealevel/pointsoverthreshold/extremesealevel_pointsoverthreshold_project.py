@@ -152,10 +152,10 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	allowances = testz_mat[idx_alwfreq_fut,np.arange(0,len(idx_alwfreq_fut))] - testz_mat[idx_alwfreq_hist,np.arange(0,len(idx_alwfreq_hist))]
 
 	#get quantiles from these
-	hist_freqs_qnts = np.nanpercentile(hist_freqs_mat,proj_qnts,axis=1)
-	fut_freqs_qnts = np.nanpercentile(fut_freqs_mat,proj_qnts,axis=1)
-	allowances_qnts = np.nanpercentile(allowances,proj_qnts)
-	ampfactors_qnts = np.nanpercentile(ampfactors,proj_qnts)
+	hist_freqs_qnts = np.nanquantile(hist_freqs_mat,proj_qnts,axis=1)
+	fut_freqs_qnts = np.nanquantile(fut_freqs_mat,proj_qnts,axis=1)
+	allowances_qnts = np.nanquantile(allowances,proj_qnts)
+	ampfactors_qnts = np.nanquantile(ampfactors,proj_qnts)
 
 	
 	#-------------------------------------------------------------------------------------
