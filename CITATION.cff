@@ -26,7 +26,7 @@ authors:
 preferred-citation:
   title: "The Framework for Assessing Changes To Sea-Level (FACTS) v1.0-rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change"
   type: article
-  journal: "Geoscientific Model Development"
+  journal: "EGUsphere [preprint]"
   authors:
   - family-names: "Kopp"
     given-names: "Robert E."
@@ -60,7 +60,6 @@ preferred-citation:
     given-names: "Matthew D."
   - family-names: "Smith"
     given-names: "Chris"
-
-  year: in prep.
-  #doi: 10.5281/zenodo.1234
-  #date-released: 2022-11-09
+  year: 2023
+  doi: 10.5194/egusphere-2023-14
+  date-released: 2023-01-05
