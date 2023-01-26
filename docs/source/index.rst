@@ -20,7 +20,7 @@ FACTS is released under the
 
 .. note:: Please use the following to reference Ensemble Toolkit
 
-   Kopp, R. E., Garner, G. G., Hermans, T. H. J., Jha, S., Kumar, P., Slangen, A. B. A., Turilli, M., Edwards, T. L., Gregory, J. M., Koubbe, G., Levermann, A., Merzky, A., Nowicki, S., Palmer, M. D., & Smith, C. (in prep.). The Framework for Assessing Changes To Sea-Level (FACTS) v1.0-rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change. Geoscientific Model Development.
+   Kopp, R. E., Garner, G. G., Hermans, T. H. J., Jha, S., Kumar, P., Slangen, A. B. A., Turilli, M., Edwards, T. L., Gregory, J. M., Koubbe, G., Levermann, A., Merzky, A., Nowicki, S., Palmer, M. D., & Smith, C. (2023). The Framework for Assessing Changes To Sea-Level (FACTS) v1.0-rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change. EGUsphere [preprint]. https://doi.org/10.5194/egusphere-2023-14
 
 **Project Github Page:** https://github.com/radical-collaboration/facts
 
