@@ -73,7 +73,8 @@ def FittedISMIP_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, cye
 	samps_dict = {}
 
 	# Generate the indices for the temperature samples
-	temp_sample_idx = np.random.choice(np.arange(temp_data.shape[0]), nsamps)
+	#temp_sample_idx = np.random.choice(np.arange(temp_data.shape[0]), nsamps)
+	temp_sample_idx = np.arange(nsamps)
 
 	# Generate a list of quantiles for the trend samples
 	trend_q = np.random.random_sample(nsamps)

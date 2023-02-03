@@ -227,6 +227,7 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 	z=np.random.standard_normal(ntsamps)[:,np.newaxis]
 
 	# For each quantity, mean + standard deviation * normal random number
+	# NEEDS TO BE FIXED TO USE SAMPS RATHER THAN RESANMPLING
 	zt = temp_mean + (temp_sd * z)
 	zit = inttemp_mean + (inttemp_sd * z)
 

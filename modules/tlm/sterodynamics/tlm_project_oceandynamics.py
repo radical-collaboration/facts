@@ -211,7 +211,8 @@ def tlm_project_thermalexpansion(seed, nsamps, pipeline_id):
 	include_models = my_data['include_models']
 
 	# Generate indices that sample from OHC values
-	ohc_samps_idx = np.random.choice(np.arange(ohc_samps.shape[0]), nsamps)
+	# ohc_samps_idx = np.random.choice(np.arange(ohc_samps.shape[0]), nsamps)
+	ohc_samps_idx = np.arange(names)
 	ohc_samps = ohc_samps[ohc_samps_idx,:]
 
 	# Generate samples assuming normal distribution

@@ -34,6 +34,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	except:
 		print("Cannot open data file\n")
 
+	# NEEDS TO BE FIXED TO USE SAMPLES RATHER THAN MEAN AND SD
 	# Extract the data variables
 	my_data = pickle.load(f)
 	f.close()
