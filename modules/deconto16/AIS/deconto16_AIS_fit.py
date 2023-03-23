@@ -32,5 +32,5 @@ if __name__ == '__main__':
 	
 	# Run the preprocessing stage with the provided arguments
 	dp16_fit_icesheet(args.pipeline_id)
-	
+
 	sys.exit()

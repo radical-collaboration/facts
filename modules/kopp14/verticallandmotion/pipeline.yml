@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml"
-    script: "kopp14_preprocess_verticallandmotion.py"
+    script: "kopp14_verticallandmotion_preprocess.py"
     options:
       - "pipeline_id"
     upload_and_extract_input_data:
@@ -17,7 +17,7 @@ fit:
   task1:
     executable: "python3"
     pre_exec: []
-    script: "kopp14_fit_verticallandmotion.py"
+    script: "kopp14_verticallandmotion_fit.py"
     options:
       - "pipeline_id"
 
@@ -25,14 +25,14 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "kopp14_project_verticallandmotion.py"
+    script: "kopp14_verticallandmotion_project.py"
     options:
       - "pipeline_id"
 
 postprocess:
   task1:
     executable: "python3"
-    script: "kopp14_postprocess_verticallandmotion.py"
+    script: "kopp14_verticallandmotion_postprocess.py"
     options:
       - "nsamps"
       - "seed"

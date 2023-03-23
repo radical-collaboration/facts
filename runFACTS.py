@@ -25,6 +25,7 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
     yaml.dump(workflows, f)
     f.close()
 
+
     # write location file if none exists
     if not os.path.isfile(os.path.join(exp_dir, "location.lst")):
         with open(os.path.join(exp_dir, "location.lst"), 'w') as templocationfile:

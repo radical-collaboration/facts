@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
-    script: "kopp14_preprocess_oceandynamics.py"
+    script: "kopp14_oceandynamics_preprocess.py"
     options:
       - "scenario"
       - "baseyear"
@@ -33,7 +33,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "kopp14_fit_oceandynamics.py"
+    script: "kopp14_oceandynamics_fit.py"
     options:
       - "pipeline_id"
     copy_input_data:
@@ -46,7 +46,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "kopp14_project_oceandynamics.py"
+    script: "kopp14_oceandynamics_project.py"
     options:
       - "pipeline_id"
       - "nsamps"
@@ -64,7 +64,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "kopp14_postprocess_oceandynamics.py"
+    script: "kopp14_oceandynamics_postprocess.py"
     options:
       - "nsamps"
       - "seed"

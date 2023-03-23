@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: " numpy scipy netCDF4 pyyaml matplotlib"
-    script: "kopp14_preprocess_glaciers.py"
+    script: "kopp14_glaciers_preprocess.py"
     options:
       - "scenario"
       - "baseyear"
@@ -24,7 +24,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "kopp14_fit_glaciers.py"
+    script: "kopp14_glaciers_fit.py"
     options:
       - "pipeline_id"
     upload_input_data:
@@ -40,7 +40,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "kopp14_project_glaciers.py"
+    script: "kopp14_glaciers_project.py"
     options:
       - "nsamps"
       - "seed"
@@ -59,7 +59,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "kopp14_postprocess_glaciers.py"
+    script: "kopp14_glaciers_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"

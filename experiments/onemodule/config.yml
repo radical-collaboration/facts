@@ -1,4 +1,5 @@
 global-options:
+    rcfg-name: 'amarel'
     nsamps: 2000
     scenario: rcp26
     pyear_start: 2020

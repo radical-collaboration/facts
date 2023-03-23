@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml"
-    script: "NZInsarGPS_preprocess_verticallandmotion.py"
+    script: "NZInsarGPS_verticallandmotion_preprocess.py"
     options:
       - "pipeline_id"
       - "inputtype"
@@ -15,21 +15,21 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "NZInsarGPS_fit_verticallandmotion.py"
+    script: "NZInsarGPS_verticallandmotion_fit.py"
     options:
       - "pipeline_id"
 
 project:
   task1:
     executable: "python3"
-    script: "NZInsarGPS_project_verticallandmotion.py"
+    script: "NZInsarGPS_verticallandmotion_project.py"
     options:
       - "pipeline_id"
 
 postprocess:
   task1:
     executable: "python3"
-    script: "NZInsarGPS_postprocess_verticallandmotion.py"
+    script: "NZInsarGPS_verticallandmotion_postprocess.py"
     options:
       - "nsamps"
       - "seed"

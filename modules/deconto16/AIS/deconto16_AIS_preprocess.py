@@ -5,6 +5,8 @@ import os
 import sys
 import copy
 from netCDF4 import Dataset
+import psutil
+
 
 ''' dp_preprocess_icesheet.py
 
