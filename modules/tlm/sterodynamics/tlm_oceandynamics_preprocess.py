@@ -214,7 +214,7 @@ def tlm_preprocess_oceandynamics(scenario, modeldir, driftcorr, no_correlation, 
 	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "{}_config.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile, protocol=4)
 	outfile.close()
 
 	# Store the ZOSTOGA variables in a pickle
@@ -223,7 +223,7 @@ def tlm_preprocess_oceandynamics(scenario, modeldir, driftcorr, no_correlation, 
 
 	# Write the ZOSTOGA variables to a file
 	outfile = open(os.path.join(outdir, "{}_ZOSTOGA.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile, protocol=4)
 	outfile.close()
 
 
@@ -283,7 +283,7 @@ def tlm_preprocess_oceandynamics(scenario, modeldir, driftcorr, no_correlation, 
 
 	# Write the ZOS variables to a file
 	outfile = open(os.path.join(outdir, "{}_ZOS.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile, protocol=4)
 	outfile.close()
 
 
@@ -320,7 +320,7 @@ def tlm_preprocess_thermalexpansion(scenario, pipeline_id, fname):
 	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "{}_tlmdata.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile, protocol=4)
 	outfile.close()
 
 	return(None)
