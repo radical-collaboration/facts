@@ -3,7 +3,7 @@
 preprocess:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib psutil"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib psutil dask"
     script: "deconto16_AIS_preprocess.py"
     options:
       - "scenario"
