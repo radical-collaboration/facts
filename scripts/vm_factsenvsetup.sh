@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# This script will create a Docker environment that can run FACTS, starting with the command
+# This script will create an environment on a virtual machine that can run FACTS.
 #
-# docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
+# At least on an arm64 Mac, it will work in docker starting with the command:
+#
+#    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
 
 apt-get update -y
 apt-get install -y sudo systemctl gnupg wget curl apt-transport-https
