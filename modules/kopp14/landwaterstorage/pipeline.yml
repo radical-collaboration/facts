@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "kopp14_preprocess_landwaterstorage.py"
+    script: "kopp14_landwaterstorage_preprocess.py"
     options:
       - "dotriangular"
       - "includepokherl"
@@ -22,7 +22,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "kopp14_fit_landwaterstorage.py"
+    script: "kopp14_landwaterstorage_fit.py"
     options:
       - "pipeline_id"
     copy_input_data:
@@ -36,7 +36,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "kopp14_project_landwaterstorage.py"
+    script: "kopp14_landwaterstorage_project.py"
     options:
       - "nsamps"
       - "seed"
@@ -55,7 +55,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "kopp14_postprocess_landwaterstorage.py"
+    script: "kopp14_landwaterstorage_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"

@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "kopp14_preprocess_icesheets.py"
+    script: "kopp14_icesheets_preprocess.py"
     options:
       - "scenario"
       - "srocc"
@@ -14,7 +14,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "kopp14_fit_icesheets.py"
+    script: "kopp14_icesheets_fit.py"
     options:
       - "pipeline_id"
     upload_input_data:
@@ -29,7 +29,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "kopp14_project_icesheets.py"
+    script: "kopp14_icesheets_project.py"
     options:
       - "nsamps"
       - "seed"
@@ -60,7 +60,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "kopp14_postprocess_icesheets.py"
+    script: "kopp14_icesheets_postprocess.py"
     options:
       - "samp_type"
       - "locationfile"
