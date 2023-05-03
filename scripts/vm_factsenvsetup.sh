@@ -7,6 +7,8 @@
 #    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
 
 apt-get update -y
+
+# Install MonogDB
 apt-get install -y sudo systemctl gnupg wget curl apt-transport-https
 wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
@@ -17,6 +19,7 @@ apt-get install -y mongodb-org
 apt-get install -y python3-pip python3.8-venv git libnetcdf-dev python3-netcdf4
 apt-get install -y ssh iputils-ping slurm
 
+# Set up Python environment
 python3 -m venv ve3
 . ve3/bin/activate
 pip install --upgrade setuptools pip wheel
