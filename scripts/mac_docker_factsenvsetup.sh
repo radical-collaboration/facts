@@ -21,6 +21,9 @@ pip install --upgrade setuptools pip wheel
 pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts
 pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq pyyaml
 
+## Install R
+apt-get install -y r-base cmake
+
 systemctl start mongod
 
 sleep 5
