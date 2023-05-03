@@ -24,7 +24,8 @@ pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq pyyaml
 ## Install R
 apt-get install -y r-base cmake
 
-systemctl start mongod
+#systemctl start mongod
+/usr/bin/mongod --config /etc/mongod.conf --fork
 
 sleep 5
 
