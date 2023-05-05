@@ -14,7 +14,7 @@ case $MODE in
 
         FILE="emulandice_1.1.0.tar.gz"
         if [ -f $FILE ]; then
-            echo "$FILE alreadu exists."
+            echo "$FILE already exists."
         else
             echo "Building $FILE..."
             source emulandice_build.sh
@@ -22,7 +22,7 @@ case $MODE in
 
         FILE="emulandice_bundled_dependencies.tgz"
         if [ -f $FILE ]; then
-            echo "$FILE alreadu exists."
+            echo "$FILE already exists."
         else
             echo "Building $FILE..."
             source emulandice_bundle_dependencies.sh
