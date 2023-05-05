@@ -12,10 +12,12 @@ apt-get update -y
 
 # Install MonogDB following directions at
 # https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
-# (you will need to update the line amending the apt sources list if running on a distribution other than Ubuntu Focal)
+# (you will need to update the line amending the apt sources list if running on a distribution other than Ubuntu Jammy)
 
-apt-get install -y sudo gnupg wget curl apt-transport-https
-wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+apt-get install -y sudo gnupg curl apt-transport-https
+curl -fsSL https://pgp.mongodb.com/server-6.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg \
+   --dearmor
 echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 apt-get update -y
 apt-get install -y mongodb-org
