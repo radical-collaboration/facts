@@ -77,7 +77,7 @@ on your own recognizance.
 
 With Docker installed, you can launch an Ubuntu environment::
 
-    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
+    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:jammy.
 
 This command assumes you have facts installed in ``$HOME/facts`` and a
 writable scratch directory in ``$HOME/tmp``.

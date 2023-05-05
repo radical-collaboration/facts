@@ -4,7 +4,7 @@
 #
 # At least on an arm64 Mac, it will work in docker starting with the command:
 #
-#    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
+#    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:jammy
 
 FACTSROOT=/opt/facts
 
@@ -14,9 +14,9 @@ apt-get update -y
 # https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
 # (you will need to update the line amending the apt sources list if running on a distribution other than Ubuntu Focal)
 
-apt-get install -y sudo systemctl gnupg wget curl apt-transport-https
+apt-get install -y sudo gnupg wget curl apt-transport-https
 wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 apt-get update -y
 apt-get install -y mongodb-org
 
@@ -24,7 +24,7 @@ apt-get install -y mongodb-org
 /usr/bin/mongod --config /etc/mongod.conf --fork
 
 ## Install python
-apt-get install -y python3-pip python3.8-venv git libnetcdf-dev python3-netcdf4
+apt-get install -y python3-pip python3-venv git libnetcdf-dev python3-netcdf4
 apt-get install -y ssh iputils-ping slurm
 
 # Set up Python environment
