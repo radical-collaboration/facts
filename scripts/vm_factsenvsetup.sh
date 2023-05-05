@@ -6,14 +6,22 @@
 #
 #    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal
 
+FACTSROOT=/opt/facts
+
 apt-get update -y
 
-# Install MonogDB
+# Install MonogDB following directions at
+# https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+# (you will need to update the line amending the apt sources list if running on a distribution other than Ubuntu Focal)
+
 apt-get install -y sudo systemctl gnupg wget curl apt-transport-https
 wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 apt-get update -y
 apt-get install -y mongodb-org
+
+# Start Mongod
+/usr/bin/mongod --config /etc/mongod.conf --fork
 
 ## Install python
 apt-get install -y python3-pip python3.8-venv git libnetcdf-dev python3-netcdf4
@@ -29,10 +37,8 @@ pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq pyyaml
 ## Install R
 apt-get install -y r-base cmake
 
-#systemctl start mongod
-/usr/bin/mongod --config /etc/mongod.conf --fork
-
-sleep 5
+# configure emulandice
+$FACTSROOT/modules/emulandice/emulandice_config.sh
 
 # set up radical pilot sandbox
 
