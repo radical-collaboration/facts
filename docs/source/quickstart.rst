@@ -63,36 +63,34 @@ as this module set is a wrapper around separately developed R code (see https://
 
 8. Ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages.
 
-9. Build emulandice and a tar file of its associated R dependencies:
+9. Build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
-
-Using FACTS on a Mac
---------------------
-
-The RADICAL stack does not support MacOS. Therefore, to run on a Mac, you need
-to run within a Linux virtual machine. One way to do this is with a Docker
-container. Note this is not an officially supported solution, and you must do so
-on your own recognizance.
-
-With Docker installed, you can launch an Ubuntu environment::
-
-    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
-
-This command assumes you have facts installed in ``$HOME/facts`` and a
-writable scratch directory in ``$HOME/tmp``.
-
-Within this Ubuntu environment, the script ``vm_factsenvsetup.sh`` will
-install Mongo and a suitable Python environment, and run the dummy experiment.
-This script may also be a helpful guide for installing FACTS in other clean environments.
-
-This solution may also work on Windows, but has not been tested.
 
 Note that the data files for a FACTS experiment and transfered to the compute
 resource with each experiment run. Thus, while it might in principle be possible
 to run FACTS on your desktop and use a remote HPC resource, you probably don't
 want to do this. At a minimum, you will want to have a fast, high-capacity
 network connection to the resource.
+
+Using FACTS in a Virtual Machine
+--------------------------------
+
+The RADICAL stack does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need
+to run within a Linux virtual machine. One way to do this is with a Docker
+container. Note this is not an officially supported solution, and you must do so
+on your own recognizance.
+
+With Docker installed, you can launch an Ubuntu Focal environment::
+
+    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
+
+This command assumes you have facts cloned into ``$HOME/facts`` and a
+writable scratch directory in ``$HOME/tmp``. Within the container , ``$HOME/facts`` will mount as ``/opt/facts`` and ``$HOME/tmp`` will mount as ``/scratch``.
+
+Within this Ubuntu environment, the script ``vm_factsenvsetup.sh`` will
+install and launch Mongo, install a suitable Python environment, install R and the dependencies of the ``emulandice`` module,
+and run the dummy experiment. This script may also be a helpful guide for installing FACTS in other clean environments.
 
 Testing a module with a shell script
 ------------------------------------
