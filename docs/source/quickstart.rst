@@ -12,7 +12,7 @@ Installing and Using FACTS
 
 2. Download modules-data.
 
-   Archived versions are available on Zenodo at doi:10.5281/zenodo.7478191 and doi:10.5281/zenodo.7478447 (note, split between
+   Archived versions are available on Zenodo at https://doi.org/10.5281/zenodo.7478191 and https://doi.org/10.5281/zenodo.7478447 (note, split between
    two Zenodo entries because of size limitations), while a development version is currently synced at 
    https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put
    these ~60 GB of files in a common location and soft-link to each user's directory.)
@@ -54,29 +54,18 @@ Installing and Using FACTS
 
 Note that if you are running FACTS using localhost as a resource, all the input
 files for the experiment (which can be tens of GB) will get copied to
-```~/radical.pilot.sandbox```. If you have space limits on your home directory,
+``~/radical.pilot.sandbox``. If you have space limits on your home directory,
 you may therefore want to make this a symlink to a directory with fewer space
 limits prior to running.
 
-Using FACTS on a Mac
---------------------
+If you wish to run the ``emulandice`` module set, additional steps are necessary,
+as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/).
 
-The RADICAL stack does not support MacOS. Therefore, to run on a Mac, you need
-to run within a Linux environment. One way to do this is with a Docker
-container. Note this is not an officially supported solution, and you must do so
-on your own recognizance.
+8. Ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages.
 
-With Docker installed, you can launch an Ubuntu environment::
+9. Build ``emulandice`` and a tar file of its associated R dependencies::
 
-    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
-
-This command assumes you have facts installed in ```$HOME/facts``` and a
-writable scratch directory in ```$HOME/tmp```.
-
-Within this Ubuntu environment, the script mac_docker_factsenvsetup.sh will
-install Mongo and a suitable Python environment, and run the dummy experiment.
-
-This solution may also work on Windows, but has not been tested.
+    modules/emulandice/emulandice_config.sh
 
 Note that the data files for a FACTS experiment and transfered to the compute
 resource with each experiment run. Thus, while it might in principle be possible
@@ -84,13 +73,33 @@ to run FACTS on your desktop and use a remote HPC resource, you probably don't
 want to do this. At a minimum, you will want to have a fast, high-capacity
 network connection to the resource.
 
+Using FACTS in a Virtual Machine
+--------------------------------
+
+The RADICAL stack does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need
+to run within a Linux virtual machine. One way to do this is with a Docker
+container. Note this is not an officially supported solution, and you must do so
+on your own recognizance.
+
+With Docker installed, you can launch an Ubuntu Focal environment::
+
+    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
+
+This command assumes you have facts cloned into ``$HOME/facts`` and a
+writable scratch directory in ``$HOME/tmp``. Within the container , ``$HOME/facts`` will mount as ``/opt/facts`` and ``$HOME/tmp`` will mount as ``/scratch``.
+
+Within this Ubuntu environment, the script ``vm_factsenvsetup.sh`` will
+install and launch Mongo, install a suitable Python environment, install R and the dependencies of the ``emulandice`` module,
+and run the dummy experiment. This script may also be a helpful guide for installing FACTS in other clean environments.
+
 Testing a module with a shell script
 ------------------------------------
 
-In some cases, it may be desirable to call a FACTS module outside the EnTK framework.
-This can be done using an experimental shell-script writing feature in runFACTS.
-Performance is not guaranteed, and multi-module experiments are very likely not to
-work without customization. 
+In some cases, particularly during module development, it may be desirable to call
+a FACTS module outside the EnTK framework. This can be done using an experimental
+shell-script writing feature in runFACTS. Performance is not guaranteed, and
+multi-module experiments are very likely not to work without customization, as
+module coupling within FACTS is handled by the EnTK framework. 
 
 1. Create an experiment (e.g., ``experiments/onemodule``) that invokes only the module of interest.
 
