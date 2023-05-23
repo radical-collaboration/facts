@@ -11,7 +11,7 @@ import fnmatch
 import re
 
 
-def ReadResonpseFunctions(model, Tlen=None):
+def ReadResponseFunctions(model, Tlen=None):
 
 	# Read in the RF from the files
 	fname = "./RFunctions/RF_{}_BM08_R1.dat".format(model)
@@ -169,7 +169,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	for model_idx, this_model in enumerate(models):
 
 		# Read in the appropriate model's response functions
-		RF_R1, RF_R2, RF_R3, RF_R4, RF_R5 = ReadResonpseFunctions(this_model, Tlen)
+		RF_R1, RF_R2, RF_R3, RF_R4, RF_R5 = ReadResponseFunctions(this_model, Tlen)
 
 		# Loop over the number of samples for this model
 		for i in np.arange(samps_per_model[model_idx]):
