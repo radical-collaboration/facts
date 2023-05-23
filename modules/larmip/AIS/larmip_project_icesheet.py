@@ -152,6 +152,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	samps_per_model = np.array([nsamps // nmodels for x in range(nmodels)])
 	remainder_samps = nsamps % nmodels
 	samps_per_model[rnd.sample(range(nmodels), k=remainder_samps)] += 1
+	rnd.shuffle(samps_per_model)
 
 	# Initialize the sea-level sample variables
 	sl_r1 = []	# EAIS
