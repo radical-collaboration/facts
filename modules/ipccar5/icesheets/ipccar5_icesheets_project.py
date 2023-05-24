@@ -134,11 +134,18 @@ def time_projection(startratemean, startratepm, finalrange, nr, nt, data_years, 
 	# where a is 0.5*acceleration and b is start rate. Hence
 	#		a = S/t**2-b/t
 	momm = 1e-3 # convert mm yr-1 to m yr-1
-	startrate = (startratemean + startratepm * np.array([-1,1], dtype=np.float)) * momm
+	
+	# CHANGED NP.FLOAT TO FLOAT AS NP.FLOAT IS DEPRECIATED
+	#startrate = (startratemean + startratepm * np.array([-1,1], dtype=np.float)) * momm
+	startrate = (startratemean + startratepm * np.array([-1,1], dtype=float)) * momm 
 	finalyr = np.arange(nfinal) - nfinal + nyr + 1 # last element ==nyr
+	
 	# If nfinal=1, the following is equivalent to
 	# np.array(finalrange,dtype=np.float)/nyr**2-startrate/nyr
-	acceleration = (np.array(finalrange, dtype=np.float) - startrate * finalyr.mean()) / (finalyr**2).mean()
+	
+	# CHANGED NP.FLOAT TO FLOAT AS NP.FLOAT IS DEPRECIATED
+	#acceleration = (np.array(finalrange, dtype=np.float) - startrate * finalyr.mean()) / (finalyr**2).mean()
+	acceleration = (np.array(finalrange, dtype=float) - startrate * finalyr.mean()) / (finalyr**2).mean()
 
 	# Create a field of elapsed time in years
 	time = data_years
