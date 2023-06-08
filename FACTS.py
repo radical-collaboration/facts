@@ -104,6 +104,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     copy_list = []
 
     t.pre_exec = []     # Pre exec let you load modules, set environment before executing the workload
+    t.pre_exec.append("pip install psutil") #ADDED 06/08/2023 TO INSTALL PSUTILS FOR ALL MODULES FOR MEM DIAG
 
     if not "upload_input_data" in tcfg.keys():
         tcfg['upload_input_data'] = []
