@@ -3,8 +3,14 @@
 Quick Start
 ===========
 
-Installing and Using FACTS
---------------------------
+FACTS uses `RADICAL-EnsembleToolkit (EnTK) <https://radicalentk.readthedocs.io/en/stable/>_` and `RADICAL-Pilot <https://radicalpilot.readthedocs.io/en/stable/>_` to execute its modules. While the RADICAL tools are specifically designed for executing on a range of `supported <https://radicalpilot.readthedocs.io/en/stable/supported.html>_` high performance computing (HPC) platforms, FACTS can also execute on a GNU/Linux workstation, virtual machine or container. Here we offer instructions for each deployment scenario but if you want to run FACTS at scale on an HPC platform, please `contact us <https://github.com/radical-collaboration/facts/issues>_` and we will be happy to offer tailored support.
+
+.. note:: Starting from version 1.4, the RADICAL tools will not require MongoDB anymore.
+
+.. warning:: FACTS MUST be used within a dedicated Python virtual environment. You can use `venv`, `conda` or `virtualenv` to create one. If you try to install FACTS system-wide, it will fail.
+
+Installing and Using FACTS on a GNU/Linux Workstation
+-----------------------------------------------------
 
 1. Clone the FACTS repository::
 
@@ -30,8 +36,7 @@ Installing and Using FACTS
   - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
     team via email or by opening an issue in this repository.
 
-4. Create and activate a Python virtual environment, and install FACTS's Python
-   dependences in it. Using `venv`::
+4. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>_` for further details. Using `venv`::
 
     python3 -m venv ve3
     . ve3/bin/activate
@@ -52,14 +57,9 @@ Installing and Using FACTS
 
     python3 runFACTS.py test
 
-Note that if you are running FACTS using localhost as a resource, all the input
-files for the experiment (which can be tens of GB) will get copied to
-``~/radical.pilot.sandbox``. If you have space limits on your home directory,
-you may therefore want to make this a symlink to a directory with fewer space
-limits prior to running.
+Note that if you are running FACTS using localhost as a resource, all the input files for the experiment (which can be tens of GB) will get copied to ``~/radical.pilot.sandbox``. If you have space limits on your home directory, you may want to make this a symlink to a directory with fewer space limits prior to running FACTS.
 
-If you wish to run the ``emulandice`` module set, additional steps are necessary,
-as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/).
+If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/).
 
 8. Ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages.
 
@@ -73,24 +73,22 @@ to run FACTS on your desktop and use a remote HPC resource, you probably don't
 want to do this. At a minimum, you will want to have a fast, high-capacity
 network connection to the resource.
 
-Using FACTS in a Virtual Machine
---------------------------------
+Installing and Using FACTS on a GNU/Linux Virtual Machine or Container
+----------------------------------------------------------------------
 
-The RADICAL stack does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need
-to run within a Linux virtual machine. One way to do this is with a Docker
-container. Note this is not an officially supported solution, and you must do so
-on your own recognizance.
+The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need to run within a Linux virtual machine or container. 
 
-With Docker installed, you can launch an Ubuntu Focal environment::
+.. warning:: These are not officially supported solutions; use them on your own recognizance.
+
+To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>_` or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
+
+Alternatively, you can use a Docker container. With Docker installed, you can launch an Ubuntu Focal environment::
 
     docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
 
-This command assumes you have facts cloned into ``$HOME/facts`` and a
-writable scratch directory in ``$HOME/tmp``. Within the container , ``$HOME/facts`` will mount as ``/opt/facts`` and ``$HOME/tmp`` will mount as ``/scratch``.
+This command assumes you have facts cloned into ``$HOME/facts`` and a writable scratch directory in ``$HOME/tmp``. Within the container , ``$HOME/facts`` will mount as ``/opt/facts`` and ``$HOME/tmp`` will mount as ``/scratch``.
 
-Within this Ubuntu environment, the script ``vm_factsenvsetup.sh`` will
-install and launch Mongo, install a suitable Python environment, install R and the dependencies of the ``emulandice`` module,
-and run the dummy experiment. This script may also be a helpful guide for installing FACTS in other clean environments.
+Within this Ubuntu environment, the script `vm_factsenvsetup.sh <https://github.com/radical-collaboration/facts/blob/main/scripts/vm_factsenvsetup.sh>_` will install and launch Mongo, install a suitable Python environment, install R and the dependencies of the ``emulandice`` module, and run the dummy experiment. This script may also be a helpful guide for installing FACTS in other clean environments.
 
 Testing a module with a shell script
 ------------------------------------
