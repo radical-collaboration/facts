@@ -82,7 +82,7 @@ The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac 
 
 To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>`_ or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
 
-Alternatively, you can use a Docker container. With Docker installed, you can launch an Ubuntu Focal environment::
+Alternatively and expecially if you are using a Windows operating system, you should use a Docker container. With Docker installed, you can launch an Ubuntu Focal environment::
 
     docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
 
