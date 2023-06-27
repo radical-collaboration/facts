@@ -1,6 +1,6 @@
-.. _chapter_misc:
+.. _chapter_limitations:
 
-Miscellaneous Points
+Known Limitations
 =========
 
 ``tlm/sterodynamics`` relies upon the CMIP6 archive to learn the correlation between global mean
