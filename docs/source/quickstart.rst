@@ -3,7 +3,7 @@
 Quick Start
 ===========
 
-FACTS uses `RADICAL-EnsembleToolkit (EnTK) <https://radicalentk.readthedocs.io/en/stable/>_` and `RADICAL-Pilot <https://radicalpilot.readthedocs.io/en/stable/>_` to execute its modules. While the RADICAL tools are specifically designed for executing on a range of `supported <https://radicalpilot.readthedocs.io/en/stable/supported.html>_` high performance computing (HPC) platforms, FACTS can also execute on a GNU/Linux workstation, virtual machine or container. Here we offer instructions for each deployment scenario but if you want to run FACTS at scale on an HPC platform, please `contact us <https://github.com/radical-collaboration/facts/issues>_` and we will be happy to offer tailored support.
+FACTS uses `RADICAL-EnsembleToolkit (EnTK) <https://radicalentk.readthedocs.io/en/stable/>`_ and `RADICAL-Pilot <https://radicalpilot.readthedocs.io/en/stable/>`_ to execute its modules. While the RADICAL tools are specifically designed for executing on a range of `supported <https://radicalpilot.readthedocs.io/en/stable/supported.html>`_ high performance computing (HPC) platforms, FACTS can also execute on a GNU/Linux workstation, virtual machine or container. Here we offer instructions for each deployment scenario but if you want to run FACTS at scale on an HPC platform, please `contact us <https://github.com/radical-collaboration/facts/issues>`_ and we will be happy to offer tailored support.
 
 .. note:: Starting from version 1.4, the RADICAL tools will not require MongoDB anymore.
 
@@ -36,7 +36,7 @@ Installing and Using FACTS on a GNU/Linux Workstation
   - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
     team via email or by opening an issue in this repository.
 
-4. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>_` for further details. Using `venv`::
+4. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
 
     python3 -m venv ve3
     . ve3/bin/activate
@@ -80,7 +80,7 @@ The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac 
 
 .. warning:: These are not officially supported solutions; use them on your own recognizance.
 
-To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>_` or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
+To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>`_ or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
 
 Alternatively, you can use a Docker container. With Docker installed, you can launch an Ubuntu Focal environment::
 
@@ -88,7 +88,7 @@ Alternatively, you can use a Docker container. With Docker installed, you can la
 
 This command assumes you have facts cloned into ``$HOME/facts`` and a writable scratch directory in ``$HOME/tmp``. Within the container , ``$HOME/facts`` will mount as ``/opt/facts`` and ``$HOME/tmp`` will mount as ``/scratch``.
 
-Within this Ubuntu environment, the script `vm_factsenvsetup.sh <https://github.com/radical-collaboration/facts/blob/main/scripts/vm_factsenvsetup.sh>_` will install and launch Mongo, install a suitable Python environment, install R and the dependencies of the ``emulandice`` module, and run the dummy experiment. This script may also be a helpful guide for installing FACTS in other clean environments.
+Within this Ubuntu environment, the script `vm_factsenvsetup.sh <https://github.com/radical-collaboration/facts/blob/main/scripts/vm_factsenvsetup.sh>`_ will install and launch Mongo, install a suitable Python environment, install R and the dependencies of the ``emulandice`` module, and run the dummy experiment. This script may also be a helpful guide for installing FACTS in other clean environments.
 
 Testing a module with a shell script
 ------------------------------------
