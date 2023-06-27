@@ -33,7 +33,7 @@ FACTS is released under the
    quickstart.rst
    resources.rst
    configurationfiles.rst
-   limitations.rst
+   misc.rst
 
 Indices and tables
 ==================
