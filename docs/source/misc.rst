@@ -21,3 +21,12 @@ gridded output not near a tide gauge, the interpretation of the output will not 
 addition, running on a large set of sites at once (e.g., on the global grid) will likely lead
 to memory issues as well. Thus, runs producing extreme sea level output should be limited to
 an intentionally chosen, targeted set of tide gauge locations.
+
+The standard pipeline for ``extremesealevel/pointsoverthreshold``
+uses a trimmed data file, extremesealevel_pointsoverthreshold_data.tgz.
+This is because rhe full GESLA data set (extremesealevel_pointsoverthreshold_fulldata.tgz)
+is quite large, and it is particularly slow because
+it is broken into many files. You may either want to adjust
+the pipeline to use the full data file or produce
+your own trimmed data file that includes the GESLA sites
+of interest to you. 
