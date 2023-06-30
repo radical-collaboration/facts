@@ -16,10 +16,7 @@ be added in a future release.
 
 ``extremesealevel/pointsoverthreshold`` relies upon GESLA tide-gauge data for estimating
 the historical extreme sea level distribution. It searches for the geographically nearest
-tide gauge corresponding to a particular local sea level projection. While it can be run on 
-gridded output not near a tide gauge, the interpretation of the output will not be meaningful. In
-addition, running on a large set of sites at once (e.g., on the global grid) will likely lead
-to memory issues as well. Thus, runs producing extreme sea level output should be limited to
+tide gauge corresponding to a particular local sea level projection. Thus, runs producing extreme sea level output should be limited to
 an intentionally chosen, targeted set of tide gauge locations.
 
 The standard pipeline for ``extremesealevel/pointsoverthreshold``
