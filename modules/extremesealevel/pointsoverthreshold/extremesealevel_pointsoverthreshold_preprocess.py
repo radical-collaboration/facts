@@ -207,7 +207,7 @@ def load_tg(geslafile, minDays, minYears, center_year, pctPot, gpd_pot_threshold
 	
 
 
-def preprocess_gesla(gesla_dir, minDays, minYears, match_limit, center_year, pctPot, gpd_pot_threshold, cluster_lim, site_lats, site_lons, site_ids, pipeline_id):
+def preprocess_gesla(gesladir, minDays, minYears, match_limit, center_year, pctPot, gpd_pot_threshold, cluster_lim, site_lats, site_lons, site_ids, pipeline_id):
 	
 	# Extract the gesla station information
 	(station_names, station_lats, station_lons, station_filenames) = extract_gesla_locations(gesladir)
