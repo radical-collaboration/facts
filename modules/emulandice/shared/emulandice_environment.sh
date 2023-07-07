@@ -6,7 +6,7 @@
 # You may have to modify it for your system.
 
 hs=`hostname`
-if [ ${hs:0:6} = 'amarel' ]; then
+if [ ${hs: -18} = 'amarel.rutgers.edu' ]; then
     module use /projects/community/modulefiles
 
     module purge
