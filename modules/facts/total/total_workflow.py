@@ -97,7 +97,7 @@ def TotalSamplesInWorkflows(directory, pyear_start, pyear_end, pyear_step, chunk
 
 	return(r)
 
-def TotalSamples(infiles, outfile, targyears, chunksize):
+def TotalSamplesOLD(infiles, outfile, targyears, chunksize):
 
 	# Is this the first file being parsed?
 	first_file = True
@@ -143,8 +143,51 @@ def TotalSamples(infiles, outfile, targyears, chunksize):
 
 	return(outfile)
 
+def TotalSamples(infiles, outfile, targyears, chunksize):
+	# Skip this file if it appears to be a total file already
+	# SBM: FWIW, this might not work as intended because path is appended to file names in funcs above.
+	target_infiles = [fl for fl in infiles if not re.search(r"^total", fl)]
+
+    # Reads in multiple files (delayed) and tries combine along
+    # common dimensions and a new "file" dimension.
+	ds = xr.open_mfdataset(
+		target_infiles, 
+	    combine="nested", 
+	    concat_dim="file", 
+	    chunks={"locations":chunksize},
+	)
+	ds = ds.sel(years=targyears)
+	# Sums everything across the new "file" dimension.
+	total_out = ds[["sea_level_change"]].sum(dim="file")
+	total_out["lat"] = ds["lat"].isel(file=0)
+	total_out["lon"] = ds["lon"].isel(file=0)
+
+	# Attributes for the total file
+	total_out.attrs = {
+		"description": "Total sea-level change for workflow",
+		"history": "Created " + time.ctime(time.time()),
+		"source": "FACTS: Post-processed total among available contributors: {}".format(",".join(infiles)),
+	}
+
+	# Define the missing value for the netCDF files
+	nc_missing_value = np.iinfo(np.int16).min
+	total_out["sea_level_change"].attrs = {
+		"units": "mm", 
+		"missing_value": nc_missing_value
+	}
+
+	# Write the total to an output file.
+    # This actually carries out the delayed calculations and operations.
+    # SBM: FYI Double check the numbers to ensure everything is summing across dims correctly.
+    # SBM: FYI Also, check to see if output as something huge like float64.
+	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+
+	return(outfile)
+
 
 if __name__ == "__main__":
+
+	t_start = time.time() # DELETE WHEN DONE! Added 7/3/2023
 
 	# Initialize the command-line argument parser
 	parser = argparse.ArgumentParser(description="Total up the contributors for a particular workflow.",\
@@ -170,5 +213,14 @@ if __name__ == "__main__":
 	else:
 		# Total up the workflow in the provided directory
 		TotalSamplesInDirectory(args.directory, args.pyear_start, args.pyear_end, args.pyear_step, args.chunksize)
+
+	# DELETE WHEN DONE! Added 07/03/2023
+	tte = time.time() - t_start
+	import psutil as ps
+	peak_mem = ps.Process().memory_info().rss * 1e-9
+	f = open(f'totaling_memory_diagnostic.txt','w')
+	f.write(f'This Task Used: {peak_mem} GB\n'
+	 f'Time to Execution for this Task Was: {tte} seconds')
+	f.close()
 
 	exit()
