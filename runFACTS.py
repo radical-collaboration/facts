@@ -59,21 +59,20 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
     rcfg = facts.LoadResourceConfig(resourcedir, rcfg_name)
 
     # Initialize RCT and the EnTK App Manager
-    if 'RADICAL_PILOT_DBURL' in os.environ:
-        dburl = os.environ['RADICAL_PILOT_DBURL']
-    elif 'mongodb_url' in rcfg:
-        dburl = rcfg['mongodb_url']
-    elif not "mongodb" in rcfg.keys():
-        dburl = 'mongodb://localhost:27017/facts'
-    elif not "password" in rcfg['mongodb'].keys():
-        dburl = 'mongodb://%s:%d/facts' % (rcfg['mongodb'].get('hostname', 'localhost'), rcfg['mongodb'].get('port', 27017))
-    else:
-        dburl = 'mongodb://%s:%s@%s:%d/facts' \
+    if not os.environ.get('RADICAL_PILOT_DBURL'):
+        if 'mongodb_url' in rcfg:
+            dburl = rcfg['mongodb_url']
+        elif not "mongodb" in rcfg.keys():
+            dburl = 'mongodb://localhost:27017/facts'
+        elif not "password" in rcfg['mongodb'].keys():
+            dburl = 'mongodb://%s:%d/facts' % (rcfg['mongodb'].get('hostname', 'localhost'), rcfg['mongodb'].get('port', 27017))
+        else:
+            dburl = 'mongodb://%s:%s@%s:%d/facts' \
                 % (rcfg['mongodb'].get('username', ''),
                 rcfg['mongodb'].get('password', ''),
                 rcfg['mongodb'].get('hostname', 'localhost'),
                 rcfg['mongodb'].get('port', 27017))
-    os.environ['RADICAL_PILOT_DBURL'] = dburl
+        os.environ['RADICAL_PILOT_DBURL'] = dburl
 
     if not "rabbitmq" in rcfg.keys():
         # we may be running the development version of radical.entk that doesn't require RabbitMQ
