@@ -2,7 +2,7 @@
 
 BASE_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )/../" &> /dev/null && pwd 2> /dev/null; )"
 
-TAG="factsealevel/facts:$TAG"
+TAG="factsealevel/facts$TAG"
 
 if [[ -z $PLATFORM ]]; then
     PLATFORM="linux/amd64"
@@ -13,5 +13,5 @@ docker build \
     -t "$TAG" \
     --build-arg TUTORIAL_NAME="$NAME" \
     --build-arg BUILDPLATFORM="$PLATFORM" \
-    -f "$RCT_BASE_DIR/docker/Dockerfile" \
-    "$RCT_BASE_DIR/src/"
+    -f "Dockerfile" \
+    "src/"
