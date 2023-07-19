@@ -1,0 +1,54 @@
+version: "3.4"
+
+services:
+
+  rct-tutorials:
+    image: factsealevel/facts:${RCT_TUTORIAL_TAG:-latest}
+    container_name: facts
+    build:
+      context: ../src/
+      dockerfile: ../docker/Dockerfile
+      args:
+        - TUTORIAL_NAME=${RCT_TUTORIAL_NAME:-default}
+    ports:
+      - "8888:8888"
+    networks:
+      - rct-network
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:4.4
+    container_name: rct-mongodb
+    hostname: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root_user
+      - MONGO_INITDB_ROOT_PASSWORD=root_pass
+      - MONGO_INITDB_USERNAME=guest
+      - MONGO_INITDB_PASSWORD=guest
+      - MONGO_INITDB_DATABASE=default
+    ports:
+      - "27017:27017"
+    networks:
+      - rct-network
+
+  mongo-init:
+    image: mongo:4.4
+    container_name: rct-mongo-init
+    restart: "no"
+    command:
+      - /bin/bash
+      - -c
+      - "sleep 10 && \
+         mongo --host mongodb -u root_user -p root_pass \
+               --authenticationDatabase admin default \
+               --eval \"db.createUser({user: 'guest', pwd: 'guest', \
+                        roles: [{role: 'readWrite', db: 'default'}]});\""
+    networks:
+      - rct-network
+    depends_on:
+      - mongodb
+
+networks:
+  rct-network:
+    name: rct-network
