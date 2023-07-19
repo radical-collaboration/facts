@@ -3,13 +3,11 @@ version: "3.4"
 services:
 
   rct-tutorials:
-    image: factsealevel/facts:${RCT_TUTORIAL_TAG:-latest}
+    image: factsealevel/facts:latest
     container_name: facts
     build:
       context: ../src/
       dockerfile: ../docker/Dockerfile
-      args:
-        - TUTORIAL_NAME=${RCT_TUTORIAL_NAME:-default}
     ports:
       - "8888:8888"
     networks:
