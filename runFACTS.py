@@ -59,7 +59,9 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
     rcfg = facts.LoadResourceConfig(resourcedir, rcfg_name)
 
     # Initialize RCT and the EnTK App Manager
-    if 'mongodb_url' in rcfg:
+    if 'RADICAL_PILOT_DBURL' in os.environ:
+        dburl = os.environ['RADICAL_PILOT_DBURL']
+    elif 'mongodb_url' in rcfg:
         dburl = rcfg['mongodb_url']
     elif not "mongodb" in rcfg.keys():
         dburl = 'mongodb://localhost:27017/facts'
