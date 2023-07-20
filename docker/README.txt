@@ -3,7 +3,6 @@ NOTE: STAY IN /facts/docker while doing the install
 1. cd into the "docker" directory
 2. >> docker build . (runs the Dockerfile)
 3. >> sh develop.sh (Builds the docker container as "facts")
-4. >> docker compose up
 4. To drop into the container 
 5. >> docker run --hostname=localhost --runtime=runc -it -v $(pwd)/../opt/facts facts
 6. >> python3 runFACTS.py experiments/dummy (to confirm RCT/Mongodb install)
