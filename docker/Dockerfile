@@ -1,6 +1,6 @@
 FROM ubuntu:focal
 WORKDIR /opt/facts
-ENV RADICAL_PILOT_DBURL=mongodb://guest:guest@mongodb:27017/default
+ENV RADICAL_PILOT_DBURL="mongodb://127.0.0.1:27017/facts"
 
 # Allows virtual enviorment to be activated
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -24,9 +24,6 @@ RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.
 RUN apt-get update -y
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends mongodb-org
 
-# Starts MongoDB
-RUN /usr/bin/mongod --config /etc/mongod.conf --fork
-
 # Creates and activates python3 virtual environment 
 RUN python3 -m venv factsVe
 RUN source factsVe/bin/activate
@@ -44,3 +41,4 @@ pip install yq==3.2.2
 
 # Installs R for ubuntu20.04 Focal
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends r-base cmake
+RUN /usr/bin/mongod --config /etc/mongod.conf --fork
