@@ -1,9 +1,10 @@
 FROM ubuntu:focal
-WORKDIR /opt/facts
-ENV RADICAL_PILOT_DBURL="mongodb://127.0.0.1:27017/facts"
 
-# Allows virtual enviorment to be activated
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+ENV RADICAL_PILOT_DBURL="mongodb://127.0.0.1:27017/facts"
+ENV RADICALPILOTSANDBOX="/scratch/radical.pilot.sandbox"
+
+# allows virtualenv
+SHELL [ "/bin/bash", "-c" ]
 
 # updates packages and installs python3 as well as git
 RUN apt-get update
@@ -24,6 +25,7 @@ RUN echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.
 RUN apt-get update -y
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends mongodb-org
 
+
 # Creates and activates python3 virtual environment 
 RUN python3 -m venv factsVe
 RUN source factsVe/bin/activate
@@ -31,14 +33,20 @@ RUN source factsVe/bin/activate
 #Pip installs required FACTS packages
 RUN pip install --upgrade setuptools pip wheel && \
 pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts && \
-pip install numpy==1.24.3 && \
-pip install scipy==1.10.1 && \ 
-pip install netCDF4==1.6.3 && \
-pip install pyyaml==6.0 && \
-pip install matplotlib==3.7.1 && \ 
-pip install h5py==3.8.0 && \
-pip install yq==3.2.2
+pip install pyyaml==6.0
 
 # Installs R for ubuntu20.04 Focal
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends r-base cmake
-RUN /usr/bin/mongod --config /etc/mongod.conf --fork
+
+RUN if [[ ! -z $RADICALPILOTSANDBOX ]]; then  \
+    if [ ! -d $RADICALPILOTSANDBOX ]; then  \
+        mkdir $RADICALPILOTSANDBOX ; \
+    fi ; \
+    if [ ! -d $HOME/radical.pilot.sandbox ]; then \
+        ln -s  $RADICALPILOTSANDBOX $HOME/radical.pilot.sandbox ; \
+    fi ; \
+fi
+
+RUN echo "/usr/bin/mongod --config /etc/mongod.conf --fork" > ~/.bashrc
+
+CMD /bin/bash
