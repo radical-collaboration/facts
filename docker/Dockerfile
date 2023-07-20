@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y git
 # Install pip from standard ubuntu packages
 RUN apt-get install -y python3-pip
 RUN apt-get install  -y python3.8-venv
+RUN apt-get install -y libhdf5-dev libnetcdf-dev
 
 # Installs and starts mongodb
 # NOTE: COMMENTED MONGODB INSTALL AT BOTTOM REQUIRES HANDLING OF USER INPUT
