@@ -1,6 +1,6 @@
 FROM ubuntu:focal
 WORKDIR /opt/facts
-ARG MONGODB_URL=mongodb://guest:guest@mongodb:27017/default
+ENV RADICAL_PILOT_DBURL=mongodb://guest:guest@mongodb:27017/default
 
 # Allows virtual enviorment to be activated
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
