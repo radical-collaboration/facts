@@ -40,8 +40,8 @@ RUN pip install --upgrade \
         pyyaml==6.0
 
 # Installs R for ubuntu20.04 Focal
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends r-base cmake
+RUN apt-get update \
+    apt-get install -y --no-install-recommends r-base cmake
 
 # make directory for radical pilot sandbox
 RUN mkdir -p ~/radical.pilot.sandbox
