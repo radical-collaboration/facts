@@ -82,13 +82,26 @@ The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac 
 
 To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>`_ or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
 
-Alternatively and expecially if you are using a Windows operating system, you should use a Docker container. With Docker installed, you can launch an Ubuntu Focal environment::
+Alternatively, you should use a Docker container. We have provided an experimental Docker container in the ``docker/`` directory.
+To install FACTS through docker please follow the steps below:
 
-    docker run --hostname=localhost --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp:/scratch --runtime=runc -it ubuntu:focal.
+1. cd into the ``docker`` directory
 
-This command assumes you have facts cloned into ``$HOME/facts`` and a writable scratch directory in ``$HOME/tmp``. Within the container , ``$HOME/facts`` will mount as ``/opt/facts`` and ``$HOME/tmp`` will mount as ``/scratch``.
+2. Build the docker container::
 
-Within this Ubuntu environment, the script `vm_factsenvsetup.sh <https://github.com/radical-collaboration/facts/blob/main/scripts/vm_factsenvsetup.sh>`_ will install and launch Mongo, install a suitable Python environment, install R and the dependencies of the ``emulandice`` module, and run the dummy experiment. This script may also be a helpful guide for installing FACTS in other clean environments.
+    sh develop.sh
+
+3. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
+
+    docker run --hostname=localhost --runtime=runc -it  --volume=$HOME/facts:/opt/facts facts
+
+4. Confirm that FACTS work within the container::
+
+    cd /opt/facts ; python3 runFACTS.py experiments/dummy
+
+5. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
+
+    modules/emulandice/emulandice_config.sh
 
 Testing a module with a shell script
 ------------------------------------
