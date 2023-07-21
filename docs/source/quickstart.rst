@@ -42,30 +42,26 @@ Installing and Using FACTS on a GNU/Linux Workstation
     . ve3/bin/activate
     pip install --upgrade setuptools pip wheel
     pip install git+https://github.com/radical-cybertools/radical.entk@projects/facts
-    pip install numpy scipy netCDF4 pyyaml matplotlib h5py yq
+    pip install pyyaml
 
 5. Test your install by running the dummy experiment::
 
     python3 runFACTS.py experiments/dummy
 
-6. Create a new experiment. For example::
+6. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
+
+    modules/emulandice/emulandice_config.sh
+
+7. Create a new experiment. For example::
 
     mkdir test
     cp -r experiments/coupling.ssp585/config.yml test
 
-7. Run your experiment::
+8. Run your experiment::
 
     python3 runFACTS.py test
 
 Note that if you are running FACTS using localhost as a resource, all the input files for the experiment (which can be tens of GB) will get copied to ``~/radical.pilot.sandbox``. If you have space limits on your home directory, you may want to make this a symlink to a directory with fewer space limits prior to running FACTS.
-
-If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/).
-
-8. Ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages.
-
-9. Build ``emulandice`` and a tar file of its associated R dependencies::
-
-    modules/emulandice/emulandice_config.sh
 
 Note that the data files for a FACTS experiment and transfered to the compute
 resource with each experiment run. Thus, while it might in principle be possible
@@ -82,7 +78,7 @@ The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac 
 
 To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>`_ or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
 
-Alternatively, you should use a Docker container. We have provided an experimental Docker container in the ``docker/`` directory.
+Alternatively, you could use a Docker container. We have provided an experimental Docker container in the ``docker/`` directory.
 To install FACTS through docker please follow the steps below:
 
 1. cd into the ``docker`` directory
@@ -91,15 +87,19 @@ To install FACTS through docker please follow the steps below:
 
     sh develop.sh
 
-3. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
+3. Create a directory for the RADICAL Pilot sandbox:
 
-    docker run --hostname=localhost --runtime=runc -it  --volume=$HOME/facts:/opt/facts facts
+    mkdir -p ~/tmp/radical.pilot.sandbox
 
-4. Confirm that FACTS work within the container::
+4. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
+
+    docker run --hostname=localhost --runtime=runc -it  --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp/radical.pilot.sandbox:/root/radical.pilot.sandbox facts
+
+5. Confirm that FACTS work within the container::
 
     cd /opt/facts ; python3 runFACTS.py experiments/dummy
 
-5. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
+6. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
 

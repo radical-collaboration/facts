@@ -43,6 +43,9 @@ RUN pip install --upgrade \
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends r-base cmake
 
+# make directory for radical pilot sandbox
+RUN mkdir -p ~/radical.pilot.sandbox
+
 # Return a shell to the user, starting MDB
 RUN echo "/usr/bin/mongod --config /etc/mongod.conf --fork" > ~/.bashrc
 CMD /bin/bash
