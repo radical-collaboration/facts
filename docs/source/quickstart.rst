@@ -79,27 +79,37 @@ The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac 
 To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>`_ or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
 
 Alternatively, you could use a Docker container. We have provided an experimental Docker container in the ``docker/`` directory.
-To install FACTS through docker please follow the steps below:
+To install FACTS through Docker please follow the steps below:
 
-1. cd into the ``docker`` directory
+1. Clone the FACTS repository::
 
-2. Build the docker container::
+    git clone https://github.com/radical-collaboration/facts.git
+
+2. Download modules-data.
+
+   Archived versions are available on Zenodo at https://doi.org/10.5281/zenodo.7478191 and https://doi.org/10.5281/zenodo.7478447 (note, split between
+   two Zenodo entries because of size limitations), while a development version is currently synced at 
+   https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts.
+
+3. cd into the ``docker`` directory
+
+4. Build the docker container::
 
     sh develop.sh
 
-3. Create a directory for the RADICAL Pilot sandbox::
+5. Create a directory for the RADICAL Pilot sandbox::
 
     mkdir -p ~/tmp/radical.pilot.sandbox
 
-4. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
+6. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
 
     docker run --hostname=localhost --runtime=runc -it  --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp/radical.pilot.sandbox:/root/radical.pilot.sandbox -w /opt/facts facts
 
-5. Confirm that FACTS work within the container::
+7. Confirm that FACTS work within the container::
 
     python3 runFACTS.py experiments/dummy
 
-6. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
+8. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
 
