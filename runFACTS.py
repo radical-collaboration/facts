@@ -1,5 +1,7 @@
 import sys
 import os
+import time
+import datetime
 import argparse
 import errno
 import yaml
@@ -8,7 +10,7 @@ import FACTS as facts
 from radical.entk import AppManager
 
 
-def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = False):
+def run_experiment(exp_dir, debug_mode, alt_id, resourcedir = None, makeshellscript = False):
 
     if not resourcedir:
         resourcedir = exp_dir
@@ -75,7 +77,15 @@ def run_experiment(exp_dir, debug_mode, resourcedir = None, makeshellscript = Fa
 
     if not "rabbitmq" in rcfg.keys():
         # we may be running the development version of radical.entk that doesn't require RabbitMQ
-        amgr = AppManager(autoterminate=False)
+        #amgr = AppManager(autoterminate=False)
+        if alt_id:
+            date_now = datetime.datetime.now().strftime('%m%d%Y.%I%M%S%p').lower()
+            exp_name = os.path.basename(os.path.normpath(exp_dir))
+            session_name = f'facts.{rcfg_name}.{str(exp_name).lower()}.{date_now}'
+            amgr = AppManager(name=session_name,autoterminate=False)
+        # retains the original naming convention from RCT
+        else:
+            amgr = AppManager(autoterminate=False)    
     else:
         if not "password" in rcfg['rabbitmq'].keys():
             amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
@@ -195,7 +205,7 @@ if __name__ == "__main__":
     parser.add_argument('--shellscript', help="Turn experiment config into a shell script (only limited file handling, works best with single-module experiments)", action="store_true")
     parser.add_argument('--debug', help="Enable debug mode (check that configuration files parse, do not execute)", action="store_true")
     parser.add_argument('--resourcedir', help="Directory containing resource files (default=./resources/)", type=str, default='./resources')
-
+    parser.add_argument('--alt_id', help='If flagged, then the session ID will be in the format EXPNAME.MMDDYYY.HHMMSS', action='store_true')
 
     # Parse the arguments
     args = parser.parse_args()
@@ -206,6 +216,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Go ahead and try to run the experiment
-    run_experiment(args.edir, args.debug, resourcedir=args.resourcedir, makeshellscript = args.shellscript)
+    run_experiment(args.edir, args.debug, args.alt_id, resourcedir=args.resourcedir, makeshellscript = args.shellscript)
 
     #sys.exit(0)
