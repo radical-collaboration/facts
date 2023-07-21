@@ -87,7 +87,7 @@ To install FACTS through docker please follow the steps below:
 
     sh develop.sh
 
-3. Create a directory for the RADICAL Pilot sandbox:
+3. Create a directory for the RADICAL Pilot sandbox::
 
     mkdir -p ~/tmp/radical.pilot.sandbox
 
