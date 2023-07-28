@@ -46,5 +46,5 @@ RUN apt-get install -y --no-install-recommends r-base cmake
 RUN mkdir -p ~/radical.pilot.sandbox
 
 # return a shell to the user, starting MDB
-RUN echo -e "/usr/bin/mongod --config /etc/mongod.conf --fork\nsource factsVe/bin/activate" > ~/.bashrc
+RUN echo -e "/usr/bin/mongod --config /etc/mongod.conf --fork\nsource /factsVe/bin/activate" > ~/.bashrc
 CMD /bin/bash
