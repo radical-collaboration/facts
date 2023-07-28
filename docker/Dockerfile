@@ -36,7 +36,7 @@ RUN python3 -m venv --system-site-packages factsVe &&\
 # installs required FACTS packages
 RUN pip install --upgrade \
         setuptools pip wheel \
-        git+https://github.com/radical-cybertools/radical.entk@projects/facts \
+        radical.entk \
         pyyaml==6.0
 
 # installs R for ubuntu2 0.04 Focal
