@@ -195,7 +195,7 @@ def load_tg(geslafile, minDays, minYears, center_year, pctPot, gpd_pot_threshold
 	
 		# if none of the current extremes are less than 'cluster_lim' hours away from next extreme
 		if all( abs(timediffs / np.timedelta64(3600, 's')) >= cluster_lim): 
-			decl_extremes = decl_extremes.append(next_extreme) #add next extreme
+			decl_extremes = pd.concat([decl_extremes,next_extreme]) #add next extreme
 	
 	decl_extremes.reset_index(drop=True,inplace=True)
 	
@@ -207,7 +207,7 @@ def load_tg(geslafile, minDays, minYears, center_year, pctPot, gpd_pot_threshold
 	
 
 
-def preprocess_gesla(gesla_dir, minDays, minYears, match_limit, center_year, pctPot, gpd_pot_threshold, cluster_lim, site_lats, site_lons, site_ids, pipeline_id):
+def preprocess_gesla(gesladir, minDays, minYears, match_limit, center_year, pctPot, gpd_pot_threshold, cluster_lim, site_lats, site_lons, site_ids, pipeline_id):
 	
 	# Extract the gesla station information
 	(station_names, station_lats, station_lons, station_filenames) = extract_gesla_locations(gesladir)

@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "ipccar6_preprocess_gmipemuglaciers.py"
+    script: "ipccar6_gmipemuglaciers_preprocess.py"
     options:
       - "scenario"
       - "model_driver"
@@ -24,7 +24,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "ipccar6_fit_gmipemuglaciers.py"
+    script: "ipccar6_gmipemuglaciers_fit.py"
     options:
       - "pipeline_id"
 
@@ -32,7 +32,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "ipccar6_project_gmipemuglaciers.py"
+    script: "ipccar6_gmipemuglaciers_project.py"
     options:
       - "nsamps"
       - "replace"
@@ -48,7 +48,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "ipccar6_postprocess_gmipemuglaciers.py"
+    script: "ipccar6_gmipemuglaciers_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"

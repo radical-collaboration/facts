@@ -3,8 +3,8 @@
 preprocess:
   task1:
     executable: "python"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py toolz"
-    script: "larmip_preprocess_icesheet.py"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
+    script: "larmip_icesheet_preprocess.py"
     options:
       - "scenario"
       - "pipeline_id"
@@ -16,7 +16,7 @@ preprocess:
 fit:
   task1:
     executable: "python"
-    script: "larmip_fit_icesheet.py"
+    script: "larmip_icesheet_fit.py"
     options:
       - "pipeline_id"
     upload_and_extract_input_data:
@@ -30,7 +30,7 @@ fit:
 project:
   task1:
     executable: "python"
-    script: "larmip_project_icesheet.py"
+    script: "larmip_icesheet_project.py"
     options:
       - "nsamps"
       - "baseyear"
@@ -61,7 +61,7 @@ project:
 postprocess:
   task1:
     executable: "python"
-    script: "larmip_postprocess_icesheet.py"
+    script: "larmip_icesheet_postprocess.py"
     options:
       - "locationfile"
       - "chunksize"

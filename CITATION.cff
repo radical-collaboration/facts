@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it using the meta-data from 'preferred-citation'."
 license: MIT
 title: "Framework for Assessing Changes To Sea-Level (FACTS)"
-version: 1.0.0-rc.1
+version: 1.0.0
 url: "https://github.com/radical-collaboration/facts"
 authors:
 - family-names: "Kopp"
@@ -15,6 +15,8 @@ authors:
   given-names: "Shantenu"
 - family-names: "Hermans"
   given-names: "Tim H. J."
+- family-names: "Reedy"
+  given-names: "Alexander"
 - family-names: "Slangen"
   given-names: "Aimée B. A."
 - family-names: "Turilli"
@@ -24,7 +26,7 @@ authors:
 - family-names: "Koubbe"
   given-names: "George"
 preferred-citation:
-  title: "The Framework for Assessing Changes To Sea-Level (FACTS) v1.0-rc: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change"
+  title: "The Framework for Assessing Changes To Sea-Level (FACTS) v1.0: A platform for characterizing parametric and structural uncertainty in future global, relative, and extreme sea-level change"
   type: article
   journal: "EGUsphere [preprint]"
   authors:
@@ -40,6 +42,8 @@ preferred-citation:
     given-names: "Shantenu"
   - family-names: "Kumar"
     given-names: "Praveen"
+  - family-names: "Reedy"
+    given-names: "Alexander"
   - family-names: "Slangen"
     given-names: "Aimée B. A."
   - family-names: "Turilli"
@@ -62,4 +66,4 @@ preferred-citation:
     given-names: "Chris"
   year: 2023
   doi: 10.5194/egusphere-2023-14
-  date-released: 2023-01-05
+  date-released: 2023-07-21

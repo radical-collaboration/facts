@@ -5,7 +5,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
-    script: "tlm_preprocess_oceandynamics.py"
+    script: "tlm_oceandynamics_preprocess.py"
     options:
       - "scenario"
       - "baseyear"
@@ -40,7 +40,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "tlm_fit_oceandynamics.py"
+    script: "tlm_oceandynamics_fit.py"
     options:
       - "pipeline_id"
     copy_input_data:
@@ -54,7 +54,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "tlm_project_oceandynamics.py"
+    script: "tlm_oceandynamics_project.py"
     options:
       - "pipeline_id"
       - "nsamps"
@@ -76,7 +76,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "tlm_postprocess_oceandynamics.py"
+    script: "tlm_oceandynamics_postprocess.py"
     options:
       - "nsamps"
       - "seed"

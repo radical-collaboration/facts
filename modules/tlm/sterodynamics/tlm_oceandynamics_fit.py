@@ -147,7 +147,7 @@ def tlm_fit_oceandynamics(pipeline_id):
 	output = {'ThermExpMean': ThermExpMean, 'ThermExpStd': ThermExpStd,\
 		'ThermExpYears': ThermExpYears,	'ThermExpN': ThermExpN, 'ThermExpDOF': ThermExpDOF}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_thermalexp_fit.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile, protocol=4)
 	outfile.close()
 
 
@@ -248,7 +248,7 @@ def tlm_fit_oceandynamics(pipeline_id):
 	output = {'OceanDynMean': OceanDynMean, 'OceanDynStd': OceanDynStd, 'OceanDynDOF': OceanDynDOF, \
 		'OceanDynYears': OceanDynYears,	'OceanDynN': OceanDynN, 'OceanDynTECorr': OceanDynTECorr}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_oceandynamics_fit.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile,protocol=4)
 	outfile.close()
 
 
@@ -296,7 +296,7 @@ def tlm_fit_thermalexpansion(pipeline_id):
 	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)
 	outfile = open(os.path.join(outdir, "{}_tlmfit.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile,protocol=4)
 	outfile.close()
 
 	return(None)

@@ -4,7 +4,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
-    script: "ssp_preprocess_landwaterstorage.py"
+    script: "ssp_landwaterstorage_preprocess.py"
     options:
       - "scenario"
       - "dotriangular"
@@ -23,7 +23,7 @@ preprocess:
 fit:
   task1:
     executable: "python3"
-    script: "ssp_fit_landwaterstorage.py"
+    script: "ssp_landwaterstorage_fit.py"
     options:
       - "pipeline_id"
     copy_input_data:
@@ -37,7 +37,7 @@ fit:
 project:
   task1:
     executable: "python3"
-    script: "ssp_project_landwaterstorage.py"
+    script: "ssp_landwaterstorage_project.py"
     options:
       - "pipeline_id"
       - "nsamps"
@@ -59,7 +59,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    script: "ssp_postprocess_landwaterstorage.py"
+    script: "ssp_landwaterstorage_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"
