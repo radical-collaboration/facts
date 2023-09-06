@@ -40,6 +40,8 @@ project:
       - "seed"
       - "models"
       - "pipeline_id"
+      - "cyear_start"
+      - "cyear_end"
     upload_and_extract_input_data:
       - 'larmip_icesheet_project_data.tgz'
     copy_input_data:
