@@ -103,8 +103,9 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     t.upload_input_data = []
     copy_list = []
 
-    t.pre_exec = []     # Pre exec let you load modules, set environment before executing the workload
-
+    # Pre exec let you load modules, set environment before executing the workload
+    t.pre_exec = ['. $RP_PILOT_SANDBOX/env/rp_named_env.rp.sh || true']
+    
     if not "upload_input_data" in tcfg.keys():
         tcfg['upload_input_data'] = []
 
