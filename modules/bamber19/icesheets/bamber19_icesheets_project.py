@@ -16,6 +16,7 @@ nsamps              Number of samples to produce
 replace             Allow sampling with replacement
 rngseed             Seed for the random number generator
 pipeline_id         Unique identifier to attach to this pipeline
+climate_data_file   FAIR-outputted climate data file
 
 
 Output:
