@@ -4,6 +4,7 @@ import pickle
 import os
 import re
 import time
+import h5py
 from netCDF4 import Dataset
 
 ''' bamber19_project_icesheets.py
@@ -50,25 +51,16 @@ def bamber19_project_icesheets(nsamps, pipeline_id, replace, rngseed):
 	ais_samps = ais_samples[sample_inds,:]
 	gis_samps = gis_samples[sample_inds,:]
 
-    # Store the variables in a pickle
-	output = {'eais_samps': eais_samps, 'wais_samps': wais_samps, \
-				'ais_samps': ais_samps, 'gis_samps': gis_samps, 'years': years, \
-				'scenario': scenario, 'baseyear': baseyear}
-	outfilename = "{}_projections.pkl".format(pipeline_id)
-	outfile = open(os.path.join(os.path.dirname(__file__), outfilename), 'wb')
-	pickle.dump(output, outfile)
-	outfile.close()
-
-	# Write the projections to the netCDF files
-	WriteNetCDF(pipeline_id, eais_samps, years, nsamps, "EAIS", scenario, baseyear)
-	WriteNetCDF(pipeline_id, wais_samps, years, nsamps, "WAIS", scenario, baseyear)
-	WriteNetCDF(pipeline_id, ais_samps, years, nsamps, "AIS", scenario, baseyear)
-	WriteNetCDF(pipeline_id, gis_samps, years, nsamps, "GIS", scenario, baseyear)
-
+	WriteOutput(eais_samps, wais_samps, ais_samps, gis_samps, years, scenario, baseyear, pipeline_id, nsamps)
 	return(0)
 
 
+
 def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id, replace, rngseed):
+
+	# identify which samples to draw from high vs low scenarios
+	useHigh=pickScenario(climate_data_file, scenario);
+	nsamps=useHigh.size
 
 	# Load the data file
 	datafilename = "{}_data.pkl".format(pipeline_id)
@@ -91,8 +83,7 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 
 	# Generate the sample indices
 	np.random.seed(rngseed)
-	sample_inds = np.random.choice(ais_samples.shape[0], size=nsamps, replace=replace)
-	useHigh=pickScenario(climate_data_file, scenario);
+	sample_inds = np.random.choice(ais_samplesL.shape[0], size=nsamps, replace=replace)
 
 	# Store the samples for AIS components
 	eais_samps = eais_samplesL[sample_inds,:]
@@ -105,10 +96,14 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 	ais_samps[useHigh,:] = ais_samplesH[sample_inds[useHigh],:]
 	gis_samps[useHigh,:] = gis_samplesH[sample_inds[useHigh],:]
 
+	WriteOutput(eais_samps, wais_samps, ais_samps, gis_samps, years, scenario, baseyear, pipeline_id, nsamps)
+	return(0)
+
+def WriteOutput(eais_samps, wais_samps, ais_samps, gis_samps, years, scenario, baseyear, pipeline_id, nsamps)
     # Store the variables in a pickle
 	output = {'eais_samps': eais_samps, 'wais_samps': wais_samps, \
 				'ais_samps': ais_samps, 'gis_samps': gis_samps, 'years': years, \
-				'scenario': scenario, 'baseyear': baseyear}
+				'scenario': 'temperature-driven', 'baseyear': baseyear}
 	outfilename = "{}_projections.pkl".format(pipeline_id)
 	outfile = open(os.path.join(os.path.dirname(__file__), outfilename), 'wb')
 	pickle.dump(output, outfile)
@@ -119,8 +114,6 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 	WriteNetCDF(pipeline_id, wais_samps, years, nsamps, "WAIS", scenario, baseyear)
 	WriteNetCDF(pipeline_id, ais_samps, years, nsamps, "AIS", scenario, baseyear)
 	WriteNetCDF(pipeline_id, gis_samps, years, nsamps, "GIS", scenario, baseyear)
-
-	return(0)
 
 def WriteNetCDF(pipeline_id, global_samps, years, nsamps, ice_source, scenario, baseyear):
 

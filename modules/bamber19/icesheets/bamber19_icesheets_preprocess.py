@@ -4,7 +4,6 @@ import sys
 import pickle as p
 import numpy as np
 import scipy.io
-import h5py
 
 ''' bamber19_preprocess_icesheets.py
 
