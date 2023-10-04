@@ -10,6 +10,28 @@ import pickle
 import fnmatch
 import re
 
+def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
+
+	# If only one of the constant rate years is provided, imply the other
+	if cyear_start and not cyear_end:
+		cyear_end = cyear_start + 20
+	if cyear_end and not cyear_start:
+		cyear_start = cyear_end - 20
+
+	# Find the start and end projection values for the rate calculation
+	proj_start = np.interp(cyear_start, targyears, sample)
+	proj_end = np.interp(cyear_end, targyears, sample)
+
+	# Calculate the rate
+	rate = (proj_end - proj_start) / (cyear_end - cyear_start)
+
+	# Make a new projection
+	ext_sample = sample
+	ext_sample[targyears >= cyear_end] = proj_end + (rate * (targyears[targyears >= cyear_end] - cyear_end))
+
+	# Return this sample
+	return(ext_sample)
+
 
 def ReadResponseFunctions(model, Tlen=None):
 
@@ -96,7 +118,7 @@ def GetAvailableModels(model_dir):
 
 
 
-def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, models):
+def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, models, cyear_start, cyear_end):
 
 	# Load the preprocessed and calibration data
 	preprocess_file = "{}_preprocess.pkl".format(pipeline_id)
@@ -271,6 +293,15 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	sl_r5 = sl_r5[:,targyear_idx]
 	sl_smb = sl_smb[:,targyear_idx]
 
+	if cyear_start or cyear_end:
+			for i in np.arange(nsamps):
+				sl_r1[i,:] = ExtrapolateRate(sl_r1[i,:], targyears, cyear_start, cyear_end)
+				sl_r2[i,:] = ExtrapolateRate(sl_r2[i,:], targyears, cyear_start, cyear_end)
+				sl_r3[i,:] = ExtrapolateRate(sl_r3[i,:], targyears, cyear_start, cyear_end)
+				sl_r4[i,:] = ExtrapolateRate(sl_r4[i,:], targyears, cyear_start, cyear_end)
+				sl_r5[i,:] = ExtrapolateRate(sl_r5[i,:], targyears, cyear_start, cyear_end)
+				sl_smb[i,:] = ExtrapolateRate(sl_smb[i,:], targyears, cyear_start, cyear_end)
+
 	# Combine all Antarctic regions into Antarctica projection
 	sl_su = sl_r1 + sl_r2 + sl_r3 + sl_r4 + sl_r5
 
@@ -412,13 +443,15 @@ if __name__ == "__main__":
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2005)
+	parser.add_argument('--cyear_start', help="Constant rate calculation for projections starts at this year", default=None, type=int)
+	parser.add_argument('--cyear_end', help="Constant rate calculation for projections ends at this year", default=None, type=int)
 
 	# Parse the arguments
 	args = parser.parse_args()
 
 	# Run the larmip code
 	targyears = np.arange(args.pyear_start, args.pyear_end+1, args.pyear_step)
-	larmip_project_icesheet(nsamps=args.nsamps, pipeline_id=args.pipeline_id, targyears=targyears, seed=args.seed, baseyear=args.baseyear, models=args.models)
+	larmip_project_icesheet(nsamps=args.nsamps, pipeline_id=args.pipeline_id, cyear_start=args.cyear_start, cyear_end=args.cyear_end,targyears=targyears, seed=args.seed, baseyear=args.baseyear, models=args.models)
 
 
 	sys.exit()

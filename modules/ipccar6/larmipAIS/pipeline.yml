@@ -41,6 +41,8 @@ project:
       - "seed"
       - "replace"
       - "pipeline_id"
+      - "cyear_start"
+      - "cyear_end"
     copy_input_data:
       preprocess:
         task1:
