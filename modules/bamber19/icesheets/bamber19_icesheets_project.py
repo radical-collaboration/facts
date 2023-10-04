@@ -92,7 +92,7 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 	# Generate the sample indices
 	np.random.seed(rngseed)
 	sample_inds = np.random.choice(ais_samples.shape[0], size=nsamps, replace=replace)
-	useHigh=pickScenario(climate_data_file, scenario, rngseed);
+	useHigh=pickScenario(climate_data_file, scenario);
 
 	# Store the samples for AIS components
 	eais_samps = eais_samplesL[sample_inds,:]
@@ -197,7 +197,7 @@ def GetSATData(fname, scenario, refyear_start=1850, refyear_end=1900, year_start
 	# Done
 	return(SAT, Time, nens)
 
-def pickScenario(climate_data_file, scenario, rngseed)
+def pickScenario(climate_data_file, scenario)
 	# Load the temperature data
 	SAT,Time,NumTensemble = GetSATData(climate_data_file, scenario)
 	x2=np.where(Time[:] == 2100)[0][0]
@@ -206,7 +206,6 @@ def pickScenario(climate_data_file, scenario, rngseed)
 	weights=f2
 
 	# Select which scenario to draw from for each sample
-	np.random.seed(rngseed)
 	selector = np.random.rand(SAT2.size)
 	useHigh = (selector<weights)
 	return useHigh
