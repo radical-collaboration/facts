@@ -15,7 +15,7 @@ pipeline_id = Unique identifier for the pipeline running this code
 
 '''
 
-def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, scenario, pipeline_id):
+def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, scenario, pipeline_id, climate_data_file = ''):
 
 	# Define the target years
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
@@ -24,7 +24,7 @@ def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, 
 	filename = os.path.join(os.path.dirname(__file__), "SLRProjections190726core_SEJ_full.mat")
 	mat = scipy.io.loadmat(filename)
 	
-	if scenario=='both':
+	if len(climate_data_file) > 0:
 		wais_sampsH, eais_sampsH, gis_sampsH = ExtractSamples(mat, 'corefileH', targyears, baseyear)
 		wais_sampsL, eais_sampsL, gis_sampsL = ExtractSamples(mat, 'corefileH', targyears, baseyear)
 		OutputDataAll(pipeline_id, eais_sampsH, wais_sampsH, gis_sampsH,  eais_sampsL, wais_sampsL, gis_sampsL, scenario, targyears, baseyear)
@@ -95,7 +95,8 @@ def OutputDataAll(pipeline_id, eais_sampsH, wais_sampsH, gis_sampsH,  eais_samps
 	# Populate the output dictionary
 	outdata = {'eais_sampsH': eais_sampsH, 'wais_sampsH': wais_sampsH, 'ais_sampsH': ais_sampsH, \
 				'gis_sampsH': gis_sampsH, 'eais_sampsL': eais_sampsL, 'wais_sampsL': wais_sampsL, \
-				'ais_sampsL': ais_sampsL, 'gis_sampsL': gis_sampsL, 'targyears': targyears, 'baseyear': baseyear}
+				'ais_sampsL': ais_sampsL, 'gis_sampsL': gis_sampsL, 'targyears': targyears, 'baseyear': baseyear, \
+				'scenario': scenario}
 	
 	# Define the data directory
 	outdir = os.path.dirname(__file__)
@@ -139,7 +140,7 @@ if __name__ == '__main__':
 	if len(args.climate_data_file) == 0:
 		bamber19_preprocess_icesheets(args.pyear_start, args.pyear_end, args.pyear_step, args.baseyear, args.scenario, args.pipeline_id)
 	else:
-		bamber19_preprocess_icesheets(args.pyear_start, args.pyear_end, args.pyear_step, args.baseyear, 'both', args.pipeline_id)
+		bamber19_preprocess_icesheets(args.pyear_start, args.pyear_end, args.pyear_step, args.baseyear, args.scenario, args.pipeline_id, args.climate_data_file)
 
 	# Done
 	sys.exit()

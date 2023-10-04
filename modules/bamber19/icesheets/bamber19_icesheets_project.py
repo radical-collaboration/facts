@@ -59,9 +59,6 @@ def bamber19_project_icesheets(nsamps, pipeline_id, replace, rngseed):
 
 def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id, replace, rngseed):
 
-	# identify which samples to draw from high vs low scenarios
-	useHigh=pickScenario(climate_data_file, scenario);
-	nsamps=useHigh.size
 
 	# Load the data file
 	datafilename = "{}_data.pkl".format(pipeline_id)
@@ -82,6 +79,11 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 	wais_samplesL = my_data["wais_sampsL"]
 	gis_samplesL = my_data["gis_sampsL"]
 
+	# identify which samples to draw from high vs low scenarios
+	useHigh=pickScenario(climate_data_file, scenario);
+	nsamps=useHigh.size
+
+
 	# Generate the sample indices
 	np.random.seed(rngseed)
 	sample_inds = np.random.choice(ais_samplesL.shape[0], size=nsamps, replace=replace)
@@ -100,7 +102,7 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 	WriteOutput(eais_samps, wais_samps, ais_samps, gis_samps, years, scenario, baseyear, pipeline_id, nsamps)
 	return(0)
 
-def WriteOutput(eais_samps, wais_samps, ais_samps, gis_samps, years, scenario, baseyear, pipeline_id, nsamps)
+def WriteOutput(eais_samps, wais_samps, ais_samps, gis_samps, years, scenario, baseyear, pipeline_id, nsamps):
     # Store the variables in a pickle
 	output = {'eais_samps': eais_samps, 'wais_samps': wais_samps, \
 				'ais_samps': ais_samps, 'gis_samps': gis_samps, 'years': years, \
@@ -191,7 +193,7 @@ def GetSATData(fname, scenario, refyear_start=1850, refyear_end=1900, year_start
 	# Done
 	return(SAT, Time, nens)
 
-def pickScenario(climate_data_file, scenario)
+def pickScenario(climate_data_file, scenario):
 	# Load the temperature data
 	SAT,Time,NumTensemble = GetSATData(climate_data_file, scenario)
 	x2=np.where(Time[:] == 2100)[0][0]
