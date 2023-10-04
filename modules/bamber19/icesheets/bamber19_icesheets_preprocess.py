@@ -130,7 +130,7 @@ if __name__ == '__main__':
 	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
-	parser.add_argument('--scenario', help="Emissions scenario of interest [default=rcp85]", choices=["rcp85", "rcp26", "tlim2.0win0.25", "tlim5.0win0.25"], default="rcp85")
+	parser.add_argument('--scenario', help="Emissions scenario of interest [default=rcp85]", type=str, default="rcp85")
 	parser.add_argument('--baseyear', help="Year to which projections are referenced [default = 2000]", default=2000, type=int)
 	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str, default="")
 	
