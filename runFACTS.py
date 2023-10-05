@@ -205,7 +205,7 @@ if __name__ == "__main__":
     parser.add_argument('edir', help="Experiment Directory")
     parser.add_argument('--shellscript', help="Turn experiment config into a shell script (only limited file handling, works best with single-module experiments)", action="store_true")
     parser.add_argument('--debug', help="Enable debug mode (check that configuration files parse, do not execute)", action="store_true")
-    parser.add_argument('--resourcedir', help="String containing resource files (default=./resources/)", type=str, default='./resources')
+    parser.add_argument('--resourcedir', help="Directory containing resource files (default=./resources/)", type=str, default='./resources')
     parser.add_argument('--alt_id', help='If flagged, then the session ID will be in the format EXPNAME.MMDDYYY.HHMMSS', action='store_true')
     parser.add_argument('--global_options', help='Dictionary of global options to overwrite those specified in config.tml', type=json.loads)
 
