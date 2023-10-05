@@ -365,7 +365,7 @@ def IdentifyClimateOutputFiles(pcfg,pipe_name):
  
     return pd
 
-def ParseExperimentConfig(exp_dir):
+def ParseExperimentConfig(exp_dir, globalopts=None):
     # Initialize a list for experiment steps (each step being a set of pipelines)
     experimentsteps = {}
 
@@ -400,6 +400,10 @@ def ParseExperimentConfig(exp_dir):
     else:
         global_options['experiment_name'] = os.path.basename(exp_dir)
 
+    if globalopts:
+        for this_mod in globalopts.keys():
+            global_options[this_mod] = globalopts[this_mod]
+    
     # Initialize a list for pipelines
     pipelines = []
     workflows_to_include = {}
