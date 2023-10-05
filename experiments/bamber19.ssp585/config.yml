@@ -1,0 +1,30 @@
+global-options:
+    nsamps: 50
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        generates_climate_output: true
+#        input_data_file:
+#              - "emissions.csv"
+#        options:
+#              rcmip_file: emissions.csv
+
+sealevel_step:
+    bamber19:
+        module_set: "bamber19"
+        module: "icesheets"
+        options_allowoverwrite:
+           climate_data_file: "%CLIMATE_DATA_FILE%"
+
+    bamber19raw:
+        module_set: "bamber19"
+        module: "icesheets"
+        options:
+            scenario: "rcp85"  
