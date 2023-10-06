@@ -24,9 +24,8 @@ In addition, this section can specify:
 
 Global options can be overwritten when runFACTS.py is invokved from the command line by passing a dictionary along with the `--global_options` parameter; for example:
 
-```
-python3 runFACTS.py --global_options '{"rcfg-name": "localhost" }' experiments/dummy/
-```
+    python3 runFACTS.py --global_options '{"rcfg-name": "localhost" }' experiments/dummy/
+
 
 Experiment step and module configuration
 ----------------------------------------
