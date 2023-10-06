@@ -248,6 +248,14 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['totaled_files']])                                
 
+    # allow experiment config to specify file
+
+    if "climate_output_data" in ecfg['options'].keys():
+        copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in ecfg['options']['climate_output_data']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in ecfg['options']['climate_output_data']])
+
     # Append the "total" lists to the copy output list
     t.copy_output_data = list(set(copy_output_list))
 
