@@ -214,7 +214,7 @@ if __name__ == "__main__":
  
     # Does the experiment directory exist?
     if not os.path.isdir(args.edir):
-        print('%s does not exist'.format(args.edir))
+        print('{0} does not exist'.format(args.edir))
         sys.exit(1)
 
     # Go ahead and try to run the experiment

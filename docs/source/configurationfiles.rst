@@ -54,6 +54,8 @@ The following third-level entries are used under the module label:
 
 * **loop_over_scales**: If defined, replicate the module for both global and local scale (e.g., for a totaling module).
 
+* **climate_output_data**, **global_total_files**, **local_total_files**, **totaled_files**: See definitions in pipeline configuration file specification. Can be used together with the `facts/dummy` module and `input_data_file` to upload outputs produced by prior Experiment Steps and have them filed in an appropriate directory for subsequent modules to find. 
+
 
 Example experiment file
 ^^^^^^^^^^^^^^^^^^^^^^^

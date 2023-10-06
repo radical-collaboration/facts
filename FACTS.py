@@ -32,11 +32,10 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None, workflow_
     ecfg['exp_dir'] = exp_dir
 
     # Append the input file to the list of options (if need be)
-    if "input_data_file" in ecfg.keys():
-        ecfg['options']['input_data_file'] = ecfg['input_data_file']
-
-    if "input_compressed_data_file" in ecfg.keys():
-        ecfg['options']['input_compressed_data_file'] = ecfg['input_compressed_data_file']
+    for tagtoappend in {'input_data_file','input_compressed_data_file','climate_output_data', \
+                        'global_total_files','local_total_files','totaled_files'}:
+        if tagtoappend in ecfg.keys():
+            ecfg['options'][tagtoappend] = ecfg[tagtoappend]
 
 
     # Append the pipeline id to the list of options
@@ -113,7 +112,6 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         tcfg['upload_and_extract_input_data'] = []
 
     # If there's a user-defined input file, add it to the upload list
-
     if "input_data_file" in ecfg['options'].keys():
          for x in ecfg['options']['input_data_file']:
             fp = os.path.join(ecfg['exp_dir'], "input", mvar_replace_dict(mvar_dict,x))
@@ -242,6 +240,7 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
                                 for x in tcfg['local_total_files']])
         download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in tcfg['local_total_files']])
+
     if "totaled_files" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in tcfg['totaled_files']])
@@ -255,6 +254,24 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
                                 for x in ecfg['options']['climate_output_data']])
         download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
                              for x in ecfg['options']['climate_output_data']])
+
+    if "global_total_files" in ecfg['options'].keys():
+        copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in ecfg['options']['global_total_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in ecfg['options']['global_total_files']])
+
+    if "local_total_files" in ecfg['options'].keys():
+        copy_output_list.extend(['{0} > $SHARED/to_total/local/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in ecfg['options']['local_total_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in ecfg['options']['local_total_files']])
+
+    if "totaled_files" in ecfg['options'].keys():
+        copy_output_list.extend(['{0} > $SHARED/totaled/{0}'.format(mvar_replace_dict(mvar_dict, x))
+                                for x in ecfg['options']['totaled_files']])
+        download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
+                             for x in ecfg['options']['totaled_files']])
 
     # Append the "total" lists to the copy output list
     t.copy_output_data = list(set(copy_output_list))
