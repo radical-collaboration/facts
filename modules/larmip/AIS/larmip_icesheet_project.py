@@ -187,6 +187,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	rnd.seed(seed)
 
 	# Loop over the requested models
+	tempcount = 0;
 	for model_idx, this_model in enumerate(models):
 
 		# Read in the appropriate model's response functions
@@ -196,7 +197,8 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 		for i in np.arange(samps_per_model[model_idx]):
 
 			# Choose a random forcing from the temperature data
-			temp_idx = rnd.randint(0,NumTensemble-1)
+			temp_idx = tempcount
+			tempcount = tempcount + 1
 			Temp = np.array(SAT[:,temp_idx])
 
 			# Choose a random ocean model
