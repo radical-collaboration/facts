@@ -70,11 +70,12 @@ def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id, climate_fn
 	inttemp_mean = np.cumsum(temp_mean)
 	#inttemp_sd = np.sqrt(np.cumsum(temp_sd**2))  # Fix the bug
 	inttemp_sd = np.cumsum(temp_sd)  # Replicate the bug
+	inttemp_samples = np.cumsum(temp_samples, axis=1)
 		
 	# Store preprocessed data in pickles
 	output = {'temp_mean': temp_mean, 'temp_sd': temp_sd, 'inttemp_mean': inttemp_mean, \
 				'inttemp_sd': inttemp_sd, 'data_years': data_years, 'startyr': startyr, \
-				'scenario': scenario}
+				'scenario': scenario, 'temp_samples': temp_samples, 'inttemp_samples': inttemp_samples}
 	
 	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)
