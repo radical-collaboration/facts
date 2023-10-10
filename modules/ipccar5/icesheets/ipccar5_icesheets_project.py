@@ -194,6 +194,8 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 	my_data = pickle.load(f)
 	f.close()
 
+	temp_samples = my_data['temp_samples']
+	inttemp_samples = my_data['inttemp_samples']
 	temp_mean = my_data['temp_mean']
 	temp_sd = my_data['temp_sd']
 	inttemp_mean = my_data['inttemp_mean']
