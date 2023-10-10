@@ -1,0 +1,8 @@
+climate_step:
+    dummy:
+        module_set: "facts"
+        module: "dummy"
+        input_data_file:
+            - "test.txt"
+        climate_output_data:
+            - "test.txt"
