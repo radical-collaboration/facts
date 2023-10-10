@@ -22,6 +22,10 @@ In addition, this section can specify:
 
 * **rcfg-name**: the name of the resource configuration file to be used. FACTS will look in the resources/ directory for file with name *resource_(rcfg_name).yml*. (If not specified, *resource.yml* will be used.)
 
+Global options can be overwritten when runFACTS.py is invokved from the command line by passing a dictionary along with the `--global_options` parameter; for example:
+
+    python3 runFACTS.py --global_options '{"rcfg-name": "localhost" }' experiments/dummy/
+
 
 Experiment step and module configuration
 ----------------------------------------
