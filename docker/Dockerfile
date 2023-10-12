@@ -40,7 +40,11 @@ RUN pip install --upgrade \
         pyyaml==6.0
 
 # installs R for ubuntu2 0.04 Focal
-RUN apt-get install -y --no-install-recommends r-base cmake
+RUN apt-get update &&\
+    apt-get install -y --no-install-recommends r-base \
+        cmake \
+        libopenblas-dev \
+        gfortran
 
 # make directory for radical pilot sandbox
 RUN mkdir -p ~/radical.pilot.sandbox

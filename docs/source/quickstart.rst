@@ -95,13 +95,9 @@ To install FACTS through Docker please follow the steps below:
 
     sh develop.sh
 
-5. Create a directory for the RADICAL Pilot sandbox::
+5. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
 
-    mkdir -p ~/tmp/radical.pilot.sandbox
-
-6. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
-
-    docker run --hostname=localhost --runtime=runc -it  --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp/radical.pilot.sandbox:/root/radical.pilot.sandbox -w /opt/facts facts
+    docker run --hostname=localhost --runtime=runc -it  --volume=$HOME/facts:/opt/facts -w /opt/facts facts
 
 7. Confirm that FACTS work within the container::
 
