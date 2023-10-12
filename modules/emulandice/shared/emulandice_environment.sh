@@ -10,9 +10,8 @@ if [ ${hs: -18} = 'amarel.rutgers.edu' ]; then
     module use /projects/community/modulefiles
 
     module purge
-    module load intel/19.0.3
-    module load R/3.6.3-gc563
-    module load gcc/7.3.0-gc563
+    module load gcc/11.2/openmpi
+    module load R/4.1.0-gc563
 
     module list
 fi
