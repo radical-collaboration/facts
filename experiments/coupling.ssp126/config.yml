@@ -42,7 +42,8 @@ sealevel_step:
         include_in_workflow:
             - "wf4"
         options:
-            scenario: "rcp26"  
+            scenario: "rcp26" 
+            climate_data_file: ""
 
     emuAIS:
         module_set: "emulandice"
