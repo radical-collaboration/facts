@@ -33,7 +33,7 @@ def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
 	return(ext_sample)
 
 
-def ReadResonpseFunctions(model, Tlen=None):
+def ReadResponseFunctions(model, Tlen=None):
 
 	# Read in the RF from the files
 	fname = "./RFunctions/RF_{}_BM08_R1.dat".format(model)
@@ -174,6 +174,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	samps_per_model = np.array([nsamps // nmodels for x in range(nmodels)])
 	remainder_samps = nsamps % nmodels
 	samps_per_model[rnd.sample(range(nmodels), k=remainder_samps)] += 1
+	rnd.shuffle(samps_per_model)
 
 	# Initialize the sea-level sample variables
 	sl_r1 = []	# EAIS
@@ -191,7 +192,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	for model_idx, this_model in enumerate(models):
 
 		# Read in the appropriate model's response functions
-		RF_R1, RF_R2, RF_R3, RF_R4, RF_R5 = ReadResonpseFunctions(this_model, Tlen)
+		RF_R1, RF_R2, RF_R3, RF_R4, RF_R5 = ReadResponseFunctions(this_model, Tlen)
 
 		# Loop over the number of samples for this model
 		for i in np.arange(samps_per_model[model_idx]):

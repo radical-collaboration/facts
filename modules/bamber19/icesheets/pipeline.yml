@@ -3,7 +3,7 @@
 preprocess:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
     script: "bamber19_icesheets_preprocess.py"
     options:
       - "pipeline_id"
@@ -12,6 +12,7 @@ preprocess:
       - "pyear_step"
       - "scenario"
       - "baseyear"
+      - "climate_data_file"
     upload_and_extract_input_data:
       - "bamber19_icesheets_preprocess_data.tgz"
 
@@ -32,6 +33,7 @@ project:
       - "seed"
       - "replace"
       - "pipeline_id"
+      - "climate_data_file"
     copy_input_data:
       preprocess:
         task1:
