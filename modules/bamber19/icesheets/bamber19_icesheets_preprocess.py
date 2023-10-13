@@ -26,7 +26,7 @@ def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, 
 	
 	if len(climate_data_file) > 0:
 		wais_sampsH, eais_sampsH, gis_sampsH = ExtractSamples(mat, 'corefileH', targyears, baseyear)
-		wais_sampsL, eais_sampsL, gis_sampsL = ExtractSamples(mat, 'corefileH', targyears, baseyear)
+		wais_sampsL, eais_sampsL, gis_sampsL = ExtractSamples(mat, 'corefileL', targyears, baseyear)
 		OutputDataAll(pipeline_id, eais_sampsH, wais_sampsH, gis_sampsH,  eais_sampsL, wais_sampsL, gis_sampsL, scenario, targyears, baseyear)
 	else:
 		scenario_map = {"rcp85": 'corefileH', "rcp26": 'corefileL',  \
