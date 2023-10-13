@@ -15,7 +15,7 @@ class ProjectionError(Exception):
 	pass
 
 
-def project_greensmb(zt, fit_dict, nr):
+def project_greensmb(zt, fit_dict, nt):
 
 	# Extract relevant parameters from the fit dictionary
 	dtgreen = fit_dict['dtgreen']
@@ -25,21 +25,23 @@ def project_greensmb(zt, fit_dict, nr):
 	dgreen = fit_dict['dgreen']
 	mSLEoGt = fit_dict['mSLEoGt']
 
-	# random log-normal factor
-	fn = np.exp(np.random.standard_normal(nr)*fnlogsd)
+		# random log-normal factor
+	fn = np.exp(np.random.standard_normal(nt)*fnlogsd)
 
 	# elevation feedback factor
-	fe = np.random.sample(nr)*(febound[1]-febound[0])+febound[0]
+	fe = np.random.sample(nt)*(febound[1]-febound[0])+febound[0]
 	ff = fn*fe
 
 
 	ztgreen = zt - dtgreen
-	greensmbrate = fettweis(ztgreen, mSLEoGt)[:,np.newaxis,:] * ff[np.newaxis, :, np.newaxis]
+	greensmbrate = fettweis(ztgreen, mSLEoGt)[:,:] * ff[:,np.newaxis]
 
-	greensmb = np.cumsum(greensmbrate, axis=2)[:]
+	greensmb = np.cumsum(greensmbrate, axis=1)[:]
 	greensmb += (1 - fgreendyn) * dgreen
+	print(greensmb.shape)
 
-	return greensmb.transpose((1,0,2))
+	#return greensmb.transpose((1,0,2))
+	return greensmb
 
 
 def fettweis(ztgreen, mSLEoGt):
@@ -69,7 +71,7 @@ def project_antsmb(zit, fit_dict, nr, nt, fraction=None):
 	if fraction is None:
 		fraction=np.random.rand(nr,nt,1)
 	elif fraction.size!=nr*nt:
-		raise ProjectionError('fraction is the wrong size')
+		raise ProjectionError('Project antsmb: fraction is the wrong size')
 	else:
 		fraction.shape=(nr,nt,1)
 
@@ -122,7 +124,7 @@ def time_projection(startratemean, startratepm, finalrange, nr, nt, data_years, 
 	if fraction is None:
 		fraction=np.random.rand(nr,nt,1)
 	elif fraction.size!=nr*nt:
-		raise ProjectionError('fraction is the wrong size')
+		raise ProjectionError('Time Projection: fraction is the wrong size')
 	fraction = fraction.reshape(nr,nt,1)
 
 	# Number of years
@@ -239,18 +241,19 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 	nyr = len(data_years)
 
 	# correlation between antsmb and antdyn
-	fraction=np.random.rand(nmsamps * ntsamps)
+	#fraction=np.random.rand(nmsamps * ntsamps)
+	fraction = np.random.rand(nsamps)
 
 	# Project the SMB and Dynamics portions of each ice sheet
-	greensmb=project_greensmb(zt, my_fit, nmsamps)
-	greendyn=project_greendyn(my_fit, nmsamps, ntsamps, data_years)
-	antsmb=project_antsmb(zit, my_fit, nmsamps, ntsamps, fraction=fraction)
-	antdyn=project_antdyn(my_fit, nmsamps, ntsamps, data_years, fraction=fraction)
+	greensmb=project_greensmb(temp_samples, my_fit, nsamps)
+	greendyn=project_greendyn(my_fit, 1, nsamps, data_years)
+	antsmb=project_antsmb(inttemp_samples, my_fit, 1, nsamps, fraction=fraction)
+	antdyn=project_antdyn(my_fit, 1, nsamps, data_years, fraction=fraction)
 
 	# Center the projections to the baseyear
 	baseyear_idx = np.flatnonzero(data_years == startyr)
 	if len(baseyear_idx) > 0:
-		greensmb = greensmb - greensmb[:,:,baseyear_idx]
+		greensmb = greensmb - greensmb[:,baseyear_idx]
 		greendyn = greendyn - greendyn[:,:,baseyear_idx]
 		antsmb = antsmb - antsmb[:,:,baseyear_idx]
 		antdyn = antdyn - antdyn[:,:,baseyear_idx]
@@ -258,7 +261,7 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 	# Reduce the years to just the target years
 	year_idx = np.isin(data_years, targyears)
 	data_years = data_years[year_idx]
-	greensmb = greensmb[:,:,year_idx]
+	greensmb = greensmb[:,year_idx]
 	greendyn = greendyn[:,:,year_idx]
 	antsmb = antsmb[:,:,year_idx]
 	antdyn = antdyn[:,:,year_idx]
