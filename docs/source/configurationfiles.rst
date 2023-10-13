@@ -22,6 +22,10 @@ In addition, this section can specify:
 
 * **rcfg-name**: the name of the resource configuration file to be used. FACTS will look in the resources/ directory for file with name *resource_(rcfg_name).yml*. (If not specified, *resource.yml* will be used.)
 
+Global options can be overwritten when runFACTS.py is invokved from the command line by passing a dictionary along with the `--global_options` parameter; for example:
+
+    python3 runFACTS.py --global_options '{"rcfg-name": "localhost" }' experiments/dummy/
+
 
 Experiment step and module configuration
 ----------------------------------------
@@ -53,6 +57,8 @@ The following third-level entries are used under the module label:
 * **loop_over_workflows**: If defined, replicate the module for all workflows defined to date.
 
 * **loop_over_scales**: If defined, replicate the module for both global and local scale (e.g., for a totaling module).
+
+* **climate_output_data**, **global_total_files**, **local_total_files**, **totaled_files**: See definitions in pipeline configuration file specification. Can be used together with the `facts/dummy` module and `input_data_file` to upload outputs produced by prior Experiment Steps and have them filed in an appropriate directory for subsequent modules to find. 
 
 
 Example experiment file

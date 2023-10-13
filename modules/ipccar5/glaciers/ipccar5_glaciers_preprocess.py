@@ -76,7 +76,6 @@ def ar5_preprocess_glaciers(scenario, startyr, tlm_flag, pipeline_id, climate_fn
 	output = {'temp_mean': temp_mean, 'temp_sd': temp_sd, 'inttemp_mean': inttemp_mean, \
 				'inttemp_sd': inttemp_sd, 'data_years': data_years, 'startyr': startyr, \
 				'scenario': scenario, 'temp_samples': temp_samples, 'inttemp_samples': inttemp_samples}
-
 	
 	# Write the configuration to a file
 	outdir = os.path.dirname(__file__)

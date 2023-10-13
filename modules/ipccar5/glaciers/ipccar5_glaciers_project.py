@@ -7,6 +7,7 @@ import pickle
 import argparse
 import time
 import re
+import random as rnd
 from netCDF4 import Dataset
 
 
@@ -25,6 +26,7 @@ def project_glacier1(it,factor,exponent):
 def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, ntsamps, nsamps, pipeline_id):
 
 	# Define the target years
+	# Creates an array from pyear_start to pyear_end in steps of pyear_steps to serve as the projection window
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 
 	# Load the preprocessed data
@@ -44,6 +46,8 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	data_years = my_data['data_years']
 	baseyear = my_data["startyr"]
 	scenario = my_data['scenario']
+	temp_samples = my_data['temp_samples'] # Added for Fair Correlation  Issue
+	inttemp_samples = my_data['inttemp_samples'] # Added for Fair Correlation  Issue
 
 	# Load the fit data
 	data_file = "{}_fit.pkl".format(pipeline_id)
@@ -78,19 +82,22 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 		nmsamps = int(temp - (temp % len(glparm)))
 		ntsamps = int(np.ceil(nsamps / nmsamps))
 
+	
 	# Generate perfectly correlated samples
-	z=np.random.standard_normal(ntsamps)[:,np.newaxis]
-
 	# For each quantity, mean + standard deviation * normal random number
-	zit=inttemp_mean + (inttemp_sd * z)
+	z = np.random.standard_normal(ntsamps)[:,np.newaxis]
+	zit = inttemp_mean + (inttemp_sd * z)
+
+	#z = temp_samples
+	#zit = inttemp_samples
 
 	# Number of realizations
 	nr = nmsamps
 
-	# Number of years in the data record
+	# Number of years in the data record (default is 296)
 	nyr = len(data_years)
 
-	# number of glacier methods
+	# number of glacier methods (current default is 7)
 	ngl=len(glparm)
 
 	# Stop if the number of realizations requested cannot evenly distributed over methods
@@ -104,42 +111,56 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	# Generate samples for methodologies
 	r=np.random.standard_normal(nr)
 
+
 	# Initialize the data structure to hold the glacier samples
-	glacier = np.full((nmsamps, ntsamps, nyr), np.nan)
+	total_glac_samps = np.full((nsamps, nyr), np.nan)
 
-	# Make an ensemble of projections for each method
-	for igl in np.arange(ngl):
 
-		# Extract the cvgl value
-		cvgl = glparm[igl]['cvgl']
+	# Takes the data years and divides by the number of glacier methods to evenly distribute methods across
+	# temp_samples and inttemp_samples
+	samps_per_model = np.array([nsamps // ngl for x in range(ngl)])
+	remainder_samps = nsamps % ngl
+	samps_per_model[rnd.sample(range(ngl), k=remainder_samps)] += 1
+	
+
+	# Creates a list of integers for the random method selection
+	time_series_idx = list(np.arange(0, nsamps))
+
+	for method_idx in range(len(samps_per_model)):
+		
+		# Applies the method index to the select the appropriate glacier method
+		gmethod = glparm[method_idx]
+
+		# Randomly pulls time-series indices from the selection pool corresponding to samps_per_model for this method
+		rnd_sample_idx = rnd.sample(list(time_series_idx), k=samps_per_model[method_idx])
+
+		# Removes the selected time-series indices from the selection pool for the next loop
+		time_series_idx = np.setdiff1d(time_series_idx, rnd_sample_idx)
 
 		# glacier projection for this method using the mean temperature timeseries
-		mgl=project_glacier1(inttemp_mean,glparm[igl]['factor'],glparm[igl]['exponent'])
-
-		# glacier projections for this method with the ensemble of timeseries
-		zgl=project_glacier1(zit,glparm[igl]['factor'],glparm[igl]['exponent'])
-
-		# Store these samples
-		ifirst=int(igl*nrpergl)
-		ilast=int(ifirst+nrpergl)
-		glacier[ifirst:ilast,...] = zgl[np.newaxis,:,:] + (mgl * r[ifirst:ilast,np.newaxis] * cvgl)[:,np.newaxis,:]
-
-
-	# Add the contribution from the glaciers between the start year and
-	# the AR5 reference period
-	glacier += dmz
-	glacier[glacier > glmass] = glmass
-
+		mgl = project_glacier1(inttemp_mean, 
+						 gmethod['factor'], 
+						 gmethod['exponent'])
+		
+		for sample_idx in rnd_sample_idx:
+			# Project time series of total glacier loss based on integrated temperature time series
+			zgl = project_glacier1(inttemp_samples[sample_idx][year_idx], gmethod['factor'], gmethod['exponent'])
+			
+			# add normally distributed methodological uncertainty based on ensemble-mean integrated temperature
+			zgl = zgl + (mgl * np.random.standard_normal(1) * gmethod['cvgl'])
+			
+			total_glac_samps[sample_idx,:] = zgl
+	
+	
+	total_glac_samps += dmz
+	total_glac_samps[total_glac_samps > glmass] = glmass
+	total_glac_samps = total_glac_samps * 1000
+	
 	# Save the global glacier and ice caps projections to a pickle
 	#output = {"glacier": glacier, "data_years": data_years}
 	#outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
 	#pickle.dump(output, outfile)
 	#outfile.close()
-
-	# Flatten the sample data structure
-	glacier = glacier.reshape(-1, glacier.shape[-1]) * 1000  # Convert to mm
-	total_glac_samps = glacier
-	total_glac_samps = total_glac_samps[:nsamps,:]
 
 	# Write the total global projections to a netcdf file
 	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
@@ -213,17 +234,18 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	glac_frac = glac_frac[:,year_idx]
 
 	# Reshape the samples and fraction data structures for broadcasting
-	glacier = glacier[:nsamps,np.newaxis,:]
 	glac_frac = glac_frac[np.newaxis,:,:]
 
 	# Apply the regional fractions to the global projections
-	gicsamps = glacier * glac_frac
 
+	total_glac_samps = total_glac_samps[:,:,np.newaxis]
+	total_glac_samps = np.transpose(total_glac_samps,(0,2,1))
+	
+
+	gicsamps = total_glac_samps * glac_frac
 
 
 	print(gicsamps.shape)
-
-
 
 
 	# Save the global glacier and ice caps projections to a pickle
@@ -232,7 +254,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	pickle.dump(output, outfile)
 	outfile.close()
 
-
+	
 	return(0)
 
 
