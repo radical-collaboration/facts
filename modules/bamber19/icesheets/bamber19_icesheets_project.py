@@ -196,12 +196,14 @@ def GetSATData(fname, scenario, refyear_start=1850, refyear_end=1900, year_start
 def pickScenario(climate_data_file, scenario):
 	# Load the temperature data
 	
-	# TO FIX: CHECK HOW SMOOTH FAIR DATA IS, BUT IF IT HAS A REASONABLE DEGREE OF INTERANNUAL
-	# VARIABILITY, THIS SHOULD BE REPLACED WITH CALCULATION OF THE 2091--2109 AVERAGE TEMPERATURE 
-	# RATHER THAN PRECISELY THE YEAR 2100 TEMPERATURE
 	SAT,Time,NumTensemble = GetSATData(climate_data_file, scenario)
-	x2=np.where(Time[:] == 2100)[0][0]
+
+	# find average SAT over 2091-2109
+	x2=np.where(np.abs(Time[:] - 2100) < 10)[0]
 	SAT2=SAT[x2,:]
+	SAT2=SAT2.mean(axis=0)
+
+	# convert temperature into a normalized variable between 2C and 5C
 	f2=np.minimum(1,np.maximum(0,(SAT2-2)/(5-2)))
 	weights=f2
 
