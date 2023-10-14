@@ -198,10 +198,10 @@ def pickScenario(climate_data_file, scenario):
 	
 	SAT,Time,NumTensemble = GetSATData(climate_data_file, scenario)
 
-	# find average SAT over 2091-2109
-	x2=np.where(np.abs(Time[:] - 2100) < 10)[0]
-	SAT2=SAT[x2,:]
-	SAT2=SAT2.mean(axis=0)
+	# find integrated SAT over 2000-2099
+	x2=np.where((Time[:]<2100) * (Time[:]>=2000))
+	SAT2=SAT[x2]
+	iSAT=SAT2.sum(axis=0)
 
 	# convert temperature into a normalized variable between 2C and 5C
 	f2=np.minimum(1,np.maximum(0,(SAT2-2)/(5-2)))
