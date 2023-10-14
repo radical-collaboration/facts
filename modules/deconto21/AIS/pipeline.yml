@@ -3,7 +3,7 @@
 preprocess:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib xarray dask"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib xarray dask h5py"
     script: "deconto21_AIS_preprocess.py"
     options:
       - "scenario"
