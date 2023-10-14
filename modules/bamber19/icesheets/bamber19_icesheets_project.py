@@ -203,12 +203,21 @@ def pickScenario(climate_data_file, scenario):
 	SAT2=SAT[x2]
 	iSAT=SAT2.sum(axis=0)
 
-	# convert temperature into a normalized variable between 2C and 5C
-	f2=np.minimum(1,np.maximum(0,(SAT2-2)/(5-2)))
+	# convert integrated temperature into a normalized variable between low and high scenarios
+
+	# Bamber 19 low scenario: 0.7 C in 2000, 1.5 C in 2050,
+	# 2.0 C in 2100 = 70 + 20 + 40 + 12.5 = 142.5 C*yr if I've done this correctly
+
+	# Bamber 19 high scenario: 0.7 C in 2000, 2.0 C in 2050, 5.0 C in 2100 =
+	# 70 + 32.5 + 65 + 75 = 242.5 C*yr if I've done this correctly
+
+	iSAT_marker = np.array([142.5,242.5])
+
+	f2=np.minimum(1,np.maximum(0,(iSAT-iSAT_marker[0])/(iSAT_marker[1]-iSAT_marker[0])))
 	weights=f2
 
 	# Select which scenario to draw from for each sample
-	selector = np.random.rand(SAT2.size)
+	selector = np.random.rand(iSAT.size)
 	useHigh = (selector<weights)
 	return useHigh
 
