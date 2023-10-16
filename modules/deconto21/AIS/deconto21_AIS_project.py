@@ -44,7 +44,7 @@ def dp21_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, pipeline_i
 	wais_samps = wais[datayr_idx[:,np.newaxis],sample_idx[np.newaxis,:]]
 	eais_samps = eais[datayr_idx[:,np.newaxis],sample_idx[np.newaxis,:]]
 
-	WriteOutput(eais_samps, wais_samps, targyears[targyear_idx], scenario, pipeline_id,baseyear):
+	WriteOutput(eais_samps, wais_samps, targyears[targyear_idx], scenario, pipeline_id,baseyear)
 
 	return(None)
 
@@ -82,7 +82,7 @@ def dp21_project_icesheet_temperatueredriven(climate_data_file, pyear_start, pye
 		eais_samps[:,useScenario==ii] = eais_samps0[:,:,ii]
 		wais_samps[:,useScenario==ii] = wais_samps0[:,:,ii]
 
-	WriteOutput(eais_samps, wais_samps, targyears[targyear_idx], scenario, pipeline_id,baseyear):
+	WriteOutput(eais_samps, wais_samps, targyears[targyear_idx], scenario, pipeline_id,baseyear)
 	return(None)
 
 
