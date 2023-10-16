@@ -143,8 +143,8 @@ def pickScenario(climate_data_file, scenario):
 	f2=np.minimum(1,np.maximum(0,(iSAT-iSAT_marker[1])/(iSAT_marker[2]-iSAT_marker[1])))
 
 	# Select which scenario to draw from for each sample
-	useScenario = (selector<f1)
-	useScenario[iSAT>iSAT_marker[1]] = 1 + (selector[iSAT>iSAT_marker[1]]<f2)
+	useScenario = np.multiply(selector<f1,1)
+	useScenario[iSAT>iSAT_marker[1]] = 1 + np.multiply(selector[iSAT>iSAT_marker[1]]<f2[iSAT>iSAT_marker[1]],1)
 	return useScenario
 
 def WriteOutput(eais_samps, wais_samps,  targyears, scenario, pipeline_id,baseyear):
