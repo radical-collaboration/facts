@@ -11,7 +11,7 @@ from radical.entk import AppManager
 import json
 
 
-def run_experiment(exp_dir, debug_mode, alt_id, resourcedir = None, makeshellscript = False, globalopts = None):
+def run_experiment(exp_dir, debug_mode = False, alt_id = False, resourcedir = None, makeshellscript = False, globalopts = None):
 
     if not resourcedir:
         resourcedir = exp_dir
