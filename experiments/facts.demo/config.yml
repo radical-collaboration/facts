@@ -43,35 +43,7 @@ sealevel_step:
             - "wf4"
         options:
             scenario: "rcp85"
-            climate_data_file: ""    
-
-    emuAIS:
-        module_set: "emulandice"
-        module: "AIS"
-        include_in_workflow:
-            - "wf1e"      
-        options:
-            pyear_end: 2100
-
-    emuGrIS:
-        module_set: "emulandice"
-        module: "GrIS"
-        include_in_workflow:
-            - "wf1e"  
-            - "wf2e"  
-            - "wf3e"  
-        options:
-            pyear_end: 2100
-
-    emuglaciers:
-        module_set: "emulandice"
-        module: "glaciers"
-        include_in_workflow:
-            - "wf1e"   
-            - "wf2e"   
-            - "wf3e"
-        options:
-            pyear_end: 2100
+            climate_data_file: ""
 
     larmip:
         module_set: "larmip"
