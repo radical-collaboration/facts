@@ -23,39 +23,26 @@ Installing and Using FACTS on a GNU/Linux Workstation
    https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put
    these ~60 GB of files in a common location and soft-link to each user's directory.)
 
-3. Set up and launch MongoDB server. Options include:
-
-  - `Install MongoDB Community Edition on Linux <https://www.mongodb.com/docs/manual/administration/install-on-linux/>`_
-
-  - Run MongoDB from a container. On a system with Singularity installed, this looks something like::
-
-      mkdir mongo
-      singularity build --sandbox mongo/ docker://mongo
-      singularity run -w mongo &.
-
-  - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
-    team via email or by opening an issue in this repository.
-
-4. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
+3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
 
     python3 -m venv ve3
     . ve3/bin/activate
     pip install --upgrade setuptools pip wheel radical.entk pyyaml
 
-5. Test your install by running the dummy experiment::
+4. Test your install by running the dummy experiment::
 
     python3 runFACTS.py experiments/dummy
 
-6. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
+5. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
 
-7. Create a new experiment. For example::
+6. Create a new experiment. For example::
 
     mkdir test
     cp -r experiments/coupling.ssp585/config.yml test
 
-8. Run your experiment::
+7. Run your experiment::
 
     python3 runFACTS.py test
 
