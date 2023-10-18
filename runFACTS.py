@@ -80,7 +80,7 @@ def run_experiment(exp_dir, debug_mode, alt_id, resourcedir = None, makeshellscr
         # we may be running the development version of radical.entk that doesn't require RabbitMQ
         #amgr = AppManager(autoterminate=False)
         if alt_id:
-            date_now = datetime.datetime.now().strftime('%m%d%Y.%I%M%S%p').lower()
+            date_now = datetime.datetime.now().strftime('%m%d%Y').lower()
             exp_name = os.path.basename(os.path.normpath(exp_dir))
             session_name = f'facts.{rcfg_name}.{str(exp_name).lower()}.{date_now}'
             amgr = AppManager(name=session_name,autoterminate=False)

@@ -17,6 +17,14 @@ climate_step:
 #              rcmip_file: emissions.csv
 
 sealevel_step:
-    deconto16:
-        module_set: "deconto16"
-        module: "AIS"
+    GrIS1f:
+        module_set: "FittedISMIP"
+        module: "GrIS"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
+
+    ocean:
+        module_set: "tlm"
+        module: "sterodynamics"
+        options_allowoverwrite:
+            climate_data_file: "%CLIMATE_DATA_FILE%"
