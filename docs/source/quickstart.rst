@@ -60,7 +60,7 @@ Installing and Using FACTS on a GNU/Linux Container
 The RADICAL toolkit does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need to run within a Linux virtual machine or container. 
 
 We have provided a Docker container in the ``docker/`` directory. This container provides the Linux,
-Python and RADICAL toolkit environment needed for FACTS to run.
+Python, R, and RADICAL toolkit environment needed for FACTS to run.
 FACTS itself does not reside within the container because of needs related to
 storage space for module data, persistence of changes, and writability. The instructions below
 assume FACTS resides outside the container in ``$HOME/facts`` and mount it within the container as
