@@ -54,16 +54,17 @@ to run FACTS on your desktop and use a remote HPC resource, you probably don't
 want to do this. At a minimum, you will want to have a fast, high-capacity
 network connection to the resource.
 
-Installing and Using FACTS on a GNU/Linux Virtual Machine or Container
+Installing and Using FACTS on a GNU/Linux Container
 ----------------------------------------------------------------------
 
-The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need to run within a Linux virtual machine or container. 
+The RADICAL toolkit does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need to run within a Linux virtual machine or container. 
 
-.. warning:: These are not officially supported solutions; use them on your own recognizance.
+We have provided a Docker container in the ``docker/`` directory. This container provides the Linux,
+Python and RADICAL toolkit environment needed for FACTS to run.
+FACTS itself does not reside within the container because of needs related to
+storage space for module data, persistence of changes, and writability. The instructions below
+assume FACTS resides outside the container in ``$HOME/facts``.
 
-To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>`_ or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
-
-Alternatively, you could use a Docker container. We have provided an experimental Docker container in the ``docker/`` directory.
 To install FACTS through Docker please follow the steps below:
 
 1. Clone the FACTS repository::
