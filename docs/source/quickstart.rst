@@ -63,7 +63,8 @@ We have provided a Docker container in the ``docker/`` directory. This container
 Python and RADICAL toolkit environment needed for FACTS to run.
 FACTS itself does not reside within the container because of needs related to
 storage space for module data, persistence of changes, and writability. The instructions below
-assume FACTS resides outside the container in ``$HOME/facts``.
+assume FACTS resides outside the container in ``$HOME/facts`` and mount it within the container as
+``/opt/facts``.
 
 To install FACTS through Docker please follow the steps below:
 
