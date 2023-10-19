@@ -5,6 +5,7 @@ global-options:
     pyear_end: 2150
     pyear_step: 10
     baseyear: 2005
+    rcfg-name: 'amarel'
 
 climate_step:
     temperature:
@@ -20,11 +21,5 @@ sealevel_step:
     GrIS1f:
         module_set: "FittedISMIP"
         module: "GrIS"
-        options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
-
-    ocean:
-        module_set: "tlm"
-        module: "sterodynamics"
         options_allowoverwrite:
             climate_data_file: "%CLIMATE_DATA_FILE%"
