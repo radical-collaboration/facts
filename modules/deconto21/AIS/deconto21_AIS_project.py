@@ -49,7 +49,7 @@ def dp21_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, pipeline_i
 	return(None)
 
 
-def dp21_project_icesheet_temperatueredriven(climate_data_file, pyear_start, pyear_end, pyear_step, pipeline_id, replace, rngseed):
+def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyear_end, pyear_step, pipeline_id, replace, rngseed):
 
 	# Load the data file
 	years, wais, eais, scenario, baseyear = LoadDataFile(pipeline_id)
