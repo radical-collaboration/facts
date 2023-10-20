@@ -57,7 +57,7 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	# identify which samples to draw from which scenario
 	useScenario=pickScenario(climate_data_file, scenario);
 	nsamps=useScenario.size
-	
+
 	# Define the target projection years
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 
@@ -81,8 +81,8 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	wais_samps = wais_samps0[:,:,0]
 
 	for ii in range(1,2):
-		eais_samps[:,useScenario==ii] = eais_samps0[:,:,ii]
-		wais_samps[:,useScenario==ii] = wais_samps0[:,:,ii]
+		eais_samps[:,useScenario==ii] = eais_samps0[:,useScenario==ii,ii]
+		wais_samps[:,useScenario==ii] = wais_samps0[:,useScenario==ii,ii]
 
 	WriteOutput(eais_samps, wais_samps, targyears[targyear_idx], scenario, pipeline_id,baseyear)
 	return(None)
