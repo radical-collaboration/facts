@@ -80,7 +80,7 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	eais_samps = eais_samps0[:,:,0]
 	wais_samps = wais_samps0[:,:,0]
 
-	for ii in range(1,2):
+	for ii in range(1,3):
 		eais_samps[:,useScenario==ii] = eais_samps0[:,useScenario==ii,ii]
 		wais_samps[:,useScenario==ii] = wais_samps0[:,useScenario==ii,ii]
 
