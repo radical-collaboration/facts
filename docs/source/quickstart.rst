@@ -85,7 +85,7 @@ To install FACTS through Docker please follow the steps below:
 
     sh develop.sh
 
-5. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
+5. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts`` and will be mounted within the container as ``/opt/facts``::
 
     docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts facts
 
