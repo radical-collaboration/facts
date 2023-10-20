@@ -3,12 +3,13 @@
 preprocess:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib xarray dask"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib xarray dask h5py"
     script: "deconto21_AIS_preprocess.py"
     options:
       - "scenario"
       - "pipeline_id"
       - "baseyear"
+      - "climate_data_file"
     upload_and_extract_input_data:
       - "deconto21_AIS_preprocess_data.tgz"
 
@@ -33,6 +34,7 @@ project:
       - "seed"
       - "replace"
       - "pipeline_id"
+      - "climate_data_file"
     copy_input_data:
       preprocess:
         task1:
