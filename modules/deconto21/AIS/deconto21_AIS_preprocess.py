@@ -28,8 +28,8 @@ def dp21_preprocess_icesheet(scenario, baseyear, pipeline_id, climate_data_file 
 
 		for ii in range(1,len(scens)):
 			years, e, w = ReadScenarioFile(scens[ii],baseyear)
-			np.append(eais_samps,e[:,:,np.newaxis],axis=2)
-			np.append(wais_samps,w[:,:,np.newaxis],axis=2)
+			eais_samps=np.append(eais_samps,e[:,:,np.newaxis],axis=2)
+			wais_samps=np.append(wais_samps,w[:,:,np.newaxis],axis=2)
 	else:
 		years, eais_samps, wais_samps = ReadScenarioFile(scenario,baseyear)
 

@@ -54,6 +54,10 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	# Load the data file
 	years, wais, eais, scenario, baseyear = LoadDataFile(pipeline_id)
 
+	# identify which samples to draw from which scenario
+	useScenario=pickScenario(climate_data_file, scenario);
+	nsamps=useScenario.size
+	
 	# Define the target projection years
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
 
@@ -71,8 +75,6 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	wais_samps0 = wais[datayr_idx[:,np.newaxis],sample_idx[np.newaxis,:],:]
 	eais_samps0 = eais[datayr_idx[:,np.newaxis],sample_idx[np.newaxis,:],:]
 
-	# identify which samples to draw from which scenario
-	useScenario=pickScenario(climate_data_file, scenario);
 
 	# Store the samples for AIS components
 	eais_samps = eais_samps0[:,:,0]
