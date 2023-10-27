@@ -1,41 +1,37 @@
-import numpy as np
-import pandas as pd
-import xarray as xr
-import netCDF4 as nc
-from mpl_toolkits.basemap import Basemap
 import glob
 import os
 import shutil
 import re
-import cartopy
-import matplotlib.ticker as mticker
-import matplotlib.pyplot as plt
 import fnmatch
 #
-PD=os.getcwd(); #PD
-# ==========================================================================================
-
+import numpy as np
+import pandas as pd
+import xarray as xr
+import netCDF4 as nc
+#
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
+from mpl_toolkits.basemap import Basemap
+import cartopy
+#
+PD=os.getcwd(); 
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-def filePATH(ssp,path): # Creates a list of file paths.
-    """"""""""""""""""
-    # Make sure to have all the files in a single ssp folder
-    """"""""""""""""""
-    # path=f'/scratch/pk695/FACTS/002_fork/facts/JupNbk/000_pk-JupNb_TESTspace/2023-01_NZ_INSAR/002_Pbox/4_confidence_level_files/medium_confidence/{ssp}'
-    # files = glob.glob(path + '/*.nc')
-    #
-    # path='/scratch/pk695/FACTS/002_fork/facts/JupNbk/000_pk-JupNb_TESTspace/2023-01_NZ_INSAR/002_Pbox/2_workflow_quantiles/'
-    # files=[path+f'wf_1e/{ssp}/coupling.{ssp}.emuAIS.emulandice.AIS_globalsl.nc',
-    #        path+f'wf_2e/{ssp}/coupling.{ssp}.larmip.larmip.AIS_globalsl.nc',
-    #        path+f'wf_3e/{ssp}/coupling.{ssp}.deconto21.deconto21.AIS_AIS_globalsl.nc',
-    #        path+f'wf_4/{ssp}/coupling.{ssp}.bamber19.bamber19.icesheets_AIS_globalsl.nc']
+# Create a list of file paths.
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+def filePATH(ssp,path): 
+    
+    # files=[path+f'wf1e/{ssp}/coupling.{ssp}.emuAIS.emulandice.AIS_globalsl_quantiles.nc',
+    #        path+f'wf2e/{ssp}/coupling.{ssp}.larmip.larmip.AIS_globalsl_quantiles.nc',
+    #        path+f'wf3e/{ssp}/coupling.{ssp}.deconto21.deconto21.AIS_AIS_globalsl_quantiles.nc',
+    #        path+f'wf4/{ssp}/coupling.{ssp}.bamber19.bamber19.icesheets_AIS_globalsl_quantiles.nc']
+    # return files
 
-    files=[path+f'wf_1e/{ssp}/coupling.{ssp}.total.workflow.wf1e.global.nc',
-           path+f'wf_2e/{ssp}/coupling.{ssp}.total.workflow.wf2e.global.nc',
-           path+f'wf_3e/{ssp}/coupling.{ssp}.total.workflow.wf3e.global.nc',
-           path+f'wf_4/{ssp}/coupling.{ssp}.total.workflow.wf4.global.nc']
+    files=[path+f'wf1e/{ssp}/coupling.{ssp}.total.workflow.wf1e.global_quantiles.nc',
+           path+f'wf2e/{ssp}/coupling.{ssp}.total.workflow.wf2e.global_quantiles.nc',
+           path+f'wf3e/{ssp}/coupling.{ssp}.total.workflow.wf3e.global_quantiles.nc',
+           path+f'wf4/{ssp}/coupling.{ssp}.total.workflow.wf4.global_quantiles.nc']
     return files
-
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 def nc2var(files,loc):
