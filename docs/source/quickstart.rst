@@ -5,8 +5,6 @@ Quick Start
 
 FACTS uses `RADICAL-EnsembleToolkit (EnTK) <https://radicalentk.readthedocs.io/en/stable/>`_ and `RADICAL-Pilot <https://radicalpilot.readthedocs.io/en/stable/>`_ to execute its modules. While the RADICAL tools are specifically designed for executing on a range of `supported <https://radicalpilot.readthedocs.io/en/stable/supported.html>`_ high performance computing (HPC) platforms, FACTS can also execute on a GNU/Linux workstation, virtual machine or container. Here we offer instructions for each deployment scenario but if you want to run FACTS at scale on an HPC platform, please `contact us <https://github.com/radical-collaboration/facts/issues/new>`_ and we will be happy to offer tailored support.
 
-.. note:: Starting from version 1.40, the RADICAL tools will not require MongoDB anymore.
-
 .. warning:: FACTS MUST be used within a dedicated Python virtual environment. You can use `venv`, `conda` or `virtualenv` to create one. If you try to install FACTS system-wide, it will fail.
 
 Installing and Using FACTS on a GNU/Linux Workstation
@@ -23,39 +21,26 @@ Installing and Using FACTS on a GNU/Linux Workstation
    https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put
    these ~60 GB of files in a common location and soft-link to each user's directory.)
 
-3. Set up and launch MongoDB server. Options include:
-
-  - `Install MongoDB Community Edition on Linux <https://www.mongodb.com/docs/manual/administration/install-on-linux/>`_
-
-  - Run MongoDB from a container. On a system with Singularity installed, this looks something like::
-
-      mkdir mongo
-      singularity build --sandbox mongo/ docker://mongo
-      singularity run -w mongo &.
-
-  - Set up your resource file to use the MongoDB server run by RADICAL. Ask for MongoDB parameters by writing to the FACTS
-    team via email or by opening an issue in this repository.
-
-4. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
+3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
 
     python3 -m venv ve3
     . ve3/bin/activate
     pip install --upgrade setuptools pip wheel radical.entk pyyaml
 
-5. Test your install by running the dummy experiment::
+4. Test your install by running the dummy experiment::
 
     python3 runFACTS.py experiments/dummy
 
-6. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
+5. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
 
-7. Create a new experiment. For example::
+6. Create a new experiment. For example::
 
     mkdir test
     cp -r experiments/coupling.ssp585/config.yml test
 
-8. Run your experiment::
+7. Run your experiment::
 
     python3 runFACTS.py test
 
@@ -67,16 +52,19 @@ to run FACTS on your desktop and use a remote HPC resource, you probably don't
 want to do this. At a minimum, you will want to have a fast, high-capacity
 network connection to the resource.
 
-Installing and Using FACTS on a GNU/Linux Virtual Machine or Container
+Installing and Using FACTS on a GNU/Linux Container
 ----------------------------------------------------------------------
 
-The RADICAL tools does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need to run within a Linux virtual machine or container. 
+The RADICAL toolkit does not support MacOS or Windows. Therefore, to run on a Mac or Windows (the latter with WSL2), you need to run within a Linux virtual machine or container. 
 
-.. warning:: These are not officially supported solutions; use them on your own recognizance.
+We have provided a Docker container in the ``docker/`` directory. This container provides the Linux,
+Python, R, and RADICAL toolkit environment needed for FACTS to run.
+FACTS itself does not reside within the container because of needs related to
+storage space for module data, persistence of changes, and writability. The instructions below
+assume FACTS resides outside the container in ``$HOME/facts`` and mounts it within the container as
+``/opt/facts``. At the moment, the docker environment appears to work fairly reliably when
+using localhost as the resource, but not when using remote resources. 
 
-To use a virtual machine on MacOS or Windows, you may want to investigate tools like `VirtualBox <https://www.virtualbox.org/>`_ or other commercial solutions. Once you create, run and log into a GNU/Linux VM, you can follow the instructions above to install and using FACTS.
-
-Alternatively, you could use a Docker container. We have provided an experimental Docker container in the ``docker/`` directory.
 To install FACTS through Docker please follow the steps below:
 
 1. Clone the FACTS repository::
@@ -95,9 +83,9 @@ To install FACTS through Docker please follow the steps below:
 
     sh develop.sh
 
-5. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts``::
+5. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts`` and will be mounted within the container as ``/opt/facts``::
 
-    docker run --hostname=localhost --runtime=runc -it  --volume=$HOME/facts:/opt/facts -w /opt/facts facts
+    docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts facts
 
 7. Confirm that FACTS work within the container::
 

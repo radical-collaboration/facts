@@ -62,42 +62,14 @@ def run_experiment(exp_dir, debug_mode = False, alt_id = False, resourcedir = No
     rcfg = facts.LoadResourceConfig(resourcedir, rcfg_name)
 
     # Initialize RCT and the EnTK App Manager
-    if 'mongodb_url' in rcfg:
-        dburl = rcfg['mongodb_url']
-    elif not "mongodb" in rcfg.keys():
-        dburl = 'mongodb://localhost:27017/facts'
-    elif not "password" in rcfg['mongodb'].keys():
-        dburl = 'mongodb://%s:%d/facts' % (rcfg['mongodb'].get('hostname', 'localhost'), rcfg['mongodb'].get('port', 27017))
+    if alt_id:
+        date_now = datetime.datetime.now().strftime('%m%d%Y.%I%M%S%p').lower()
+        exp_name = os.path.basename(os.path.normpath(exp_dir))
+        session_name = f'facts.{rcfg_name}.{str(exp_name).lower()}.{date_now}'
+        amgr = AppManager(name=session_name,autoterminate=False)
     else:
-        dburl = 'mongodb://%s:%s@%s:%d/facts' \
-                % (rcfg['mongodb'].get('username', ''),
-                rcfg['mongodb'].get('password', ''),
-                rcfg['mongodb'].get('hostname', 'localhost'),
-                rcfg['mongodb'].get('port', 27017))
-    os.environ['RADICAL_PILOT_DBURL'] = dburl
-
-    if not "rabbitmq" in rcfg.keys():
-        # we may be running the development version of radical.entk that doesn't require RabbitMQ
-        #amgr = AppManager(autoterminate=False)
-        if alt_id:
-            date_now = datetime.datetime.now().strftime('%m%d%Y.%I%M%S%p').lower()
-            exp_name = os.path.basename(os.path.normpath(exp_dir))
-            session_name = f'facts.{rcfg_name}.{str(exp_name).lower()}.{date_now}'
-            amgr = AppManager(name=session_name,autoterminate=False)
         # retains the original naming convention from RCT
-        else:
-            amgr = AppManager(autoterminate=False)    
-    else:
-        if not "password" in rcfg['rabbitmq'].keys():
-            amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
-                        port=rcfg['rabbitmq'].get('port', 5672),
-                        autoterminate=False)
-        else:
-            amgr = AppManager(hostname=rcfg['rabbitmq'].get('hostname', ''),
-                        username=rcfg['rabbitmq'].get('username', ''),
-                        password=rcfg['rabbitmq'].get('password', ''),
-                        port=rcfg['rabbitmq'].get('port', 5672),
-                        autoterminate=False)
+        amgr = AppManager(autoterminate=False)    
 
     amgr.resource_desc = rcfg['resource-desc']
 
