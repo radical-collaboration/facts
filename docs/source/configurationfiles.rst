@@ -22,7 +22,7 @@ In addition, this section can specify:
 
 * **rcfg-name**: the name of the resource configuration file to be used. FACTS will look in the resources/ directory for file with name *resource_(rcfg_name).yml*. (If not specified, *resource.yml* will be used.)
 
-Global options can be overwritten when runFACTS.py is invokved from the command line by passing a dictionary along with the ```--global_options``` parameter; for example::
+Global options can be overwritten when runFACTS.py is invokved from the command line by passing a dictionary along with the ``--global_options`` parameter; for example::
 
     python3 runFACTS.py --global_options '{"rcfg-name": "localhost" }' experiments/dummy/
 
@@ -42,7 +42,7 @@ The following third-level entries are used under the module label:
 
 * **options**: Entries under this header are passed as options to the modules if they match options defined in the module pipeline.yml. These overwrite global options.
 
-* **options_allowoverwrite**: Entries under this header are passed as options to the modules if they match options defined in the module pipeline.yml. These can be overwriten by global options. Options that make use of magic variables should be specified here. A particularly useful example is the specification ```climate_data_file: "%CLIMATE_DATA_FILE%"```, which allows the identified of the climate data file generate in the climate stage to be passed onto sea level modules that use it as input.
+* **options_allowoverwrite**: Entries under this header are passed as options to the modules if they match options defined in the module pipeline.yml. These can be overwriten by global options. Options that make use of magic variables should be specified here. A particularly useful example is the specification ``climate_data_file: "%CLIMATE_DATA_FILE%"``, which allows the identified of the climate data file generate in the climate stage to be passed onto sea level modules that use it as input.
 
 * **input_data_file**: Identifies a data file to be uploaded into the sandbox from the input/ subdirectory of the experiment directory.
 
