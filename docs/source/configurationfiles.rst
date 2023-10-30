@@ -90,8 +90,6 @@ Example experiment file
         GrIS1f:
             module_set: "FittedISMIP"
             module: "GrIS"
-            options_allowoverwrite:
-                climate_data_file: "%CLIMATE_DATA_FILE%"
             include_in_workflow:
                 - "wf1f"
                 - "wf2f"
@@ -121,7 +119,6 @@ Example experiment file
             module_set: "larmip"
             module: "AIS"
             options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
             include_in_workflow:
                 - "wf2e"
                 - "wf2f"
@@ -129,8 +126,6 @@ Example experiment file
         ar5glaciers:
             module_set: "ipccar5"
             module: "glaciers"
-            options_allowoverwrite:
-                climate_data_file: "%CLIMATE_DATA_FILE%"
             include_in_workflow:
                 - "wf1f"
                 - "wf2f"
@@ -139,16 +134,12 @@ Example experiment file
             module_set: "ipccar5"
             module: "icesheets"
             pipeline_file: "pipeline.AIS.yml"
-            options_allowoverwrite:
-                climate_data_file: "%CLIMATE_DATA_FILE%"
             include_in_workflow:
                 - "wf1f"
 
         ocean:
             module_set: "tlm"
             module: "oceandynamics"
-            options_allowoverwrite:
-                climate_data_file: "%CLIMATE_DATA_FILE%"
             include_in_workflow:
                 - "wf1f"
                 - "wf1e"
