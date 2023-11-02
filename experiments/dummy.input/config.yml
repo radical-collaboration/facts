@@ -5,4 +5,6 @@ climate_step:
         input_data_file:
             - "test.txt"
         climate_output_data:
-            - "test.txt"
+            - "climate.nc"
+        generates_climate_output: true
+

@@ -253,7 +253,8 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
         copy_output_list.extend(['{0} > $SHARED/climate/{0}'.format(mvar_replace_dict(mvar_dict, x))
                                 for x in ecfg['options']['climate_output_data']])
         download_list.extend(['{0} > {1}/{0}'.format(mvar_replace_dict(mvar_dict, x), outdir)
-                             for x in ecfg['options']['climate_output_data']])
+                             for x in ecfg['options']['climate_output_data']])        
+
 
     if "global_total_files" in ecfg['options'].keys():
         copy_output_list.extend(['{0} > $SHARED/to_total/global/{0}'.format(mvar_replace_dict(mvar_dict, x))
@@ -482,7 +483,12 @@ def ParseExperimentConfig(exp_dir, globalopts=None):
                         workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
 
             if "generates_climate_output" in ecfg[this_mod][this_mod_sub].keys():
-                climate_data_files = IdentifyClimateOutputFiles(parsed['pcfg'], parsed['pipe_name'])
+                pc = parsed['pcfg']
+                if "climate_output_data" in ecfg[this_mod][this_mod_sub].keys():
+                    pc['override'] = {}
+                    pc['override']['climate'] = {}
+                    pc['override']['climate']['climate_output_data']= ecfg[this_mod][this_mod_sub]['climate_output_data']
+                climate_data_files = IdentifyClimateOutputFiles(pc, parsed['pipe_name'])
                 global_options['climate_data_file'] = climate_data_files['climate']
                 global_options['climate_gsat_data_file'] = climate_data_files['gsat']
                 global_options['climate_ohc_data_file'] = climate_data_files['ohc']
