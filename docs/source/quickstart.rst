@@ -23,6 +23,12 @@ Installing and Using FACTS on a GNU/Linux Workstation
    https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put
    these ~60 GB of files in a common location and soft-link to each user's directory.)
 
+3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
+
+    python3 -m venv ve3
+    . ve3/bin/activate
+    pip install --upgrade setuptools pip wheel radical.entk pyyaml
+
 4. Test your install by running the dummy experiment::
 
     cd facts
@@ -81,11 +87,11 @@ To install FACTS through Docker please follow the steps below:
 
     docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts facts
 
-7. Confirm that FACTS work within the container::
+5. Confirm that FACTS work within the container::
 
     python3 runFACTS.py experiments/dummy
 
-8. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
+6. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
 

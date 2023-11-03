@@ -1,7 +1,16 @@
 resource-desc:
-  resource: 'local.localhost'
+  resource: 'rutgers.amarel'
   walltime: 600
   cpus: 2
+  memory: 16000
   gpus: 0
-  queue: ''
+  queue: 'kopp_1'
   project: ''
+  schema: 'local'
+
+#mongodb:
+#    hostname: "95.217.193.116"
+#    port:     27017
+#    username: "facts"
+#    password: "5WfQXu9bVkA9gTeb"
+
