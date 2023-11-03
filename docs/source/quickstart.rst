@@ -14,21 +14,18 @@ Installing and Using FACTS on a GNU/Linux Workstation
 
     git clone https://github.com/radical-collaboration/facts.git
 
-2. Download modules-data.
+2. Download modules-data::
+
+    wget -P facts/modules-data -i facts/modules-data/modules-data.urls.txt
 
    Archived versions are available on Zenodo at https://doi.org/10.5281/zenodo.7478191 and https://doi.org/10.5281/zenodo.7478447 (note, split between
    two Zenodo entries because of size limitations), while a development version is currently synced at 
    https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put
    these ~60 GB of files in a common location and soft-link to each user's directory.)
 
-3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
-
-    python3 -m venv ve3
-    . ve3/bin/activate
-    pip install --upgrade setuptools pip wheel radical.entk pyyaml
-
 4. Test your install by running the dummy experiment::
 
+    cd facts
     python3 runFACTS.py experiments/dummy
 
 5. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
@@ -71,19 +68,16 @@ To install FACTS through Docker please follow the steps below:
 
     git clone https://github.com/radical-collaboration/facts.git
 
-2. Download modules-data.
+2. Download modules-data::
 
-   Archived versions are available on Zenodo at https://doi.org/10.5281/zenodo.7478191 and https://doi.org/10.5281/zenodo.7478447 (note, split between
-   two Zenodo entries because of size limitations), while a development version is currently synced at 
-   https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts.
+    wget -P facts/modules-data -i facts/modules-data/modules-data.urls.txt
 
-3. cd into the ``docker`` directory
+3. Build the docker container::
 
-4. Build the docker container::
-
+    cd facts/docker
     sh develop.sh
 
-5. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts`` and will be mounted within the container as ``/opt/facts``::
+4. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts`` and will be mounted within the container as ``/opt/facts``::
 
     docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts facts
 
@@ -94,6 +88,7 @@ To install FACTS through Docker please follow the steps below:
 8. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
+
 
 Testing a module with a shell script
 ------------------------------------
