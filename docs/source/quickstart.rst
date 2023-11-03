@@ -14,13 +14,12 @@ Installing and Using FACTS on a GNU/Linux Workstation
 
     git clone https://github.com/radical-collaboration/facts.git
 
-2. Download modules-data::
+2. Download modules-data from Zenodo::
 
     wget -P facts/modules-data -i facts/modules-data/modules-data.urls.txt
 
-   Archived versions are available on Zenodo at https://doi.org/10.5281/zenodo.7478191 and https://doi.org/10.5281/zenodo.7478447 (note, split between
-   two Zenodo entries because of size limitations), while a development version is currently synced at 
-   https://rutgers.box.com/s/6vjio67b533lx5vzgyt5e5lw5jb4ftts. (If you have multiple users of FACTS, you might want to put
+   As of December 2022, the data for stable FACTS modules are available on Zenodo at https://doi.org/10.5281/zenodo.7478191 and https://doi.org/10.5281/zenodo.7478447 (note, split between
+   two Zenodo entries because of size limitations). (If you have multiple users of FACTS, you might want to put
    these ~60 GB of files in a common location and soft-link to each user's directory.)
 
 3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
