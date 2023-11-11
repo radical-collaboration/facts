@@ -119,7 +119,7 @@ sealevel_step:
         module_set: "ssp"
         module: "landwaterstorage"
         options:
-            scenario: "ssp5"
+            scenario: "ssp2"
             dcrate_lo: -0.4
         include_in_workflow:
             - "wf1f"
