@@ -32,18 +32,13 @@ sealevel_step:
         module: "AIS"
         include_in_workflow:
             - "wf3e"   
-            - "wf3f"  
-        options:
-            scenario: "rcp26"
+            - "wf3f"
 
     bamber19:
         module_set: "bamber19"
         module: "icesheets"
         include_in_workflow:
-            - "wf4"
-        options:
-            scenario: "rcp26" 
-            climate_data_file: ""
+            - "wf4" 
 
     emuAIS:
         module_set: "emulandice"
@@ -134,7 +129,7 @@ sealevel_step:
         module_set: "ssp"
         module: "landwaterstorage"
         options:
-            scenario: "ssp1"
+            scenario: "ssp5"
             dcrate_lo: -0.4
         include_in_workflow:
             - "wf1f"
