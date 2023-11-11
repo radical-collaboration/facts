@@ -20,8 +20,6 @@ sealevel_step:
     GrIS1f:
         module_set: "FittedISMIP"
         module: "GrIS"
-        options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:
             - "wf1f"
             - "wf2f"
@@ -82,8 +80,6 @@ sealevel_step:
         module: "glaciers"
         options:
             gmip: 2
-        options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:
             - "wf1f"
             - "wf2f"
@@ -94,16 +90,12 @@ sealevel_step:
         module_set: "ipccar5"
         module: "icesheets"
         pipeline_file: "pipeline.AIS.yml"
-        options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:
             - "wf1f"
 
     ocean:
         module_set: "tlm"
         module: "sterodynamics"
-        options_allowoverwrite:
-            climate_data_file: "%CLIMATE_DATA_FILE%"
         include_in_workflow:
             - "wf1f"
             - "wf1e"
