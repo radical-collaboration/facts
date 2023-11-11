@@ -1,0 +1,24 @@
+global-options:
+    nsamps: 200
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2300
+    pyear_step: 10
+    baseyear: 2005
+
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        generates_climate_output: true
+
+sealevel_step:
+    GrIS1f:
+        module_set: "FittedISMIP"
+        module: "GrIS"
+
+    GrIS1fnoextrap:
+        module_set: "FittedISMIP"
+        module: "GrIS"
+        options:
+          crateyear_end: 2300
