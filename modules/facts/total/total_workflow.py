@@ -140,7 +140,7 @@ def TotalSamplesOLD(infiles, outfile, targyears, chunksize):
 							"lon": (("locations"), site_lons.data)},
 		coords={"years": targyears.data, "locations": site_ids.data, "samples": sample_val.data}, attrs=nc_attrs)
 
-	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
 	return(outfile)
 
@@ -182,7 +182,7 @@ def TotalSamples(infiles, outfile, targyears, chunksize):
     # This actually carries out the delayed calculations and operations.
     # SBM: FYI Double check the numbers to ensure everything is summing across dims correctly.
     # SBM: FYI Also, check to see if output as something huge like float64.
-	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
 	return(outfile)
 

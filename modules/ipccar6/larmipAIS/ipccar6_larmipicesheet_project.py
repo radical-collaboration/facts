@@ -347,7 +347,7 @@ def WriteNetCDF(pipeline_id, global_samps, years, nsamps, ice_source, scenario, 
 	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("sea_level_change", "i2", ("samples", "years", "locations"), zlib=True, complevel=4)
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, complevel=4)
 
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from {0} from the LARMIP2 workflow".format(ice_source)

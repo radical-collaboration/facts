@@ -180,14 +180,14 @@ def tlm_postprocess_oceandynamics(nsamps, rng_seed, chunksize, keep_temp, pipeli
 							coords={"years": targyears, "locations": site_ids[site_idx[0,:]], "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
 		# Write these samples to a temporary netcdf file
-		local_out.to_netcdf(temp_filename, encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+		local_out.to_netcdf(temp_filename, encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
 	# Open the temporary data sets
 	#combined = xr.open_mfdataset("{0}_tempsamps_*.nc".format(pipeline_id), concat_dim="locations", chunks={"locations":chunksize})
 	combined = xr.open_mfdataset("{0}_tempsamps_*.nc".format(pipeline_id), chunks={"locations":chunksize})
 
 	# Write the combined data out to the final netcdf file
-	combined.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	combined.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
 	# Remove the temporary files
 	if keep_temp == 0:

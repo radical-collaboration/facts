@@ -71,7 +71,7 @@ def emulandice_postprocess_GrIS(locationfilename, chunksize, pipeline_id):
 
 
 	# Write the netcdf output files
-	gis_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	gis_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
 	return(None)
 

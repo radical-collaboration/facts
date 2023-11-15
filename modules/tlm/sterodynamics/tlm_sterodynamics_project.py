@@ -128,7 +128,7 @@ def tlm_project_oceandynamics(nsamps, seed, pipeline_id):
 	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("sea_level_change", "i2", ("samples", "years", "locations"), zlib=True, complevel=4)
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, complevel=4)
 	teexpmean = rootgrp.createVariable("ThermExpMean", "f4", ("ThermExpYears",))
 	teexpstd = rootgrp.createVariable("ThermExpStd", "f4", ("ThermExpYears",))
 	teexpn = rootgrp.createVariable("ThermExpN", "i4", ("ThermExpYears",))
@@ -257,7 +257,7 @@ def tlm_project_thermalexpansion(seed, nsamps, pipeline_id):
 	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("sea_level_change", "i2", ("samples", "years", "locations"), zlib=True, complevel=4)
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, complevel=4)
 
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from Thermal Expansion according to Two-Layer Model workflow"
