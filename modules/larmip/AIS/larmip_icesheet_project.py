@@ -1,7 +1,6 @@
 import numpy as np
 from netCDF4 import Dataset
 import argparse
-import random as rnd
 import h5py
 import time
 import os
@@ -168,13 +167,13 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	nmodels = len(models)
 
 	# Set the rng seed
-	rnd.seed(seed)
+	np.random.seed(seed)
 
 	# How many samples per model?
 	samps_per_model = np.array([nsamps // nmodels for x in range(nmodels)])
 	remainder_samps = nsamps % nmodels
-	samps_per_model[rnd.sample(range(nmodels), k=remainder_samps)] += 1
-	rnd.shuffle(samps_per_model)
+	samps_per_model[np.random.choice(nmodels, size=remainder_samps, replace=False)] += 1
+	np.random.shuffle(samps_per_model)
 
 	# Initialize the sea-level sample variables
 	sl_r1 = []	# EAIS
@@ -185,7 +184,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	sl_smb = []	# Surface Mass Balance over all Antarctica
 
 	# Set the rng seed again to help with diagnostics
-	rnd.seed(seed)
+	np.random.seed(seed)
 
 	# Loop over the requested models
 	tempcount = 0;
@@ -203,7 +202,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 			Temp = np.array(SAT[:,temp_idx])
 
 			# Choose a random ocean model
-			ocean_model_idx = rnd.randint(0,NumOmodel-1)
+			ocean_model_idx = np.random.randint(0,NumOmodel-1)
 
 			OS_R1 = OS_WiDelay_R1[ocean_model_idx]
 			OS_R2 = OS_WiDelay_R2[ocean_model_idx]
@@ -225,11 +224,11 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 			Temp_R5 = np.append(np.zeros(tau_R5),Temp[:Tlen-tau_R5])
 
 			# select melting sensitivity
-			MS_R1 = rnd.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R2 = rnd.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R3 = rnd.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R4 = rnd.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R5 = rnd.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R1 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R2 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R3 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R4 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R5 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
 
 			# Compose forcing time series
 			M_R1 = MS_R1*OS_R1*Temp_R1

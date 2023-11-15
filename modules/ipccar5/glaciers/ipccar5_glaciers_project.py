@@ -7,7 +7,6 @@ import pickle
 import argparse
 import time
 import re
-import random as rnd
 from netCDF4 import Dataset
 
 
@@ -120,11 +119,11 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	# temp_samples and inttemp_samples
 	samps_per_model = np.array([nsamps // ngl for x in range(ngl)])
 	remainder_samps = nsamps % ngl
-	samps_per_model[rnd.sample(range(ngl), k=remainder_samps)] += 1
+	samps_per_model[np.random.choice(ngl, size=remainder_samps, replace=False)] += 1
 	
 
 	# Creates a list of integers for the random method selection
-	time_series_idx = list(np.arange(0, nsamps))
+	time_series_idx = np.arange(nsamps)
 
 	for method_idx in range(len(samps_per_model)):
 		
@@ -132,7 +131,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 		gmethod = glparm[method_idx]
 
 		# Randomly pulls time-series indices from the selection pool corresponding to samps_per_model for this method
-		rnd_sample_idx = rnd.sample(list(time_series_idx), k=samps_per_model[method_idx])
+		rnd_sample_idx = np.random.choice(time_series_idx, size=samps_per_model[method_idx], replace=False)
 
 		# Removes the selected time-series indices from the selection pool for the next loop
 		time_series_idx = np.setdiff1d(time_series_idx, rnd_sample_idx)
