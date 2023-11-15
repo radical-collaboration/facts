@@ -60,7 +60,7 @@ def ssp_postprocess_landwaterstorage(locationfilename, chunksize, pipeline_id):
 	local_sl = np.multiply.outer(lwssamps, fpsites)
 
 	# Define the missing value for the netCDF files
-	nc_missing_value = np.iinfo(np.int16).min
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
 
 	# Create the xarray data structures for the localized projections
 	ncvar_attributes = {"description": "Local SLR contributions from land water storage according to Kopp 2014 workflow",

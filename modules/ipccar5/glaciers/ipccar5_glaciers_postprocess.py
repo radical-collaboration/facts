@@ -90,7 +90,7 @@ def ar5_postprocess_glaciers(locationfilename, chunksize, pipeline_id):
 
 
 	# Define the missing value for the netCDF files
-	nc_missing_value = np.iinfo(np.int16).min
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
 
 	# Create the xarray data structures for the localized projections
 	ncvar_attributes = {"description": "Local SLR contributions from glaciers according to AR5 workflow",

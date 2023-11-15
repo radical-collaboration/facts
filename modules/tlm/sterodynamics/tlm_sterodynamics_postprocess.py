@@ -136,7 +136,7 @@ def tlm_postprocess_oceandynamics(nsamps, rng_seed, chunksize, keep_temp, pipeli
 	te_year_ind = np.array([np.argmin(np.abs(ThermExpYears - x)) for x in targyears])
 
 	# Define the missing value for the netCDF files
-	nc_missing_value = np.iinfo(np.int16).min
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
 
 	# Create the xarray data structures for the localized projections
 	ncvar_attributes = {"description": "Local SLR contributions from thermal expansion and dynamic sea-level according to Kopp 2014 CMIP6/TLM workflow",

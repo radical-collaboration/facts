@@ -108,7 +108,7 @@ def NZInsarGPS_postprocess_verticallandmotion(nsamps, rng_seed, locationfilename
 	norm_inv_perm = np.random.permutation(norm_inv)
 
 	# Missing value for netcdf file
-	nc_missing_value = np.iinfo(np.int16).min
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
 
 	# Get the rates and sds for the locations of interest
 	site_rates = da.array([rates[x] for x in site_ids_map])

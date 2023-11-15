@@ -83,7 +83,7 @@ def ipccar6_postprocess_gmipemuglaciers(locationfilename, chunksize, pipeline_id
 		local_sl += np.multiply.outer(gicsamps[:,i,:], regionfp)
 
 	# Define the missing value for the netCDF files
-	nc_missing_value = np.iinfo(np.int16).min
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
 
 	# Create the xarray data structures for the localized projections
 	ncvar_attributes = {"description": "Local SLR contributions from glaciers according to GMIP2 emulated workflow",
