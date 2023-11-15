@@ -256,7 +256,7 @@ if __name__ == '__main__':
 	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
 	parser.add_argument('--crateyear_start', help="Constant rate calculation for projections starts at this year", default=None, type=int)
-	parser.add_argument('--crateyear_end', help="Constant rate calculation for projections ends at this year", default=None, type=int)
+	parser.add_argument('--crateyear_end', help="Constant rate calculation for projections ends at this year", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
 	parser.add_argument('--baseyear', help="Year to which projections are referenced [default=2005]", default=2005, type=int)
 	parser.add_argument('--seed', help="Seed for the random number generator [default = 1234]", default=1234, type=int)
