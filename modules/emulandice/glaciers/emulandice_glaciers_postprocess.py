@@ -68,7 +68,7 @@ def emulandice_postprocess_glaciers(locationfilename, chunksize, pipeline_id):
 		local_sl += np.multiply.outer(gicsamps[:,i,:], regionfp)
 
 	# Define the missing value for the netCDF files
-	nc_missing_value = np.iinfo(np.int16).min
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
 
 	# Create the xarray data structures for the localized projections
 	ncvar_attributes = {"description": "Local SLR contributions from glaciers according to emulandice glaciers workflow",
@@ -83,7 +83,7 @@ def emulandice_postprocess_glaciers(locationfilename, chunksize, pipeline_id):
 							"lon": (("locations"), site_lons)},
 		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
-	glac_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	glac_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
 	return(None)
 

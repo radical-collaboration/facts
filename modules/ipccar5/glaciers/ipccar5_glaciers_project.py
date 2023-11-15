@@ -178,7 +178,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("sea_level_change", "i2", ("samples", "years", "locations"), zlib=True, complevel=4)
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, complevel=4)
 
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from glaciers and ice caps according to AR5 workflow"

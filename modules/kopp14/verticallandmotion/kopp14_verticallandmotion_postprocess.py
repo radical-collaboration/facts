@@ -108,7 +108,7 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, baseyear, pyear_star
 	norm_inv_perm = np.random.permutation(norm_inv)
 
 	# Missing value for netcdf file
-	nc_missing_value = np.iinfo(np.int16).min
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
 
 	# Get the rates and sds for the locations of interest
 	site_rates = da.array([rates[x] for x in site_ids_map])
@@ -138,7 +138,7 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, baseyear, pyear_star
 		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
 	# Write the netcdf output file
-	vlm_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "i2", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	vlm_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
 
 	return(None)

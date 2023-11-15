@@ -175,7 +175,7 @@ def kopp14_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
 
 	# Create a data variable
-	samps = rootgrp.createVariable("sea_level_change", "i2", ("samples", "years", "locations"), zlib=True, complevel=4)
+	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, complevel=4)
 
 	# Assign attributes
 	rootgrp.description = "Global SLR contribution from land water storage according to Kopp 2014 workflow"
