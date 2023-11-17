@@ -335,6 +335,7 @@ if __name__ == '__main__':
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--scenario', help="SSP scenario (i.e ssp585) or temperature target (i.e. tlim2.0win0.25)", default='ssp585')
+	parser.add_argument('--scenario_dsl', help="SSP scenario to use for correlation of thermal expansion and dynamic sea level, if not the same as scenario", default='', choices=['','ssp119','ssp126','ssp245','ssp370','ssp585'])
 
 	parser.add_argument('--model_dir', help="Directory containing ZOS/ZOSTOGA CMIP6 GCM output",\
 	default=os.path.join(os.path.dirname(__file__), "cmip6"))
@@ -365,10 +366,14 @@ if __name__ == '__main__':
 	tlmfile = os.path.join(outdir, "{}_tlmdata.pkl".format(args.pipeline_id))
 
 	# Run the OD preprocessing if intermediate files are not present
+	scenario_dsl = args.scenario_dsl
+	if len(scenario_dsl) == 0:
+		scenario_dsl = args.scenario
+
 	if os.path.isfile(configfile) and os.path.isfile(zostogafile) and os.path.isfile(zosfile):
 		print("{}, {}, and {} found, skipping OD preprocessing".format(configfile, zostogafile, zosfile))
 	else:
-		tlm_preprocess_oceandynamics(args.scenario, args.model_dir, not args.no_drift_corr, args.no_correlation, args.pyear_start, args.pyear_end, args.pyear_step, args.locationfile, args.baseyear, args.pipeline_id)
+		tlm_preprocess_oceandynamics(scenario_dsl, args.model_dir, not args.no_drift_corr, args.no_correlation, args.pyear_start, args.pyear_end, args.pyear_step, args.locationfile, args.baseyear, args.pipeline_id)
 
 	# Run the 2-layer model preprocessing if the intermediate file is not present
 	if os.path.isfile(tlmfile):
