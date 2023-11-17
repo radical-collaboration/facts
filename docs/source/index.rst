@@ -34,6 +34,7 @@ FACTS is released under the
    resources.rst
    configurationfiles.rst
    misc.rst
+   whitepapers.rst
 
 Indices and tables
 ==================
