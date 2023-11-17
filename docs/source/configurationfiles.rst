@@ -72,7 +72,7 @@ Example experiment file
         nsamps: 2000
         scenario: ssp585
         pyear_start: 2020
-        pyear_end: 2100
+        pyear_end: 2150
         pyear_step: 10
         baseyear: 2005
 
@@ -81,10 +81,10 @@ Example experiment file
             module_set: "fair"
             module: "temperature"
             generates_climate_output: true
-            input_data_file:
-                - "emissions.csv"
-            options:
-                rcmip_file: emissions.csv
+    #        input_data_file:
+    #              - "emissions.csv"
+    #        options:
+    #              rcmip_file: emissions.csv
 
     sealevel_step:
         GrIS1f:
@@ -93,32 +93,52 @@ Example experiment file
             include_in_workflow:
                 - "wf1f"
                 - "wf2f"
+                - "wf3f"
+
+        deconto21:
+            module_set: "deconto21"
+            module: "AIS"
+            include_in_workflow:
+                - "wf3e"   
+                - "wf3f"
+
+        bamber19:
+            module_set: "bamber19"
+            module: "icesheets"
+            include_in_workflow:
+                - "wf4" 
 
         emuAIS:
             module_set: "emulandice"
             module: "AIS"
             include_in_workflow:
-                - "wf1e"
-                - "wf2e"
+                - "wf1e"      
+            options:
+                pyear_end: 2100
 
         emuGrIS:
             module_set: "emulandice"
             module: "GrIS"
             include_in_workflow:
-                - "wf1e"
-                - "wf2e"
+                - "wf1e"  
+                - "wf2e"  
+                - "wf3e"  
+            options:
+                pyear_end: 2100
 
         emuglaciers:
             module_set: "emulandice"
             module: "glaciers"
             include_in_workflow:
-                - "wf1e"
-                - "wf2e"
+                - "wf1e"   
+                - "wf2e"   
+                - "wf3e"
+            options:
+                pyear_end: 2100
 
         larmip:
             module_set: "larmip"
             module: "AIS"
-            options_allowoverwrite:
             include_in_workflow:
                 - "wf2e"
                 - "wf2f"
@@ -126,9 +146,13 @@ Example experiment file
         ar5glaciers:
             module_set: "ipccar5"
             module: "glaciers"
+            options:
+                gmip: 2
             include_in_workflow:
                 - "wf1f"
                 - "wf2f"
+                - "wf3f"
+                - "wf4"
 
         ar5AIS:
             module_set: "ipccar5"
@@ -139,12 +163,15 @@ Example experiment file
 
         ocean:
             module_set: "tlm"
-            module: "oceandynamics"
+            module: "sterodynamics"
             include_in_workflow:
                 - "wf1f"
                 - "wf1e"
                 - "wf2e"
                 - "wf2f"
+                - "wf3e"
+                - "wf3f"
+                - "wf4"
 
         k14vlm:
             module_set: "kopp14"
@@ -154,17 +181,24 @@ Example experiment file
                 - "wf1e"
                 - "wf2e"
                 - "wf2f"
+                - "wf3e"
+                - "wf3f"
+                - "wf4"
 
         lws:
             module_set: "ssp"
             module: "landwaterstorage"
             options:
                 scenario: "ssp5"
+                dcrate_lo: -0.4
             include_in_workflow:
                 - "wf1f"
                 - "wf1e"
                 - "wf2e"
                 - "wf2f"
+                - "wf3e"
+                - "wf3f"
+                - "wf4"
 
     totaling_step:
         total:
@@ -182,7 +216,8 @@ Example experiment file
             module: "pointsoverthreshold"
             options:
                 target_years: 2050,2100
-                total_localsl_file: "$SHARED/totaled/%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.local.nc".
+                total_localsl_file: "$SHARED/totaled/%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.local.nc" 
+
 
 
 Pipeline configuration
