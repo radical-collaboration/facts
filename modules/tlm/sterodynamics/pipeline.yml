@@ -8,6 +8,7 @@ preprocess:
     script: "tlm_sterodynamics_preprocess.py"
     options:
       - "scenario"
+      - "scenario_dsl"
       - "baseyear"
       - "pyear_start"
       - "pyear_end"
