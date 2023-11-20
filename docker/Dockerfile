@@ -40,5 +40,8 @@ RUN apt-get update &&\
 # make directory for radical pilot sandbox
 RUN mkdir -p ~/radical.pilot.sandbox
 
+# Activate venv
+RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc
+
 # return a shell to the user
 CMD /bin/bash
