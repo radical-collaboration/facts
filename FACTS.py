@@ -302,11 +302,17 @@ def match_options(wopts, eopts):
 
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
 
+
     # Load the pipeline configuration file for this module
-
     if not "pipeline_file" in modcfg.keys():
-        modcfg['pipeline_file'] = "pipeline.yml" 
+        # Checks if there is a global option called 'pipeline_name'
+        if not 'pipeline_file' in global_options.keys():
+            modcfg['pipeline_file'] = "pipeline.yml"
+        if 'pipeline_file' in global_options.keys():
+            modcfg['pipeline_file'] = global_options['pipeline_file']
 
+
+    print(f"Module Configuration File: {modcfg['pipeline_file']}")
     if 'module_set' in modcfg.keys():
         pcfg_file = os.path.join(os.path.dirname(__file__), "modules",
                        modcfg['module_set'], modcfg['module'], modcfg['pipeline_file'])
@@ -445,6 +451,7 @@ def ParseExperimentConfig(exp_dir, globalopts=None):
             if (this_mod_sub in reserved_econfig_entries):
                 continue
 
+            print(f"ecfg[this_mod][this_mod_sub]: {ecfg[this_mod][this_mod_sub]}")
             parsed = ParsePipelineConfig(this_mod_sub, ecfg[this_mod][this_mod_sub], global_options=global_options)
             #print(parsed['pipe_name'])
 
