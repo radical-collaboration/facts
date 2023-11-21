@@ -85,7 +85,7 @@ def getFreqFromZ_ESL(scale, shape, loc, avg_exceed, z, mhhw, mhhwFreq):
 	log_freq[sub] = np.log(avg_exceed) + ( np.log(mhhwFreq)-np.log(avg_exceed) )*(z0[sub]/(mhhw-loc)) #from Gumbel (see Buchanan et al. 2016 & LocalizeSL) for testz<loc (logN linear in z, assume MHHW once every 2 days)
 	freq[sub] = np.exp( log_freq[sub] )
 	
-	freq[np.less(freq, 1e-6, where=~np.isnan(freq))] = np.nan #throw away frequencies lower than 1e-6 (following SROCC scripts)
+	#freq[np.less(freq, 1e-6, where=~np.isnan(freq))] = np.nan #throw away frequencies lower than 1e-6 (following SROCC scripts)
 	
 	return freq
 
