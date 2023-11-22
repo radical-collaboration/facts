@@ -88,7 +88,7 @@ sealevel_step:
     ar5AIS:
         module_set: "ipccar5"
         module: "icesheets"
-        pipeline_file: "pipeline.AIS.yml"
+        pipeline_file: "pipeline.AIS.global.yml"
         include_in_workflow:
             - "wf1f"
 
