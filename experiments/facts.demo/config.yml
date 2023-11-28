@@ -6,7 +6,6 @@ global-options:
     pyear_step: 10
     baseyear: 2005
 
-
 sealevel_step:
     GrIS1f:
         module_set: "FittedISMIP"
