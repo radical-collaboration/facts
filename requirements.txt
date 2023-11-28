@@ -1,2 +1,14 @@
 sphinx_copybutton
 sphinx-rtd-theme
+
+numpy
+dask
+pandas
+xarray
+fair==1.6.4
+netCDF4
+scipy
+pyyaml
+matplotlib
+h5py
+yq

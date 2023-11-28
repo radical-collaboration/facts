@@ -8,7 +8,7 @@ import xarray as xr
 def fair_fit_temperature(param_file, pipeline_id):
 
 	# Load the AR6 calibrated parameters for the FAIR model
-	pars = xr.load_dataset("./parameters/fair_ar6_climate_params_v4.0.nc")
+	pars = xr.load_dataset(param_file)
 
 	# Save the fit data to a pickle
 	output = {"pars": pars, "param_file": param_file}
@@ -27,7 +27,7 @@ if __name__ == "__main__":
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
-	parser.add_argument('--param_file', help="Full path to FAIR parameter file", default="./parameters/fair_ar6_climate_params_v4.0.nc")
+	parser.add_argument('--param_file', help="Full path to FAIR parameter file", default="fair_ar6_climate_params_v4.0.nc")
 
 	# Parse the arguments
 	args = parser.parse_args()
