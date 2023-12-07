@@ -12,8 +12,6 @@ from SmoothZOSTOGA import SmoothZOSTOGA
 from read_locationfile import ReadLocationFile
 from Smooth import Smooth
 
-from Import2lmData import *
-
 ''' tlm_preprocess_oceandynamics.py
 
 This runs the preprocessing stage for the ocean dynamics component of the IPCC AR6
@@ -322,6 +320,7 @@ if __name__ == '__main__':
 	configfile = os.path.join(outdir, "{}_config.pkl".format(args.pipeline_id))
 	zostogafile = os.path.join(outdir, "{}_ZOSTOGA.pkl".format(args.pipeline_id))
 	zosfile = os.path.join(outdir, "{}_ZOS.pkl".format(args.pipeline_id))
+	tlmfile = os.path.join(outdir, "{}_tlmdata.pkl".format(args.pipeline_id))
 
 	# Run the OD preprocessing if intermediate files are not present
 	if os.path.isfile(configfile) and os.path.isfile(zostogafile) and os.path.isfile(zosfile):
