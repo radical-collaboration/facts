@@ -1,7 +1,7 @@
 # Two-layer Model Ocean Dynamics Pipeline
 # modified from the Kopp14 pipeline.yml, needs  to be examined
 
-preprocess_global:
+preprocess_thermalexpansion:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"

@@ -18,7 +18,6 @@ preprocess_thermalexpansion:
 preprocess_oceandynamics:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
     script: "tlm_sterodynamics_preprocess_oceandynamics.py"
     options:
       - "scenario"
