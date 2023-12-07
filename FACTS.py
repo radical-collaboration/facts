@@ -92,7 +92,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     if 'climate_data_file' in ecfg['options'].keys():
         mvar_dict["CLIMATE_DATA_FILE"]=ecfg['options']['climate_data_file']
+
+    if 'climate_gsat_data_file' in ecfg['options'].keys():
         mvar_dict["CLIMATE_GSAT_FILE"]=ecfg['options']['climate_gsat_data_file']
+
+    if 'climate_ohc_data_file' in ecfg['options'].keys():
         mvar_dict["CLIMATE_OHC_FILE"]=ecfg['options']['climate_ohc_data_file']
 
     # Give this task object a name
