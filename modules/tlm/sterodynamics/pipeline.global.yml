@@ -9,22 +9,9 @@ preprocess:
     options:
       - "scenario"
       - "baseyear"
-      - "pyear_start"
-      - "pyear_end"
-      - "pyear_step"
-      - "locationfile"
-      - "pipeline_id"
-      - "no_drift_corr"
-      - "no_correlation"
       - "climate_data_file"
     upload_and_extract_input_data:
       - "tlm_sterodynamics_preprocess_data.tgz"
-      - "tlm_sterodynamics_cmip6_data.tgz"
-      - "ipccar6_climate_data.tgz"
-    copy_shared_data:
-      - '$SHARED/location.lst'
-#    download_output_data:
-#      - "%PIPELINE_ID%_data.pkl"
 
 
 fit:
