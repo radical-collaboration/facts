@@ -5,7 +5,7 @@ preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
-    script: "tlm_sterodynamics_preprocess.py"
+    script: "tlm_sterodynamics_preprocess_thermalexpansion.py"
     options:
       - "scenario"
       - "baseyear"
@@ -14,19 +14,9 @@ preprocess:
       - "pyear_step"
       - "locationfile"
       - "pipeline_id"
-      - "model_dir"
       - "no_drift_corr"
       - "no_correlation"
       - "climate_data_file"
-    upload_input_data:
-      - "Import2lmData.py"
-      - "IncludeCMIP6Models.py"
-      - "IncludeCMIP6ZOSModels.py"
-      - "SmoothZOSTOGA.py"
-      - "Smooth.py"
-      - "read_locationfile.py"
-      - "read_CSIRO.py"
-      - "readMarzeion.py"
     upload_and_extract_input_data:
       - "tlm_sterodynamics_preprocess_data.tgz"
       - "tlm_sterodynamics_cmip6_data.tgz"

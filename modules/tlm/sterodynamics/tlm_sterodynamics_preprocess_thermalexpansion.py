@@ -5,12 +5,7 @@ import sys
 import re
 import argparse
 import fnmatch
-from IncludeCMIP6Models import IncludeCMIP6Models
-from IncludeCMIP6ZOSModels import *
-from SmoothZOSTOGA import SmoothZOSTOGA
 # from DriftCorr import DriftCorr
-from read_locationfile import ReadLocationFile
-from Smooth import Smooth
 
 from Import2lmData import *
 
@@ -75,9 +70,6 @@ if __name__ == '__main__':
     parser.add_argument('--scenario', help="SSP scenario (i.e ssp585) or temperature target (i.e. tlim2.0win0.25)",
                         default='ssp585')
 
-    parser.add_argument('--model_dir', help="Directory containing ZOS/ZOSTOGA CMIP6 GCM output", \
-                        default=os.path.join(os.path.dirname(__file__), "cmip6"))
-
     parser.add_argument('--no_drift_corr', help="Do not apply the drift correction", type=int, choices=[0, 1],
                         default=0)
 
@@ -86,6 +78,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2020, type=int)
     parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
+
     parser.add_argument('--pyear_step',
                         help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]",
                         default=10, type=int)
@@ -96,9 +89,6 @@ if __name__ == '__main__':
     parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2000)
 
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-    parser.add_argument('--climate_data_file',
-                        help="NetCDF4/HDF5 file containing surface temperature data (default=twolayer_SSPs.h5)",
-                        type=str, default='twolayer_SSPs.h5')
 
     # Parse the arguments
     args = parser.parse_args()
