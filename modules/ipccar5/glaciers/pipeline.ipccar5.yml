@@ -1,37 +1,37 @@
-# AR5 Ice Sheets Pipeline
+# AR5 Glaciers Pipeline
 
 preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
-    script: "ipccar5_icesheets_preprocess.py"
+    script: "ipccar5_glaciers_preprocess.py"
     options:
       - "scenario"
-      - "pipeline_id"
       - "baseyear"
       - "tlm_data"
+      - "pipeline_id"
       - "climate_data_file"
     upload_input_data:
       - "Import2lmData.py"
-
-
+    upload_and_extract_input_data:
+      - "ipccar5_climate_data.tgz"
 
 fit:
   task1:
     executable: "python3"
-    script: "ipccar5_icesheets_fit.py"
+    script: "ipccar5_glaciers_fit.py"
     options:
       - "pipeline_id"
+      - "gmip"
     copy_input_data:
       preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
 
-
 project:
   task1:
     executable: "python3"
-    script: "ipccar5_icesheets_project.py"
+    script: "ipccar5_glaciers_project.py"
     options:
       - "nmsamps"
       - "ntsamps"
@@ -42,7 +42,7 @@ project:
       - "seed"
       - "pipeline_id"
     upload_and_extract_input_data:
-      - 'ipccar5_icesheets_project_data.tgz'
+      - 'ipccar5_glaciers_project_data.tgz'
     copy_input_data:
       preprocess:
         task1:
@@ -51,15 +51,13 @@ project:
         task1:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
-      - "%PIPELINE_ID%_AIS_globalsl.nc"
-    download_output_data:
-      - "%PIPELINE_ID%_EAIS_globalsl.nc"
-      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_globalsl.nc"
+
 
 postprocess:
   task1:
     executable: "python3"
-    script: "ipccar5_icesheets_postprocess.py"
+    script: "ipccar5_glaciers_postprocess.py"
     options:
       - "locationfile"
       - "pipeline_id"
@@ -74,8 +72,7 @@ postprocess:
     copy_input_data:
       project:
         task1:
+          - "%PIPELINE_ID%_data.pkl"
           - "%PIPELINE_ID%_projections.pkl"
-          - "%PIPELINE_ID%_data.pkl"          
     local_total_files:
-      - "%PIPELINE_ID%_WAIS_localsl.nc"
-      - "%PIPELINE_ID%_EAIS_localsl.nc"
+      - "%PIPELINE_ID%_localsl.nc"

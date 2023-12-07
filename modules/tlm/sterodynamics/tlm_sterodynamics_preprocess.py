@@ -352,7 +352,7 @@ if __name__ == '__main__':
 	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2000)
 
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data (default=twolayer_SSPs.h5)", type=str, default='twolayer_SSPs.h5')
+	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
 
 	# Parse the arguments
 	args = parser.parse_args()
