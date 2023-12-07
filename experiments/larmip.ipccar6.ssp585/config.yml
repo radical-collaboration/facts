@@ -5,7 +5,7 @@ global-options:
     pyear_end: 2150
     pyear_step: 10
     baseyear: 2005
-    climate_data_file: "twolayer_SSPs.h5"
+    climate_data_file: "$SHARED/climate/twolayer_SSPs.h5"
 
 climate_step:
     dummy:
