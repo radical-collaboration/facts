@@ -10,6 +10,7 @@ climate_step:
     dummy:
         module_set: "facts"
         module: "dummy"
+        generates_climate_output: true
         input_compressed_data_file:
             - "ipccar6_climate_data.tgz"
         climate_output_data:
