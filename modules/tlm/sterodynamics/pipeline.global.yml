@@ -1,7 +1,7 @@
 # Two-layer Model Ocean Dynamics Pipeline
 # modified from the Kopp14 pipeline.yml, needs  to be examined
 
-preprocess:
+preprocess_global:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
@@ -10,6 +10,8 @@ preprocess:
       - "scenario"
       - "baseyear"
       - "climate_data_file"
+    upload_input_data:
+      - "Import2lmData.py"
     upload_and_extract_input_data:
       - "tlm_sterodynamics_preprocess_data.tgz"
 

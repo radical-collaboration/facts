@@ -1,11 +1,25 @@
 # Two-layer Model Ocean Dynamics Pipeline
 # modified from the Kopp14 pipeline.yml, needs  to be examined
 
-preprocess:
+preprocess_thermalexpansion:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
-    script: "tlm_sterodynamics_preprocess.py"
+    script: "tlm_sterodynamics_preprocess_thermalexpansion.py"
+    options:
+      - "scenario"
+      - "baseyear"
+      - "climate_data_file"
+    upload_input_data:
+      - "Import2lmData.py"
+    upload_and_extract_input_data:
+      - "tlm_sterodynamics_preprocess_data.tgz"
+
+preprocess_oceandynamics:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
+    script: "tlm_sterodynamics_preprocess_oceandynamics.py"
     options:
       - "scenario"
       - "baseyear"
@@ -17,24 +31,17 @@ preprocess:
       - "model_dir"
       - "no_drift_corr"
       - "no_correlation"
-      - "climate_data_file"
     upload_input_data:
-      - "Import2lmData.py"
       - "IncludeCMIP6Models.py"
       - "IncludeCMIP6ZOSModels.py"
       - "SmoothZOSTOGA.py"
       - "Smooth.py"
       - "read_locationfile.py"
-      - "read_CSIRO.py"
-      - "readMarzeion.py"
     upload_and_extract_input_data:
-      - "tlm_sterodynamics_preprocess_data.tgz"
       - "tlm_sterodynamics_cmip6_data.tgz"
       - "ipccar6_climate_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
-#    download_output_data:
-#      - "%PIPELINE_ID%_data.pkl"
 
 
 fit:
