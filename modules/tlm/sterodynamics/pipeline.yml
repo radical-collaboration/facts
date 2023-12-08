@@ -53,7 +53,7 @@ fit_thermalexpansion:
         task1:
           - "%PIPELINE_ID%_config.pkl"
           - "%PIPELINE_ID%_tlmdata.pkl"
-          -
+
 fit_oceandynamics:
   task1:
     executable: "python3"
