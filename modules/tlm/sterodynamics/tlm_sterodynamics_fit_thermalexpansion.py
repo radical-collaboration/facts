@@ -75,7 +75,7 @@ if __name__ == '__main__':
 
 	# Runs the TLM fitting stage if intermediate files are not present
 	if os.path.isfile(tlmfitfile):
-		print("{} found, skipping OD fitting".format(tlmfitfile))
+		print("{} found, skipping TE fitting".format(tlmfitfile))
 	else:
 		tlm_fit_thermalexpansion(args.pipeline_id)
 
