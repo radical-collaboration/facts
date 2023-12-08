@@ -24,7 +24,7 @@ Note that the value of 'nsamps' and 'seed' are passed to both the projection sta
 post-processing stage when run within FACTS.
 '''
 
-def tlm_project_oceandynamics(nsamps, seed, pipeline_id):
+def tlm_project_cmip(nsamps, seed, pipeline_id):
 
 	# Load the configuration file
 	configfile = "{}_config.pkl".format(pipeline_id)
@@ -309,7 +309,7 @@ if __name__ == '__main__':
 	if args.tlm == 1:
 		tlm_project_thermalexpansion(args.seed, args.nsamps, args.pipeline_id)
 	else:
-		tlm_project_oceandynamics(args.nsamps, args.seed, args.pipeline_id)
+		tlm_project_cmip(args.nsamps, args.seed, args.pipeline_id)
 
 	# Done
 	sys.exit()
