@@ -10,6 +10,7 @@ preprocess_thermalexpansion:
       - "scenario"
       - "baseyear"
       - "climate_data_file"
+      - "pipeline_id"
     upload_input_data:
       - "Import2lmData.py"
     upload_and_extract_input_data:
