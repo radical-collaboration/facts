@@ -1,7 +1,7 @@
 # Two-layer Model Ocean Dynamics Pipeline
 # modified from the Kopp14 pipeline.yml, needs  to be examined
 
-preprocess.thermalexpansion:
+preprocess:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
@@ -14,9 +14,7 @@ preprocess.thermalexpansion:
       - "Import2lmData.py"
     upload_and_extract_input_data:
       - "tlm_sterodynamics_preprocess_data.tgz"
-
-preprocess.oceandynamics:
-  task1:
+  task2:
     executable: "python3"
     script: "tlm_sterodynamics_preprocess_oceandynamics.py"
     options:
@@ -42,26 +40,24 @@ preprocess.oceandynamics:
     copy_shared_data:
       - '$SHARED/location.lst'
 
-fit.thermalexpansion:
+fit:
   task1:
     executable: "python3"
     script: "tlm_sterodynamics_fit_thermalexpansion.py"
     options:
       - "pipeline_id"
     copy_input_data:
-      preprocess.thermalexpansion:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_tlmdata.pkl"
-
-fit.oceandynamics:
-  task1:
+  task2:
     executable: "python3"
     script: "tlm_sterodynamics_fit_oceandynamics.py"
     options:
       - "pipeline_id"
     copy_input_data:
-      preprocess.oceandynamics:
-        task1:
+      preprocess:
+        task2:
           - "%PIPELINE_ID%_config.pkl"
           - "%PIPELINE_ID%_ZOSTOGA.pkl"
           - "%PIPELINE_ID%_ZOS.pkl"
@@ -80,10 +76,10 @@ project:
       - "pyear_end"
       - "pyear_step"
     copy_input_data:
-      preprocess.thermalexpansion:
+      preprocess:
         task1:
           - "%PIPELINE_ID%_tlmdata.pkl"
-      fit.thermalexpansion:
+      fit:
         task1:
           - "%PIPELINE_ID%_tlmfit.pkl"
     global_total_files:
@@ -100,12 +96,12 @@ postprocess:
       - "chunksize"
       - "keep_temp"
     copy_input_data:
-      preprocess.oceandynamics:
-        task1:
+      preprocess:
+        task2:
           - "%PIPELINE_ID%_config.pkl"
           - "%PIPELINE_ID%_ZOS.pkl"
-      fit.oceandynamics:
-        task1:
+      fit:
+        task2:
           - "%PIPELINE_ID%_thermalexp_fit.pkl"
           - "%PIPELINE_ID%_oceandynamics_fit.pkl"
       project:
