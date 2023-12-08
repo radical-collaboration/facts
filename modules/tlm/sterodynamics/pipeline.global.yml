@@ -16,7 +16,7 @@ preprocess_thermalexpansion:
       - "tlm_sterodynamics_preprocess_data.tgz"
 
 
-fit:
+fit_thermalexpansion:
   task1:
     executable: "python3"
     script: "tlm_sterodynamics_fit_thermalexpansion.py"
