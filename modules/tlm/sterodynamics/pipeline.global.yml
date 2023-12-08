@@ -8,7 +8,6 @@ preprocess:
     script: "tlm_sterodynamics_preprocess_thermalexpansion.py"
     options:
       - "scenario"
-      - "baseyear"
       - "climate_data_file"
       - "pipeline_id"
     upload_input_data:
