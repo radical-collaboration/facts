@@ -160,7 +160,7 @@ def tlm_project_cmip(nsamps, seed, pipeline_id):
 
 
 ''' TLM thermal expansion projection '''
-def tlm_project_thermalexpansion(seed, nsamps, pipeline_id):
+def tlm_project_thermalexpansion(seed, nsamps, pipeline_id,scenario,pyear_start,pyear_end,pyear_step,baseyear):
 
 	# Load the configuration file
 	configfile = "{}_config.pkl".format(pipeline_id)
@@ -173,9 +173,11 @@ def tlm_project_thermalexpansion(seed, nsamps, pipeline_id):
 	my_config = pickle.load(f)
 	f.close()
 
-	scenario = my_config["scenario"]
-	targyears = my_config["targyears"]
-	baseyear = my_config["baseyear"]
+	#scenario = my_config["scenario"]
+	# targyears = my_config["targyears"]
+	# baseyear = my_config["baseyear"]
+	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
+
 
 	# Set the RNG seed
 	np.random.seed(seed)
@@ -293,6 +295,10 @@ if __name__ == '__main__':
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	parser.add_argument('--tlm', help="Use the 2-layer model fits for making projections (instead of CMIP fits) [default=1]", default=1, type=int)
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2020, type=int)
+	parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
+	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
+	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2000)
 
 	# Parse the arguments
 	args = parser.parse_args()

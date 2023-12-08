@@ -77,6 +77,11 @@ project:
       - "nsamps"
       - "seed"
       - "tlm"
+      - "scenario"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
     copy_input_data:
       preprocess:
         task1:
