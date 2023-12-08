@@ -24,140 +24,6 @@ Note that the value of 'nsamps' and 'seed' are passed to both the projection sta
 post-processing stage when run within FACTS.
 '''
 
-def tlm_project_cmip(nsamps, seed, pipeline_id):
-
-	# Load the configuration file
-	configfile = "{}_config.pkl".format(pipeline_id)
-	try:
-		f = open(configfile, 'rb')
-	except:
-		print("Cannot open configuration file\n")
-
-	# Extract the configuration variables
-	my_config = pickle.load(f)
-	f.close()
-
-	scenario = my_config["scenario"]
-	targyears = my_config["targyears"]
-	baseyear = my_config["baseyear"]
-	GCMprobscale = my_config["GCMprobscale"]
-
-	# Load the ZOSTOGA file
-	configfile = "{}_ZOSTOGA.pkl".format(pipeline_id)
-	try:
-		f = open(configfile, 'rb')
-	except:
-		print("Cannot open ZOSTOGA file\n")
-
-	# Extract the ZOSTOGA variables
-	my_data = pickle.load(f)
-	f.close()
-
-	zostoga_modellist = my_data["zostoga_modellist"]
-	zostoga_scenariolist = my_data["zostoga_scenariolist"]
-
-	# Load the fit file
-	fitfile = "{}_thermalexp_fit.pkl".format(pipeline_id)
-	try:
-		f = open(fitfile, 'rb')
-	except:
-		print("Cannot open fit file\n")
-
-	# Extract the fit variables
-	my_fit = pickle.load(f)
-	f.close()
-
-	ThermExpMean = my_fit["ThermExpMean"]
-	ThermExpStd = my_fit["ThermExpStd"]
-	ThermExpYears = my_fit["ThermExpYears"]
-	ThermExpN = my_fit["ThermExpN"]
-	ThermExpDOF = my_fit["ThermExpDOF"]
-
-	# Evenly sample an inverse normal distribution and permutate it
-	# Note: This may be a bug being ported over from Kopp 2014 which could result in
-	# 		overconfident projections
-	np.random.seed(seed)
-	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
-	norm_inv = norm.ppf(x)
-	norm_inv_perm = np.random.permutation(norm_inv)
-
-	# Determine the scale coefficient
-	ThermExpScale = norm.ppf(0.95)/norm.ppf(GCMprobscale)
-
-	## Generate the samples --------------------------------------------------------------
-	# Initialize variable to hold the samples
-	thermsamps = np.full((nsamps, len(targyears)), np.nan)
-
-	# Loop over the target years
-	for i in np.arange(0,len(targyears)):
-
-		# Find the index of ThermExp* that matches this target year
-		this_year_ind = np.flatnonzero(ThermExpYears == targyears[i])
-
-		# Generate the samples for this year
-		temp = t.ppf(norm.cdf(norm_inv_perm), ThermExpDOF[this_year_ind])
-		#temp = t.ppf(norm.cdf(norm_inv_perm), ThermExpDOF[i])  # Replicates bug in K14 master code
-		thermsamps[:,i] = (ThermExpScale * temp * ThermExpStd[this_year_ind]) + ThermExpMean[this_year_ind]
-
-	# Save the global thermal expansion projections to a pickle
-	output = {"thermsamps": thermsamps, "targyears": targyears, "scenario": scenario}
-	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
-	outfile.close()
-
-	# Produce the included model string
-	model_string_pieces = ["{0}-{1}".format(zostoga_modellist[x], zostoga_scenariolist[x]) for x in np.arange(len(zostoga_modellist))]
-	model_string = "Models and scenarios included: " + ", ".join(model_string_pieces)
-
-	# Write the total global projections to a netcdf file
-	nc_filename = os.path.join(os.path.dirname(__file__), "{}_globalsl.nc".format(pipeline_id))
-	rootgrp = Dataset(nc_filename, "w", format="NETCDF4")
-
-	# Define Dimensions
-	year_dim = rootgrp.createDimension("years", len(targyears))
-	samp_dim = rootgrp.createDimension("samples", nsamps)
-	teyear_dim = rootgrp.createDimension("ThermExpYears", len(ThermExpYears))
-	loc_dim = rootgrp.createDimension("locations", 1)
-
-	# Populate dimension variables
-	year_var = rootgrp.createVariable("years", "i4", ("years",))
-	teyear_var = rootgrp.createVariable("ThermExpYears", "i4", ("ThermExpYears",))
-	samp_var = rootgrp.createVariable("samples", "i8", ("samples",))
-	loc_var = rootgrp.createVariable("locations", "i8", ("locations",))
-	lat_var = rootgrp.createVariable("lat", "f4", ("locations",))
-	lon_var = rootgrp.createVariable("lon", "f4", ("locations",))
-
-	# Create a data variable
-	samps = rootgrp.createVariable("sea_level_change", "f4", ("samples", "years", "locations"), zlib=True, complevel=4)
-	teexpmean = rootgrp.createVariable("ThermExpMean", "f4", ("ThermExpYears",))
-	teexpstd = rootgrp.createVariable("ThermExpStd", "f4", ("ThermExpYears",))
-	teexpn = rootgrp.createVariable("ThermExpN", "i4", ("ThermExpYears",))
-	teexpdof = rootgrp.createVariable("ThermExpDOF", "i4", ("ThermExpYears",))
-
-	# Assign attributes
-	rootgrp.description = "Global SLR contribution from thermal expansion according to IPCC AR6 workflow"
-	rootgrp.history = "Created " + time.ctime(time.time())
-	rootgrp.source = "FACTS: {0}. ".format(pipeline_id) + model_string
-	rootgrp.baseyear = baseyear
-	rootgrp.scenario = scenario
-	samps.units = "mm"
-
-	# Put the data into the netcdf variables
-	year_var[:] = targyears
-	teyear_var[:] = ThermExpYears
-	samp_var[:] = np.arange(nsamps)
-	teexpmean[:] = ThermExpMean
-	teexpstd[:] = ThermExpStd
-	teexpn[:] = ThermExpN
-	teexpdof[:] = ThermExpDOF
-	samps[:,:,:] = thermsamps[:,:,np.newaxis]
-	lat_var[:] = np.inf
-	lon_var[:] = np.inf
-	loc_var[:] = -1
-
-	# Close the netcdf
-	rootgrp.close()
-
 
 ''' TLM thermal expansion projection '''
 def tlm_project_thermalexpansion(seed, nsamps, pipeline_id,scenario,pyear_start,pyear_end,pyear_step,baseyear):
@@ -296,7 +162,6 @@ if __name__ == '__main__':
 	parser.add_argument('--nsamps', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--tlm', help="Use the 2-layer model fits for making projections (instead of CMIP fits) [default=1]", default=1, type=int)
 	parser.add_argument('--scenario', help="SSP scenario (i.e ssp585) or temperature target (i.e. tlim2.0win0.25)",
 						default='ssp585')
 	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2020, type=int)
@@ -316,10 +181,7 @@ if __name__ == '__main__':
 		sys.exit()
 
 	# Run the project stage with the user defined scenario
-	if args.tlm == 1:
-		tlm_project_thermalexpansion(args.seed, args.nsamps, args.pipeline_id)
-	else:
-		tlm_project_cmip(args.nsamps, args.seed, args.pipeline_id)
+	tlm_project_thermalexpansion(args.seed, args.nsamps, args.pipeline_id, args.scenario, args.pyear_start, args.pyear_end, args.pyear_step, args.baseyear)
 
 	# Done
 	sys.exit()

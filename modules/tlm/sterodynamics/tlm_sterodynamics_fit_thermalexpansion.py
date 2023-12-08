@@ -70,7 +70,6 @@ if __name__ == '__main__':
 
 	# Define the names of the intermediate files this run will generate
 	outdir = os.path.dirname(__file__)
-	tefitfile = os.path.join(outdir, "{}_thermalexp_fit.pkl".format(args.pipeline_id))
 	tlmfitfile = os.path.join(outdir, "{}_tlmfit.pkl".format(args.pipeline_id))
 
 

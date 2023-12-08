@@ -36,7 +36,6 @@ project:
       - "pipeline_id"
       - "nsamps"
       - "seed"
-      - "tlm"
       - "scenario"
       - "baseyear"
       - "pyear_start"
@@ -48,7 +47,6 @@ project:
           - "%PIPELINE_ID%_tlmdata.pkl"
       fit:
         task1:
-          - "%PIPELINE_ID%_thermalexp_fit.pkl"
           - "%PIPELINE_ID%_tlmfit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"

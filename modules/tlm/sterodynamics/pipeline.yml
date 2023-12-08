@@ -1,7 +1,7 @@
 # Two-layer Model Ocean Dynamics Pipeline
 # modified from the Kopp14 pipeline.yml, needs  to be examined
 
-preprocess_thermalexpansion:
+preprocess.thermalexpansion:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
@@ -16,7 +16,7 @@ preprocess_thermalexpansion:
     upload_and_extract_input_data:
       - "tlm_sterodynamics_preprocess_data.tgz"
 
-preprocess_oceandynamics:
+preprocess.oceandynamics:
   task1:
     executable: "python3"
     script: "tlm_sterodynamics_preprocess_oceandynamics.py"
@@ -43,30 +43,29 @@ preprocess_oceandynamics:
     copy_shared_data:
       - '$SHARED/location.lst'
 
-fit_thermalexpansion:
+fit.thermalexpansion:
   task1:
     executable: "python3"
     script: "tlm_sterodynamics_fit_thermalexpansion.py"
     options:
       - "pipeline_id"
     copy_input_data:
-      preprocess:
+      preprocess.thermalexpansion:
         task1:
           - "%PIPELINE_ID%_tlmdata.pkl"
 
-fit_oceandynamics:
+fit.oceandynamics:
   task1:
     executable: "python3"
     script: "tlm_sterodynamics_fit_oceandynamics.py"
     options:
       - "pipeline_id"
     copy_input_data:
-      preprocess:
+      preprocess.oceandynamics:
         task1:
           - "%PIPELINE_ID%_config.pkl"
           - "%PIPELINE_ID%_ZOSTOGA.pkl"
           - "%PIPELINE_ID%_ZOS.pkl"
-          - "%PIPELINE_ID%_tlmdata.pkl"
 
 project:
   task1:
@@ -76,21 +75,17 @@ project:
       - "pipeline_id"
       - "nsamps"
       - "seed"
-      - "tlm"
       - "scenario"
       - "baseyear"
       - "pyear_start"
       - "pyear_end"
       - "pyear_step"
     copy_input_data:
-      preprocess:
+      preprocess.thermalexpansion:
         task1:
-          - "%PIPELINE_ID%_config.pkl"
-          - "%PIPELINE_ID%_ZOSTOGA.pkl"
           - "%PIPELINE_ID%_tlmdata.pkl"
-      fit:
+      fit.thermalexpansion:
         task1:
-          - "%PIPELINE_ID%_thermalexp_fit.pkl"
           - "%PIPELINE_ID%_tlmfit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
@@ -106,11 +101,11 @@ postprocess:
       - "chunksize"
       - "keep_temp"
     copy_input_data:
-      preprocess:
+      preprocess.oceandynamics:
         task1:
           - "%PIPELINE_ID%_config.pkl"
           - "%PIPELINE_ID%_ZOS.pkl"
-      fit:
+      fit.oceandynamics:
         task1:
           - "%PIPELINE_ID%_thermalexp_fit.pkl"
           - "%PIPELINE_ID%_oceandynamics_fit.pkl"

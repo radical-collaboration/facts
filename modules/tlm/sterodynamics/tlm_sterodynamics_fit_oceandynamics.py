@@ -266,7 +266,7 @@ if __name__ == '__main__':
 	# Define the names of the intermediate files this run will generate
 	outdir = os.path.dirname(__file__)
 	odfitfile = os.path.join(outdir, "{}_oceandynamics_fit.pkl".format(args.pipeline_id))
-	tlmfitfile = os.path.join(outdir, "{}_tlmfit.pkl".format(args.pipeline_id))
+	tesfitfile = os.path.join(outdir, "{}_thermalexp_fit.pkl".format(args.pipeline_id))
 
 	# Run the OD fitting stage if intermediate files are not present
 	if os.path.isfile(tefitfile) and os.path.isfile(odfitfile):
