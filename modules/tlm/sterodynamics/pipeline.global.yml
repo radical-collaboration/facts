@@ -1,0 +1,52 @@
+# Two-layer Model Ocean Dynamics Pipeline
+# modified from the Kopp14 pipeline.yml, needs  to be examined
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
+    script: "tlm_sterodynamics_preprocess_thermalexpansion.py"
+    options:
+      - "scenario"
+      - "climate_data_file"
+      - "pipeline_id"
+    upload_input_data:
+      - "Import2lmData.py"
+    upload_and_extract_input_data:
+      - "tlm_sterodynamics_preprocess_data.tgz"
+
+
+fit:
+  task1:
+    executable: "python3"
+    script: "tlm_sterodynamics_fit_thermalexpansion.py"
+    options:
+      - "pipeline_id"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_tlmdata.pkl"
+
+project:
+  task1:
+    executable: "python3"
+    script: "tlm_sterodynamics_project.py"
+    options:
+      - "pipeline_id"
+      - "nsamps"
+      - "seed"
+      - "scenario"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_tlmdata.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_tlmfit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
+

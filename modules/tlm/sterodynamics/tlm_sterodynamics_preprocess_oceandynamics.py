@@ -12,8 +12,6 @@ from SmoothZOSTOGA import SmoothZOSTOGA
 from read_locationfile import ReadLocationFile
 from Smooth import Smooth
 
-from Import2lmData import *
-
 ''' tlm_preprocess_oceandynamics.py
 
 This runs the preprocessing stage for the ocean dynamics component of the IPCC AR6
@@ -288,45 +286,6 @@ def tlm_preprocess_oceandynamics(scenario, modeldir, driftcorr, no_correlation, 
 
 
 
-def tlm_preprocess_thermalexpansion(scenario, pipeline_id, fname):
-
-	# Working directory
-	path = os.path.dirname(__file__)
-
-	# Load the ocean heat content
-	ohc_dict = Import2lmData("ocean_heat_content", scenario, path, climate_fname=fname)
-
-	# Extract the ohc samples
-	ohc_samps = ohc_dict["samples"] * 1e-24
-	data_years = ohc_dict["years"]
-
-	# Load expansion coefficients
-	nc = Dataset(os.path.join(path, 'scmpy2LM_RCMIP_CMIP6calpm_n18_expcoefs.nc'), 'r')
-	expcoefs = nc.variables['expcoefs'][...]
-	expcoefs_models = nc.variables['model'][...]
-	nc.close()
-
-	# Load GSAT RMSEs
-	nc = Dataset(os.path.join(path, 'scmpy2LM_RCMIP_CMIP6calpm_n17_gsat_rmse.nc'), 'r')
-	rmses = nc.variables['gsat_rmse'][...]
-	rmses_models = nc.variables['model'][...]
-	nc.close()
-
-	# Store preprocessed data in pickles
-	output = {'ohc_samps': ohc_samps, 'expcoefs': expcoefs, 'rmses': rmses, \
-				'expcoefs_models': expcoefs_models, 'rmses_models': rmses_models, \
-				'data_years': data_years, 'scenario': scenario}
-
-	# Write the configuration to a file
-	outdir = os.path.dirname(__file__)
-	outfile = open(os.path.join(outdir, "{}_tlmdata.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
-	outfile.close()
-
-	return(None)
-
-
-
 if __name__ == '__main__':
 
 	# Initialize the command-line argument parser
@@ -352,7 +311,6 @@ if __name__ == '__main__':
 	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2000)
 
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
 
 	# Parse the arguments
 	args = parser.parse_args()
@@ -369,12 +327,6 @@ if __name__ == '__main__':
 		print("{}, {}, and {} found, skipping OD preprocessing".format(configfile, zostogafile, zosfile))
 	else:
 		tlm_preprocess_oceandynamics(args.scenario, args.model_dir, not args.no_drift_corr, args.no_correlation, args.pyear_start, args.pyear_end, args.pyear_step, args.locationfile, args.baseyear, args.pipeline_id)
-
-	# Run the 2-layer model preprocessing if the intermediate file is not present
-	if os.path.isfile(tlmfile):
-		print("{} found, skipping TE preprocessing".format(tlmfile))
-	else:
-		tlm_preprocess_thermalexpansion(args.scenario, args.pipeline_id, args.climate_data_file)
 
 	# Done
 	sys.exit()

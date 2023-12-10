@@ -1,0 +1,12 @@
+https://zenodo.org/record/7478192/files/FittedISMIP_icesheet_fit_data.tgz
+https://zenodo.org/record/7478192/files/bamber19_icesheets_preprocess_data.tgz
+https://zenodo.org/record/7478192/files/deconto21_AIS_preprocess_data.tgz
+https://zenodo.org/record/7478192/files/fair_temperature_fit_data.tgz
+https://zenodo.org/record/7478192/files/fair_temperature_preprocess_data.tgz
+https://zenodo.org/record/7478192/files/ipccar5_glaciers_project_data.tgz
+https://zenodo.org/record/7478192/files/ipccar5_icesheets_project_data.tgz
+https://zenodo.org/record/7478192/files/larmip_icesheet_fit_data.tgz
+https://zenodo.org/record/7478192/files/larmip_icesheet_project_data.tgz
+https://zenodo.org/record/7478192/files/ssp_landwaterstorage_preprocess_data.tgz
+https://zenodo.org/record/7478192/files/tlm_sterodynamics_preprocess_data.tgz
+

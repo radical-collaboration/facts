@@ -1,0 +1,52 @@
+# FAIR temperature pipeline configuration
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair==1.6.4"
+    script: "fair_temperature_preprocess.py"
+    options:
+      - "scenario"
+      - "rcmip_file"
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - "fair_temperature_preprocess_data.tgz"
+
+
+fit:
+  task1:
+    executable: "python3"
+    script: "fair_temperature_fit.py"
+    options:
+      - "param_file"
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - "fair_temperature_fit_data.tgz"
+
+
+
+project:
+  task1:
+    executable: "python3"
+    script: "fair_temperature_project.py"
+    options:
+      - "pipeline_id"
+      - "nsamps"
+      - "seed"
+      - "cyear_start"
+      - "cyear_end"
+      - "smooth_win"
+    upload_input_data:
+      - "my_FAIR_forward.py"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_preprocess.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    climate_output_data:
+      - "%PIPELINE_ID%_oceantemp.nc"
+      - "%PIPELINE_ID%_ohc.nc"
+      - "%PIPELINE_ID%_gsat.nc"
+      - "%PIPELINE_ID%_climate.nc"
