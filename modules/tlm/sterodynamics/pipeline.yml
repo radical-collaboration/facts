@@ -70,6 +70,7 @@ project:
       - "nsamps"
       - "seed"
       - "scenario"
+      - "scenario_dsl"
       - "baseyear"
       - "pyear_start"
       - "pyear_end"
