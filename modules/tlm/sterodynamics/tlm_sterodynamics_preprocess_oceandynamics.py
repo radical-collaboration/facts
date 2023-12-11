@@ -295,7 +295,6 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--scenario', help="SSP scenario (i.e ssp585) or temperature target (i.e. tlim2.0win0.25)", default='ssp585')
 	parser.add_argument('--scenario_dsl', help="SSP scenario to use for correlation of thermal expansion and dynamic sea level, if not the same as scenario", default='', choices=['','ssp119','ssp126','ssp245','ssp370','ssp585'])
-
 	parser.add_argument('--model_dir', help="Directory containing ZOS/ZOSTOGA CMIP6 GCM output",\
 	default=os.path.join(os.path.dirname(__file__), "cmip6"))
 
