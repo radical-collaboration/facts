@@ -14,8 +14,6 @@ preprocess:
       - "Import2lmData.py"
       - "import_temp_data.py"
       - "filter_temp_data.py"
-    upload_and_extract_input_data:
-      - "ipccar6_climate_data.tgz"
 
 
 fit:
