@@ -69,7 +69,7 @@ if __name__ == '__main__':
     # Define the command line arguments to be expected
     parser.add_argument('--scenario', help="SSP scenario (i.e ssp585) or temperature target (i.e. tlim2.0win0.25)",
                         default='ssp585')
-    parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data (default=twolayer_SSPs.h5)", type=str, default='twolayer_SSPs.h5')
+    parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
     
     # Parse the arguments
