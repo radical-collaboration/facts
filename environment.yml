@@ -1,0 +1,14 @@
+name: ve3FACTS
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - matplotlib=3.4.3
+  - numpy
+  - pyyaml==6.0
+  - xarray
+  - netcdf4
+  - matplotlib
+  - pip==21.2.4
+  - pip:
+    - radical.entk
