@@ -26,10 +26,10 @@ def project_greensmb(zt, fit_dict, nt):
 	mSLEoGt = fit_dict['mSLEoGt']
 
 		# random log-normal factor
-	fn = np.exp(np.random.standard_normal(nt)*fnlogsd)
+	fn = np.exp(rng.standard_normal(nt)*fnlogsd)
 
 	# elevation feedback factor
-	fe = np.random.sample(nt)*(febound[1]-febound[0])+febound[0]
+	fe = rng.sample(nt)*(febound[1]-febound[0])+febound[0]
 	ff = fn*fe
 
 
@@ -63,13 +63,13 @@ def project_antsmb(zit, fit_dict, nr, nt, fraction=None):
 	smax = fit_dict['smax']
 
 	# Generate a distribution of products of the above two factors
-	pcoKg = (pcoK[0]+np.random.standard_normal([nr,nt,1])*pcoK[1])*\
-		(KoKg[0]+np.random.standard_normal([nr,nt,1])*KoKg[1])
+	pcoKg = (pcoK[0]+rng.standard_normal([nr,nt,1])*pcoK[1])*\
+		(KoKg[0]+rng.standard_normal([nr,nt,1])*KoKg[1])
 	meansmb = 1923 # model-mean time-mean 1979-2010 Gt yr-1 from 13.3.3.2
 	moaoKg = -pcoKg * 1e-2 * meansmb * mSLEoGt # m yr-1 of SLE per K of global warming
 
 	if fraction is None:
-		fraction=np.random.rand(nr,nt,1)
+		fraction=rng.rand(nr,nt,1)
 	elif fraction.size!=nr*nt:
 		raise ProjectionError('Project antsmb: fraction is the wrong size')
 	else:
@@ -122,7 +122,7 @@ def time_projection(startratemean, startratepm, finalrange, nr, nt, data_years, 
 	#		by default uniformly distributed
 
 	if fraction is None:
-		fraction=np.random.rand(nr,nt,1)
+		fraction=rng.rand(nr,nt,1)
 	elif fraction.size!=nr*nt:
 		raise ProjectionError('Time Projection: fraction is the wrong size')
 	fraction = fraction.reshape(nr,nt,1)
@@ -218,7 +218,7 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 	f.close()
 
 	# Set the seed for the random number generator
-	np.random.seed(rng_seed)
+	rng = np.random.default_rng(rng_seed)
 
 	# Divide "nsamps" into "nmsamps" and "ntsamps" if necessary
 	if nsamps is None:
@@ -228,7 +228,7 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 		ntsamps = nmsamps
 
 	# Generate perfectly correlated samples
-	z=np.random.standard_normal(ntsamps)[:,np.newaxis]
+	z=rng.standard_normal(ntsamps)[:,np.newaxis]
 
 	# For each quantity, mean + standard deviation * normal random number
 	# NEEDS TO BE FIXED TO USE SAMPS RATHER THAN RESANMPLING
@@ -242,8 +242,8 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 	nyr = len(data_years)
 
 	# correlation between antsmb and antdyn
-	#fraction=np.random.rand(nmsamps * ntsamps)
-	fraction = np.random.rand(nsamps)
+	#fraction=rng.rand(nmsamps * ntsamps)
+	fraction = rng.rand(nsamps)
 
 	# Project the SMB and Dynamics portions of each ice sheet
 	greensmb=project_greensmb(temp_samples, my_fit, nsamps)

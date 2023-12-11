@@ -71,7 +71,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	data_years = data_years[year_idx]
 
 	# Set the seed for the random number generator
-	np.random.seed(rng_seed)
+	rng = np.random.default_rng(rng_seed)
 
 	# Divide "nsamps" into "nmsamps" and "ntsamps" if necessary
 	if nsamps is None:
@@ -84,7 +84,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	
 	# Generate perfectly correlated samples
 	# For each quantity, mean + standard deviation * normal random number
-	z = np.random.standard_normal(ntsamps)[:,np.newaxis]
+	z = rng.standard_normal(ntsamps)[:,np.newaxis]
 	zit = inttemp_mean + (inttemp_sd * z)
 
 	#z = temp_samples
@@ -108,7 +108,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	nrpergl=nr/ngl
 
 	# Generate samples for methodologies
-	r=np.random.standard_normal(nr)
+	r=rng.standard_normal(nr)
 
 
 	# Initialize the data structure to hold the glacier samples
@@ -119,7 +119,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 	# temp_samples and inttemp_samples
 	samps_per_model = np.array([nsamps // ngl for x in range(ngl)])
 	remainder_samps = nsamps % ngl
-	samps_per_model[np.random.choice(ngl, size=remainder_samps, replace=False)] += 1
+	samps_per_model[rng.choice(ngl, size=remainder_samps, replace=False)] += 1
 	
 
 	# Creates a list of integers for the random method selection
@@ -131,7 +131,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 		gmethod = glparm[method_idx]
 
 		# Randomly pulls time-series indices from the selection pool corresponding to samps_per_model for this method
-		rnd_sample_idx = np.random.choice(time_series_idx, size=samps_per_model[method_idx], replace=False)
+		rnd_sample_idx = rng.choice(time_series_idx, size=samps_per_model[method_idx], replace=False)
 
 		# Removes the selected time-series indices from the selection pool for the next loop
 		time_series_idx = np.setdiff1d(time_series_idx, rnd_sample_idx)
@@ -146,7 +146,7 @@ def ar5_project_glaciers(rng_seed, pyear_start, pyear_end, pyear_step, nmsamps, 
 			zgl = project_glacier1(inttemp_samples[sample_idx][year_idx], gmethod['factor'], gmethod['exponent'])
 			
 			# add normally distributed methodological uncertainty based on ensemble-mean integrated temperature
-			zgl = zgl + (mgl * np.random.standard_normal(1) * gmethod['cvgl'])
+			zgl = zgl + (mgl * rng.standard_normal(1) * gmethod['cvgl'])
 			
 			total_glac_samps[sample_idx,:] = zgl
 	

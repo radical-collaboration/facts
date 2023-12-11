@@ -42,10 +42,10 @@ def ar5_project_thermalexpansion(rng_seed, pyear_start, pyear_end, pyear_step, n
 	data_years = data_years[year_idx]
 	
 	# Set the seed for the random number generator
-	np.random.seed(rng_seed)
+	rng = np.random.default_rng(rng_seed)
 
 	# Generate perfectly correlated samples
-	z=np.random.standard_normal(nsamps)[:,np.newaxis]
+	z=rng.standard_normal(nsamps)[:,np.newaxis]
 	
 	# For each quantity, mean + standard deviation * normal random number
 	zx=exp_mean + (exp_sd * z)

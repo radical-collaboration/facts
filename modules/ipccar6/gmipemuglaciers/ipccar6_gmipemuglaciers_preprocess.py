@@ -92,8 +92,8 @@ def ipccar6_preprocess_gmipemuglaciers(pipeline_id, scenario, pyear_start, pyear
 	melt_ratio = region_melt / total_melt
 
 	# Create a pool of baseline adjustments to apply to the samples
-	np.random.seed(8071)
-	trend_q = np.random.random_sample(gic_samps.shape[1])
+	rng = np.random.default_rng(8071)
+	trend_q = rng.random_sample(gic_samps.shape[1])
 	trend_mean = 0.7
 	trend_sd = 0.1
 	glac_trend = norm.ppf(trend_q, trend_mean, trend_sd) * (data_years[0] - baseyear)

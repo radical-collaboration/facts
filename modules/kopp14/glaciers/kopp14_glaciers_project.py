@@ -61,12 +61,12 @@ def kopp14_project_glaciers(nsamps, seed, pipeline_id):
 	# Evenly sample an inverse normal distribution and permutate it
 	# Note: This may be a bug being ported over from Kopp 2014 which could result in 
 	# 		overconfident projections
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
 	norm_inv = norm.ppf(x)
 	norm_inv_perm = np.full((T.shape[0], nsamps), np.nan)
 	for i in np.arange(0,T.shape[0]):
-		norm_inv_perm[i,:] = np.random.permutation(norm_inv)
+		norm_inv_perm[i,:] = rng.permutation(norm_inv)
 	
 	## Generate the samples --------------------------------------------------------------
 	# Initialize variable to hold the samples

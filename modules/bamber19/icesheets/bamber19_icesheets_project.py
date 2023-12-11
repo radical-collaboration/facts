@@ -43,8 +43,8 @@ def bamber19_project_icesheets(nsamps, pipeline_id, replace, rngseed):
 	gis_samples = my_data["gis_samps"]
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(ais_samples.shape[0], size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_inds = rng.choice(ais_samples.shape[0], size=nsamps, replace=replace)
 
 	# Store the samples for AIS components
 	eais_samps = eais_samples[sample_inds,:]
@@ -85,8 +85,8 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(ais_samplesL.shape[0], size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_inds = rng.choice(ais_samplesL.shape[0], size=nsamps, replace=replace)
 
 	# Store the samples for AIS components
 	eais_samps = eais_samplesL[sample_inds,:]
@@ -217,7 +217,7 @@ def pickScenario(climate_data_file, scenario):
 	weights=f2
 
 	# Select which scenario to draw from for each sample
-	selector = np.random.rand(iSAT.size)
+	selector = rng.rand(iSAT.size)
 	useHigh = (selector<weights)
 	return useHigh
 

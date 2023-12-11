@@ -94,7 +94,7 @@ def getFreqFromZ_ESL(scale, shape, loc, avg_exceed, z, mhhw, mhhwFreq):
 def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq, nsamps, seed, output_filename):
 	
 	# Seed the RNG
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 	
 	# Extract the sea-level projection data
 	lcl_msl_samples = slproj_data['proj_slc'] / 1000.0
@@ -115,7 +115,7 @@ def project_station(station_data, slproj_data, proj_qnts, testz, allowance_freq,
 	gp_cov = station_data['gp_cov'] #covariance matrix
 	avg_exceed = station_data['avg_exceed'] #average number of exceedences of threshold per year (lambda)
 	
-	gp_samples = np.random.multivariate_normal([shape,scale], gp_cov,size=nsamps)
+	gp_samples = rng.multivariate_normal([shape,scale], gp_cov,size=nsamps)
 	shape_samples = gp_samples[:,0]
 	scale_samples = gp_samples[:,1]
 	scale_samples[scale_samples<0.001] = 0.001 #no negative scales

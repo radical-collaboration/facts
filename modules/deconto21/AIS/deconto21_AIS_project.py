@@ -37,8 +37,8 @@ def dp21_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, pipeline_i
 	(_, datayr_idx, targyear_idx) = np.intersect1d(years, targyears, return_indices = True)
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_idx = np.random.choice(pool_size, size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_idx = rng.choice(pool_size, size=nsamps, replace=replace)
 
 	# Store the samples
 	wais_samps = wais[datayr_idx[:,np.newaxis],sample_idx[np.newaxis,:]]
@@ -68,8 +68,8 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	(_, datayr_idx, targyear_idx) = np.intersect1d(years, targyears, return_indices = True)
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_idx = np.random.choice(pool_size, size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_idx = rng.choice(pool_size, size=nsamps, replace=replace)
 
 	# Store the samples
 	wais_samps0 = wais[datayr_idx[:,np.newaxis],sample_idx[np.newaxis,:],:]
@@ -131,7 +131,7 @@ def pickScenario(climate_data_file, scenario):
 	x2=np.where((Time[:]<2100) * (Time[:]>=2000))
 	SAT2=SAT[x2]
 	iSAT=SAT2.sum(axis=0)
-	selector = np.random.rand(iSAT.size)
+	selector = rng.rand(iSAT.size)
 
 	# convert integrated temperature into a normalized variable between low and high scenarios
 

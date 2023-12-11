@@ -119,8 +119,8 @@ def emulandice_project_AIS(pipeline_id, icesource="AIS"):
 
 	# Generate samples for trends correlated among ice sheets
 	# Note: Keep seed hard-coded and matched with GrIS module within emulandice module set
-	np.random.seed(8071)
-	trend_q = np.random.random_sample(nsamps)
+	rng = np.random.default_rng(8071)
+	trend_q = rng.random_sample(nsamps)
 
 	# Calculate the trend contributions over time for each ice sheet component
 	eais_trend = truncnorm.ppf(trend_q, a=0, b=99999, loc=trend_mean["EAIS"], scale=trend_sd["EAIS"])[:,np.newaxis] * (targyears - baseyear)[np.newaxis,:]

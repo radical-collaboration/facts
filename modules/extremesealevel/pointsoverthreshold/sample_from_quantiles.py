@@ -19,5 +19,5 @@ import numpy as np
 def sample_from_quantiles(qvals, q, nsamps):
 	
 	pool = np.interp(np.linspace(0,1,nsamps), q, qvals)
-	np.random.shuffle(pool)
+	rng.shuffle(pool)
 	return(pool)

@@ -45,11 +45,11 @@ def ipccar6_project_ismipemuicesheet(nsamps, pipeline_id, replace, rngseed):
 	model_driver = my_data["model_driver"]
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(eais_samples.shape[0], size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_inds = rng.choice(eais_samples.shape[0], size=nsamps, replace=replace)
 
 	# Generate samples for trends correlated among ice sheets
-	trend_q = np.random.random_sample(nsamps)
+	trend_q = rng.random_sample(nsamps)
 	#norm_inv = norm.ppf(x)
 
 	# Calculate the trend contributions over time for each ice sheet component
@@ -68,8 +68,8 @@ def ipccar6_project_ismipemuicesheet(nsamps, pipeline_id, replace, rngseed):
 
 	# Store the samples for the GIS components
 	# Resetting the seed here ensures correlation between GIS and AIS samples
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(gis_samples.shape[0], size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_inds = rng.choice(gis_samples.shape[0], size=nsamps, replace=replace)
 	gis_samps = gis_samples[sample_inds,:] + gis_trend
 
     # Store the variables in a pickle

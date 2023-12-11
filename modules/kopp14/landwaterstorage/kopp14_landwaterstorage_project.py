@@ -119,7 +119,7 @@ def kopp14_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 
 	##################################################
 	# generate seeds and draw samples
-	np.random.seed(rng_seed)
+	rng = np.random.default_rng(rng_seed)
 	if isinstance(Nsamps,int): #if only given a single number Nsamps
 		seeds0 = np.linspace(0,1,Nsamps+2)
 		seeds0 = seeds0[1:-1]
@@ -130,7 +130,7 @@ def kopp14_project_landwaterstorage(Nsamps, rng_seed, pipeline_id):
 	if seeds0.ndim == 1: # if seeds is a vector
 		seeds = np.empty((4,len(seeds0)))
 		for j in range(0,4):
-			seeds[j,:] = seeds0[np.random.permutation(len(seeds0))]
+			seeds[j,:] = seeds0[rng.permutation(len(seeds0))]
 
 	#draw the samples
 	damsamps = np.empty((len(yrs),Nsamps))
