@@ -69,7 +69,7 @@ def project_antsmb(zit, fit_dict, nr, nt, fraction=None):
 	moaoKg = -pcoKg * 1e-2 * meansmb * mSLEoGt # m yr-1 of SLE per K of global warming
 
 	if fraction is None:
-		fraction=rng.rand(nr,nt,1)
+		fraction=rng.random([nr,nt,1])
 	elif fraction.size!=nr*nt:
 		raise ProjectionError('Project antsmb: fraction is the wrong size')
 	else:
@@ -122,7 +122,7 @@ def time_projection(startratemean, startratepm, finalrange, nr, nt, data_years, 
 	#		by default uniformly distributed
 
 	if fraction is None:
-		fraction=rng.rand(nr,nt,1)
+		fraction=rng.random([nr,nt,1])
 	elif fraction.size!=nr*nt:
 		raise ProjectionError('Time Projection: fraction is the wrong size')
 	fraction = fraction.reshape(nr,nt,1)
@@ -242,8 +242,8 @@ def ar5_project_icesheets(rng_seed, pyear_start, pyear_end, pyear_step, cyear_st
 	nyr = len(data_years)
 
 	# correlation between antsmb and antdyn
-	#fraction=rng.rand(nmsamps * ntsamps)
-	fraction = rng.rand(nsamps)
+	#fraction=rng.random(nmsamps * ntsamps)
+	fraction = rng.random(nsamps)
 
 	# Project the SMB and Dynamics portions of each ice sheet
 	greensmb=project_greensmb(temp_samples, my_fit, nsamps)
