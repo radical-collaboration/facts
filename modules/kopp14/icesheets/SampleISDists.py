@@ -31,7 +31,7 @@ parameters.
 def SampleISDists(nsamps, sigmas, mus, offsets, islastdecade, corris, seed=1234):
 	
 	# Evenly sample an inverse normal distribution
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
 	norm_inv = norm.ppf(x)
 	
@@ -42,7 +42,7 @@ def SampleISDists(nsamps, sigmas, mus, offsets, islastdecade, corris, seed=1234)
 	# Build a matrix of permutated norm_inv values
 	norm_inv_perm = np.full((nsamps, sigmas.shape[0]), np.nan)
 	for i in range(sigmas.shape[0]):
-		norm_inv_perm[:,i] = np.random.permutation(norm_inv)
+		norm_inv_perm[:,i] = rng.permutation(norm_inv)
 	
 	# Create the correlated samples for the ice sheet accelerations
 	sampeps = np.dot(norm_inv_perm, T)

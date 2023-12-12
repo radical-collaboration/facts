@@ -61,10 +61,10 @@ def kopp14_project_oceandynamics(nsamps, seed, pipeline_id):
 	# Evenly sample an inverse normal distribution and permutate it
 	# Note: This may be a bug being ported over from Kopp 2014 which could result in
 	# 		overconfident projections
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
 	norm_inv = norm.ppf(x)
-	norm_inv_perm = np.random.permutation(norm_inv)
+	norm_inv_perm = rng.permutation(norm_inv)
 
 	# Determine the scale coefficient
 	ThermExpScale = norm.ppf(0.95)/norm.ppf(GCMprobscale)

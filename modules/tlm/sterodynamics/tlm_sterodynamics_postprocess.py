@@ -121,8 +121,8 @@ def tlm_postprocess_oceandynamics(nsamps, rng_seed, chunksize, keep_temp, pipeli
 
 	# Evenly sample quantile space and permutate
 	quantile_samps = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
-	np.random.seed(rng_seed)
-	quantile_samps = np.random.permutation(quantile_samps)
+	rng = np.random.default_rng(rng_seed)
+	quantile_samps = rng.permutation(quantile_samps)
 
 	# Get the number of years and locations
 	nyears = len(targyears)

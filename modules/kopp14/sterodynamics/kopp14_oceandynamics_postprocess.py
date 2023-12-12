@@ -123,10 +123,10 @@ def kopp14_postprocess_oceandynamics(nsamps, rng_seed, pipeline_id):
 		this_site_ind = i
 
 		# Reset the RNG seed
-		np.random.seed(rng_seed)
+		rng = np.random.default_rng(rng_seed)
 
 		# Create a permutation of the inverse normal distribution
-		norm_inv_perm = np.random.permutation(norm_inv)
+		norm_inv_perm = rng.permutation(norm_inv)
 
 		# Loop over the target years
 		ntimes = len(targyears)

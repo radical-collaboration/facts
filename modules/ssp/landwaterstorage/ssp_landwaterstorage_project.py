@@ -151,7 +151,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, dcyear_start, dcyear_end, dcr
 
 	##################################################
 	# generate seeds and draw samples
-	np.random.seed(rng_seed)
+	rng = np.random.default_rng(rng_seed)
 	if isinstance(Nsamps,int): #if only given a single number Nsamps
 		seeds0 = np.linspace(0,1,Nsamps+2)
 		seeds0 = seeds0[1:-1]
@@ -162,7 +162,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, dcyear_start, dcyear_end, dcr
 	if seeds0.ndim == 1: # if seeds is a vector
 		seeds = np.empty((4,len(seeds0)))
 		for j in range(0,4):
-			seeds[j,:] = seeds0[np.random.permutation(len(seeds0))]
+			seeds[j,:] = seeds0[rng.permutation(len(seeds0))]
 
 	#draw the samples
 	damsamps = np.empty((len(yrs),Nsamps))
@@ -189,7 +189,7 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, dcyear_start, dcyear_end, dcr
 	dc_eyear_idx = np.flatnonzero(yrs > dcyear_end)
 
 	# Generate samples of the rates
-	dc_rates = np.random.uniform(dcrate_lo, dcrate_hi, Nsamps)
+	dc_rates = rng.uniform(dcrate_lo, dcrate_hi, Nsamps)
 
 	# Expand these rates into sea-level change over time
 	dc_samps = np.zeros((len(yrs), Nsamps))

@@ -68,9 +68,9 @@ def ipccar6_project_larmipicesheet(nsamps, pipeline_id, cyear_start, cyear_end, 
 	nsamps_per_model = np.repeat(int(nsamps / nmodels), nmodels)
 
 	# Divy up the remaining larmip samples across randomly chosen models
-	np.random.seed(rngseed)
+	rng = np.random.default_rng(rngseed)
 	nsamps_remain = nsamps % nmodels
-	rand_model_idx = np.random.choice(nmodels, size=nsamps_remain, replace=False)
+	rand_model_idx = rng.choice(nmodels, size=nsamps_remain, replace=False)
 	nsamps_per_model[rand_model_idx] = nsamps_per_model[rand_model_idx] + 1
 
 	# Define the number of SMB samples to produce
@@ -78,11 +78,11 @@ def ipccar6_project_larmipicesheet(nsamps, pipeline_id, cyear_start, cyear_end, 
 	ntsamps = nmsamps
 
 	# Generate perfectly correlated samples in time for SMB
-	z=np.random.standard_normal(ntsamps)[:,np.newaxis]
+	z=rng.standard_normal(ntsamps)[:,np.newaxis]
 	zit = inttemp_mean + (inttemp_sd * z)
 
 	# Correlation between antsmb and antdyn
-	#fraction=np.random.rand(nmsamps * ntsamps)
+	#fraction=rng.random(nmsamps * ntsamps)
 	fraction = None
 
 	# Project the SMB portion of each ice sheet
@@ -110,7 +110,7 @@ def ipccar6_project_larmipicesheet(nsamps, pipeline_id, cyear_start, cyear_end, 
 
 	# Reset the seed to allow consistent sampling of ice sheet samples with
 	# other modules using the 2lm temperature data
-	np.random.seed(rngseed)
+	rng = np.random.default_rng(rngseed)
 
 	# Loop over the models
 	for i in np.arange(nmodels):
@@ -119,7 +119,7 @@ def ipccar6_project_larmipicesheet(nsamps, pipeline_id, cyear_start, cyear_end, 
 		good_sample_idx = np.flatnonzero(~np.isnan(eais_samples[i,:,0]))
 
 		# Generate the sample indices
-		sample_inds = np.random.choice(good_sample_idx, size=nsamps_per_model[i], replace=True)
+		sample_inds = rng.choice(good_sample_idx, size=nsamps_per_model[i], replace=True)
 
 		# Append these samples to the data structures
 		eais_samps[np.arange(start_idx[i], end_idx[i]),:] = eais_samples[i,sample_inds,:]
@@ -242,13 +242,13 @@ def project_antsmb(zit, fit_dict, nr, nt, fraction=None):
 	smax = fit_dict['smax']
 
 	# Generate a distribution of products of the above two factors
-	pcoKg = (pcoK[0]+np.random.standard_normal([nr,nt,1])*pcoK[1])*\
-		(KoKg[0]+np.random.standard_normal([nr,nt,1])*KoKg[1])
+	pcoKg = (pcoK[0]+rng.standard_normal([nr,nt,1])*pcoK[1])*\
+		(KoKg[0]+rng.standard_normal([nr,nt,1])*KoKg[1])
 	meansmb = 1923 # model-mean time-mean 1979-2010 Gt yr-1 from 13.3.3.2
 	moaoKg = -pcoKg * 1e-2 * meansmb * mSLEoGt # m yr-1 of SLE per K of global warming
 
 	if fraction is None:
-		fraction=np.random.rand(nr,nt,1)
+		fraction=rng.random([nr,nt,1])
 	elif fraction.size!=nr*nt:
 		raise ProjectionError('fraction is the wrong size')
 	else:

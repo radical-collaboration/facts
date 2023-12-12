@@ -43,8 +43,8 @@ def bamber19_project_icesheets(nsamps, pipeline_id, replace, rngseed):
 	gis_samples = my_data["gis_samps"]
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(ais_samples.shape[0], size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_inds = rng.choice(ais_samples.shape[0], size=nsamps, replace=replace)
 
 	# Store the samples for AIS components
 	eais_samps = eais_samples[sample_inds,:]
@@ -58,7 +58,8 @@ def bamber19_project_icesheets(nsamps, pipeline_id, replace, rngseed):
 
 
 def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id, replace, rngseed):
-
+	# Set rng
+	rng = np.random.default_rng(rngseed)
 
 	# Load the data file
 	datafilename = "{}_data.pkl".format(pipeline_id)
@@ -80,13 +81,13 @@ def bamber19_project_icesheets_temperaturedriven(climate_data_file, pipeline_id,
 	gis_samplesL = my_data["gis_sampsL"]
 
 	# identify which samples to draw from high vs low scenarios
-	useHigh=pickScenario(climate_data_file, scenario);
+	useHigh=pickScenario(climate_data_file, scenario,rng);
 	nsamps=useHigh.size
 
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(ais_samplesL.shape[0], size=nsamps, replace=replace)
+
+	sample_inds = rng.choice(ais_samplesL.shape[0], size=nsamps, replace=replace)
 
 	# Store the samples for AIS components
 	eais_samps = eais_samplesL[sample_inds,:]
@@ -193,7 +194,7 @@ def GetSATData(fname, scenario, refyear_start=1850, refyear_end=1900, year_start
 	# Done
 	return(SAT, Time, nens)
 
-def pickScenario(climate_data_file, scenario):
+def pickScenario(climate_data_file, scenario,rng):
 	# Load the temperature data
 	
 	SAT,Time,NumTensemble = GetSATData(climate_data_file, scenario)
@@ -217,7 +218,7 @@ def pickScenario(climate_data_file, scenario):
 	weights=f2
 
 	# Select which scenario to draw from for each sample
-	selector = np.random.rand(iSAT.size)
+	selector = rng.random(iSAT.size)
 	useHigh = (selector<weights)
 	return useHigh
 

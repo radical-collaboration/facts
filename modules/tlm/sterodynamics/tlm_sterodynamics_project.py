@@ -48,7 +48,7 @@ def tlm_project_thermalexpansion(seed, nsamps, pipeline_id,scenario,pyear_start,
 
 
 	# Set the RNG seed
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 
 	# Load the preprocessed data
 	data_file = "{}_tlmdata.pkl".format(pipeline_id)
@@ -81,12 +81,12 @@ def tlm_project_thermalexpansion(seed, nsamps, pipeline_id,scenario,pyear_start,
 	include_models = my_data['include_models']
 
 	# Generate indices that sample from OHC values
-	#ohc_samps_idx = np.random.choice(np.arange(ohc_samps.shape[0]), nsamps)
+	#ohc_samps_idx = rng.choice(np.arange(ohc_samps.shape[0]), nsamps)
 	ohc_samps_idx = np.arange(ohc_samps.shape[0])
 	ohc_samps = ohc_samps[ohc_samps_idx,:]
 
 	# Generate samples assuming normal distribution
-	expcoef_samps = np.random.normal(loc=mean_expcoefs, scale=std_expcoefs, size=(nsamps,1))
+	expcoef_samps = rng.normal(loc=mean_expcoefs, scale=std_expcoefs, size=(nsamps,1))
 
 	# Produce the projection samples
 	gte_samps = ohc_samps * expcoef_samps

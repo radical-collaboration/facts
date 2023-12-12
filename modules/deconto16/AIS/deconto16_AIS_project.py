@@ -45,8 +45,8 @@ def dp16_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, pipeline_i
 	(_, datayr_idx, targyear_idx) = np.intersect1d(years, targyears, return_indices = True)
 	
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_idx = np.random.choice(pool_size, size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_idx = rng.choice(pool_size, size=nsamps, replace=replace)
 	
 	# Store the samples
 	wais_samps = wais[datayr_idx[:,np.newaxis],sample_idx[np.newaxis,:]]

@@ -37,8 +37,8 @@ def ipccar6_project_gmipemuglaciers(nsamps, pipeline_id, replace, rngseed):
 	model_driver = my_data["model_driver"]
 
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(gic_samples.shape[1], size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_inds = rng.choice(gic_samples.shape[1], size=nsamps, replace=replace)
 
 	# Extract the samples
 	gic_region_samps = gic_samples[:,sample_inds,:]

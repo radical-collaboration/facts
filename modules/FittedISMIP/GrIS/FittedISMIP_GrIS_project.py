@@ -67,17 +67,17 @@ def FittedISMIP_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, cye
 	temp_data = temp_data - temp_data[:,baseyear_idx]
 
 	# Set the seed for the RNG
-	np.random.seed(rngseed)
+	rng = np.random.default_rng(rngseed)
 
 	# Initialize the samples dictionary to pass to the post-processing stage
 	samps_dict = {}
 
 	# Generate the indices for the temperature samples
-	#temp_sample_idx = np.random.choice(np.arange(temp_data.shape[0]), nsamps)
+	#temp_sample_idx = rng.choice(np.arange(temp_data.shape[0]), nsamps)
 	temp_sample_idx = np.arange(nsamps)
 
 	# Generate a list of quantiles for the trend samples
-	trend_q = np.random.random_sample(nsamps)
+	trend_q = rng.random(nsamps)
 
 	# Loop over the ice sources
 	#for icesource in icesources:
@@ -91,7 +91,7 @@ def FittedISMIP_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, cye
 		sigmas = sigmas_dict[icesource]
 
 		# Generate the indices for the model samples
-		model_sample_idx = np.random.choice(np.arange(betas.shape[0]), nsamps)
+		model_sample_idx = rng.choice(np.arange(betas.shape[0]), nsamps)
 
 		# Loop over the number of samples we need
 		samps = []
@@ -104,7 +104,7 @@ def FittedISMIP_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, cye
 			# Generate a sample
 			(this_sample, samp_temp, samp_time, samp_const) = my_model(temp_data[tidx,datayr_idx], \
 									betas[midx,:], sigmas[midx], \
-									targyears - baseyear, pyear_step)
+									targyears - baseyear, pyear_step,rng)
 			samps.append(this_sample)
 			#temp_samps.append(samp_temp)
 			#time_samps.append(samp_time)
@@ -172,7 +172,7 @@ def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
 
 
 
-def my_model(temp, beta, sigma, dyears, delta_time):
+def my_model(temp, beta, sigma, dyears, delta_time, rng):
 
 	# If the last temperature value is nan, replace it with a linear extrapolation
 	if np.isnan(temp[-1]):
@@ -194,7 +194,7 @@ def my_model(temp, beta, sigma, dyears, delta_time):
 	# Apply the error from the fit to this projection
 	spread = (sigma * 0.0) / 100.0
 	#spread = 0.75
-	pct_error = np.random.uniform(-spread, spread)
+	pct_error = rng.uniform(-spread, spread)
 	sle_hat *= 1 + pct_error
 
 	return(sle_hat, sle_hat_temp, sle_hat_time, sle_hat_const)
