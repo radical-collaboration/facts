@@ -63,6 +63,9 @@ to run FACTS on your desktop and use a remote HPC resource, you probably don't
 want to do this. Most likely, you want to install and run FACTS directly on the remote resource.
 At a minimum, you will want to have a fast, high-capacity network connection to the resource.
 
+If you need to run on a HPC resource not previously configured for RADICAL-Pilot (see the `RADICAL-Pilot documentation <https://radicalpilot.readthedocs.io/en/stable/supported.html>`_) ,
+the resource will need to be configured. To get assistance with this, create an `issue <https://github.com/radical-cybertools/radical.pilot/issues>`_ on the RADICAL-Pilot repo.
+
 Installing and Using FACTS on a GNU/Linux Container
 ----------------------------------------------------------------------
 
