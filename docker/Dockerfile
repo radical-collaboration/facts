@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:focal AS facts-core
 
 # set env variables for RCT and apt
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -45,3 +45,15 @@ RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc
 
 # return a shell to the user
 CMD /bin/bash
+
+FROM facts-core AS facts-jupyter
+RUN pip install xarray \
+        numpy \
+        netcdf4 \
+        matplotlib
+
+RUN pip install jupyter -U && pip install jupyterlab
+
+EXPOSE 8888
+
+ENTRYPOINT ["jupyter", "lab","--ip=0.0.0.0","--allow-root"]

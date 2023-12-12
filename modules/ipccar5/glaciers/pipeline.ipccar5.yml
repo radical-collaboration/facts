@@ -13,6 +13,8 @@ preprocess:
       - "climate_data_file"
     upload_input_data:
       - "Import2lmData.py"
+    upload_and_extract_input_data:
+      - "ipccar5_climate_data.tgz"
 
 fit:
   task1:
@@ -50,3 +52,27 @@ project:
           - "%PIPELINE_ID%_fit.pkl"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
+
+
+postprocess:
+  task1:
+    executable: "python3"
+    script: "ipccar5_glaciers_postprocess.py"
+    options:
+      - "locationfile"
+      - "pipeline_id"
+    upload_input_data:
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - 'grd_fingerprints_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+          - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"

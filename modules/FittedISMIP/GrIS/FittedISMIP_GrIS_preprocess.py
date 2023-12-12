@@ -70,7 +70,7 @@ if __name__ == '__main__':
 	parser.add_argument('--scenario', help="Emissions scenario of interest [default = ssp585]", default="ssp585")
 	parser.add_argument('--tlm_data', help="Use two-layer model temperature trajectories [default = 1, do not use]", choices=[0,1], default=1, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data (default=twolayer_SSPs.h5)", type=str, default='twolayer_SSPs.h5')
+	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
 
 	# Parse the arguments
 	args = parser.parse_args()
