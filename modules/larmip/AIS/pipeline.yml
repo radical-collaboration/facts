@@ -9,9 +9,6 @@ preprocess:
       - "scenario"
       - "pipeline_id"
       - "climate_data_file"
-    upload_and_extract_input_data:
-      - "ipccar6_climate_data.tgz"
-
 
 fit:
   task1:

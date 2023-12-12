@@ -1,0 +1,22 @@
+global-options:
+    nsamps: 500
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+    climate_data_file: "$SHARED/climate/twolayer_SSPs.h5"
+
+climate_step:
+    dummy:
+        module_set: "facts"
+        module: "dummy"
+        input_compressed_data_file:
+            - "ipccar6_climate_data.tgz"
+        climate_output_data:
+            - "twolayer_SSPs.h5"
+
+sealevel_step:
+    larmip:
+        module_set: "larmip"
+        module: "AIS"

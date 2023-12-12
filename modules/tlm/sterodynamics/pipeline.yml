@@ -19,6 +19,7 @@ preprocess:
     script: "tlm_sterodynamics_preprocess_oceandynamics.py"
     options:
       - "scenario"
+      - "scenario_dsl"
       - "baseyear"
       - "pyear_start"
       - "pyear_end"
@@ -36,7 +37,6 @@ preprocess:
       - "read_locationfile.py"
     upload_and_extract_input_data:
       - "tlm_sterodynamics_cmip6_data.tgz"
-      - "ipccar6_climate_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
 
@@ -71,6 +71,7 @@ project:
       - "nsamps"
       - "seed"
       - "scenario"
+      - "scenario_dsl"
       - "baseyear"
       - "pyear_start"
       - "pyear_end"

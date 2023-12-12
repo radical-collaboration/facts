@@ -118,3 +118,13 @@ sealevel_step:
             - "wf3e"
             - "wf3f"
             - "wf4"
+
+
+totaling_step:
+    total:
+        module_set: "facts"
+        module: "total"
+        loop_over_workflows: true
+        loop_over_scales: true
+        stages:
+            - workflow

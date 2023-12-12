@@ -17,6 +17,7 @@ The **global-options** section of config.yml specifies options that should, by d
 * **pyear_step**: step size between projection years
 * **pyear_end**: year in which to end projections
 * **baseyear**: zero point for sea level projections
+* **pipeline_file**: default pipeline file name (optional; defaults to 'pipeline.yml'). See *pipeline_file* under experiment step configuration.
 
 In addition, this section can specify:
 
@@ -50,7 +51,7 @@ The following third-level entries are used under the module label:
 
 * **stages**: Specifies stages from the pipeline.yml file to be run. Defaults to 'preprocess', 'fit', 'project', 'postprocess'.
 
-* **pipeline_file**: Pipeline file name. Defaults to 'pipeline.yml'. Alternatives can be useful for special cases (e.g., using only Antarctic ice sheet output from a module that produces both Greenland and Antarctic ice sheet output.)
+* **pipeline_file**: Pipeline file name. Defaults to 'pipeline.yml'. Alternatives can be useful for special cases (e.g., using only Antarctic ice sheet output from a module that produces both Greenland and Antarctic ice sheet output.) Many modules include a 'pipeline.global.yml' file for running the module without producing localized output.
 
 * **include_in_workflow**: A list of all workflows the module output should be included in at the totaling steps.
 
