@@ -6,7 +6,7 @@ global-options:
     pyear_step: 10
     baseyear: 2005
     pipeline_file: "pipeline.global.yml"
-    rcfg-name: 'amarel'
+
 
 climate_step:
     temperature:
