@@ -217,7 +217,7 @@ def pickScenario(climate_data_file, scenario):
 	weights=f2
 
 	# Select which scenario to draw from for each sample
-	selector = rng.rand(iSAT.size)
+	selector = rng.random(iSAT.size)
 	useHigh = (selector<weights)
 	return useHigh
 

@@ -82,7 +82,7 @@ def ipccar6_project_larmipicesheet(nsamps, pipeline_id, cyear_start, cyear_end, 
 	zit = inttemp_mean + (inttemp_sd * z)
 
 	# Correlation between antsmb and antdyn
-	#fraction=rng.rand(nmsamps * ntsamps)
+	#fraction=rng.random(nmsamps * ntsamps)
 	fraction = None
 
 	# Project the SMB portion of each ice sheet
@@ -248,7 +248,7 @@ def project_antsmb(zit, fit_dict, nr, nt, fraction=None):
 	moaoKg = -pcoKg * 1e-2 * meansmb * mSLEoGt # m yr-1 of SLE per K of global warming
 
 	if fraction is None:
-		fraction=rng.rand(nr,nt,1)
+		fraction=rng.random([nr,nt,1])
 	elif fraction.size!=nr*nt:
 		raise ProjectionError('fraction is the wrong size')
 	else:

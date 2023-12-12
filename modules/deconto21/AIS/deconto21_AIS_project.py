@@ -131,7 +131,7 @@ def pickScenario(climate_data_file, scenario):
 	x2=np.where((Time[:]<2100) * (Time[:]>=2000))
 	SAT2=SAT[x2]
 	iSAT=SAT2.sum(axis=0)
-	selector = rng.rand(iSAT.size)
+	selector = rng.random(iSAT.size)
 
 	# convert integrated temperature into a normalized variable between low and high scenarios
 
