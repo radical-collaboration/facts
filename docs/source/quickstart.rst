@@ -53,13 +53,15 @@ Installing and Using FACTS on a GNU/Linux Workstation
 
     python3 runFACTS.py test
 
-Note that if you are running FACTS using localhost as a resource, all the input files for the experiment (which can be tens of GB) will get copied to ``~/radical.pilot.sandbox``. If you have space limits on your home directory, you may want to make this a symlink to a directory with fewer space limits prior to running FACTS.
 
-Note that the data files for a FACTS experiment and transfered to the compute
+Note that all the input files for the experiment (which can be tens of GB if you are doing local sea-level projections that rely upon CMIP output) will get copied to a sandbox
+created for each run. If you are running FACTS using localhost as a resource, this sandbox directory is ``~/radical.pilot.sandbox``. If you have space limits on your home directory, you may want to make this a symlink to a directory with fewer space limits prior to running FACTS. The task-level ``.out`` and ``.err`` files in the sandbox are key to debugging module-level code failures; thus, this sandbox is not deleted by default. However, if you wish to save space and do not need these files for debugging, you may wish to save space by deleting the subdirectories of the sandbox folder after each run.
+
+Note that the data files for a FACTS experiment are transfered to the compute
 resource with each experiment run. Thus, while it might in principle be possible
 to run FACTS on your desktop and use a remote HPC resource, you probably don't
-want to do this. At a minimum, you will want to have a fast, high-capacity
-network connection to the resource.
+want to do this. Most likely, you want to install and run FACTS directly on the remote resource.
+At a minimum, you will want to have a fast, high-capacity network connection to the resource.
 
 Installing and Using FACTS on a GNU/Linux Container
 ----------------------------------------------------------------------
@@ -73,6 +75,8 @@ storage space for module data, persistence of changes, and writability. The inst
 assume FACTS resides outside the container in ``$HOME/facts`` and mounts it within the container as
 ``/opt/facts``. At the moment, the docker environment appears to work fairly reliably when
 using localhost as the resource, but working with remote resources will require additional configuration. 
+
+The sandbox directory resides within the container at ``~/radical.pilot.sandbox``. You will likely wish to keep an eye on the size of this directory if you are doing runs that involve large files.
 
 To install FACTS through Docker please follow the steps below:
 
