@@ -202,7 +202,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 			Temp = np.array(SAT[:,temp_idx])
 
 			# Choose a random ocean model
-			ocean_model_idx = rng.randint(0,NumOmodel-1)
+			ocean_model_idx = rng.integers(0,NumOmodel-1)
 
 			OS_R1 = OS_WiDelay_R1[ocean_model_idx]
 			OS_R2 = OS_WiDelay_R2[ocean_model_idx]
