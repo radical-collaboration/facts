@@ -28,8 +28,11 @@ RUN python3 -m venv --system-site-packages factsVe &&\
 RUN pip install --upgrade \
         setuptools pip wheel \
         radical.entk \
-        pyyaml==6.0
-
+        pyyaml==6.0 \
+        xarray \
+        numpy \
+        netcdf4 
+        
 # installs R for ubuntu2 0.04 Focal
 RUN apt-get update &&\
     apt-get install -y --no-install-recommends r-base \
@@ -47,11 +50,7 @@ RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc
 CMD /bin/bash
 
 FROM facts-core AS facts-jupyter
-RUN pip install xarray \
-        numpy \
-        netcdf4 \
-        matplotlib
-
+RUN pip install matplotlib 
 RUN pip install jupyter -U && pip install jupyterlab
 
 EXPOSE 8888
