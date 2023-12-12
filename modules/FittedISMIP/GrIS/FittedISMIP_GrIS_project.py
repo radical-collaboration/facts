@@ -104,7 +104,7 @@ def FittedISMIP_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, cye
 			# Generate a sample
 			(this_sample, samp_temp, samp_time, samp_const) = my_model(temp_data[tidx,datayr_idx], \
 									betas[midx,:], sigmas[midx], \
-									targyears - baseyear, pyear_step)
+									targyears - baseyear, pyear_step,rng)
 			samps.append(this_sample)
 			#temp_samps.append(samp_temp)
 			#time_samps.append(samp_time)
@@ -172,7 +172,7 @@ def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
 
 
 
-def my_model(temp, beta, sigma, dyears, delta_time):
+def my_model(temp, beta, sigma, dyears, delta_time, rng):
 
 	# If the last temperature value is nan, replace it with a linear extrapolation
 	if np.isnan(temp[-1]):

@@ -256,7 +256,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 			sl_r5.append(this_sample)
 
 			# Generate a sample of SMB
-			this_sample = project_antsmb(Temp, Time, baseyear, smb_data)
+			this_sample = project_antsmb(Temp, Time, baseyear,rng, smb_data)
 			sl_smb.append(this_sample)
 
 
@@ -350,7 +350,7 @@ Projects the surface mass balance for Antarctica using the AR5 method.
 Adapted from code provided by Jonathan Gregory.
 
 '''
-def project_antsmb(temp_sample, years, baseyear, fit_dict):
+def project_antsmb(temp_sample, years, baseyear, rng,fit_dict,):
 
 	# Initialize the smb values for this sample
 	antsmb = np.zeros(len(temp_sample))

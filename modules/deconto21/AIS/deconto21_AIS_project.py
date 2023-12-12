@@ -54,8 +54,11 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	# Load the data file
 	years, wais, eais, scenario, baseyear = LoadDataFile(pipeline_id)
 
+	# Set the rng
+	rng = np.random.default_rng(rngseed)
+
 	# identify which samples to draw from which scenario
-	useScenario=pickScenario(climate_data_file, scenario);
+	useScenario=pickScenario(climate_data_file, scenario, rng);
 	nsamps=useScenario.size
 
 	# Define the target projection years
@@ -68,7 +71,6 @@ def dp21_project_icesheet_temperaturedriven(climate_data_file, pyear_start, pyea
 	(_, datayr_idx, targyear_idx) = np.intersect1d(years, targyears, return_indices = True)
 
 	# Generate the sample indices
-	rng = np.random.default_rng(rngseed)
 	sample_idx = rng.choice(pool_size, size=nsamps, replace=replace)
 
 	# Store the samples
@@ -122,7 +124,7 @@ def GetSATData(fname, scenario, refyear_start=1850, refyear_end=1900, year_start
 	# Done
 	return(SAT, Time, nens)
 
-def pickScenario(climate_data_file, scenario):
+def pickScenario(climate_data_file, scenario, rng):
 	# Load the temperature data
 	
 	SAT,Time,NumTensemble = GetSATData(climate_data_file, scenario)
