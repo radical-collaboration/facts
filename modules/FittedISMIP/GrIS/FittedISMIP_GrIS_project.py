@@ -77,7 +77,7 @@ def FittedISMIP_project_icesheet(nsamps, pyear_start, pyear_end, pyear_step, cye
 	temp_sample_idx = np.arange(nsamps)
 
 	# Generate a list of quantiles for the trend samples
-	trend_q = rng.random_sample(nsamps)
+	trend_q = rng.random(nsamps)
 
 	# Loop over the ice sources
 	#for icesource in icesources:

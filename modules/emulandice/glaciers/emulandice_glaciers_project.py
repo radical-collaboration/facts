@@ -135,7 +135,7 @@ def emulandice_project_glaciers(pipeline_id, icesource="Glaciers"):
 	# Generate samples for trends correlated among ice sources
 	# Note: Keep seed hard-coded and matched with AIS and GrIS module within emulandice module set
 	rng = np.random.default_rng(8071)
-	trend_q = rng.random_sample(nsamps)
+	trend_q = rng.random(nsamps)
 	glac_trend = norm.ppf(trend_q, trend_mean, trend_sd) * (targyears[syear_idx] - baseyear)
 
 	# Apply the trends for the baseline adjustment

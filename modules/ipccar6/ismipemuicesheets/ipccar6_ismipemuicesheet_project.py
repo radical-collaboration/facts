@@ -49,7 +49,7 @@ def ipccar6_project_ismipemuicesheet(nsamps, pipeline_id, replace, rngseed):
 	sample_inds = rng.choice(eais_samples.shape[0], size=nsamps, replace=replace)
 
 	# Generate samples for trends correlated among ice sheets
-	trend_q = rng.random_sample(nsamps)
+	trend_q = rng.random(nsamps)
 	#norm_inv = norm.ppf(x)
 
 	# Calculate the trend contributions over time for each ice sheet component

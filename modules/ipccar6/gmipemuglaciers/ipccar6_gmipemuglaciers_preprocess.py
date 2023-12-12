@@ -93,7 +93,7 @@ def ipccar6_preprocess_gmipemuglaciers(pipeline_id, scenario, pyear_start, pyear
 
 	# Create a pool of baseline adjustments to apply to the samples
 	rng = np.random.default_rng(8071)
-	trend_q = rng.random_sample(gic_samps.shape[1])
+	trend_q = rng.random(gic_samps.shape[1])
 	trend_mean = 0.7
 	trend_sd = 0.1
 	glac_trend = norm.ppf(trend_q, trend_mean, trend_sd) * (data_years[0] - baseyear)
