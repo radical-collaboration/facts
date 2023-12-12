@@ -1,0 +1,12 @@
+git+https://github.com/radical-cybertools/radical.entk@projects/facts
+numpy
+dask
+pandas
+xarray
+fair==1.6.4
+netCDF4
+scipy
+pyyaml
+matplotlib
+h5py
+yq
