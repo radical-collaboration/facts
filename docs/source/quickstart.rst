@@ -110,7 +110,7 @@ To install FACTS through Docker please follow the steps below:
 
 The Dockerfile also creates a ``facts-jupyter`` image, should you wish to run FACTS from a Jupyter notebook rather than the commandline. This Docker image can be launched::
 
-     docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts -p 8888:8888 facts-jupyter
+     docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts -p 8888:8888 facts-jupyter jupyter lab  --ip=0.0.0.0 --port=8888
 
 Testing a module with a shell script
 ------------------------------------
