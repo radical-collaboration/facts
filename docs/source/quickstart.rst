@@ -33,7 +33,8 @@ Installing and Using FACTS on a GNU/Linux Workstation
 
     python3 -m venv ve3
     . ve3/bin/activate
-    pip install --upgrade setuptools pip wheel radical.entk pyyaml
+    pip install --upgrade setuptools pip wheel
+    pip install radical.entk pyyaml
 
 4. Test your install by running the dummy experiment::
 
