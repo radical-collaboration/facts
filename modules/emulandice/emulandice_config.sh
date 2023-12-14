@@ -7,7 +7,8 @@ cd $ROOTDIR/shared
 case $MODE in 
     "clean")
         echo Cleaning up old files...
-        rm -v -f emulandice_*gz* emulandice_bundled_dependencies.tgz
+        rm -v -f emulandice_*gz* emulandice_bundled_dependencies.tgz .Rprofile
+        rm -v -fr packrat/
         ;;
     *)
         source emulandice_environment.sh
