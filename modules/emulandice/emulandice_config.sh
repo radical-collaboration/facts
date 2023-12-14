@@ -7,7 +7,7 @@ cd $ROOTDIR/shared
 case $MODE in 
     "clean")
         echo Cleaning up old files...
-        rm -v *.gz* *.tgz
+        rm -v emulandice_*gz* emulandice_bundled_dependencies.tgz
         ;;
     *)
         source emulandice_environment.sh
