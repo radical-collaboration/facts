@@ -17,6 +17,6 @@ if [ ${hs: -18} = 'amarel.rutgers.edu' ]; then
     module list
 fi
 
-if [ "$1" == "--Rscript" ]; then
-    Rscript -e "source('packrat/init.R')" -e "packrat::install_local('emulandice_1.1.0.tar.gz')"
-fi
+#if [ "$1" == "--Rscript" ]; then
+#    Rscript -e "source('packrat/init.R')" -e "packrat::install_local('emulandice_1.1.0.tar.gz')"
+#fi
