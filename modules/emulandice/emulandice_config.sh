@@ -12,14 +12,6 @@ case $MODE in
     *)
         source emulandice_environment.sh
 
-        FILE="emulandice_1.1.0.tar.gz"
-        if [ -f $FILE ]; then
-            echo "$FILE already exists."
-        else
-            echo "Building $FILE..."
-            source emulandice_build.sh
-        fi
-
         FILE="emulandice_bundled_dependencies.tgz"
         if [ -f $FILE ]; then
             echo "$FILE already exists."
