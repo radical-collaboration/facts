@@ -1,0 +1,130 @@
+global-options:
+    nsamps: 2000
+    scenario: ssp245
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+    pipeline_file: 'pipeline.global.yml'
+
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        generates_climate_output: true
+#        input_data_file:
+#              - "emissions.csv"
+#        options:
+#              rcmip_file: emissions.csv
+
+sealevel_step:
+    GrIS1f:
+        module_set: "FittedISMIP"
+        module: "GrIS"
+        include_in_workflow:
+            - "wf1f"
+            - "wf2f"
+            - "wf3f"
+
+    deconto21:
+        module_set: "deconto21"
+        module: "AIS"
+        include_in_workflow:
+            - "wf3e"
+            - "wf3f"
+
+    bamber19:
+        module_set: "bamber19"
+        module: "icesheets"
+        include_in_workflow:
+            - "wf4"
+
+    emuAIS:
+        module_set: "emulandice"
+        module: "AIS"
+        include_in_workflow:
+            - "wf1e"
+        options:
+            pyear_end: 2100
+
+    emuGrIS:
+        module_set: "emulandice"
+        module: "GrIS"
+        include_in_workflow:
+            - "wf1e"
+            - "wf2e"
+            - "wf3e"
+        options:
+            pyear_end: 2100
+
+    emuglaciers:
+        module_set: "emulandice"
+        module: "glaciers"
+        include_in_workflow:
+            - "wf1e"
+            - "wf2e"
+            - "wf3e"
+        options:
+            pyear_end: 2100
+
+    larmip:
+        module_set: "larmip"
+        module: "AIS"
+        include_in_workflow:
+            - "wf2e"
+            - "wf2f"
+
+    ar5glaciers:
+        module_set: "ipccar5"
+        module: "glaciers"
+        options:
+            gmip: 2
+        include_in_workflow:
+            - "wf1f"
+            - "wf2f"
+            - "wf3f"
+            - "wf4"
+
+    ar5AIS:
+        module_set: "ipccar5"
+        module: "icesheets"
+        pipeline_file: "pipeline.AIS.global.yml"
+        include_in_workflow:
+            - "wf1f"
+
+    ocean:
+        module_set: "tlm"
+        module: "sterodynamics"
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+            - "wf3e"
+            - "wf3f"
+            - "wf4"
+
+    lws:
+        module_set: "ssp"
+        module: "landwaterstorage"
+        options:
+            scenario: "ssp2"
+            dcrate_lo: -0.4
+        include_in_workflow:
+            - "wf1f"
+            - "wf1e"
+            - "wf2e"
+            - "wf2f"
+            - "wf3e"
+            - "wf3f"
+            - "wf4"
+
+
+totaling_step:
+    total:
+        module_set: "facts"
+        module: "total"
+        loop_over_workflows: true
+        loop_over_scales: true
+        stages:
+            - workflow

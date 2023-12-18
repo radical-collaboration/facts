@@ -1,0 +1,27 @@
+# NZ Insar GPS Vertical Land Motion Pipeline
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml"
+    script: "NZInsarGPS_verticallandmotion_preprocess.py"
+    options:
+      - "pipeline_id"
+      - "inputtype"
+    upload_and_extract_input_data:
+      - "NZInsarGPS_verticallandmotion_preprocess_data.tgz"
+
+
+fit:
+  task1:
+    executable: "python3"
+    script: "NZInsarGPS_verticallandmotion_fit.py"
+    options:
+      - "pipeline_id"
+
+project:
+  task1:
+    executable: "python3"
+    script: "NZInsarGPS_verticallandmotion_project.py"
+    options:
+      - "pipeline_id"

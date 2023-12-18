@@ -3,7 +3,7 @@
 preprocess:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib xarray dask"
     script_noupload: "emulandice_preprocess.py"
     arguments:
       - "--input_data_file"
@@ -32,7 +32,6 @@ project:
       - "pipeline_id"
     upload_input_data:
       - "%MODULE_PATH%/../shared/emulandice_environment.sh"
-      - "%MODULE_PATH%/../shared/emulandice_1.1.0.tar.gz"
       - "%MODULE_PATH%/../shared/emulandice_steer.sh"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"

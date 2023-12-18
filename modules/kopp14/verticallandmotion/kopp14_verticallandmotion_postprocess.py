@@ -102,10 +102,10 @@ def kopp14_postprocess_verticallandmotion(nsamps, rng_seed, baseyear, pyear_star
 	site_ids_map = np.array(NearestPoints(site_lats, site_lons, lats, lons, tol=None))
 
 	# Evenly sample an inverse normal distribution
-	np.random.seed(rng_seed)
+	rng = np.random.default_rng(rng_seed)
 	x = np.linspace(0,1,nsamps+2)[1:(nsamps+1)]
 	norm_inv = norm.ppf(x)
-	norm_inv_perm = np.random.permutation(norm_inv)
+	norm_inv_perm = rng.permutation(norm_inv)
 
 	# Missing value for netcdf file
 	nc_missing_value = np.nan #np.iinfo(np.int16).min

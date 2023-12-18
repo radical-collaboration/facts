@@ -167,13 +167,13 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	nmodels = len(models)
 
 	# Set the rng seed
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 
 	# How many samples per model?
 	samps_per_model = np.array([nsamps // nmodels for x in range(nmodels)])
 	remainder_samps = nsamps % nmodels
-	samps_per_model[np.random.choice(nmodels, size=remainder_samps, replace=False)] += 1
-	np.random.shuffle(samps_per_model)
+	samps_per_model[rng.choice(nmodels, size=remainder_samps, replace=False)] += 1
+	rng.shuffle(samps_per_model)
 
 	# Initialize the sea-level sample variables
 	sl_r1 = []	# EAIS
@@ -184,7 +184,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	sl_smb = []	# Surface Mass Balance over all Antarctica
 
 	# Set the rng seed again to help with diagnostics
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 
 	# Loop over the requested models
 	tempcount = 0;
@@ -202,7 +202,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 			Temp = np.array(SAT[:,temp_idx])
 
 			# Choose a random ocean model
-			ocean_model_idx = np.random.randint(0,NumOmodel-1)
+			ocean_model_idx = rng.integers(0,NumOmodel-1)
 
 			OS_R1 = OS_WiDelay_R1[ocean_model_idx]
 			OS_R2 = OS_WiDelay_R2[ocean_model_idx]
@@ -224,11 +224,11 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 			Temp_R5 = np.append(np.zeros(tau_R5),Temp[:Tlen-tau_R5])
 
 			# select melting sensitivity
-			MS_R1 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R2 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R3 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R4 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
-			MS_R5 = np.random.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R1 = rng.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R2 = rng.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R3 = rng.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R4 = rng.uniform(MeltSensitivity[0],MeltSensitivity[1])
+			MS_R5 = rng.uniform(MeltSensitivity[0],MeltSensitivity[1])
 
 			# Compose forcing time series
 			M_R1 = MS_R1*OS_R1*Temp_R1
@@ -256,7 +256,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 			sl_r5.append(this_sample)
 
 			# Generate a sample of SMB
-			this_sample = project_antsmb(Temp, Time, baseyear, smb_data)
+			this_sample = project_antsmb(Temp, Time, baseyear,rng, smb_data)
 			sl_smb.append(this_sample)
 
 
@@ -350,7 +350,7 @@ Projects the surface mass balance for Antarctica using the AR5 method.
 Adapted from code provided by Jonathan Gregory.
 
 '''
-def project_antsmb(temp_sample, years, baseyear, fit_dict):
+def project_antsmb(temp_sample, years, baseyear, rng,fit_dict,):
 
 	# Initialize the smb values for this sample
 	antsmb = np.zeros(len(temp_sample))
@@ -366,10 +366,10 @@ def project_antsmb(temp_sample, years, baseyear, fit_dict):
 	smax = fit_dict['smax']
 
 	# Generate a distribution of products of the above two factors
-	#pcoKg = (pcoK[0]+np.random.standard_normal([nr,nt,1])*pcoK[1])*\
-	#	(KoKg[0]+np.random.standard_normal([nr,nt,1])*KoKg[1])
-	pcoKg = (pcoK[0]+np.random.standard_normal(1)*pcoK[1])*\
-		(KoKg[0]+np.random.standard_normal(1)*KoKg[1])
+	#pcoKg = (pcoK[0]+rng.standard_normal([nr,nt,1])*pcoK[1])*\
+	#	(KoKg[0]+rng.standard_normal([nr,nt,1])*KoKg[1])
+	pcoKg = (pcoK[0]+rng.standard_normal(1)*pcoK[1])*\
+		(KoKg[0]+rng.standard_normal(1)*KoKg[1])
 	meansmb = 1923 # model-mean time-mean 1979-2010 Gt yr-1 from 13.3.3.2
 	moaoKg = -pcoKg * 1e-2 * meansmb * mSLEoGt # m yr-1 of SLE per K of global warming
 

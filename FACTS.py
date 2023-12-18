@@ -92,7 +92,11 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
 
     if 'climate_data_file' in ecfg['options'].keys():
         mvar_dict["CLIMATE_DATA_FILE"]=ecfg['options']['climate_data_file']
+
+    if 'climate_gsat_data_file' in ecfg['options'].keys():
         mvar_dict["CLIMATE_GSAT_FILE"]=ecfg['options']['climate_gsat_data_file']
+
+    if 'climate_ohc_data_file' in ecfg['options'].keys():
         mvar_dict["CLIMATE_OHC_FILE"]=ecfg['options']['climate_ohc_data_file']
 
     # Give this task object a name
@@ -303,9 +307,12 @@ def match_options(wopts, eopts):
 def ParsePipelineConfig(this_mod, modcfg, global_options={}, relabel_mod=''):
 
     # Load the pipeline configuration file for this module
-
     if not "pipeline_file" in modcfg.keys():
-        modcfg['pipeline_file'] = "pipeline.yml" 
+        # Checks if there is a global option called 'pipeline_name'
+        if not 'pipeline_file' in global_options.keys():
+            modcfg['pipeline_file'] = "pipeline.yml"
+        if 'pipeline_file' in global_options.keys():
+            modcfg['pipeline_file'] = global_options['pipeline_file']
 
     if 'module_set' in modcfg.keys():
         pcfg_file = os.path.join(os.path.dirname(__file__), "modules",

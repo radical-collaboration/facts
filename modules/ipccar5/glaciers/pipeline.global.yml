@@ -1,0 +1,52 @@
+# AR5 Glaciers Pipeline
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
+    script: "ipccar5_glaciers_preprocess.py"
+    options:
+      - "scenario"
+      - "baseyear"
+      - "tlm_data"
+      - "pipeline_id"
+      - "climate_data_file"
+    upload_input_data:
+      - "Import2lmData.py"
+
+fit:
+  task1:
+    executable: "python3"
+    script: "ipccar5_glaciers_fit.py"
+    options:
+      - "pipeline_id"
+      - "gmip"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+
+project:
+  task1:
+    executable: "python3"
+    script: "ipccar5_glaciers_project.py"
+    options:
+      - "nmsamps"
+      - "ntsamps"
+      - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - 'ipccar5_glaciers_project_data.tgz'
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"

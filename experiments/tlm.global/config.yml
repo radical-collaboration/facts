@@ -1,0 +1,25 @@
+global-options:
+    nsamps: 200
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+    pipeline_file: "pipeline.global.yml"
+
+
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        pipeline_file: "pipeline.yml"
+        generates_climate_output: true
+#        input_data_file:
+#              - "emissions.csv"
+#        options:
+#              rcmip_file: emissions.csv
+
+sealevel_step:
+    ocean:
+        module_set: "tlm"
+        module: "sterodynamics"

@@ -22,11 +22,19 @@ Installing and Using FACTS on a GNU/Linux Workstation
    two Zenodo entries because of size limitations). (If you have multiple users of FACTS, you might want to put
    these ~60 GB of files in a common location and soft-link to each user's directory.)
 
+   Rather than installing the data files for all modules, some of which are many gigabytes in size, 
+   you might wish to create a custom version of ``modules-data.urls.txt`` that includes only the data files for modules you intended to use.
+   For example, if you are only planning on doing global projections with the modules used in the Kopp et al. (2023) manuscript, you
+   could use the ``modules-data.global-only.urls.txt`` file instead::
+
+    wget -P facts/modules-data -i facts/modules-data/modules-data.global-only.urls.txt
+
 3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
 
     python3 -m venv ve3
     . ve3/bin/activate
-    pip install --upgrade setuptools pip wheel radical.entk pyyaml
+    pip install --upgrade setuptools pip wheel
+    pip install radical.entk pyyaml
 
 4. Test your install by running the dummy experiment::
 
@@ -46,13 +54,18 @@ Installing and Using FACTS on a GNU/Linux Workstation
 
     python3 runFACTS.py test
 
-Note that if you are running FACTS using localhost as a resource, all the input files for the experiment (which can be tens of GB) will get copied to ``~/radical.pilot.sandbox``. If you have space limits on your home directory, you may want to make this a symlink to a directory with fewer space limits prior to running FACTS.
 
-Note that the data files for a FACTS experiment and transfered to the compute
+Note that all the input files for the experiment (which can be tens of GB if you are doing local sea-level projections that rely upon CMIP output) will get copied to a sandbox
+created for each run. If you are running FACTS using localhost as a resource, this sandbox directory is ``~/radical.pilot.sandbox``. If you have space limits on your home directory, you may want to make this a symlink to a directory with fewer space limits prior to running FACTS. The task-level ``.out`` and ``.err`` files in the sandbox are key to debugging module-level code failures; thus, this sandbox is not deleted by default. However, if you wish to save space and do not need these files for debugging, you may wish to save space by deleting the subdirectories of the sandbox folder after each run.
+
+Note that the data files for a FACTS experiment are transfered to the compute
 resource with each experiment run. Thus, while it might in principle be possible
 to run FACTS on your desktop and use a remote HPC resource, you probably don't
-want to do this. At a minimum, you will want to have a fast, high-capacity
-network connection to the resource.
+want to do this. Most likely, you want to install and run FACTS directly on the remote resource.
+At a minimum, you will want to have a fast, high-capacity network connection to the resource.
+
+If you need to run on a HPC resource not previously configured for RADICAL-Pilot (see the `RADICAL-Pilot documentation <https://radicalpilot.readthedocs.io/en/stable/supported.html>`_) ,
+the resource will need to be configured. To get assistance with this, create an `issue <https://github.com/radical-cybertools/radical.pilot/issues>`_ on the RADICAL-Pilot repo.
 
 Installing and Using FACTS on a GNU/Linux Container
 ----------------------------------------------------------------------
@@ -66,6 +79,8 @@ storage space for module data, persistence of changes, and writability. The inst
 assume FACTS resides outside the container in ``$HOME/facts`` and mounts it within the container as
 ``/opt/facts``. At the moment, the docker environment appears to work fairly reliably when
 using localhost as the resource, but working with remote resources will require additional configuration. 
+
+The sandbox directory resides within the container at ``~/radical.pilot.sandbox``. You will likely wish to keep an eye on the size of this directory if you are doing runs that involve large files.
 
 To install FACTS through Docker please follow the steps below:
 
@@ -94,6 +109,9 @@ To install FACTS through Docker please follow the steps below:
 
     modules/emulandice/emulandice_config.sh
 
+The Dockerfile also creates a ``facts-jupyter`` image, should you wish to run FACTS from a Jupyter notebook rather than the commandline. This Docker image can be launched::
+
+     docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts -p 8888:8888 facts-jupyter jupyter lab  --ip=0.0.0.0 --port=8888
 
 Testing a module with a shell script
 ------------------------------------

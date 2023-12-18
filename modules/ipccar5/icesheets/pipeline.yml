@@ -13,9 +13,6 @@ preprocess:
       - "climate_data_file"
     upload_input_data:
       - "Import2lmData.py"
-    upload_and_extract_input_data:
-      - "ipccar5_climate_data.tgz"
-      - "ipccar6_climate_data.tgz"
 
 
 

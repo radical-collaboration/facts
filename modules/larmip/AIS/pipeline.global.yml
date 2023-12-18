@@ -1,0 +1,60 @@
+# LARMIP2 Ice Sheet Pipeline
+
+preprocess:
+  task1:
+    executable: "python"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
+    script: "larmip_icesheet_preprocess.py"
+    options:
+      - "scenario"
+      - "pipeline_id"
+      - "climate_data_file"
+
+
+
+fit:
+  task1:
+    executable: "python"
+    script: "larmip_icesheet_fit.py"
+    options:
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - 'larmip_icesheet_fit_data.tgz'
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_preprocess.pkl"
+
+
+project:
+  task1:
+    executable: "python"
+    script: "larmip_icesheet_project.py"
+    options:
+      - "nsamps"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+      - "models"
+      - "pipeline_id"
+      - "cyear_start"
+      - "cyear_end"
+    upload_and_extract_input_data:
+      - 'larmip_icesheet_project_data.tgz'
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_preprocess.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+          - "%PIPELINE_ID%_fitsmb.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_SMB_globalsl.nc"
+      - "%PIPELINE_ID%_EAIS_globalsl.nc"
+      - "%PIPELINE_ID%_WAIS_globalsl.nc"
+      - "%PIPELINE_ID%_PEN_globalsl.nc"

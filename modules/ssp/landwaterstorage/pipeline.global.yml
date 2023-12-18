@@ -1,0 +1,57 @@
+# SSP Land water storage pipeline
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib"
+    script: "ssp_landwaterstorage_preprocess.py"
+    options:
+      - "scenario"
+      - "dotriangular"
+      - "includepokherl"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - "ssp_landwaterstorage_preprocess_data.tgz"
+#    download_output_data:
+#      - "%PIPELINE_ID%_data.pkl"
+#      - "%PIPELINE_ID%_config.pkl"
+
+fit:
+  task1:
+    executable: "python3"
+    script: "ssp_landwaterstorage_fit.py"
+    options:
+      - "pipeline_id"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+          - "%PIPELINE_ID%_config.pkl"
+#    download_output_data:
+#      - "%PIPELINE_ID%_fit.pkl"
+
+project:
+  task1:
+    executable: "python3"
+    script: "ssp_landwaterstorage_project.py"
+    options:
+      - "pipeline_id"
+      - "nsamps"
+      - "dcyear_start"
+      - "dcyear_end"
+      - "dcrate_lo"
+      - "dcrate_hi"
+      - "seed"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_config.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"

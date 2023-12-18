@@ -146,12 +146,12 @@ def fair_project_temperature(nsamps, seed, cyear_start, cyear_end, smooth_win, p
 	nsims = len(pars["simulation"])
 
 	# Generate nsamps of simulation indices to sample
-	np.random.seed(seed)
+	rng = np.random.default_rng(seed)
 	if nsamps > nsims:
 		run_idx = np.arange(nsims)
-		sample_idx = np.random.choice(nsims, nsamps, nsamps>nsims)
+		sample_idx = rng.choice(nsims, nsamps, nsamps>nsims)
 	else:
-		run_idx = np.random.choice(nsims, nsamps, nsamps>nsims)
+		run_idx = rng.choice(nsims, nsamps, nsamps>nsims)
 		sample_idx = np.arange(nsamps)
 
 	# Run the FAIR model

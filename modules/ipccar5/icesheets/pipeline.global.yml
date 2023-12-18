@@ -1,0 +1,58 @@
+# AR5 Ice Sheets Pipeline
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
+    script: "ipccar5_icesheets_preprocess.py"
+    options:
+      - "scenario"
+      - "pipeline_id"
+      - "baseyear"
+      - "tlm_data"
+      - "climate_data_file"
+    upload_input_data:
+      - "Import2lmData.py"
+
+
+
+fit:
+  task1:
+    executable: "python3"
+    script: "ipccar5_icesheets_fit.py"
+    options:
+      - "pipeline_id"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+
+
+project:
+  task1:
+    executable: "python3"
+    script: "ipccar5_icesheets_project.py"
+    options:
+      - "nmsamps"
+      - "ntsamps"
+      - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - 'ipccar5_icesheets_project_data.tgz'
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_GIS_globalsl.nc"
+      - "%PIPELINE_ID%_AIS_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_EAIS_globalsl.nc"
+      - "%PIPELINE_ID%_WAIS_globalsl.nc"

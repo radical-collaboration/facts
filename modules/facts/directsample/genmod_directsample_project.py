@@ -53,8 +53,8 @@ def genmod_project_directsample(nsamps, pipeline_id, replace, rngseed):
 	#pipeline_id = regex_match.group(1)
 	
 	# Generate the sample indices
-	np.random.seed(rngseed)
-	sample_inds = np.random.choice(samples.shape[0], size=nsamps, replace=replace)
+	rng = np.random.default_rng(rngseed)
+	sample_inds = rng.choice(samples.shape[0], size=nsamps, replace=replace)
 	
 	# Store the samples
 	samps = samples[sample_inds,:]
