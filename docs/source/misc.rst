@@ -27,3 +27,11 @@ it is broken into many files. You may either want to adjust
 the pipeline to use the full data file or produce
 your own trimmed data file that includes the GESLA sites
 of interest to you. 
+
+On the Rutgers Amarel system, some modules --
+especially emulandice -- exhibit hard-to-trace problems that appear to 
+be sensitive to the version of Python used. On Amarel, runs have been 
+successfully completed with Python 3.9.6 and 3.10.12, but not 3.6.8. In 
+the Docker container, 3.8.10 is know to run successfully. If you are
+having hard-to-identify run issues, consider checking the version of Python you are using. 
+
