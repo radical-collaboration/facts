@@ -3,3 +3,5 @@ packrat/
 out/
 emulandice_bundled_dependencies.tgz
 packrat/lib*/
+*.Rdata
+RESULTS/
