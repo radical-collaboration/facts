@@ -1,7 +1,7 @@
 
 project:
   task1:
-    pre_exec: "ln -s . GSAT ; mkdir RESULTS"
+    pre_exec: "ln -s / GSAT ; mkdir RESULTS"
     executable: "python3"
     script: "emulandice_project.py"
     arguments:
@@ -29,6 +29,6 @@ project:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
       - "emulandice2_project_data.tgz"
     global_total_files:
-      - "%PIPELINE_ID%_ALL_globalsl.nc"
+      - "RESULTS/%PIPELINE_ID%_ALL_globalsl.nc"
     download_output_data:
-      - "%PIPELINE_ID%_ALL_globalsl.nc"
+      - "RESULTS/%PIPELINE_ID%_ALL_globalsl.nc"
