@@ -1,0 +1,4 @@
+.Rprofile
+packrat/
+out/
+emulandice_bundled_dependencies.tgz
