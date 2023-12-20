@@ -11,8 +11,6 @@ import shutil
 from netCDF4 import Dataset
 from scipy.stats import norm, truncnorm
 
-
-# For glaciers, there are 19 regions
 def ExtractProjections(emulandice_file):
 
 	# Initialize
@@ -83,7 +81,7 @@ def ExtractProjections(emulandice_file):
 	return(ret_data, targyears)
 
 
-def emulandice_project_glaciers(pipeline_id, icesource="Glaciers"):
+def emulandice_project(pipeline_id, icesource):
 
 	# Load the preprocessed data
 	preprocess_file = "{}_preprocess.pkl".format(pipeline_id)
@@ -211,17 +209,32 @@ def WriteNetCDF(slr, region, targyears, baseyear, scenario, nsamps, pipeline_id)
 if __name__ == "__main__":
 
 	# Initialize the argument parser
-	parser = argparse.ArgumentParser(description="Run the projection stage for the emulandice glaciers SLR projection workflow",\
+	parser = argparse.ArgumentParser(description="Run the projection stage for the emulandice SLR projection workflow",\
 	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 
 	# Add arguments for the resource and experiment configuration files
+	parser.add_argument('--ice_source', help="Ice source: GIS, AIS or GLA", default='AIS', choices=['AIS','GIS','GLA'])
+	parser.add_argument('--region', help="Ice source region: ALL for GIS/AIS and RGI01-RGI19 for GLA", default='ALL')
+	parser.add_argument('--emu_name', help="models_emulator_settings: e.g. CISM_pow_exp_20, CISM_IMAUICE_GISM_pow_exp_20")
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
+ 	parser.add_argument('--scenario', help="SSP Emissions scenario", required=True)
+	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
+	parser.add_argument('--nsamps', help="Number of samples to generate [default=20000]", default=20000, type=int)
+	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
+	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
+	parser.add_argument('--models', help="List of model names to include in the sampling process", nargs="+", default=None)
+	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2020, type=int)
+	parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
+	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
+	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2005)
+	parser.add_argument('--cyear_start', help="Constant rate calculation for projections starts at this year", default=None, type=int)
+	parser.add_argument('--cyear_end', help="Constant rate calculation for projections ends at this year", default=None, type=int)
 
 	# Parse the arguments
 	args = parser.parse_args()
 
 	# Run the preprocessing
-	emulandice_project_glaciers(args.pipeline_id)
+	emulandice_project(args.pipeline_id)
 
 	# Done
 	sys.exit()
