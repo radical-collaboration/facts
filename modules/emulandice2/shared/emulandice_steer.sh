@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # check for results directory
-if [[ ! -d results ]]; then
-    mkdir results
-fi
+#if [[ ! -d results ]]; then
+#    mkdir results
+#fi
 
 # set up environment
-source emulandice_environment.sh --Rscript
+source emulandice_environment.sh
 
 # run emulandice
 

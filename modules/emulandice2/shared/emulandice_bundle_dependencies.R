@@ -18,5 +18,5 @@ packrat::init(infer.dependencies=FALSE)
 
 install.packages(c('mvtnorm','RcppEigen','RobustGaSP','nloptr','ncdf4'))
 
-packrat::install('emulandice')
+packrat::install('emulandice2')
 packrat::snapshot()
