@@ -1,3 +1,4 @@
+import sys
 import argparse
 import subprocess
 
@@ -47,7 +48,7 @@ if __name__ == "__main__":
 	parser.add_argument('--ice_source', help="Ice source: GIS, AIS or GLA", default='AIS', choices=['AIS','GIS','GLA'])
 	parser.add_argument('--region', help="Ice source region: ALL for GIS/AIS and RGI01-RGI19 for GLA", default='ALL')
 	parser.add_argument('--emu_file', help="Emulator file")
- 	parser.add_argument('--scenario', help="SSP Emissions scenario", default='ssp245')
+	parser.add_argument('--scenario', help="SSP Emissions scenario", default='ssp245')
 	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
 	parser.add_argument('--nsamps', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
@@ -60,7 +61,7 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	# Run the preprocessing
-	emulandice_project(args.pipeline_id, args.ice_source, args.region, args.emu_name, args.climate_data_file, 
+	emulandice_project(args.pipeline_id, args.ice_source, args.region, args.emu_file, args.climate_data_file, 
 					   args.scenario, args.nsamps, args.baseyear, 
 					   args.seed, args.pyear_start, args.pyear_end, args.pyear_step)
 
