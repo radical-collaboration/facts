@@ -3,9 +3,10 @@
 ROOTDIR=`dirname $0`
 MODE=$1
 
+
 cd $ROOTDIR/shared
 if [ -f emulandice2/emulandice2.Rproj ]; then
-    #echo "emulandice2.Rproj already exists."
+    echo "emulandice2 R project already cloned"
 else
     echo "Initializing emulandice2 R project"
     git submodule update --init
