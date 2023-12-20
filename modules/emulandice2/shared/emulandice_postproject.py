@@ -11,11 +11,19 @@ from AssignFP import AssignFP
 import xarray as xr
 import dask.array as da
 
-''' emulandice_postprocess_glaciers.py
+''' emulandice_postprocess.py
 
 '''
 
-def emulandice_postprocess_glaciers(locationfilename, chunksize, pipeline_id):
+### THIS SCRIPT SHOULD BE MADE MORE GENERIC SO IT
+### READS IN A BUNCH OF _global.nc files, figures out which
+### FINGERPRINTS GOES WITH WHICH, AND THEN WRITES OUT A
+### _localsl.nc FILE. Also needs to appropriately batch
+### the ice_source projections together, so eg there is one
+### AIS_localsl.nc file produced from scaling the different sectoral
+### _globalsl.nc files
+
+def emulandice_postprocess(locationfilename, chunksize, pipeline_id):
 
 	# Read in the projection data
 	projfile = "{}_projections.pkl".format(pipeline_id)
@@ -103,7 +111,7 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 
 	# Run the postprocessing for the parameters specified from the command line argument
-	emulandice_postprocess_glaciers(args.locationfile, args.chunksize, args.pipeline_id)
+	emulandice_postprocess(args.locationfile, args.chunksize, args.pipeline_id)
 
 	# Done
 	exit()
