@@ -16,4 +16,4 @@ emu_file=$3 # models emulator file
 climate_data_file=$4 # e.g. emulandice.ssp585.temperature.fair.temperature_climate.nc
 scenario=$5 # e.g. ssp585 [could extract from filename instead?]
 
-Rscript -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source $region $emu_name $climate_data_file $scenario
+Rscript -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source $region $emu_file $climate_data_file $scenario
