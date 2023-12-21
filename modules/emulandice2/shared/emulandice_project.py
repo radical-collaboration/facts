@@ -8,6 +8,8 @@ def emulandice_project(pipeline_id, ice_source, region, emu_name, climate_data_f
 
 	# Run the module using the FACTS forcing data
 	subprocess.run(["bash", "emulandice_steer.sh", ice_source, region, emu_name, climate_data_file, scenario])
+
+	# This is a cludge to get the output file in the right place for emulandice2/GrIS -- need to fix this once emulandice2 is updated 
 	os.rename('RESULTS/emulandice.ssp585.emuGIS.emulandice.GIS_ALL_globalsl.nc',pipeline_id + '_ALL_globalsl.nc')
 
 	## MAYBE ABLE TO DO THIS WITHIN RPY2 WITH SOMETHING LIKE:
