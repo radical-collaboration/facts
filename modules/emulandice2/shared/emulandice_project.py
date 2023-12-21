@@ -4,35 +4,29 @@ import subprocess
 import os
 import time
 import xarray as xr
+import dask
 
 def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, nsamps, baseyear, 
 					   seed, pyear_start, pyear_end, pyear_step):
 
 	# Run the module using the FACTS forcing data
-	for region in regions:
-		arguments = [ice_source, region, emu_file, climate_data_file, scenario, './', str(seed), pipeline_id]
-		print(arguments)
-		subprocess.run(["bash", "emulandice_steer.sh", *arguments])
+	lazy_regions = [dask.delayed(emulandice_steer(ice_source, region, emu_file, climate_data_file, scenario,
+					    './', seed, pipeline_id)) for region in regions] 
+	run_regions = dask.compute(*lazy_regions)
 
 	if len(regions) > 1:
 		outfile = pipeline_id + "_ALL_globalsl.nc"
-		# does outfile already exist? if not, produce it
+		# does all-region outfile already exist? if not, produce it
 		if not os.path.exists(outfile):
 			infiles0 = [(pipeline_id + "_" + region + "_globalsl.nc") for region in regions]
 			TotalSamples(infiles0, outfile, 50, ice_source)
-	
-	## NEED TO MODIFY CHECKS SO THAT WORK WITH NETCDF OUTPUT
-
-	# Get the output from the emulandice run
-	# samples, targyears = ExtractProjections(emulandice_file)
-
-	# Make sure we get the number of samples we expected
-	#if nsamps != samples.shape[1]:
-	#	raise Exception("Number of SLC projections does not match number of temperature trajectories: {} != {}".format(samples.shape[1], nsamps))
-
 
 	return(None)
 
+def emulandice_steer(ice_source, region, emu_file, climate_data_file, scenario, outdir, seed, pipeline_id):
+	arguments = [ice_source, region, emu_file, climate_data_file, scenario, outdir, str(seed), pipeline_id]
+	subprocess.run(["bash", "emulandice_steer.sh", *arguments])
+	return(0)
 
 def TotalSamples(infiles, outfile, chunksize, ice_source):
     # Reads in multiple files (delayed) and tries combine along
