@@ -29,6 +29,6 @@ project:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
       - "emulandice2_project_data.tgz"
     global_total_files:
-      - "RESULTS/%PIPELINE_ID%_ALL_globalsl.nc"
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
     download_output_data:
-      - "RESULTS/%PIPELINE_ID%_ALL_globalsl.nc"
+      - "%PIPELINE_ID%_ALL_globalsl.nc"

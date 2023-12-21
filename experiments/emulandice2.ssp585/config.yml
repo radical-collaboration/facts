@@ -16,4 +16,4 @@ climate_step:
 sealevel_step: 
     emuGIS:
         module_set: "emulandice2"
-        module: "GIS"
+        module: "GrIS"

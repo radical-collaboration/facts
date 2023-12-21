@@ -1,12 +1,14 @@
 import sys
 import argparse
 import subprocess
+import os
 
 def emulandice_project(pipeline_id, ice_source, region, emu_name, climate_data_file, scenario, nsamps, baseyear, 
 					   seed, pyear_start, pyear_end, pyear_step):
 
 	# Run the module using the FACTS forcing data
 	subprocess.run(["bash", "emulandice_steer.sh", ice_source, region, emu_name, climate_data_file, scenario])
+	os.rename('RESULTS/emulandice.ssp585.emuGIS.emulandice.GIS_ALL_globalsl.nc',pipeline_id + '_ALL_globalsl.nc')
 
 	## MAYBE ABLE TO DO THIS WITHIN RPY2 WITH SOMETHING LIKE:
 
