@@ -23,6 +23,43 @@ import dask.array as da
 ### AIS_localsl.nc file produced from scaling the different sectoral
 ### _globalsl.nc files
 
+'''
+PROPOSED APPROACH:
+
+grdfingerprint.yml will be organized in three levels --
+top levels is ice sources to which results for localsl will be aggregated
+(typically AIS, GrIS, glaciers, but one might imagine wanting to substitute
+a version where WAIS, EAIS and AP were broken out).
+Second level is regions. Third level is variables, including one describing the 
+filename for the fingerprint, eg
+
+- AIS
+	- EAIS
+ 		- fingerprint: fprint_eais.nc
+   	- WAIS
+    		- fingerprint: fprint_wais.nc
+      	- AP
+       		- fingerprint: fprint_ap.nc
+- GrIS
+	- ALL
+ 		- fingerprint: fprint_gis.nc
+
+and so forth.
+
+emulandice_postprocess takes as an input a list of nc filenames to process
+for globalsl files. It loops through the file, reading attributes
+that should be added to the file (and/or trying to make sense of filenames)
+to assign each file to a ice source and region. Then for each ice source
+for which there is at least one file, we go through all those files, 
+scaling each one by the appropriate fingerprint file, and produce
+the aggregated localsl file.
+
+This is similar to the old emulandice_postprocess_glaciers script,
+except we are working with a collection of netcdf files rather than 
+a pickle file, and the approach is more generic (such that the same
+script can be used for any source region).
+'''
+
 def emulandice_postprocess(locationfilename, chunksize, pipeline_id):
 
 	# Read in the projection data
