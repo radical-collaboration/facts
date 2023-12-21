@@ -2,6 +2,8 @@ import sys
 import argparse
 import subprocess
 import os
+import time
+import xarray as xr
 
 def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, nsamps, baseyear, 
 					   seed, pyear_start, pyear_end, pyear_step):
@@ -12,23 +14,10 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 		print(arguments)
 		subprocess.run(["bash", "emulandice_steer.sh", *arguments])
 
-	## MAYBE ABLE TO DO THIS WITHIN RPY2 WITH SOMETHING LIKE:
-
-	# from rpy2.robjects import r
-	# from rpy2.robjects.packages import importr
-
-	# # Init the packrat environment
-	# r.setwd('/path/to/packrat/environment') ## This should be the task directory
-	# r.source('.Rprofile')
-
-	# # use the packages it contains
-	# importr('emulandice2')    
-	# result = r.main()
-
-	# BUT PERHAPS THEN NEED TO CALL emulandice_environment.sh before calling emulandice_project.py
-	# THIS WOULD HAVE THE ADVANTAGE THAT r.main() could pass output as a return value rather
-	# than having to write to a file and then read it back in if we want to do checks on it in this script
-
+	if len(regions) > 1:
+		infiles0 = [(pipeline_id + "_" + region + "_globalsl.nc") for region in regions]
+		TotalSamples(infiles0, pipeline_id + "_ALL_globalsl.nc", 50, ice_source)
+	
 	## NEED TO MODIFY CHECKS SO THAT WORK WITH NETCDF OUTPUT
 
 	# Get the output from the emulandice run
@@ -40,6 +29,45 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 
 
 	return(None)
+
+
+def TotalSamples(infiles, outfile, chunksize, ice_source):
+    # Reads in multiple files (delayed) and tries combine along
+    # common dimensions and a new "file" dimension.
+	ds = xr.open_mfdataset(
+		infiles, 
+	    combine="nested", 
+	    concat_dim="file", 
+	    chunks={"locations":chunksize},
+	)
+
+	# Sums everything across the new "file" dimension.
+	total_out = ds[["sea_level_change"]].sum(dim="file")
+	# Add "lat" and "lon" as data variable in output, pulling values from the first file.
+	total_out["lat"] = ds["lat"].isel(file=0)
+	total_out["lon"] = ds["lon"].isel(file=0)
+
+	# Attributes for the total file
+	total_out.attrs = {
+		"description": "Total " + ice_source + "sea-level change",
+		"history": "Created " + time.ctime(time.time()),
+		"source": "FACTS: Post-processed total among available contributors: {}".format(",".join(infiles)),
+	}
+
+	# Define the missing value for the netCDF files
+	nc_missing_value = np.nan #np.iinfo(np.int16).min
+	total_out["sea_level_change"].attrs = {
+		"units": "mm", 
+		"missing_value": nc_missing_value
+	}
+
+	# Write the total to an output file.
+    # This actually carries out the delayed calculations and operations.
+	
+	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+
+	return(outfile)
+
 
 if __name__ == "__main__":
 

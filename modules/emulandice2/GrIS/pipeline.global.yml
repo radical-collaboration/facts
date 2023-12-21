@@ -1,6 +1,7 @@
 
 project:
   task1:
+    python_dependencies: "xarray"
     executable: "python3"
     script: "emulandice_project.py"
     arguments:
