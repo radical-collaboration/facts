@@ -30,19 +30,28 @@ grdfingerprint.yml will be organized in three levels --
 top levels is ice sources to which results for localsl will be aggregated
 (typically AIS, GrIS, glaciers, but one might imagine wanting to substitute
 a version where WAIS, EAIS and AP were broken out).
-Second level is regions. Third level is variables, including one describing the 
+Second level is region ids, which will be matched with region ids specified
+in each netcdf file. Third level is variables, including one describing the 
 filename for the fingerprint, eg
 
+- LWS
+	- LWS.ALL
+ 		- fingerprint: fprint_groundwater.nc
 - AIS
-	- EAIS
+	- AIS.EAIS
  		- fingerprint: fprint_eais.nc
-   	- WAIS
+   	- AIS.WAIS
     		- fingerprint: fprint_wais.nc
-      	- AP
+      	- AIS.AP
        		- fingerprint: fprint_ap.nc
 - GrIS
-	- ALL
+	- GIS.ALL
  		- fingerprint: fprint_gis.nc
+- glaciers
+	- GLA.RGI01
+ 		- fingerprint: fprint_glac1.nc
+	- GLA.RGI02
+ 		- fingerprint: fprint_glac2.nc
 
 and so forth.
 
