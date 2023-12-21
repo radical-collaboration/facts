@@ -8,8 +8,6 @@ project:
       - GIS
       - --region
       - ALL
-      - --emu_name
-      - GIS_ALL_CISM_pow_exp_20
       - --emu_file
       - emu_file/GIS_ALL_CISM_pow_exp_20_EMULATOR.RData
     options:

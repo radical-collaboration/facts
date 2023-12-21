@@ -8,29 +8,25 @@
 # set up environment
 source emulandice_environment.sh
 
-# Run emulandice2 module
 
 ice_source=$1 # Ice source: GIS, AIS or GLA
 region=$2 # Ice source region: ALL for GIS/AIS and RGI01-RGI19 for GLA
-emu_name=$3 # models_emulator_settings: e.g. "CISM_pow_exp_20", "CISM_IMAUICE_GISM_pow_exp_20"
-emu_file=$4 # full path to build file: must match three settings above
-climate_data_file=$5 # e.g. emulandice.ssp585.temperature.fair.temperature_climate.nc
-scenario=$6 # e.g. ssp585 [could extract from filename instead?]
-outdir=$7 # name of directory to put outputs - will attempt to create if it doesn't exist
-seed=$8
-pipeline_id=$9
+emu_file=$3 # full path to build file: must match two settings above
+climate_data_file=$4 # e.g. emulandice.ssp585.temperature.fair.temperature_climate.nc
+scenario=$5 # e.g. ssp585 [could extract from filename instead?]
+outdir=$6 # name of directory to put outputs - will attempt to create if it doesn't exist
+seed=$7
+pipeline_id=$8
 
-echo $3
-echo $4
-if [ $# != 9 ] && [ $# != 0 ];
+if [ $# != 8 ] && [ $# != 0 ];
 then
-      echo "Insufficient arguments given"
-      echo "Required: ice_source region emu_name emu_file climate_data_file scenario outdir seed pipeline_id"
-      echo "If no arguments are set, will run in test mode"
+      echo "Wrong number of arguments given"
+      echo "Required: ice_source region emu_file climate_data_file scenario outdir seed pipeline_id"
+      echo "Or if no arguments are set, will run in test mode"
      exit 1
 fi
 
-Rscript -e "source('.Rprofile')" -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source $region $emu_name $emu_file $climate_data_file $scenario $outdir $seed $pipeline_id
+Rscript -e "source('.Rprofile')" -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source $region $emu_file $climate_data_file $scenario $outdir $seed $pipeline_id
 
 # Arguments to add ____________
 # Read from emulator RData file:
