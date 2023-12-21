@@ -30,7 +30,8 @@ preferred-citation:
   type: article
   journal: "Geoscientific Model Development"
   volume: 16
-  pages: 7461–7489
+  start: 7461
+  end: 7489
   authors:
   - family-names: "Kopp"
     given-names: "Robert E."
