@@ -1,7 +1,6 @@
 
 project:
   task1:
-    pre_exec: "ln -s / GSAT"
     executable: "python3"
     script: "emulandice_project.py"
     arguments:

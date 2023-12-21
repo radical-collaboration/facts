@@ -30,7 +30,7 @@ then
      exit 1
 fi
 
-Rscript -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source $region $emu_name $emu_file $climate_data_file $scenario $outdir $seed $pipeline_id
+Rscript -e "source('.Rprofile')" -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source $region $emu_name $emu_file $climate_data_file $scenario $outdir $seed $pipeline_id
 
 # Arguments to add ____________
 # Read from emulator RData file:
@@ -47,5 +47,3 @@ Rscript -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source 
 # GIS ALL CISM_IMAUICE_pow_exp_20
 # GIS ALL CISM_pow_exp_20
 # GLA RGI03 GloGEM_OGGM_pow_exp_20
-
-Rscript -e "library(emulandice2)" -e "source('emulandice_steer_working.R')" $ice_source $region $emu_file $climate_data_file $scenario
