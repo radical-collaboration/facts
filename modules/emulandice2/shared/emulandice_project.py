@@ -15,8 +15,11 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 		subprocess.run(["bash", "emulandice_steer.sh", *arguments])
 
 	if len(regions) > 1:
-		infiles0 = [(pipeline_id + "_" + region + "_globalsl.nc") for region in regions]
-		TotalSamples(infiles0, pipeline_id + "_ALL_globalsl.nc", 50, ice_source)
+		outfile = pipeline_id + "_ALL_globalsl.nc"
+		# does outfile already exist? if not, produce it
+		if not os.path.exists(outfile):
+			infiles0 = [(pipeline_id + "_" + region + "_globalsl.nc") for region in regions]
+			TotalSamples(infiles0, outfile, 50, ice_source)
 	
 	## NEED TO MODIFY CHECKS SO THAT WORK WITH NETCDF OUTPUT
 
