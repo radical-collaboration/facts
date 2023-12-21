@@ -30,3 +30,8 @@ case $MODE in
         fi
         ;;
 esac
+
+echo
+echo If you have not already, please download
+echo https://rutgers.box.com/v/facts-emulandice2-project-data
+echo and place in the modules-data directory.
