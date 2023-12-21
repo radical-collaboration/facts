@@ -1,7 +1,7 @@
 
 project:
   task1:
-    pre_exec: "ln -s / GSAT ; mkdir RESULTS"
+    pre_exec: "ln -s / GSAT"
     executable: "python3"
     script: "emulandice_project.py"
     arguments:
@@ -9,6 +9,8 @@ project:
       - GIS
       - --region
       - ALL
+      - --emu_name
+      - GIS_ALL_CISM_pow_exp_20
       - --emu_file
       - emu_file/GIS_ALL_CISM_pow_exp_20_EMULATOR.RData
     options:

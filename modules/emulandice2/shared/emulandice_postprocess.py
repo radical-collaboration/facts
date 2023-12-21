@@ -228,7 +228,6 @@ if __name__ == '__main__':
 	parser.add_argument('--scenario', help='Name of the scenario')
 	parser.add_argument('--baseyear', help='Base year for the projections')
 	parser.add_argument('--ncfiles', nargs='+', help='List of netCDF files')
-	parser.add_argument()
 	# Parse the arguments
 	args = parser.parse_args()
 

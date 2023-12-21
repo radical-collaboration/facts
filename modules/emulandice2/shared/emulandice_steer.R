@@ -22,75 +22,108 @@
 #' # Get FACTS args
 # Get FACTS args ------------------------------------------------------------
 
-print("Hello! Welcome to emulandice2: predict")
+cat("_______________________________________\n")
+cat("Hello! Welcome to emulandice2: predict\n")
+cat("_______________________________________\n")
+cat("Requested settings:\n")
 
 # Get arguments from RScript command in emulandice_steer.sh
 args <- commandArgs(TRUE)
 if (length(args) == 0) {
+
   # Defaults if no args set (used for testing and Markdown)
-  warning("No arguments set - using defaults")
+  cat("NOTE: No arguments set - using defaults\n")
   i_s <- "GLA"
   reg <- "RGI03"
-  emu_file <- "emu_file/GLA_RGI03_GloGEM_OGGM_pow_exp_20_EMULATOR.RData"
-  climate_data_file <- "emulandice2.ssp585.temperature.fair.temperature_climate.nc"
+  emu_name <- "GloGEM_OGGM_pow_exp_20"
+
+  # CLIMATE DATA FILE: constructed from filename and package data directory
+  climate_data_file <- system.file("extdata", "GSAT", package = "emulandice2",
+                                   "emulandice.ssp585.temperature.fair.temperature_climate.nc")
   facts_ssp <- "ssp585"
+
+  # EMULATOR BUILD FILE: constructed from the above settings
+  # Directory has to match rdatadir in the build file it is loading
+  emu_file <- "./data-raw/GLA_RGI03_GloGEM_OGGM_pow_exp_20_EMULATOR.RData"
+
+  outdir_facts <- "./out/"
+
+  seed <- 2024 # Same random seed as emulator_build.R
+  pipeline_id <- format(Sys.time(), "%y%m%d_%H%M%S") # YYMMDD_HHMMSS
+
 } else {
- i_s <- args[1] # ice_source
- reg <- args[2] # region
- emu_file <- args[3] # emulator file
- climate_data_file <- args[4] # climate netcdf
- facts_ssp <- args[5] # ssp
+
+  i_s <- args[1] # ice_source
+  reg <- args[2] # region
+  emu_name <- args[3] # emulator name
+  emu_file <- args[4] # emulator build file with path
+  climate_data_file <- args[5] # climate netcdf with path
+  facts_ssp <- args[6] # ssp
+  outdir_facts <- args[7] # output directory
+  seed <- args[8] # random seed
+  pipeline_id <- args[9]
+
 }
 
-print(paste("Ice source:", i_s))
+cat(sprintf("Ice source: %s\n", i_s))
 stopifnot(i_s %in% c("GIS", "AIS", "GLA"))
 
 # Region of ice source
-print(paste("Region:", reg))
+cat(sprintf("Region: %s\n", reg))
 stopifnot(reg %in% c("ALL", paste0("RGI", sprintf("%02i",1:19))))
 
-# Emulator: this is made from model_list and emulator_settings
-print(paste("Emulator build:", emu_file))
+# Emulator: emu_name is made from model_list and emulator_settings
+cat(sprintf("Emulator build: %s\n", emu_name))
+
+cat(sprintf("Emulator build file: %s\n", emu_file))
 
 # Netcdf name
-print(paste("Climate file:", climate_data_file))
+cat(sprintf("Climate file: %s\n", climate_data_file))
+stopifnot(file.exists(climate_data_file))
 
 # SSP (could extract from filename)
 scen <- paste0("SSP",substring(facts_ssp,4)) # emulandice expects upper case
-print(paste("Scenario:", scen))
-
-#emu_dir <- "./data-raw/"
-#print(paste("Emulator build file directory:", emu_dir))
-
-# LOAD EMULATOR AND OTHER STUFF
-cat("Loading emulator build file\n")
-load( file = emu_file)
-inputs_ext <- "."
-inputs_preprocess <- "."
-outdir <- "./RESULTS/"
+cat(sprintf("Scenario: %s\n", scen))
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # OTHER SETTINGS
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+cat(sprintf("Outputs will be placed in directory: %s\n", outdir_facts))
+
 # Write mean emulator projections as well as full projections with noise
 # (used as arg for write_outputs(), and in plot_bayesian.R for some reason)
 write_mean <- FALSE
-print(paste("Write mean projections CSV:", write_mean))
+cat(sprintf("Write mean projections CSV: %s\n", write_mean))
 
-
+# Netcdf filename
+# Old name: _emulandice.",facts_ssp,".emu",i_s,".emulandice.",i_s,"_",reg,"_globalsl.nc")
+ncname <- paste0(outdir_facts, pipeline_id,"_",reg,"_globalsl.nc")
+cat(sprintf("Projections netcdf filename will be: %s\n", ncname))
 
 #' # Setup
 # Setup ------------------------------------------------------------
 
-# EMULATOR BUILD FILE: constructed from the above settings
-# Directory has to match rdatadir in the build file it is loading
-#emu_file <- paste0(paste(i_s, reg, emu_name, sep = "_"), "_EMULATOR.RData")
 
-#cat(sprintf("Looking for emulator build file in data/: %s\n", emu_file))
+# BASIC CONSISTENCY CHECKS
+
+# Check scenario is in climate data file name
+if ( ! grepl(facts_ssp, basename(climate_data_file)) ) {
+  stop("Requested climate file does not contain scenario" )
+}
+
+# Check emulator build arguments are consistent
+#emu_file_test_name <- paste(i_s, reg, emu_name, "EMULATOR.RData", sep = "_")
+#if ( basename(emu_file) != emu_file_test_name) {
+#  stop("Requested emulator build file is inconsistent with other command line arguments [i_s, reg, emu_name]")
+#}
+
+# LOAD EMULATOR AND OTHER STUFF
+cat("\nLoading emulator build file\n")
 stopifnot(file.exists(emu_file))
-
-
+load( file = emu_file)
+inputs_ext <- "."
+inputs_preprocess <- "."
 
 #___________________________________________
 # RESET SOME SETTINGS FOR FACTS
@@ -103,19 +136,26 @@ stopifnot(file.exists(emu_file))
 # partly in case I can use for plotting multiple scenarios later
 scenario_list <- scen
 
+set.seed(seed)
+
 # Plots: 0 = none, 1 = main, 2 = all
 plot_level <- 0
 
 # Number of 2LM projections of GSAT expected per SSP
 # (and therefore total number of samples for book-keeping by GSAT value)
 # Checks when reading in netcdf - could get rid of this
-N_2LM <- 50L # 2237L for AR6 files
+#N_2LM <- 50L # 2237L for AR6 files
 
 
 cat("Running...\n")
 
 # Log file from emulator_build.R is same name but _build.txt
-logfile_results <- paste0(outdir, out_name,"_results.txt")
+if ( ! file.exists(outdir_facts) ) {
+  cat(sprintf("Creating output directory: %s\n", outdir_facts))
+  dir.create(file.path(outdir_facts))
+}
+
+logfile_results <- paste0(outdir_facts, out_name,"_results.txt")
 cat(sprintf("\nemulandice2: %s %s\n\n", i_s, reg), file = logfile_results)
 
 cat(sprintf("\nLoaded emulator file: %s\n", emu_file), file = logfile_results, append = TRUE)
@@ -381,7 +421,7 @@ if (plot_level > 0) {
 
   cat("\nPlot uncalibrated projections:\n",file = logfile_results, append = TRUE)
 
-  pdf( file = paste0( outdir, out_name, "_UNCALIBRATED.pdf"),
+  pdf( file = paste0( outdir_facts, out_name, "_UNCALIBRATED.pdf"),
        width = 9, height = 5)
   plot_designs("prior", plot_level)
   plot_timeseries("prior", plot_level)
@@ -390,7 +430,7 @@ if (plot_level > 0) {
   dev.off()
 
   cat("\nPlot calibrated projections:\n", file = logfile_results, append = TRUE)
-  pdf( file = paste0( outdir, out_name, "_CALIBRATED.pdf"),
+  pdf( file = paste0( outdir_facts, out_name, "_CALIBRATED.pdf"),
        width = 9, height = 5)
   plot_designs("posterior", plot_level)
   # Note no posterior time series plots
@@ -403,7 +443,7 @@ if (plot_level > 0) {
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Save workspace
-save.image( paste0(outdir, out_name, "_RESULTS.RData") )
+save.image( paste0(outdir_facts, out_name, "_RESULTS.RData") )
 
 cat("...done.\n")
 

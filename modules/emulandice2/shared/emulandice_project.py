@@ -3,14 +3,13 @@ import argparse
 import subprocess
 import os
 
-def emulandice_project(pipeline_id, ice_source, region, emu_name, climate_data_file, scenario, nsamps, baseyear, 
+def emulandice_project(pipeline_id, ice_source, region, emu_name, emu_file, climate_data_file, scenario, nsamps, baseyear, 
 					   seed, pyear_start, pyear_end, pyear_step):
 
 	# Run the module using the FACTS forcing data
-	subprocess.run(["bash", "emulandice_steer.sh", ice_source, region, emu_name, climate_data_file, scenario])
-
-	# This is a cludge to get the output file in the right place for emulandice2/GrIS -- need to fix this once emulandice2 is updated 
-	os.rename('RESULTS/emulandice.ssp585.emuGIS.emulandice.GIS_ALL_globalsl.nc',pipeline_id + '_ALL_globalsl.nc')
+	arguments = [ice_source, region, emu_name, emu_file, climate_data_file, scenario, './', str(seed), pipeline_id]
+	print(arguments)
+	subprocess.run(["bash", "emulandice_steer.sh", *arguments])
 
 	## MAYBE ABLE TO DO THIS WITHIN RPY2 WITH SOMETHING LIKE:
 
@@ -51,6 +50,7 @@ if __name__ == "__main__":
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
 	parser.add_argument('--ice_source', help="Ice source: GIS, AIS or GLA", default='AIS', choices=['AIS','GIS','GLA'])
 	parser.add_argument('--region', help="Ice source region: ALL for GIS/AIS and RGI01-RGI19 for GLA", default='ALL')
+	parser.add_argument('--emu_name', help="Emulator name")
 	parser.add_argument('--emu_file', help="Emulator file")
 	parser.add_argument('--scenario', help="SSP Emissions scenario", default='ssp245')
 	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	# Run the preprocessing
-	emulandice_project(args.pipeline_id, args.ice_source, args.region, args.emu_file, args.climate_data_file, 
+	emulandice_project(args.pipeline_id, args.ice_source, args.region, args.emu_name, args.emu_file, args.climate_data_file, 
 					   args.scenario, args.nsamps, args.baseyear, 
 					   args.seed, args.pyear_start, args.pyear_end, args.pyear_step)
 
