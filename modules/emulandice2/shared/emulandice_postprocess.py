@@ -35,24 +35,23 @@ Second level is region ids, which will be matched with region ids specified
 in each netcdf file. Third level is variables, including one describing the 
 filename for the fingerprint, eg
 
-- LWS
-	- LWS.ALL
- 		- fingerprint: fprint_groundwater.nc
-- AIS
-	- AIS.EAIS
- 		- fingerprint: fprint_eais.nc
-   	- AIS.WAIS
-    		- fingerprint: fprint_wais.nc
-      	- AIS.AP
-       		- fingerprint: fprint_ap.nc
-- GrIS
-	- GIS.ALL
- 		- fingerprint: fprint_gis.nc
-- glaciers
-	- GLA.RGI01
- 		- fingerprint: fprint_glac1.nc
-	- GLA.RGI02
- 		- fingerprint: fprint_glac2.nc
+AIS:
+   AIS.EAIS:
+      fingerprint: FPRINT/fprint_eais.nc
+   AIS.WAIS:
+      fingerprint: FPRINT/fprint_wais.nc
+   AIS.AP:
+      fingerprint: FPRINT/fprint_ap.nc
+GrIS:
+   GIS.ALL:
+      fingerprint: FPRINT/fprint_gis.nc
+glaciers:
+   GLA.RGI01:
+      fingerprint: FPRINT/fprint_glac1.nc
+   GLA.RGI02:
+      fingerprint: FPRINT/fprint_glac2.nc
+   GLA.RGI03:
+      fingerprint: FPRINT/fprint_glac3.nc
 
 and so forth.
 
@@ -80,15 +79,15 @@ def emulandice_postprocess(locationfilename, chunksize, pipeline_id,ncfiles,grdf
 	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 	nsites = len(site_ids)
 
-	scaled_ncfiles_dict, targyears = scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict, 
+	rsl_dict, targyears = scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict, 
 													site_lats, site_lons, chunksize)
 
 	# loop over scaled_ncfiles_dict. For each ice source that has
 	# a non-zero array, write out a netcdf file with the localized projections
-	for ice_source, scaled_ncfiles in scaled_ncfiles_dict.items():
-		if scaled_ncfiles:
-			write_localized_projections(scaled_ncfiles, site_ids, site_lats, site_lons, pipeline_id,
-							   scenario, baseyear, ice_source, targyears):
+	for ice_source, rsl in rsl_dict.items():
+		if rsl:
+			write_localized_projections(rsl, site_ids, site_lats, site_lons, pipeline_id,
+							   scenario, baseyear, ice_source, targyears)
 	return(None)
 
 '''
@@ -116,7 +115,8 @@ def process_ncfiles_and_grdfingerprintfile(ncfiles, grdfingerprintfile):
 
 	# Loop through the grdfingerprintfile
 	for ice_source, regions in grdfingerprint_dict.items():
-		for region, fingerprint in regions.items():
+		for region, regionvars in regions.items():
+			fingerprint=regionvars['fingerprint']
 			# Initialize an empty list for this region
 			matching_ncfiles_dict[region] = []
 
@@ -124,7 +124,6 @@ def process_ncfiles_and_grdfingerprintfile(ncfiles, grdfingerprintfile):
 			for ncfile in ncfiles:
 				# Open the netcdf file
 				ds = xr.open_dataset(ncfile)
-
 				# Check if the 'region' global attribute matches the current region
 				if 'region' in ds.attrs and ds.attrs['region'] == region:
 					# If it matches, add the ncfile to the list for this region
@@ -150,20 +149,21 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 	
 	nsites = len(site_lats)
 
-	# Initialize the dictionary to store the scaled and summed netcdf files
+	# Initialize the	 dictionary to store the scaled and summed netcdf files
 	scaled_ncfiles_dict = {}
 
 	# Loop over all the ice sources in grdfingerprint_dict
 	for ice_source, regions in grdfingerprint_dict.items():
 		# Initialize an empty array for this ice source
-		scaled_ncfiles_dict[ice_source] = 0
+		scaled_ncfiles_dict[ice_source] = []
+		targyears = None
 
 		# Loop over each region
-		for region, fingerprint in regions.items():
+		for region, regionvars in regions.items():
 			# Check if there is a non-empty list of files in matching_ncfiles_dict
 			if region in matching_ncfiles_dict and matching_ncfiles_dict[region]:
 				# Load the fingerprint for that region
-				regionfp = da.from_array(AssignFP(fingerprint, site_lats, site_lons), chunks=chunksize)
+				regionfp = da.from_array(AssignFP(regionvars['fingerprint'], site_lats, site_lons), chunks=chunksize)
 
 				# Loop over the matching netcdf files
 				for ncfile in matching_ncfiles_dict[region]:
@@ -179,7 +179,11 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 					local_sl += np.multiply.outer(ds['sea_level_change'], regionfp)
 
 					# Add the resulting scaled netcdf file to the array for this ice source
-					scaled_ncfiles_dict[ice_source] += local_sl
+					if scaled_ncfiles_dict[ice_source]:
+						scaled_ncfiles_dict[ice_source] += local_sl
+					else:
+						scaled_ncfiles_dict[ice_source] = local_sl
+
 					targyears = ds['years']
 
 					# Close the dataset
@@ -188,8 +192,8 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 	return scaled_ncfiles_dict, targyears
 
 
-def write_localized_projections(scaled_ncfiles, site_ids, site_lats, site_lons, pipeline_id,
-								scenario, baseyear, ice_source):
+def write_localized_projections(rsl, site_ids, site_lats, site_lons, pipeline_id,
+								scenario, baseyear, ice_source, targyears):
 
 	# Define the missing value for the netCDF files
 	nc_missing_value = np.nan #np.iinfo(np.int16).min
@@ -202,8 +206,8 @@ def write_localized_projections(scaled_ncfiles, site_ids, site_lats, site_lons, 
 			"baseyear": baseyear,
 			"ice_source": ice_source}
 
-	(nsamps, nregions, nyears) = scaled_ncfiles.shape
-	rsl_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), scaled_ncfiles, 
+	(nsamps, nregions, nyears) = rsl.shape
+	rsl_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), rsl, 
 											{"units":"mm", "missing_value":nc_missing_value}),
 							"lat": (("locations"), site_lats),
 							"lon": (("locations"), site_lons)},

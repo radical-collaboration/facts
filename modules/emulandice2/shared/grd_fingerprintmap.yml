@@ -1,0 +1,24 @@
+# GRD Fingerprint Map
+#
+# This file contains the fingerprint map for  GRD
+#
+# Placed within modules for debugging purposes
+# Should go to modules-data when finished
+
+AIS:
+   AIS.EAIS:
+      fingerprint: FPRINT/fprint_eais.nc
+   AIS.WAIS:
+      fingerprint: FPRINT/fprint_wais.nc
+   AIS.AP:
+      fingerprint: FPRINT/fprint_ap.nc
+GrIS:
+   GIS.ALL:
+      fingerprint: FPRINT/fprint_gis.nc
+glaciers:
+   GLA.RGI01:
+      fingerprint: FPRINT/fprint_glac1.nc
+   GLA.RGI02:
+      fingerprint: FPRINT/fprint_glac2.nc
+   GLA.RGI03:
+      fingerprint: FPRINT/fprint_glac3.nc
