@@ -17,3 +17,7 @@ sealevel_step:
     emuGIS:
         module_set: "emulandice2"
         module: "GrIS"
+
+    emuGLA:
+        module_set: "emulandice2"
+        module: "glaciers"
