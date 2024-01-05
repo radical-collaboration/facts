@@ -174,6 +174,7 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 					ds = xr.open_dataset(ncfile)
 
 					# Initialize variable to hold the localized projections
+					## global should be locations=0, but Tamsin is currently using a different convention.
 					samps = ds['sea_level_change'].isel(locations=-1).transpose("samples","years")
 					nsamps=samps.shape[0]
 					nyears=samps.shape[1]
