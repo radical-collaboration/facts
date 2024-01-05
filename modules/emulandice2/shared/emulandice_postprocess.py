@@ -70,7 +70,7 @@ script can be used for any source region).
 '''
 
 
-def emulandice_postprocess(locationfilename, chunksize, pipeline_id,ncfiles,grdfingerprintfile, scenario, baseyear, targyears):
+def emulandice_postprocess(locationfilename, chunksize, pipeline_id,ncfiles,grdfingerprintfile, scenario, baseyear):
 
 	matching_ncfiles_dict, grdfingerprint_dict = process_ncfiles_and_grdfingerprintfile(ncfiles, grdfingerprintfile)
 
@@ -85,7 +85,8 @@ def emulandice_postprocess(locationfilename, chunksize, pipeline_id,ncfiles,grdf
 	# loop over scaled_ncfiles_dict. For each ice source that has
 	# a non-zero array, write out a netcdf file with the localized projections
 	for ice_source, rsl in rsl_dict.items():
-		if rsl:
+		if len(rsl):
+			print(ice_source)
 			write_localized_projections(rsl, site_ids, site_lats, site_lons, pipeline_id,
 							   scenario, baseyear, ice_source, targyears)
 	return(None)
@@ -163,7 +164,8 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 			# Check if there is a non-empty list of files in matching_ncfiles_dict
 			if region in matching_ncfiles_dict and matching_ncfiles_dict[region]:
 				# Load the fingerprint for that region
-				regionfp = da.from_array(AssignFP(regionvars['fingerprint'], site_lats, site_lons), chunks=chunksize)
+				regionfp = da.array(AssignFP(regionvars['fingerprint'], site_lats, site_lons))
+				regionfp = regionfp.rechunk(chunksize)
 
 				# Loop over the matching netcdf files
 				for ncfile in matching_ncfiles_dict[region]:
@@ -172,14 +174,17 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 					ds = xr.open_dataset(ncfile)
 
 					# Initialize variable to hold the localized projections
-					(nsamps, nregions, nyears) = ds['sea_level_change'].shape
-					local_sl = da.zeros((nsamps, nyears, nsites), chunks=(-1,-1,chunksize))
+					samps = ds['sea_level_change'].isel(locations=-1).transpose("samples","years")
+					nsamps=samps.shape[0]
+					nyears=samps.shape[1]
+					nsites=regionfp.shape[0]
 
 					# Scale the netcdf file by the fingerprint
-					local_sl += np.multiply.outer(ds['sea_level_change'], regionfp)
+					# NOT SURE WHY NP CONVERSIONS HERE ARE NEEDED, IT WORKED IN OTHER MODULES WITHOUT
+					local_sl = np.multiply.outer(samps.values, np.array(regionfp))
 
 					# Add the resulting scaled netcdf file to the array for this ice source
-					if scaled_ncfiles_dict[ice_source]:
+					if len(scaled_ncfiles_dict[ice_source]):
 						scaled_ncfiles_dict[ice_source] += local_sl
 					else:
 						scaled_ncfiles_dict[ice_source] = local_sl
@@ -228,7 +233,7 @@ if __name__ == '__main__':
 	parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
 	parser.add_argument('--chunksize', help="Number of locations to process at a time [default=50]", type=int, default=50)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--grdfingerprintfile', help='YAML file that contains the fingerprints for each region')
+	parser.add_argument('--grdfingerprintfile', help='YAML file that contains the fingerprints for each region', default="grd_fingerprintmap.yml")
 	parser.add_argument('--scenario', help='Name of the scenario')
 	parser.add_argument('--baseyear', help='Base year for the projections')
 	parser.add_argument('--ncfiles', nargs='+', help='List of netCDF files')

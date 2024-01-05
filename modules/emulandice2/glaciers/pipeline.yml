@@ -1,0 +1,114 @@
+
+project:
+  task1:
+    python_dependencies: "xarray dask numpy"
+    executable: "python3"
+    script: "emulandice_project.py"
+    arguments:
+      - --ice_source
+      - GLA
+      - --region
+      - RGI01
+      - RGI02
+      - RGI03
+      - RGI04
+      - RGI05
+      - RGI06
+      - RGI07
+      - RGI08
+      - RGI09
+      - RGI10
+      - RGI11
+      - RGI12
+      - RGI13
+      - RGI14
+      - RGI15
+      - RGI16
+      - RGI17
+      - RGI18
+      - RGI19
+      - --emu_file
+      - emu_file/GLA_RGI01_GloGEM_OGGM_pow_exp_01_EMULATOR.RData 
+      - emu_file/GLA_RGI02_GloGEM_OGGM_pow_exp_20_EMULATOR.RData 
+      - emu_file/GLA_RGI03_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI04_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+      - emu_file/GLA_RGI05_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+      - emu_file/GLA_RGI06_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI07_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+      - emu_file/GLA_RGI08_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI09_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI10_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI11_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI12_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI13_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI14_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI15_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI16_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI17_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI18_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI19_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+    options:
+      - "pipeline_id"
+      - "scenario"
+      - "climate_data_file"
+      - "nsamps"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+    upload_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_environment.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.R"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
+      - "emulandice2_glaciers_project_data.tgz"
+    global_total_files:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
+
+postprocess:
+  task1:
+    executable: "python3"
+    script: "emulandice_postprocess.py"
+    options:
+      - "locationfile"
+      - "chunksize"
+      - "pipeline_id"
+      - "scenario"
+      - "baseyear"
+      - "grdfingerprintfile"
+    upload_input_data:
+      - '%MODULE_PATH%/../shared/read_locationfile.py'
+      - '%MODULE_PATH%/../shared/AssignFP.py'
+      - '%MODULE_PATH%/../shared/ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - 'grd_fingerprints_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_RGI01_globalsl.nc"
+          - "%PIPELINE_ID%_RGI02_globalsl.nc"
+          - "%PIPELINE_ID%_RGI03_globalsl.nc"
+          - "%PIPELINE_ID%_RGI04_globalsl.nc"
+          - "%PIPELINE_ID%_RGI05_globalsl.nc"
+          - "%PIPELINE_ID%_RGI06_globalsl.nc"
+          - "%PIPELINE_ID%_RGI07_globalsl.nc"
+          - "%PIPELINE_ID%_RGI08_globalsl.nc"
+          - "%PIPELINE_ID%_RGI09_globalsl.nc"
+          - "%PIPELINE_ID%_RGI10_globalsl.nc"
+          - "%PIPELINE_ID%_RGI11_globalsl.nc"
+          - "%PIPELINE_ID%_RGI12_globalsl.nc"
+          - "%PIPELINE_ID%_RGI13_globalsl.nc"
+          - "%PIPELINE_ID%_RGI14_globalsl.nc"
+          - "%PIPELINE_ID%_RGI15_globalsl.nc"
+          - "%PIPELINE_ID%_RGI16_globalsl.nc"
+          - "%PIPELINE_ID%_RGI17_globalsl.nc"
+          - "%PIPELINE_ID%_RGI18_globalsl.nc"
+          - "%PIPELINE_ID%_RGI19_globalsl.nc"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
