@@ -73,6 +73,27 @@ postprocess:
   task1:
     executable: "python3"
     script: "emulandice_postprocess.py"
+    arguments:
+      - --nc_files
+      - "%PIPELINE_ID%_RGI01_globalsl.nc"
+      - "%PIPELINE_ID%_RGI02_globalsl.nc"
+      - "%PIPELINE_ID%_RGI03_globalsl.nc"
+      - "%PIPELINE_ID%_RGI04_globalsl.nc"
+      - "%PIPELINE_ID%_RGI05_globalsl.nc"
+      - "%PIPELINE_ID%_RGI06_globalsl.nc"
+      - "%PIPELINE_ID%_RGI07_globalsl.nc"
+      - "%PIPELINE_ID%_RGI08_globalsl.nc"
+      - "%PIPELINE_ID%_RGI09_globalsl.nc"
+      - "%PIPELINE_ID%_RGI10_globalsl.nc"
+      - "%PIPELINE_ID%_RGI11_globalsl.nc"
+      - "%PIPELINE_ID%_RGI12_globalsl.nc"
+      - "%PIPELINE_ID%_RGI13_globalsl.nc"
+      - "%PIPELINE_ID%_RGI14_globalsl.nc"
+      - "%PIPELINE_ID%_RGI15_globalsl.nc"
+      - "%PIPELINE_ID%_RGI16_globalsl.nc"
+      - "%PIPELINE_ID%_RGI17_globalsl.nc"
+      - "%PIPELINE_ID%_RGI18_globalsl.nc"
+      - "%PIPELINE_ID%_RGI19_globalsl.nc"
     options:
       - "locationfile"
       - "chunksize"
@@ -84,6 +105,7 @@ postprocess:
       - '%MODULE_PATH%/../shared/read_locationfile.py'
       - '%MODULE_PATH%/../shared/AssignFP.py'
       - '%MODULE_PATH%/../shared/ReadFingerprint.py'
+      - '%MODULE_PATH%/../shared/grd_fingerprintmap.yml'
     upload_and_extract_input_data:
       - 'grd_fingerprints_data.tgz'
     copy_shared_data:

@@ -7,7 +7,7 @@ import xarray as xr
 import numpy as np
 import dask
 
-def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, nsamps, baseyear, 
+def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, baseyear, 
 					   seed, pyear_start, pyear_end, pyear_step):
 
 	# Run the module using the FACTS forcing data
@@ -83,7 +83,6 @@ if __name__ == "__main__":
 	parser.add_argument('--emu_file', nargs='+', help="Emulator file")
 	parser.add_argument('--scenario', help="SSP Emissions scenario", default='ssp245')
 	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
-	parser.add_argument('--nsamps', help="Number of samples to generate [default=20000]", default=20000, type=int)
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
@@ -95,7 +94,7 @@ if __name__ == "__main__":
 
 	# Run the preprocessing
 	emulandice_project(args.pipeline_id, args.ice_source, args.region, args.emu_file, args.climate_data_file, 
-					   args.scenario, args.nsamps, args.baseyear, 
+					   args.scenario, args.baseyear, 
 					   args.seed, args.pyear_start, args.pyear_end, args.pyear_step)
 
 	# Done

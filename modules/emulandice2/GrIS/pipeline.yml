@@ -38,6 +38,9 @@ postprocess:
   task1:
     executable: "python3"
     script: "emulandice_postprocess.py"
+    arguments:
+      - --nc_files
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
     options:
       - "locationfile"
       - "chunksize"
@@ -49,6 +52,7 @@ postprocess:
       - '%MODULE_PATH%/../shared/read_locationfile.py'
       - '%MODULE_PATH%/../shared/AssignFP.py'
       - '%MODULE_PATH%/../shared/ReadFingerprint.py'
+      - '%MODULE_PATH%/../shared/grd_fingerprintmap.yml'
     upload_and_extract_input_data:
       - 'grd_fingerprints_data.tgz'
     copy_shared_data:
