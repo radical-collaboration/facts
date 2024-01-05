@@ -5,8 +5,7 @@ global-options:
     pyear_end: 2150
     pyear_step: 10
     baseyear: 2005
-    pipeline_file: "pipeline.global.yml"
-
+ 
 climate_step:
     temperature:
         module_set: "fair"
