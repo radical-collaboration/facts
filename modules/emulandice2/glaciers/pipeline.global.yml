@@ -17,6 +17,16 @@ project:
       - RGI07
       - RGI08
       - RGI09
+      - RGI10
+      - RGI11
+      - RGI12
+      - RGI13
+      - RGI14
+      - RGI15
+      - RGI16
+      - RGI17
+      - RGI18
+      - RGI19
       - --emu_file
       - emu_file/GLA_RGI01_GloGEM_OGGM_pow_exp_01_EMULATOR.RData 
       - emu_file/GLA_RGI02_GloGEM_OGGM_pow_exp_20_EMULATOR.RData 
@@ -27,6 +37,16 @@ project:
       - emu_file/GLA_RGI07_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
       - emu_file/GLA_RGI08_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
       - emu_file/GLA_RGI09_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI10_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI11_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI12_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI13_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI14_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI15_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI16_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI17_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI18_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI19_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
     options:
       - "pipeline_id"
       - "scenario"
