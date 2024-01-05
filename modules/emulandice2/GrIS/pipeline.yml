@@ -38,7 +38,7 @@ postprocess:
     executable: "python3"
     script: "emulandice_postprocess.py"
     arguments:
-      - --nc_files
+      - --ncfiles
       - "%PIPELINE_ID%_ALL_globalsl.nc"
     options:
       - "locationfile"

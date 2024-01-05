@@ -73,7 +73,7 @@ postprocess:
     executable: "python3"
     script: "emulandice_postprocess.py"
     arguments:
-      - --nc_files
+      - --ncfiles
       - "%PIPELINE_ID%_RGI01_globalsl.nc"
       - "%PIPELINE_ID%_RGI02_globalsl.nc"
       - "%PIPELINE_ID%_RGI03_globalsl.nc"
