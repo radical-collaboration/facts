@@ -81,7 +81,7 @@ def emulandice_postprocess(locationfilename, chunksize, pipeline_id,ncfiles,grdf
 
 	rsl_dict, targyears = scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict, 
 													site_lats, site_lons, chunksize)
-
+	
 	# loop over scaled_ncfiles_dict. For each ice source that has
 	# a non-zero array, write out a netcdf file with the localized projections
 	for ice_source, rsl in rsl_dict.items():
@@ -169,6 +169,8 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 
 				# Loop over the matching netcdf files
 				for ncfile in matching_ncfiles_dict[region]:
+
+					print(region + ': ' + ncfile)
 
 					# Load the netcdf file
 					ds = xr.open_dataset(ncfile)

@@ -37,7 +37,10 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 def RebaseSamples(ncfile,targyears,baseyear):
 	print('Rebasing ' + ncfile + '...')
 	ds = xr.open_dataset(ncfile)
+	attrs=ds.attrs
 	ds = ds.interp(years=targyears)-ds.interp(years=baseyear)
+	ds.attrs = attrs
+	print(ds.attrs)
 	ds.to_netcdf(ncfile,encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4}})
 	return(ncfile)
 
@@ -65,7 +68,7 @@ def TotalSamples(infiles, outfile, chunksize, ice_source):
 
 	# Attributes for the total file
 	total_out.attrs = {
-		"description": "Total " + ice_source + "sea-level change",
+		"description": "Total " + ice_source + " sea-level change",
 		"history": "Created " + time.ctime(time.time()),
 		"source": "FACTS: Post-processed total among available contributors: {}".format(",".join(infiles)),
 	}
