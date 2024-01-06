@@ -1,7 +1,7 @@
 
 project:
   task1:
-    python_dependencies: "xarray dask numpy"
+    python_dependencies: "xarray dask numpy scipy"
     executable: "python3"
     script: "emulandice_project.py"
     arguments:
