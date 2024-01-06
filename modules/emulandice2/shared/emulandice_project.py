@@ -14,16 +14,12 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 	# Run the module using the FACTS forcing data
 	if len(regions) != len(emu_file):
 		raise Exception("Number of regions and emulator files must be the same")
-	
-	lazy_regions = [dask.delayed(emulandice_steer(ice_source, regions[ii], emu_file[ii], climate_data_file, scenario,
-					    './', seed, pipeline_id)) for ii in np.arange(len(regions))] 
-	run_regions = dask.compute(*lazy_regions)
 
-	# rebase files
 	targyears = np.arange(pyear_start,pyear_end+.5,pyear_step)
-	lazy_regions = [dask.delayed(RebaseSamples((pipeline_id + "_" + regions[ii] + "_globalsl.nc"), targyears, baseyear)
-							   for ii in np.arange(len(regions)))] 
-	run_regions = dask.compute(*lazy_regions)	
+	lazy_regions = [dask.delayed(RebaseSamples(emulandice_steer(ice_source, regions[ii], emu_file[ii],
+															  climate_data_file, scenario, './', seed, pipeline_id)
+															  ,targyears, baseyear)) for ii in np.arange(len(regions))] 
+	run_regions = dask.compute(*lazy_regions)
 
 	if len(regions) > 1:
 		outfile = pipeline_id + "_ALL_globalsl.nc"
@@ -48,7 +44,8 @@ def RebaseSamples(ncfile,targyears,baseyear):
 def emulandice_steer(ice_source, region, emu_file, climate_data_file, scenario, outdir, seed, pipeline_id ):
 	arguments = [ice_source, region, emu_file, climate_data_file, scenario, outdir, str(seed), pipeline_id]
 	subprocess.run(["bash", "emulandice_steer.sh", *arguments])
-	return(0)
+	outfile = pipeline_id + "_" + region + "_globalsl.nc"
+	return(outfile)
 
 def TotalSamples(infiles, outfile, chunksize, ice_source):
     # Reads in multiple files (delayed) and tries combine along
