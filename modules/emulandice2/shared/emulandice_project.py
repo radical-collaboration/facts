@@ -17,29 +17,28 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 
 	targyears = np.arange(pyear_start,pyear_end+.5,pyear_step)
 	lazy_regions = [dask.delayed(RebaseSamples(emulandice_steer(ice_source, regions[ii], emu_file[ii],
-															  climate_data_file, scenario, './', seed, pipeline_id)
-															  ,targyears, baseyear)) for ii in np.arange(len(regions))] 
+															  climate_data_file, scenario, './', seed, pipeline_id),
+															  targyears, baseyear)) for ii in np.arange(len(regions))] 
 	run_regions = dask.compute(*lazy_regions)
 
 	if len(regions) > 1:
 		outfile = pipeline_id + "_ALL_globalsl.nc"
 		# does all-region outfile already exist? if not, produce it
 		if not os.path.exists(outfile):
-			infiles0 = [(pipeline_id + "_" + region + "_globalsl.nc") for region in regions]
-			TotalSamples(infiles0, outfile, 50, ice_source)
+			TotalSamples(run_regions, outfile, 50, ice_source)
 
-	return(None)
+	return(run_regions)
 
 def RebaseSamples(ncfile,targyears,baseyear):
 	print('Rebasing ' + ncfile + '...')
 	ds = xr.open_dataset(ncfile)
 	attrs=ds.attrs
 	ds = ds.interp(years=targyears)-ds.interp(years=baseyear)
+	attrs['baseyear'] = baseyear
 	ds.attrs = attrs
 	print(ds.attrs)
 	ds.to_netcdf(ncfile,encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4}})
 	return(ncfile)
-
 
 def emulandice_steer(ice_source, region, emu_file, climate_data_file, scenario, outdir, seed, pipeline_id ):
 	arguments = [ice_source, region, emu_file, climate_data_file, scenario, outdir, str(seed), pipeline_id]
