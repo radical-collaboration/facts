@@ -13,9 +13,13 @@ climate_step:
         generates_climate_output: true
 
 sealevel_step: 
-    emuGIS:
-        module_set: "emulandice2"
-        module: "GrIS"
+#    emuAIS:
+#        module_set: "emulandice2"
+#        module: "AIS"
+
+#    emuGIS:
+#        module_set: "emulandice2"
+#        module: "GrIS"
 
     emuGLA:
         module_set: "emulandice2"
