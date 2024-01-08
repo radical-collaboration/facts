@@ -10,7 +10,7 @@ project:
       - --region
       - ALL
       - --emu_file
-      - emu_file/AIS_ALL_CISM_pow_exp_20_EMULATOR.RData
+      - emu_file/AIS_ALL_Kori_PISM_pow_exp_10_EMULATOR.RData
     options:
       - "pipeline_id"
       - "scenario"

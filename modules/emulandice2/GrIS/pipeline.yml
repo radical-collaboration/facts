@@ -10,7 +10,7 @@ project:
       - --region
       - ALL
       - --emu_file
-      - emu_file/GIS_ALL_CISM_pow_exp_20_EMULATOR.RData
+      - emu_file/GIS_ALL_CISM_pow_exp_01_EMULATOR.RData 
     options:
       - "pipeline_id"
       - "scenario"
