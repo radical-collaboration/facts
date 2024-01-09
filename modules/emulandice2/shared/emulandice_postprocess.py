@@ -153,16 +153,17 @@ def scale_ncfiles_by_fingerprint(matching_ncfiles_dict, grdfingerprint_dict,
 	# Initialize the	 dictionary to store the scaled and summed netcdf files
 	scaled_ncfiles_dict = {}
 
+	targyears = None
 	# Loop over all the ice sources in grdfingerprint_dict
 	for ice_source, regions in grdfingerprint_dict.items():
 		# Initialize an empty array for this ice source
 		scaled_ncfiles_dict[ice_source] = []
-		targyears = None
 
 		# Loop over each region
 		for region, regionvars in regions.items():
 			# Check if there is a non-empty list of files in matching_ncfiles_dict
 			if region in matching_ncfiles_dict and matching_ncfiles_dict[region]:
+
 				# Load the fingerprint for that region
 				regionfp = da.array(AssignFP(regionvars['fingerprint'], site_lats, site_lons))
 				regionfp = regionfp.rechunk(chunksize)
@@ -214,12 +215,12 @@ def write_localized_projections(rsl, site_ids, site_lats, site_lons, pipeline_id
 			"baseyear": baseyear,
 			"ice_source": ice_source}
 
-	(nsamps, nregions, nyears) = rsl.shape
+	(nsamps, nyears, nregions) = rsl.shape
 	rsl_out = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), rsl, 
 											{"units":"mm", "missing_value":nc_missing_value}),
 							"lat": (("locations"), site_lats),
 							"lon": (("locations"), site_lons)},
-		coords={"years": targyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
+		coords={"samples": np.arange(nsamps), "years": targyears, "locations": site_ids}, attrs=ncvar_attributes)
 
 	rsl_out.to_netcdf("{0}_localsl.nc".format(pipeline_id), encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
