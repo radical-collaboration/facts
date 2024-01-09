@@ -6,12 +6,14 @@
 # Should go to modules-data when finished
 
 AIS:
-   AIS.EAIS:
-      fingerprint: FPRINT/fprint_eais.nc
-   AIS.WAIS:
+   AIS.ALL:
       fingerprint: FPRINT/fprint_wais.nc
-   AIS.AP:
-      fingerprint: FPRINT/fprint_wais.nc
+#   AIS.EAIS:
+#      fingerprint: FPRINT/fprint_eais.nc
+#   AIS.WAIS:
+#      fingerprint: FPRINT/fprint_wais.nc
+#   AIS.AP:
+#      fingerprint: FPRINT/fprint_wais.nc
 GrIS:
    GIS.ALL:
       fingerprint: FPRINT/fprint_gis.nc
