@@ -32,6 +32,6 @@ case $MODE in
 esac
 
 echo
-echo If you have not already, please download emulandice2*
+echo If you have not already, please download emulandice2\*
 echo from https://rutgers.box.com/v/facts-module-data
 echo and place in the modules-data directory.
