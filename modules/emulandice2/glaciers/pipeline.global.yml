@@ -51,7 +51,6 @@ project:
       - "pipeline_id"
       - "scenario"
       - "climate_data_file"
-      - "nsamps"
       - "baseyear"
       - "pyear_start"
       - "pyear_end"
