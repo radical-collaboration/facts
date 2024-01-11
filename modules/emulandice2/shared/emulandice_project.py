@@ -9,16 +9,22 @@ import dask
 import scipy
 
 def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, baseyear, 
-					   seed, pyear_start, pyear_end, pyear_step):
+					   seed, pyear_start, pyear_end, pyear_step, doRebaseSamples=True):
 
 	# Run the module using the FACTS forcing data
 	if len(regions) != len(emu_file):
 		raise Exception("Number of regions and emulator files must be the same")
 
 	targyears = np.arange(pyear_start,pyear_end+.5,pyear_step)
-	lazy_regions = [dask.delayed(RebaseSamples(emulandice_steer(ice_source, regions[ii], emu_file[ii],
-															  climate_data_file, scenario, './', seed, pipeline_id),
-															  targyears, baseyear)) for ii in np.arange(len(regions))] 
+	if doRebaseSamples:
+		lazy_regions = [dask.delayed(RebaseSamples(emulandice_steer(ice_source, regions[ii], emu_file[ii],
+																climate_data_file, scenario, './', seed, pipeline_id),
+																targyears, baseyear)) for ii in np.arange(len(regions))] 
+	else:
+		lazy_regions = [dask.delayed(emulandice_steer(ice_source, regions[ii], emu_file[ii],
+														climate_data_file, scenario, './', seed, pipeline_id))
+														for ii in np.arange(len(regions))]
+		
 	run_regions = dask.compute(*lazy_regions)
 
 	if len(regions) > 1:
@@ -102,6 +108,7 @@ if __name__ == "__main__":
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2005)
+	parser.add_argument('--no_rebase', help="Do not rebase samples to baseyear or regrid time", action='store_true')
 
 	# Parse the arguments
 	args = parser.parse_args()
@@ -109,7 +116,7 @@ if __name__ == "__main__":
 	# Run the preprocessing
 	emulandice_project(args.pipeline_id, args.ice_source, args.region, args.emu_file, args.climate_data_file, 
 					   args.scenario, args.baseyear, 
-					   args.seed, args.pyear_start, args.pyear_end, args.pyear_step)
+					   args.seed, args.pyear_start, args.pyear_end, args.pyear_step, not(args.no_rebase))
 
 	# Done
 	sys.exit()
