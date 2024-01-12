@@ -39,8 +39,10 @@ def RebaseSamples(ncfile,targyears,baseyear):
 	print('Rebasing ' + ncfile + '...')
 	ds = xr.open_dataset(ncfile)
 	attrs=ds.attrs
+	slattrs=ds["sea_level_change"].attrs
 	ds = ds.interp(years=targyears)-ds.interp(years=baseyear)
 	attrs['baseyear'] = baseyear
+	ds["sea_level_change"].attrs = slattrs
 	ds.attrs = attrs
 	print(ds.attrs)
 	ds.to_netcdf(ncfile,encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4}})
