@@ -113,6 +113,11 @@ The Dockerfile also creates a ``facts-jupyter`` image, should you wish to run FA
 
      docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts -p 8888:8888 facts-jupyter jupyter lab  --ip=0.0.0.0 --port=8888
 
+If you want to place the FACTS sandbox outside the container, whether to keep the space of the container smaller or to allow the sandbox to be preserved for inspection across docker runs, you can mount a target directory at /home/jovyan/radical.pilot.sandbox, e.g.:
+
+    docker run -it --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp/radical.pilot.sandbox:/home/jovyan/radical.pilot.sandbox -w /opt/facts facts
+
+
 Testing a module with a shell script
 ------------------------------------
 
