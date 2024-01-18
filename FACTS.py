@@ -33,7 +33,7 @@ def GeneratePipeline(pcfg, ecfg, pipe_name, exp_dir, stage_names=None, workflow_
 
     # Append the input file to the list of options (if need be)
     for tagtoappend in {'input_data_file','input_compressed_data_file','climate_output_data', \
-                        'global_total_files','local_total_files','totaled_files'}:
+                        'global_total_files','local_total_files','totaled_files', 'outdir'}:
         if tagtoappend in ecfg.keys():
             ecfg['options'][tagtoappend] = ecfg[tagtoappend]
 
@@ -217,7 +217,10 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     # Send the global and local files to the shared directory for totaling, and download
     download_list=[]
     copy_output_list = []
-    outdir = os.path.join(ecfg['exp_dir'], "output")
+    if 'outdir' in ecfg['options']:
+        outdir=ecfg['options']['outdir']
+    else:
+        outdir = os.path.join(ecfg['exp_dir'], "output")
 
     if "copy_output_data" in tcfg.keys():
         copy_output_list.extend(['{0} > $SHARED/{0}'.format(mvar_replace_dict(mvar_dict, x))
@@ -398,12 +401,18 @@ def IdentifyClimateOutputFiles(pcfg,pipe_name):
  
     return pd
 
-def ParseExperimentConfig(exp_dir, globalopts=None):
+def ParseExperimentConfig(exp_dir, globalopts=None, outdir=None):
     # Initialize a list for experiment steps (each step being a set of pipelines)
     experimentsteps = {}
 
     # Define the configuration file names
     cfile = os.path.join(exp_dir, "config.yml")
+
+
+    # define output directory
+    if not outdir:
+        outdir=os.path.join(exp_dir, "output")
+        print("Output directory not specified, using default: {}".format(outdir))
 
     # Does the experiment configuration file exist?
     if not os.path.isfile(cfile):
@@ -433,6 +442,9 @@ def ParseExperimentConfig(exp_dir, globalopts=None):
     else:
         global_options['experiment_name'] = os.path.basename(exp_dir)
 
+    # add output directory to global options
+    global_options['outdir'] = outdir
+ 
     if globalopts:
         for this_mod in globalopts.keys():
             global_options[this_mod] = globalopts[this_mod]
