@@ -118,6 +118,7 @@ def GetAvailableModels(model_dir):
 
 
 def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, models, cyear_start, cyear_end):
+	seed = 5
 
 	# Load the preprocessed and calibration data
 	preprocess_file = "{}_preprocess.pkl".format(pipeline_id)
@@ -173,8 +174,7 @@ def larmip_project_icesheet(pipeline_id, nsamps, targyears, baseyear, seed, mode
 	samps_per_model = np.array([nsamps // nmodels for x in range(nmodels)])
 	remainder_samps = nsamps % nmodels
 	samps_per_model[rng.choice(nmodels, size=remainder_samps, replace=False)] += 1
-	rng.shuffle(samps_per_model)
-
+	
 	# Initialize the sea-level sample variables
 	sl_r1 = []	# EAIS
 	sl_r2 = []	# Ross
