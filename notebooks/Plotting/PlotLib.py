@@ -6,8 +6,9 @@ import os
 
 class PlotLib:
 
-    def __init__(self,root_dir='/opt/facts', version_flag='Version Unspecified'):
+    def __init__(self,root_dir='/opt/facts', version_flag='Version Unspecified', figure_dim=[10,5]):
         self.version_flag = version_flag
+        self.figure_dim = figure_dim
 
         # Sets up the necessary directories and paths
         self.root_dir = root_dir
@@ -23,7 +24,16 @@ class PlotLib:
         # Checks if the plots directory is present in the plotting notebook directory and creates one if not
         if not os.path.isdir(self.plot_dir):
             os.mkdir(self.plot_dir)
-    
+
+        # Creates the datastructure to store the SSP quantile infromation
+        data = {'module':[],'SSP-119':[],'SSP-126':[],'SSP-245':[],'SSP-370':[],'SSP-585':[]}
+        self.ssp_quantiles = pd.DataFrame(data)
+
+        # Sets the datatype of the column to be strings
+        for column in self.ssp_quantiles.columns:
+            self.ssp_quantiles[column] = self.ssp_quantiles[column].astype('str')
+
+
 
     def import_modules_dict(self):
          
@@ -90,55 +100,48 @@ class PlotLib:
             gsat_data.append(current_avg)
         return gsat_data
 
+    
+    def plot_quantiles(self,module,temperatures, sea_levels, bin_start=1, bin_stop=7.0, bin_interval=0.5, cutoff=200,show=False):
+        # Bins go from 1 C to 7.0 C in increments of 0.5 C
+        # temperature (array): the GSAT data
+        # sea_levels (array): The GMSL data
+        # bin_start (float): Starting point for binning
+        # bin_end (float): Ending point for binning
+        # interval (float): Interval steps for binning
+        # cutoff (int): The minimum number of samples for the bin to be plotted
+        # term_out (bool): prints outputs to terminal
 
-    # Bins go from 0.0 C to 8.0 C in increments of 0.5 C
-    # data1 (array): the GSAT data
-    # data2 (array): The GMSL data
-    # bin_start (float): Starting point for binning
-    # bin_end (float): Ending point for binning
-    # interval (float): Interval steps for binning
-    # cutoff (int):
-    # term_out (bool): prints outputs to terminal
-    # plot_ax (bool): Plots vertical ax line at center of bin for diagnostics
-    def bin_data(self, data1, data2, bin_start=0.25, bin_stop=5, interval=0.5, cutoff=5, term_out=False, plot_ax=True):
+        box_color = 'black'
+        median_color = 'white'
+        
 
-        # bins the data and creates a pandas dataframe
-        bins = np.arange(start=bin_start, stop=bin_stop, step=interval)
-        bin_idxs = np.arange(start=0, stop=len(bins) - 1)
+        # Create bins based on the specified start, stop, and interval
+        bin_centers = np.arange(bin_start, bin_stop, bin_interval)
+        bins = [(center - bin_interval / 2) for center in bin_centers]
+        bins.append(bins[-1] + bin_interval)
 
-        # Creates a Pandas Dataframe and defines the values to go in the individual bins outlined above
-        dataframe = pd.DataFrame({"gsat": data1, "gmsl": data2})
-        dataframe['binID'] = pd.cut(dataframe['gsat'], bins, include_lowest=True, labels=bin_idxs)
+        # Digitize the data
+        bin_idxs = np.digitize(temperatures, bins) - 1
 
-        for bin_idx in range(len(bin_idxs)):
-            counter = 0
-            for gmsl_idx in range(len(dataframe['gsat'])):
-                if dataframe['binID'][gmsl_idx] == bin_idx:
-                    counter += 1
+        # Calculate and plot the quantiles for each bin
+        for i, center in enumerate(bin_centers):
+            # Get the sea levels for the current bin
+            bin_data = [sea_levels[j] for j in range(len(sea_levels)) if bin_idxs[j] == i]
 
-        print('QUANTILES BY TEMPERATURE BIN')
-        for bin_idx in range(len(bin_idxs)):
-            current_bin = []
-            current_pos = bins[bin_idx] + (interval / 2)
+            if len(bin_data) >= cutoff:
+                # Calculate the quantiles
+                quantiles = self.get_quantiles(bin_data,show=False)
+                
+                q5 = quantiles[0]
+                q17 = quantiles[1]
+                median = quantiles[2]
+                q83 = quantiles[3]
+                q95 = quantiles[4]
 
-            # Appends the current bin with all the values from the dataframe for _this_ bin
-            for gmsl_idx in range(len(dataframe['gmsl'])):
-                if dataframe['binID'][gmsl_idx] == bin_idx:
-                    current_bin.append(dataframe['gmsl'][gmsl_idx])
-
-            if len(current_bin) >= cutoff:
-                # Gets the proper quantiles from np.quantile
-                bin_quants = np.quantile(current_bin, [.05, .17, .5, .83, .95])
-                print(f"{bin_idx} {current_pos}C: {np.round(bin_quants[2],2)} ({np.round(bin_quants[1],2)}-{np.round(bin_quants[3],2)})")
-                box_color = 'black'
-                median_color = 'white'
-
-                for i in range(len(bin_quants)):
-                    plt.vlines(x=current_pos, ymin=bin_quants[0], ymax=bin_quants[4], color='black')
-
-                # Plots a box whisker plot of the quantiles defined above
-                plt.boxplot(bin_quants,
-                            positions=[current_pos],
+                # Plot the bar (median) and the whiskers (quantiles)
+                plt.vlines(x=center, ymin=q5, ymax=q95, color='black')
+                plt.boxplot(quantiles,
+                            positions=[center],
                             sym="",
                             whis=0,
                             manage_ticks=False,
@@ -149,87 +152,94 @@ class PlotLib:
                             flierprops=dict(color=box_color, markeredgecolor=box_color),
                             medianprops=dict(color=median_color)
                             )
-
-            if plot_ax:
-                for i in range(len(bin_idxs)):
-                    plt.axvline(bins[i] + (interval / 2),
-                                linewidth=0.5,
-                                linestyle="--",
-                                color=(0, 0, 0, 0.01))
-
-        return dataframe
-
-    # Gets the quantile information from inputted GMSL data
-    def get_quants(self, data, ssp_label='',save_quants=True):
-        quants = np.quantile(data, [.05, .17, .5, .83, .95])
-        quants_out = f'{np.round(quants[2],2)} ({np.round(quants[1],2)}-{np.round(quants[3],2)})'
-        print(f'{ssp_label.upper()}: {quants_out}')
-
-        return quants_out
+                if show:
+                    print(f'{center}: {np.round(median,2)} ({np.round(q17,2)}-{np.round(q83,2)})')
 
     
-    def plot_module(self, module, exp_name, use_ssp_tag=True):
-        # Checks to see if module exists in the module dictionary
-        if module in self.module_dict:
-            self.module = module
-        else:
-            print(self.module_dict.keys())
-            raise Exception(f"{module} is an Invalid Module Name Please Choose from List Above")
+    # Gets the quantile information from inputted GMSL data
+    def get_quantiles(self,data,label='',quantiles=[0.05, 0.17, 0.50, 0.83, 0.95],show=True):
+        
+        quantiles = np.quantile(data,quantiles)
+        formatted_qaunts = [np.round(quantiles[2],2), np.round(quantiles[1],2), np.round(quantiles[3],2)]
 
+        if show:
+            print(f'{label.upper()}: {formatted_qaunts[0]} ({formatted_qaunts[1]}-{formatted_qaunts[2]})')
+        
+        return quantiles
+
+    
+    def plot_module(self, mod_idx, module, exp_name, use_ssp_tag=True):
+        
+        plt.figure(figsize=self.figure_dim)
+        
+
+        # Validate the module
+        if module not in self.module_dict:
+            raise ValueError(f"{module} is an invalid module name. Please choose from {list(self.module_dict.keys())}")
+
+        self.module = module
         module_name = self.module_dict[self.module]
-        print(f' {module_name[3]} '.center(80, '*'))
-
+        self.ssp_quantiles.loc[mod_idx, 'module'] = module_name[3]
+        
+        # Plot settings
         plot_title = module_name[3]
         xlim_range = [0.5, 5.5]
-        marker_s = 40  # Default is 40
-        alpha_val = 0.1  # Default is 0.1
-        figure_dim = [10, 5]
-        plot_colors = ['red', 'blue', 'green', 'orange', 'purple']
-        
-        plt.figure(figsize=(figure_dim[0], figure_dim[1]))
 
+        plot_colors = {'119':'red', 
+                       '126':'blue', 
+                       '245':'green', 
+                       '370':'orange', 
+                       '585':'purple'}
+
+        # Initialize lists to store the combined data
         combined_gsat = []
         combined_gmsl = []
 
-        print(f'QUANTILES BY SSP')
-        for scenario in range(len(self.scenarios)):
-            this_scenario = f'{exp_name}{self.scenarios[scenario]}'
+        
+        # Process each scenario
+        for scenario in self.scenarios:
+            this_scenario = f'{exp_name}{scenario}'
 
-            # Pulls the FAIR Temperature GSAT data for the 19 year interval
-            # Pulls the GMSL data out of a single module output
+            # Get the GSAT and GMSL data
             gsat = self.get_gsat_data(f'{self.out_dir}/{this_scenario}.{self.module_dict["fair_gsat"][0]}')
             gmsl = self.get_module_data(filename=f'{self.out_dir}/{this_scenario}.{module_name[0]}')
 
-            # Pulls the quantiles for all the gmsl ssps:
-            quants = self.get_quants(gmsl, ssp_label=f'{this_scenario}')
+            # Combine the data
+            combined_gsat.extend(gsat)
+            combined_gmsl.extend(gmsl)
 
-            # Plots the data for the current SSP / Scenario
-            plt.scatter(gsat, gmsl, marker='o', s=marker_s, color=plot_colors[scenario], alpha=alpha_val, edgecolors='none',
-                        label=f'SSP{self.scenarios[scenario]}: {quants}')
-            
-            combined_gsat = np.append(combined_gsat, gsat)
-            combined_gmsl = np.append(combined_gmsl, gmsl)
-     
-        # Overlays the binning data on the scatter plots
-        ssp_comb = self.bin_data(combined_gsat,
-                    combined_gmsl,
-                    bin_start=0.25,
-                    bin_stop=7,
-                    interval=.5,
-                    cutoff=200,
-                    term_out=True,
-                    plot_ax=False)
+            # Calculate the quantiles
+            quants = self.get_quantiles(gmsl,label=f'{this_scenario}',show=False)
+            current_quantiles = f'{np.round(quants[2],2)} ({np.round(quants[1],2)}-{np.round(quants[3],2)})'
+            self.ssp_quantiles.loc[mod_idx, f'SSP-{scenario}'] = current_quantiles
 
+            # Plot the data
+            plt.scatter(x=gsat, 
+                        y=gmsl, 
+                        marker='o', 
+                        s=40, 
+                        color=plot_colors[scenario], 
+                        alpha=0.1, 
+                        edgecolors='none',
+                        label=f'{scenario}: {current_quantiles}'
+                        )
 
-        plt.xlim(xlim_range[0], xlim_range[1])
+        # Overlay the binning data on the scatter plots
+        self.plot_quantiles(module=module_name,
+                            temperatures=combined_gsat, 
+                            sea_levels=combined_gmsl,
+                            show=False)
+
+        # Set up the plot
+        
+        plt.xlim(*xlim_range)
         plt.ylim(module_name[1], module_name[2])
-
-
         plt.title(f'{plot_title} {self.version_flag}\n NSAMPS PER SCENARIO = {2000}')
         plt.xlabel('2081-2100 Average GSAT [C$^\circ$]')
-        plt.ylabel(f'2100 GMSL [m]')
+        plt.ylabel('2100 GMSL [m]')
         plt.legend(bbox_to_anchor=(1,1), loc='upper left')
         plt.tight_layout()
 
+        # Save the plot
         plt.savefig(f'{self.plot_dir}/{module}.png')
-        #plt.show()
+
