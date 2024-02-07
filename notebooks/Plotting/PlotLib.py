@@ -26,12 +26,19 @@ class PlotLib:
             os.mkdir(self.plot_dir)
 
         # Creates the datastructure to store the SSP quantile infromation
-        data = {'module':[],'SSP-119':[],'SSP-126':[],'SSP-245':[],'SSP-370':[],'SSP-585':[]}
-        self.ssp_quantiles = pd.DataFrame(data)
+        ssp_data = {'module':[],'SSP-119':[],'SSP-126':[],'SSP-245':[],'SSP-370':[],'SSP-585':[]}
+        temp_data = {'module':[],'1.5 C':[],'2.0 C':[],'3.0 C':[],'4.0 C':[],'5.0 C':[]}
+        self.ssp_quantiles = pd.DataFrame(ssp_data)
+        self.temp_qauntiles = pd.DataFrame(temp_data)
 
         # Sets the datatype of the column to be strings
         for column in self.ssp_quantiles.columns:
             self.ssp_quantiles[column] = self.ssp_quantiles[column].astype('str')
+        # Sets the datatype of the column to be strings
+        for column in self.temp_qauntiles.columns:
+            self.temp_qauntiles[column] = self.temp_qauntiles[column].astype('str')
+
+        self.import_modules_dict()
 
 
 
@@ -114,6 +121,9 @@ class PlotLib:
         # interval (float): Interval steps for binning
         # cutoff (int): The minimum number of samples for the bin to be plotted
 
+        #
+        self.temp_qauntiles.loc[self.mod_idx, 'module'] = self.module_dict[self.module][3]
+
         # Create bins based on the specified start, stop, and interval
         bin_centers = np.arange(bin_start, bin_stop, bin_interval)
         bins = [(center - bin_interval / 2) for center in bin_centers]
@@ -127,7 +137,7 @@ class PlotLib:
         median_color = 'white'
 
         self.ylimits = [100,-100]
-
+        table_centers = ['1.5', '2.0', '3.0', '4.0', '5.0' ]
         # Calculate and plot the quantiles for each bin
         for i, center in enumerate(bin_centers):
             # Get the sea levels for the current bin
@@ -136,6 +146,7 @@ class PlotLib:
             if len(bin_data) >= cutoff:
                 # Calculate the quantiles
                 quantiles = self.get_quantiles(bin_data,show=False)
+                current_quantiles = f'{np.round(quantiles[2],2)} ({np.round(quantiles[1],2)}-{np.round(quantiles[3],2)})'
                 
                 q5 = quantiles[0]
                 q17 = quantiles[1]
@@ -165,6 +176,10 @@ class PlotLib:
                 if show:
                     print(f'{center}: {np.round(median,2)} ({np.round(q17,2)}-{np.round(q83,2)})')
 
+                for table_center in table_centers:
+                    if table_center == str(center):
+                        self.temp_qauntiles.loc[self.mod_idx, f'{center} C'] = current_quantiles
+
     
     # Gets the quantile information from inputted GMSL data
     def get_quantiles(self,data,label='',quantiles=[0.05, 0.17, 0.50, 0.83, 0.95],show=True):
@@ -189,7 +204,8 @@ class PlotLib:
 
         self.module = module
         module_name = self.module_dict[self.module]
-        self.ssp_quantiles.loc[mod_idx, 'module'] = module_name[3]
+        self.mod_idx = mod_idx
+        self.ssp_quantiles.loc[self.mod_idx, 'module'] = module_name[3]
         
         # Plot settings
         plot_title = module_name[3]
@@ -221,7 +237,7 @@ class PlotLib:
             # Calculate the quantiles
             quants = self.get_quantiles(gmsl,label=f'{this_scenario}',show=False)
             current_quantiles = f'{np.round(quants[2],2)} ({np.round(quants[1],2)}-{np.round(quants[3],2)})'
-            self.ssp_quantiles.loc[mod_idx, f'SSP-{scenario}'] = current_quantiles
+            self.ssp_quantiles.loc[self.mod_idx, f'SSP-{scenario}'] = current_quantiles
 
             # Plot the data
             plt.scatter(x=gsat, 
@@ -252,4 +268,5 @@ class PlotLib:
 
         # Save the plot
         plt.savefig(f'{self.plot_dir}/{module}.png')
+        plt.close()
 
