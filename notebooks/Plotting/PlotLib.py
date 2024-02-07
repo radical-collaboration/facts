@@ -79,20 +79,24 @@ class PlotLib:
         
        
 
-    # Function to obtain the GMSL projections for a specific module for a specified year as well as the quantiles
-    # dat (string): the Path to the the data file wished to be open
-    # year (int): The year to pull the data from
+    
     def get_module_data(self,filename, year=2100):
+        # Function to obtain the GMSL projections for a specific module for a specified year as well as the quantiles
+        # dat (string): the Path to the the data file wished to be open
+        # year (int): The year to pull the data from
+
         data = (xr.open_dataset(filename).squeeze(drop=True).sea_level_change.sel(years=year, drop=True) / 1000).values
         module_data = []
         for i in range(len(data)):
             module_data.append(data[i])
         return module_data
 
-    # Function to obtain the GSAT surface air temperature from the FAIR Temperature Module
-    # dat (string): the Path to the the data file wished to be open
-    # year (int): The year to pull the data from
+   
     def get_gsat_data(self, filename, year=np.arange(2081, 2100)):
+        # Function to obtain the GSAT surface air temperature from the FAIR Temperature Module
+        # dat (string): the Path to the the data file wished to be open
+        # year (int): The year to pull the data from
+
         data = (xr.open_dataset(filename).squeeze(drop=True).surface_temperature.sel(years=year, drop=True)).values
         gsat_data = []
         for i in range(len(data)):
@@ -109,11 +113,6 @@ class PlotLib:
         # bin_end (float): Ending point for binning
         # interval (float): Interval steps for binning
         # cutoff (int): The minimum number of samples for the bin to be plotted
-        # term_out (bool): prints outputs to terminal
-
-        box_color = 'black'
-        median_color = 'white'
-        
 
         # Create bins based on the specified start, stop, and interval
         bin_centers = np.arange(bin_start, bin_stop, bin_interval)
@@ -122,6 +121,12 @@ class PlotLib:
 
         # Digitize the data
         bin_idxs = np.digitize(temperatures, bins) - 1
+
+        # Sets the color of the boxplot and the color of the median line within the box
+        box_color = 'black'
+        median_color = 'white'
+
+        self.ylimits = [100,-100]
 
         # Calculate and plot the quantiles for each bin
         for i, center in enumerate(bin_centers):
@@ -137,6 +142,11 @@ class PlotLib:
                 median = quantiles[2]
                 q83 = quantiles[3]
                 q95 = quantiles[4]
+
+                if q5 <= self.ylimits[0]:
+                    self.ylimits[0] = q5 - 0.02
+                if q95 >= self.ylimits[1]:
+                    self.ylimits[1] = q95 + 0.02
 
                 # Plot the bar (median) and the whiskers (quantiles)
                 plt.vlines(x=center, ymin=q5, ymax=q95, color='black')
@@ -170,9 +180,9 @@ class PlotLib:
     
     def plot_module(self, mod_idx, module, exp_name, use_ssp_tag=True):
         
+        # Sets the figure size as defined in the initialization function
         plt.figure(figsize=self.figure_dim)
         
-
         # Validate the module
         if module not in self.module_dict:
             raise ValueError(f"{module} is an invalid module name. Please choose from {list(self.module_dict.keys())}")
@@ -233,7 +243,7 @@ class PlotLib:
         # Set up the plot
         
         plt.xlim(*xlim_range)
-        plt.ylim(module_name[1], module_name[2])
+        plt.ylim(self.ylimits[0], self.ylimits[1])
         plt.title(f'{plot_title} {self.version_flag}\n NSAMPS PER SCENARIO = {2000}')
         plt.xlabel('2081-2100 Average GSAT [C$^\circ$]')
         plt.ylabel('2100 GMSL [m]')
