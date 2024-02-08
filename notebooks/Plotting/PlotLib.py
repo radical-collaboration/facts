@@ -203,7 +203,6 @@ class PlotLib:
         self.ssp_quantiles.loc[self.mod_idx, 'module'] = module_name
         
         # Plot settings
-        plot_title = module_name[1]
         xlim_range = [0.5, 5.5]
 
         plot_colors = {'119':'red', 
@@ -260,12 +259,12 @@ class PlotLib:
         
         plt.xlim(*xlim_range)
         plt.ylim(self.ylimits[0], self.ylimits[1])
-        plt.title(f'{plot_title} {self.version_flag}\n NSAMPS PER SCENARIO = {2000}')
+        plt.title(f'{module_name} {localization.upper()} [FACTS {self.version_flag}]\n NSAMPS PER SCENARIO = {2000}')
         plt.xlabel('2081-2100 Average GSAT [C$^\circ$]')
         plt.ylabel('2100 GMSL [m]')
         plt.legend(bbox_to_anchor=(1,1), loc='upper left')
         plt.tight_layout()
 
         # Save the plot
-        plt.savefig(f'{self.plot_dir}/{module}.png')
+        plt.savefig(f'{self.plot_dir}/{module}_{localization}.png')
         plt.close()
