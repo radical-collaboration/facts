@@ -1,0 +1,33 @@
+
+project:
+  task1:
+    python_dependencies: "xarray dask numpy scipy"
+    executable: "python3"
+    script: "emulandice_project.py"
+    arguments:
+      - --ice_source
+      - GIS
+      - --region
+      - ALL
+      - --emu_file
+      - emu_file/GIS_ALL_CISM_pow_exp_01_EMULATOR.RData 
+    options:
+      - "pipeline_id"
+      - "scenario"
+      - "climate_data_file"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+    upload_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_environment.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.R"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
+      - "emulandice2_GrIS_project_data.tgz"
+    global_total_files:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
