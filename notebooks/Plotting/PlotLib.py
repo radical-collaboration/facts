@@ -29,14 +29,14 @@ class PlotLib:
         ssp_data = {'module':[],'SSP-119':[],'SSP-126':[],'SSP-245':[],'SSP-370':[],'SSP-585':[]}
         temp_data = {'module':[],'1.5 C':[],'2.0 C':[],'3.0 C':[],'4.0 C':[],'5.0 C':[]}
         self.ssp_quantiles = pd.DataFrame(ssp_data)
-        self.temp_qauntiles = pd.DataFrame(temp_data)
+        self.temp_quantiles = pd.DataFrame(temp_data)
 
         # Sets the datatype of the column to be strings
         for column in self.ssp_quantiles.columns:
             self.ssp_quantiles[column] = self.ssp_quantiles[column].astype('str')
         # Sets the datatype of the column to be strings
-        for column in self.temp_qauntiles.columns:
-            self.temp_qauntiles[column] = self.temp_qauntiles[column].astype('str')
+        for column in self.temp_quantiles.columns:
+            self.temp_quantiles[column] = self.temp_quantiles[column].astype('str')
 
         self.import_modules_dict()
 
@@ -122,7 +122,7 @@ class PlotLib:
         # cutoff (int): The minimum number of samples for the bin to be plotted
 
         #
-        self.temp_qauntiles.loc[self.mod_idx, 'module'] = self.module_dict[self.module][3]
+        self.temp_quantiles.loc[self.mod_idx, 'module'] = self.module_dict[self.module][3]
 
         # Create bins based on the specified start, stop, and interval
         bin_centers = np.arange(bin_start, bin_stop, bin_interval)
@@ -178,17 +178,17 @@ class PlotLib:
 
                 for table_center in table_centers:
                     if table_center == str(center):
-                        self.temp_qauntiles.loc[self.mod_idx, f'{center} C'] = current_quantiles
+                        self.temp_quantiles.loc[self.mod_idx, f'{center} C'] = current_quantiles
 
     
     # Gets the quantile information from inputted GMSL data
     def get_quantiles(self,data,label='',quantiles=[0.05, 0.17, 0.50, 0.83, 0.95],show=True):
         
         quantiles = np.quantile(data,quantiles)
-        formatted_qaunts = [np.round(quantiles[2],2), np.round(quantiles[1],2), np.round(quantiles[3],2)]
+        formatted_quants = [np.round(quantiles[2],2), np.round(quantiles[1],2), np.round(quantiles[3],2)]
 
         if show:
-            print(f'{label.upper()}: {formatted_qaunts[0]} ({formatted_qaunts[1]}-{formatted_qaunts[2]})')
+            print(f'{label.upper()}: {formatted_quants[0]} ({formatted_quants[1]}-{formatted_quants[2]})')
         
         return quantiles
 
