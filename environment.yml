@@ -9,5 +9,6 @@ dependencies:
   - netcdf4==1.6.5
   - matplotlib==3.8.2
   - pip==21.2.4
+  - pandas==2.1.4
   - pip:
     - radical.entk==1.42.0
