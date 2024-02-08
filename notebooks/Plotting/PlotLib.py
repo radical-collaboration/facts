@@ -28,6 +28,7 @@ class PlotLib:
         # Creates the datastructure to store the SSP quantile infromation
         ssp_data = {'module':[],'SSP-119':[],'SSP-126':[],'SSP-245':[],'SSP-370':[],'SSP-585':[]}
         temp_data = {'module':[],'1.5 C':[],'2.0 C':[],'3.0 C':[],'4.0 C':[],'5.0 C':[]}
+
         self.ssp_quantiles = pd.DataFrame(ssp_data)
         self.temp_quantiles = pd.DataFrame(temp_data)
 
@@ -45,12 +46,6 @@ class PlotLib:
     def import_modules_dict(self):
          
         self.scenarios = ['119','126','245','370','585']
-        
-        # Note for mod_names calls
-        # mod_names['mod_name'][0] -> file tail for the module provided
-        # mod_names['mod_name'][1] -> plot lower limit
-        # mod_names['mod_name'][2] -> plot upper limit
-        # mod_names['mod_name'][3] -> Title
         self.module_dict = {
             'fair_gsat': ['temperature.fair.temperature_gsat.nc'],
             'emulandice_ais': ['emuAIS.emulandice.AIS_', 'EMULANDICE/AIS'],
@@ -77,10 +72,6 @@ class PlotLib:
             'wf4': ['total.workflow.wf4.',  'WF4'],
             }  
 
-        
-       
-
-    
     def get_module_data(self,filename, year=2100):
         # Function to obtain the GMSL projections for a specific module for a specified year as well as the quantiles
         # dat (string): the Path to the the data file wished to be open
@@ -114,8 +105,6 @@ class PlotLib:
         # bin_end (float): Ending point for binning
         # interval (float): Interval steps for binning
         # cutoff (int): The minimum number of samples for the bin to be plotted
-
-        #
         self.temp_quantiles.loc[self.mod_idx, 'module'] = self.module_dict[self.module][1]
 
         # Create bins based on the specified start, stop, and interval
@@ -130,8 +119,10 @@ class PlotLib:
         box_color = 'black'
         median_color = 'white'
 
+        # Setting arbitrary high values for the ylimits so the script can correct them
         self.ylimits = [100,-100]
         table_centers = ['1.5', '2.0', '3.0', '4.0', '5.0' ]
+
         # Calculate and plot the quantiles for each bin
         for i, center in enumerate(bin_centers):
             # Get the sea levels for the current bin
@@ -167,6 +158,7 @@ class PlotLib:
                             flierprops=dict(color=box_color, markeredgecolor=box_color),
                             medianprops=dict(color=median_color)
                             )
+                
                 if show:
                     print(f'{center}: {np.round(median,2)} ({np.round(q17,2)}-{np.round(q83,2)})')
 
