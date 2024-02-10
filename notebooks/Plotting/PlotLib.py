@@ -28,15 +28,16 @@ class PlotLib:
         # Creates the datastructure to store the SSP quantile infromation
         ssp_data = {'module':[],'SSP-119':[],'SSP-126':[],'SSP-245':[],'SSP-370':[],'SSP-585':[]}
         temp_data = {'module':[],'1.5 C':[],'2.0 C':[],'3.0 C':[],'4.0 C':[],'5.0 C':[]}
+
         self.ssp_quantiles = pd.DataFrame(ssp_data)
-        self.temp_qauntiles = pd.DataFrame(temp_data)
+        self.temp_quantiles = pd.DataFrame(temp_data)
 
         # Sets the datatype of the column to be strings
         for column in self.ssp_quantiles.columns:
             self.ssp_quantiles[column] = self.ssp_quantiles[column].astype('str')
         # Sets the datatype of the column to be strings
-        for column in self.temp_qauntiles.columns:
-            self.temp_qauntiles[column] = self.temp_qauntiles[column].astype('str')
+        for column in self.temp_quantiles.columns:
+            self.temp_quantiles[column] = self.temp_quantiles[column].astype('str')
 
         self.import_modules_dict()
 
@@ -45,48 +46,32 @@ class PlotLib:
     def import_modules_dict(self):
          
         self.scenarios = ['119','126','245','370','585']
-        
-        # Note for mod_names calls
-        # mod_names['mod_name'][0] -> file tail for the module provided
-        # mod_names['mod_name'][1] -> plot lower limit
-        # mod_names['mod_name'][2] -> plot upper limit
-        # mod_names['mod_name'][3] -> Title  
         self.module_dict = {
             'fair_gsat': ['temperature.fair.temperature_gsat.nc'],
-            'emulandice_ais': ['emuAIS.emulandice.AIS_globalsl.nc', -0.05, .25, 'EMULANDICE/AIS'],
-            'emulandice_gris': ['emuGrIS.emulandice.GrIS_globalsl.nc', -0.05, .225, 'EMULANDICE/GrIS'],
-            'emulandice_glaciers': ['emuglaciers.emulandice.glaciers_globalsl.nc', .03, .23, 'EMULANDICE/GLACIERS'],
-            'emulandice2_ais': ['emuAIS.emulandice2.AIS_ALL_globalsl.nc', -4.5, 3.5, 'EMULANDICE2/AIS'],
-            'emulandice2_gris': ['emuGIS.emulandice2.GrIS_ALL_globalsl.nc', -2, 1.5, 'EMULANDICE2/GrIS'],
-            'emulandice2_glaciers': ['emuGLA.emulandice2.glaciers_ALL_globalsl.nc', -.75, .65, 'EMULANDICE2/GLACIERS'],
-            'ipccar5_glaciers': ['ar5glaciers.ipccar5.glaciers_globalsl.nc', .02, .275, 'IPCCAR5/GLACIERS'],
-            'ipccar5_ais': ['ar5AIS.ipccar5.icesheets_AIS_globalsl.nc', -.1, .2, 'IPCCAR5/AIS'],
-            'ipccar5_gris': ['ar5AIS.ipccar5.icesheets_GIS_globalsl.nc', .01, .35, 'IPCCAR5/GrIS'],
-            'larmip_ais': ['larmip.larmip.AIS_globalsl.nc', -.05, .65, 'LARMIP/AIS'],
-            'fittedismip_gris': ['GrIS1f.FittedISMIP.GrIS_GIS_globalsl.nc', 0, .25, 'FITTEDISMIP/GRIS'],
-            'tlm_sterodynamics': ['ocean.tlm.sterodynamics_globalsl.nc', .07, .45, 'TLM/STERODYNAMICS'],
-            'bamber19_ais': ['bamber19.bamber19.icesheets_AIS_globalsl.nc', -.20, 1.50, 'BAMBER19/AIS'],
-            'bamber19_gris': ['bamber19.bamber19.icesheets_GIS_globalsl.nc', 0, 1.03, 'BAMBER19/GrIS'],
-            'deconto21_ais': ['deconto21.deconto21.AIS_AIS_globalsl.nc', .05, .65, 'DECONTO21/AIS'],
-            'wf1e_global': ['total.workflow.wf1e.global.nc', 0.15, 0.95, 'WF1F/GLOBAL'],
-            'wf1f_global': ['total.workflow.wf1f.global.nc', 0.15, 0.95, 'WF1F/GLOBAL'],
-            'wf2e_global': ['total.workflow.wf2e.global.nc', 0.15, 0.95, 'WF2E/GLOBAL'],
-            'wf2f_global': ['total.workflow.wf2f.global.nc', 0.15, 0.95, 'WF2F/GLOBAL'],
-            'wf3e_global': ['total.workflow.wf3e.global.nc', 0.15, 0.95, 'WF3E/GLOBAL'],
-            'wf3f_global': ['total.workflow.wf3f.global.nc', 0.15, 0.95, 'WF3F/GLOBAL'],
-            'wf4_global': ['total.workflow.wf4.global.nc', 0.15, 0.95, 'WF4/GLOBAL'],
-            'wf1e_local': ['total.workflow.wf1e.local.nc', 0.15, 0.95, 'WF1F/LOCAL'],
-            'wf1f_local': ['total.workflow.wf1f.local.nc', 0.15, 0.95, 'WF1F/LOCAL'],
-            'wf2e_local': ['total.workflow.wf2e.local.nc', 0.15, 0.95, 'WF2E/LOCAL'],
-            'wf2f_local': ['total.workflow.wf2f.local.nc', 0.15, 0.95, 'WF2F/LOCAL'],
-            'wf3e_local': ['total.workflow.wf3e.local.nc', 0.15, 0.95, 'WF3E/LOCAL'],
-            'wf3f_local': ['total.workflow.wf3f.local.nc', 0.15, 0.95, 'WF3F/LOCAL'],
-            'wf4_local': ['total.workflow.wf4.local.nc', 0.15, 0.95, 'WF4/LOCAL'],
-            }
-        
-       
+            'emulandice_ais': ['emuAIS.emulandice.AIS_', 'EMULANDICE/AIS'],
+            'emulandice_gris': ['emuGrIS.emulandice.GrIS_', 'EMULANDICE/GrIS'],
+            'emulandice_glaciers': ['emuglaciers.emulandice.glaciers_',  'EMULANDICE/GLACIERS'],
+            'emulandice2_ais': ['emuAIS.emulandice2.AIS_ALL_', 'EMULANDICE2/AIS'],
+            'emulandice2_gris': ['emuGIS.emulandice2.GrIS_ALL_',  'EMULANDICE2/GrIS'],
+            'emulandice2_glaciers': ['emuGLA.emulandice2.glaciers_ALL_',  'EMULANDICE2/GLACIERS'],
+            'ipccar5_glaciers': ['ar5glaciers.ipccar5.glaciers_',  'IPCCAR5/GLACIERS'],
+            'ipccar5_ais': ['ar5AIS.ipccar5.icesheets_AIS_',  'IPCCAR5/AIS'],
+            'ipccar5_gris': ['ar5AIS.ipccar5.icesheets_GIS_',  'IPCCAR5/GrIS'],
+            'larmip_ais': ['larmip.larmip.AIS_',  'LARMIP/AIS'],
+            'fittedismip_gris': ['GrIS1f.FittedISMIP.GrIS_GIS_',  'FITTEDISMIP/GRIS'],
+            'tlm_sterodynamics': ['ocean.tlm.sterodynamics_',  'TLM/STERODYNAMICS'],
+            'bamber19_ais': ['bamber19.bamber19.icesheets_AIS_',  'BAMBER19/AIS'],
+            'bamber19_gris': ['bamber19.bamber19.icesheets_GIS_',  'BAMBER19/GrIS'],
+            'deconto21_ais': ['deconto21.deconto21.AIS_AIS_', 'DECONTO21/AIS'],
+            'wf1e': ['total.workflow.wf1e.', 'WF1F'],
+            'wf1f': ['total.workflow.wf1f.',  'WF1F'],
+            'wf2e': ['total.workflow.wf2e.',  'WF2E'],
+            'wf2f': ['total.workflow.wf2f.',  'WF2F'],
+            'wf3e': ['total.workflow.wf3e.',  'WF3E'],
+            'wf3f': ['total.workflow.wf3f.',  'WF3F'],
+            'wf4': ['total.workflow.wf4.',  'WF4'],
+            }  
 
-    
     def get_module_data(self,filename, year=2100):
         # Function to obtain the GMSL projections for a specific module for a specified year as well as the quantiles
         # dat (string): the Path to the the data file wished to be open
@@ -112,7 +97,7 @@ class PlotLib:
         return gsat_data
 
     
-    def plot_quantiles(self,module,temperatures, sea_levels, bin_start=1, bin_stop=7.0, bin_interval=0.5, cutoff=200,show=False):
+    def plot_quantiles(self,temperatures, sea_levels, bin_start=1, bin_stop=7.0, bin_interval=0.5, cutoff=200,show=False):
         # Bins go from 1 C to 7.0 C in increments of 0.5 C
         # temperature (array): the GSAT data
         # sea_levels (array): The GMSL data
@@ -120,9 +105,7 @@ class PlotLib:
         # bin_end (float): Ending point for binning
         # interval (float): Interval steps for binning
         # cutoff (int): The minimum number of samples for the bin to be plotted
-
-        #
-        self.temp_qauntiles.loc[self.mod_idx, 'module'] = self.module_dict[self.module][3]
+        self.temp_quantiles.loc[self.mod_idx, 'module'] = self.module_dict[self.module][1]
 
         # Create bins based on the specified start, stop, and interval
         bin_centers = np.arange(bin_start, bin_stop, bin_interval)
@@ -136,8 +119,10 @@ class PlotLib:
         box_color = 'black'
         median_color = 'white'
 
+        # Setting arbitrary high values for the ylimits so the script can correct them
         self.ylimits = [100,-100]
         table_centers = ['1.5', '2.0', '3.0', '4.0', '5.0' ]
+
         # Calculate and plot the quantiles for each bin
         for i, center in enumerate(bin_centers):
             # Get the sea levels for the current bin
@@ -173,27 +158,28 @@ class PlotLib:
                             flierprops=dict(color=box_color, markeredgecolor=box_color),
                             medianprops=dict(color=median_color)
                             )
+                
                 if show:
                     print(f'{center}: {np.round(median,2)} ({np.round(q17,2)}-{np.round(q83,2)})')
 
                 for table_center in table_centers:
                     if table_center == str(center):
-                        self.temp_qauntiles.loc[self.mod_idx, f'{center} C'] = current_quantiles
+                        self.temp_quantiles.loc[self.mod_idx, f'{center} C'] = current_quantiles
 
     
     # Gets the quantile information from inputted GMSL data
     def get_quantiles(self,data,label='',quantiles=[0.05, 0.17, 0.50, 0.83, 0.95],show=True):
         
         quantiles = np.quantile(data,quantiles)
-        formatted_qaunts = [np.round(quantiles[2],2), np.round(quantiles[1],2), np.round(quantiles[3],2)]
+        formatted_quants = [np.round(quantiles[2],2), np.round(quantiles[1],2), np.round(quantiles[3],2)]
 
         if show:
-            print(f'{label.upper()}: {formatted_qaunts[0]} ({formatted_qaunts[1]}-{formatted_qaunts[2]})')
+            print(f'{label.upper()}: {formatted_quants[0]} ({formatted_quants[1]}-{formatted_quants[2]})')
         
         return quantiles
 
     
-    def plot_module(self, mod_idx, module, exp_name, use_ssp_tag=True):
+    def plot_module(self, mod_idx, module, exp_name, localization='global'):
         
         # Sets the figure size as defined in the initialization function
         plt.figure(figsize=self.figure_dim)
@@ -203,12 +189,12 @@ class PlotLib:
             raise ValueError(f"{module} is an invalid module name. Please choose from {list(self.module_dict.keys())}")
 
         self.module = module
-        module_name = self.module_dict[self.module]
+        module_name = self.module_dict[self.module][1]
+        
         self.mod_idx = mod_idx
-        self.ssp_quantiles.loc[self.mod_idx, 'module'] = module_name[3]
+        self.ssp_quantiles.loc[self.mod_idx, 'module'] = module_name
         
         # Plot settings
-        plot_title = module_name[3]
         xlim_range = [0.5, 5.5]
 
         plot_colors = {'119':'red', 
@@ -221,14 +207,19 @@ class PlotLib:
         combined_gsat = []
         combined_gmsl = []
 
-        
         # Process each scenario
         for scenario in self.scenarios:
             this_scenario = f'{exp_name}{scenario}'
+            
+            # Checks to see if it's a workflow file as the paths do not inlclude the "sl" at the end 
+            if "workflow" in self.module_dict[self.module][0]:
+                self.module_path = f'{self.out_dir}/{this_scenario}.{self.module_dict[self.module][0]}{localization}.nc'
+            else:
+                self.module_path = f'{self.out_dir}/{this_scenario}.{self.module_dict[self.module][0]}{localization}sl.nc'
 
             # Get the GSAT and GMSL data
             gsat = self.get_gsat_data(f'{self.out_dir}/{this_scenario}.{self.module_dict["fair_gsat"][0]}')
-            gmsl = self.get_module_data(filename=f'{self.out_dir}/{this_scenario}.{module_name[0]}')
+            gmsl = self.get_module_data(filename=f'{self.module_path}')
 
             # Combine the data
             combined_gsat.extend(gsat)
@@ -251,7 +242,7 @@ class PlotLib:
                         )
 
         # Overlay the binning data on the scatter plots
-        self.plot_quantiles(module=module_name,
+        self.plot_quantiles(
                             temperatures=combined_gsat, 
                             sea_levels=combined_gmsl,
                             show=False)
@@ -260,13 +251,12 @@ class PlotLib:
         
         plt.xlim(*xlim_range)
         plt.ylim(self.ylimits[0], self.ylimits[1])
-        plt.title(f'{plot_title} {self.version_flag}\n NSAMPS PER SCENARIO = {2000}')
+        plt.title(f'{module_name} {localization.upper()} [FACTS {self.version_flag}]\n NSAMPS PER SCENARIO = {2000}')
         plt.xlabel('2081-2100 Average GSAT [C$^\circ$]')
         plt.ylabel('2100 GMSL [m]')
         plt.legend(bbox_to_anchor=(1,1), loc='upper left')
         plt.tight_layout()
 
         # Save the plot
-        plt.savefig(f'{self.plot_dir}/{module}.png')
+        plt.savefig(f'{self.plot_dir}/{module}_{localization}.png')
         plt.close()
-
