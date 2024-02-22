@@ -29,13 +29,14 @@ RUN pip install --no-cache-dir --upgrade \
         setuptools==69.0.2 pip==23.3.1 wheel==0.42.0
 
 RUN pip install --no-cache-dir \
-        radical.entk==1.42.0 \
+        radical.entk==1.47.0 \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
-        netcdf4==1.6.5
+        netcdf4==1.6.5 \
+        dask
         
-# installs R for ubuntu2 0.04 Focal
+# installs R for ubuntu 20.04 Focal
 RUN apt-get update &&\
     apt-get install -y --no-install-recommends r-base \
         cmake \
