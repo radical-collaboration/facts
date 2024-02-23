@@ -8,28 +8,6 @@ import numpy as np
 import dask
 import scipy
 
-def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
-
-	# If only one of the constant rate years is provided, imply the other
-	if cyear_start and not cyear_end:
-		cyear_end = cyear_start + 20
-	if cyear_end and not cyear_start:
-		cyear_start = cyear_end - 20
-
-	# Find the start and end projection values for the rate calculation
-	proj_start = np.interp(cyear_start, targyears, sample)
-	proj_end = np.interp(cyear_end, targyears, sample)
-
-	# Calculate the rate
-	rate = (proj_end - proj_start) / (cyear_end - cyear_start)
-
-	# Make a new projection
-	ext_sample = sample
-	ext_sample[targyears >= cyear_end] = proj_end + (rate * (targyears[targyears >= cyear_end] - cyear_end))
-
-	# Return this sample
-	return(ext_sample)
-
 def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, baseyear, 
 					   seed, pyear_start, pyear_end, pyear_step, cyear_start, cyear_end, doRebaseSamples=True):
 
@@ -61,7 +39,30 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 
 	return(run_regions)
 
+def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
+
+	# If only one of the constant rate years is provided, imply the other
+	if cyear_start and not cyear_end:
+		cyear_end = cyear_start + 20
+	if cyear_end and not cyear_start:
+		cyear_start = cyear_end - 20
+
+	# Find the start and end projection values for the rate calculation
+	proj_start = np.interp(cyear_start, targyears, sample)
+	proj_end = np.interp(cyear_end, targyears, sample)
+
+	# Calculate the rate
+	rate = (proj_end - proj_start) / (cyear_end - cyear_start)
+
+	# Make a new projection
+	ext_sample = sample
+	ext_sample[targyears >= cyear_end] = proj_end + (rate * (targyears[targyears >= cyear_end] - cyear_end))
+
+	# Return this sample
+	return(ext_sample)
+
 def RebaseSamples(ncfile,targyears,baseyear,cyear_start,cyear_end):
+
 	print('Rebasing ' + ncfile + '...')
 	ds = xr.open_dataset(ncfile)
 
@@ -75,14 +76,27 @@ def RebaseSamples(ncfile,targyears,baseyear,cyear_start,cyear_end):
 	ds.attrs = attrs
 	print(ds.attrs)
 
+	'''
+	# OLD VERSION OF EXTRAPOLATION... For posterity
 	if cyear_start or cyear_end:
 		for i in np.arange(len(ds["sea_level_change"])):
-			ds["sea_level_change"][i] = ExtrapolateRate(
-											sample=ds["sea_level_change"][i],
+			ds["sea_level_change"][0][i] = ExtrapolateRate(
+											sample=ds["sea_level_change"][0][i],
 											targyears=targyears,
 											cyear_start=cyear_start,
 											cyear_end=cyear_end
 											)
+	'''
+	# New more efficient method
+	if cyear_start or cyear_end:
+		for i, sample in enumerate(ds["sea_level_change"][0]):
+			print(f'This Sample: {sample}')
+			ds["sea_level_change"][0][i] = ExtrapolateRate(
+            	sample=sample,
+            	targyears=targyears,
+            	cyear_start=cyear_end,
+            	cyear_end=cyear_end
+        	)
 
 	ds.to_netcdf(ncfile,encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4}})
 	
