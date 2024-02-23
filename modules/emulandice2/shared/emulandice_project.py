@@ -10,7 +10,7 @@ import scipy
 
 def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, baseyear, 
 					   seed, pyear_start, pyear_end, pyear_step, cyear_start, cyear_end, doRebaseSamples=True):
-
+	
 	# Run the module using the FACTS forcing data
 	if len(regions) != len(emu_file):
 		raise Exception("Number of regions and emulator files must be the same")
@@ -40,6 +40,11 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 	return(run_regions)
 
 def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
+	print(f'STARTING EXTRAPOLATION:')
+	print(f'	>> Sample: {sample}')
+	print(f'	>> Target Years: {targyears}')
+	print(f'	>> cyear_start: {cyear_start}')
+	print(f'	>> cyear_end: {cyear_end}')
 
 	# If only one of the constant rate years is provided, imply the other
 	if cyear_start and not cyear_end:
@@ -62,8 +67,8 @@ def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
 	return(ext_sample)
 
 def RebaseSamples(ncfile,targyears,baseyear,cyear_start,cyear_end):
-
 	print('Rebasing ' + ncfile + '...')
+	print(f'NC FILE TO BE REBASED AND EXTRAPOLATED: {ncfile}')
 	ds = xr.open_dataset(ncfile)
 
 	attrs=ds.attrs
@@ -89,11 +94,12 @@ def RebaseSamples(ncfile,targyears,baseyear,cyear_start,cyear_end):
 	'''
 	# New more efficient method
 	if cyear_start or cyear_end:
+		print(f'STARTING EXTRAPOLATION')
 		for i, sample in enumerate(ds["sea_level_change"][0]):
 			ds["sea_level_change"][0][i] = ExtrapolateRate(
             	sample=sample,
             	targyears=targyears,
-            	cyear_start=cyear_end,
+            	cyear_start=cyear_start,
             	cyear_end=cyear_end
         	)
 
@@ -184,9 +190,11 @@ if __name__ == "__main__":
 					   args.pyear_end, 
 					   args.pyear_step,
 					   args.cyear_start,
-					   args.cyear_end, 
-					   not(args.no_rebase)
+					   args.cyear_end,
+					   not(args.no_rebase),
 					   )
+	
+	
 
 	# Done
 	sys.exit()
