@@ -90,7 +90,6 @@ def RebaseSamples(ncfile,targyears,baseyear,cyear_start,cyear_end):
 	# New more efficient method
 	if cyear_start or cyear_end:
 		for i, sample in enumerate(ds["sea_level_change"][0]):
-			print(f'This Sample: {sample}')
 			ds["sea_level_change"][0][i] = ExtrapolateRate(
             	sample=sample,
             	targyears=targyears,
