@@ -6,11 +6,11 @@ project:
     script: "emulandice_project.py"
     arguments:
       - --ice_source
-      - AIS
+      - GIS
       - --region
       - ALL
       - --emu_file
-      - emu_file/AIS_ALL_Kori_PISM_pow_exp_10_EMULATOR.RData 
+      - emu_file/GIS_ALL_CISM_pow_exp_01_EMULATOR.RData 
     options:
       - "pipeline_id"
       - "scenario"
@@ -28,7 +28,7 @@ project:
       - "%MODULE_PATH%/../shared/emulandice_steer.R"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
-      - "emulandice2_AIS_project_data.tgz"
+      - "emulandice2_GrIS_project_2100_240214_data.tgz"
     global_total_files:
       - "%PIPELINE_ID%_ALL_globalsl.nc"
     download_output_data:

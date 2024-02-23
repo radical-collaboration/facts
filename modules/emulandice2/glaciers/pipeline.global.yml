@@ -56,6 +56,8 @@ project:
       - "pyear_end"
       - "pyear_step"
       - "seed"
+      - "cyear_start"
+      - "cyear_end"
     upload_input_data:
       - "%MODULE_PATH%/../shared/emulandice_environment.sh"
       - "%MODULE_PATH%/../shared/emulandice_steer.sh"
