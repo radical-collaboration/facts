@@ -101,8 +101,12 @@ def ssp_project_landwaterstorage(Nsamps, rng_seed, dcyear_start, dcyear_end, dcr
 		targetSSP = RCPtoSSP[scen]
 		if scen not in RCPtoSSP:
 			raise Exception('Configured RCP scenario does not have a preferred SSP combination.')
+	elif scen[0:3] == "ssp":
+		targetSSP = scen[0:4]
+		if targetSSP not in SSPorder:
+			raise Exception('Configured SSP scenario is not recognized.')
 	else:
-		targetSSP = scen
+		raise Exception('Configured scenario not recognized.')
 
 	# draw scenario population from target scenario
 	popdraw = popscen[:,SSPorder[targetSSP]]
