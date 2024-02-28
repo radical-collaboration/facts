@@ -9,8 +9,8 @@ import dask
 import scipy
 
 def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_file, scenario, baseyear, 
-					   seed, pyear_start, pyear_end, pyear_step, doRebaseSamples=True):
-
+					   seed, pyear_start, pyear_end, pyear_step, cyear_start, cyear_end, doRebaseSamples=True):
+	
 	# Run the module using the FACTS forcing data
 	if len(regions) != len(emu_file):
 		raise Exception("Number of regions and emulator files must be the same")
@@ -19,7 +19,11 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 	if doRebaseSamples:
 		lazy_regions = [dask.delayed(RebaseSamples(emulandice_steer(ice_source, regions[ii], emu_file[ii],
 																climate_data_file, scenario, './', seed, pipeline_id),
-																targyears, baseyear)) for ii in np.arange(len(regions))] 
+																targyears, 
+																baseyear,
+																cyear_start=cyear_start,
+																cyear_end=cyear_end,
+																)) for ii in np.arange(len(regions))] 
 	else:
 		lazy_regions = [dask.delayed(emulandice_steer(ice_source, regions[ii], emu_file[ii],
 														climate_data_file, scenario, './', seed, pipeline_id))
@@ -35,17 +39,72 @@ def emulandice_project(pipeline_id, ice_source, regions, emu_file, climate_data_
 
 	return(run_regions)
 
-def RebaseSamples(ncfile,targyears,baseyear):
+def ExtrapolateRate(sample, targyears, cyear_start, cyear_end):
+	print(f'STARTING EXTRAPOLATION:')
+	print(f'	>> Sample: {sample}')
+	print(f'	>> Target Years: {targyears}')
+	print(f'	>> cyear_start: {cyear_start}')
+	print(f'	>> cyear_end: {cyear_end}')
+
+	# If only one of the constant rate years is provided, imply the other
+	if cyear_start and not cyear_end:
+		cyear_end = cyear_start + 20
+	if cyear_end and not cyear_start:
+		cyear_start = cyear_end - 20
+
+	# Find the start and end projection values for the rate calculation
+	proj_start = np.interp(cyear_start, targyears, sample)
+	proj_end = np.interp(cyear_end, targyears, sample)
+
+	# Calculate the rate
+	rate = (proj_end - proj_start) / (cyear_end - cyear_start)
+
+	# Make a new projection
+	ext_sample = sample
+	ext_sample[targyears >= cyear_end] = proj_end + (rate * (targyears[targyears >= cyear_end] - cyear_end))
+
+	# Return this sample
+	return(ext_sample)
+
+def RebaseSamples(ncfile,targyears,baseyear,cyear_start,cyear_end):
 	print('Rebasing ' + ncfile + '...')
+	print(f'NC FILE TO BE REBASED AND EXTRAPOLATED: {ncfile}')
 	ds = xr.open_dataset(ncfile)
+
 	attrs=ds.attrs
 	slattrs=ds["sea_level_change"].attrs
 	ds = ds.interp(years=targyears)-ds.interp(years=baseyear)
+	
 	attrs['baseyear'] = baseyear
 	ds["sea_level_change"].attrs = slattrs
+	
 	ds.attrs = attrs
 	print(ds.attrs)
+
+	'''
+	# OLD VERSION OF EXTRAPOLATION... For posterity
+	if cyear_start or cyear_end:
+		for i in np.arange(len(ds["sea_level_change"])):
+			ds["sea_level_change"][0][i] = ExtrapolateRate(
+											sample=ds["sea_level_change"][0][i],
+											targyears=targyears,
+											cyear_start=cyear_start,
+											cyear_end=cyear_end
+											)
+	'''
+	# New more efficient method
+	if cyear_start or cyear_end:
+		print(f'STARTING EXTRAPOLATION')
+		for i, sample in enumerate(ds["sea_level_change"][0]):
+			ds["sea_level_change"][0][i] = ExtrapolateRate(
+            	sample=sample,
+            	targyears=targyears,
+            	cyear_start=cyear_start,
+            	cyear_end=cyear_end
+        	)
+
 	ds.to_netcdf(ncfile,encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4}})
+	
 	return(ncfile)
 
 def emulandice_steer(ice_source, region, emu_file, climate_data_file, scenario, outdir, seed, pipeline_id ):
@@ -110,15 +169,32 @@ if __name__ == "__main__":
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
 	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2005)
+	parser.add_argument('--cyear_start', help="Constant rate calculation for projections starts at this year", default=None, type=int)
+	parser.add_argument('--cyear_end', help="Constant rate calculation for projections ends at this year", default=None, type=int)
 	parser.add_argument('--no_rebase', help="Do not rebase samples to baseyear or regrid time", action='store_true')
 
+	
 	# Parse the arguments
 	args = parser.parse_args()
 
 	# Run the preprocessing
-	emulandice_project(args.pipeline_id, args.ice_source, args.region, args.emu_file, args.climate_data_file, 
-					   args.scenario, args.baseyear, 
-					   args.seed, args.pyear_start, args.pyear_end, args.pyear_step, not(args.no_rebase))
+	emulandice_project(args.pipeline_id, 
+					   args.ice_source, 
+					   args.region, 
+					   args.emu_file, 
+					   args.climate_data_file, 
+					   args.scenario, 
+					   args.baseyear, 
+					   args.seed, 
+					   args.pyear_start, 
+					   args.pyear_end, 
+					   args.pyear_step,
+					   args.cyear_start,
+					   args.cyear_end,
+					   not(args.no_rebase),
+					   )
+	
+	
 
 	# Done
 	sys.exit()
