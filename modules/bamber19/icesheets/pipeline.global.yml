@@ -13,6 +13,8 @@ preprocess:
       - "scenario"
       - "baseyear"
       - "climate_data_file"
+    upload_input_data:
+      - "factslib/prelib.py"
     upload_and_extract_input_data:
       - "bamber19_icesheets_preprocess_data.tgz"
 
@@ -38,6 +40,8 @@ project:
       preprocess:
         task1:
           - "%PIPELINE_ID%_data.pkl"
+    upload_input_data:
+      - "factslib/utillib.py"
     global_total_files:
       - "%PIPELINE_ID%_GIS_globalsl.nc"
       - "%PIPELINE_ID%_AIS_globalsl.nc"
