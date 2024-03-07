@@ -17,7 +17,8 @@ pipeline_id = Unique identifier for the pipeline running this code
 '''
 
 def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, scenario, pipeline_id, climate_data_file = ''):
-	lib = PreProcess()
+	# Load the preprocess library from factslib/prelib.py
+	prelib = PreProcess()
 
 	# Define the target years
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
@@ -27,10 +28,10 @@ def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, 
 	mat = scipy.io.loadmat(filename)
 	
 	if len(climate_data_file) > 0:
-		wais_sampsH, eais_sampsH, gis_sampsH = lib.ExtractSamples(mat, 'corefileH', targyears, baseyear)
-		wais_sampsL, eais_sampsL, gis_sampsL = lib.ExtractSamples(mat, 'corefileL', targyears, baseyear)
+		wais_sampsH, eais_sampsH, gis_sampsH = prelib.ExtractSamples(mat, 'corefileH', targyears, baseyear)
+		wais_sampsL, eais_sampsL, gis_sampsL = prelib.ExtractSamples(mat, 'corefileL', targyears, baseyear)
         
-		lib.OutputDataAll(pipeline_id, eais_sampsH, wais_sampsH, gis_sampsH,  eais_sampsL, wais_sampsL, gis_sampsL, scenario, targyears, baseyear)
+		prelib.OutputDataAll(pipeline_id, eais_sampsH, wais_sampsH, gis_sampsH,  eais_sampsL, wais_sampsL, gis_sampsL, scenario, targyears, baseyear)
 		
 	else:
 		scenario_map = {"rcp85": 'corefileH', 
@@ -40,8 +41,8 @@ def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, 
 						}
 		
 		this_corefile = scenario_map[scenario]
-		wais_samps, eais_samps, gis_samps = lib.ExtractSamples(mat, this_corefile, targyears, baseyear)
-		lib.OutputDataScen(pipeline_id, eais_samps, wais_samps, gis_samps, scenario, targyears, baseyear)
+		wais_samps, eais_samps, gis_samps = prelib.ExtractSamples(mat, this_corefile, targyears, baseyear)
+		prelib.OutputDataScen(pipeline_id, eais_samps, wais_samps, gis_samps, scenario, targyears, baseyear)
 
 
 if __name__ == '__main__':	
