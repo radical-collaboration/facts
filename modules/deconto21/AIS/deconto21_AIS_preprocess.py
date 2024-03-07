@@ -20,8 +20,7 @@ of this module within the same workflow.
 '''
 
 def dp21_preprocess_icesheet(scenario, baseyear, pipeline_id, climate_data_file = ''):
-	prelib = PreProcess()
-
+	
 	if len(climate_data_file) > 0:
 		scens=["rcp26","rcp45","rcp85"]
 		years, eais_samps, wais_samps = ReadScenarioFile(scens[0],baseyear)
@@ -94,6 +93,8 @@ def LoadNetCDF(filename, variable):
 
 
 if __name__ == '__main__':
+
+	prelib = PreProcess()
 
 	# Initialize the command-line argument parser
 	parser = argparse.ArgumentParser(description="Run the DP21 icesheet pre-processing stage.",\

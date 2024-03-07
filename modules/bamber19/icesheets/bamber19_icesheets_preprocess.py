@@ -17,8 +17,6 @@ pipeline_id = Unique identifier for the pipeline running this code
 '''
 
 def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, scenario, pipeline_id, climate_data_file = ''):
-	# Load the preprocess library from factslib/prelib.py
-	prelib = PreProcess()
 
 	# Define the target years
 	targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
@@ -46,6 +44,8 @@ def bamber19_preprocess_icesheets(pyear_start, pyear_end, pyear_step, baseyear, 
 
 
 if __name__ == '__main__':	
+	# Load the preprocess library from factslib/prelib.py
+	prelib = PreProcess()
 	
 	# Initialize the command-line argument parser
 	parser = argparse.ArgumentParser(description="Run the pre-processing stage for the IPCC AR6 Bamber et al. 2019 ice sheet workflow",\
