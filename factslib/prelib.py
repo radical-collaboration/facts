@@ -70,11 +70,12 @@ class PreProcess:
         p.dump(outdata, outfile)
         outfile.close()
 
-    def FindRefVals(self,timeseries, years, baseyear):
+    def FindRefVals(self,timeseries, years, baseyear, append_yr=True):
 	
 	    # Append a zero to the beginning of the timeseries at year 2000
-        timeseries = np.append(np.array([0.0]), timeseries)
-        years = np.append(np.array([2000]), years)
+        if append_yr:
+            timeseries = np.append(np.array([0.0]), timeseries)
+            years = np.append(np.array([2000]), years)
 	
 	    # Interpolate to the appropriate base year
         ref_val = np.interp(baseyear, years, timeseries, left=0.0)

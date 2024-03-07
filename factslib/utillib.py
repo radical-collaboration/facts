@@ -10,29 +10,35 @@ class FactsUtils:
     def __init__(self) -> None:
         ssp119_ref = {'bamber19_ais': [-0.01, 0.10, 0.27],
                       'bamber19_gis': [0.07, 0.13, 0.32],
+                      'deconto21_ais': [0.07, 0.09, 0.12],
                       }
         
         ssp126_ref = {'bamber19_ais': [-0.01, 0.11, 0.31],
-                      'bamber19_gis': [0.07, 0.14, 0.35]
+                      'bamber19_gis': [0.07, 0.14, 0.35],
+                      'deconto21_ais': [0.07, 0.09, 0.12],
                       }
         
         ssp245_ref = {'bamber19_ais': [-0.00, 0.14, 0.43],
-                      'bamber19_gis': [0.08, 0.16, 0.44]
+                      'bamber19_gis': [0.08, 0.16, 0.44],
+                      'deconto21_ais': [0.07, 0.10, 0.29],
                       }
         
         ssp370_ref = {'bamber19_ais': [0.01, 0.17, 0.5],
-                      'bamber19_gis': [0.09, 0.19, 0.53]
+                      'bamber19_gis': [0.09, 0.19, 0.53],
+                      'deconto21_ais': [0.09, 0.22, 0.47],
                       }
         
         ssp585_ref = {'bamber19_ais': [0.02, 0.19, 0.55],
-                      'bamber19_gis': [0.09, 0.21, 0.35]
+                      'bamber19_gis': [0.09, 0.21, 0.57],
+                      'deconto21_ais': [0.12, 0.30, 0.50],
                       }
 
         self.reference_dicts = {'ssp119': ssp119_ref,
-                                'ssp126':ssp126_ref,
-                                'ssp245':ssp245_ref,
-                                'ssp370':ssp370_ref,
-                                'ssp585':ssp585_ref}
+                                'ssp126': ssp126_ref,
+                                'ssp245': ssp245_ref,
+                                'ssp370': ssp370_ref,
+                                'ssp585': ssp585_ref
+                                }
         
 
     # This function should be placed in the projection stage of the module.
@@ -48,7 +54,7 @@ class FactsUtils:
         reference_dict = self.reference_dicts[f'{scenario}'][f'{module_set}_{region}']
 
         # Create the pandas dataframe to output quantile information
-        quantile_data = {'REF': [], 'RUN': [], '%DIFF': []}
+        quantile_data = {'RUN (m)': [], 'REF (m)': [], 'DIFF (%)': []}
         quantile_data = pd.DataFrame(quantile_data)
 
         # Loops through the quantiles and adds them to the data frame
@@ -56,14 +62,15 @@ class FactsUtils:
             ref_quant = reference_dict[i]
             run_quant = self.get_quantile(data=run_data, year=year, quantile=quantiles[i])
             diff = np.round(((run_quant - ref_quant) / run_quant) * 100,2)
-            quantile_data.loc[i, 'REF'] = ref_quant
-            quantile_data.loc[i, 'RUN'] = run_quant
-            quantile_data.loc[i, '%DIFF'] = diff
+            quantile_data.loc[i, 'RUN (m)'] = run_quant
+            quantile_data.loc[i, 'REF (m)'] = ref_quant
+            quantile_data.loc[i, 'DIFF (%)'] = diff
 
         # Renames the indicies of the dataframe
         quantile_data.index = ['Q17', 'Q50', 'Q83']
 
-        quantile_data.to_csv(f'{module_set}_{region}.txt')
+        # SAves the check to the tasks directory int he sandbox
+        quantile_data.to_csv(f'{module_set}_{region}.txt', sep=' ')
         return(quantile_data)
 
     def get_quantile(self, data, year, quantile, conversion=1000, round_quant=True):
