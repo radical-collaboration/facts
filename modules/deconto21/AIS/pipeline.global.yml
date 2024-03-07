@@ -10,6 +10,8 @@ preprocess:
       - "pipeline_id"
       - "baseyear"
       - "climate_data_file"
+    upload_input_data:
+      - "factslib/prelib.py"
     upload_and_extract_input_data:
       - "deconto21_AIS_preprocess_data.tgz"
 

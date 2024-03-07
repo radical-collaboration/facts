@@ -5,6 +5,7 @@ import os
 import sys
 import copy
 from netCDF4 import Dataset
+from prelib import *
 
 ''' dp_preprocess_icesheet.py
 
@@ -19,6 +20,7 @@ of this module within the same workflow.
 '''
 
 def dp21_preprocess_icesheet(scenario, baseyear, pipeline_id, climate_data_file = ''):
+	prelib = PreProcess()
 
 	if len(climate_data_file) > 0:
 		scens=["rcp26","rcp45","rcp85"]
@@ -67,30 +69,14 @@ def ReadScenarioFile(scenario,baseyear):
 		wais_samps = LoadNetCDF(wais_filename, "samps")
 
 		# Get the values for the baseyear of interest
-		eais_refs = np.apply_along_axis(FindRefVals, axis=0, arr=eais_samps, years=years, baseyear=baseyear)
-		wais_refs = np.apply_along_axis(FindRefVals, axis=0, arr=wais_samps, years=years, baseyear=baseyear)
+		eais_refs = np.apply_along_axis(prelib.FindRefVals, axis=0, arr=eais_samps, years=years, baseyear=baseyear, append_yr=False)
+		wais_refs = np.apply_along_axis(prelib.FindRefVals, axis=0, arr=wais_samps, years=years, baseyear=baseyear, append_yr=False)
 
 		# Center the samples to the base year
 		eais_samps -= eais_refs
 		wais_samps -= wais_refs
 
 		return years, eais_samps, wais_samps
-
-
-def FindRefVals(timeseries, years, baseyear):
-
-	# Append a zero to the beginning of the timeseries at year 2000
-	# This was used for Bob's version of the DP20 data, not the current available data
-	#timeseries = np.append(np.array([0.0]), timeseries)
-	#years = np.append(np.array([2000]), years)
-
-	# Interpolate to the appropriate base year
-	ref_val = np.interp(baseyear, years, timeseries, left=0.0)
-
-	# Return the value
-	return(ref_val)
-
-
 
 def LoadNetCDF(filename, variable):
 
