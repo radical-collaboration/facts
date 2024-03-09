@@ -18,6 +18,7 @@ RUN apt-get update &&\
         libnetcdf-dev \
         gnupg \
         curl \
+        neovim \
         apt-transport-https
 
 # Creates and activates python3 virtual environment
@@ -29,15 +30,15 @@ RUN pip install --upgrade \
         setuptools pip wheel \
         radical.entk \
         pyyaml==6.0 \
+        memory_profiler \
         numpy \
         scipy \
         netCDF4 \
-        pyyaml \ 
-        matplotlib \ 
-        pandas \ 
-        xarray \ 
+        matplotlib \
+        pandas \
+        xarray \
         dask \
-        fair==1.6.4 \ 
+        fair==1.6.4
 
 # installs R for ubuntu2 0.04 Focal
 RUN apt-get update &&\
