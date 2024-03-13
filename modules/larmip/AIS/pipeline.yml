@@ -2,8 +2,8 @@
 
 preprocess:
   task1:
-    executable: "python"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py"
+    executable: "mprof run -o mem_AIS_preprocess.dat"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py memory-profiler"
     script: "larmip_icesheet_preprocess.py"
     options:
       - "scenario"
@@ -15,7 +15,7 @@ preprocess:
 
 fit:
   task1:
-    executable: "python"
+    executable: "mprof run -o mem_AIS_fit.dat"
     script: "larmip_icesheet_fit.py"
     options:
       - "pipeline_id"
@@ -29,7 +29,7 @@ fit:
 
 project:
   task1:
-    executable: "python"
+    executable: "mprof run -o mem_AIS_project.dat"
     script: "larmip_icesheet_project.py"
     options:
       - "nsamps"
@@ -62,7 +62,7 @@ project:
 
 postprocess:
   task1:
-    executable: "python"
+    executable: "mprof run -o mem_AIS_postprocess.dat"
     script: "larmip_icesheet_postprocess.py"
     options:
       - "locationfile"

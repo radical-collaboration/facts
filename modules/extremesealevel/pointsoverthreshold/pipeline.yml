@@ -2,8 +2,8 @@
 
 preprocess:
   task1:
-    executable: "python3"
-    python_dependencies]: "numpy pandas netCDF4 pyyaml matplotlib"
+    executable: "mprof run -o mem_ESL_preprocess.dat"
+    python_dependencies: "numpy pandas netCDF4 pyyaml matplotlib memory-profiler"
     script: "extremesealevel_pointsoverthreshold_preprocess.py"
     options:
       - "minDays"
@@ -22,7 +22,7 @@ preprocess:
 
 fit:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_ESL_fit.dat"
     script: "extremesealevel_pointsoverthreshold_fit.py"
     options:
       - "station_data_file"
@@ -37,7 +37,7 @@ fit:
 
 project:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_ESL_project.dat"
     script: "extremesealevel_pointsoverthreshold_project.py"
     options:
       - "esl_fit_file"

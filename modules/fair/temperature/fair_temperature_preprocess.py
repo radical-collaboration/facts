@@ -65,6 +65,7 @@ def prep_rcmip_emissions_conc(scenario, rcmip_file):
 	return (emis)
 
 
+# @profile
 def fair_preprocess_temperature(scenario, rcmip_file, pipeline_id):
 
 	# Definitions

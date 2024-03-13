@@ -2,8 +2,8 @@
 
 workflow:
   task1:
-    executable: "python3"
-    python_dependencies: "numpy netCDF4 pyyaml dask[array]"
+    executable: "mprof run -o mem_total.dat"
+    python_dependencies: "numpy netCDF4 pyyaml dask[array] memory-profiler"
     script: "total_workflow.py"
     arguments: 
       - "--directory"

@@ -4,7 +4,7 @@ import argparse
 import pickle
 import xarray as xr
 
-
+# @profile
 def fair_fit_temperature(param_file, pipeline_id):
 
 	# Load the AR6 calibrated parameters for the FAIR model

@@ -111,6 +111,7 @@ def Smooth(x, w=5):
 
 
 
+# @profile
 def fair_project_temperature(nsamps, seed, cyear_start, cyear_end, smooth_win, pipeline_id):
 
 	# Load the preprocessed data

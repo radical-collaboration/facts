@@ -3,8 +3,8 @@
 
 preprocess:
   task1:
-    executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml h5py"
+    executable: "mprof run -o mem_stereo_preprocess.dat"
+    python_dependencies: "numpy scipy netCDF4 pyyaml h5py memory-profiler"
     script: "tlm_sterodynamics_preprocess.py"
     options:
       - "scenario"
@@ -39,7 +39,7 @@ preprocess:
 
 fit:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_stereo_fit.dat"
     script: "tlm_sterodynamics_fit.py"
     options:
       - "pipeline_id"
@@ -53,7 +53,7 @@ fit:
 
 project:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_stereo_project.dat"
     script: "tlm_sterodynamics_project.py"
     options:
       - "pipeline_id"
@@ -75,7 +75,7 @@ project:
 
 postprocess:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_stereo_postprocess.dat"
     script: "tlm_sterodynamics_postprocess.py"
     options:
       - "nsamps"

@@ -2,8 +2,8 @@
 
 preprocess:
   task1:
-    executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array]"
+    executable: "mprof run -o mem_Grls_preprocess.dat"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array] memory-profiler"
     script: "FittedISMIP_GrIS_preprocess.py"
     options:
       - "climate_data_file"
@@ -20,7 +20,7 @@ preprocess:
 
 fit:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_Grls_fit.dat"
     script: "FittedISMIP_GrIS_fit.py"
     options:
       - "pipeline_id"
@@ -30,7 +30,7 @@ fit:
 
 project:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_Grls_project.dat"
     script: "FittedISMIP_GrIS_project.py"
     options:
       - "nsamps"
@@ -54,7 +54,7 @@ project:
 
 postprocess:
   task1:
-    executable: "python3"
+    executable: "mprof run -o mem_Grls_postprocess.dat"
     script: "FittedISMIP_GrIS_postprocess.py"
     options:
       - "chunksize"
