@@ -1,10 +1,13 @@
 .DS_Store
 *.pkl
+*.tgz
 /re.session*
 /modules-data/*.tgz
 /modules/emulandice/shared/packrat
 /modules/emulandice/shared/*gz
 \#*
+/fittedismiptest/*.csv
+/fittedismiptest/*.h5
 
 # C extensions
 *.so

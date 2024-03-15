@@ -1,0 +1,76 @@
+# FittedISMIP Ice Sheet Pipeline
+
+preprocess:
+  task1:
+    executable: "mprof run -o mem_Grls_preprocess.dat"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib h5py xarray dask[array] memory-profiler"
+    script: "FittedISMIP_GrIS_preprocess.py"
+    options:
+      - "climate_data_file"
+      - "scenario"
+      - "pipeline_id"
+      - "tlm_data"
+    upload_input_data:
+      - "Import2lmData.py"
+      - "import_temp_data.py"
+      - "filter_temp_data.py"
+    upload_and_extract_input_data:
+      - "ipccar6_climate_data.tgz"
+
+
+fit:
+  task1:
+    executable: "mprof run -o mem_Grls_fit.dat"
+    script: "FittedISMIP_GrIS_fit.py"
+    options:
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - "FittedISMIP_icesheet_fit_data.tgz"
+
+
+project:
+  task1:
+    executable: "mprof run -o mem_Grls_project.dat"
+    script: "FittedISMIP_GrIS_project.py"
+    options:
+      - "nsamps"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "crateyear_start"
+      - "crateyear_end"
+      - "seed"
+      - "baseyear"
+      - "pipeline_id"
+    copy_input_data:
+      preprocess:
+        task1:
+          - "%PIPELINE_ID%_data.pkl"
+      fit:
+        task1:
+          - "%PIPELINE_ID%_fit.pkl"
+    global_total_files:
+      - "%PIPELINE_ID%_GIS_globalsl.nc"
+
+postprocess:
+  task1:
+    executable: "mprof run -o mem_Grls_postprocess.dat"
+    script: "FittedISMIP_GrIS_postprocess.py"
+    options:
+      - "chunksize"
+      - "locationfile"
+      - "pipeline_id"
+    upload_input_data:
+      - 'read_locationfile.py'
+      - 'AssignFP.py'
+      - 'ReadFingerprint.py'
+    upload_and_extract_input_data:
+      - 'grd_fingerprints_data.tgz'
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_projections.pkl"
+    local_total_files:
+      - "%PIPELINE_ID%_GIS_localsl.nc"
