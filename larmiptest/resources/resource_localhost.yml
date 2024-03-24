@@ -1,0 +1,7 @@
+resource-desc:
+  resource: 'local.localhost'
+  walltime: 600
+  cpus: 2
+  gpus: 0
+  queue: ''
+  project: ''
