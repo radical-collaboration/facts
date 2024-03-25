@@ -6,11 +6,11 @@ global-options:
     pyear_step: 10
     baseyear: 2005
 
-# climate_step:
-#     temperature:
-#         module_set: "fair"
-#         module: "temperature"
-#         generates_climate_output: true
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        generates_climate_output: true
 #        input_data_file:
 #              - "emissions.csv"
 #        options:
@@ -44,14 +44,14 @@ sealevel_step:
     #         - "wf3f"
     #         - "wf4"
 
-# totaling_step:
-    # total:
-    #     module_set: "facts"
-    #     module: "total"
-    #     loop_over_workflows: true
-    #     loop_over_scales: true
-    #     stages:
-    #         - workflow
+totaling_step:
+    total:
+        module_set: "facts"
+        module: "total"
+        loop_over_workflows: true
+        loop_over_scales: true
+        stages:
+            - workflow
 
 # esl_step:
     # extremesealevel:
