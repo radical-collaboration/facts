@@ -1,0 +1,16 @@
+# FAIR temperature pipeline configuration
+
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair==2.1.4 pooch"
+    script: "fair2_project_temperature.py"
+    options:
+      - "scenario"
+      - "rcmip_file"
+      - "pipeline_id"
+    upload_input_data:
+      - "modules-data/species_configs_properties_calibration1.2.0.csv"
+    upload_and_extract_input_data:
+      - "fair_temperature_preprocess_data.tgz"
+      
