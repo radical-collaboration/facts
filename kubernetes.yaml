@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pods
+spec:
+  containers:
+    - name: fairtest-container
+      image: fairtest
+      imagePullPolicy: Always
+      command: ["/bin/sh", "-c"]
+      args:
+        - ./fairtest/execute.sh
+      volumeMounts:
+        - name: shared-data
+          mountPath: /data/fairtest 
+    # - name: fittedismiptest-container
+    #   image: fittedismiptest
+    #   command: ["/bin/sh", "-c"]
+    #   args:
+    #     - ./fittedismiptest/execute.sh
+    #   volumeMounts:
+    #     - name: shared-data
+    #       mountPath: /data/fittedismiptest
+  volumes:
+    - name: shared-data
+      emptyDir: {}
