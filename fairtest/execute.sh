@@ -19,3 +19,5 @@ python3 fair_temperature_project.py "--pipeline_id" "configTest.temperature.fair
 
 
 python3 fair_temperature_postprocess.py "--pipeline_id" "configTest.temperature.fair.temperature"
+
+ls -la

@@ -14,3 +14,5 @@ python3 FittedISMIP_GrIS_project.py "--nsamps" "2000" "--pyear_start" "2020" "--
 
 tar -xvf ./modules-data/grd_fingerprints_data.tgz
 python3 FittedISMIP_GrIS_postprocess.py "--pipeline_id" "configTest.GrIS1f.FittedISMIP.GrIS"
+
+ls -la

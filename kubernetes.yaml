@@ -1,26 +1,32 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pods
+  name: test
 spec:
   containers:
     - name: fairtest-container
-      image: fairtest
+      image: qadischaudhry/fairtest:latest
       imagePullPolicy: Always
-      command: ["/bin/sh", "-c"]
-      args:
-        - ./fairtest/execute.sh
+      workingDir: /opt/fairtest
+      command: ["/bin/sh", "execute.sh"]
       volumeMounts:
-        - name: shared-data
-          mountPath: /data/fairtest 
-    # - name: fittedismiptest-container
-    #   image: fittedismiptest
-    #   command: ["/bin/sh", "-c"]
-    #   args:
-    #     - ./fittedismiptest/execute.sh
-    #   volumeMounts:
-    #     - name: shared-data
-    #       mountPath: /data/fittedismiptest
+        - name: fairtest-hostdir
+          mountPath: /opt/fairtest
+    - name: fittedismiptest-container
+      image: qadischaudhry/fittedismiptest:latest
+      imagePullPolicy: Always
+      workingDir: /opt/fittedismiptest
+      command: ["/bin/sh", "execute.sh"]
+      volumeMounts:
+        - name: fittedismiptest-hostdir
+          mountPath: /opt/fittedismiptest
+
   volumes:
-    - name: shared-data
-      emptyDir: {}
+    - name: fairtest-hostdir
+      hostPath:
+        path: /Users/qadischaudhry/Capstone/facts/fairtest
+    - name: fittedismiptest-hostdir
+      hostPath:
+        path: /Users/qadischaudhry/Capstone/facts/fittedismiptest
+
+  restartPolicy: OnFailure
