@@ -27,3 +27,5 @@ python3 larmip_icesheet_postprocess.py "--pipeline_id" "configTest.larmip.larmip
 echo "=== larmip postprocess step COMPLETE ==="
 
 echo "=== larmip COMPLETE ==="
+
+ls -la

@@ -8,6 +8,10 @@
 \#*
 /fittedismiptest/*.csv
 /fittedismiptest/*.h5
+/larmiptest/*.csv
+/larmiptest/*.h5
+/larmiptest/*/
+/larmiptest/*/*/
 
 # C extensions
 *.so

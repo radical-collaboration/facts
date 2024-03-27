@@ -20,6 +20,14 @@ spec:
       volumeMounts:
         - name: fittedismiptest-hostdir
           mountPath: /opt/fittedismiptest
+    - name: larmiptest-container
+      image: qadischaudhry/larmiptest:latest
+      imagePullPolicy: Always
+      workingDir: /opt/larmiptest
+      command: ["/bin/sh", "execute.sh"]
+      volumeMounts:
+        - name: larmiptest-hostdir
+          mountPath: /opt/larmiptest
 
   volumes:
     - name: fairtest-hostdir
@@ -28,5 +36,8 @@ spec:
     - name: fittedismiptest-hostdir
       hostPath:
         path: /Users/qadischaudhry/Capstone/facts/fittedismiptest
+    - name: larmiptest-hostdir
+      hostPath:
+        path: /Users/qadischaudhry/Capstone/facts/larmiptest
 
   restartPolicy: OnFailure
