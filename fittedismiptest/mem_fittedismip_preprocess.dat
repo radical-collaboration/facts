@@ -1,0 +1,4 @@
+CMDLINE /usr/bin/python3 FittedISMIP_GrIS_preprocess.py --scenario ssp585 --pipeline_id configTest.GrIS1f.FittedISMIP.GrIS
+MEM 5.125000 1711731043.0159
+MEM 38.128906 1711731043.1184
+MEM 65.656250 1711731043.2196

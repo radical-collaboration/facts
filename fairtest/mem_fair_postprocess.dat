@@ -1,0 +1,2 @@
+CMDLINE /usr/bin/python3 fair_temperature_postprocess.py --pipeline_id configTest.temperature.fair.temperature
+MEM 4.500000 1711731319.9044
