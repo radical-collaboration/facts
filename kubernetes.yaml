@@ -28,6 +28,14 @@ spec:
       volumeMounts:
         - name: larmiptest-hostdir
           mountPath: /opt/larmiptest
+    - name: tlmtest-container
+      image: qadischaudhry/tlmtest:latest
+      imagePullPolicy: Always
+      workingDir: /opt/tlmtest
+      command: ["/bin/sh", "execute.sh"]
+      volumeMounts:
+        - name: tlmtest-hostdir
+          mountPath: /opt/tlmtest
 
   volumes:
     - name: fairtest-hostdir
@@ -39,5 +47,8 @@ spec:
     - name: larmiptest-hostdir
       hostPath:
         path: /Users/qadischaudhry/Capstone/facts/larmiptest
+    - name: tlmtest-hostdir
+      hostPath:
+        path: /Users/qadischaudhry/Capstone/facts/tlmtest
 
   restartPolicy: OnFailure

@@ -1,9 +1,0 @@
-resource-desc:
-  resource: 'rutgers.amarel'
-  walltime: 600
-  cpus: 12
-  memory: 128000
-  gpus: 0
-  queue: 'main'
-  project: ''
-  schema: 'local'

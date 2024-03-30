@@ -1,0 +1,3 @@
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 4.750000 1711821910.6243
+MEM 33.882812 1711821910.7260

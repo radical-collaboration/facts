@@ -12,6 +12,8 @@
 /larmiptest/*.h5
 /larmiptest/*/
 /larmiptest/*/*/
+/tlmtest/*.h5
+/tlmtest/*.csv
 
 # C extensions
 *.so

@@ -1,0 +1,6 @@
+CMDLINE /usr/bin/python3 tlm_sterodynamics_project.py --pipeline_id configTest.ocean.tlm.sterodynamics --nsamps 2000
+MEM 4.625000 1711821910.8732
+MEM 53.914062 1711821910.9742
+MEM 73.332031 1711821911.0752
+MEM 91.207031 1711821911.1761
+MEM 100.160156 1711821911.2779
