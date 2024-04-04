@@ -9,7 +9,7 @@ SHELL [ "/bin/bash", "-c" ]
 # installs dependences
 RUN apt-get update &&\
     apt-get install -y \
-        python3.9 \
+        python3.8 \
         python3-pip \
         python3.8-venv \
         git \
@@ -29,7 +29,7 @@ RUN pip install --no-cache-dir --upgrade \
         setuptools==69.0.2 pip==23.3.1 wheel==0.42.0
 
 RUN pip install --no-cache-dir \
-        radical.entk==1.47.0 \
+        radical.entk==1.42.0 \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
