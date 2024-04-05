@@ -9,9 +9,9 @@ SHELL [ "/bin/bash", "-c" ]
 # installs dependences
 RUN apt-get update &&\
     apt-get install -y \
-        python3.11 \
+        python3.9 \
         python3-pip \
-        python3.11-venv \
+        python3.8-venv \
         git \
         sudo \
         libhdf5-dev \
@@ -22,14 +22,15 @@ RUN apt-get update &&\
 
 # Creates and activates python3 virtual environment
 RUN python3 -m venv --system-site-packages factsVe &&\
-    source factsVe/bin/activate
-
-# installs required FACTS packages
-RUN pip install --no-cache-dir --upgrade \
-        setuptools==69.0.2 pip==23.3.1 wheel==0.42.0
-
-RUN pip install --no-cache-dir \
-        radical.entk==1.47.0 \
+    source factsVe/bin/activate && \
+    pip install --no-cache-dir --upgrade \
+        setuptools==69.0.2 pip==23.3.1 wheel==0.42.0 && \
+    pip install --no-cache-dir \
+        radical.entk==1.42.0 \
+        radical.gtod==1.47.0 \
+        radical.pilot==1.42.0 \
+        radical.saga==1.42.0 \
+        radical.utils==1.43.0 \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
@@ -42,7 +43,6 @@ RUN apt-get update &&\
         cmake \
         libopenblas-dev \
         gfortran
-
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
