@@ -81,4 +81,5 @@ if __name__ == "__main__":
     
     input_locations = open_input_locations(sl_fn,n_samples)
     extremesl_fit = get_ESL_statistics(esl_data,esl_data_path,input_locations,args.match_limit,preproc_settings,n_samples,f)
+    extremesl_fit.to_netcdf('esl_statistics.nc',mode='w')
     exit()
