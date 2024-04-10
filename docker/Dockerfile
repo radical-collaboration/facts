@@ -30,6 +30,10 @@ RUN pip install --no-cache-dir --upgrade \
 
 RUN pip install --no-cache-dir \
         radical.entk==1.42.0 \
+        radical.gtod==1.47.0 \
+        radical.pilot==1.47.0 \
+        radical.saga==1.47.0 \
+        radical.utils==1.47.0 \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
