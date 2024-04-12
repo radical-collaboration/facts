@@ -1,10 +1,13 @@
 import xarray as xr
+import dask
 import pandas as pd
 import os
 import numpy as np
-from I_O import open_input_locations, esl_statistics_dict_to_ds, save_ds_to_netcdf, open_gpd_parameters,get_coast_rp_return_curves
-from esl_analysis import ESL_stats_from_raw_GESLA, ESL_stats_from_gtsm_dmax, multivariate_normal_gpd_samples_from_covmat, get_return_curve_gpd
 import argparse
+from I_O import load_config, open_input_locations, esl_statistics_dict_to_ds, save_ds_to_netcdf, open_gpd_parameters,get_coast_rp_return_curves
+from esl_analysis import ESL_stats_from_raw_GESLA, ESL_stats_from_gtsm_dmax, multivariate_normal_gpd_samples_from_covmat, get_return_curve_gpd
+import tarfile
+import fnmatch
 
 # Do not warn about chained assignments
 pd.options.mode.chained_assignment = None  # default='warn'
@@ -45,14 +48,14 @@ if __name__ == "__main__":
     parser.add_argument('--deseasonalize', help="Boolean flag to indicate whether to remove mean seasonal cycle prior to ESL analysis.",type=int, default=1)
     parser.add_argument('--detrend', help="Boolean flag to indicate whether to remove linear trend prior to ESL analysis.",type=int, default=1)
     parser.add_argument('--subtract_amean', help="Boolean flag to indicate whether to remove annual means prior to ESL analysis.",type=int, default=1)
-    parser.add_argument('--match_lim', help="Radius around requested locations to find a matching tide gauge in GESLA database", type=float, default=0.1)
+    parser.add_argument('--match_lim', help="Radius around requested locations to find a matching tide gauge in GESLA database", type=float, default=10)
     parser.add_argument('--gpd_pot_threshold', help="Percentile for GPD analysis [default=99]", type=float, default=99)
     parser.add_argument('--decluster_window', help="Maximum number of days that define a cluster for extreme events [default=3]", type=int, default=3)
     parser.add_argument('--decluster_method', help="Method to use for declustering peaks.", default="rolling_max")
-    parser.add_argument('--nsamps', help="Number of samples to draw [default = 20000]", type=int, default=20000)
+    parser.add_argument('--nsamps', help="Number of samples to draw [default = 20000]", type=int, default=2000)
     parser.add_argument('--total_localsl_file', help="Total localized sea-level projection file. Site lats/lons are taken from this file and mapped to the GESLA database", default="total-workflow_localsl.nc")
     parser.add_argument('--esl_data', help="Type of data used for the ESL analysis.", default="gesla3")
-    parser.add_argument('--esl_data_path', help="Directory containing requested ESL data", default=os.path.join(os.path.dirname(__file__), ""))
+    parser.add_argument('--esl_data_path', help="Directory containing requested ESL data", default=os.path.join(os.path.dirname(__file__), "gesla3_data"))
 	
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
     
@@ -62,6 +65,7 @@ if __name__ == "__main__":
     #generate dictionary with preprocessing settings
     preproc_settings = {}
     preproc_settings['min_yrs']             = args.minYears
+    preproc_settings['store_esls']          = False
     preproc_settings['resample_freq']       = args.resample_freq
     preproc_settings['deseasonalize']       = args.deseasonalize
     preproc_settings['detrend']             = args.detrend
@@ -80,6 +84,6 @@ if __name__ == "__main__":
     f=np.append(f,np.arange(101,183))    
     
     input_locations = open_input_locations(sl_fn,n_samples)
-    extremesl_fit = get_ESL_statistics(esl_data,esl_data_path,input_locations,args.match_limit,preproc_settings,n_samples,f)
-    extremesl_fit.to_netcdf('esl_statistics.nc',mode='w')
+    extremesl_fit = get_ESL_statistics(esl_data,esl_data_path,input_locations,args.match_lim,preproc_settings,n_samples,f)
+    extremesl_fit.to_netcdf(os.path.join(os.path.dirname(__file__),'{}_esl_statistics.nc'.format(args.pipeline_id)),mode='w')
     exit()
