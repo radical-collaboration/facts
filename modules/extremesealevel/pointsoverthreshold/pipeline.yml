@@ -3,7 +3,7 @@
 preprocess:
   task1:
     executable: "python3"
-    python_dependencies]: "numpy pandas netCDF4 pyyaml matplotlib"
+    python_dependencies: "numpy pandas netCDF4 pyyaml matplotlib"
     script: "extremesealevel_pointsoverthreshold_preprocess.py"
     options:
       - "minDays"
