@@ -6,3 +6,4 @@ find *test -name "develop.sh" -exec sh {} \;
 
 kubectl delete pod test
 kubectl apply -f kubernetes.yaml
+kubectl get pods

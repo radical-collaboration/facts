@@ -4,3 +4,7 @@ MEM 39.859375 1711731043.3463
 CMDLINE /usr/bin/python3 larmip_icesheet_fit.py --pipeline_id configTest.larmip.larmip.AIS
 MEM 4.375000 1712347165.6296
 MEM 28.410156 1712347165.7325
+CMDLINE /usr/bin/python3 larmip_icesheet_fit.py --pipeline_id configTest.larmip.larmip.AIS
+MEM 4.375000 1712940255.7257
+MEM 23.457031 1712940255.8262
+MEM 38.082031 1712940255.9272
