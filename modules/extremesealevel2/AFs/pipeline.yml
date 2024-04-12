@@ -3,7 +3,7 @@
 fit:
   task1:
     executable: "python3"
-    python_dependencies]: "numpy pandas xarray os scipy"
+    python_dependencies: "numpy pandas netCDF4 xarray scipy tqdm openpyxl dask"
     script: "extremesealevel2_AFs_fit.py"
     options:
       - "minYears"
@@ -16,11 +16,15 @@ fit:
       - "decluster_window"
       - "decluster_method"
       - "nsamps"
-      - "total_local_sl_file"
+      - "total_localsl_file"
       - "esl_data"
       - "esl_data_path"
       - "pipeline_id"
+    upload_and_extract_input_data:
+      - "gesla3_data.tgz"
     upload_input_data:
       - 'esl_analysis.py'
+      - 'utils.py'
       - 'I_O.py'
+      - 'preprocessing.py'
       - 'gesla.py'
