@@ -8,7 +8,6 @@ import xarray as xr
 import pandas as pd
 import yaml
 import os
-from projecting import find_flopros_protection_levels, find_diva_protection_levels
 from utils import mindist
 
 def load_config(path_to_config):
@@ -137,8 +136,10 @@ def lazy_output_to_ds(output,f,out_qnts,esl_statistics,target_years=None,target_
     
     return output_ds
 
+'''
 def get_refFreqs(refFreq_data,input_locations,esl_statistics,path_to_refFreqs=None):
-    ''' determine reference frequencies for queried input_locations based on user options in config'''
+    from projecting import find_flopros_protection_levels, find_diva_protection_levels
+#    determine reference frequencies for queried input_locations based on user options in config
     
     if refFreq_data == 'diva': #find contemporary DIVA flood protection levels
         qlats = input_locations.lat.sel(locations=esl_statistics.locations).values
@@ -157,7 +158,7 @@ def get_refFreqs(refFreq_data,input_locations,esl_statistics,path_to_refFreqs=No
         raise Exception('Rquested reference frequency must be "diva", "flopros" or a constant.')
             
     return refFreqs
-
+'''
 def open_gpd_parameters(input_data,data_path,input_locations,n_samples,match_dist_limit):
     if input_data == 'hermans2023':
         gpd_params = xr.open_dataset(data_path) #open GPD parameters
