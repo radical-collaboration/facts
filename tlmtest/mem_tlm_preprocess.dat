@@ -1066,3 +1066,13 @@ CMDLINE /usr/bin/python3 tlm_sterodynamics_preprocess.py --scenario ssp585 --bas
 MEM 4.250000 1712349008.0014
 MEM 28.027344 1712349008.1050
 MEM 49.152344 1712349008.2072
+CMDLINE /usr/bin/python3 tlm_sterodynamics_preprocess.py --scenario ssp585 --baseyear 2005 --pyear_start 2020 --pyear_end 2150 --pyear_step 10 --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 4.250000 1712940622.8774
+MEM 20.710938 1712940622.9793
+MEM 32.210938 1712940623.0800
+MEM 0.000000 1712940623.1813
+CMDLINE /usr/bin/python3 tlm_sterodynamics_preprocess.py --scenario ssp585 --baseyear 2005 --pyear_start 2020 --pyear_end 2150 --pyear_step 10 --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 4.375000 1712956178.7086
+MEM 22.902344 1712956178.8099
+MEM 28.277344 1712956178.9106
+MEM 50.152344 1712956179.0121
