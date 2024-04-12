@@ -1,0 +1,58 @@
+# Totaling pipeline configuration
+
+workflow:
+  task1:
+    executable: "mprof run -o mem_total.dat"
+    python_dependencies: "numpy netCDF4 pyyaml dask[array] memory-profiler"
+    script: "total_workflow.py"
+    arguments: 
+      - "--directory"
+      - "$RP_PILOT_SANDBOX/to_total"
+      - "--workflows"
+      - "workflows.yml"
+      - "--workflow"
+      - '%WORKFLOW_NAME%'
+      - "--scale"
+      - '%SCALE_NAME%'
+      - "--experiment_name"
+      - '%EXPERIMENT_NAME%'
+    options:
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+    upload_input_data:
+      - '%EXP_DIR%/workflows.yml'
+    totaled_files:
+      - "%EXPERIMENT_NAME%.total.workflow.%WORKFLOW_NAME%.%SCALE_NAME%.nc"
+
+global:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy netCDF4 pyyaml dask"
+    script: "total_workflow.py"
+    arguments: 
+      - "--directory"
+      - "$RP_PILOT_SANDBOX/to_total/global/"
+    options:
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+    totaled_files:
+      - "total-workflow_globalsl.nc"
+
+
+local:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy netCDF4 pyyaml dask"
+    script: "total_workflow.py"
+    arguments: 
+      - "--local"
+      - "--directory"
+      - "$RP_PILOT_SANDBOX/to_total/local/"
+    options:
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+    totaled_files:
+      - "total-workflow_localsl.nc"
