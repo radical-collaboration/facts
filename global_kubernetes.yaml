@@ -25,7 +25,7 @@ spec:
       hostPath:
         path: homedir/Capstone/facts/totaltest/to_total
 
-  containers:
+  initContainers:
     # - name: fairtest-container
     #   image: whoami/facts:fairtest
     #   imagePullPolicy: Always
@@ -64,6 +64,7 @@ spec:
     #   volumeMounts:
     #     - name: tlmtest-hostdir
     #       mountPath: /opt/tlmtest
+  containers:
     - name: totaltest-container
       image: whoami/facts:totaltest
       imagePullPolicy: Always
