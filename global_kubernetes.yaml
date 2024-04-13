@@ -1,17 +1,41 @@
 apiVersion: v1
 kind: Pod
+
 metadata:
   name: test
+
 spec:
-  containers:
-    - name: fairtest-container
-      image: whoami/fairtest:latest
-      imagePullPolicy: Always
-      workingDir: /opt/fairtest
-      command: ["/bin/sh", "execute.sh"]
-      volumeMounts:
-        - name: fairtest-hostdir
-          mountPath: /opt/fairtest
+  volumes:
+    # - name: fairtest-hostdir
+    #   hostPath:
+    #     path: homedir/Capstone/facts/fairtest
+    - name: fittedismiptest-hostdir
+      hostPath:
+        path: homedir/Capstone/facts/fittedismiptest
+    - name: larmiptest-hostdir
+      hostPath:
+        path: homedir/Capstone/facts/larmiptest
+    # - name: tlmtest-hostdir
+    #   hostPath:
+    #     path: homedir/Capstone/facts/tlmtest
+    - name: totaltest-hostdir
+      hostPath:
+        path: homedir/Capstone/facts/totaltest
+    - name: shared-data-hostdir
+      hostPath:
+        path: homedir/Capstone/facts/totaltest/to_total
+
+  initContainers:
+    # - name: fairtest-container
+    #   image: whoami/fairtest:latest
+    #   imagePullPolicy: Always
+    #   workingDir: /opt/fairtest
+    #   command: ["/bin/sh", "execute.sh"]
+    #   volumeMounts:
+    #     - name: fairtest-hostdir
+    #       mountPath: /opt/fairtest
+    #     - name: shared-data-hostdir
+    #       mountPath: /opt/shared_data
     - name: fittedismiptest-container
       image: whoami/fittedismiptest:latest
       imagePullPolicy: Always
@@ -20,6 +44,8 @@ spec:
       volumeMounts:
         - name: fittedismiptest-hostdir
           mountPath: /opt/fittedismiptest
+        - name: shared-data-hostdir
+          mountPath: /opt/shared_data
     - name: larmiptest-container
       image: whoami/larmiptest:latest
       imagePullPolicy: Always
@@ -28,27 +54,26 @@ spec:
       volumeMounts:
         - name: larmiptest-hostdir
           mountPath: /opt/larmiptest
-    - name: tlmtest-container
-      image: whoami/tlmtest:latest
+        - name: shared-data-hostdir
+          mountPath: /opt/shared_data
+    # - name: tlmtest-container
+    #   image: whoami/tlmtest:latest
+    #   imagePullPolicy: Always
+    #   workingDir: /opt/tlmtest
+    #   command: ["/bin/sh", "execute.sh"]
+    #   volumeMounts:
+    #     - name: tlmtest-hostdir
+    #       mountPath: /opt/tlmtest
+  containers:
+    - name: totaltest-container
+      image: whoami/totaltest:latest
       imagePullPolicy: Always
-      workingDir: /opt/tlmtest
+      workingDir: /opt/totaltest
       command: ["/bin/sh", "execute.sh"]
       volumeMounts:
-        - name: tlmtest-hostdir
-          mountPath: /opt/tlmtest
-
-  volumes:
-    - name: fairtest-hostdir
-      hostPath:
-        path: homedir/Capstone/facts/fairtest
-    - name: fittedismiptest-hostdir
-      hostPath:
-        path: homedir/Capstone/facts/fittedismiptest
-    - name: larmiptest-hostdir
-      hostPath:
-        path: homedir/Capstone/facts/larmiptest
-    - name: tlmtest-hostdir
-      hostPath:
-        path: homedir/Capstone/facts/tlmtest
+        - name: totaltest-hostdir
+          mountPath: /opt/totaltest
+        - name: shared-data-hostdir
+          mountPath: /opt/to_total
 
   restartPolicy: OnFailure

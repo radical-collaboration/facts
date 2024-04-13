@@ -20,3 +20,6 @@ tar -xvf ./modules-data/grd_fingerprints_data.tgz
 mprof run -o mem_fittedismip_postprocess.dat FittedISMIP_GrIS_postprocess.py "--pipeline_id" "configTest.GrIS1f.FittedISMIP.GrIS"
 
 ls -la
+
+find . -name "*globalsl.nc" -type f -exec mv -t /opt/shared_data/global/ {} +
+find . -name "*localsl.nc" -type f -exec mv -t /opt/shared_data/local/ {} +
