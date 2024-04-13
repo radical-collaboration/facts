@@ -33,3 +33,8 @@ echo "=== larmip postprocess step COMPLETE ==="
 echo "=== larmip COMPLETE ==="
 
 ls -la
+
+find . -name "*.AIS_globalsl.nc" -type f -exec mv -t /opt/shared_data/global/ {} +
+find . -name "*.AIS_localsl.nc" -type f -exec mv -t /opt/shared_data/local/ {} +
+
+ls -la /opt/shared_data

@@ -25,9 +25,9 @@ spec:
       hostPath:
         path: homedir/Capstone/facts/totaltest/to_total
 
-  initContainers:
+  containers:
     # - name: fairtest-container
-    #   image: whoami/fairtest:latest
+    #   image: whoami/facts:fairtest
     #   imagePullPolicy: Always
     #   workingDir: /opt/fairtest
     #   command: ["/bin/sh", "execute.sh"]
@@ -37,7 +37,7 @@ spec:
     #     - name: shared-data-hostdir
     #       mountPath: /opt/shared_data
     - name: fittedismiptest-container
-      image: whoami/fittedismiptest:latest
+      image: whoami/facts:fittedismiptest
       imagePullPolicy: Always
       workingDir: /opt/fittedismiptest
       command: ["/bin/sh", "execute.sh"]
@@ -47,7 +47,7 @@ spec:
         - name: shared-data-hostdir
           mountPath: /opt/shared_data
     - name: larmiptest-container
-      image: whoami/larmiptest:latest
+      image: whoami/facts:larmiptest
       imagePullPolicy: Always
       workingDir: /opt/larmiptest
       command: ["/bin/sh", "execute.sh"]
@@ -57,16 +57,15 @@ spec:
         - name: shared-data-hostdir
           mountPath: /opt/shared_data
     # - name: tlmtest-container
-    #   image: whoami/tlmtest:latest
+    #   image: whoami/facts:tlmtest
     #   imagePullPolicy: Always
     #   workingDir: /opt/tlmtest
     #   command: ["/bin/sh", "execute.sh"]
     #   volumeMounts:
     #     - name: tlmtest-hostdir
     #       mountPath: /opt/tlmtest
-  containers:
     - name: totaltest-container
-      image: whoami/totaltest:latest
+      image: whoami/facts:totaltest
       imagePullPolicy: Always
       workingDir: /opt/totaltest
       command: ["/bin/sh", "execute.sh"]

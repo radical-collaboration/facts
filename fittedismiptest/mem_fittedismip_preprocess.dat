@@ -28,3 +28,10 @@ CMDLINE /usr/bin/python3 FittedISMIP_GrIS_preprocess.py --scenario ssp585 --pipe
 MEM 4.375000 1712966798.2660
 MEM 42.109375 1712966798.3669
 MEM 82.343750 1712966798.4677
+CMDLINE /usr/bin/python3 FittedISMIP_GrIS_preprocess.py --scenario ssp585 --pipeline_id configTest.GrIS1f.FittedISMIP.GrIS
+MEM 4.375000 1712969049.5020
+MEM 49.875000 1712969049.6042
+CMDLINE /usr/bin/python3 FittedISMIP_GrIS_preprocess.py --scenario ssp585 --pipeline_id configTest.GrIS1f.FittedISMIP.GrIS
+MEM 4.125000 1712970563.9327
+MEM 34.742188 1712970564.0351
+MEM 78.406250 1712970564.1364
