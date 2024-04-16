@@ -66,6 +66,16 @@ USER ${NB_USER}
 # make directory for radical pilot sandbox
 RUN mkdir -p ~/radical.pilot.sandbox
 
+# create resource_local.json with the specified contents as well as
+# create resource_local.json with the specified contents
+RUN mkdir -p ~/.radical/pilot/configs
+RUN printf '{\n\
+    "local": {\n\
+        "rp_version"    : "installed",\n\
+        "virtenv_mode"  : "local"\n\
+    }\n\
+}' > ~/.radical/pilot/configs/resource_local.json
+
 # Activate venv
 RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc
 
