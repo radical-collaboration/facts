@@ -29,11 +29,7 @@ RUN pip install --no-cache-dir --upgrade \
         setuptools==69.0.2 pip==23.3.1 wheel==0.42.0
 
 RUN pip install --no-cache-dir \
-        radical.entk==1.48.0 \
-        radical.gtod==1.47.0 \
-        radical.pilot==1.49.2 \
-        radical.saga==1.47.0 \
-        radical.utils==1.48.0 \
+        radical.entk \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
