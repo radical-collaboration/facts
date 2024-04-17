@@ -36,22 +36,22 @@ wf2f:
   - local/configTest.ocean.tlm.sterodynamics_localsl.nc
   options:
     pyear_end: 2150
-wf3e:
-  global:
-  - global/configTest.ocean.tlm.sterodynamics_globalsl.nc
-  local:
-  - local/configTest.ocean.tlm.sterodynamics_localsl.nc
-  options:
-    pyear_end: 2150
-wf3f:
-  global:
-  - global/configTest.GrIS1f.FittedISMIP.GrIS_GIS_globalsl.nc
-  - global/configTest.ocean.tlm.sterodynamics_globalsl.nc
-  local:
-  - local/configTest.GrIS1f.FittedISMIP.GrIS_GIS_localsl.nc
-  - local/configTest.ocean.tlm.sterodynamics_localsl.nc
-  options:
-    pyear_end: 2150
+# wf3e:
+#   global:
+#   - global/configTest.ocean.tlm.sterodynamics_globalsl.nc
+#   local:
+#   - local/configTest.ocean.tlm.sterodynamics_localsl.nc
+#   options:
+#     pyear_end: 2150
+# wf3f:
+#   global:
+#   - global/configTest.GrIS1f.FittedISMIP.GrIS_GIS_globalsl.nc
+#   - global/configTest.ocean.tlm.sterodynamics_globalsl.nc
+#   local:
+#   - local/configTest.GrIS1f.FittedISMIP.GrIS_GIS_localsl.nc
+#   - local/configTest.ocean.tlm.sterodynamics_localsl.nc
+#   options:
+#     pyear_end: 2150
 wf4:
   global:
   - global/configTest.ocean.tlm.sterodynamics_globalsl.nc

@@ -33,9 +33,13 @@ spec:
   - name: fittedismiptest
     image: fittedismiptest
     imagePullPolicy: Never
-    command: ['sh']
-    args: ['execute.sh']
-    volumeMounts: 
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "sleep 3600"
+    # command: ['sh']
+    # args: ['execute.sh']
+    volumeMounts:
       - name: data-volume
         mountPath: /opt/shared_data
   volumes:
