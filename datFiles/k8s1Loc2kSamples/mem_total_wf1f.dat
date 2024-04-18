@@ -1,0 +1,29 @@
+CMDLINE /usr/bin/python3 total_workflow.py --directory /opt/to_total --workflows workflows.yml --workflow wf1f --scale local --experiment_name configTest --pyear_start 2020 --pyear_end 2150 --pyear_step 10
+MEM 5.929688 1713451629.4016
+MEM 17.742188 1713451629.5020
+MEM 36.312500 1713451629.6024
+MEM 53.433594 1713451629.7027
+MEM 66.265625 1713451629.8030
+MEM 74.832031 1713451629.9034
+MEM 86.402344 1713451630.0037
+CMDLINE /usr/bin/python3 total_workflow.py --directory /opt/to_total --workflows workflows.yml --workflow wf1f --scale local --experiment_name configTest --pyear_start 2020 --pyear_end 2150 --pyear_step 10
+MEM 5.929688 1713456234.9294
+MEM 16.437500 1713456235.0298
+MEM 45.679688 1713456235.1312
+MEM 59.269531 1713456235.2316
+MEM 69.359375 1713456235.3319
+MEM 73.210938 1713456235.4322
+MEM 79.710938 1713456235.5326
+MEM 86.875000 1713456235.6330
+MEM 94.753906 1713456235.7334
+MEM 96.640625 1713456235.8337
+MEM 96.675781 1713456235.9342
+CMDLINE /usr/bin/python3 total_workflow.py --directory /opt/to_total --workflows workflows.yml --workflow wf1f --scale local --experiment_name configTest --pyear_start 2020 --pyear_end 2150 --pyear_step 10
+MEM 5.980469 1713458101.3042
+MEM 18.300781 1713458101.4046
+MEM 57.417969 1713458101.5051
+MEM 74.953125 1713458101.6056
+MEM 70.476562 1713458101.7060
+MEM 79.855469 1713458101.8064
+MEM 93.351562 1713458101.9068
+MEM 95.730469 1713458102.0072

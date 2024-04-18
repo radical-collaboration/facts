@@ -1,0 +1,33 @@
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 4.625000 1713369858.5774
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 6.546875 1713409130.7248
+MEM 15.621094 1713409130.8253
+MEM 24.363281 1713409130.9261
+MEM 51.781250 1713409131.0266
+MEM 66.156250 1713409131.1272
+MEM 0.000000 1713409131.2278
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 5.390625 1713409970.9573
+MEM 17.753906 1713409971.0578
+MEM 54.902344 1713409971.1582
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 6.050781 1713410801.9674
+MEM 17.796875 1713410802.0680
+MEM 56.828125 1713410802.1684
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 5.980469 1713411605.8374
+MEM 17.652344 1713411605.9378
+MEM 53.746094 1713411606.0381
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 5.406250 1713451596.3353
+MEM 17.589844 1713451596.4357
+MEM 34.957031 1713451596.5360
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 5.945312 1713456226.8381
+MEM 18.476562 1713456226.9386
+MEM 30.781250 1713456227.0390
+CMDLINE /usr/bin/python3 tlm_sterodynamics_fit.py --pipeline_id configTest.ocean.tlm.sterodynamics
+MEM 5.984375 1713458095.6728
+MEM 17.652344 1713458095.7732
+MEM 48.707031 1713458095.8736

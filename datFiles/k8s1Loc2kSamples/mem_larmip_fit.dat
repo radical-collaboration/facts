@@ -1,0 +1,11 @@
+CMDLINE /usr/bin/python3 larmip_icesheet_fit.py --pipeline_id configTest.larmip.larmip.AIS
+MEM 4.625000 1713369371.8492
+MEM 34.523438 1713369371.9539
+CMDLINE /usr/bin/python3 larmip_icesheet_fit.py --pipeline_id configTest.larmip.larmip.AIS
+MEM 5.945312 1713455443.1912
+MEM 17.699219 1713455443.2918
+MEM 29.941406 1713455443.3921
+CMDLINE /usr/bin/python3 larmip_icesheet_fit.py --pipeline_id configTest.larmip.larmip.AIS
+MEM 5.937500 1713457357.7716
+MEM 18.199219 1713457357.8721
+MEM 50.757812 1713457357.9725
