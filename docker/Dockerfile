@@ -18,7 +18,9 @@ RUN apt-get update &&\
         libnetcdf-dev \
         gnupg \
         curl \
-        apt-transport-https
+        apt-transport-https \
+        dnsutils \
+        iputils-ping
 
 # Creates and activates python3 virtual environment
 RUN python3 -m venv --system-site-packages factsVe &&\
@@ -29,7 +31,11 @@ RUN pip install --no-cache-dir --upgrade \
         setuptools==69.0.2 pip==23.3.1 wheel==0.42.0
 
 RUN pip install --no-cache-dir \
-        radical.entk \
+        radical.entk==1.52.0 \
+        radical.gtod==1.52.0 \
+        git+https://github.com/radical-cybertools/radical.pilot.git@hotfix/deployment \
+        radical.saga==1.52.0 \
+        radical.utils==1.52.0 \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
@@ -62,18 +68,18 @@ USER ${NB_USER}
 # make directory for radical pilot sandbox
 RUN mkdir -p ~/radical.pilot.sandbox
 
+# Activate venv
+RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc
+
 # create resource_local.json with the specified contents as well as
 # create resource_local.json with the specified contents
 RUN mkdir -p ~/.radical/pilot/configs
 RUN printf '{\n\
     "local": {\n\
         "rp_version"    : "installed",\n\
-        "virtenv_mode"  : "local"\n\
+        "virtenv_mode"  : "use"\n\
     }\n\
 }' > ~/.radical/pilot/configs/resource_local.json
-
-# Activate venv
-RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc
 
 # return a shell to the user
 CMD /bin/bash
