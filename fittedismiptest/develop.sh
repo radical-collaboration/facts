@@ -2,8 +2,10 @@
 
 TAG="fittedismiptest"
 
-echo "Build docker container $TAG"
-docker build -t "$TAG" "$HOME"/Capstone/facts/"$TAG"
+echo "Build docker image $TAG"
+docker build -t "$TAG" .
 
-docker tag "$TAG":latest factscapstone/facts:"$TAG"
-docker push factscapstone/facts:"$TAG"
+# echo "Start the container"
+# docker run -it fittedismiptest
+
+echo "Push the image to docker registry"
