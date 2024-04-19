@@ -31,11 +31,7 @@ RUN pip install --no-cache-dir --upgrade \
         setuptools==69.0.2 pip==23.3.1 wheel==0.42.0
 
 RUN pip install --no-cache-dir \
-        radical.entk==1.52.0 \
-        radical.gtod==1.52.0 \
-        git+https://github.com/radical-cybertools/radical.pilot.git@hotfix/deployment \
-        radical.saga==1.52.0 \
-        radical.utils==1.52.0 \
+        radical.entk \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
