@@ -51,7 +51,6 @@ RUN apt-get update &&\
 RUN mkdir -p ~/radical.pilot.sandbox
 
 COPY ./ /opt/facts
-
 WORKDIR /opt/facts
 
 # Activate venv

@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: total-job
+
+spec:
+  template:
+    spec:
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: my-pvc
+
+      containers:
+      - name: totaltest
+        image: totaltest
+        imagePullPolicy: Never
+        command:
+          - "/bin/sh"
+          - "-c"
+          # - "sh execute.sh"
+          - "sleep 3600"
+        volumeMounts:
+          - name: data-volume
+            mountPath: "/opt/to_total"
+
+      restartPolicy: OnFailure

@@ -27,4 +27,4 @@ mkdir -p /opt/shared_data/local/
 find . -name "*globalsl.nc" -type f -exec mv -t /opt/shared_data/global/ {} +
 find . -name "*localsl.nc" -type f -exec mv -t /opt/shared_data/local/ {} +
 
-ls -la /opt/shared_data
+find /opt/shared_data -name "*"

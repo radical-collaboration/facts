@@ -1,13 +1,21 @@
 #!/bin/sh
 
-find totaltest/to_total -type f -delete
-cp totaltest/configTest.ocean.tlm.sterodynamics_globalsl.nc totaltest/to_total/global/
-cp totaltest/configTest.ocean.tlm.sterodynamics_localsl.nc totaltest/to_total/local/
+# sed "s+homedir+$(echo $HOME)+g" global_kubernetes.yaml > temp_file.yaml && mv temp_file.yaml kubernetes.yaml
 
-sed "s+homedir+$(echo $HOME)+g" global_kubernetes.yaml > temp_file.yaml && mv temp_file.yaml kubernetes.yaml
+# find *test -name "develop.sh" -exec sh {} \;
 
-find *test -name "develop.sh" -exec sh {} \;
+echo "Deleting files in persistent volume..."
+kubectl apply -f delete_files_job.yaml
+kubectl wait --timeout=-1s --for=condition=complete job.batch/delete-files-job
+echo
 
-kubectl delete pod test
-kubectl apply -f kubernetes.yaml
-kubectl get pods
+echo "Starting modules pod..."
+kubectl apply -f modules_job.yaml
+echo
+
+echo "Waiting for first pod to complete..."
+kubectl wait --timeout=-1s --for=condition=complete job.batch/modules-job
+echo
+
+echo "Starting totaling pod..."
+kubectl apply -f total_job.yaml

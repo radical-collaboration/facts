@@ -33,8 +33,8 @@ RUN pip install --upgrade \
         matplotlib \
         numpy \
         pyyaml==6.0 \
-        netCDF4 \ 
-        dask[array] \ 
+        netCDF4 \
+        dask[array] \
         xarray
 
 # installs R for ubuntu2 0.04 Focal
@@ -46,6 +46,9 @@ RUN apt-get update &&\
 
 # make directory for radical pilot sandbox
 RUN mkdir -p ~/radical.pilot.sandbox
+
+COPY ./ /opt/facts
+WORKDIR /opt/facts
 
 # Activate venv
 RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc

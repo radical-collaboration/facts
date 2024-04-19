@@ -1,10 +1,12 @@
 #!/bin/bash
 
+cp configTest.ocean.tlm.sterodynamics_globalsl.nc /opt/to_total/global/
+cp configTest.ocean.tlm.sterodynamics_localsl.nc /opt/to_total/local/
+
 export RP_RESOURCE_SANDBOX="/opt"
 
 ## declare array of workflows from worflows.yml
 # declare -a arr=("wf1e" "wf1f" "wf2e" "wf2f" "wf3e" "wf3f" "wf4")
-
 
 # for workflow in "wf1e" "wf1f" "wf2e" "wf2f" "wf3e" "wf3f" "wf4" ;             # problem  "wf3e"
 for workflow in "wf1e" "wf1f" "wf2e" "wf2f" "wf3f" "wf4" ;

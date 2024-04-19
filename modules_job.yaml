@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: modules-job
+
+spec:
+  template:
+    spec:
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: my-pvc
+
+      containers:
+      - name: fittedismiptest
+        image: fittedismiptest
+        imagePullPolicy: Never
+        command:
+          - "/bin/sh"
+          - "-c"
+          - "sh execute.sh"
+          # - "sleep 5"
+        volumeMounts:
+          - name: data-volume
+            mountPath: "/opt/shared_data"
+
+      - name: larmiptest
+        image: larmiptest
+        imagePullPolicy: Never
+        command:
+          - "/bin/sh"
+          - "-c"
+          - "sh execute.sh"
+          # - "sleep 5"
+        volumeMounts:
+          - name: data-volume
+            mountPath: "/opt/shared_data"
+
+      restartPolicy: OnFailure

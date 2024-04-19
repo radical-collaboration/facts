@@ -1,4 +1,0 @@
-CMDLINE /usr/bin/python3 total_workflow.py --directory /opt/to_total --workflows workflows.yml --workflow wf3f --scale local --experiment_name configTest --pyear_start 2020 --pyear_end 2150 --pyear_step 10
-MEM 7.375000 1713369925.8732
-MEM 56.738281 1713369925.9749
-MEM 71.578125 1713369926.0779

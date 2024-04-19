@@ -7,21 +7,23 @@ spec:
   - name: fittedismiptest
     image: fittedismiptest
     imagePullPolicy: Never
-    command: 
+    command:
       - "/bin/sh"
       - "-c"
-      - "sh execute.sh"
-    volumeMounts: 
+      # - "sh execute.sh"
+      - "sleep 3600"
+    volumeMounts:
       - name: data-volume
         mountPath: "/opt/shared_data"
   - name: larmiptest
     image: larmiptest
     imagePullPolicy: Never
-    command: 
+    command:
       - "/bin/sh"
       - "-c"
-      - "sh execute.sh"
-    volumeMounts: 
+      # - "sh execute.sh"
+      - "sleep 3600"
+    volumeMounts:
       - name: data-volume
         mountPath: "/opt/shared_data"
   volumes:

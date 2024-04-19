@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: delete-files-job
+
+spec:
+  template:
+    spec:
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: my-pvc
+
+      containers:
+      - name: delete-files-container
+        image: ubuntu
+        command:
+          - "/bin/sh"
+          - "-c"
+          - "find /opt/shared_data -type f -delete"
+        volumeMounts:
+        - name: data-volume
+          mountPath: /opt/shared_data
+
+      restartPolicy: OnFailure
