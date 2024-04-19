@@ -2,14 +2,16 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: my-pv
+  labels:
+    type: local
 spec:
+  storageClassName: manual
   capacity:
     storage: 1Gi
   accessModes:
     - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /saved_data  # Replace with actual host directory path
+    path: "/mnt/data"  # Replace with actual host directory path
 
 ---
 apiVersion: v1
@@ -17,6 +19,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: my-pvc
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteMany
   resources:
@@ -33,17 +36,49 @@ spec:
   - name: fittedismiptest
     image: fittedismiptest
     imagePullPolicy: Never
-    command:
+    command: 
       - "/bin/sh"
       - "-c"
       - "sleep 3600"
-    # command: ['sh']
-    # args: ['execute.sh']
-    volumeMounts:
+    volumeMounts: 
       - name: data-volume
-        mountPath: /opt/shared_data
+        mountPath: "/opt/shared_data"
+  - name: larmiptest
+    image: larmiptest
+    imagePullPolicy: Never
+    command: 
+      - "/bin/sh"
+      - "-c"
+      - "sleep 3600"
+    volumeMounts: 
+      - name: data-volume
+        mountPath: "/opt/shared_data"
   volumes:
     - name: data-volume
       persistentVolumeClaim:
         claimName: my-pvc
-  restartPolicy: Always
+  restartPolicy: OnFailure
+
+---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: total-pod
+# spec:
+#   containers:
+#   - name: totaltest
+#     image: totaltest
+#     imagePullPolicy: Never
+#     command: 
+#       - "/bin/sh"
+#       - "-c"
+#       - "sleep 3600"
+#     volumeMounts: 
+#       - name: data-volume
+#         mountPath: "/opt/shared_data"
+#   volumes:
+#     - name: data-volume
+#       persistentVolumeClaim:
+#         claimName: my-pvc
+#   restartPolicy: OnFailure
+
