@@ -51,6 +51,9 @@ RUN apt-get update &&\
 # make directory for radical pilot sandbox
 RUN mkdir -p ~/radical.pilot.sandbox
 
+COPY ./ /opt/facts
+WORKDIR /opt/facts
+
 # Activate venv
 RUN echo -e ". /factsVe/bin/activate" > ~/.bashrc
 

@@ -1,5 +1,0 @@
-CMDLINE /usr/bin/python3 fair_temperature_fit.py --pipeline_id configTest.temperature.fair.temperature
-MEM 4.375000 1713368839.9690
-MEM 52.222656 1713368840.0723
-MEM 74.601562 1713368840.1739
-MEM 99.648438 1713368840.2743

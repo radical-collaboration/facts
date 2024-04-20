@@ -8,33 +8,65 @@ spec:
   template:
     spec:
       volumes:
-      - name: data-volume
+      - name: total-data-volume
         persistentVolumeClaim:
-          claimName: my-pvc
+          claimName: total-data-pvc
+      - name: output-data-volume
+        persistentVolumeClaim:
+          claimName: output-data-pvc
 
       containers:
+      - name: fairtest
+        image: fairtest
+        imagePullPolicy: Never
+        command:
+          - "/bin/bash"
+          - "-c"
+          - "sh execute.sh"
+        volumeMounts:
+          - name: total-data-volume
+            mountPath: "/opt/total_data"
+          - name: output-data-volume
+            mountPath: "/opt/output_data"
+
       - name: fittedismiptest
         image: fittedismiptest
         imagePullPolicy: Never
         command:
-          - "/bin/sh"
+          - "/bin/bash"
           - "-c"
           - "sh execute.sh"
-          # - "sleep 5"
         volumeMounts:
-          - name: data-volume
-            mountPath: "/opt/shared_data"
+          - name: total-data-volume
+            mountPath: "/opt/total_data"
+          - name: output-data-volume
+            mountPath: "/opt/output_data"
 
       - name: larmiptest
         image: larmiptest
         imagePullPolicy: Never
         command:
-          - "/bin/sh"
+          - "/bin/bash"
           - "-c"
           - "sh execute.sh"
-          # - "sleep 5"
         volumeMounts:
-          - name: data-volume
-            mountPath: "/opt/shared_data"
+          - name: total-data-volume
+            mountPath: "/opt/total_data"
+          - name: output-data-volume
+            mountPath: "/opt/output_data"
+
+      # - name: tlmtest
+      #   image: tlmtest
+      #   imagePullPolicy: Never
+      #   command:
+      #     - "/bin/bash"
+      #     - "-c"
+      #     # - "sh execute.sh"
+      #     - "sleep 3600"
+      #   volumeMounts:
+      #     - name: total-data-volume
+      #       mountPath: "/opt/total_data"
+      #     - name: output-data-volume
+      #       mountPath: "/opt/climate"
 
       restartPolicy: OnFailure

@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # ------------------------------------------------------------------------------
 
-pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib h5py memory-profiler
+# pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml matplotlib h5py memory-profiler
 tar -xvf ./modules-data/tlm_sterodynamics_preprocess_data.tgz
 tar -xvf ./modules-data/tlm_sterodynamics_cmip6_data.tgz
 tar -xvf ./modules-data/ipccar6_climate_data.tgz
@@ -28,4 +28,6 @@ mprof run -o mem_tlm_postprocess.dat tlm_sterodynamics_postprocess.py "--nsamps"
 echo "=== tlm/sterodynamics postprocess complete ==="
 echo "=== tlm/sterodynamics complete ==="
 
-ls -la
+find . -name "*globalsl.nc" -type f -exec mv -t /opt/shared_data/global/ {} +
+find . -name "*localsl.nc" -type f -exec mv -t /opt/shared_data/local/ {} +
+find . -name "*.nc" -type f -exec mv -t /opt/output_data {} +

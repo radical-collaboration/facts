@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cp configTest.ocean.tlm.sterodynamics_globalsl.nc /opt/to_total/global/
-cp configTest.ocean.tlm.sterodynamics_localsl.nc /opt/to_total/local/
+# cp configTest.ocean.tlm.sterodynamics_globalsl.nc /opt/to_total/global/
+# cp configTest.ocean.tlm.sterodynamics_localsl.nc /opt/to_total/local/
 
 export RP_RESOURCE_SANDBOX="/opt"
 

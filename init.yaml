@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: total-data-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/data/total_data"
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: output-data-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/data/output_data"
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: total-data-pvc
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: output-data-pvc
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: init-job
+
+spec:
+  template:
+    spec:
+      volumes:
+      - name: total-data-volume
+        persistentVolumeClaim:
+          claimName: total-data-pvc
+      - name: output-data-volume
+        persistentVolumeClaim:
+          claimName: output-data-pvc
+
+      containers:
+      - name: init-container
+        image: ubuntu
+        command: ["/bin/sh"]
+        args: ["-c", "rm -rf /opt/total_data/* /opt/output_data/*; mkdir /opt/total_data/global; mkdir /opt/total_data/local"]
+          # - "/bin/bash"
+          # - "-c"
+          # - "[ -d /opt/total_data/global ] || (mkdir /opt/total_data/global) && [ -d /opt/total_data/local ] || (mkdir /opt/total_data/local)"
+          # - "rm -rf /opt/total_data/*"
+          # - "rm -rf /opt/output_data/*"
+          # - "mkdir -p /opt/total_data/global"
+          # - "mkdir -p /opt/total_data/local"
+          # - "find /opt/total_data -type f -delete"
+          # - "find /opt/output_data -type f -delete"
+          # - "sleep 3600"
+        volumeMounts:
+        - name: total-data-volume
+          mountPath: /opt/total_data
+        - name: output-data-volume
+          mountPath: /opt/output_data
+
+      restartPolicy: OnFailure

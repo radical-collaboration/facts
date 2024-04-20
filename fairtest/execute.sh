@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # ------------------------------------------------------------------------------
 
@@ -22,4 +22,6 @@ mprof run -o mem_fair_project.dat fair_temperature_project.py "--pipeline_id" "c
 # python3 fair_temperature_postprocess.py "--pipeline_id" "configTest.temperature.fair.temperature"
 mprof run -o mem_fair_postprocess.dat fair_temperature_postprocess.py "--pipeline_id" "configTest.temperature.fair.temperature"
 
-ls -la
+find . -name "*globalsl.nc" -type f -exec mv -t /opt/shared_data/global/ {} +
+find . -name "*localsl.nc" -type f -exec mv -t /opt/shared_data/local/ {} +
+find . -name "*.nc" -type f -exec mv -t /opt/output_data {} +

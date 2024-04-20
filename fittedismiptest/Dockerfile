@@ -38,6 +38,7 @@ RUN pip install --upgrade \
         pandas \
         xarray \
         dask \
+        h5py \
         fair==1.6.4
 
 # installs R for ubuntu2 0.04 Focal
