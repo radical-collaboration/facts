@@ -8,21 +8,21 @@ spec:
   template:
     spec:
       volumes:
-      - name: total-data-volume
-        persistentVolumeClaim:
-          claimName: total-data-pvc
+        - name: total-data-volume
+          persistentVolumeClaim:
+            claimName: total-data-pvc
 
       containers:
-      - name: totaltest
-        image: totaltest
-        imagePullPolicy: Never
-        command:
-          - "/bin/bash"
-          - "-c"
-          # - "sh execute.sh"
-          - "sleep 3600"
-        volumeMounts:
-          - name: total-data-volume
-            mountPath: "/opt/to_total"
+        - name: totaltest
+          image: totaltest
+          imagePullPolicy: Never
+          command:
+            - "/bin/bash"
+            - "-c"
+            - "sh execute.sh"
+            # - "sleep 3600"
+          volumeMounts:
+            - name: total-data-volume
+              mountPath: "/opt/to_total"
 
-      restartPolicy: OnFailure
+      restartPolicy: Never

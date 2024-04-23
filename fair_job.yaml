@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+
+metadata:
+  name: fair-job
+
+spec:
+  template:
+    spec:
+      volumes:
+        - name: output-data-volume
+          persistentVolumeClaim:
+            claimName: output-data-pvc
+        # - name: modules-data-volume
+        #   hostPath:
+        #     path: ./modules-data
+
+      containers:
+        - name: fairtest
+          image: fairtest
+          imagePullPolicy: Never
+          command:
+            - "/bin/bash"
+            - "-c"
+            - "sh execute.sh"
+          volumeMounts:
+            - name: output-data-volume
+              mountPath: "/opt/output_data"
+
+      restartPolicy: Never

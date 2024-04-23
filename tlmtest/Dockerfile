@@ -28,7 +28,7 @@ RUN python3 -m venv --system-site-packages factsVe &&\
 # installs required FACTS packages
 RUN pip install --upgrade \
         setuptools pip wheel \
-        radical.entk \
+        # radical.entk \
         pyyaml==6.0 \
         memory_profiler \
         numpy \

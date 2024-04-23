@@ -17,11 +17,12 @@ tar -xvf ./modules-data/fair_temperature_fit_data.tgz
 mprof run -o mem_fair_fit.dat fair_temperature_fit.py "--pipeline_id" "configTest.temperature.fair.temperature"
 
 # python3 fair_temperature_project.py "--pipeline_id" "configTest.temperature.fair.temperature" "--nsamps" "2000"
-mprof run -o mem_fair_project.dat fair_temperature_project.py "--pipeline_id" "configTest.temperature.fair.temperature" "--nsamps" "2000"
+mprof run -o mem_fair_project.dat fair_temperature_project.py "--pipeline_id" "configTest.temperature.fair.temperature" "--nsamps" "2237"
 
 # python3 fair_temperature_postprocess.py "--pipeline_id" "configTest.temperature.fair.temperature"
 mprof run -o mem_fair_postprocess.dat fair_temperature_postprocess.py "--pipeline_id" "configTest.temperature.fair.temperature"
 
 find . -name "*globalsl.nc" -type f -exec mv -t /opt/shared_data/global/ {} +
 find . -name "*localsl.nc" -type f -exec mv -t /opt/shared_data/local/ {} +
-find . -name "*.nc" -type f -exec mv -t /opt/output_data {} +
+# find . -name "*.nc" -type f -exec mv -t /opt/output_data {} +
+mv *.nc /opt/output_data

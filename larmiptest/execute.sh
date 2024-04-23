@@ -18,7 +18,7 @@ echo "=== larmip fit step COMPLETE ==="
 
 tar -xvf ./modules-data/larmip_icesheet_project_data.tgz
 # python3 larmip_icesheet_project.py "--nsamps" "2000" "--baseyear" "2005" "--pyear_start" "2020" "--pyear_end" "2150" "--pyear_step" "10" "--pipeline_id" "configTest.larmip.larmip.AIS"
-mprof run -o mem_larmip_project.dat larmip_icesheet_project.py "--nsamps" "2000" "--baseyear" "2005" "--pyear_start" "2020" "--pyear_end" "2150" "--pyear_step" "10" "--pipeline_id" "configTest.larmip.larmip.AIS"
+mprof run -o mem_larmip_project.dat larmip_icesheet_project.py "--nsamps" "2237" "--baseyear" "2005" "--pyear_start" "2020" "--pyear_end" "2150" "--pyear_step" "10" "--pipeline_id" "configTest.larmip.larmip.AIS"
 
 echo "=== larmip project step COMPLETE ==="
 
@@ -32,4 +32,5 @@ echo "=== larmip COMPLETE ==="
 
 find . -name "*.AIS_globalsl.nc" -type f -exec mv -t /opt/total_data/global/ {} +
 find . -name "*.AIS_localsl.nc" -type f -exec mv -t /opt/total_data/local/ {} +
-find . -name "*.nc" -type f -exec mv -t /opt/output_data {} +
+# find . -name "*.nc" -type f -exec mv -t /opt/output_data {} +
+mv *.nc /opt/output_data

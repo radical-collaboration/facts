@@ -8,65 +8,55 @@ spec:
   template:
     spec:
       volumes:
-      - name: total-data-volume
-        persistentVolumeClaim:
-          claimName: total-data-pvc
-      - name: output-data-volume
-        persistentVolumeClaim:
-          claimName: output-data-pvc
+        - name: total-data-volume
+          persistentVolumeClaim:
+            claimName: total-data-pvc
+        - name: output-data-volume
+          persistentVolumeClaim:
+            claimName: output-data-pvc
+        # - name: modules-data-volume
+        #   hostPath:
+        #     path: ./modules-data
 
       containers:
-      - name: fairtest
-        image: fairtest
-        imagePullPolicy: Never
-        command:
-          - "/bin/bash"
-          - "-c"
-          - "sh execute.sh"
-        volumeMounts:
-          - name: total-data-volume
-            mountPath: "/opt/total_data"
-          - name: output-data-volume
-            mountPath: "/opt/output_data"
+        - name: fittedismiptest
+          image: fittedismiptest
+          imagePullPolicy: Never
+          command:
+            - "/bin/bash"
+            - "-c"
+            - "sh execute.sh"
+          volumeMounts:
+            - name: total-data-volume
+              mountPath: "/opt/total_data"
+            - name: output-data-volume
+              mountPath: "/opt/output_data"
 
-      - name: fittedismiptest
-        image: fittedismiptest
-        imagePullPolicy: Never
-        command:
-          - "/bin/bash"
-          - "-c"
-          - "sh execute.sh"
-        volumeMounts:
-          - name: total-data-volume
-            mountPath: "/opt/total_data"
-          - name: output-data-volume
-            mountPath: "/opt/output_data"
+        - name: larmiptest
+          image: larmiptest
+          imagePullPolicy: Never
+          command:
+            - "/bin/bash"
+            - "-c"
+            - "sh execute.sh"
+          volumeMounts:
+            - name: total-data-volume
+              mountPath: "/opt/total_data"
+            - name: output-data-volume
+              mountPath: "/opt/output_data"
 
-      - name: larmiptest
-        image: larmiptest
-        imagePullPolicy: Never
-        command:
-          - "/bin/bash"
-          - "-c"
-          - "sh execute.sh"
-        volumeMounts:
-          - name: total-data-volume
-            mountPath: "/opt/total_data"
-          - name: output-data-volume
-            mountPath: "/opt/output_data"
+        - name: tlmtest
+          image: tlmtest
+          imagePullPolicy: Never
+          command:
+            - "/bin/bash"
+            - "-c"
+            - "sh execute.sh"
+            # - "sleep infinity"
+          volumeMounts:
+            - name: total-data-volume
+              mountPath: "/opt/total_data"
+            - name: output-data-volume
+              mountPath: "/opt/climate"
 
-      # - name: tlmtest
-      #   image: tlmtest
-      #   imagePullPolicy: Never
-      #   command:
-      #     - "/bin/bash"
-      #     - "-c"
-      #     # - "sh execute.sh"
-      #     - "sleep 3600"
-      #   volumeMounts:
-      #     - name: total-data-volume
-      #       mountPath: "/opt/total_data"
-      #     - name: output-data-volume
-      #       mountPath: "/opt/climate"
-
-      restartPolicy: OnFailure
+      restartPolicy: Never

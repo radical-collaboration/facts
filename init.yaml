@@ -70,12 +70,12 @@ spec:
   template:
     spec:
       volumes:
-      - name: total-data-volume
-        persistentVolumeClaim:
-          claimName: total-data-pvc
-      - name: output-data-volume
-        persistentVolumeClaim:
-          claimName: output-data-pvc
+        - name: total-data-volume
+          persistentVolumeClaim:
+            claimName: total-data-pvc
+        - name: output-data-volume
+          persistentVolumeClaim:
+            claimName: output-data-pvc
 
       containers:
       - name: init-container
@@ -93,9 +93,9 @@ spec:
           # - "find /opt/output_data -type f -delete"
           # - "sleep 3600"
         volumeMounts:
-        - name: total-data-volume
-          mountPath: /opt/total_data
-        - name: output-data-volume
-          mountPath: /opt/output_data
+          - name: total-data-volume
+            mountPath: /opt/total_data
+          - name: output-data-volume
+            mountPath: /opt/output_data
 
-      restartPolicy: OnFailure
+      restartPolicy: Never

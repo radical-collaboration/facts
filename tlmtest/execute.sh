@@ -18,16 +18,17 @@ mprof run -o mem_tlm_fit.dat tlm_sterodynamics_fit.py "--pipeline_id" "configTes
 echo "=== tlm/sterodynamics fit complete ==="
 
 # python3 tlm_sterodynamics_project.py "--pipeline_id" "configTest.ocean.tlm.sterodynamics" "--nsamps" "2000"
-mprof run -o mem_tlm_project.dat tlm_sterodynamics_project.py "--pipeline_id" "configTest.ocean.tlm.sterodynamics" "--nsamps" "2000"
+mprof run -o mem_tlm_project.dat tlm_sterodynamics_project.py "--pipeline_id" "configTest.ocean.tlm.sterodynamics" "--nsamps" "2237"
 
 echo "=== tlm/sterodynamics project complete ==="
 
 # python3 tlm_sterodynamics_postprocess.py "--nsamps" "2000" "--pipeline_id" "capstone.modules.ocean.tlm.sterodynamics"
-mprof run -o mem_tlm_postprocess.dat tlm_sterodynamics_postprocess.py "--nsamps" "2000" "--pipeline_id" "configTest.ocean.tlm.sterodynamics"
+mprof run -o mem_tlm_postprocess.dat tlm_sterodynamics_postprocess.py "--nsamps" "2237" "--pipeline_id" "configTest.ocean.tlm.sterodynamics"
 
 echo "=== tlm/sterodynamics postprocess complete ==="
 echo "=== tlm/sterodynamics complete ==="
 
-find . -name "*globalsl.nc" -type f -exec mv -t /opt/shared_data/global/ {} +
-find . -name "*localsl.nc" -type f -exec mv -t /opt/shared_data/local/ {} +
-find . -name "*.nc" -type f -exec mv -t /opt/output_data {} +
+find . -name "*globalsl.nc" -type f -exec mv -t /opt/total_data/global/ {} +
+find . -name "*localsl.nc" -type f -exec mv -t /opt/total_data/local/ {} +
+# find . -name "*.nc" -type f -exec mv -t /opt/climate {} +
+mv *.nc /opt/climate
