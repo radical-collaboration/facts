@@ -35,7 +35,8 @@ RUN pip install --no-cache-dir \
         pyyaml==6.0.1 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
-        netcdf4==1.6.5
+        netcdf4==1.6.5 \
+        h5py
         
 # installs R for ubuntu2 0.04 Focal
 RUN apt-get update &&\
