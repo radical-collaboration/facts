@@ -1,0 +1,60 @@
+# GRD Fingerprint Map
+#
+# This file contains the fingerprint map for  GRD
+#
+# Placed within modules for debugging purposes
+# Should go to modules-data when finished
+
+AIS:
+   AIS.ALL:
+      fingerprint: FPRINT/fprint_wais.nc
+#   AIS.EAIS:
+#      fingerprint: FPRINT/fprint_eais.nc
+#   AIS.WAIS:
+#      fingerprint: FPRINT/fprint_wais.nc
+#   AIS.AP:
+#      fingerprint: FPRINT/fprint_wais.nc
+GrIS:
+   GIS.ALL:
+      fingerprint: FPRINT/fprint_gis.nc
+
+glaciers:
+   GLA.RGI01:
+      fingerprint: FPRINT/fprint_glac11.nc
+   GLA.RGI02:
+      fingerprint: FPRINT/fprint_glac12.nc
+   GLA.RGI03:
+      fingerprint: FPRINT/fprint_glac14.nc
+   GLA.RGI04:
+      fingerprint: FPRINT/fprint_glac13.nc
+   GLA.RGI05:
+      fingerprint: FPRINT/fprint_gis.nc
+   GLA.RGI06:
+      fingerprint: FPRINT/fprint_glac1.nc
+   GLA.RGI07:
+      fingerprint: FPRINT/fprint_glac2.nc
+   GLA.RGI08:
+      fingerprint: FPRINT/fprint_glac10.nc
+   GLA.RGI09:
+      fingerprint: FPRINT/fprint_glac3.nc
+   GLA.RGI10:
+      fingerprint: FPRINT/fprint_glac5.nc
+   GLA.RGI11:
+      fingerprint: FPRINT/fprint_glac9.nc
+   GLA.RGI12:
+      fingerprint: FPRINT/fprint_glac8.nc
+   GLA.RGI13:
+      fingerprint: FPRINT/fprint_glac6.nc
+   GLA.RGI14:
+      fingerprint: FPRINT/fprint_glac7.nc
+   GLA.RGI15:
+      fingerprint: FPRINT/fprint_glac7.nc
+   GLA.RGI16:
+      fingerprint: FPRINT/fprint_glac15.nc
+   GLA.RGI17:
+      fingerprint: FPRINT/fprint_glac16.nc
+   GLA.RGI18:
+      fingerprint: FPRINT/fprint_glac17.nc
+   GLA.RGI19:
+      fingerprint: FPRINT/fprint_wais.nc
+ 

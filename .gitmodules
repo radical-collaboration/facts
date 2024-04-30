@@ -1,0 +1,3 @@
+[submodule "modules/emulandice2/shared/emulandice2"]
+	path = modules/emulandice2/shared/emulandice2
+	url = https://github.com/tamsinedwards/emulandice2.git

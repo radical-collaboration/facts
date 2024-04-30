@@ -36,9 +36,11 @@ RUN pip install --no-cache-dir \
         xarray==2023.1.0 \
         numpy==1.24.4 \
         netcdf4==1.6.5 \
-        h5py
+        h5py \
+        dask
+
         
-# installs R for ubuntu2 0.04 Focal
+# installs R for ubuntu 20.04 Focal
 RUN apt-get update &&\
     apt-get install -y --no-install-recommends r-base \
         cmake \
