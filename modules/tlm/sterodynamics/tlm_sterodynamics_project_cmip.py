@@ -102,7 +102,7 @@ def tlm_project_cmip(nsamps, seed, pipeline_id):
 	# Save the global thermal expansion projections to a pickle
 	output = {"thermsamps": thermsamps, "targyears": targyears, "scenario": scenario}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile, protocol=4)
 	outfile.close()
 
 	# Produce the included model string
@@ -183,7 +183,7 @@ if __name__ == '__main__':
 		sys.exit()
 
 	# Run the project stage with the user defined scenario
-    tlm_project_cmip(args.nsamps, args.seed, args.pipeline_id)
+	tlm_project_cmip(args.nsamps, args.seed, args.pipeline_id)
 
 	# Done
 	sys.exit()

@@ -54,7 +54,7 @@ def tlm_preprocess_thermalexpansion(scenario, pipeline_id, fname):
     # Write the configuration to a file
     outdir = os.path.dirname(__file__)
     outfile = open(os.path.join(outdir, "{}_tlmdata.pkl".format(pipeline_id)), 'wb')
-    pickle.dump(output, outfile)
+    pickle.dump(output, outfile, protocol=4)
     outfile.close()
 
     return (None)
