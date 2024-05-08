@@ -2,7 +2,7 @@
 
 # sed "s+homedir+$(echo $HOME)+g" global_kubernetes.yaml > temp_file.yaml && mv temp_file.yaml kubernetes.yaml
 
-find *test -name "develop.sh" -exec sh {} \;
+# find *test -name "develop.sh" -exec sh {} \;
 
 echo "Initializing persistent volumes and claims..."
 kubectl apply -f init.yaml
