@@ -217,6 +217,7 @@ def fair2_project_climate(scenario,rcmip_file, calibration_file, species_config_
 
 	rng = np.random.default_rng(seed)
 	nsims = 1001
+	si = 0
 
 	if nsamps > nsims:
 		run_idx = np.arange(nsims)
@@ -225,44 +226,43 @@ def fair2_project_climate(scenario,rcmip_file, calibration_file, species_config_
 		run_idx = rng.choice(nsims, nsamps, nsamps>nsims)
 		sample_idx = np.arange(nsamps)
 
-	proj_years = np.arange(1750,2301)
+	proj_years = np.arange(reference_year,2301)
 	
-	for si, scenario in enumerate(scenarios):
-		pipeline_id = scenario + '.temperature.fair.temperature'
-		temp3t = np.transpose(np.array(temp3[:,si,sample_idx,0]))
-		ohct = np.transpose(np.array(ohc[:,si,sample_idx]))
+	
+	temp3t = np.transpose(np.array(temp3[:,0,sample_idx,0]))
+	ohct = np.transpose(np.array(ohc[:,0,sample_idx]))
 
     
-		temps = np.empty((nsamps, temp3t.shape[1], 1))
-		deeptemps = np.empty((nsamps, temp3t.shape[1], 2, 1))
-		deeptempst =  np.empty((temp3t.shape[1], nsamps,  2, 1))
-		ohcs = np.empty((nsamps, temp3t.shape[1], 1))
+	temps = np.empty((nsamps, temp3t.shape[1], 1))
+	deeptemps = np.empty((nsamps, temp3t.shape[1], 2, 1))
+	deeptempst =  np.empty((temp3t.shape[1], nsamps,  2, 1))
+	ohcs = np.empty((nsamps, temp3t.shape[1], 1))
 		
-		temps[:,:,0] = temp3t
-		temps = np.array(temps)
-		ohcs[:,:,0] = np.array(ohct)
-		temps = np.array(temps)
-		deeptemps[:,:,0,0] = np.transpose(np.array(temp3[:,si,sample_idx,1]))
-		deeptemps[:,:,1,0] = np.transpose(np.array(temp3[:,si,sample_idx,2]))
+	temps[:,:,0] = temp3t
+	temps = np.array(temps)
+	ohcs[:,:,0] = np.array(ohct)
+	temps = np.array(temps)
+	deeptemps[:,:,0,0] = np.transpose(np.array(temp3[:,0,sample_idx,1]))
+	deeptemps[:,:,1,0] = np.transpose(np.array(temp3[:,0,sample_idx,2]))
     
-   		# deeptemps = np.array(deeptemps)
-   		# ohcs = np.array(ohcs)
+   	# deeptemps = np.array(deeptemps)
+   	# ohcs = np.array(ohcs)
    
-   		# Center and smooth the samples
-		temps = CenterSmooth(temps, proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
-		deeptemps[:,:,0,0] = CenterSmooth(deeptemps[:,:,0,0], proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
-		deeptemps[:,:,1,0] = CenterSmooth(deeptemps[:,:,1,0], proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
-		deeptempst[:,:,0,0] = np.transpose(deeptemps[:,:,0,0])
-		deeptempst[:,:,1,0] = np.transpose(deeptemps[:,:,1,0])
+   	# Center and smooth the samples
+	temps = CenterSmooth(temps, proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
+	deeptemps[:,:,0,0] = CenterSmooth(deeptemps[:,:,0,0], proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
+	deeptemps[:,:,1,0] = CenterSmooth(deeptemps[:,:,1,0], proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
+	deeptempst[:,:,0,0] = np.transpose(deeptemps[:,:,0,0])
+	deeptempst[:,:,1,0] = np.transpose(deeptemps[:,:,1,0])
 		
-		ohcs = CenterSmooth(ohcs, proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
+	ohcs = CenterSmooth(ohcs, proj_years, cyear_start=cyear_start, cyear_end=cyear_end, smooth_win=smooth_win)
    
-   		# Conform the output to shapes appropriate for output
-   		# deeptemps = deeptemps[sample_idx,:,np.newaxis]
-   		# ohcs = ohcs[sample_idx,:,np.newaxis]
+   	# Conform the output to shapes appropriate for output
+   	# deeptemps = deeptemps[sample_idx,:,np.newaxis]
+   	# ohcs = ohcs[sample_idx,:,np.newaxis]
    
-   		# Set up the global attributes for the output netcdf files
-		attrs = {"Source": "FACTS",
+   	# Set up the global attributes for the output netcdf files
+	attrs = {"Source": "FACTS",
    			 "Date Created": str(datetime.now()),
    			 "Description": (
    				 "Fair v=2.1.2 scenario simulations with AR6-calibrated settings."
@@ -280,38 +280,38 @@ def fair2_project_climate(scenario,rcmip_file, calibration_file, species_config_
    			}
    
 		# Create the variable datasets
-		tempds = xr.Dataset({"surface_temperature": (("samples", "years", "locations"), temps, {"units":"degC"}),
+	tempds = xr.Dataset({"surface_temperature": (("samples", "years", "locations"), temps, {"units":"degC"}),
    							"lat": (("locations"), [np.inf]),
    							"lon": (("locations"), [np.inf])},
    		coords={"years": proj_years, "locations": [-1], "samples": np.arange(nsamps)}, attrs=attrs)
    
-		deeptempds = xr.Dataset({"deep_ocean_temperature": (("samples", "years", "layers", "locations"), deeptemps, {"units":"degC"}),
+	deeptempds = xr.Dataset({"deep_ocean_temperature": (("samples", "years", "layers", "locations"), deeptemps, {"units":"degC"}),
    							"lat": (("locations"), [np.inf]),
    							"lon": (("locations"), [np.inf])},
    	 	coords={"years": proj_years, "locations": [-1], "samples": np.arange(nsamps), "layers": [1,2]}, attrs=attrs)
    
-		ohcds = xr.Dataset({"ocean_heat_content": (("samples", "years", "locations"), ohcs, {"units":"J"}),
+	ohcds = xr.Dataset({"ocean_heat_content": (("samples", "years", "locations"), ohcs, {"units":"J"}),
    							"lat": (("locations"), [np.inf]),
    							"lon": (("locations"), [np.inf])},
    	 	coords={"years": proj_years, "locations": [-1], "samples": np.arange(nsamps)}, attrs=attrs)
    
 		# Write the datasets to netCDF
-		tempds.to_netcdf("{}_gsat.nc".format(pipeline_id), encoding={"surface_temperature": {"dtype": "float32", "zlib": True, "complevel":4}})
-		deeptempds.to_netcdf("{}_oceantemp.nc".format(pipeline_id), encoding={"deep_ocean_temperature": {"dtype": "float32", "zlib": True, "complevel":4}})
-		ohcds.to_netcdf("{}_ohc.nc".format(pipeline_id), encoding={"ocean_heat_content": {"dtype": "float32", "zlib": True, "complevel":4}})
+	tempds.to_netcdf("{}_gsat.nc".format(pipeline_id), encoding={"surface_temperature": {"dtype": "float32", "zlib": True, "complevel":4}})
+	deeptempds.to_netcdf("{}_oceantemp.nc".format(pipeline_id), encoding={"deep_ocean_temperature": {"dtype": "float32", "zlib": True, "complevel":4}})
+	ohcds.to_netcdf("{}_ohc.nc".format(pipeline_id), encoding={"ocean_heat_content": {"dtype": "float32", "zlib": True, "complevel":4}})
    
 		# create a single netCDF file that is compatible with modules expecting parameters organized in a certain fashion
-		pooledds = xr.Dataset({"surface_temperature": (("years","samples"), temps[::,::,0].transpose(), {"units":"degC"}),
+	pooledds = xr.Dataset({"surface_temperature": (("years","samples"), temps[::,::,0].transpose(), {"units":"degC"}),
    							"deep_ocean_temperature": (("years","samples", "layers"), deeptempst[::,::,::,0], {"units":"degC"}),
    							"ocean_heat_content": (("years","samples"), ohcs[::,::,0].transpose(), {"units":"J"})},
    	 	coords={"years": proj_years, "samples": np.arange(nsamps), "layers": [1,2]}, attrs=attrs)
 
-		pooledds.to_netcdf("{}_climate.nc".format(pipeline_id), group=scenario,encoding={"ocean_heat_content": {"dtype": "float32", "zlib": True, "complevel":4},
+	pooledds.to_netcdf("{}_climate.nc".format(pipeline_id), group=scenario,encoding={"ocean_heat_content": {"dtype": "float32", "zlib": True, "complevel":4},
    	 	"surface_temperature": {"dtype": "float32", "zlib": True, "complevel":4},
    	 	"deep_ocean_temperature": {"dtype": "float32", "zlib": True, "complevel":4}})
-		yearsds = xr.Dataset({"year": proj_years})
+	yearsds = xr.Dataset({"year": proj_years})
     
-		yearsds.to_netcdf("{}_climate.nc".format(pipeline_id), mode='a')
+	yearsds.to_netcdf("{}_climate.nc".format(pipeline_id), mode='a')
 	
 	return(None)
 
