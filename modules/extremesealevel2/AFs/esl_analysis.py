@@ -93,7 +93,7 @@ def ESL_stats_from_raw_GESLA(gesla_version,path_to_gesla,input_locations,preproc
             
     # if no locations with esl data are found, quit with error
     if not matched_filenames:
-        raise Exception("Zero matches found within {} degrees for provided lat/lon list".format(match_dist_limit))
+        raise Exception("Zero matches found within {} km for provided lat/lon list".format(match_dist_limit))
       
     # Initialize variables to track the files that have been tested
     pass_files = {}
@@ -173,7 +173,7 @@ def ESL_stats_from_raw_GESLA(gesla_version,path_to_gesla,input_locations,preproc
     
         # Let the user know we didn't find a file that passes the data constraints
         if not this_id_passed:
-            print("No locations within {0} degrees pass the data constraints for ID {1}.".format(match_dist_limit, this_id))
+            print("No locations within {0} km pass the data constraints for ID {1}.".format(match_dist_limit, this_id))
         
     if len(esl_statistics) == 0:
         raise Exception('Did not find any nearby records passing the data constraints.')

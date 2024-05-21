@@ -28,3 +28,46 @@ fit:
       - 'I_O.py'
       - 'preprocessing.py'
       - 'gesla.py'
+    download_output_data:
+      - "%PIPELINE_ID%_esl_statistics.nc"
+      
+project:
+  task2:
+    executable: "python3"
+    python_dependencies: "numpy pandas netCDF4 xarray scipy tqdm openpyxl dask dask distributed"
+    script: "extremesealevel2_AFs_project.py"
+    options:
+      - "quantile_min"
+      - "quantile_max"
+      - "quantile_step"
+      - "target_year_min"
+      - "target_year_max"
+      - "target_year_step"
+      - "target_AFs_min"
+      - "target_AFs_max"
+      - "target_AFs_step"
+      - "target_freqs_min"
+      - "target_freqs_max"
+      - "target_freqs_step"
+      - "nsamps"
+      - "total_localsl_file"
+      - "esl_statistics_file"
+      - "refFreq_data"
+      - "refFreq_data_path"
+      - "use_central_estimates_only"
+      - "below_threshold"
+      - "pipeline_id"
+    upload_input_data:
+      - 'esl_analysis.py'
+      - 'utils.py'
+      - 'I_O.py'
+      - 'projecting.py'
+      - 'preprocessing.py'
+      - 'gesla.py' 
+    upload_and_extract_input_data:
+      - 'flopros_at_coastrp.tgz'  
+       
+    copy_input_data:
+      fit:
+        task1:
+          - "%PIPELINE_ID%_esl_statistics.nc"

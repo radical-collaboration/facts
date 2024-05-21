@@ -1,19 +1,16 @@
-import xarray as xr
-import dask
 import pandas as pd
 import os
 import numpy as np
 import argparse
-from I_O import load_config, open_input_locations, esl_statistics_dict_to_ds, save_ds_to_netcdf, open_gpd_parameters,get_coast_rp_return_curves
-from esl_analysis import ESL_stats_from_raw_GESLA, ESL_stats_from_gtsm_dmax, multivariate_normal_gpd_samples_from_covmat, get_return_curve_gpd
-import tarfile
-import fnmatch
+from I_O import open_input_locations, esl_statistics_dict_to_ds, open_gpd_parameters,get_coast_rp_return_curves
+from esl_analysis import ESL_stats_from_raw_GESLA, ESL_stats_from_gtsm_dmax
 
 # Do not warn about chained assignments
 pd.options.mode.chained_assignment = None  # default='warn'
 
-""" extremesl_fit.py
-to-do: document IO
+""" extremesealevel2_AFs_fit.py
+written by: Tim Hermans t.h.j.hermans@uu.nl (May 2024)
+Fitting stage of extremesealevel2 module of FACTS.
 """
 
 def get_ESL_statistics(esl_data,path_to_data,input_locations,match_dist_limit,preproc_settings=None,n_samples=None,f=None):
@@ -21,17 +18,18 @@ def get_ESL_statistics(esl_data,path_to_data,input_locations,match_dist_limit,pr
     esl_statistics = {} #initialize dictionary to hold ESL information
     esl_data = esl_data.lower()
     
-    if esl_data in ['gesla2','gesla3']: #if using raw data from GESLA
+    #derive ESL statistics:
+    if esl_data in ['gesla2','gesla3']: #from raw GESLA data
         esl_statistics = ESL_stats_from_raw_GESLA(esl_data,path_to_data,input_locations,preproc_settings,match_dist_limit) #dictionary output
         esl_statistics = esl_statistics_dict_to_ds(input_locations,esl_statistics)
-        
-    elif esl_data.lower() in ['gtsm_dmax']:
+    
+    elif esl_data.lower() in ['gtsm_dmax']: #from raw daily maxima from GTSM
         esl_statistics = ESL_stats_from_gtsm_dmax(path_to_data,input_locations,preproc_settings,match_dist_limit)
             
-    elif esl_data.lower() in ['hermans2023','kirezci2020','vousdoukas2018','gtsm_dmax_gpd']:
+    elif esl_data.lower() in ['hermans2023','kirezci2020','vousdoukas2018','gtsm_dmax_gpd']: #from pre-made statistics
         esl_statistics = open_gpd_parameters(esl_data,path_to_data,input_locations,n_samples,match_dist_limit)
             
-    elif esl_data.lower() == 'coast-rp': # Option C: read in pre-defined return curves         
+    elif esl_data.lower() == 'coast-rp': #from COAST-RP return curves   
         esl_statistics = get_coast_rp_return_curves(path_to_data,input_locations,f,match_dist_limit)
     else:
         raise Exception('ESL input data type not recognized.')
@@ -39,30 +37,29 @@ def get_ESL_statistics(esl_data,path_to_data,input_locations,match_dist_limit,pr
 
 if __name__ == "__main__":
     # Initialize the command-line argument parser
-    parser = argparse.ArgumentParser(description="Run the fitting stage for the extreme sea-level workflow",
+    parser = argparse.ArgumentParser(description="Run the fitting stage for the extreme sea-level 2 workflow",
                     epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
     
     # Define the command line arguments to be expected
     parser.add_argument('--minYears', help="Minimum number of years available [default=20]", type=int, default=20)
-    parser.add_argument('--resample_freq', help="Frequency to resample the raw data to prior to ESL analysis.", default="D_max")
-    parser.add_argument('--deseasonalize', help="Boolean flag to indicate whether to remove mean seasonal cycle prior to ESL analysis.",type=int, default=1)
-    parser.add_argument('--detrend', help="Boolean flag to indicate whether to remove linear trend prior to ESL analysis.",type=int, default=1)
-    parser.add_argument('--subtract_amean', help="Boolean flag to indicate whether to remove annual means prior to ESL analysis.",type=int, default=1)
-    parser.add_argument('--match_lim', help="Radius around requested locations to find a matching tide gauge in GESLA database", type=float, default=10)
+    parser.add_argument('--resample_freq', help="Frequency to resample the raw data to prior to ESL analysis [default=daily maxima, 'D_max'].", default="D_max")
+    parser.add_argument('--deseasonalize', help="Boolean flag to indicate whether to remove mean seasonal cycle prior to ESL analysis [default=1].",type=int, default=1)
+    parser.add_argument('--detrend', help="Boolean flag to indicate whether to remove linear trend prior to ESL analysis [default=1].",type=int, default=1)
+    parser.add_argument('--subtract_amean', help="Boolean flag to indicate whether to remove annual means prior to ESL analysis [default=0].",type=int, default=0)
+    parser.add_argument('--match_lim', help="Radius around requested locations to find a matching tide gauge in GESLA database [default=10 (km)].", type=float, default=10)
     parser.add_argument('--gpd_pot_threshold', help="Percentile for GPD analysis [default=99]", type=float, default=99)
     parser.add_argument('--decluster_window', help="Maximum number of days that define a cluster for extreme events [default=3]", type=int, default=3)
-    parser.add_argument('--decluster_method', help="Method to use for declustering peaks.", default="rolling_max")
-    parser.add_argument('--nsamps', help="Number of samples to draw [default = 20000]", type=int, default=2000)
+    parser.add_argument('--decluster_method', help="Method to use for declustering peaks [default='rolling_max'].", default="rolling_max")
+    parser.add_argument('--nsamps', help="Number of samples to draw [default = 2000]", type=int, default=2000)
     parser.add_argument('--total_localsl_file', help="Total localized sea-level projection file. Site lats/lons are taken from this file and mapped to the GESLA database", default="total-workflow_localsl.nc")
-    parser.add_argument('--esl_data', help="Type of data used for the ESL analysis.", default="gesla3")
+    parser.add_argument('--esl_data', help="Type of data used for the ESL analysis [default='gesla3'].", default="gesla3")
     parser.add_argument('--esl_data_path', help="Directory containing requested ESL data", default=os.path.join(os.path.dirname(__file__), "gesla3_data"))
-	
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
     
     # Parse the arguments
     args = parser.parse_args()
     
-    #generate dictionary with preprocessing settings
+    #generate dictionary with preprocessing settings from parsed arguments
     preproc_settings = {}
     preproc_settings['min_yrs']             = args.minYears
     preproc_settings['store_esls']          = False
@@ -87,3 +84,4 @@ if __name__ == "__main__":
     extremesl_fit = get_ESL_statistics(esl_data,esl_data_path,input_locations,args.match_lim,preproc_settings,n_samples,f)
     extremesl_fit.to_netcdf(os.path.join(os.path.dirname(__file__),'{}_esl_statistics.nc'.format(args.pipeline_id)),mode='w')
     exit()
+    

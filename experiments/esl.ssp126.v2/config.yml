@@ -21,7 +21,9 @@ esl_step:
         module: "AFs"
         options:
             total_localsl_file: "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc" 
+            refFreq_data_file: "flopros_estimates_at_coastrp_locations.nc"
             input_data_file:
               - "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc"
+            
 
 

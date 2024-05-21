@@ -8,7 +8,8 @@ import xarray as xr
 import pandas as pd
 import yaml
 import os
-from utils import mindist
+from utils import mindist, kmdist
+from tqdm import tqdm
 
 def load_config(path_to_config):
     '''load projectESL configuration from "cfgpath" '''
@@ -124,6 +125,7 @@ def lazy_output_to_ds(output,f,out_qnts,esl_statistics,target_years=None,target_
     if len(target_years)>0:
         output_ds['z_fut'] = (['locations','qnt','f','target_year'],np.stack([k[1] for k in output]))
         output_ds['AF'] = (['locations','qnt','target_year'],np.stack([k[2] for k in output]))
+        output_ds['maxAF'] = (['locations'],np.stack([k[3] for k in output]))
         output_ds = output_ds.assign_coords({'target_year':target_years})
         
     if len(target_AFs)>0:
@@ -136,29 +138,178 @@ def lazy_output_to_ds(output,f,out_qnts,esl_statistics,target_years=None,target_
     
     return output_ds
 
-'''
+
+def find_flopros_protection_levels(qlons,qlats,flopros_dir,maxdist):
+    '''find flood protection level of polygons nearest (within "maxdist") to queried sites (qlons,qlats)'''
+    
+    from openpyxl import load_workbook
+    import geopandas as geopd
+    from shapely.geometry import Point
+    
+    polygons = geopd.read_file(os.path.join(flopros_dir,'Results_adaptation_objectives/Countries_States_simplified.shp')) #shape file with region polygons
+    wb = load_workbook(filename = os.path.join(flopros_dir,'FLOPROS_geogunit_107.xlsx')) #protection standards for each region
+    ws = wb.active
+    flopros = np.array([cell.value for cell in ws['D'][1::]],dtype=float)
+    
+    centroids = polygons.centroid #determine polygon centroids for quick filtering
+    latc = [k.coords.xy[-1][0] for k in centroids]
+    lonc = [k.coords.xy[0][0] for k in centroids]
+    
+    nearest_segments = []
+    
+    polygons = polygons.set_crs('epsg:4326')
+    
+    for qlat,qlon in tqdm(zip(qlats,qlons)): #loop over query coordinates
+        p = Point(qlon,qlat) #put coords into point geometry
+        
+        #do a first filtering based on angular distance to segment/polygon center points (more efficient than shapely distance)
+        kmdists = kmdist(qlat,qlon,latc,lonc)
+        nearby = np.where(kmdists<5000)[0]
+        if len(nearby)==0:
+            nearest_segments.append(np.nan)
+            #add a warning?
+            continue
+        
+        i_near = polygons.iloc[nearby].index[np.argsort( [p.distance(k) for k in polygons.iloc[nearby].geometry])[0:3]] #find the nearest 3 segments based on euclidean distances (default for shapely)
+        
+        #for these segments, refine the distance computation using a coordinate-specific appropriate reference system
+        p_gdf = geopd.GeoDataFrame(geometry=[p], crs='epsg:4326') #put query point into cartesian geodataframe
+        if qlat<0: #determine appropriate epsg system
+            e = 32701 + np.floor_divide((qlon+180),6)
+            if qlat<-80:
+                e = 32761
+        else:
+            e = 32601 + np.floor_divide((qlon+180),6)
+            if qlat>80:
+                e = 32661
+            
+        p_gdf.to_crs(epsg=e, inplace=True) #convert point to epsg system
+        polygons_ = polygons.iloc[i_near].to_crs(epsg=e) #convert coordinates of 3 nearest diva segments to epsg system
+        
+        km_dists = np.array([p_gdf.distance(k).values[0] for k in polygons_.geometry])/1000 #compute kilometric distances
+        
+        if np.min(km_dists>maxdist): #if nearest point on nearest segment is more than max dist km away
+            nearest_segments.append(np.nan)
+            #add a warning?
+            continue
+    
+        nearest_segments.append(polygons_.index[np.argmin( km_dists )]) #append index of nearest diva segment
+        
+    protection_levels = []
+    
+    for k in nearest_segments:
+        if np.isfinite(k):
+            plevel = flopros[polygons.FID_Aque.iloc[k]] #in units of return period
+            protection_levels.append(1/plevel) #add protection level to list in units of return frequency
+        else:
+            protection_levels.append(np.nan)
+            
+    return np.array(protection_levels)
+
+
+def find_diva_protection_levels(qlons,qlats,diva_fn,maxdist):
+    '''find flood protection level of polygons nearest (within "maxdist") to queried sites (qlons,qlats)'''
+    import geopandas as geopd
+    from shapely.geometry import Point
+    
+    diva = geopd.read_file(diva_fn) #open diva geo file
+    
+    nearest_segments = []
+    
+    for qlat,qlon in tqdm(zip(qlats,qlons)): #loop over query coordinates
+        p = Point(qlon,qlat) #put coords into point geometry
+        
+        #do a first filtering based on angular distance to segment/polygon center points (more efficient than shapely distance)
+        kmdists = kmdist(qlat,qlon,diva.lati.values,diva.longi.values)
+        nearby = np.where(kmdists<500)[0]
+        if len(nearby)==0:
+            nearest_segments.append(np.nan)
+            #add a warning?
+            continue
+        
+        i_near = diva.iloc[nearby].index[np.argsort( [p.distance(k) for k in diva.iloc[nearby].geometry])[0:5]] #find the nearest 5 segments based on euclidean distances (default for shapely)
+        
+        #for these segments, refine the distance computation using a coordinate-specific appropriate reference system
+        p_gdf = geopd.GeoDataFrame(geometry=[p], crs='epsg:4326') #put query point into cartesian geodataframe
+        if qlat<0: #degermine appropriate epsg system
+            e = 32701 + np.floor_divide((qlon+180),6)
+            if qlat<-80:
+                e = 32761
+        else:
+            e = 32601 + np.floor_divide((qlon+180),6)
+            if qlat>80:
+                e = 32661
+            
+        p_gdf.to_crs(epsg=e, inplace=True) #convert point to epsg system
+        diva_ = diva.iloc[i_near].to_crs(epsg=e) #convert coordinates of 5 nearest diva segments to epsg system
+        
+        km_dists = np.array([p_gdf.distance(k).values[0] for k in diva_.geometry])/1000 #compute kilometric distances
+        
+        if np.min(km_dists>maxdist): #if nearest point on nearest segment is more than 15km away
+            nearest_segments.append(np.nan)
+            #add a warning?
+            continue
+    
+        nearest_segments.append(diva_.index[np.argmin( km_dists )]) #append index of nearest diva segment
+    
+    protection_levels = []
+
+    for k in nearest_segments:
+        if np.isfinite(k):
+            plevel = diva.protection_level_modelled.values[k] #in units of return period
+            
+            if plevel==0: #if no protection, assign protection of 1/2y (following Scussolini et al., 2016)
+                plevel = 2
+            protection_levels.append(1/plevel) #add protection level to list in units of return frequency
+        else:
+            protection_levels.append(np.nan)
+    return np.array(protection_levels)
+
+def find_custom_protection_levels(qlons,qlats,custom_fn,maxdist):
+    #custom protection must be given as xarray dataset, with coordinates "lon", "lat", "locations", and variable "protection" in 1/yr as funtion of "locations"
+    ds = xr.open_dataset(custom_fn)
+    
+    ds_lons = ds.lon.values
+    ds_lats = ds.lat.values
+    
+    min_idx = [mindist(x,y,ds_lats,ds_lons,maxdist) for x,y in zip(qlats,qlons)]
+
+    protection_levels = np.zeros((len(qlats)))
+    
+    for i in np.arange(len(protection_levels)): #for each input location
+        if min_idx[i] is not None: #if nearby ESL information found
+            try:
+                j = min_idx[i][0] #if multiple within maxdist, take the first
+            except:
+                j = min_idx[i]
+            protection_levels[i] = ds.protection.isel(locations=j).values
+        else:
+            protection_levels[i] = np.nan
+   
+    return protection_levels
+    
 def get_refFreqs(refFreq_data,input_locations,esl_statistics,path_to_refFreqs=None):
-    from projecting import find_flopros_protection_levels, find_diva_protection_levels
-#    determine reference frequencies for queried input_locations based on user options in config
+    ''' determine reference frequencies for queried input_locations based on user options in config'''
+    
+    qlats = input_locations.lat.sel(locations=esl_statistics.locations).values
+    qlons = input_locations.lon.sel(locations=esl_statistics.locations).values
     
     if refFreq_data == 'diva': #find contemporary DIVA flood protection levels
-        qlats = input_locations.lat.sel(locations=esl_statistics.locations).values
-        qlons = input_locations.lon.sel(locations=esl_statistics.locations).values
         refFreqs = find_diva_protection_levels(qlons,qlats,path_to_refFreqs,10) #set these paths in config
     
     elif refFreq_data == 'flopros': #find contemporary FLOPROS flood protection levels
-        qlats = input_locations.lat.sel(locations=esl_statistics.locations).values
-        qlons = input_locations.lon.sel(locations=esl_statistics.locations).values
-        
         refFreqs = find_flopros_protection_levels(qlons,qlats,path_to_refFreqs,10)    
-    
+        
+    elif refFreq_data == 'custom':
+        refFreqs = find_custom_protection_levels(qlons,qlats,path_to_refFreqs,10)
+        
     elif np.isscalar(refFreq_data): #use constant reference frequency for every location
-            refFreqs = np.tile(refFreq_data,len(esl_statistics))
+            refFreqs = np.tile(refFreq_data,len(esl_statistics.locations))
     else: 
-        raise Exception('Rquested reference frequency must be "diva", "flopros" or a constant.')
+        raise Exception('Rquested reference frequency must be "diva", "flopros","custom" or a constant.')
             
     return refFreqs
-'''
+
 def open_gpd_parameters(input_data,data_path,input_locations,n_samples,match_dist_limit):
     if input_data == 'hermans2023':
         gpd_params = xr.open_dataset(data_path) #open GPD parameters
@@ -351,3 +502,4 @@ def open_gtsm_waterlevels(gtsm_dir, input_locations, match_dist_limit):
     gtsm = gtsm.where((gtsm.waterlevel.var(dim='time')>1e-5)).dropna(dim='locations') #remove weird stations with very low variance (erroneous, sea ice, internal seas?)
 
     return gtsm
+

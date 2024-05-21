@@ -13,8 +13,9 @@ from dask.distributed import LocalCluster
 # Do not warn about chained assignments
 pd.options.mode.chained_assignment = None  # default='warn'
 
-""" extremesl_fit.py
-to-do: document IO
+""" extremesealevel2_AFs_project.py
+written by: Tim Hermans t.h.j.hemrans@uu.nl (May 2024)
+Projecting stage of extremesealevel2 module of FACTS.
 """
 
 def compute_projectESL_output(loc,scale,shape,rate,cov,mhhw,f,below_threshold,n_samples,refFreq,input_locations,out_qnts,target_years,target_AFs,target_freqs,z_hist=None):
@@ -109,35 +110,74 @@ def project_ESLs_lazily(esl_statistics,f,below_threshold,n_samples,refFreqs,inpu
 
 if __name__ == "__main__":
     # Initialize the command-line argument parser
-    parser = argparse.ArgumentParser(description="Run the projection stage for the extreme sea-level workflow",
+    parser = argparse.ArgumentParser(description="Run the projection stage for the extreme sea-level 2 workflow",
                     epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
     
     # Define the command line arguments to be expected
-    parser.add_argument('--nsamps', help="Number of samples to draw [default = 20000]", type=int, default=20000)
-    parser.add_argument('--out_qnts', help="Which quantiles to store output for", type=float, default=[.05,.5,.95]) #the following for inputs are arrays, probably not possible to parse?
-    parser.add_argument('--target_years', help="")
-    parser.add_argument('--target_AFs', help="" )
-    parser.add_argument('--target_freqs', help="")
+    parser.add_argument('--nsamps', help="Number of samples to draw [default = 2000]", type=int, default=2000)
+    parser.add_argument('--quantile_min', help="Minimum quantile to assess [default = 0.01]", type=float, default=0.01)
+    parser.add_argument('--quantile_max', help="Maximum quantile to assess [default = 0.99]", type=float, default=0.99)
+    parser.add_argument('--quantile_step', help="Quantile step [default = 0.01]", type=float, default=0.01)
+    
+    parser.add_argument('--target_year_min', help="Minimum quantile to assess [default = 0.01]", type=float, default=0.01)
+    parser.add_argument('--target_year_max', help="Maximum quantile to assess [default = 0.99]", type=float, default=0.99)
+    parser.add_argument('--target_year_step', help="Quantile step [default = 0.01]", type=float, default=0.01)
+    
+    parser.add_argument('--target_AFs_min', help="Minimum quantile to assess [default = 0.01]", type=float, default=0.01)
+    parser.add_argument('--target_AFs_max', help="Maximum quantile to assess [default = 0.99]", type=float, default=0.99)
+    parser.add_argument('--target_AFs_step', help="Quantile step [default = 0.01]", type=float, default=0.01)
+    
+    parser.add_argument('--target_freqs_min', help="Minimum quantile to assess [default = 0.01]", type=float, default=0.01)
+    parser.add_argument('--target_freqs_max', help="Maximum quantile to assess [default = 0.99]", type=float, default=0.99)
+    parser.add_argument('--target_freqs_step', help="Quantile step [default = 0.01]", type=float, default=0.01)
+    
+
     parser.add_argument('--total_localsl_file', help="Total localized sea-level projection file. Site lats/lons are taken from this file and mapped to the GESLA database", default="total-workflow_localsl.nc")
-    parser.add_argument('--refFreq_data', help="Which protection level frequencies data to use", default="flopros")
-    parser.add_argument('--refFreq_path', help="Directory containing requested protection level frequencies data", default=os.path.join(os.path.dirname(__file__), ""))
-    parser.add_argument('--use_central_esl_estimates_only', help="Whether to use uncertainty of ESL estimates for projections", default=False)
-    parser.add_argument('--below_threshold', help="How to model events below the GPD threshold", default='mhhw')
+    parser.add_argument('--esl_statistics_file', help="ESL statistics from fitting stage", default=None)
+
+    parser.add_argument('--refFreq_data', help="Which protection level frequencies data to use", default="custom")
+    parser.add_argument('--refFreq_data_file', help="Directory containing requested protection level frequencies data", default=None)
+    
+    parser.add_argument('--use_central_esl_estimates_only', help="If set to True, the uncertainty of ESL estimates for projections is ignored [Default = False].", default=False)
+    parser.add_argument('--below_threshold', help="How to model events below the GPD threshold [Default = log-linear extrapolation to mhhw]", default='mhhw')
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+    
     
     # Parse the arguments
     args = parser.parse_args()
     
+    # Use default for station data file if necessary
+    if args.esl_statistics_file is None:
+        esl_statistics_fn = os.path.join(os.path.dirname(__file__), "{}_esl_statistics.nc".format(args.pipeline_id))
+    else:
+        esl_statistics_fn = args.esl_statistics_file
+        
+    #pass arguments to variables
     sl_fn               = args.total_localsl_file
     n_samples           = args.nsamps
-    out_qnts            = args.out_qnts
-    path_to_refFreqs    = args.refFreq_path
+    out_qnts            = np.arange(args.quantile_min,args.quantile_max,args.quantile_step)
     refFreq_data        = args.refFreq_data
-    use_central_esl_estimates_only        = args.use_central_esl_estimates_only
-    below_threshold = args.below_threshold
-    target_AFs = args.target_AFs
-    target_years = args.target_years
-    target_freqs = args.yarget_freqs
+    
+    try:
+        target_years    = np.arange(args.target_year_min,args.target_year_max,args.target_year_step)
+    except:
+        pass
+    try:
+        target_AFs     = np.arange(args.target_AFs_min,args.target_AFs_max,args.target_AFs_step)
+    except:
+        pass
+    try:
+        target_freqs   = np.arange(args.target_freqs_min,args.target_freqs_max,args.target_freqs_step)
+    except:
+        pass
+    
+    use_central_esl_estimates_only  = args.use_central_esl_estimates_only
+    below_threshold                 = args.below_threshold
+    
+    
+    #load in ESL_statistics from fitting stage:
+    input_locations = open_input_locations(sl_fn,n_samples)
+    esl_statistics = xr.open_dataset(esl_statistics_fn)
     
     cluster = LocalCluster()          # Start a fully-featured local Dask cluster
     client = cluster.get_client()
@@ -145,20 +185,25 @@ if __name__ == "__main__":
     f= 10**np.linspace(-6,2,num=1001) #input frequencies to compute return heights for
     f=np.append(f,np.arange(101,183))    
     
-    input_locations = open_input_locations(sl_fn,n_samples)
-    esl_statistics = xr.open_dataset('esl_statistics.nc')
+    print(args.refFreq_data_file) #<<--why does this take the default value instead of the option provided in config.yml??
     
-    ### projecting stage
-    refFreqs = get_refFreqs(refFreq_data,input_locations,esl_statistics,path_to_refFreqs) #grab reference frequencies for AFs at each site
-
+    if np.array(refFreq_data).dtype=='int' or np.array(refFreq_data).dtype=='float': #use constant reference frequency for every location
+        refFreqs = get_refFreqs(refFreq_data,input_locations,esl_statistics) #grab reference frequencies for AFs at each site
+    else:
+        refFreqs = get_refFreqs(refFreq_data,input_locations,esl_statistics,
+                                os.path.join(os.path.dirname(__file__),args.refFreq_data_file))
+        
     if use_central_esl_estimates_only:
         esl_statistics=esl_statistics.drop(['cov','scale_samples','shape_samples'],errors='ignore')
         
     output=dask.compute(*project_ESLs_lazily(esl_statistics,f,below_threshold,n_samples,refFreqs,
                                          input_locations,out_qnts,target_years,target_AFs,target_freqs)) #compute output for each location in parallel
-
+    
     output_ds = lazy_output_to_ds(output,f,out_qnts,esl_statistics,target_years,target_AFs,target_freqs) #convert output to xarray dataset
     output_ds['refFreq'] = (['locations'],refFreqs)
+    '''
+    save_ds_to_netcdf(os.path.join(os.path.dirname(__file__)),output_ds,'{}_esl_statistics.nc'.format(args.pipeline_id)) #store
 
-    output_ds.to_netcdf('projectESL_output.nc','w') #store
+    cluster.close()
+    '''
     exit()
