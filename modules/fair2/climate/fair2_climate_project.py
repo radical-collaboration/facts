@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 import xarray as xr
-
+from fill_from_rcmip import fill_from_rcmip
 
 # Function that prepares the RCMIP emissions data
 def prep_rcmip_emissions_conc(scenario, rcmip_file):
@@ -38,7 +38,8 @@ def fair2_project_climate(scenario,rcmip_file, calibration_file, species_config_
 	
 	f.allocate()
 
-	f.fill_from_rcmip()
+	#f.fill_from_rcmip()
+	fill_from_rcmip(f, rcmip_file=rcmip_file)
 	f.emissions
 
 	df_emis = pd.read_csv(rcmip_file)
