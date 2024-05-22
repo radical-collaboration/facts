@@ -1,0 +1,68 @@
+# Extremesealevel2 Points-Over-Threshold pipeline configuration
+
+fit:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy pandas netCDF4 xarray scipy tqdm openpyxl dask"
+    script: "extremesealevel2_AFs_fit.py"
+    options:
+      - "minYears"
+      - "resample_freq"
+      - "deseasonalize"
+      - "detrend"
+      - "subtract_amean"
+      - "match_lim"
+      - "gpd_pot_threshold"
+      - "decluster_window"
+      - "decluster_method"
+      - "nsamps"
+      - "total_localsl_file"
+      - "esl_data"
+      - "esl_data_path"
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - "extremesealevel2_AFs_data.tgz"
+    upload_input_data:
+      - "esl_analysis.py"
+      - "utils.py"
+      - "I_O.py"
+      - "preprocessing.py"
+      - "gesla.py"
+    download_output_data:
+      - "%PIPELINE_ID%_esl_statistics.nc"
+      
+project:
+  task2:
+    executable: "python3"
+    python_dependencies: "numpy pandas netCDF4 xarray scipy tqdm openpyxl dask dask distributed"
+    script: "extremesealevel2_AFs_project.py"
+    options:
+      - "nsamps"    
+      - "quantile_min"
+      - "quantile_max"
+      - "quantile_step"
+      - "target_years"
+      - "target_AFs"
+      - "target_freqs"
+      - "total_localsl_file"
+      - "esl_statistics_file"
+      - "refFreq_data"
+      - "refFreq_data_file"
+      - "use_central_estimates_only"
+      - "below_threshold"
+      - "pipeline_id"
+    upload_input_data:
+      - "esl_analysis.py"
+      - "utils.py"
+      - "I_O.py"
+      - "projecting.py"
+      - "preprocessing.py"
+      - "gesla.py"
+    upload_and_extract_input_data:
+      - "extremesealevel2_AFs_data.tgz"
+    copy_input_data:
+      fit:
+        task1:
+          - "%PIPELINE_ID%_esl_statistics.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_projectESL_output.nc"
