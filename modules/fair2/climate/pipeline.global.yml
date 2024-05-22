@@ -3,7 +3,7 @@
 project:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair==2.1.4"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair==2.1.4 h5py"
     script: "fair2_climate_project.py"
     options:
       - "scenario"
