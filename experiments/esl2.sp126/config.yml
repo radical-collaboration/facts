@@ -20,10 +20,12 @@ esl_step:
         module_set: "extremesealevel2"
         module: "AFs"
         options:
+            target_years: 2050,2100
             total_localsl_file: "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc" 
-            refFreq_data_file: "flopros_estimates_at_coastrp_locations.nc"
+            refFreq_data: "custom"
+            refFreq_data_file: "flopros_estimates_at_coastrp_locations/flopros_estimates_at_coastrp_locations.nc"
             input_data_file:
-              - "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc"
+             - "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc"
             
 
 
