@@ -21,7 +21,7 @@ fit:
       - "esl_data_path"
       - "pipeline_id"
     upload_and_extract_input_data:
-      - "gesla3_data.tgz"
+      - "extremesealevel2_AFs_data.tgz"
     upload_input_data:
       - "esl_analysis.py"
       - "utils.py"
@@ -59,7 +59,7 @@ project:
       - "preprocessing.py"
       - "gesla.py"
     upload_and_extract_input_data:
-      - "flopros_at_coastrp.tgz"
+      - "extremesealevel2_AFs_data.tgz"
     copy_input_data:
       fit:
         task1:

@@ -22,8 +22,10 @@ esl_step:
         options:
             target_years: 2050,2100
             total_localsl_file: "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc" 
+            esl_data: "gesla3"
+            esl_data_path: "extremesealevel2_AFs_data/esl_data/gesla3_data"
             refFreq_data: "custom"
-            refFreq_data_file: "flopros_estimates_at_coastrp_locations/flopros_estimates_at_coastrp_locations.nc"
+            refFreq_data_file: "extremesealevel2_AFs_data/refFreqs/flopros_estimates_at_coastrp_locations.nc"
             input_data_file:
              - "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc"
             
