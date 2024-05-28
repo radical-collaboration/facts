@@ -8,6 +8,8 @@ project:
     options:
       - "scenario"
       - "rcmip_file"
+      - "concentration_file"
+      - "forcing_file"
       - "pipeline_id"
       - "calibration_file"
       - "solar_erf"
@@ -22,6 +24,7 @@ project:
       - "seed"
     upload_input_data:
       - 'fill_from_rcmip.py'
+      - 'fill_from.py'
     upload_and_extract_input_data:
       - "fair2_climate_project_data.tgz"
     climate_output_data:

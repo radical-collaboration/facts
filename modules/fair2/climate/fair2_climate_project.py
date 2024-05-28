@@ -7,14 +7,16 @@ import pandas as pd
 from datetime import datetime
 import xarray as xr
 from fill_from_rcmip import fill_from_rcmip
+from fill_from import *
 
 # Function that prepares the RCMIP emissions data
 def prep_rcmip_emissions_conc(scenario, rcmip_file):
 	pass
 
 
-def fair2_project_climate(scenario,rcmip_file, calibration_file, species_config_file, volcanic_erf, solar_erf, reference_year, pipeline_id, nsamps,cyear_start, cyear_end,
+def fair2_project_climate(scenario,rcmip_file, concentration_file,forcing_file, calibration_file, species_config_file, volcanic_erf, solar_erf, reference_year, pipeline_id, nsamps,cyear_start, cyear_end,
 						  pyear_start,pyear_end,smooth_win,seed):
+	
 	from fair import FAIR
 	from fair.interface import fill, initialise
 	from fair.io import read_properties
@@ -39,7 +41,10 @@ def fair2_project_climate(scenario,rcmip_file, calibration_file, species_config_
 	f.allocate()
 
 	#f.fill_from_rcmip()
-	fill_from_rcmip(f, rcmip_file=rcmip_file)
+	if rcmip_file=='./rcmip/rcmip-emissions-annual-means-v5-1-0.csv':
+		fill_from_rcmip(f, rcmip_file=rcmip_file)
+	else:
+		fill_from_csv(f,emissions_file=rcmip_file, concentration_file=concentration_file, forcing_file=forcing_file)
 	f.emissions
 
 	df_emis = pd.read_csv(rcmip_file)
@@ -355,6 +360,8 @@ if __name__ == "__main__":
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
 	parser.add_argument('--rcmip_file', help="Full path to RCMIP emissions file", default="./rcmip/rcmip-emissions-annual-means-v5-1-0.csv")
+	parser.add_argument('--concentration_file', help='Full path to concentration file', default="./rcmip/rcmip-concentrations-annual-means-v5-1-0.csv")
+	parser.add_argument('--forcing_file', help='Full path to forcing file', default="./rcmip/rcmip-radiative-forcing-annual-means-v5-1-0.csv")
 	parser.add_argument('--calibration_file', help="Full path to the climate calibration params file", default="./parameters/calibrated_constrained_parameters.csv")
 	parser.add_argument('--species_config_file', help="Full path to the species configuration file", default="./parameters/species_configs_properties_calibration1.2.0.csv")
 	parser.add_argument('--volcanic_erf', help='Full path to the Volcanic ERF timebounds file', default="./parameters/volcanic_ERF_1750-2101_timebounds.csv")
@@ -376,6 +383,8 @@ if __name__ == "__main__":
 	fair2_project_climate(
 		scenario=args.scenario, 
 		rcmip_file=args.rcmip_file, 
+		concentration_file=args.concentration_file,
+		forcing_file=args.forcing_file,
 		calibration_file=args.calibration_file, 
 		species_config_file=args.species_config_file,
 		volcanic_erf=args.volcanic_erf,
