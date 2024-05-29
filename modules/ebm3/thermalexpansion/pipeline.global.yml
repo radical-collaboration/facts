@@ -10,9 +10,8 @@ preprocess:
       - "scenario"
       - "climate_data_file"
       - "pipeline_id"
-    upload_input_data:
-      - "%MODULE_PATH%/calibrated_constrained_parameters.csv"
-      - "%MODULE_PATH%/scmpy3LM_RCMIP_CMIP6calpm_n18_expcoefs.nc"
+    upload_and_extract_input_data:
+      - "ebm3_thermal_expansion_data.tgz"
 
 
 #project:
@@ -28,6 +27,7 @@ preprocess:
 #      - "pyear_start"
 #      - "pyear_end"
 #      - "pyear_step"
+#      - "seed"
 #    copy_input_data:
 #      preprocess:
 #        task1:
