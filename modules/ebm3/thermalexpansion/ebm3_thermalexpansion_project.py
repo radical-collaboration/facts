@@ -16,42 +16,32 @@ class ProjectionError(Exception):
 	pass
 	
 
-def ebm3_thermalexpansion_project(scenario, pyear_start, pyear_end, pyear_step, nsamps, pipeline_id, seed):
+def ebm3_thermalexpansion_project(scenario, climate_data_file, coef_file, params_file, pyear_start, pyear_end, pyear_step, nsamps, pipeline_id, seed, baseyear):
 	# constants 
     a = 6.37*1e6
     earth_area = 4*np.pi*a**2
-
+	
+    path = os.path.dirname(__file__)
 
     # heat capacity of each layer from fair2. Needed to compute OHC
-    path2para = 'calibrated_constrained_parameters.csv'
-    fparam = pd.read_csv(path2para)
+    fparam = pd.read_csv(params_file)
     c1 = fparam['clim_c1']
     c2 = fparam['clim_c2']
     c3 = fparam['clim_c3']
 
-    # these will probably function inputs 
-    nsamps = c1.shape[0]
-    pyear_start= 2020
-    pyear_end= 2150
-    pyear_step= 10
-    baseyear= 2005
+    # create target years array
     targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
-    seed = 1234
-
 
     #temperature output from fair2. Needed t compute OHC
-    path = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/project_tsl/fair2_output/' + scenario + '.temperature.fair.temperature_climate.nc'
-    ds = Dataset(path)
+    ds = Dataset(climate_data_file)
     gsat = ds[scenario]['surface_temperature'][:]
     deepoceant = ds[scenario]['deep_ocean_temperature'][:]
     years = ds[scenario]['years'][:]
 
     #   Expansion coefficients. Needed to to convert OCH to global thermal expansion (GTE)
-    path2exp = 'scmpy3LM_RCMIP_CMIP6calpm_n18_expcoefs.nc'
-    ds = Dataset(path2exp)
+    ds = Dataset(coef_file)
     include_models = ds['model'][:]
     eeh3 = ds['expcoefs'][:]
-
 
     # estimate OHC
     up = gsat*np.array(c1)
@@ -139,17 +129,22 @@ if __name__ == '__main__':
 	
 	# Define the command line arguments to be expected
 	parser.add_argument('--scenario', help="SSP scenario (i.e ssp585) or temperature target (i.e. tlim2.0win0.25)", default='ssp585')
+	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str)
+	parser.add_argument('--params_file', help='Full path to calibrated constraints params file', default='calibrated_constrained_parameters.csv')
+	parser.add_argument('--coef_file', help='Full path to expansion coefficient file', default='scmpy3LM_RCMIP_CMIP6calpm_n18_expcoefs.nc')
 	parser.add_argument('--nsamps', help="Number of samples to generate [default=1000]", default=1000, type=int)
 	parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
-	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
+	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2150, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
+	parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2005)
 	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+
 	
 	# Parse the arguments
 	args = parser.parse_args()
 	
 	# Run the projection process on the files specified from the command line argument
-	ebm3_thermalexpansion_project(args.scenario, args.pyear_start, args.pyear_end, args.pyear_step, args.nsamps, args.pipeline_id, args.seed)
+	ebm3_thermalexpansion_project(args.scenario, args.climate_data_file, args.coef_file, args.params_file, args.pyear_start, args.pyear_end, args.pyear_step, args.nsamps, args.pipeline_id, args.seed, args.baseyear)
 	
 	exit()

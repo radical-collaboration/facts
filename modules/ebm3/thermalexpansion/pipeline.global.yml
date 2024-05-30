@@ -1,36 +1,21 @@
-# Two-layer Model Ocean Dynamics Pipeline
-# modified from the Kopp14 pipeline.yml, needs  to be examined
-
-preprocess:
+project:
   task1:
     executable: "python3"
     python_dependencies: "numpy scipy netCDF4 pyyaml h5py pandas"
-    script: "ebm3_thermalexpansion_preprocess.py"
+    script: "ebm3_thermalexpansion_project.py"
     options:
       - "scenario"
       - "climate_data_file"
       - "pipeline_id"
+      - "nsamps"
+      - "seed"
+      - "scenario"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
     upload_and_extract_input_data:
       - "ebm3_thermal_expansion_data.tgz"
-
-
-#project:
-#  task1:
-#    executable: "python3"
-#    script: "ebm3_thermalexpansion_project.py"
-#    options:
-#      - "pipeline_id"
-#      - "nsamps"
-#      - "seed"
-#      - "scenario"
-#      - "baseyear"
-#      - "pyear_start"
-#      - "pyear_end"
-#      - "pyear_step"
-#      - "seed"
-#    copy_input_data:
-#      preprocess:
-#        task1:
-#          - "%PIPELINE_ID%_tlmdata.pkl"
-#    global_total_files:
-#      - "%PIPELINE_ID%_globalsl.nc"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
