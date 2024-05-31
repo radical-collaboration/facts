@@ -28,6 +28,20 @@ def ebm3_thermalexpansion_project(scenario, climate_data_file, coef_file, params
     c1 = fparam['clim_c1']
     c2 = fparam['clim_c2']
     c3 = fparam['clim_c3']
+	
+    nsims=1001
+
+    rng = np.random.default_rng(seed)
+    if nsamps > nsims:
+        run_idx = np.arange(nsims)
+        sample_idx = rng.choice(nsims, nsamps, nsamps>nsims)
+    else:
+        run_idx = rng.choice(nsims, nsamps, nsamps>nsims)
+        sample_idx = np.arange(nsamps)
+    
+    c1 = c1[sample_idx]
+    c2 = c2[sample_idx]
+    c3 = c3[sample_idx]
 
     # create target years array
     targyears = np.arange(pyear_start, pyear_end+1, pyear_step)
