@@ -3,7 +3,7 @@
 preprocess:
   task1:
     executable: "python3"
-    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair==1.6.4"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask h5py fair==1.6.4"
     script: "fair_temperature_preprocess.py"
     options:
       - "scenario"
