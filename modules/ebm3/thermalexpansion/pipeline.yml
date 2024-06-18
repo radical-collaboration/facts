@@ -23,7 +23,7 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    python_dependencies: "scikit-learn"
+    python_dependencies: "scikit-learn tqdm"
     script: "ebm3_thermalexpansion_postprocess.py"
     options:
       - "scenario"
@@ -49,4 +49,6 @@ postprocess:
       - "tlm_sterodynamics_cmip6_data.tgz"
     copy_shared_data:
       - '$SHARED/location.lst'
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
 
