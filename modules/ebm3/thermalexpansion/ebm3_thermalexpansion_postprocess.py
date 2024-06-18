@@ -9,6 +9,9 @@ import xarray as xr
 from sklearn import linear_model
 import re
 import time
+import netCDF4
+import h5py
+import scipy
 
 """
 Created on Fri Jun  7 11:24:19 2024
@@ -40,7 +43,7 @@ def fetch_erfs_from_rcmip(path,scenarios):
     erfyears=np.arange(1750,2501)
     ssp_idx = {'ssp119':212,'ssp126':231,'ssp245':308,'ssp370':59,'ssp585':404} #location in table
     
-    with open(rfmipfile) as csv_file:
+    with open(path) as csv_file:
         csv_reader = csv.reader(csv_file)
         rows = list(csv_reader)
     
@@ -149,30 +152,26 @@ def Smooth(x, w=19):
 	y = np.concatenate((start, out0, stop))
 	return(y)
 
-def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear_start, pyear_end, pyear_step, locationfile, baseyear, climate_data_file):
+def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear_start, pyear_end, pyear_step, locationfile, baseyear, climate_data_file, rfmip, params):
     targyears = np.arange(baseyear,2301) # for regression
     projyears = np.arange(pyear_start,pyear_end+1, pyear_step)
-	
-    #locationfile = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/clones/facts/input_files/location.lst'
     (_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 
     # get temperature from FaIR simulations: INPUT FROM CLIMATE STEP. We need both gsat and oceantemp
-    gsta_file = '.temperature.fair.temperature_gsat.nc'
-    otemp_file = '.temperature.fair.temperature_oceantemp.nc'
-    gsat = xr.open_dataset(gsta_file).sel(years=projyears) - xr.open_dataset(gsta_file).sel(years=np.arange(baseyear-9,baseyear+10)).mean(dim='years')
-    otemp = xr.open_dataset(otemp_file).sel(years=projyears) - xr.open_dataset(otemp_file).sel(years=np.arange(baseyear-9,baseyear+10)).mean(dim='years')
-
+    cf = xr.open_dataset(climate_data_file, group=scenario, engine='netcdf4', )
+    gsat = cf['surface_temperature'].sel(years=projyears) - cf['surface_temperature'].sel(years=np.arange(baseyear-9,baseyear+10)).mean(dim='years')
+    otemp = cf['deep_ocean_temperature'].sel(years=projyears) - cf['deep_ocean_temperature'].sel(years=np.arange(baseyear-9,baseyear+10)).mean(dim='years')
 
     # INPUT temperature file from ebm3 global
     gte_file = 'ssp585.emu2.2300.fair2.ocean.tlm.sterodynamics_globalsl.nc'
 
     # INPUT get models and parameters
     zosdir = 'cmip6/zos/' # INPU cmip6 zos
-    paramdir = 'ebm_parameters/4xCO2_cummins_ebm3_cmip6.csv' # INPUT
+    paramdir = params
 
     #forcing for ebm
     scenarios = ['ssp126', 'ssp585'] # NOT INPUT, these two are needed for SSP interpolation in 2300 projections
-    rfmipfile = 'DSL/rfmip-radiative-forcing-annual-means-v4-0-0.csv' #path # RFMIP FILE IS INPUT, NEW DATA
+    rfmipfile = rfmip #path # RFMIP FILE IS INPUT, NEW DATA
     erfs,erfyears = fetch_erfs_from_rcmip(rfmipfile, scenarios) #get ERF timeseries
 
     ebm_param = pd.read_csv(paramdir)
@@ -461,11 +460,13 @@ if __name__ == '__main__':
     parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
     parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
     parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
-    parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=5, type=int)
+    parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=5]", default=5, type=int)
     parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
     parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2005)
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-    parser.add_argument('--climate_data_file')
+    parser.add_argument('--climate_data_file',type=str)
+    parser.add_argument('--rfmip', help='rfmip file',default='rfmip-radiative-forcing-annual-means-v4-0-0.csv')
+    parser.add_argument('--params', help='CMIP6 Params cvs', default='4xCO2_impulse_response_ebm3_cmip6.csv')
 
     # Parse the arguments
     args = parser.parse_args()
@@ -479,7 +480,9 @@ if __name__ == '__main__':
                                       args.pyear_step, 
                                       args.locationfile, 
                                       args.baseyear, 
-                                      args.climate_data_file)
+                                      args.climate_data_file,
+                                      args.rfmip,
+                                      args.params)
 
     # Done
     sys.exit()

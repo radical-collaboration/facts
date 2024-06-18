@@ -23,17 +23,27 @@ project:
 postprocess:
   task1:
     executable: "python3"
-    python_dependencies: "sklearn"
+    python_dependencies: "scikit-learn"
     script: "ebm3_thermalexpansion_postprocess.py"
     options:
       - "scenario"
-      - "climate_data_file"
       - "pipeline_id"
       - "nsamps"
       - "seed"
-      - "scenario"
+      - "climate_data_file"
       - "baseyear"
       - "pyear_start"
       - "pyear_end"
       - "pyear_step"
       - "seed"
+      - "locationfile"
+      - "rfmip"
+      - "params"
+    copy_input_data:
+      - "%PIPELINE_ID%_projections.pkl"
+    upload_and_extract_input_data:
+      - "ebm3_thermal_expansion_postprocessing_data.tgz"
+      - "tlm_sterodynamics_cmip6_data.tgz"
+    copy_shared_data:
+      - '$SHARED/location.lst'
+
