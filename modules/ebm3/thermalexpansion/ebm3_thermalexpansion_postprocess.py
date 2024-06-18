@@ -21,7 +21,6 @@ SSP interpolation and probabilistic projections using FAIR.
 @author: vmalagonsantos
 """
 
-
 # functions 
 def fetch_erfs_from_rcmip(path,scenarios): 
     '''  
@@ -150,38 +149,30 @@ def Smooth(x, w=19):
 	y = np.concatenate((start, out0, stop))
 	return(y)
 
-
-
-def emb3_thermalexpansion_postprocess():
-    baseyear = 2005 # INPUT
-    pyear_start = 2000 # INPUT
-    pyear_end = 2300 # INPUT
-    pyear_step = 5 # INPUT
-    seed = 1234 #INPUT
-    scenario = 'ssp585' # INPUT
+def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear_start, pyear_end, pyear_step, locationfile, baseyear, climate_data_file):
     targyears = np.arange(baseyear,2301) # for regression
     projyears = np.arange(pyear_start,pyear_end+1, pyear_step)
-
-    # INPUT
-    locationfile = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/clones/facts/input_files/location.lst'
+	
+    #locationfile = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/clones/facts/input_files/location.lst'
     (_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
 
     # get temperature from FaIR simulations: INPUT FROM CLIMATE STEP. We need both gsat and oceantemp
-    gsta_file = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/emusdyn/fair2/output/' + scenario + '.temperature.fair.temperature_gsat.nc'
-    otemp_file = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/emusdyn/fair2/output/' + scenario + '.temperature.fair.temperature_oceantemp.nc'
+    gsta_file = '.temperature.fair.temperature_gsat.nc'
+    otemp_file = '.temperature.fair.temperature_oceantemp.nc'
     gsat = xr.open_dataset(gsta_file).sel(years=projyears) - xr.open_dataset(gsta_file).sel(years=np.arange(baseyear-9,baseyear+10)).mean(dim='years')
     otemp = xr.open_dataset(otemp_file).sel(years=projyears) - xr.open_dataset(otemp_file).sel(years=np.arange(baseyear-9,baseyear+10)).mean(dim='years')
 
+
     # INPUT temperature file from ebm3 global
-    gte_file = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/project_regional2300/DSL/ssp585.emu2.2300.fair2.ocean.tlm.sterodynamics_globalsl.nc'
+    gte_file = 'ssp585.emu2.2300.fair2.ocean.tlm.sterodynamics_globalsl.nc'
 
     # INPUT get models and parameters
-    zosdir = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/project_regional2300/DSL/cmip6/' # RFMIP AS NEW DATA
-    paramdir = '/Users/vmalagonsantos/Library/CloudStorage/OneDrive-NIOZ/GitHub/project_tsl/1_DATA/ebm_parameters/4xCO2_cummins_ebm3_cmip6.csv' # INPUT
+    zosdir = 'cmip6/zos/' # INPU cmip6 zos
+    paramdir = 'ebm_parameters/4xCO2_cummins_ebm3_cmip6.csv' # INPUT
 
     #forcing for ebm
     scenarios = ['ssp126', 'ssp585'] # NOT INPUT, these two are needed for SSP interpolation in 2300 projections
-    rfmipfile = 'rfmip-radiative-forcing-annual-means-v4-0-0.csv' #path # RFMIP FILE IS INPUT, NEW DATA
+    rfmipfile = 'DSL/rfmip-radiative-forcing-annual-means-v4-0-0.csv' #path # RFMIP FILE IS INPUT, NEW DATA
     erfs,erfyears = fetch_erfs_from_rcmip(rfmipfile, scenarios) #get ERF timeseries
 
     ebm_param = pd.read_csv(paramdir)
@@ -197,7 +188,6 @@ def emb3_thermalexpansion_postprocess():
     # model = model_has_zos[0]
 
         # model = 'MRI-ESM2-0'
-        print('Estimating parameters for model: ' + model)
         
         # find matching ebm parameters to model
         model_param = ebm_param[ebm_param["model"].str.contains(model)]
@@ -205,10 +195,25 @@ def emb3_thermalexpansion_postprocess():
         modeldir = zosdir + model
         # keep those up to 2300 or 2500
         zos_runs2_2300 = [f for f in os.listdir(modeldir) if '2300' in f or '2500' in f] # regex would be better here
-        # get variant in 2300 simulation
-        variant_2300 = [f for f in re.split('_', zos_runs2_2300[0]) if f.startswith('r')]
-        # get EBM parameters for both model and variant
-        model_var_param = model_param[ebm_param["run"].str.contains(variant_2300[0])]
+        if not zos_runs2_2300:
+            print('Model ' + model + ' only runs to 2100. Skipping and looking for longer simulations' )
+
+            continue
+        
+        print('Estimating parameters for model: ' + model)
+
+            
+        # get variants with 2300 simulation
+        if len(zos_runs2_2300) == 1:
+            variant_2300 = [f for f in re.split('_', zos_runs2_2300[0]) if f.startswith('r')]
+            model_var_param = model_param[ebm_param["run"].str.contains(variant_2300[0])]
+        else:
+            for v, filename in enumerate(zos_runs2_2300):
+                variant_2300 = [f for f in re.split('_', zos_runs2_2300[v]) if f.startswith('r')]
+                # get EBM parameters for both model and variant
+                model_var_param = model_param[ebm_param["run"].str.contains(variant_2300[0])]
+                if not model_var_param.empty:
+                    continue
         
         c1 = np.array(model_var_param.get('C1'))
         c2 = np.array(model_var_param.get('C2'))
@@ -262,8 +267,11 @@ def emb3_thermalexpansion_postprocess():
         model_dir = zosdir + model
         
         hist_file = [f for f in os.listdir(model_dir) if 'hist' in f and variant_2300[0] in f]
-        ssp1_file = [f for f in os.listdir(model_dir) if 'ssp1' in f and variant_2300[0] in f]
-        ssp5_file = [f for f in os.listdir(model_dir) if 'ssp5' in f and variant_2300[0] in f]
+        ssp1_file = [f for f in os.listdir(model_dir) if 'ssp1' in f and variant_2300[0] in f and 'ssp126' in f]
+        ssp5_file = [f for f in os.listdir(model_dir) if 'ssp5' in f and variant_2300[0] in f and 'ssp585' in f]
+        
+        if not ssp1_file or not ssp5_file:
+            continue
         
         hist_xr = xr.open_dataset(model_dir + '/' + hist_file[0],decode_times=False)
         ssp1_xr = xr.open_dataset(model_dir + '/' + ssp1_file[0],decode_times=False)
@@ -283,11 +291,13 @@ def emb3_thermalexpansion_postprocess():
         
         # Calculate annual means
         zos1_am = zos1.groupby('years').mean(dim='time')
-        zos1_am = zos1_am.where(zos1_am['zos'] < 99999) # replace lanad values with nans
+        zos1_am = zos1_am.where(zos1_am['zos'] < 99999) # replace land values with nans
         zos5_am = zos5.groupby('years').mean(dim='time')
-        zos5_am = zos5_am.where(zos5_am['zos'] < 99999) # replace lanad values with nans
+        zos5_am = zos5_am.where(zos5_am['zos'] < 99999) # replace land values with nans
 
-        # reference zostoga
+        # reference zos
+        # baseyear_idx = np.flatnonzero(datayears == baseyear)
+        # S = np.apply_along_axis(lambda z, idx: z - z[idx], axis=0, arr=sZOS, idx=baseyear_idx)
         zos1_am = zos1_am.sel(years=targyears) - zos1_am.sel(years=baseyear)
         zos5_am = zos5_am.sel(years=targyears) - zos5_am.sel(years=baseyear)
         
@@ -314,8 +324,9 @@ def emb3_thermalexpansion_postprocess():
         smoothwin = 19;
         
         reg = linear_model.LinearRegression()
-        for i in range(nlat):
-            print(i)
+        # for i in tqdm(range(nlat)):
+        #     sleep(3)
+        for i in tqdm(range(nlat)):
             for j in range(nlon):
         
                 y =  np.concatenate((Smooth(zos1[:,i,j],w=smoothwin), Smooth(zos5[:,i,j],w=smoothwin))) # reducing varability
@@ -361,43 +372,67 @@ def emb3_thermalexpansion_postprocess():
         run_idx = rng.choice(nsims, nsamps, nsamps>nsims)
         sample_idx = np.arange(nsamps)
         
-
+        
     ## need to figure out of to do this resamples properly, so from now on this is dummy data
+    slopes_resampled = [slopes[i] for i in sample_idx]
+    # aa = np.dstack(slopes_resampled)
 
-    # slopes_resampled = [slopes[i] for i in sample_idx]
-    m = 0
+    dsl = np.empty((nsamps, len(projyears), len(site_ids)))
+    dsl[:] = np.nan
 
-    slope = slopes[m]
+    for sample in tqdm(samples):
+        slope = slopes_resampled[sample]
+        print(sample)
+        
+        # prepare slopes
+        slope_s = slope[0,:,:].flatten()
+        slope_s = np.array([slope_s[x] for x in site_ids_map])
+        
+        slope_i = slope[1,:,:].flatten()
+        slope_i = np.array([slope_i[x] for x in site_ids_map])
+        
+        slope_d = slope[2,:,:].flatten()
+        slope_d = np.array([slope_d[x] for x in site_ids_map])
+        
+        # obtain fair temepratures
+        Tfs = np.array(gsat['surface_temperature'].sel(locations=-1).sel(samples=sample)) # surface temeprature from fair
+        Tfi = np.array(otemp['deep_ocean_temperature'].sel(locations=-1).sel(layers=1).sel(samples=sample)) # intermediate temeprature from fair
+        Tfd = np.array(otemp['deep_ocean_temperature'].sel(locations=-1).sel(layers=2).sel(samples=sample)) # deep temeprature from fair
+        
+        
+        #% project
+        dsl[sample,:,:] = np.multiply.outer(Tfs, slope_s) + np.multiply.outer(Tfi, slope_i) + np.multiply.outer(Tfd, slope_d) 
+        
+        # dsl = np.multiply.outer(Tfs, slope_s) + np.multiply.outer(Tfi, slope_i) + np.multiply.outer(Tfd, slope_d) 
 
-    # prepare slopes
-    slope_s = slope[0,:,:].flatten()
-    slope_s = np.array([slope_s[x] for x in site_ids_map])
+    ncvar_attributes = {"description": "Dynamic Sea Level"}
 
-    slope_i = slope[1,:,:].flatten()
-    slope_i = np.array([slope_i[x] for x in site_ids_map])
-
-    slope_d = slope[2,:,:].flatten()
-    slope_d = np.array([slope_d[x] for x in site_ids_map])
-
-    # obtain fair temepratures
-    Tfs = np.array(gsat['surface_temperature'].sel(locations=-1).sel(samples=samples)) # surface temeprature from fair
-    Tfi = np.array(otemp['deep_ocean_temperature'].sel(locations=-1).sel(layers=1).sel(samples=samples)) # intermediate temeprature from fair
-    Tfd = np.array(otemp['deep_ocean_temperature'].sel(locations=-1).sel(layers=2).sel(samples=samples)) # deep temeprature from fair
+    nc_missing_value = np.nan
+    # Generate the output xarray
+    dsl_xr = xr.Dataset({"sea_level_change": (("samples", "years", "locations"), dsl, {"units":"mm", "missing_value":nc_missing_value}),
+                            "lat": (("locations"), site_lats),
+                            "lon": (("locations"), site_lons)},
+                            coords={"years": projyears, "locations": site_ids, "samples": np.arange(nsamps)}, attrs=ncvar_attributes)
 
 
-    #% project
-    dsl = np.multiply.outer(Tfs, slope_s) + np.multiply.outer(Tfi, slope_i) + np.multiply.outer(Tfd, slope_d) 
+    # make sure projections have 0 mean. This weighted average only works for regular grids. 
+    # Must be edited to accomodate other grids if zos is not in 1x1.
 
-    ## MAKE SURE PROJECTIONS HAVE A ZERO MEAN !
-    # INPUT
+    weights = np.cos(np.deg2rad(dsl_xr.lat))
+    weights.name = "weights"
+
+    dsl_xr_weighted = dsl_xr.weighted(weights)
+    dsl_xr_weighted
+    weighted_mean = dsl_xr_weighted.mean(("locations"))
+
+
+    # Appply 0mean correction to dsl, and add GTE to get sterodynamics
 
     gte = xr.open_dataset(gte_file)
 
-    gte = gte['sea_level_change'].values[:,:,0]
-    # sdsl = gte[0:nsamps,:] + dsl ## need to fix this sun
-    sdsl = dsl
 
-    pipeline_id = 'sdsl_test' # INPUT
+    gte = gte['sea_level_change'].values[:,:,0]
+    sdsl = dsl*1000 - np.repeat(np.array(weighted_mean['sea_level_change'])[:, :, np.newaxis], len(site_ids), axis=2) + np.repeat(gte[0:nsamps, :, np.newaxis], len(site_ids), axis=2) 
 
     ncvar_attributes = {"description": "Local SLR contributions from thermal expansion and dynamic sea-level using EBM3",
             "history": "Created " + time.ctime(time.time()),
@@ -424,15 +459,27 @@ if __name__ == '__main__':
     parser.add_argument('--scenario', help="SSP scenario (i.e ssp585) or temperature target (i.e. tlim2.0win0.25)", default='ssp585')
     parser.add_argument('--nsamps', help="Number of samples to generate [default=20000]", default=20000, type=int)
     parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
-    parser.add_argument('--model_dir', help="Directory containing ZOS/ZOSTOGA CMIP6 GCM output", default=os.path.join(os.path.dirname(__file__), "cmip6"))
     parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
     parser.add_argument('--pyear_end', help="Year for which projections end [default=2300]", default=2300, type=int)
     parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=5, type=int)
     parser.add_argument('--locationfile', help="File that contains name, id, lat, and lon of points for localization", default="location.lst")
     parser.add_argument('--baseyear', help="Base year to which slr projections are centered", type=int, default=2005)
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
+    parser.add_argument('--climate_data_file')
 
     # Parse the arguments
     args = parser.parse_args()
+
+    emb3_thermalexpansion_postprocess(args.scenario, 
+                                      args.pipeline_id, 
+                                      args.nsamps, 
+                                      args.seed, 
+                                      args.pyear_start, 
+                                      args.pyear_end, 
+                                      args.pyear_step, 
+                                      args.locationfile, 
+                                      args.baseyear, 
+                                      args.climate_data_file)
+
     # Done
     sys.exit()
