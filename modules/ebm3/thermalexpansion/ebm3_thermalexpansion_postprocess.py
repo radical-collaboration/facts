@@ -356,8 +356,8 @@ def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear
 
     site_ids_map = np.array(NearestPoints(site_lats, site_lons, lats, lons, tol=None))
 
-    nsamps = 100
-    samples = np.array(gsat['samples'])[0:nsamps] # remove preselections of samples
+    #nsamps = 100
+    samples = np.array(gsat['samples'])
 
     # RESAMPLE SLOPE PARAMETERS
     nsims=len(slopes)
