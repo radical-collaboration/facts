@@ -361,7 +361,6 @@ def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear
 
     # RESAMPLE SLOPE PARAMETERS
     nsims=len(slopes)
-    nsamps = len(samples)
 
     rng = np.random.default_rng(seed)
     if nsamps > nsims:
