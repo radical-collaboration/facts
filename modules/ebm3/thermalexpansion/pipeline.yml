@@ -39,8 +39,11 @@ postprocess:
       - "locationfile"
       - "rfmip"
       - "params"
+      - "zosdir"
     copy_input_data:
-      - "%PIPELINE_ID%_projections.pkl"
+      project:
+        task1:
+          - "%PIPELINE_ID%_globalsl.nc"
     upload_and_extract_input_data:
       - "ebm3_thermal_expansion_postprocessing_data.tgz"
       - "tlm_sterodynamics_cmip6_data.tgz"

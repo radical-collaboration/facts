@@ -12,6 +12,7 @@ import time
 import netCDF4
 import h5py
 import scipy
+import pickle
 
 """
 Created on Fri Jun  7 11:24:19 2024
@@ -152,7 +153,7 @@ def Smooth(x, w=19):
 	y = np.concatenate((start, out0, stop))
 	return(y)
 
-def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear_start, pyear_end, pyear_step, locationfile, baseyear, climate_data_file, rfmip, params):
+def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear_start, pyear_end, pyear_step, locationfile, baseyear, climate_data_file, rfmip, params, zosdir):
     targyears = np.arange(baseyear,2301) # for regression
     projyears = np.arange(pyear_start,pyear_end+1, pyear_step)
     (_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
@@ -163,10 +164,9 @@ def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear
     otemp = cf['deep_ocean_temperature'].sel(years=projyears) - cf['deep_ocean_temperature'].sel(years=np.arange(baseyear-9,baseyear+10)).mean(dim='years')
 
     # INPUT temperature file from ebm3 global
-    gte_file = 'ssp585.emu2.2300.fair2.ocean.tlm.sterodynamics_globalsl.nc'
+    gte_file = f'{pipeline_id}_globalsl.nc'
 
     # INPUT get models and parameters
-    zosdir = 'cmip6/zos/' # INPU cmip6 zos
     paramdir = params
 
     #forcing for ebm
@@ -467,6 +467,7 @@ if __name__ == '__main__':
     parser.add_argument('--climate_data_file',type=str)
     parser.add_argument('--rfmip', help='rfmip file',default='rfmip-radiative-forcing-annual-means-v4-0-0.csv')
     parser.add_argument('--params', help='CMIP6 Params cvs', default='4xCO2_impulse_response_ebm3_cmip6.csv')
+    parser.add_argument('--zosdir',help='Path to CMIP6 ZOS directory', default='cmip6/zos/')
 
     # Parse the arguments
     args = parser.parse_args()
@@ -482,7 +483,8 @@ if __name__ == '__main__':
                                       args.baseyear, 
                                       args.climate_data_file,
                                       args.rfmip,
-                                      args.params)
+                                      args.params,
+                                      args.zosdir)
 
     # Done
     sys.exit()
