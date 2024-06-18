@@ -13,6 +13,7 @@ import netCDF4
 import h5py
 import scipy
 import pickle
+from tqdm import tqdm
 
 """
 Created on Fri Jun  7 11:24:19 2024
@@ -393,9 +394,9 @@ def emb3_thermalexpansion_postprocess(scenario, pipeline_id, nsamps, seed, pyear
         slope_d = np.array([slope_d[x] for x in site_ids_map])
         
         # obtain fair temepratures
-        Tfs = np.array(gsat['surface_temperature'].sel(locations=-1).sel(samples=sample)) # surface temeprature from fair
-        Tfi = np.array(otemp['deep_ocean_temperature'].sel(locations=-1).sel(layers=1).sel(samples=sample)) # intermediate temeprature from fair
-        Tfd = np.array(otemp['deep_ocean_temperature'].sel(locations=-1).sel(layers=2).sel(samples=sample)) # deep temeprature from fair
+        Tfs = np.array(gsat.sel(samples=sample)) # surface temperature from fair
+        Tfi = np.array(otemp.sel(layers=1).sel(samples=sample)) # intermediate temperature from fair
+        Tfd = np.array(otemp.sel(layers=2).sel(samples=sample)) # deep temperature from fair
         
         
         #% project
@@ -465,7 +466,7 @@ if __name__ == '__main__':
     parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
     parser.add_argument('--climate_data_file',type=str)
     parser.add_argument('--rfmip', help='rfmip file',default='rfmip-radiative-forcing-annual-means-v4-0-0.csv')
-    parser.add_argument('--params', help='CMIP6 Params cvs', default='4xCO2_impulse_response_ebm3_cmip6.csv')
+    parser.add_argument('--params', help='CMIP6 Params cvs', default='4xCO2_cummins_ebm3_cmip6.csv')
     parser.add_argument('--zosdir',help='Path to CMIP6 ZOS directory', default='cmip6/zos/')
 
     # Parse the arguments
