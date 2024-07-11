@@ -1,0 +1,28 @@
+global-options:
+    nsamps: 50
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+    pipeline_file: "pipeline.global.yml"
+
+climate_step:
+    fair2:
+        module_set: "facts"
+        module: "dummy"
+        pipeline_file: 'pipeline.yml'
+        input_data_file:
+            - "ssp585.temperature.fair.temperature_ohc.nc"
+            - "ssp585.temperature.fair.temperature_gsat.nc"
+            - "ssp585.temperature.fair.temperature_climate.nc"
+        climate_output_data:
+            - "ssp585.temperature.fair.temperature_ohc.nc"
+            - "ssp585.temperature.fair.temperature_gsat.nc"
+            - "ssp585.temperature.fair.temperature_climate.nc"
+        generates_climate_output: true
+
+sealevel_step:
+   ebm3:
+        module_set: "ebm3"
+        module: "thermalexpansion"

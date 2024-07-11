@@ -1,0 +1,54 @@
+project:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml h5py pandas"
+    script: "ebm3_thermalexpansion_project.py"
+    options:
+      - "scenario"
+      - "climate_data_file"
+      - "pipeline_id"
+      - "nsamps"
+      - "seed"
+      - "scenario"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+    upload_and_extract_input_data:
+      - "ebm3_thermal_expansion_data.tgz"
+    global_total_files:
+      - "%PIPELINE_ID%_globalsl.nc"
+
+postprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "scikit-learn tqdm"
+    script: "ebm3_thermalexpansion_postprocess.py"
+    options:
+      - "scenario"
+      - "pipeline_id"
+      - "nsamps"
+      - "seed"
+      - "climate_data_file"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+      - "locationfile"
+      - "rfmip"
+      - "params"
+      - "zosdir"
+    copy_input_data:
+      project:
+        task1:
+          - "%PIPELINE_ID%_globalsl.nc"
+    upload_and_extract_input_data:
+      - "ebm3_thermal_expansion_postprocessing_data.tgz"
+      - "tlm_sterodynamics_cmip6_data.tgz"
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"
+

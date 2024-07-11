@@ -109,7 +109,9 @@ def TotalSamples(infiles, outfile, targyears, chunksize):
 	    combine="nested", 
 	    concat_dim="file", 
 	    chunks={"locations":chunksize},
+		lock=False
 	)
+	
 	ds = ds.sel(years=targyears)
 	# Sums everything across the new "file" dimension.
 	total_out = ds[["sea_level_change"]].sum(dim="file")
