@@ -25,9 +25,9 @@ Installing and Using FACTS on a GNU/Linux Workstation
    Rather than installing the data files for all modules, some of which are many gigabytes in size, 
    you might wish to create a custom version of ``modules-data.urls.txt`` that includes only the data files for modules you intended to use.
    For example, if you are only planning on doing global projections with the modules used in the Kopp et al. (2023) manuscript, you
-   could use the ``modules-data.global-only.urls.txt`` file instead::
+   could use the ``modules-data.global_only.urls.txt`` file instead::
 
-    wget -P facts/modules-data -i facts/modules-data/modules-data.global-only.urls.txt
+    wget -P facts/modules-data -i facts/modules-data/modules-data.global_only.urls.txt
 
 3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
 
