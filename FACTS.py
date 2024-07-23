@@ -492,12 +492,21 @@ def ParseExperimentConfig(exp_dir, globalopts=None, outdir=None):
                 pipelines.append(GeneratePipeline(parsed['pcfg'], parsed['modcfg'], parsed['pipe_name'], exp_dir))
 
             if "include_in_workflow" in ecfg[this_mod][this_mod_sub].keys():
+                pc = parsed['pcfg']
+                pc['override'] = {}
+                pc['override']['workflows'] = {}
+                
+                if "global_total_files" in ecfg[this_mod][this_mod_sub].keys():
+                    pc['override']['workflows']['global_total_files'] = ecfg[this_mod][this_mod_sub]['global_total_files']
+                if "local_total_files" in ecfg[this_mod][this_mod_sub].keys():
+                    pc['override']['workflows']['local_total_files'] = ecfg[this_mod][this_mod_sub]['local_total_files']
+                    
                 outfiles = IdentifyOutputFiles(parsed['pcfg'], parsed['pipe_name'])
                 for this_wf in ecfg[this_mod][this_mod_sub]['include_in_workflow']:
                     if not this_wf in workflows_to_include.keys():
                         workflows_to_include[this_wf] = {'global': [], 'local': [],'options':{'pyear_end': min([parsed['modcfg']['options']['pyear_end'],9999999])}}
                     else:
-                        workflows_to_include[this_wf]['options']['pyear_end'] = min([parsed['modcfg']['options']['pyear_end'],workflows_to_include[this_wf]['options']['pyear_end']])
+                        workflows_to_include[this_wf]['options']['pyear_end'] = min([parsed['modcfg']['options']['pyear_end'],workflows_to_include[this_wf]['options']['pyear_end']])  
                     for this_scale in outfiles:
                         workflows_to_include[this_wf][this_scale].extend(outfiles[this_scale])
 
