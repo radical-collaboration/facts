@@ -183,7 +183,7 @@ maximum temperature falling between two values over a span of time.
 Returns a dictionary with "samples" = [matched_samples, years] and "years" = [years]
 
 '''
-def Filter2lmData(tlm_dict, filter_years=None, tmin=np.NINF, tmax=np.PINF):
+def Filter2lmData(tlm_dict, filter_years=None, tmin=-np.inf, tmax=np.inf):
 
 	# Extract the data from the dict
 	samps = tlm_dict["samples"]
