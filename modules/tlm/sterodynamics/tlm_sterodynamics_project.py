@@ -106,7 +106,7 @@ def tlm_project_thermalexpansion(seed, nsamps, pipeline_id,scenario,pyear_start,
 	output = {"thermsamps": gte_samps, "targyears": targyears, "baseyear": baseyear, \
 				"include_models": include_models, "scenario": scenario}
 	outfile = open(os.path.join(os.path.dirname(__file__), "{}_projections.pkl".format(pipeline_id)), 'wb')
-	pickle.dump(output, outfile)
+	pickle.dump(output, outfile, protocol=4)
 	outfile.close()
 
 	# Write the total global projections to a netcdf file

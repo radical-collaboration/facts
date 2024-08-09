@@ -167,7 +167,7 @@ def GetSATData(fname, scenario, refyear_start=1850, refyear_end=1900, year_start
 
 	# Extract the surface temperature for this scenario
 	if scenario not in df_ssp.keys():
-		raise Except("Scenario {} not found in {}".format(scenario, fname))
+		raise Exception("Scenario {} not found in {}".format(scenario, fname))
 	ssp_folder = df_ssp.get(scenario)
 	sat_ssp = ssp_folder.get('surface_temperature')
 
