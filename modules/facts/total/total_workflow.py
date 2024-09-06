@@ -6,7 +6,9 @@ import argparse
 import shutil
 import yaml
 import xarray as xr
+import dask
 import dask.array as da
+import warnings
 
 
 def TotalSamplesInDirectory(directory, pyear_start, pyear_end, pyear_step, chunksize):
@@ -109,10 +111,13 @@ def TotalSamples(infiles, outfile, targyears, chunksize):
 	    combine="nested", 
 	    concat_dim="file", 
 	    chunks={"locations":chunksize},
+		lock=False
 	)
+	
 	ds = ds.sel(years=targyears)
 	# Sums everything across the new "file" dimension.
 	total_out = ds[["sea_level_change"]].sum(dim="file")
+	
 	# Add "lat" and "lon" as data variable in output, pulling values from the first file.
 	total_out["lat"] = ds["lat"].isel(file=0)
 	total_out["lon"] = ds["lon"].isel(file=0)
@@ -135,8 +140,20 @@ def TotalSamples(infiles, outfile, targyears, chunksize):
     # This actually carries out the delayed calculations and operations.
     # SBM: FYI Double check the numbers to ensure everything is summing across dims correctly.
     # SBM: FYI Also, check to see if output as something huge like float64.
-	total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
+	
+	# Old .to_netcdf run mechanic
+	#total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}})
 
+	# New .to_netcdf run mechanic that allows dask the ability to control the chunking and reduces runtime, also places a progress bar in the task.out section.
+	import dask.diagnostics
+	dask.config.set({"array.slicing.split_large_chunks": True})
+	warnings.filterwarnings("ignore", category=FutureWarning)
+
+	write_job = total_out.to_netcdf(outfile, encoding={"sea_level_change": {"dtype": "f4", "zlib": True, "complevel":4, "_FillValue": nc_missing_value}},compute=False)
+	with dask.diagnostics.ProgressBar():
+		print(f"			>> Writing to File...")
+		write_job.compute()
+	
 	return(outfile)
 
 
@@ -155,7 +172,7 @@ if __name__ == "__main__":
 	parser.add_argument('--pyear_start', help="Year for which projections start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
-	parser.add_argument('--chunksize', help="Number of locations per chunk", default=50, type=int)
+	parser.add_argument('--chunksize', help="Number of locations per chunk", default=500, type=int)
 
 	# Parse the arguments
 	args = parser.parse_args()
