@@ -246,7 +246,7 @@ if __name__ == '__main__':
 	parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
 	parser.add_argument('--replace', help="Allow sampling with replacement [default = 1]", choices=('0','1'), default=1)
-	parser.add_argument('--seed', help="Seed for the random number generator [default = 1234]", default=1234, type=int)
+	parser.add_argument('--seed', help="Seed for the random number generator [default = 2751]", default=2751, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	parser.add_argument('--climate_data_file', help="NetCDF4/HDF5 file containing surface temperature data", type=str, default="")
 
