@@ -381,7 +381,7 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to draw (default = 100)", default=100, type=int)
 	parser.add_argument('--replace', help="Allow sampling with replacement (default = 1)", choices=(0,1), type=int, default=1)
-	parser.add_argument('--seed', help="Seed for the random number generator (default = 3005)", default=3005, type=int)
+	parser.add_argument('--seed', help="Seed for the random number generator (default = 1342)", default=1342, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 	parser.add_argument('--cyear_start', help="Constant rate calculation for projections starts at this year", default=None, type=int)
 	parser.add_argument('--cyear_end', help="Constant rate calculation for projections ends at this year", default=None, type=int)

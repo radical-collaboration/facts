@@ -435,7 +435,7 @@ if __name__ == "__main__":
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate [default=20000]", default=20000, type=int)
-	parser.add_argument('--seed', help="Seed value for random number generator [default=2304]", default=2304, type=int)
+	parser.add_argument('--seed', help="Seed value for random number generator [default=1342]", default=1342, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
 	parser.add_argument('--models', help="List of model names to include in the sampling process", nargs="+", default=None)
 	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2020, type=int)

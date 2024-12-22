@@ -400,7 +400,7 @@ if __name__ == '__main__':
     parser.add_argument('--nsamps',
                         help="Total number of samples to generate (replaces \'nmsamps\' and \'ntsamps\' if provided)",
                         default=None, type=int)
-    parser.add_argument('--seed', help="Seed value for random number generator [default=2159]", default=2159, type=int)
+    parser.add_argument('--seed', help="Seed value for random number generator [default=1423]", default=1423, type=int)
     parser.add_argument('--pyear_start', help="Projection year start [default=2020]", default=2020, type=int)
     parser.add_argument('--pyear_end', help="Projection year end [default=2100]", default=2100, type=int)
     parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)

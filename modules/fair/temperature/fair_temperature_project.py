@@ -240,7 +240,7 @@ if __name__ == "__main__":
 	# Define the command line arguments to be expected
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module", required=True)
 	parser.add_argument('--nsamps', help="Number of samples to create (uses replacement if nsamps > n parameters) (default=10)", type=int, default=10)
-	parser.add_argument('--seed', help="Seed value for random number generator (default=5151)", type=int, default=5151)
+	parser.add_argument('--seed', help="Seed value for random number generator (default=2314)", type=int, default=2314)
 	parser.add_argument('--cyear_start', help="Start year of temporal range for centering (default=1850)", type=int, default=1850)
 	parser.add_argument('--cyear_end', help="End year of temporal range for centering (default=1900)", type=int, default=1900)
 	parser.add_argument('--smooth_win', help="Number of years to use as a smoothing window (default=19)", type=int, default=19)

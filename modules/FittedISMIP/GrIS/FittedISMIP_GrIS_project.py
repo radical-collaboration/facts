@@ -259,7 +259,7 @@ if __name__ == '__main__':
 	parser.add_argument('--crateyear_end', help="Constant rate calculation for projections ends at this year", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Projection year step [default=10]", default=10, type=int)
 	parser.add_argument('--baseyear', help="Year to which projections are referenced [default=2005]", default=2005, type=int)
-	parser.add_argument('--seed', help="Seed for the random number generator [default = 5515]", default=5515, type=int)
+	parser.add_argument('--seed', help="Seed for the random number generator [default = 1432]", default=1432, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments
