@@ -28,20 +28,20 @@ RUN python3 -m venv --system-site-packages factsVe &&\
 
 # installs required FACTS packages
 RUN pip install --no-cache-dir --upgrade \
-        setuptools==69.0.2 pip==23.3.1 wheel==0.42.0
+        setuptools==44.0.0 pip==25.0.1 wheel==0.45.1
 
 RUN pip install --no-cache-dir \
-        radical.entk==1.52.0 \
-        radical.gtod==1.52.0 \
-        radical.pilot==1.52.1 \
-        radical.saga==1.52.0 \
-        radical.utils==1.52.0 \
-        pyyaml==6.0.1 \
+        radical.entk==1.92.0 \
+        radical.gtod==1.90.0 \
+        radical.pilot==1.92.0 \
+        radical.saga==1.90.0 \
+        radical.utils==1.91.1 \
+        pyyaml==6.0.2 \
         xarray==2023.1.0 \
         numpy==1.24.4 \
-        netcdf4==1.6.5 \
-        h5py \
-        dask
+        netcdf4==1.7.2 \
+        h5py==3.11.0 \
+        dask==2023.5.0
 
         
 # installs R for ubuntu 20.04 Focal
@@ -54,9 +54,9 @@ RUN apt-get update &&\
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
-ENV USER ${NB_USER}
-ENV NB_UID ${NB_UID}
-ENV HOME /home/${NB_USER}
+ENV USER=${NB_USER}
+ENV NB_UID=${NB_UID}
+ENV HOME=/home/${NB_USER}
 
 RUN adduser --disabled-password \
     --gecos "Default user" \
@@ -66,6 +66,7 @@ RUN adduser --disabled-password \
 # Make sure the contents of our repo are in ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+RUN chown -R ${NB_UID} /factsVe
 USER ${NB_USER}
 
 # make directory for radical pilot sandbox
@@ -91,11 +92,11 @@ FROM facts-core AS facts-jupyter
 
 USER root
 RUN pip install --no-cache-dir \
-	matplotlib==3.7.4 \
-	notebook==7.0.6 \
-	jupyterlab==4.0.9 \
-	jupyter==1.0.0
-
+	matplotlib==3.7.5 \
+	notebook==7.3.2 \
+	jupyterlab==4.3.5 \
+	jupyter==1.1.1
+RUN chown -R ${NB_UID} /factsVe
 EXPOSE 8888
 USER ${NB_USER}
 
