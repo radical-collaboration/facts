@@ -67,6 +67,7 @@ RUN adduser --disabled-password \
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 RUN chown -R ${NB_UID} /factsVe
+RUN chown -R ${NB_UID} /usr/local/lib/R/site-library
 USER ${NB_USER}
 
 # make directory for radical pilot sandbox
