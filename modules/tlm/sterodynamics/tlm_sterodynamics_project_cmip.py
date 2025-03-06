@@ -168,7 +168,7 @@ if __name__ == '__main__':
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate [default=20000]", default=20000, type=int)
-	parser.add_argument('--seed', help="Seed value for random number generator [default=1234]", default=1234, type=int)
+	parser.add_argument('--seed', help="Seed value for random number generator [default=4321]", default=4321, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments

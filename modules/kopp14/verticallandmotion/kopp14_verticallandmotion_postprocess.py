@@ -153,7 +153,7 @@ if __name__ == '__main__':
 
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to generate", default=20000, type=int)
-	parser.add_argument('--seed', help="Seed value for random number generator", default=1234, type=int)
+	parser.add_argument('--seed', help="Seed value for random number generator", default=5678, type=int)
 	parser.add_argument('--baseyear', help="Base or reference year for projetions [default=2000]", default=2000, type=int)
 	parser.add_argument('--pyear_start', help="Year for which projections start [default=2000]", default=2000, type=int)
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
