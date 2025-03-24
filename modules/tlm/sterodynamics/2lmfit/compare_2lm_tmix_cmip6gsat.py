@@ -114,10 +114,12 @@ for i,model in enumerate(models):
     
     sqerr = 0  
        
-    for s,scen in enumerate(['ssp126','ssp245','ssp585']): #for now using just these 3, that's what I have for GSAT
+    for s,scen in enumerate(scenarios):
+        if scen not in cmip6_gsat.scen:
+            continue
         #define 2lm
         scm2co2 = scmpy2l.ScmDef(
-            extforce=erfs[s*2,:], #assume ERF is equal for each model
+            extforce=erfs[s,:], #assume ERF is equal for each model
             exttime=erfyears,
             t2x=None,
             f2x=cmip6_f4x[model]/2,#None ##this should be q2x, but then None throws an error. If you input a value different from the default, the results don't change->only lamg is used as input?
