@@ -315,7 +315,7 @@ if __name__ == "__main__":
 	parser.add_argument('--allowance_freq', help="Frequency at which allowances are calculated [defalut = 0.01; 1/100]", type=float, default=0.01)
 	parser.add_argument('--nsamps', help="Number of samples to draw [default = 20000]", type=int, default=20000)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
-	parser.add_argument('--seed', help="Seed for the random number generator [default = 1234]", default=1234, type=int)
+	parser.add_argument('--seed', help="Seed for the random number generator [default = 2413]", default=2413, type=int)
 	
 	# Parse the arguments
 	args = parser.parse_args()
