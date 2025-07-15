@@ -82,7 +82,7 @@ def oelmanns_vlm_postprocess(pipeline_id, nsamps, seed, pyear_start, pyear_end, 
 if __name__ == '__main__':
 
     # Initialize the command-line argument parser
-    parser = argparse.ArgumentParser(description="Run the post-processing stage for Oelmanss VLM workflow",\
+    parser = argparse.ArgumentParser(description="Run the post-processing stage for Oelsmanss VLM workflow",\
     epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 
     # Define the command line arguments to be expected
