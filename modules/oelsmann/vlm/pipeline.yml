@@ -1,0 +1,22 @@
+postprocess:
+  task1:
+    executable: "python3"
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml"
+    python_dependencies: "numpy scipy"
+    script: "oelsmann_vlm_postprocess.py"
+    options:
+      - "pipeline_id"
+      - "nsamps"
+      - "seed"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+    upload_and_extract_input_data:
+      - "oelsmann_vlm_data.tgz"
+    copy_shared_data:
+      - '$SHARED/location.lst'
+    download_output_data:
+      - "%PIPELINE_ID%_quantiles.nc"
+    local_total_files:
+      - "%PIPELINE_ID%_localsl.nc"

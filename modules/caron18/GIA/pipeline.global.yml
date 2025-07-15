@@ -1,0 +1,30 @@
+# Kopp14 Vertical Land Motion Pipeline
+
+preprocess:
+  task1:
+    executable: "python3"
+    pre_exec: "pip install --upgrade pip; pip install numpy scipy netCDF4 pyyaml"
+    script: "caron18_GIA_preprocess.py"
+    options:
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - "caron18_GIA_preprocess_data.tgz"
+#    download_output_data:
+#      - "%PIPELINE_ID%_data.pkl"
+
+
+fit:
+  task1:
+    executable: "python3"
+    pre_exec: []
+    script: "caron18_GIA_fit.py"
+    options:
+      - "pipeline_id"
+
+
+project:
+  task1:
+    executable: "python3"
+    script: "caron18_GIA_project.py"
+    options:
+      - "pipeline_id"
