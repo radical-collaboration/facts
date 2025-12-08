@@ -13,21 +13,21 @@ preprocess:
 #      - "%PIPELINE_ID%_data.pkl"
 
 
-fit:
-  task1:
-    executable: "python3"
-    pre_exec: []
-    script: "caron18_GIA_fit.py"
-    options:
-      - "pipeline_id"
+# fit:
+#   task1:
+#     executable: "python3"
+#     pre_exec: []
+#     script: "caron18_GIA_fit.py"
+#     options:
+#       - "pipeline_id"
 
 
-project:
-  task1:
-    executable: "python3"
-    script: "caron18_GIA_project.py"
-    options:
-      - "pipeline_id"
+# project:
+#   task1:
+#     executable: "python3"
+#     script: "caron18_GIA_project.py"
+#     options:
+#       - "pipeline_id"
 
 postprocess:
   task1:

@@ -56,6 +56,7 @@ def NearestPoint(qlat, qlon, lats, lons, tol = None):
 
 def NearestPoints(qlats, qlons, lats, lons, tol):
 
+	# query points are location points. lats, lons are the gridded data
 	if len(qlats) != len(qlons):
 		raise Exception("Query lats ({}) and lons ({}) differ in length".format(len(qlats), len(qlons)))
 
@@ -89,9 +90,27 @@ def caron18_postprocess_GIA(nsamps, rng_seed, baseyear, pyear_start, pyear_end, 
 	targyears = np.union1d(targyears, baseyear)
 
 
+	
 	# Load site locations
 	locationfile = os.path.join(os.path.dirname(__file__), locationfilename)
 	(_, site_ids, site_lats, site_lons) = ReadLocationFile(locationfile)
+
+
+	# ##### trying to use xarray for a fuzzy match, instead of NearestPoints. 
+	# For that, need tor ead in the netcdf file (stole this code from preprocess)
+	# rate_file = os.path.join(os.path.dirname(__file__), "GIA_stats.nc")
+	# giads = xr.open_dataset(rate_file)
+	# print(giads)
+
+	locpoints = list(zip(site_lats, site_lons))
+	locds = xr.Dataset(data_vars={"site_ids": (("point",), site_ids,{"description":"location ids from location.lst"})},
+		coords={"point": locpoints,},
+		attrs={"description":"location.lst"})
+
+	# locda = xr.DataArray(data_vars=(({"site_ids": site_ids}, coords=[site_lats, site_lons], dims=['lat', 'lon'])
+	print(locds)
+	# #######
+
 
 	# Dimension variables
 	nyears = len(targyears)
