@@ -1,0 +1,33 @@
+global-options:
+    nsamps: 2000
+    scenario: ssp126
+    pyear_start: 2020
+    pyear_end: 2150
+    pyear_step: 10
+    baseyear: 2005
+
+sealevel_step:
+    dummy:
+        module_set: "facts"
+        module: "dummy"
+        include_in_workflow:
+            - "wf1f"
+         
+
+esl_step:
+    extremesealevel2:
+        loop_over_workflows: true
+        module_set: "extremesealevel2"
+        module: "AFs"
+        options:
+            target_years: 2050,2100
+            total_localsl_file: "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc" 
+            esl_data: "gesla3"
+            esl_data_path: "extremesealevel2_AFs_data/esl_data/gesla3_data"
+            refFreq_data: "custom"
+            refFreq_data_file: "extremesealevel2_AFs_data/refFreqs/flopros_estimates_at_coastrp_locations.nc"
+            input_data_file:
+             - "coupling.ssp126.total.workflow.%WORKFLOW_NAME%.local.nc"
+            
+
+

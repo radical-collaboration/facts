@@ -110,3 +110,5 @@ postprocess:
           - "%PIPELINE_ID%_projections.pkl"
     local_total_files:
       - "%PIPELINE_ID%_localsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_OceanDyn.nc"

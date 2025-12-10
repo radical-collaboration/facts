@@ -9,4 +9,5 @@ https://zenodo.org/record/7478192/files/larmip_icesheet_fit_data.tgz
 https://zenodo.org/record/7478192/files/larmip_icesheet_project_data.tgz
 https://zenodo.org/record/7478192/files/ssp_landwaterstorage_preprocess_data.tgz
 https://zenodo.org/record/7478192/files/tlm_sterodynamics_preprocess_data.tgz
-
+https://zenodo.org/records/11506798/files/fair2_climate_project_data.tgz
+https://zenodo.org/records/11506798/files/ebm3_thermal_expansion_data.tgz

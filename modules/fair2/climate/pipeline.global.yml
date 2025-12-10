@@ -1,0 +1,35 @@
+# FAIR temperature pipeline configuration
+
+project:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray dask fair==2.1.4 h5py"
+    script: "fair2_climate_project.py"
+    options:
+      - "scenario"
+      - "rcmip_file"
+      - "concentration_file"
+      - "forcing_file"
+      - "pipeline_id"
+      - "calibration_file"
+      - "solar_erf"
+      - "volcanic_erf"
+      - "species_config_file"
+      - "nsamps"
+      - "cyear_start"
+      - "cyear_end"
+      - "pyear_start"
+      - "pyear_end"
+      - "smooth_win"
+      - "seed"
+    upload_input_data:
+      - 'fill_from_rcmip.py'
+      - 'fill_from.py'
+    upload_and_extract_input_data:
+      - "fair2_climate_project_data.tgz"
+    climate_output_data:
+      - "%PIPELINE_ID%_oceantemp.nc"
+      - "%PIPELINE_ID%_ohc.nc"
+      - "%PIPELINE_ID%_gsat.nc"
+      - "%PIPELINE_ID%_climate.nc"
+      

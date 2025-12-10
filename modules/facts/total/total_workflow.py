@@ -6,6 +6,7 @@ import argparse
 import shutil
 import yaml
 import xarray as xr
+import dask
 import dask.array as da
 import dask.diagnostics
 import warnings
@@ -112,9 +113,11 @@ def TotalSamples(infiles, outfile, targyears, chunksize):
 	    concat_dim="file", 
 	    chunks=None,
 	)
+	
 	ds = ds.sel(years=targyears)
 	# Sums everything across the new "file" dimension.
 	total_out = ds[["sea_level_change"]].sum(dim="file")
+	
 	# Add "lat" and "lon" as data variable in output, pulling values from the first file.
 	total_out["lat"] = ds["lat"].isel(file=0)
 	total_out["lon"] = ds["lon"].isel(file=0)
@@ -180,7 +183,7 @@ if __name__ == "__main__":
 	parser.add_argument('--pyear_start', help="Year for which projections start [default=2020]", default=2020, type=int)
 	parser.add_argument('--pyear_end', help="Year for which projections end [default=2100]", default=2100, type=int)
 	parser.add_argument('--pyear_step', help="Step size in years between pyear_start and pyear_end at which projections are produced [default=10]", default=10, type=int)
-	parser.add_argument('--chunksize', help="Number of locations per chunk", default=50, type=int)
+	parser.add_argument('--chunksize', help="Number of locations per chunk", default=500, type=int)
 
 	# Parse the arguments
 	args = parser.parse_args()

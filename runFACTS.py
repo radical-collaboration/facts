@@ -11,12 +11,30 @@ from radical.entk import AppManager
 import json
 
 
-def run_experiment(exp_dir, debug_mode = False, alt_id = False, resourcedir = None, makeshellscript = False, globalopts = None):
+def run_experiment(exp_dir, debug_mode = False, alt_id = False, resourcedir = None, makeshellscript = False, globalopts = None, outdir = None):
+
+    print("Framework for Assessing Changes To Sea-level (FACTS)")
+    print("")
+
+    # Print out the experiment directory
+    print("Running experiment in directory: {}".format(exp_dir))
+    
+    if debug_mode: print("Debug mode enabled, checking configuration files and exiting")
 
     if not resourcedir:
         resourcedir = exp_dir
+    else: print("Resource directory: {}".format(resourcedir))
 
-    expconfig = facts.ParseExperimentConfig(exp_dir, globalopts=globalopts)
+    if globalopts: print("Global options specified: {}".format(globalopts))
+
+    if not outdir:
+        outdir=os.path.join(exp_dir, "output")
+        print("Output directory not specified, using default: {}".format(outdir))
+    else: print("Output directory: {}".format(outdir))
+    
+    print("-------------")
+
+    expconfig = facts.ParseExperimentConfig(exp_dir, globalopts=globalopts, outdir=outdir)
     experimentsteps = expconfig['experimentsteps']
     workflows = expconfig['workflows']
     climate_data_files = expconfig['climate_data_files']
@@ -52,7 +70,7 @@ def run_experiment(exp_dir, debug_mode = False, alt_id = False, resourcedir = No
 
     # Does the output directory exist? If not, make it
     try:
-        os.makedirs(os.path.join(exp_dir, "output"))
+        os.makedirs(outdir)
     except OSError as e:
         if e.errno != errno.EEXIST:
             raise
@@ -180,6 +198,7 @@ if __name__ == "__main__":
     parser.add_argument('--resourcedir', help="Directory containing resource files (default=./resources/)", type=str, default='./resources')
     parser.add_argument('--alt_id', help='If flagged, then the session ID will be in the format EXPNAME.MMDDYYY.HHMMSS', action='store_true')
     parser.add_argument('--global_options', help='Dictionary of global options to overwrite those specified in config.tml', type=json.loads)
+    parser.add_argument('--outdir', help="Output directory (default: output subdirectory of experiment directory))", type=str)
 
     # Parse the arguments
     args = parser.parse_args()
@@ -190,6 +209,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Go ahead and try to run the experiment
-    run_experiment(args.edir, args.debug, args.alt_id, resourcedir=args.resourcedir, makeshellscript = args.shellscript, globalopts = args.global_options)
+    run_experiment(args.edir, args.debug, args.alt_id, resourcedir=args.resourcedir, makeshellscript = args.shellscript, globalopts = args.global_options, outdir = args.outdir)
 
     #sys.exit(0)
