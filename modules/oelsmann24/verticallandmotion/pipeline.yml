@@ -1,10 +1,20 @@
 # oelsmann24 Vertical Land Motion Pipeline
 
+preprocess:
+  task1:
+    executable: "python3"
+    python_dependencies: "numpy scipy xarray pandas netCDF4 pyyaml"
+    script: "vlm_preprocess.py"
+    options:
+      - "pipeline_id"
+    upload_and_extract_input_data:
+      - "oelsmann24_vlm_data.tar.gz"
 
 
 postprocess:
   task1:
     executable: "python3"
+    python_dependencies: "numpy scipy xarray pandas netCDF4 pyyaml"
     script: "vlm_postprocess.py"
     options:
       - "nsamps"
