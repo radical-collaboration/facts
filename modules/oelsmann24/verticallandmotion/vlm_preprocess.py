@@ -651,11 +651,11 @@ def load_datasets():
     (VLM_REC, GPS_VLM, GIA_VLM, dist2coast, example) : tuple of xr.Dataset
     """
 
-    VLM_REC      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "VLM_reconstruction.nc"))
-    GPS_VLM      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "NGL14_CMR_corrected.nc"))
-    GIA_VLM      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "GIA_stats.nc"))
-    dist2coast   = xr.open_dataset(os.path.join(os.path.dirname(__file__), "dist2coast_1deg_v2.grd")).rename({'x':'lon','y':'lat'})
-    example      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "ssp585.2150.fair2.emuGLA.emulandice2.glaciers_quantiles.nc"))
+    VLM_REC      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "data/VLM_reconstruction.nc"))
+    GPS_VLM      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "data/NGL14_CMR_corrected.nc"))
+    GIA_VLM      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "data/GIA_stats.nc"))
+    dist2coast   = xr.open_dataset(os.path.join(os.path.dirname(__file__), "data/dist2coast_1deg_v2.grd")).rename({'x':'lon','y':'lat'})
+    example      = xr.open_dataset(os.path.join(os.path.dirname(__file__), "data/ssp585.2150.fair2.emuGLA.emulandice2.glaciers_quantiles.nc"))
     return VLM_REC,GPS_VLM,GIA_VLM,dist2coast,example
 
 def global_preprocess_verticallandmotion(pipeline_id):
@@ -685,13 +685,13 @@ def global_preprocess_verticallandmotion(pipeline_id):
     # Interpolate 
     GIA_VLM_int,VLM_REC_MERGED,VLM_REC_MERGED_GRW,weights= interpolate_and_compute_weights(VLM_REC_MERGED,VLM_REC_MERGED_GRW,GIA_VLM,dist2coast)
 
-	# Populate the output dictionary
+    # Populate the output dictionary
     outdata = {'GIA_VLM_int': GIA_VLM_int, 'VLM_REC_MERGED': VLM_REC_MERGED, 'VLM_REC_MERGED_GRW': VLM_REC_MERGED_GRW, 'weights': weights, 'example':example}
-	
-	# Define the data directory
+    
+    # Define the data directory
     outdir = os.path.dirname(__file__)
 
-	# Write the rates data to a pickle file
+    # Write the rates data to a pickle file
     outfile = open(os.path.join(outdir, "{}_data.pkl".format(pipeline_id)), 'wb')
     p.dump(outdata, outfile)
     outfile.close()    
@@ -700,16 +700,16 @@ def global_preprocess_verticallandmotion(pipeline_id):
 
 if __name__ == '__main__':
 
-	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the pre-processing stage for the global vertical land motion workflow",\
-	epilog="Note: This is meant to be run as part of the ??? module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+    # Initialize the command-line argument parser
+    parser = argparse.ArgumentParser(description="Run the pre-processing stage for the global vertical land motion workflow",\
+        epilog="Note: This is meant to be run as part of the oelsmann24 module within the Framework for the Assessment of Changes To Sea-level (FACTS)")
+    parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
+    # Parse the arguments
+    args = parser.parse_args()
 
-	# Parse the arguments
-	args = parser.parse_args()
+    # Run the preprocessing stage
+    global_preprocess_verticallandmotion(args.pipeline_id)
 
-	# Run the preprocessing stage
-	global_preprocess_verticallandmotion(args.pipeline_id)
-
-	# Done
-	exit()
+    # Done
+    exit()

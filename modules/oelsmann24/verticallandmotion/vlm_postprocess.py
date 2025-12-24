@@ -6,6 +6,7 @@ import os
 import sys
 import re
 import argparse
+from read_locationfile import ReadLocationFile
 from scipy.spatial import cKDTree
 from typing import Optional, Tuple
 from scipy.interpolate import interp1d
