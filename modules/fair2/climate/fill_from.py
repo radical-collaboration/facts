@@ -333,6 +333,7 @@ def fill_from_rcmip(self, rcmip_file=None):
 
         df_emis = pd.read_csv(rcmip_emissions_file)
         df_conc = pd.read_csv(rcmip_concentration_file)
+        df_forc = pd.read_csv(rcmip_forcing_file)
 
         for scenario in self.scenarios:
             for specie, specie_rcmip_name in species_to_rcmip.items():
@@ -471,7 +472,6 @@ def fill_from_rcmip(self, rcmip_file=None):
                     )
 
                 if self.properties_df.loc[specie, "input_mode"] == "forcing":
-                    df_forc = pd.read_csv(rcmip_forcing_file) 
                     # Grab raw concentration from dataframe
                     forc_in = (
                         df_forc.loc[
