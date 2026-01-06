@@ -144,7 +144,7 @@ if __name__ == '__main__':
 	# Define the command line arguments to be expected
 	parser.add_argument('--nsamps', help="Number of samples to draw (default = 10)", default=10, type=int)
 	parser.add_argument('--replace', help="Allow sampling with replacement (default = 1)", choices=(0,1), type=int, default=1)
-	parser.add_argument('--seed', help="Seed for the random number generator (default = 1234)", default=1234, type=int)
+	parser.add_argument('--seed', help="Seed for the random number generator (default = 1423)", default=1423, type=int)
 	parser.add_argument('--pipeline_id', help="Unique identifier for this instance of the module")
 
 	# Parse the arguments
