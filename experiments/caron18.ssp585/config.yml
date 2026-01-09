@@ -1,0 +1,17 @@
+global-options:
+    nsamps: 20000
+    scenario: ssp585
+    pyear_start: 2000
+    pyear_end: 2100
+    pyear_step: 10
+    baseyear: 2000
+
+
+sealevel_step:
+    caron18:
+        module_set: "caron18"
+        module: "GIA"
+        # options_allowoverwrite:
+        #    climate_data_file: "%CLIMATE_DATA_FILE%"
+
+
