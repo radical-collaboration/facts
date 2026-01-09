@@ -99,6 +99,9 @@ def GenerateTask(tcfg, ecfg, pipe_name, stage_name, task_name, workflow_name="",
     if 'climate_ohc_data_file' in ecfg['options'].keys():
         mvar_dict["CLIMATE_OHC_FILE"]=ecfg['options']['climate_ohc_data_file']
 
+    if 'climate_oceantemp_data_file' in ecfg['options'].keys():
+        mvar_dict["CLIMATE_OCEANTEMP_FILE"]=ecfg['options']['climate_oceantemp_data_file']
+
     # Give this task object a name
     t.name = task_name
 
@@ -382,7 +385,7 @@ def IdentifyOutputFiles(pcfg,pipe_name):
     return p
 
 def IdentifyClimateOutputFiles(pcfg,pipe_name):
-    pd={'climate': [], 'gsat': [], 'ohc': []}
+    pd={'climate': [], 'gsat': [], 'ohc': [], 'oceantemp': []}
 
     # Define magic variable dictionary
     mvar_dict = {"PIPELINE_ID": pipe_name}
@@ -398,6 +401,10 @@ def IdentifyClimateOutputFiles(pcfg,pipe_name):
                         pd['gsat'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
                     elif this_file.__contains__('ohc.nc'):
                         pd['ohc'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+                    elif this_file.__contains__('oceantemp.nc'):
+                        pd['oceantemp'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
+
+                    
  
     return pd
 
@@ -520,7 +527,7 @@ def ParseExperimentConfig(exp_dir, globalopts=None, outdir=None):
                 global_options['climate_data_file'] = climate_data_files['climate']
                 global_options['climate_gsat_data_file'] = climate_data_files['gsat']
                 global_options['climate_ohc_data_file'] = climate_data_files['ohc']
-
+                global_options['climate_oceantemp_data_file'] = climate_data_files['oceantemp']
 
         experimentsteps[this_mod] = pipelines
         pipelines = []

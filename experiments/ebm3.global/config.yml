@@ -9,17 +9,18 @@ global-options:
 
 climate_step:
     fair2:
-        module_set: "facts"
-        module: "dummy"
+        module_set: "fair2"
+        module: "climate"
         pipeline_file: 'pipeline.yml'
-        input_data_file:
-            - "ssp585.temperature.fair.temperature_ohc.nc"
-            - "ssp585.temperature.fair.temperature_gsat.nc"
-            - "ssp585.temperature.fair.temperature_climate.nc"
+        # input_data_file:
+        #     - "ebm3.global.fair2.fair2.climate_ohc.nc"
+        #     - "ebm3.global.fair2.fair2.climate_gsat.nc"
+        #     - "ebm3.global.fair2.fair2.climate_climate.nc"
         climate_output_data:
-            - "ssp585.temperature.fair.temperature_ohc.nc"
-            - "ssp585.temperature.fair.temperature_gsat.nc"
-            - "ssp585.temperature.fair.temperature_climate.nc"
+            - "ebm3.global.fair2.fair2.climate_ohc.nc"
+            - "ebm3.global.fair2.fair2.climate_gsat.nc"
+            - "ebm3.global.fair2.fair2.climate_climate.nc"
+            - "ebm3.global.fair2.fair2.climate_oceantemp.nc"
         generates_climate_output: true
 
 sealevel_step:

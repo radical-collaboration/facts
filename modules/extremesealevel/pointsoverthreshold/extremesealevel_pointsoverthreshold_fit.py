@@ -104,7 +104,7 @@ def extremesl_fit(station_data_file, pipeline_id):
 		gp_nlogl, gp_cov = gplike(gp_params[0], gp_params[2],extremes_loc['height'].values-loc)
 		
 		# Are the GPD parameters outside the supported range? If so, add this station to the list of bad stations.
-		if gp_nlogl == np.Inf:
+		if gp_nlogl == np.inf:
 			print('GDP parameters of '+station_id+' are outside of the supported range, confidence intervals and standard errors cannot be computed reliably.')
 			print(station_id+' will be ommitted from the results.')
 			bad_stations.append(station_id)

@@ -29,3 +29,5 @@ https://zenodo.org/record/7478448/files/kopp14_sterodynamics_data.tgz
 https://zenodo.org/records/11506798/files/fair2_climate_project_data.tgz
 https://zenodo.org/records/11506798/files/ebm3_thermal_expansion_data.tgz
 https://zenodo.org/records/15975768/files/caron18_GIA_preprocess_data.tgz
+https://zenodo.org/records/18190680/files/fair2_climate_project_data.tgz
+https://zenodo.org/records/11506798/files/ebm3_thermal_expansion_data.tgz
