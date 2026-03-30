@@ -3,6 +3,7 @@
 preprocess:
   task1:
     executable: "python"
+    python_dependencies: "numpy scipy netCDF4 pyyaml matplotlib pandas xarray h5py"
     script: "facts_dummy_preprocess.py"
     options:
       - "pipeline_id"

@@ -1,0 +1,71 @@
+
+project:
+  task1:
+    python_dependencies: "xarray dask numpy scipy"
+    executable: "python3"
+    script: "emulandice_project.py"
+    arguments:
+      - --ice_source
+      - GLA
+      - --region
+      - RGI01
+      - RGI02
+      - RGI03
+      - RGI04
+      - RGI05
+      - RGI06
+      - RGI07
+      - RGI08
+      - RGI09
+      - RGI10
+      - RGI11
+      - RGI12
+      - RGI13
+      - RGI14
+      - RGI15
+      - RGI16
+      - RGI17
+      - RGI18
+      - RGI19
+      - --emu_file
+      - emu_file/GLA_RGI01_GloGEM_OGGM_pow_exp_01_EMULATOR.RData 
+      - emu_file/GLA_RGI02_GloGEM_OGGM_pow_exp_20_EMULATOR.RData 
+      - emu_file/GLA_RGI03_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI04_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+      - emu_file/GLA_RGI05_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+      - emu_file/GLA_RGI06_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI07_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+      - emu_file/GLA_RGI08_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI09_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI10_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI11_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI12_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI13_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI14_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI15_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI16_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI17_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI18_GloGEM_OGGM_pow_exp_20_EMULATOR.RData
+      - emu_file/GLA_RGI19_GloGEM_OGGM_pow_exp_01_EMULATOR.RData
+    options:
+      - "pipeline_id"
+      - "scenario"
+      - "climate_data_file"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+      - "cyear_start"
+      - "cyear_end"
+    upload_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_environment.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.R"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
+      - "emulandice2_glaciers_project_2300_240223_data.tgz"
+    global_total_files:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"

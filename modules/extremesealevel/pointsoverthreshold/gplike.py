@@ -66,7 +66,7 @@ def gplike(shape,scale,data):
             acov = [[nH22, -nH12],[-nH12, nH11]] / (nH11*nH22 - nH12*nH12)
         else:
             # The support of the GP when k<0 is 0 < y < abs(sigma/k)
-            nlogL = np.Inf;
+            nlogL = np.inf;
             acov = [[np.nan, np.nan], [np.nan, np.nan]];
             
     else: # limiting exponential dist'n as k->0

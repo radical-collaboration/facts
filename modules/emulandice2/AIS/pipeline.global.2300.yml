@@ -1,0 +1,35 @@
+
+project:
+  task1:
+    python_dependencies: "xarray dask numpy scipy"
+    executable: "python3"
+    script: "emulandice_project.py"
+    arguments:
+      - --ice_source
+      - AIS
+      - --region
+      - ALL
+      - --emu_file
+      - emu_file/AIS_ALL_Kori_PISM_pow_exp_10_EMULATOR.RData 
+    options:
+      - "pipeline_id"
+      - "scenario"
+      - "climate_data_file"
+      - "baseyear"
+      - "pyear_start"
+      - "pyear_end"
+      - "pyear_step"
+      - "seed"
+      - "cyear_start"
+      - "cyear_end"
+    upload_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_environment.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.sh"
+      - "%MODULE_PATH%/../shared/emulandice_steer.R"
+    upload_and_extract_input_data:
+      - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
+      - "emulandice2_AIS_project_2300_240214_data.tgz"
+    global_total_files:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
+    download_output_data:
+      - "%PIPELINE_ID%_ALL_globalsl.nc"
