@@ -16,7 +16,7 @@ project:
       - "pyear_step"
       - "seed"
     upload_and_extract_input_data:
-      - "./modules-data/ebm3/ebm3_project_data.tgz"
+      - "ebm3_project_data.tgz"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"
 
@@ -47,8 +47,8 @@ postprocess:
         task1:
           - "%PIPELINE_ID%_globalsl.nc"
     upload_and_extract_input_data:
-      - "./modules-data/ebm3/ebm3_project_data.tgz"
-      - "./modules-data/ebm3/tlm_sterodynamics_cmip6_data.tgz"
+      - "ebm3_project_data.tgz"
+      - "tlm_sterodynamics_cmip6_ebm3_data.tgz"
     copy_shared_data:
       - "$SHARED/location.lst"
     download_output_data:
