@@ -29,6 +29,12 @@ Installing and Using FACTS on a GNU/Linux Workstation
 
     wget -P facts/modules-data -i facts/modules-data/modules-data.global_only.urls.txt
 
+.. warning::
+    One of the input data files for tlm/sterodynamics (https://zenodo.org/record/7478192/files/tlm_sterodynamics_cmip6_data.tgz) has 
+    the same name as the more recent ebm3/sterodynamics module (https://zenodo.org/records/16024082/files/tlm_sterodynamics_cmip6_data.tgz). 
+    They are not interchangeable, as of April 2026.
+    Workaround: When you download the ebm3 input data files, put them inside a `./modules-data/ebm3/` directory. The ebm3 pipeline.yml is configured with that path.
+
 3. Create and activate a Python virtual environment, and install FACTS's Python dependences in it. You can use `venv`, `conda` or `virtualenv` to create your Python virtual environment. See `these instructions <https://radicalpilot.readthedocs.io/en/stable/getting_started.html#Installation>`_ for further details. Using `venv`::
 
     python3 -m venv ve3
