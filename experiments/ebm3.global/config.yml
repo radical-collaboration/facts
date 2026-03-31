@@ -11,11 +11,7 @@ climate_step:
     fair2:
         module_set: "fair2"
         module: "climate"
-        pipeline_file: 'pipeline.yml'
-        # input_data_file:
-        #     - "ebm3.global.fair2.fair2.climate_ohc.nc"
-        #     - "ebm3.global.fair2.fair2.climate_gsat.nc"
-        #     - "ebm3.global.fair2.fair2.climate_climate.nc"
+        pipeline_file: 'pipeline.global.yml'
         climate_output_data:
             - "ebm3.global.fair2.fair2.climate_ohc.nc"
             - "ebm3.global.fair2.fair2.climate_gsat.nc"
@@ -24,6 +20,6 @@ climate_step:
         generates_climate_output: true
 
 sealevel_step:
-   ebm3:
+   ocean:
         module_set: "ebm3"
-        module: "thermalexpansion"
+        module: "sterodynamics"
