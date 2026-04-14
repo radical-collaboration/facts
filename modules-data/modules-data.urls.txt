@@ -30,3 +30,5 @@ https://zenodo.org/records/11506798/files/fair2_climate_project_data.tgz
 https://zenodo.org/records/11506798/files/ebm3_thermal_expansion_data.tgz
 https://zenodo.org/records/18199757/files/oelsmann24_vlm_data.tar.gz
 https://zenodo.org/records/15975768/files/caron18_GIA_preprocess_data.tgz
+https://zenodo.org/records/16024082/files/tlm_sterodynamics_cmip6_ebm3_data.tgz
+https://zenodo.org/records/16024082/files/ebm3_project_data.tgz
