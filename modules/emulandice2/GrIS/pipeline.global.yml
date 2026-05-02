@@ -3,7 +3,7 @@ project:
   task1:
     python_dependencies: "xarray dask numpy scipy"
     executable: "python3"
-    script: "emulandice_project.py"
+    script_noupload: "emulandice_project.py"
     arguments:
       - --ice_source
       - GIS
@@ -25,7 +25,8 @@ project:
     upload_input_data:
       - "%MODULE_PATH%/../shared/emulandice_environment.sh"
       - "%MODULE_PATH%/../shared/emulandice_steer.sh"
-      - "%MODULE_PATH%/../shared/emulandice_steer.R"
+      - "%MODULE_PATH%/../shared/emulandice2/main.R"
+      - "%MODULE_PATH%/../shared/emulandice_project.py"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
       - "emulandice2_GrIS_project_data.tgz"
