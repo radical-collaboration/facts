@@ -1,0 +1,26 @@
+global-options:
+    nsamps: 2237
+    scenario: ssp585
+    pyear_start: 2020
+    pyear_end: 2300 #2150
+    pyear_step: 10
+    baseyear: 2005
+    pipeline_file: "pipeline.2300.yml" # "pipeline.yml"
+ 
+climate_step:
+    temperature:
+        module_set: "fair"
+        module: "temperature"
+        pipeline_file: "pipeline.global.yml"
+        generates_climate_output: true
+        seed: 2024
+sealevel_step: 
+    emuAIS:
+        module_set: "emulandice2"
+        module: "AIS"
+    emuGLA:
+        module_set: "emulandice2"
+        module: "glaciers"
+    emuGIS:
+        module_set: "emulandice2"
+        module: "GrIS"
