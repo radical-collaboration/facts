@@ -395,7 +395,7 @@ def IdentifyClimateOutputFiles(pcfg,pipe_name):
             tcfg = pcfg[this_stage][this_task]
             if "climate_output_data" in tcfg.keys():
                 for this_file in tcfg['climate_output_data']:
-                    if this_file.__contains__('climate.nc'):
+                    if (this_file.__contains__('climate.nc') or this_file.__contains__('climate.h5')):
                         pd['climate'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
                     elif this_file.__contains__('gsat.nc'):
                         pd['gsat'] = '$SHARED/climate/' + mvar_replace_dict(mvar_dict, this_file)
