@@ -1,7 +1,8 @@
 #!/bin/bash
+set -e
 
-ROOTDIR=`dirname $0`
-MODE=$1
+ROOTDIR="$(dirname "$0")"
+MODE=${1:-}
 
 case $MODE in 
     "clean")
