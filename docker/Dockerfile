@@ -44,13 +44,23 @@ RUN /factsVe/bin/pip install --no-cache-dir \
         dask==2025.2.0
 
         
-# installs R for ubuntu 20.04 Focal
-RUN apt-get update &&\
+# # installs R for ubuntu 20.04 Focal
+# RUN apt-get update &&\
+#     apt-get install -y --no-install-recommends r-base \
+#         cmake \
+#         libopenblas-dev \
+#         gfortran
+
+# Add CRAN repository and install R 4.5
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends software-properties-common wget && \
+    wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
+    echo "deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/" >> /etc/apt/sources.list && \
+    apt-get update && \
     apt-get install -y --no-install-recommends r-base \
         cmake \
         libopenblas-dev \
         gfortran
-
 
 ARG NB_USER=jovyan
 ARG NB_UID=1001

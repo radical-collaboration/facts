@@ -26,7 +26,7 @@ then
      exit 1
 fi
 
-Rscript -e "source('.Rprofile')" -e "library(emulandice2)" -e "source('emulandice_steer.R')" $ice_source $region $emu_file $climate_data_file $scenario $outdir $seed $pipeline_id
+Rscript -e "source('.Rprofile')" -e "library(emulandice2)" -e "source('main.R')" $ice_source $region $emu_file $climate_data_file $scenario $outdir $seed $pipeline_id
 
 # Arguments to add ____________
 # Read from emulator RData file:
