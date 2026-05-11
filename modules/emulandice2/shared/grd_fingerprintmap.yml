@@ -6,18 +6,41 @@
 # Should go to modules-data when finished
 
 AIS:
-   AIS.ALL:
-      fingerprint: FPRINT/fprint_wais.nc
-#   AIS.EAIS:
-#      fingerprint: FPRINT/fprint_eais.nc
-#   AIS.WAIS:
-#      fingerprint: FPRINT/fprint_wais.nc
-#   AIS.AP:
-#      fingerprint: FPRINT/fprint_wais.nc
+   AIS.WAIS1:
+      fingerprint: FPRINT/fprint_ais11_1.nc
+   AIS.WAIS2:
+      fingerprint: FPRINT/fprint_ais11_2.nc
+   AIS.WAIS3:
+      fingerprint: FPRINT/fprint_ais11_3.nc
+   AIS.EAIS1:
+      fingerprint: FPRINT/fprint_ais11_5.nc
+   AIS.EAIS2:
+      fingerprint: FPRINT/fprint_ais11_6.nc
+   AIS.EAIS3:
+      fingerprint: FPRINT/fprint_ais11_7.nc
+   AIS.PEN:
+      fingerprint: FPRINT/fprint_ais11_4.nc
+   AIS.EAIS4:
+      fingerprint: FPRINT/fprint_ais11_8.nc
+   AIS.EAIS5:
+      fingerprint: FPRINT/fprint_ais11_9.nc
+   AIS.EAIS6:
+      fingerprint: FPRINT/fprint_ais11_10.nc
+   AIS.EAIS7:
+      fingerprint: FPRINT/fprint_ais11_11.nc
 GrIS:
-   GIS.ALL:
-      fingerprint: FPRINT/fprint_gis.nc
-
+   GIS.NW:
+      fingerprint: FPRINT/fprint_gis01.nc
+   GIS.CW:
+      fingerprint: FPRINT/fprint_gis02.nc
+   GIS.SW:
+      fingerprint: FPRINT/fprint_gis03.nc
+   GIS.SE:
+      fingerprint: FPRINT/fprint_gis04.nc
+   GIS.NE:
+      fingerprint: FPRINT/fprint_gis05.nc
+   GIS.NO:
+      fingerprint: FPRINT/fprint_gis06.nc      
 glaciers:
    GLA.RGI01:
       fingerprint: FPRINT/fprint_glac11.nc
