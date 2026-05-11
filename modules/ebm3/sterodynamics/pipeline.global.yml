@@ -16,6 +16,6 @@ project:
       - "pyear_step"
       - "seed"
     upload_and_extract_input_data:
-      - "ebm3_thermal_expansion_data.tgz"
+      - "ebm3_project_data.tgz"
     global_total_files:
       - "%PIPELINE_ID%_globalsl.nc"

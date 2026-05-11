@@ -1,5 +1,5 @@
-# GMSLR projection program used for IPCC WG1 AR5
-# Translated from IDL to Python 2.7 by Jonathan Gregory 23.10.19
+# Thermal expansion projections for PROTECT
+# Victor Malagon Santos, 17.06.2024
 
 import os
 import numpy as np
@@ -138,7 +138,7 @@ def ebm3_thermalexpansion_project(scenario, climate_data_file, coef_file, params
 if __name__ == '__main__':
 	
 	# Initialize the command-line argument parser
-	parser = argparse.ArgumentParser(description="Run the glacier projection stage for the AR5 SLR projection workflow",\
+	parser = argparse.ArgumentParser(description="Run the global mean thermosteric sea-level rise projections",\
 	epilog="Note: This is meant to be run as part of the Framework for the Assessment of Changes To Sea-level (FACTS)")
 	
 	# Define the command line arguments to be expected

@@ -5,18 +5,18 @@ global-options:
     pyear_end: 2150
     pyear_step: 10
     baseyear: 2005
-    pipeline_file: "pipeline.global.yml"
+    pipeline_file: "pipeline.yml"
 
 climate_step:
     fair2:
         module_set: "fair2"
         module: "climate"
-        pipeline_file: 'pipeline.global.yml'
+        pipeline_file: 'pipeline.yml'
         climate_output_data:
-            - "ebm3.global.fair2.fair2.climate_ohc.nc"
-            - "ebm3.global.fair2.fair2.climate_gsat.nc"
-            - "ebm3.global.fair2.fair2.climate_climate.nc"
-            - "ebm3.global.fair2.fair2.climate_oceantemp.nc"
+            - "ebm3.local.fair2.fair2.climate_ohc.nc"
+            - "ebm3.local.fair2.fair2.climate_gsat.nc"
+            - "ebm3.local.fair2.fair2.climate_climate.nc"
+            - "ebm3.local.fair2.fair2.climate_oceantemp.nc"
         generates_climate_output: true
 
 sealevel_step:
