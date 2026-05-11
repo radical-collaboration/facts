@@ -5,7 +5,7 @@ global-options:
     pyear_end: 2300 #2150
     pyear_step: 10
     baseyear: 2005
-    pipeline_file: "pipeline.2300.yml" # "pipeline.yml"
+    pipeline_file: "pipeline.global.2300.yml" # "pipeline.yml"
  
 climate_step:
     temperature:
@@ -13,6 +13,7 @@ climate_step:
         module: "temperature"
         pipeline_file: "pipeline.global.yml"
         generates_climate_output: true
+
 sealevel_step: 
     emuAIS:
         module_set: "emulandice2"
