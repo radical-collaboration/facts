@@ -41,9 +41,13 @@ Installing and Using FACTS on a GNU/Linux Workstation
     cd facts
     python3 runFACTS.py experiments/dummy
 
-5. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
+5. a. If you wish to run the ``emulandice`` module set, additional steps are necessary, as this module set is a wrapper around separately developed R code (see https://github.com/tamsinedwards/emulandice/). First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
+
+    b. If you wish to run the ``emulandice2`` module set, additional steps are necessary, as this module set is a wrapper around git submodule https://github.com/tamsinedwards/emulandice2/. First, ensure R and cmake are installed. On Ubuntu, these are provided by the r-base and cmake packages. Then build ``emulandice2`` and a tar file of its associated R dependencies::
+
+    modules/emulandice2/emulandice_config.sh
 
 6. Create a new experiment. For example::
 
@@ -105,9 +109,13 @@ To install FACTS through Docker please follow the steps below:
 
     python3 runFACTS.py experiments/dummy
 
-6. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
+6. a. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
 
     modules/emulandice/emulandice_config.sh
+
+    b. If you wish to use ``emulandice2``, build ``emulandice2`` and a tar file of its associated R dependencies::
+
+    modules/emulandice2/emulandice_config.sh
 
 The Dockerfile also creates a ``facts-jupyter`` image, should you wish to run FACTS from a Jupyter notebook rather than the commandline. This Docker image can be launched::
 
