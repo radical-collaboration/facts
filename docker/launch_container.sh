@@ -41,7 +41,7 @@ facts_modules_data="${facts_modules_data:-modules-data}"
 #   none   = skip (default; fastest build)
 #   global = download the global-only URL list
 #   all    = download the full URL list
-MODULES_DATA="${MODULES_DATA:-all}"
+MODULES_DATA="${MODULES_DATA:-global}"
 
 # Select one mode only:
 #   full = build the image, then launch the container
