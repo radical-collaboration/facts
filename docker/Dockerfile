@@ -18,6 +18,7 @@ RUN apt-get update &&\
         libnetcdf-dev \
         gnupg \
         curl \
+        wget \
         apt-transport-https \
         dnsutils \
         iputils-ping
@@ -47,9 +48,38 @@ RUN /factsVe/bin/pip install --no-cache-dir \
 # installs R for ubuntu 20.04 Focal
 RUN apt-get update &&\
     apt-get install -y --no-install-recommends r-base \
+        build-essential \
         cmake \
         libopenblas-dev \
         gfortran
+
+# Optional: bake modules-data tarballs into the image at build time.
+#   none   = skip (default)
+#   global = download URLs in modules-data.global_only.urls.txt
+#   all    = download URLs in modules-data.urls.txt
+ARG MODULES_DATA=none
+COPY modules-data/modules-data.urls.txt \
+     modules-data/modules-data.global_only.urls.txt \
+     /opt/facts-image/modules-data/
+RUN case "${MODULES_DATA}" in \
+      none)   echo "MODULES_DATA=none: skipping modules-data download." ;; \
+      global) wget -nv -P /opt/facts-image/modules-data \
+                  -i /opt/facts-image/modules-data/modules-data.global_only.urls.txt ;; \
+      all)    wget -nv -P /opt/facts-image/modules-data \
+                  -i /opt/facts-image/modules-data/modules-data.urls.txt ;; \
+      *)      echo "ERROR: MODULES_DATA must be one of: none|global|all (got '${MODULES_DATA}')" >&2; exit 1 ;; \
+    esac
+
+COPY modules/emulandice /opt/facts-image/modules/emulandice
+
+RUN chmod +x /opt/facts-image/modules/emulandice/emulandice_config.sh \
+        /opt/facts-image/modules/emulandice/shared/emulandice_bundle_dependencies.sh \
+        /opt/facts-image/modules/emulandice/shared/emulandice_environment.sh && \
+    /opt/facts-image/modules/emulandice/emulandice_config.sh && \
+    test -f /opt/facts-image/modules/emulandice/shared/emulandice_bundled_dependencies.tgz
+
+COPY docker/facts-entrypoint.sh /usr/local/bin/facts-entrypoint.sh
+RUN chmod +x /usr/local/bin/facts-entrypoint.sh
 
 
 ARG NB_USER=jovyan
@@ -87,6 +117,7 @@ RUN printf '{\n\
 }' > ~/.radical/pilot/configs/resource_local.json
 
 # return a shell to the user
+ENTRYPOINT ["/usr/local/bin/facts-entrypoint.sh"]
 CMD /bin/bash
 
 FROM facts-core AS facts-jupyter
