@@ -4,7 +4,7 @@
 # This script creates and/or launches a FACTS Docker image/container.
 #
 # Run:
-#   source launch_container.sh
+#   bash launch_container.sh 
 #
 # Before running,
 # review and update the user configuration in STEP 0,
@@ -30,9 +30,9 @@ REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 IMAGE="${IMAGE:-ssisls}"
 
 # Container name & details
-container_name="${container_name:-ssisls05}"
-CPU="${CPU:-8}"                                   # CPU (in terminal , linux: nproc    , mac:`sysctl hw.ncpu`)
-memory="${memory:-10g}"                           # RAM (in terminal , linux: free -h  , mac:`system_profiler SPHardwareDataType | grep "Memory:"`)  
+container_name="ssisls_$(date +%Y%m%d_%H%M)"
+CPU="${CPU:-2}"                                   # CPU (in terminal , linux: nproc    , mac:`sysctl hw.ncpu`)
+memory="${memory:-5g}"                           # RAM (in terminal , linux: free -h  , mac:`system_profiler SPHardwareDataType | grep "Memory:"`)  
 
 # Path to FACTS modules-data directory (relative paths resolve against REPO_ROOT)
 facts_modules_data="${facts_modules_data:-modules-data}"
@@ -68,7 +68,7 @@ sandbox_path="${sandbox_path:-_scratch/radical.pilot.sandbox}"
 die() { echo "ERROR: $*" >&2; exit 1; }
 
 validate_config() {
-  [[ "$memory" =~ ^[0-9]+[bkmgBKMG]?$ ]] || die "memory='$memory' is invalid. Use a Docker size like 5g, 30g, or 8192m."
+  [[ "$memory" =~ ^[0-9]+[bkmgBKMG]?$ ]] || die "memory='$memory' is invalid. Use a Docker size like 5g, 30g."
 }
 
 verify_repo_root() {
