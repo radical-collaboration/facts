@@ -56,6 +56,8 @@ project:
       - "pyear_end"
       - "pyear_step"
       - "seed"
+      - "cyear_start"
+      - "cyear_end"
     upload_input_data:
       - "%MODULE_PATH%/../shared/emulandice_environment.sh"
       - "%MODULE_PATH%/../shared/emulandice_steer.sh"
@@ -63,7 +65,7 @@ project:
       - "%MODULE_PATH%/../shared/emulandice_project.py"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
-      - "emulandice2_glaciers_project_2100_240223_data.tgz"
+      - "emulandice2_glaciers_project_2300_240320_data.tgz"
     global_total_files:
       - "%PIPELINE_ID%_ALL_globalsl.nc"
     download_output_data:
@@ -133,5 +135,7 @@ postprocess:
           - "%PIPELINE_ID%_RGI17_globalsl.nc"
           - "%PIPELINE_ID%_RGI18_globalsl.nc"
           - "%PIPELINE_ID%_RGI19_globalsl.nc"
+    # download_output_data:
+    #   - "%PIPELINE_ID%_quantiles.nc"
     local_total_files:
       - "%PIPELINE_ID%_localsl.nc"

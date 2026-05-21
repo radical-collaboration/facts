@@ -596,7 +596,7 @@ def interpolate_and_compute_weights(VLM_REC_MERGED,VLM_REC_MERGED_GRW,GIA_VLM,di
     lat_grid = np.arange((180*4))/4-90
 
     distance_max = 150
-    lon_ext = dist2coast['lon'].values
+    lon_ext = dist2coast['lon'].values.copy()
     lon_ext[lon_ext>180]=lon_ext[lon_ext>180]-360
     dist2coast.assign_coords(lon=dist2coast.lon*0+lon_ext)
 
@@ -631,7 +631,7 @@ def interpolate_and_compute_weights(VLM_REC_MERGED,VLM_REC_MERGED_GRW,GIA_VLM,di
     w_d = w_d.fillna(0)
 
 
-    lon_prt =GIA_VLM['lon'].values
+    lon_prt =GIA_VLM['lon'].values.copy()
     lon_prt[lon_prt>180] = lon_prt[lon_prt>180]-360
     GIA_VLM['lon'] = lon_prt
 

@@ -29,7 +29,7 @@ project:
       - "%MODULE_PATH%/../shared/emulandice_project.py"
     upload_and_extract_input_data:
       - "%MODULE_PATH%/../shared/emulandice_bundled_dependencies.tgz"
-      - "emulandice2_GrIS_project_2100_240214_data.tgz"
+      - "emulandice2_GrIS_project_2100_240528_data.tgz"
     global_total_files:
       - "%PIPELINE_ID%_ALL_globalsl.nc"
     download_output_data:
