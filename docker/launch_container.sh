@@ -3,14 +3,14 @@
 # -Usage----------------------------------------------------------------
 # This script creates and/or launches a FACTS Docker image/container.
 #
-# Run:
+# Run using:
 #   bash launch_container.sh 
 #
 # Before running,
 # review and update the user configuration in STEP 0,
 # ==> especially:
-#   IMAGE , container_name, CPU, memory,
-#   facts_modules_data, sandbox_path
+#   MODE, IMAGE , container_name, CPU, memory,
+#   facts_modules_data
 #
 # All paths are resolved relative to the FACTS repo root (the parent
 # directory of this script).
@@ -26,41 +26,39 @@ REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 #         User configuration.
 #--------------------------------------------------------------------
 
-# Main Docker image name
+# Select ONE mode ONLY:
+MODE="${MODE:-full}"      # build FACTS image & launch the container. (First time using) 
+# MODE="${MODE:-run}"     # launch the container using an existing image
+
+# Main Docker image name (e.g.: ssisls)
 IMAGE="${IMAGE:-ssisls}"
 
 # Container name & details
-container_name="ssisls_$(date +%Y%m%d_%H%M)"
-CPU="${CPU:-2}"                                   # CPU (in terminal , linux: nproc    , mac:`sysctl hw.ncpu`)
-memory="${memory:-5g}"                           # RAM (in terminal , linux: free -h  , mac:`system_profiler SPHardwareDataType | grep "Memory:"`)  
+container_name="${IMAGE}_$(date +%Y%m%d_%H%M)"
+CPU="${CPU:-8}"                                   # CPU (in terminal , linux: nproc    , mac:`sysctl hw.ncpu`)
+memory="${memory:-12g}"                           # RAM (in terminal , linux: free -h  , mac:`system_profiler SPHardwareDataType | grep "Memory:"`)  
 
 # Path to FACTS modules-data directory (relative paths resolve against REPO_ROOT)
 facts_modules_data="${facts_modules_data:-modules-data}"
-
-# Bake modules-data tarballs into the image at build time:
-#   none   = skip (default; fastest build)
-#   global = download the global-only URL list
-#   all    = download the full URL list
-MODULES_DATA="${MODULES_DATA:-global}"
-
-# Select one mode only:
-#   full = build the image, then launch the container
-#   run  = launch the container using an existing image
-MODE="${MODE:-full}"     
-# MODE="${MODE:-run}"    
-
-# Sandbox options
-sandbox="${sandbox:-sandbox_path}"   
-sandbox_path="${sandbox_path:-_scratch/radical.pilot.sandbox}"
-# sandbox="${sandbox:-tmp}"  # tmp | docker_volume_sandbox
-
+# facts_modules_data="${facts_modules_data:-/Users/uname/Desktop/FACTS_dev/modules-data}"    # Use for alternate location for data
 
 
 
 #- End of user configuration-----------------------------------------
 #  X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+#- Below is ONLY for advanced users! 
 # -------------------------------------------------------------------
 
+# Sandbox options
+sandbox_path="${sandbox_path:-_scratch/radical.pilot.sandbox}"
+sandbox="${sandbox:-sandbox_path}"   
+# sandbox="${sandbox:-tmp}"  # tmp | docker_volume_sandbox
+
+# Bake modules-data tarballs into the image at build time:
+#   none   = skip (default; fastest build)
+#   global = download the global-only URL list  # Using this is slow 
+#   all    = download the full URL list.        # Using this is slow 
+MODULES_DATA="${MODULES_DATA:-none}"
 
 #-Helpers---------------------
 # 
