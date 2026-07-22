@@ -5,7 +5,7 @@ Quick Start
 
 FACTS uses `RADICAL-EnsembleToolkit (EnTK) <https://radicalentk.readthedocs.io/en/stable/>`_ and `RADICAL-Pilot <https://radicalpilot.readthedocs.io/en/stable/>`_ to execute its modules. While the RADICAL tools are specifically designed for executing on a range of `supported <https://radicalpilot.readthedocs.io/en/stable/supported.html>`_ high performance computing (HPC) platforms, FACTS can also execute on a GNU/Linux workstation, virtual machine or container. Here we offer instructions for each deployment scenario but if you want to run FACTS at scale on an HPC platform, please `contact us <https://github.com/radical-collaboration/facts/issues/new>`_ and we will be happy to offer tailored support.
 
-.. warning:: FACTS MUST be used within a dedicated Python virtual environment. You can use `venv`, `conda` or `virtualenv` to create one. If you try to install FACTS system-wide, it will fail.
+.. warning:: FACTS MUST be used within a dedicated Python virtual environment. You can use ``venv``, ``conda`` or ``virtualenv`` to create one. If you try to install FACTS system-wide, it will fail.
 
 Installing and Using FACTS on a GNU/Linux Workstation
 -----------------------------------------------------
@@ -84,6 +84,11 @@ The sandbox directory resides within the container at ``~/radical.pilot.sandbox`
 
 To install FACTS through Docker please follow the steps below:
 
+.. Note::
+
+    Before installing, make sure you meet `minimum system requirements <https://raw.githack.com/SSiSLS/kumar/refs/heads/main/install_facts/html/install.facts.requirements.html>`_.  
+
+
 1. Clone the FACTS repository::
 
     git clone https://github.com/radical-collaboration/facts.git
@@ -92,30 +97,48 @@ To install FACTS through Docker please follow the steps below:
 
     wget -P facts/modules-data -i facts/modules-data/modules-data.urls.txt
 
-3. Build the docker container::
+   💡 Advanced users with data stored externally or elsewhere may skip this step.
+    
+.. raw:: html 
+   
+   <br>
 
-    cd facts/docker
-    sh develop.sh
+3. Build the docker Image and launch a container:
 
-4. Start a container from the ``facts`` image, assuming that the FACTS repository was cloned in ``$HOME/facts`` and will be mounted within the container as ``/opt/facts``::
+   .. important::
 
-    docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts facts
+      Before proceeding, edit the contents of ``docker/launch_container.sh`` to specify 
+         
+        * Image name and container name. 
+        * Number of CPUs and amount of RAM. 
+        * Advanced users who skip the data download step should link external ``modules-data`` directory via ``facts_modules_data`` variable. 
 
-5. Confirm that FACTS work within the container::
+   Then run::
+
+    cd facts
+    sh docker/launch_container.sh
+
+
+   * After the build completes, in the terminal you should see::  
+
+       #############################################
+       #                                           #
+       #   Welcome to the FACTS docker container   #
+       #                                           #
+       #############################################
+   
+   * 💡 If you hit a permission error, run ::
+    
+       chmod +x docker/launch_container.sh 
+
+.. raw:: html 
+
+   <br>
+
+4. Confirm that FACTS work within the container::
 
     python3 runFACTS.py experiments/dummy
 
-6. If you wish to use ``emulandice``, build ``emulandice`` and a tar file of its associated R dependencies::
-
-    modules/emulandice/emulandice_config.sh
-
-The Dockerfile also creates a ``facts-jupyter`` image, should you wish to run FACTS from a Jupyter notebook rather than the commandline. This Docker image can be launched::
-
-     docker run -it --volume=$HOME/facts:/opt/facts -w /opt/facts -p 8888:8888 facts-jupyter jupyter lab  --ip=0.0.0.0 --port=8888
-
-If you want to place the FACTS sandbox outside the container, whether to keep the space of the container smaller or to allow the sandbox to be preserved for inspection across docker runs, you can mount a target directory at /home/jovyan/radical.pilot.sandbox, e.g.::
-
-    docker run -it --volume=$HOME/facts:/opt/facts --volume=$HOME/tmp/radical.pilot.sandbox:/home/jovyan/radical.pilot.sandbox -w /opt/facts facts
 
 
 Testing a module with a shell script
