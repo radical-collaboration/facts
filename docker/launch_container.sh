@@ -38,16 +38,16 @@ container_name="${IMAGE}_$(date +%Y%m%d_%H%M)"
 CPU="${CPU:-8}"                                   # CPU (in terminal , linux: nproc    , mac:`sysctl hw.ncpu`)
 memory="${memory:-12g}"                           # RAM (in terminal , linux: free -h  , mac:`system_profiler SPHardwareDataType | grep "Memory:"`)  
 
-# Path to FACTS modules-data directory (relative paths resolve against REPO_ROOT)
-facts_modules_data="${facts_modules_data:-modules-data}"
-# facts_modules_data="${facts_modules_data:-/Users/uname/Desktop/FACTS_dev/modules-data}"    # Use for alternate location for data
-
-
 
 #- End of user configuration-----------------------------------------
 #  X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
 #- Below is ONLY for advanced users! 
 # -------------------------------------------------------------------
+
+
+# Path to FACTS modules-data directory (relative paths resolve against REPO_ROOT)
+facts_modules_data="${facts_modules_data:-modules-data}"
+# facts_modules_data="${facts_modules_data:-/Users/uname/Desktop/FACTS_dev/modules-data}"    
 
 # Sandbox options
 sandbox_path="${sandbox_path:-_scratch/radical.pilot.sandbox}"
