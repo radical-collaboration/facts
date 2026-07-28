@@ -1,7 +1,7 @@
 .. _chapter_limitations:
 
 Known Limitations
-=========
+=================
 
 ``tlm/sterodynamics`` relies upon the CMIP6 archive to learn the correlation between global mean
 thermosteric sea-level rise and ocean dynamic sea level. It does not currently have a way to use

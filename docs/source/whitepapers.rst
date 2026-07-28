@@ -1,7 +1,7 @@
 .. _chapter_whitepapers:
 
 White Papers
-=========
+============
 
 .. only:: builder_html
 

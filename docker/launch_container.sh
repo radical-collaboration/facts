@@ -3,59 +3,81 @@
 # -Usage----------------------------------------------------------------
 # This script creates and/or launches a FACTS Docker image/container.
 #
-# Run:
-#   source launch_container.sh
+# Run using:
+#   bash launch_container.sh 
 #
-# Before running, 
+# Before running,
 # review and update the user configuration in STEP 0,
 # ==> especially:
-#   IMAGE , container_name, CPU, memory, facts_folder, 
-#   facts_modules_data, sandbox_path
+#   MODE, IMAGE , container_name, CPU, memory,
+#   facts_modules_data
+#
+# All paths are resolved relative to the FACTS repo root (the parent
+# directory of this script).
 # -------------------------------------------------------------------
 
 set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 
 #-STEP 0-------------------------------------------------------------
 #         User configuration.
 #--------------------------------------------------------------------
 
-# Main Docker image name
-IMAGE="${IMAGE:-src}"
-IMAGE1="${IMAGE1:-}"   # optional; set to build jupyter target
+# Select ONE mode ONLY:
+MODE="${MODE:-full}"      # build FACTS image & launch the container. (First time using) 
+# MODE="${MODE:-run}"     # launch the container using an existing image
+
+# Main Docker image name (e.g.: ssisls)
+IMAGE="${IMAGE:-ssisls}"
 
 # Container name & details
-container_name="${container_name:-src0406}"
-CPU="${CPU:-12}"              # CPU (in terminal , linux: nproc    , mac:`sysctl hw.ncpu`)
-memory="${memory:-30g}"       # RAM (in terminal , linux: free -h  , mac:`system_profiler SPHardwareDataType | grep "Memory:"`)  
-shm_size="${shm_size:-2g}"
+container_name="${IMAGE}_$(date +%Y%m%d_%H%M)"
+CPU="${CPU:-8}"                                   # CPU (in terminal , linux: nproc    , mac:`sysctl hw.ncpu`)
+memory="${memory:-12g}"                           # RAM (in terminal , linux: free -h  , mac:`system_profiler SPHardwareDataType | grep "Memory:"`)  
 
-# Path to FACTS working directory
-facts_folder="${facts_folder:-/scratch/usr/facts_Dev/202603_SRC}"
-
-# Path to FACTS modules-data directory
-facts_modules_data="${facts_modules_data:-/scratch4/modules-data}"
-
-# Select one mode only:
-#   full = build the image, then launch the container
-#   run  = launch the container using an existing image
-MODE="${MODE:-full}"     
-# MODE="${MODE:-run}"    
-
-# Sandbox options
-sandbox="${sandbox:-sandbox_path}"   
-sandbox_path="${sandbox_path:-/scratch4/radical.pilot.sandbox}"
-# sandbox="${sandbox:-tmp}"  # tmp | docker_volume_sandbox
 
 #- End of user configuration-----------------------------------------
 #  X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X
+#- Below is ONLY for advanced users! 
 # -------------------------------------------------------------------
 
+
+# Path to FACTS modules-data directory (relative paths resolve against REPO_ROOT)
+facts_modules_data="${facts_modules_data:-modules-data}"
+# facts_modules_data="${facts_modules_data:-/Users/uname/Desktop/FACTS_dev/modules-data}"    
+
+# Sandbox options
+sandbox_path="${sandbox_path:-_scratch/radical.pilot.sandbox}"
+sandbox="${sandbox:-sandbox_path}"   
+# sandbox="${sandbox:-tmp}"  # tmp | docker_volume_sandbox
+
+# Bake modules-data tarballs into the image at build time:
+#   none   = skip (default; fastest build)
+#   global = download the global-only URL list  # Using this is slow 
+#   all    = download the full URL list.        # Using this is slow 
+MODULES_DATA="${MODULES_DATA:-none}"
 
 #-Helpers---------------------
 # 
 # ----------------------------
 die() { echo "ERROR: $*" >&2; exit 1; }
+
+validate_config() {
+  [[ "$memory" =~ ^[0-9]+[bkmgBKMG]?$ ]] || die "memory='$memory' is invalid. Use a Docker size like 5g, 30g."
+}
+
+verify_repo_root() {
+  [[ -d "${REPO_ROOT}/modules" && -d "${REPO_ROOT}/docker" ]] \
+    || die "REPO_ROOT='${REPO_ROOT}' does not look like a FACTS repo (missing modules/ or docker/)."
+}
+
+resolve_path() {
+  # Echo $1 unchanged if absolute; otherwise prepend REPO_ROOT.
+  if [[ "$1" = /* ]]; then printf '%s\n' "$1"; else printf '%s/%s\n' "$REPO_ROOT" "$1"; fi
+}
 
 banner() {
 cat <<'EOF'
@@ -81,12 +103,21 @@ require_docker() {
 #         Build docker Image. 
 #--------------------------------------------------------------------
 build_images() {
-  echo "Building docker Image $IMAGE"
-  docker build --no-cache --target facts-core -t "$IMAGE" .
+  case "$MODULES_DATA" in
+    none|global|all) ;;
+    *) die "MODULES_DATA='$MODULES_DATA' invalid. Use one of: none, global, all." ;;
+  esac
 
-  if [[ -n "$IMAGE1" ]]; then
-    echo "Building docker Image $IMAGE1"
-    docker build --no-cache --target facts-jupyter -t "$IMAGE1" .
+  echo "Building docker Image $IMAGE  (MODULES_DATA=$MODULES_DATA)"
+  docker build --no-cache --target facts-core \
+    --build-arg "MODULES_DATA=${MODULES_DATA}" \
+    -t "$IMAGE" -f "${REPO_ROOT}/docker/Dockerfile" "${REPO_ROOT}"
+
+  if [[ -n "${IMAGE1:-}" ]]; then
+    echo "Building docker Image $IMAGE1  (MODULES_DATA=$MODULES_DATA)"
+    docker build --no-cache --target facts-jupyter \
+      --build-arg "MODULES_DATA=${MODULES_DATA}" \
+      -t "$IMAGE1" -f "${REPO_ROOT}/docker/Dockerfile" "${REPO_ROOT}"
   fi
 }
 
@@ -112,14 +143,20 @@ ensure_sandbox_volume() {
 #--------------------------------------------------------------------
 run_container() {
   local sandbox_mount
+  local modules_data_abs
+  modules_data_abs="$(resolve_path "$facts_modules_data")"
+
   case "$sandbox" in
     docker_volume_sandbox)
       sandbox_mount="--volume=facts_sandbox:/home/jovyan/radical.pilot.sandbox"
       ;;
     tmp)
-      sandbox_mount="--volume=${facts_folder}/tmp/radical.pilot.sandbox:/home/jovyan/radical.pilot.sandbox"
+      mkdir -p "${REPO_ROOT}/tmp/radical.pilot.sandbox"
+      sandbox_mount="--volume=${REPO_ROOT}/tmp/radical.pilot.sandbox:/home/jovyan/radical.pilot.sandbox"
       ;;
     sandbox_path)
+      sandbox_path="$(resolve_path "$sandbox_path")"
+      mkdir -p "$sandbox_path"
       sandbox_mount="--volume=${sandbox_path}:/home/jovyan/radical.pilot.sandbox"
       ;;
     *) die "Unknown sandbox='$sandbox'";;
@@ -127,15 +164,14 @@ run_container() {
 
   # Common args (arrays avoid quoting bugs)
   local -a run_args=(
-    -it --init 
+    -it --init
     --name "$container_name"
     --cpus "$CPU"
     --memory "$memory"
     --memory-swap "$memory"
-    --shm-size "$shm_size"
     -e HDF5_USE_FILE_LOCKING=FALSE
-    --volume "${facts_folder}/facts:/opt/facts"
-    --volume "${facts_modules_data}:/opt/facts/modules-data:ro"
+    --volume "${REPO_ROOT}:/opt/facts"
+    --volume "${modules_data_abs}:/opt/facts/modules-data"
     -w /opt/facts
   )
 
@@ -148,6 +184,8 @@ run_container() {
 #--------------------------------------------------------------------
 printf '\n\n'
 require_docker
+verify_repo_root
+validate_config
 printf '\n\n'
 
 case "$MODE" in

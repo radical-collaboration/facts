@@ -55,3 +55,6 @@ workflows.yml
 *.nc  
 *.csv  
 *.h5
+
+# Sandbox
+/_scratch
